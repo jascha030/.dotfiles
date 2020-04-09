@@ -1,0 +1,254 @@
+cd Documents/Socialbrothers/Projects/
+ls
+cd MIND/
+ls
+cd TEST/
+ls
+rm -rf vag-app/
+ls
+ls
+git clone git@bitbucket.org:pondevelopment/vag-app.git
+git clone git@bitbucket.org:pondevelopment/vag-app.git
+ionic cordova platform rm ios
+cd Downloads/
+nmap --script ssl-enum-ciphers -p 443 login.247guide.nl
+nmap --script ssl-enum-ciphers -p 443 login.247guide.nl
+cd Documents/Socialbrothers/Projects/
+ls
+cd MIND/TEST/
+ls
+rm -rf vag-app/
+git clone git@bitbucket.org:pondevelopment/vag-app.git
+npm i
+ls
+rm package-lock.json 
+ls
+cd vag-app/
+npm i
+npm run copy seat staging
+ionic cordova build ios
+npm run copy seat staging
+ionic cordova build ios
+ionic cordova build ios --verbose
+npm i
+npm i
+npm run copy seat staging
+ionic cordova build ios --verbose
+clear
+ionic cordova build ios --verbose
+clear
+ionic cordova prepare ios --verbose
+clear
+ionic cordova prepare ios --verbose
+clear
+ionic cordova prepare ios --verbose
+clear
+cd ../
+ls
+rm -rf vag-app/
+git clone git@bitbucket.org:pondevelopment/vag-app.git
+ls
+cd vag-app/
+ls
+ls
+cd Documents/Socialbrothers/Projects/MIND/TEST/
+ls
+rm -rf vag-app/
+git clone git@bitbucket.org:pondevelopment/vag-app.git
+ls
+ls
+rm -rf vag-app/
+ls
+git clone git@bitbucket.org:pondevelopment/vag-app.git
+ls
+cd rm -rf vag-app/
+ls
+ls
+ls
+rm -rf vag-app/
+ls
+git clone git@bitbucket.org:pondevelopment/vag-app.git
+ls
+cd vag-app/
+ionic cordova prepare ios --verbose
+ionic cordova prepare ios --verbose --max_old_space_size=8192
+clear
+ionic cordova prepare ios --verbose --max_old_space_size=8192
+ionic cordova prepare ios --verbose --max_old_space_size=8192
+clear
+ionic cordova build ios --verbose
+clear
+cd ../
+ls
+rm -rf vag-app/
+ls
+git clone git@bitbucket.org:pondevelopment/vag-app.git
+npm i 
+ls
+rm package-lock.json 
+ls
+cd vag-app/
+ls
+npm i
+npm run copy seat staging
+ionic cordova plugin rm cordova-plugin-firebase-notificare
+cordova plugin list
+clear
+ls
+npm run copy seat staging
+ionic cordova prepare ios --verbose
+ls
+ionic cordova plugin rm cordova-plugin-firebase-notificare
+ionic cordova plugin add ../../test-new/cordova-plugin-firebase-notificare
+ionic cordova plugin add ../../test-new/cordova-plugin-firebase-notificare
+ionic cordova platform rm ios
+ls
+clear
+ionic cordova prepare ios --verbose
+npm i cordova-plugin-firebasex
+ionic cordova prepare ios --verbose
+clear
+ionic cordova prepare ios --verbose
+clear
+ionic cordova prepare ios --verbose --max_old_space_size=8192
+ionic cordova prepare ios --verbose --max-old-space-size=8192
+ionic cordova prepare ios --verbose --max-old-space-size=8192
+cd platforms/ios/
+pod update
+pod init
+pod update
+ls
+pod init
+ionic cordova build ios --verbose
+ionic cordova build ios --verbose
+clear
+ionic cordova prepare ios --verbose
+ionic cordova prepare ios --verbose
+clear
+ionic cordova prepare ios --verbose
+ionic cordova prepare ios --verbose
+ionic cordova prepare ios --verbose
+~/.cocoapods/repos/
+cd ~/.cocoapods/repos/
+git clone https://github.com/CocoaPods/Specs.git master
+ls
+rm -rf master
+git clone https://github.com/CocoaPods/Specs.git master
+ls
+cd master/
+ls
+cd Documents/Socialbrothers/Projects/MIND/
+ls
+cd APP/
+ls
+rm -rf vag-app/
+ls
+ls
+clear
+ls
+rm -rf vag-app/
+ls
+git clone git@bitbucket.org:pondevelopment/vag-app.git
+ls
+cd vag-app/
+npm i
+clear
+cd Documents/Socialbrothers/Projects/MIND/APP/
+ls
+rm -rf vag-app/
+ls
+git clone git@bitbucket.org:pondevelopment/vag-app.git
+ls
+git init
+commit -m "initial commit"
+git add -A git commit -m "initial commit"
+git status
+git add -A
+git status
+git commit -m "initial commit"
+git remote add origin git@github.com:jascha030/cordova-firebase-notificare-dispatcher.git
+git push -u origin master
+cd Documents/Socialbrothers/Projects/MIND/APP/
+ls
+ls
+rm -rf vag-app/
+ls
+ls
+ls
+rm -rf vag-app/
+ls
+git clone git@bitbucket.org:pondevelopment/vag-app.git
+ls
+cd Documents/Socialbrothers/Projects/MIND/
+ls
+mkdir FIX
+cd FIX/
+ls
+ls
+git clone git@bitbucket.org:pondevelopment/vag-app.git
+ls
+cd vag-app/
+ls
+cd ../
+cd ../
+rm -rf FIX/
+cd Documents/Socialbrothers/Projects/MIND/
+mkdir CRASH
+ls
+cd CRASH/
+ionic cordova prepare ios --verbose
+ls
+cd Programming/
+ls
+cd Wordpress/
+ls
+cd WPLIB/
+ls
+mkdir WPI
+cd WPI
+ls
+git init
+cd Documents/Socialbrothers/Projects/MIND/
+ls
+mkdir FIXTEST
+cd FIXTEST/
+git clone git@bitbucket.org:pondevelopment/vag-app.git
+ls
+npm run copy seat staging
+ionic cordova prepare ios --verbose --max_old_space_size=8192
+cd ~/Programming/Wordpress/
+ls
+mkdir WPOLIB
+git@github.com:jascha030/wpol-subscriptions.git
+git@github.com:jascha030/wpol-subscriptions.git
+git
+git clone git@github.com:jascha030/wpol-subscriptions.git
+ls
+cd WPOLIB/
+git clone git@github.com:jascha030/wpol-subscriptions.git
+ls
+cd ~
+ls
+cd Documents/Socialbrothers/Projects/MIND/
+ls
+cd CRASH/
+git status
+cd vag-app/
+git status
+git checkout 63fa490
+cd ../
+ls
+cd ../
+ls
+cd APP/
+ls
+rm -rf vag-app/
+ls
+git clone git@bitbucket.org:pondevelopment/vag-app.git
+ls
+cd vag-app/
+ls
+ls
+ls
+git clone git@github.com:jascha030/service-locator.git
+https://www.ashemaletube.com/model/lena-kelly-4503/

@@ -1,0 +1,1306 @@
+[2020-03-12T12:27:11.560Z] Stage src/Subscription/SubscriptionManager.php for commit: started.
+[2020-03-12T12:27:11.701Z] Stage src/Subscription/SubscriptionManager.php for commit: finished. gk-log://duration?t=141
+[2020-03-12T12:27:15.574Z] Stage src/Subscription/ShortcodeSubscription.php for commit: started.
+[2020-03-12T12:27:15.699Z] Stage src/Subscription/ShortcodeSubscription.php for commit: finished. gk-log://duration?t=125
+[2020-03-12T12:27:20.997Z] Stage src/Subscriber/Subscriber.php for commit: started.
+[2020-03-12T12:27:21.122Z] Stage src/Subscriber/Subscriber.php for commit: finished. gk-log://duration?t=125
+[2020-03-12T12:27:23.268Z] Stage src/Subscriber/ShortcodeSubscriber.php for commit: started.
+[2020-03-12T12:27:23.361Z] Stage src/Subscriber/ShortcodeSubscriber.php for commit: finished. gk-log://duration?t=93
+[2020-03-12T12:27:33.166Z] Commit: started.
+[2020-03-12T12:27:33.212Z] Commit: finished creating commit ab642865d2d9ae40e2a818569258b011326052a5
+[2020-03-12T12:30:28.034Z] Stage src/Subscription/SubscriptionManager.php for commit: started.
+[2020-03-12T12:30:28.083Z] Stage src/Subscription/SubscriptionManager.php for commit: finished. gk-log://duration?t=49
+[2020-03-12T12:30:29.527Z] Stage src/Exception/InvalidClassException.php for commit: started.
+[2020-03-12T12:30:29.591Z] Stage src/Exception/InvalidClassException.php for commit: finished. gk-log://duration?t=64
+[2020-03-12T12:30:30.080Z] Stage src/Exception/DoesNotImplementSubscriptionException.php for commit: started.
+[2020-03-12T12:30:30.117Z] Stage src/Exception/DoesNotImplementSubscriptionException.php for commit: finished. gk-log://duration?t=37
+[2020-03-12T12:30:31.024Z] Commit: started.
+[2020-03-12T12:30:31.061Z] Commit: finished creating commit ecab4b8a26690e7b5110c3130870ce3f57c8a346
+[2020-03-12T12:30:40.814Z] Finish git flow feature 'shortcodeSubscription': started.
+[2020-03-12T12:30:41.068Z] Finish git flow feature 'shortcodeSubscription': finished. gk-log://duration?t=254
+[2020-03-12T12:30:43.323Z] Push develop: started.
+[2020-03-12T12:30:47.160Z] Push develop: finished. gk-log://duration?t=3837
+[2020-03-12T12:35:03.379Z] Start git flow feature 'wp-ajax': started.
+[2020-03-12T12:35:03.477Z] Start git flow feature 'wp-ajax': finished. gk-log://duration?t=98
+[2020-03-12T12:46:08.072Z] Stage src/Subscriber/AjaxActionSubscriber.php for commit: started.
+[2020-03-12T12:46:08.118Z] Stage src/Subscriber/AjaxActionSubscriber.php for commit: finished. gk-log://duration?t=46
+[2020-03-12T12:46:09.781Z] Commit: started.
+[2020-03-12T12:46:09.818Z] Commit: finished creating commit e9f432c861867305ca1155b201429954dd4e34dc
+[2020-03-12T12:53:47.860Z] Stage src/Subscriber/AjaxActionSubscriber.php for commit: started.
+[2020-03-12T12:53:47.987Z] Stage src/Subscriber/AjaxActionSubscriber.php for commit: finished. gk-log://duration?t=127
+[2020-03-12T12:53:48.869Z] Commit: started.
+[2020-03-12T12:53:48.915Z] Commit: finished creating commit f3df5deb767fbb61dea737344a6bfbd51037b6b7
+[2020-03-12T12:53:56.457Z] Finish git flow feature 'wp-ajax': started.
+[2020-03-12T12:53:56.575Z] Finish git flow feature 'wp-ajax': finished. gk-log://duration?t=118
+[2020-03-12T12:53:58.527Z] Push develop: started.
+[2020-03-12T12:54:02.370Z] Push develop: finished. gk-log://duration?t=3843
+[2020-03-12T13:02:02.094Z] Stage composer.json for commit: started.
+[2020-03-12T13:02:02.197Z] Stage composer.json for commit: finished. gk-log://duration?t=103
+[2020-03-12T13:02:09.945Z] Commit: started.
+[2020-03-12T13:02:09.977Z] Commit: finished creating commit cc779be8e904b5671d74e050f3f4400ce2b8bd60
+[2020-03-12T13:02:12.188Z] Push develop: started.
+[2020-03-12T13:02:15.929Z] Push develop: finished. gk-log://duration?t=3741
+[2020-03-12T20:05:08.001Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-12T20:06:08.016Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-12T20:07:08.023Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-12T20:08:08.031Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-12T20:09:08.038Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-12T20:09:47.351Z] Stage src/Subscription/SubscriptionMethodTypes.php for commit: started.
+[2020-03-12T20:09:47.546Z] Stage src/Subscription/SubscriptionMethodTypes.php for commit: finished. gk-log://duration?t=195
+[2020-03-12T20:10:08.047Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-12T20:10:15.326Z] Commit: started.
+[2020-03-12T20:10:15.376Z] Commit: finished creating commit 9c1d56cb4f6670803bb82c42a63c570ea9bcd0c7
+[2020-03-12T20:10:17.949Z] Push develop: started.
+[2020-03-12T20:10:25.490Z] Push develop: finished. gk-log://duration?t=7541
+[2020-03-12T20:10:34.106Z] Stage src/Subscription/SubscriptionManager.php for commit: started.
+[2020-03-12T20:10:34.259Z] Stage src/Subscription/SubscriptionManager.php for commit: finished. gk-log://duration?t=153
+[2020-03-12T20:10:36.940Z] Stage src/Subscription/HookSubscription.php for commit: started.
+[2020-03-12T20:10:37.107Z] Stage src/Subscription/HookSubscription.php for commit: finished. gk-log://duration?t=167
+[2020-03-12T20:10:55.232Z] Stage 4 files for commit: started.
+[2020-03-12T20:10:55.374Z] Stage 4 files for commit: finished. gk-log://duration?t=142
+[2020-03-12T20:11:05.401Z] Commit: started.
+[2020-03-12T20:11:05.436Z] Commit: finished creating commit 1c21386806eca5634d5a88d4ab7022bbac452b1a
+[2020-03-12T20:11:07.878Z] Push develop: started.
+[2020-03-12T20:11:11.912Z] Push develop: finished. gk-log://duration?t=4034
+[2020-03-12T20:23:09.630Z] Stage 3 files for commit: started.
+[2020-03-12T20:23:09.767Z] Stage 3 files for commit: finished. gk-log://duration?t=137
+[2020-03-12T20:23:25.499Z] Commit: started.
+[2020-03-12T20:23:25.547Z] Commit: finished creating commit ce9fc969564d3fbc200ee3e5a4a4563fca8d3412
+[2020-03-12T20:23:27.617Z] Push develop: started.
+[2020-03-12T20:23:31.241Z] Push develop: finished. gk-log://duration?t=3624
+[2020-03-12T21:25:16.208Z] Stage 2 files for commit: started.
+[2020-03-12T21:25:16.398Z] Stage 2 files for commit: finished. gk-log://duration?t=190
+[2020-03-12T21:25:20.975Z] Commit: started.
+[2020-03-12T21:25:21.023Z] Commit: finished creating commit d4c0c824d4c609a90dd5953f009139a6818f6dc8
+[2020-03-12T21:25:23.202Z] Push develop: started.
+[2020-03-12T21:25:26.906Z] Push develop: finished. gk-log://duration?t=3704
+[2020-03-12T21:25:40.899Z] Start git flow release '1.0.0': started.
+[2020-03-12T21:25:40.989Z] Start git flow release '1.0.0': finished. gk-log://duration?t=90
+[2020-03-12T21:27:05.594Z] Stage 6 files for commit: started.
+[2020-03-12T21:27:05.725Z] Stage 6 files for commit: finished. gk-log://duration?t=131
+[2020-03-12T21:27:07.438Z] Commit: started.
+[2020-03-12T21:27:07.481Z] Commit: finished creating commit 84b7939004f0bda4858d0d74c318ac43cd5abc43
+[2020-03-12T21:27:59.209Z] Stage src/Subscriber/AjaxActionSubscriber.php for commit: started.
+[2020-03-12T21:27:59.256Z] Stage src/Subscriber/AjaxActionSubscriber.php for commit: finished. gk-log://duration?t=47
+[2020-03-12T21:28:04.015Z] Commit: started.
+[2020-03-12T21:28:04.055Z] Commit: finished creating commit a2466d1dbb3d74385426d7150f04b633dc17e0f1
+[2020-03-12T21:30:14.245Z] Stage 3 files for commit: started.
+[2020-03-12T21:30:14.303Z] Stage 3 files for commit: finished. gk-log://duration?t=58
+[2020-03-12T21:30:15.326Z] Commit: started.
+[2020-03-12T21:30:15.358Z] Commit: finished creating commit 733a00860b30a93badb628c47168aae3803e8d7d
+[2020-03-12T21:35:52.446Z] Stage src/Subscription/HookSubscription.php for commit: started.
+[2020-03-12T21:35:52.519Z] Stage src/Subscription/HookSubscription.php for commit: finished. gk-log://duration?t=73
+[2020-03-12T21:35:59.157Z] Commit: started.
+[2020-03-12T21:35:59.197Z] Commit: finished creating commit f35480db6ce344aa895d51017cc1686c15b21677
+[2020-03-12T21:40:15.461Z] Stage 18 files for commit: started.
+[2020-03-12T21:40:15.557Z] Stage 18 files for commit: finished. gk-log://duration?t=96
+[2020-03-12T21:40:16.562Z] Commit: started.
+[2020-03-12T21:40:16.601Z] Commit: finished creating commit 1bec5e1eaad75b09fd16cc8a36cecc226c63d837
+[2020-03-12T21:41:51.270Z] Finish git flow release '1.0.0': started.
+[2020-03-12T21:41:51.444Z] Finish git flow release '1.0.0': finished. gk-log://duration?t=174
+[2020-03-12T21:41:56.421Z] Push develop: started.
+[2020-03-12T21:42:00.277Z] Push develop: finished. gk-log://duration?t=3856
+[2020-03-12T21:42:03.215Z] Push master: started.
+[2020-03-12T21:42:06.961Z] Push master: finished. gk-log://duration?t=3746
+[2020-03-12T21:42:09.846Z] Pushing 1.0.0 to origin: started.
+[2020-03-12T21:42:13.569Z] Pushing 1.0.0 to origin: finished. gk-log://duration?t=3723
+[2020-03-12T21:46:40.826Z] Start git flow hotfix 'double-docblocks': started.
+[2020-03-12T21:46:40.853Z] Auto-stash uncommitted changes: started.
+[2020-03-12T21:46:40.890Z] Stage src/Subscription/SubscriptionManager.php for stash: started.
+[2020-03-12T21:46:40.951Z] Stage src/Subscription/SubscriptionManager.php for stash: finished. gk-log://duration?t=61
+[2020-03-12T21:46:41.055Z] Auto-stash uncommitted changes: finished. Stash sha: 33addaa97d4aa227b353b8705bde4728d65adbb2 gk-log://duration?t=202
+[2020-03-12T21:46:41.106Z] Pop most recent stash: started.
+[2020-03-12T21:46:41.143Z] Pop stash 33addaa97d4aa227b353b8705bde4728d65adbb2: finished. gk-log://duration?t=37
+[2020-03-12T21:46:41.318Z] Start git flow hotfix 'double-docblocks': finished. gk-log://duration?t=492
+[2020-03-12T21:46:44.739Z] Stage src/Subscription/SubscriptionManager.php for commit: started.
+[2020-03-12T21:46:44.784Z] Stage src/Subscription/SubscriptionManager.php for commit: finished. gk-log://duration?t=45
+[2020-03-12T21:46:46.226Z] Commit: started.
+[2020-03-12T21:46:46.253Z] Commit: finished creating commit 14768813ca1028e7a4b2a4510b0fbb4dbfee7b2e
+[2020-03-12T21:46:51.419Z] Finish git flow hotfix 'double-docblocks': started.
+[2020-03-12T21:46:51.564Z] Finish git flow hotfix 'double-docblocks': finished. gk-log://duration?t=145
+[2020-03-12T21:46:55.261Z] Push master: started.
+[2020-03-12T21:46:59.028Z] Push master: finished. gk-log://duration?t=3767
+[2020-03-12T21:46:59.106Z] Checkout refs/heads/develop: started.
+[2020-03-12T21:46:59.216Z] Checkout refs/heads/develop: finished. gk-log://duration?t=110
+[2020-03-12T21:47:00.123Z] Push develop: started.
+[2020-03-12T21:47:03.869Z] Push develop: finished. gk-log://duration?t=3746
+[2020-03-13T08:31:37.498Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:32:13.152Z] Create ref refs/heads/feature/dependency-subscriptions at 148cf3349cf11364b72edd92372789afa9be7616: started.
+[2020-03-13T08:32:13.206Z] Create ref refs/heads/feature/dependency-subscriptions at 148cf3349cf11364b72edd92372789afa9be7616: finished. gk-log://duration?t=54
+[2020-03-13T08:32:13.255Z] Checkout refs/heads/feature/dependency-subscriptions: started.
+[2020-03-13T08:32:13.423Z] Checkout refs/heads/feature/dependency-subscriptions: finished. gk-log://duration?t=168
+[2020-03-13T08:32:37.323Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:33:37.571Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:34:37.385Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:35:37.380Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:36:39.259Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:37:39.271Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:38:39.157Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:39:39.209Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:40:39.282Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:41:39.290Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:42:39.191Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:43:39.221Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:44:39.202Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:45:39.207Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:46:39.198Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:47:39.228Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:48:39.220Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:49:39.180Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:50:39.204Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:51:39.291Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T08:52:39.222Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T10:17:52.517Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T10:18:02.471Z] Stage src/Subscriber/DependencySubscriber.php for commit: started.
+[2020-03-13T10:18:02.636Z] Stage src/Subscriber/DependencySubscriber.php for commit: finished. gk-log://duration?t=165
+[2020-03-13T10:18:14.632Z] Stage src/Subscriber/Subscriber.php for commit: started.
+[2020-03-13T10:18:14.773Z] Stage src/Subscriber/Subscriber.php for commit: finished. gk-log://duration?t=141
+[2020-03-13T10:18:17.242Z] Stage src/Subscriber/SubscriberTrait.php for commit: started.
+[2020-03-13T10:18:17.467Z] Stage src/Subscriber/SubscriberTrait.php for commit: finished. gk-log://duration?t=225
+[2020-03-13T10:18:20.000Z] Stage src/Subscriber/ShortcodeSubscriber.php for commit: started.
+[2020-03-13T10:18:20.167Z] Stage src/Subscriber/ShortcodeSubscriber.php for commit: finished. gk-log://duration?t=167
+[2020-03-13T10:18:22.070Z] Stage src/Subscriber/FilterSubscriber.php for commit: started.
+[2020-03-13T10:18:22.296Z] Stage src/Subscriber/FilterSubscriber.php for commit: finished. gk-log://duration?t=226
+[2020-03-13T10:18:29.498Z] Unstage src/Subscriber/DependencySubscriber.php: started.
+[2020-03-13T10:18:29.562Z] Unstage src/Subscriber/DependencySubscriber.php: finished. gk-log://duration?t=63
+[2020-03-13T10:18:49.328Z] Commit: started.
+[2020-03-13T10:18:49.377Z] Commit: finished creating commit 09ef311b528b4747ec245073382c9b278bb2374e
+[2020-03-13T10:18:52.479Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T10:18:52.693Z] Stage src/Subscriber/DependencySubscriber.php for commit: started.
+[2020-03-13T10:18:52.737Z] Stage src/Subscriber/DependencySubscriber.php for commit: finished. gk-log://duration?t=44
+[2020-03-13T10:19:02.185Z] Commit: started.
+[2020-03-13T10:19:02.213Z] Commit: finished creating commit 45b0208f061198de688c198b592cf25e1adea37f
+[2020-03-13T10:19:05.524Z] Stage src/Subscriber/AjaxActionSubscriber.php for commit: started.
+[2020-03-13T10:19:05.572Z] Stage src/Subscriber/AjaxActionSubscriber.php for commit: finished. gk-log://duration?t=48
+[2020-03-13T10:19:06.109Z] Stage src/Subscriber/ActionSubscriber.php for commit: started.
+[2020-03-13T10:19:06.156Z] Stage src/Subscriber/ActionSubscriber.php for commit: finished. gk-log://duration?t=47
+[2020-03-13T10:19:16.822Z] Commit: started.
+[2020-03-13T10:19:16.851Z] Commit: finished creating commit 86c696e3db8ac67030f4c9d1919131f0da1e327d
+[2020-03-13T10:19:38.811Z] Stage src/Subscriber/AjaxActionSubscriber.php for commit: started.
+[2020-03-13T10:19:38.936Z] Stage src/Subscriber/AjaxActionSubscriber.php for commit: finished. gk-log://duration?t=125
+[2020-03-13T10:19:40.920Z] Amend commit 86c696e3db8ac67030f4c9d1919131f0da1e327d: started.
+[2020-03-13T10:19:40.945Z] Amend commit 86c696e3db8ac67030f4c9d1919131f0da1e327d: finished.
+[2020-03-13T10:19:52.502Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T10:20:17.779Z] Stage composer.json for commit: started.
+[2020-03-13T10:20:17.824Z] Stage composer.json for commit: finished. gk-log://duration?t=45
+[2020-03-13T10:20:23.820Z] Unstage composer.json: started.
+[2020-03-13T10:20:23.903Z] Unstage composer.json: finished. gk-log://duration?t=83
+[2020-03-13T10:20:25.707Z] Unstage composer.json: started.
+[2020-03-13T10:20:25.774Z] Unstage composer.json: finished. gk-log://duration?t=67
+[2020-03-13T10:20:25.811Z] Reset all files: started.
+[2020-03-13T10:20:25.854Z] Reset all files: finished. gk-log://duration?t=43
+[2020-03-13T10:20:26.063Z] Reset all submodules: started.
+[2020-03-13T10:20:26.078Z] Reset all submodules: finished. gk-log://duration?t=15
+[2020-03-13T10:20:52.485Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-13T10:20:56.398Z] Stage composer.json for commit: started.
+[2020-03-13T10:20:56.446Z] Stage composer.json for commit: finished. gk-log://duration?t=48
+[2020-03-13T10:21:03.722Z] Commit: started.
+[2020-03-13T10:21:03.750Z] Commit: finished creating commit 3359714c2ee5268ca17c708d6c06b3001a2cf43c
+[2020-03-13T10:21:23.162Z] Finish git flow feature 'dependency-subscriptions': started.
+[2020-03-13T10:21:23.437Z] Finish git flow feature 'dependency-subscriptions': finished. gk-log://duration?t=275
+[2020-03-13T10:21:25.559Z] Push develop: started.
+[2020-03-13T10:21:32.013Z] Push develop: finished. gk-log://duration?t=6454
+[2020-03-13T10:22:23.969Z] Start git flow feature 'second-test-feedback': started.
+[2020-03-13T10:22:24.013Z] Auto-stash uncommitted changes: started.
+[2020-03-13T10:22:24.016Z] Stage src/Subscriber/DependencySubscriber.php for stash: started.
+[2020-03-13T10:22:24.068Z] Stage src/Subscriber/DependencySubscriber.php for stash: finished. gk-log://duration?t=52
+[2020-03-13T10:22:24.172Z] Auto-stash uncommitted changes: finished. Stash sha: 50c18fd1e0035135a4bbcdd36b2da63deb974cdd gk-log://duration?t=159
+[2020-03-13T10:22:24.220Z] Pop most recent stash: started.
+[2020-03-13T10:22:24.255Z] Pop stash 50c18fd1e0035135a4bbcdd36b2da63deb974cdd: finished. gk-log://duration?t=35
+[2020-03-13T10:22:24.366Z] Start git flow feature 'second-test-feedback': finished. gk-log://duration?t=397
+[2020-03-13T10:27:25.073Z] Stage src/Subscriber/SubscriberTrait.php for commit: started.
+[2020-03-13T10:27:25.132Z] Stage src/Subscriber/SubscriberTrait.php for commit: finished. gk-log://duration?t=59
+[2020-03-13T10:27:25.620Z] Stage src/Subscriber/DependencySubscriber.php for commit: started.
+[2020-03-13T10:27:25.661Z] Stage src/Subscriber/DependencySubscriber.php for commit: finished. gk-log://duration?t=41
+[2020-03-13T10:27:37.065Z] Commit: started.
+[2020-03-13T10:27:37.102Z] Commit: finished creating commit 9a5df41b6ca31be29229a29026d5cad98be54cf5
+[2020-03-13T10:27:41.279Z] Finish git flow feature 'second-test-feedback': started.
+[2020-03-13T10:27:41.446Z] Finish git flow feature 'second-test-feedback': finished. gk-log://duration?t=167
+[2020-03-13T10:27:43.190Z] Push develop: started.
+[2020-03-13T10:27:46.572Z] Push develop: finished. gk-log://duration?t=3382
+[2020-03-13T10:27:56.718Z] Start git flow feature 'remove-statics': started.
+[2020-03-13T10:27:56.840Z] Start git flow feature 'remove-statics': finished. gk-log://duration?t=122
+[2020-03-13T10:33:28.777Z] Unstage src/Subscriber/AjaxActionSubscriber.php: started.
+[2020-03-13T10:33:28.803Z] Unstage src/Subscriber/AjaxActionSubscriber.php: finished. gk-log://duration?t=26
+[2020-03-13T10:33:28.813Z] Reset all files: started.
+[2020-03-13T10:33:28.834Z] Reset all files: finished. gk-log://duration?t=21
+[2020-03-13T10:33:29.020Z] Reset all submodules: started.
+[2020-03-13T10:33:29.049Z] Reset all submodules: finished. gk-log://duration?t=29
+[2020-03-13T16:33:53.450Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-17T09:56:02.223Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T16:53:27.340Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T16:54:27.344Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T16:55:27.355Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T16:56:27.357Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T16:57:27.285Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T16:58:27.389Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T16:59:27.379Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:00:27.392Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:01:27.392Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:02:27.401Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:03:27.408Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:04:27.311Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:05:27.423Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:06:27.327Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:07:27.335Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:08:27.342Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:09:27.378Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:10:27.352Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:11:27.309Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:12:27.366Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:13:27.374Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:14:27.319Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:15:27.389Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:16:27.394Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:17:27.403Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:18:27.440Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:19:27.420Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:20:27.322Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:21:27.329Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:22:27.335Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:23:27.341Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:24:27.366Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:25:27.359Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:26:27.366Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:27:27.323Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:28:27.376Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:29:27.385Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:30:27.391Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:31:27.344Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:32:27.368Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:33:27.412Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:34:27.431Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:35:27.325Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:36:27.332Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:37:27.334Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:38:27.351Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:39:27.350Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:40:27.360Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:41:27.366Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:42:27.374Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:43:27.338Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:44:27.386Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:45:27.327Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:46:27.419Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:47:27.405Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:48:27.632Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:49:27.375Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:50:27.472Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:51:27.434Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:52:27.344Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:53:27.349Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:54:27.370Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:55:27.365Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:56:27.366Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:57:27.379Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:58:27.391Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:59:12.442Z] Stage 9 files for commit: started.
+[2020-03-19T17:59:12.526Z] Stage 9 files for commit: finished. gk-log://duration?t=84
+[2020-03-19T17:59:27.388Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T17:59:52.115Z] Commit: started.
+[2020-03-19T17:59:52.159Z] Commit: finished creating commit 7c5b95ccfe3b74a3c3e68c6d4537e29d7cb15dad
+[2020-03-19T18:00:27.395Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:01:27.403Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:02:27.414Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:03:27.417Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:04:27.423Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:05:27.434Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:06:27.357Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:07:27.440Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:08:27.447Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:09:27.460Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:10:27.360Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:11:27.368Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:12:27.342Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:13:27.384Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:14:27.336Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:15:27.396Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:16:27.404Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:17:27.338Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:18:27.417Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:19:27.382Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:20:27.434Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:21:27.435Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:22:27.358Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:23:27.390Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:24:27.342Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:25:27.362Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:26:27.369Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T18:27:27.479Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T20:43:27.833Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T20:44:27.829Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T20:45:27.836Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T20:46:27.857Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T20:47:27.953Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T20:48:27.811Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T20:49:27.824Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:28:35.849Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:29:35.958Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:30:35.900Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:31:35.929Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:32:35.938Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:33:35.840Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:34:35.855Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:35:35.873Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:36:35.847Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:37:35.910Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:38:35.910Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:39:35.918Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:40:35.914Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:41:35.898Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:42:35.904Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:43:35.912Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:44:35.923Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:45:35.927Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:46:35.938Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:47:35.950Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:48:35.948Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:49:35.837Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:50:35.966Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:51:35.870Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:52:35.874Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:53:35.879Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:54:35.887Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:55:35.894Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:56:35.904Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:57:35.907Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:58:06.615Z] Unstage 4 files: started.
+[2020-03-19T21:58:06.655Z] Unstage 4 files: finished. gk-log://duration?t=40
+[2020-03-19T21:58:06.669Z] Reset all files: started.
+[2020-03-19T21:58:06.713Z] Reset all files: finished. gk-log://duration?t=44
+[2020-03-19T21:58:06.869Z] Reset all submodules: started.
+[2020-03-19T21:58:06.877Z] Reset all submodules: finished. gk-log://duration?t=8
+[2020-03-19T21:58:35.919Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T21:59:35.923Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:00:35.933Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:01:35.843Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:02:35.946Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:03:35.951Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:04:35.855Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:05:35.966Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:06:35.885Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:07:35.878Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:08:35.875Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:09:35.905Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:10:35.900Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:11:35.905Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:12:35.913Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:13:35.881Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:14:35.840Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:15:35.842Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:16:35.944Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:17:35.849Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:18:35.955Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:19:35.902Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:20:35.868Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:21:35.979Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:22:35.845Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:23:35.859Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:24:35.898Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:25:35.901Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:26:35.911Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:27:35.913Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:28:35.919Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:29:35.929Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:30:35.854Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:31:35.903Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:32:35.904Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:33:35.963Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:34:35.859Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:35:35.865Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:36:35.871Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:37:35.882Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:38:35.852Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:39:35.895Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:40:35.872Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:41:35.912Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:42:35.916Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:43:35.922Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:44:35.864Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:45:35.938Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:46:35.947Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:47:35.956Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:48:35.959Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:49:35.969Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:50:35.975Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:51:35.872Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:52:35.887Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:53:35.892Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:54:35.898Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:55:35.907Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:56:35.914Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:57:35.921Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:58:35.929Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T22:59:35.934Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:00:35.940Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:01:35.947Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:02:35.870Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:03:35.967Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:04:35.970Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:05:35.979Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:06:36.004Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:07:35.890Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:08:35.896Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:09:35.902Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:10:35.906Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:11:35.916Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:12:35.930Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:13:35.931Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:14:35.937Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:15:35.941Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:16:35.951Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:17:35.960Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:18:35.962Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:19:35.972Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:20:35.979Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:21:35.987Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:22:35.996Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:23:35.999Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:24:35.904Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:25:35.913Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:26:35.883Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:27:35.927Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:28:35.934Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:29:35.940Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:30:35.950Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:31:35.951Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:32:35.965Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:33:35.969Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:34:35.903Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:35:35.983Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:36:35.991Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:37:35.994Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:38:36.004Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:39:35.891Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:40:35.910Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:41:35.919Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:42:35.897Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:43:35.935Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:44:35.897Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:45:35.908Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:46:35.956Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:47:36.064Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:48:35.971Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:49:35.898Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:50:35.906Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:51:35.902Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:52:35.999Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:53:35.908Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:54:36.009Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:55:35.903Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:56:35.910Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:57:35.916Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:58:35.903Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-19T23:59:35.910Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:00:35.914Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:01:35.903Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:02:35.960Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:03:35.909Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:04:35.928Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:05:35.910Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:06:35.912Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:07:35.912Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:08:35.911Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:09:35.911Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:10:35.929Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:11:35.926Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:12:35.935Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:13:35.940Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:14:35.947Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:15:35.952Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:16:35.963Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:17:35.971Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:18:35.975Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:19:35.981Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:20:35.926Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:21:35.919Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:22:35.922Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:23:35.921Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:24:35.934Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:25:35.923Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:26:35.954Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:27:35.935Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:28:35.946Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:29:35.972Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:30:35.955Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:31:35.963Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:32:35.969Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:33:35.974Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:34:35.983Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:35:35.993Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:36:35.998Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:37:36.007Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:38:36.009Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:39:04.450Z] Stage src/Subscription/Subscription.php for commit: started.
+[2020-03-20T00:39:04.610Z] Stage src/Subscription/Subscription.php for commit: finished. gk-log://duration?t=160
+[2020-03-20T00:39:36.845Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:40:36.338Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:41:37.159Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:42:37.167Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:43:37.176Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:44:37.182Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:45:37.191Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:46:37.198Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:47:36.978Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:48:36.987Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:49:36.708Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:50:01.308Z] Stage src/Subscriber/Subscriber.php for commit: started.
+[2020-03-20T00:50:01.604Z] Stage src/Subscriber/Subscriber.php for commit: finished. gk-log://duration?t=296
+[2020-03-20T00:50:35.995Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:51:35.999Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:52:36.008Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:53:36.061Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:54:36.024Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:55:36.048Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T00:56:21.144Z] Commit: started.
+[2020-03-20T00:56:21.244Z] Commit: finished creating commit 76ed63c7a0098d7ad51b5b9ba367a0b3af9cb88a
+[2020-03-20T00:56:36.448Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-20T12:27:54.518Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T18:48:45.893Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T18:49:44.786Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T18:50:44.796Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T18:51:44.759Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T18:52:44.788Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T18:53:44.761Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T18:54:44.733Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T18:55:44.847Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T18:56:44.823Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T18:57:44.796Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T18:58:44.807Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T18:59:44.808Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:00:44.826Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:01:44.831Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:02:44.793Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:03:44.738Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:04:44.753Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:05:44.753Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:06:44.761Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:07:44.791Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:08:44.770Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:09:44.785Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:10:44.811Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:11:44.798Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:12:44.809Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:13:44.813Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:14:44.827Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:15:44.825Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:16:44.846Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:17:44.739Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:18:44.782Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:19:44.747Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:20:44.764Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:21:44.784Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:22:44.780Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:23:44.781Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:24:44.786Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:25:44.792Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:26:44.798Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:27:44.812Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:28:44.816Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:29:44.753Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:30:44.949Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:31:44.838Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:32:44.961Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:33:44.771Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:34:44.862Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:35:44.760Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:36:44.765Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:37:44.771Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:38:44.790Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:39:44.795Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:40:44.750Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:41:44.904Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:42:44.831Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:43:44.993Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:44:44.827Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:45:44.852Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:46:44.842Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:47:44.750Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:48:44.851Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:49:44.870Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:50:44.864Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:51:44.766Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:52:45.017Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:53:44.786Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:54:44.791Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:55:44.792Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:56:44.797Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:57:44.815Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:58:44.812Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T19:59:44.822Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:00:44.827Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:01:44.776Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:02:44.974Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:03:44.850Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:04:45.006Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:05:44.862Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:06:44.885Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:07:44.887Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:08:44.778Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:09:44.789Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:10:44.802Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:11:44.810Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:12:44.810Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:13:44.778Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:14:44.811Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:15:44.840Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:16:44.840Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:17:44.983Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:18:44.862Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:19:44.962Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:20:44.897Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:21:44.882Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:22:44.884Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:23:44.786Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:24:44.914Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:25:44.807Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:26:44.811Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:27:44.819Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:28:44.831Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:29:44.793Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:30:44.841Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:31:44.957Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:32:44.852Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:33:44.863Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:34:44.863Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:35:44.874Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:36:44.881Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:37:44.883Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:38:44.899Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:39:45.062Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:40:44.911Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:41:44.811Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:42:45.010Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:43:44.842Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:44:44.841Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:45:44.838Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:46:44.847Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:47:44.847Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:48:44.875Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:49:44.866Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:50:44.877Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:51:44.887Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:52:44.891Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:53:44.799Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:54:44.795Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:55:44.859Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:56:44.833Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:57:44.817Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:58:44.826Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T20:59:44.858Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:00:44.838Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:01:44.859Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:02:00.424Z] Stage 13 files for commit: started.
+[2020-03-22T21:02:00.511Z] Stage 13 files for commit: finished. gk-log://duration?t=87
+[2020-03-22T21:02:01.776Z] Commit: started.
+[2020-03-22T21:02:01.818Z] Commit: finished creating commit d498e534fa910277370f218d3ef9ddf655def1de
+[2020-03-22T21:02:05.802Z] Stage src/Subscription/Hookable.php for commit: started.
+[2020-03-22T21:02:05.914Z] Stage src/Subscription/Hookable.php for commit: finished. gk-log://duration?t=111
+[2020-03-22T21:02:09.940Z] Amend commit d498e534fa910277370f218d3ef9ddf655def1de: started.
+[2020-03-22T21:02:09.953Z] Amend commit d498e534fa910277370f218d3ef9ddf655def1de: finished.
+[2020-03-22T21:02:44.862Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:03:44.868Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:04:44.868Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:05:44.878Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:06:44.890Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:07:44.886Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:08:44.893Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:09:44.802Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:10:44.909Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:11:44.817Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:12:44.826Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:13:44.823Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:14:44.831Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:15:44.850Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:16:44.846Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:17:00.942Z] Stage 10 files for commit: started.
+[2020-03-22T21:17:01.009Z] Stage 10 files for commit: finished. gk-log://duration?t=67
+[2020-03-22T21:17:07.629Z] Commit: started.
+[2020-03-22T21:17:07.681Z] Commit: finished creating commit 0db2785370000ede653739956ea834784e363269
+[2020-03-22T21:17:45.274Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:18:45.791Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:19:45.180Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:20:45.284Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:21:45.809Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:22:45.299Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:23:07.675Z] Stage 2 files for commit: started.
+[2020-03-22T21:23:07.726Z] Stage 2 files for commit: finished. gk-log://duration?t=51
+[2020-03-22T21:23:10.093Z] Amend commit 0db2785370000ede653739956ea834784e363269: started.
+[2020-03-22T21:23:10.122Z] Amend commit 0db2785370000ede653739956ea834784e363269: finished.
+[2020-03-22T21:23:25.943Z] Create ref refs/heads/feature/big-restructure at 22c6f88e86bea2150fa00721a8d87f3403f31551: started.
+[2020-03-22T21:23:25.989Z] Create ref refs/heads/feature/big-restructure at 22c6f88e86bea2150fa00721a8d87f3403f31551: finished. gk-log://duration?t=46
+[2020-03-22T21:23:26.031Z] Checkout refs/heads/feature/big-restructure: started.
+[2020-03-22T21:23:26.170Z] Checkout refs/heads/feature/big-restructure: finished. gk-log://duration?t=139
+[2020-03-22T21:23:44.895Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:24:44.815Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:25:44.956Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:26:44.914Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:27:44.849Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:28:44.930Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:29:44.847Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:30:44.851Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:31:44.814Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:32:44.860Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:33:44.907Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:34:44.871Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:35:44.885Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:36:44.885Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:37:44.895Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:38:44.910Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:39:44.910Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:40:44.918Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:41:44.924Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:42:44.902Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:43:45.059Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:44:44.849Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:45:44.933Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:46:44.894Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:47:44.842Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:48:44.962Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:49:44.888Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:50:44.892Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:51:44.893Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:52:23.644Z] Unstage src/Provider/ShortcodeProvider.php: started.
+[2020-03-22T21:52:23.688Z] Unstage src/Provider/ShortcodeProvider.php: finished. gk-log://duration?t=44
+[2020-03-22T21:52:30.974Z] Stage src/Hookable/Hookable.php for commit: started.
+[2020-03-22T21:52:31.039Z] Stage src/Hookable/Hookable.php for commit: finished. gk-log://duration?t=65
+[2020-03-22T21:52:34.581Z] Stage src/Subscriber/ShortcodeSubscriber.php for commit: started.
+[2020-03-22T21:52:34.631Z] Stage src/Subscriber/ShortcodeSubscriber.php for commit: finished. gk-log://duration?t=50
+[2020-03-22T21:52:38.233Z] Stage src/Subscription/Hook/ShortcodeSubscription.php for commit: started.
+[2020-03-22T21:52:38.285Z] Stage src/Subscription/Hook/ShortcodeSubscription.php for commit: finished. gk-log://duration?t=52
+[2020-03-22T21:52:39.099Z] Stage src/Subscription/Hook/HookSubscription.php for commit: started.
+[2020-03-22T21:52:39.147Z] Stage src/Subscription/Hook/HookSubscription.php for commit: finished. gk-log://duration?t=48
+[2020-03-22T21:52:40.256Z] Stage src/Subscription/Hook/FilterSubscription.php for commit: started.
+[2020-03-22T21:52:40.310Z] Stage src/Subscription/Hook/FilterSubscription.php for commit: finished. gk-log://duration?t=54
+[2020-03-22T21:52:41.161Z] Stage src/Subscription/Hook/ActionSubscription.php for commit: started.
+[2020-03-22T21:52:41.219Z] Stage src/Subscription/Hook/ActionSubscription.php for commit: finished. gk-log://duration?t=58
+[2020-03-22T21:52:42.690Z] Stage src/Subscription/Subscription.php for commit: started.
+[2020-03-22T21:52:42.738Z] Stage src/Subscription/Subscription.php for commit: finished. gk-log://duration?t=48
+[2020-03-22T21:52:44.905Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:52:47.236Z] Commit: started.
+[2020-03-22T21:52:47.279Z] Commit: finished creating commit abaad3bab6a45b9890d826172eefdfe583b0c270
+[2020-03-22T21:53:44.827Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:54:44.949Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:55:44.959Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:56:44.930Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:57:44.931Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:58:44.948Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T21:59:44.963Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:00:33.516Z] Stage src/Subscription/Dependency/ProviderSubscription.php for commit: started.
+[2020-03-22T22:00:33.581Z] Stage src/Subscription/Dependency/ProviderSubscription.php for commit: finished. gk-log://duration?t=65
+[2020-03-22T22:00:40.275Z] Stage src/Subscriber/DependencySubscriber.php for commit: started.
+[2020-03-22T22:00:40.430Z] Stage src/Subscriber/DependencySubscriber.php for commit: finished. gk-log://duration?t=155
+[2020-03-22T22:00:44.860Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:01:44.857Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:01:50.315Z] Commit: started.
+[2020-03-22T22:01:50.362Z] Commit: finished creating commit b41870e0fe31845a81f749eb0658c1f1759ed476
+[2020-03-22T22:02:44.841Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:03:44.827Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:04:44.880Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:05:44.896Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:06:44.898Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:07:44.901Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:08:44.907Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:09:44.837Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:10:44.917Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:11:06.725Z] Commit: started.
+[2020-03-22T22:11:06.764Z] Commit: finished creating commit 3da704f1ce801511e3a5affe6c3c9615e96ce819
+[2020-03-22T22:11:13.736Z] Stage 8 files for commit: started.
+[2020-03-22T22:11:13.808Z] Stage 8 files for commit: finished. gk-log://duration?t=71
+[2020-03-22T22:11:22.364Z] Commit: started.
+[2020-03-22T22:11:22.399Z] Commit: finished creating commit 18909ee346d091bfba881a6046a79054d277bc54
+[2020-03-22T22:11:44.950Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:12:44.933Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:13:44.938Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:14:44.954Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:15:44.851Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:16:44.869Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:17:44.862Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:18:44.881Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:19:44.935Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:20:44.883Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:21:44.891Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:22:44.909Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:23:44.882Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:24:44.859Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:25:44.942Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:26:44.928Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:27:44.947Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:28:44.949Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:29:44.952Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:30:44.960Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:31:44.859Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:32:44.877Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:33:44.872Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:34:44.877Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:35:44.894Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:36:44.956Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:37:44.903Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:38:44.909Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:39:44.919Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:40:44.925Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:41:44.933Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:42:44.946Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:43:44.950Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:44:44.957Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:45:44.957Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:46:44.859Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:47:44.865Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:48:44.948Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:49:44.880Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:50:44.859Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:51:44.901Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:52:44.905Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:53:44.954Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:54:44.855Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:55:44.924Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:56:44.939Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:57:44.974Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:58:44.896Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T22:59:44.873Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:00:44.970Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:01:44.994Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:02:44.882Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:03:44.977Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:04:44.913Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:05:24.479Z] Stage 7 files for commit: started.
+[2020-03-22T23:05:24.557Z] Stage 7 files for commit: finished. gk-log://duration?t=78
+[2020-03-22T23:05:29.808Z] Commit: started.
+[2020-03-22T23:05:29.851Z] Commit: finished creating commit dbe3d549f028ced5b9d1b6b775fbd9383dc63daf
+[2020-03-22T23:05:44.902Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:06:44.904Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:07:44.915Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:08:44.919Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:09:44.922Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:10:44.927Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:11:44.934Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:12:44.947Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:13:44.949Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:14:44.976Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:15:44.967Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:16:44.865Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:17:44.979Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:18:44.888Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:19:44.891Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:20:44.897Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:21:44.901Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:22:44.910Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:23:44.914Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:23:46.888Z] Stage src/Manager/SubscriptionManager.php for commit: started.
+[2020-03-22T23:23:47.013Z] Stage src/Manager/SubscriptionManager.php for commit: finished. gk-log://duration?t=125
+[2020-03-22T23:23:49.591Z] Amend commit dbe3d549f028ced5b9d1b6b775fbd9383dc63daf: started.
+[2020-03-22T23:23:49.625Z] Amend commit dbe3d549f028ced5b9d1b6b775fbd9383dc63daf: finished.
+[2020-03-22T23:23:51.458Z] Checkout refs/heads/feature/remove-statics: started.
+[2020-03-22T23:23:51.620Z] Checkout refs/heads/feature/remove-statics: finished. gk-log://duration?t=162
+[2020-03-22T23:24:13.944Z] Merge feature/big-restructure into feature/remove-statics: started.
+[2020-03-22T23:24:13.998Z] Finish merge feature/big-restructure into feature/remove-statics: started.
+[2020-03-22T23:24:14.025Z] Finish merge feature/big-restructure into feature/remove-statics: finished. gk-log://duration?t=27
+[2020-03-22T23:24:14.044Z] Merge feature/big-restructure into feature/remove-statics: finished. gk-log://duration?t=100
+[2020-03-22T23:24:44.943Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-22T23:24:49.835Z] Delete ref refs/heads/feature/big-restructure at 64f9e2c6bfc8c65fd3d2e559f188b67103e3d47b: started.
+[2020-03-22T23:24:49.891Z] Delete ref refs/heads/feature/big-restructure at 64f9e2c6bfc8c65fd3d2e559f188b67103e3d47b: finished. gk-log://duration?t=56
+[2020-03-23T09:56:32.635Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T09:57:32.462Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T09:58:32.535Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T09:59:32.772Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:00:32.549Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:01:32.548Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:02:32.592Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:03:32.565Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:04:32.919Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:05:32.586Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:06:32.595Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:07:32.494Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:08:32.508Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:09:32.750Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:10:32.517Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:11:32.476Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:12:32.564Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:13:32.531Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:14:33.053Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:15:32.483Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:16:32.480Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:17:32.557Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:18:32.564Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:19:33.018Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:20:32.583Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:21:32.492Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:22:32.494Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:23:32.505Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:24:33.103Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:25:32.477Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:26:32.504Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:27:32.531Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:28:32.537Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:29:32.932Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:30:32.556Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:31:32.557Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:32:03.597Z] Stage 5 files for commit: started.
+[2020-03-23T10:32:03.673Z] Stage 5 files for commit: finished. gk-log://duration?t=76
+[2020-03-23T10:32:13.175Z] Commit: started.
+[2020-03-23T10:32:13.225Z] Commit: finished creating commit fb1bd6a946cd5136fece7fb2c48e847848add6e2
+[2020-03-23T10:32:32.496Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:33:32.580Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:34:32.882Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:35:32.515Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:36:32.479Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:37:32.507Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:38:32.521Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:39:33.006Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:40:32.521Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:41:32.599Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:42:32.582Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:43:32.522Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:44:32.936Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:45:32.553Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:46:32.562Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:47:32.579Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:48:32.570Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:49:32.585Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:50:32.597Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:51:32.508Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:52:32.503Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:53:32.615Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:54:32.515Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:55:32.520Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:56:32.496Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:57:32.545Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:58:32.553Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T10:59:32.555Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T11:00:32.560Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T11:01:32.561Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T11:02:32.577Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-23T11:02:48.849Z] Stage composer.json for commit: started.
+[2020-03-23T11:02:48.998Z] Stage composer.json for commit: finished. gk-log://duration?t=149
+[2020-03-23T11:02:55.507Z] Commit: started.
+[2020-03-23T11:02:55.556Z] Commit: finished creating commit c9698ac657ab8d8393a19bcbc680a6f81f6cbe9b
+[2020-03-23T11:03:00.326Z] Finish git flow feature 'remove-statics': started.
+[2020-03-23T11:03:00.548Z] Finish git flow feature 'remove-statics': finished. gk-log://duration?t=222
+[2020-03-23T11:03:02.472Z] Push develop: started.
+[2020-03-23T11:03:09.783Z] Push develop: finished. gk-log://duration?t=7311
+[2020-03-23T11:11:52.402Z] Start git flow feature 'testing-round3': started.
+[2020-03-23T11:11:52.455Z] Auto-stash uncommitted changes: started.
+[2020-03-23T11:11:52.457Z] Stage 2 files for stash: started.
+[2020-03-23T11:11:52.517Z] Stage 2 files for stash: finished. gk-log://duration?t=60
+[2020-03-23T11:11:52.637Z] Auto-stash uncommitted changes: finished. Stash sha: 4c8cf38de1382a6bc30b99c66f544127855725d6 gk-log://duration?t=182
+[2020-03-23T11:11:52.679Z] Pop most recent stash: started.
+[2020-03-23T11:11:52.703Z] Pop stash 4c8cf38de1382a6bc30b99c66f544127855725d6: finished. gk-log://duration?t=23
+[2020-03-23T11:11:52.835Z] Start git flow feature 'testing-round3': finished. gk-log://duration?t=433
+[2020-03-23T11:11:58.586Z] Stage src/Subscription/Hook/HookSubscription.php for commit: started.
+[2020-03-23T11:11:58.657Z] Stage src/Subscription/Hook/HookSubscription.php for commit: finished. gk-log://duration?t=71
+[2020-03-23T11:12:12.744Z] Commit: started.
+[2020-03-23T11:12:12.787Z] Commit: finished creating commit 6397123c4f6800c46795d9af794f65835050bb65
+[2020-03-23T11:12:17.153Z] Stage src/Manager/SubscriptionManager.php for commit: started.
+[2020-03-23T11:12:17.355Z] Stage src/Manager/SubscriptionManager.php for commit: finished. gk-log://duration?t=202
+[2020-03-23T11:13:58.078Z] Stage src/Manager/SubscriptionManager.php for commit: started.
+[2020-03-23T11:13:58.132Z] Stage src/Manager/SubscriptionManager.php for commit: finished. gk-log://duration?t=54
+[2020-03-23T11:14:07.901Z] Commit: started.
+[2020-03-23T11:14:07.941Z] Commit: finished creating commit 646937746a36bcb79ec3f75e900c19946da8b292
+[2020-03-23T14:04:08.021Z] Stage 3 files for commit: started.
+[2020-03-23T14:04:08.102Z] Stage 3 files for commit: finished. gk-log://duration?t=81
+[2020-03-23T14:04:26.450Z] Commit: started.
+[2020-03-23T14:04:26.497Z] Commit: finished creating commit 8c543bcd9f805693629cc9399308675ca5d1cf20
+[2020-03-23T14:07:37.151Z] Stage 2 files for commit: started.
+[2020-03-23T14:07:37.207Z] Stage 2 files for commit: finished. gk-log://duration?t=56
+[2020-03-23T14:07:45.736Z] Commit: started.
+[2020-03-23T14:07:45.779Z] Commit: finished creating commit cb51a8287fb608da7127ff3b36c6a8f4a7b24d53
+[2020-03-23T14:08:05.626Z] Finish git flow feature 'testing-round3': started.
+[2020-03-23T14:08:05.909Z] Finish git flow feature 'testing-round3': finished. gk-log://duration?t=283
+[2020-03-23T14:08:07.396Z] Push develop: started.
+[2020-03-23T14:08:11.358Z] Push develop: finished. gk-log://duration?t=3962
+[2020-03-25T19:43:18.247Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-25T19:44:18.225Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-25T19:45:18.262Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-25T19:46:18.293Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-25T19:47:18.251Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-25T19:48:19.247Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-25T19:49:18.334Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-25T19:50:18.262Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-25T19:51:18.219Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-25T19:52:18.261Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-25T19:53:18.260Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-25T19:53:59.065Z] Commit: started.
+[2020-03-25T19:53:59.110Z] Commit: finished creating commit e62f0d289659b5d4b31a8b4303d688b94adaaccf
+[2020-03-25T19:54:00.581Z] Stage 13 files for commit: started.
+[2020-03-25T19:54:00.714Z] Stage 13 files for commit: finished. gk-log://duration?t=133
+[2020-03-25T19:54:06.186Z] Commit: started.
+[2020-03-25T19:54:06.235Z] Commit: finished creating commit 51c4ccac131b9cef4e2ce3cfe29ad749fcb7cb01
+[2020-03-25T19:54:08.030Z] Push develop: started.
+[2020-03-25T19:54:17.758Z] Push develop: finished. gk-log://duration?t=9728
+[2020-03-25T19:54:48.087Z] Start git flow feature 'dependencySubscriptions': started.
+[2020-03-25T19:54:48.255Z] Start git flow feature 'dependencySubscriptions': finished. gk-log://duration?t=168
+[2020-03-25T20:20:57.774Z] Stage 3 files for commit: started.
+[2020-03-25T20:20:57.897Z] Stage 3 files for commit: finished. gk-log://duration?t=123
+[2020-03-25T20:21:20.387Z] Commit: started.
+[2020-03-25T20:21:20.457Z] Commit: finished creating commit 65fb241c1e3a4bf65fa156c3f8e260dcced053b0
+[2020-03-25T20:22:47.054Z] Stage src/Plugin/Plugin.php for commit: started.
+[2020-03-25T20:22:47.120Z] Stage src/Plugin/Plugin.php for commit: finished. gk-log://duration?t=66
+[2020-03-25T20:22:54.125Z] Commit: started.
+[2020-03-25T20:22:54.171Z] Commit: finished creating commit d155f17bb94dadc12ade3e3c78cc3334d90ed159
+[2020-03-25T20:23:03.039Z] Finish git flow feature 'dependencySubscriptions': started.
+[2020-03-25T20:23:03.185Z] Finish git flow feature 'dependencySubscriptions': finished. gk-log://duration?t=146
+[2020-03-25T20:23:05.351Z] Push develop: started.
+[2020-03-25T20:23:10.146Z] Push develop: finished. gk-log://duration?t=4795
+[2020-03-25T20:23:28.644Z] Deleting 1.0.0 from origin: started.
+[2020-03-25T20:23:34.005Z] Deleting 1.0.0 from origin: finished. gk-log://duration?t=5361
+[2020-03-25T20:23:37.636Z] Delete ref refs/tags/1.0.0 at 6d18923dbfe3de728b8a3afaf13904237baa1726: started.
+[2020-03-25T20:23:37.669Z] Delete ref refs/tags/1.0.0 at 6d18923dbfe3de728b8a3afaf13904237baa1726: finished. gk-log://duration?t=33
+[2020-03-25T20:23:40.677Z] Deleting 1.0.0 from all remotes: started.
+[2020-03-25T20:23:40.685Z] Deleting 1.0.0 from origin: started.
+[2020-03-25T20:23:44.746Z] Deleting 1.0.0 from origin: finished. gk-log://duration?t=4061
+[2020-03-25T20:23:44.800Z] Deleting 1.0.0 from all remotes: finished. gk-log://duration?t=4123
+[2020-03-25T20:23:55.018Z] Delete ref refs/tags/double-docblocks at bfd48e0c31e03d074f31f471614254187b30054b: started.
+[2020-03-25T20:23:55.066Z] Delete ref refs/tags/double-docblocks at bfd48e0c31e03d074f31f471614254187b30054b: finished. gk-log://duration?t=48
+[2020-03-25T20:23:55.945Z] Deleting double-docblocks from all remotes: started.
+[2020-03-25T20:23:55.951Z] Deleting double-docblocks from origin: started.
+[2020-03-25T20:24:00.314Z] Deleting double-docblocks from origin: finished. gk-log://duration?t=4363
+[2020-03-25T20:24:00.335Z] Deleting double-docblocks from all remotes: finished. gk-log://duration?t=4390
+[2020-03-25T20:24:20.943Z] Start git flow feature 'test-3': started.
+[2020-03-25T20:24:21.203Z] Start git flow feature 'test-3': finished. gk-log://duration?t=260
+[2020-03-25T20:24:39.227Z] Stage composer.json for commit: started.
+[2020-03-25T20:24:39.275Z] Stage composer.json for commit: finished. gk-log://duration?t=48
+[2020-03-25T20:24:39.922Z] Commit: started.
+[2020-03-25T20:24:39.948Z] Commit: finished creating commit 715ea864e8c889973b8b808c6f57c521db449612
+[2020-03-25T20:55:40.924Z] Stage changes in src/Plugin/Plugin.php: started.
+[2020-03-25T20:55:41.038Z] Stage changes in src/Plugin/Plugin.php: finished. gk-log://duration?t=114
+[2020-03-25T20:55:47.073Z] Stage src/Manager/ItemTypes.php for commit: started.
+[2020-03-25T20:55:47.177Z] Stage src/Manager/ItemTypes.php for commit: finished. gk-log://duration?t=104
+[2020-03-25T20:55:50.682Z] Stage src/Manager/SubscriptionManager.php for commit: started.
+[2020-03-25T20:55:51.015Z] Stage src/Manager/SubscriptionManager.php for commit: finished. gk-log://duration?t=333
+[2020-03-25T20:55:59.375Z] Commit: started.
+[2020-03-25T20:55:59.441Z] Commit: finished creating commit c68e0cbbcf651de740290c35017b9c25c42332da
+[2020-03-25T20:56:05.767Z] Stage changes in src/Plugin/Plugin.php: started.
+[2020-03-25T20:56:05.847Z] Stage changes in src/Plugin/Plugin.php: finished. gk-log://duration?t=80
+[2020-03-25T20:56:08.012Z] Amend commit c68e0cbbcf651de740290c35017b9c25c42332da: started.
+[2020-03-25T20:56:08.023Z] Amend commit c68e0cbbcf651de740290c35017b9c25c42332da: finished.
+[2020-03-25T20:56:33.613Z] Stage src/Plugin/Plugin.php for commit: started.
+[2020-03-25T20:56:33.734Z] Stage src/Plugin/Plugin.php for commit: finished. gk-log://duration?t=121
+[2020-03-25T20:56:36.282Z] Commit: started.
+[2020-03-25T20:56:36.322Z] Commit: finished creating commit 14c60eb82b14fbd9a6e988f3b60d0199947f12a2
+[2020-03-25T21:03:54.422Z] Stage src/Manager/SubscriptionManager.php for commit: started.
+[2020-03-25T21:03:54.481Z] Stage src/Manager/SubscriptionManager.php for commit: finished. gk-log://duration?t=59
+[2020-03-25T21:03:55.605Z] Commit: started.
+[2020-03-25T21:03:55.635Z] Commit: finished creating commit 18c0f3a203d35ffed6e0dcb9c92c2ec91ac48239
+[2020-03-25T21:07:28.755Z] Stage src/Manager/SubscriptionManager.php for commit: started.
+[2020-03-25T21:07:28.825Z] Stage src/Manager/SubscriptionManager.php for commit: finished. gk-log://duration?t=70
+[2020-03-25T21:07:30.091Z] Commit: started.
+[2020-03-25T21:07:30.126Z] Commit: finished creating commit 8ddfaa6f877223ea2b221f7906c1f065434d3173
+[2020-03-25T21:08:31.193Z] Finish git flow feature 'test-3': started.
+[2020-03-25T21:08:31.366Z] Finish git flow feature 'test-3': finished. gk-log://duration?t=173
+[2020-03-25T21:08:33.305Z] Push develop: started.
+[2020-03-25T21:08:37.645Z] Push develop: finished. gk-log://duration?t=4340
+[2020-03-25T21:08:51.003Z] Start git flow feature 'lazyload-providers': started.
+[2020-03-25T21:08:51.103Z] Start git flow feature 'lazyload-providers': finished. gk-log://duration?t=100
+[2020-03-25T21:09:20.443Z] Stage composer.json for commit: started.
+[2020-03-25T21:09:20.488Z] Stage composer.json for commit: finished. gk-log://duration?t=45
+[2020-03-25T21:09:21.504Z] Commit: started.
+[2020-03-25T21:09:21.530Z] Commit: finished creating commit 687183d850fccb2836ee93bd92ef13f22a97ff17
+[2020-03-25T21:09:29.928Z] Finish git flow feature 'lazyload-providers': started.
+[2020-03-25T21:10:10.102Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-25T21:10:15.388Z] Unstage composer.json: started.
+[2020-03-25T21:10:15.424Z] Unstage composer.json: finished. gk-log://duration?t=36
+[2020-03-25T21:10:15.432Z] Reset all files: started.
+[2020-03-25T21:10:15.455Z] Reset all files: finished. gk-log://duration?t=23
+[2020-03-25T21:10:15.640Z] Reset all submodules: started.
+[2020-03-25T21:10:15.670Z] Reset all submodules: finished. gk-log://duration?t=30
+[2020-03-25T21:10:16.909Z] Push develop: started.
+[2020-03-25T21:10:24.006Z] Push develop: finished. gk-log://duration?t=7097
+[2020-03-25T21:10:32.653Z] Start git flow feature 'lazyload-providers': started.
+[2020-03-25T21:10:32.781Z] Start git flow feature 'lazyload-providers': finished. gk-log://duration?t=128
+[2020-03-25T21:10:54.127Z] Stage composer.json for commit: started.
+[2020-03-25T21:10:54.170Z] Stage composer.json for commit: finished. gk-log://duration?t=43
+[2020-03-25T21:10:54.914Z] Commit: started.
+[2020-03-25T21:10:54.941Z] Commit: finished creating commit 09142f363a55230698c8b5ec2c3f469ab4d94f8e
+[2020-03-25T23:17:22.033Z] Commit: started.
+[2020-03-25T23:17:22.083Z] Commit: finished creating commit 38e649f250439ab86acae7a02f6ac7fb626833cc
+[2020-03-25T23:18:05.906Z] Stage src/Plugin/Plugin.php for commit: started.
+[2020-03-25T23:18:06.164Z] Stage src/Plugin/Plugin.php for commit: finished. gk-log://duration?t=258
+[2020-03-25T23:18:16.830Z] Stage src/Manager/SubscriptionManager.php for commit: started.
+[2020-03-25T23:18:17.001Z] Stage src/Manager/SubscriptionManager.php for commit: finished. gk-log://duration?t=171
+[2020-03-25T23:18:18.664Z] Stage 7 files for commit: started.
+[2020-03-25T23:18:18.810Z] Stage 7 files for commit: finished. gk-log://duration?t=146
+[2020-03-25T23:18:49.617Z] Commit: started.
+[2020-03-25T23:18:49.670Z] Commit: finished creating commit 56518f1fa1518fe6d241bcd0ba1410b06b702d4e
+[2020-03-25T23:19:24.268Z] Finish git flow feature 'lazyload-providers': started.
+[2020-03-25T23:19:24.684Z] Finish git flow feature 'lazyload-providers': finished. gk-log://duration?t=416
+[2020-03-25T23:19:27.397Z] Push develop: started.
+[2020-03-25T23:19:31.548Z] Push develop: finished. gk-log://duration?t=4151
+[2020-03-25T23:35:42.213Z] Undo Action with reflog message "commit (merge): Merge branch 'feature/lazyload-providers' into develop": started.
+[2020-03-25T23:35:42.229Z] Undo Action with reflog message "commit (merge): Merge branch 'feature/lazyload-providers' into develop": finished. gk-log://duration?t=16
+[2020-03-25T23:35:53.639Z] Unstage 8 files: started.
+[2020-03-25T23:35:53.673Z] Unstage 8 files: finished. gk-log://duration?t=34
+[2020-03-25T23:35:58.448Z] Push develop: started.
+[2020-03-25T23:36:07.546Z] Push develop: cancelled. gk-log://duration?t=9098
+[2020-03-25T23:36:19.105Z] Stage src/Provider/SubscriptionProvider.php for commit: started.
+[2020-03-25T23:36:19.349Z] Stage src/Provider/SubscriptionProvider.php for commit: finished. gk-log://duration?t=244
+[2020-03-25T23:36:55.508Z] Unstage 8 files: started.
+[2020-03-25T23:36:55.553Z] Unstage 8 files: finished. gk-log://duration?t=45
+[2020-03-25T23:36:55.570Z] Reset all files: started.
+[2020-03-25T23:36:55.618Z] Reset all files: finished. gk-log://duration?t=48
+[2020-03-25T23:36:55.833Z] Reset all submodules: started.
+[2020-03-25T23:36:55.847Z] Reset all submodules: finished. gk-log://duration?t=14
+[2020-03-25T23:36:57.666Z] Pull develop: started.
+[2020-03-25T23:36:57.683Z] Fetch remote origin: started
+[2020-03-25T23:36:58.937Z] Fetch remote origin: finished gk-log://duration?t=1254
+[2020-03-25T23:36:58.985Z] Merge origin/develop into develop: started.
+[2020-03-25T23:36:59.026Z] Merge origin/develop into develop: finished. gk-log://duration?t=41
+[2020-03-25T23:36:59.045Z] Pull develop: finished. gk-log://duration?t=1379
+[2020-03-26T00:43:06.048Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T00:44:05.916Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T00:45:05.930Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T00:46:05.935Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T00:47:05.951Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T00:48:05.941Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T00:49:05.995Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T00:50:05.958Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T00:51:05.958Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T00:52:05.945Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T00:53:06.021Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T00:54:05.930Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T00:55:06.006Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T00:56:05.942Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T00:57:05.963Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T00:58:05.953Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T00:59:05.968Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:00:05.975Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:01:05.984Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:02:05.988Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:03:05.987Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:04:06.005Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:05:06.005Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:06:06.030Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:07:06.027Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:08:06.023Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:09:06.029Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:10:06.050Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:11:05.942Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:12:05.962Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:13:06.064Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:14:06.096Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:15:05.981Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:16:05.981Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:17:05.982Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:18:06.005Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:19:06.007Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:20:06.003Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:21:06.023Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:22:06.064Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:23:06.033Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:24:06.068Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:25:06.039Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:26:06.052Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:27:05.955Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:27:58.098Z] Stage 5 files for commit: started.
+[2020-03-26T01:27:58.172Z] Stage 5 files for commit: finished. gk-log://duration?t=74
+[2020-03-26T01:28:04.842Z] Commit: started.
+[2020-03-26T01:28:04.907Z] Commit: finished creating commit e8030f7f3d3edf97784cdf52ca3bf15200d1b680
+[2020-03-26T01:28:05.956Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-03-26T01:28:07.328Z] Push develop: started.
+[2020-03-26T01:28:15.025Z] Push develop: finished. gk-log://duration?t=7697
+[2020-03-26T01:32:58.167Z] Stage 7 files for commit: started.
+[2020-03-26T01:32:58.233Z] Stage 7 files for commit: finished. gk-log://duration?t=66
+[2020-03-26T01:32:59.949Z] Amend commit e8030f7f3d3edf97784cdf52ca3bf15200d1b680: started.
+[2020-03-26T01:32:59.967Z] Amend commit e8030f7f3d3edf97784cdf52ca3bf15200d1b680: finished.
+[2020-03-26T01:33:01.523Z] Push develop: started.
+[2020-03-26T01:33:04.828Z] Pull develop: started.
+[2020-03-26T01:33:04.842Z] Fetch remote origin: started
+[2020-03-26T01:33:06.081Z] Fetch remote origin: finished gk-log://duration?t=1239
+[2020-03-26T01:33:06.108Z] Merge origin/develop into develop: started.
+[2020-03-26T01:33:06.146Z] Merge origin/develop into develop: There are merge conflicts that need to be resolved
+[2020-03-26T01:33:06.176Z] Merge origin/develop into develop: finished with errors. gk-log://duration?t=68
+[2020-03-26T01:33:06.183Z] Pull develop: merge failed
+[2020-03-26T01:33:06.194Z] Pull develop: finished with errors. gk-log://duration?t=1366
+[2020-03-26T01:33:06.202Z] Push develop: merge failed
+[2020-03-26T01:33:06.203Z] Push develop: finished with errors. gk-log://duration?t=4679
+[2020-03-26T01:33:09.151Z] Opening src/Provider/StaticProvider/StaticFilterProvider.php in built-in merge tool
+[2020-03-26T01:33:13.516Z] Opening src/Provider/StaticProvider/StaticFilterProvider.php in built-in merge tool
+[2020-03-26T01:33:14.821Z] Opening src/Provider/StaticProvider/StaticFilterProvider.php in built-in merge tool
+[2020-03-26T01:33:21.686Z] Opening src/Provider/StaticProvider/StaticFilterProvider.php in built-in merge tool
+[2020-03-26T01:33:28.535Z] Stage src/Provider/StaticProvider/StaticFilterProvider.php for commit: started.
+[2020-03-26T01:33:28.614Z] Stage src/Provider/StaticProvider/StaticFilterProvider.php for commit: finished. gk-log://duration?t=79
+[2020-03-26T01:33:29.458Z] Opening src/Provider/StaticProvider/StaticActionProvider.php in built-in merge tool
+[2020-03-26T01:33:31.141Z] Stage src/Provider/StaticProvider/StaticActionProvider.php for commit: started.
+[2020-03-26T01:33:31.231Z] Stage src/Provider/StaticProvider/StaticActionProvider.php for commit: finished. gk-log://duration?t=90
+[2020-03-26T01:33:47.721Z] Undo Commit amend "I was overthinking stuff": started.
+[2020-03-26T01:33:47.731Z] Undo Commit amend "I was overthinking stuff": finished. gk-log://duration?t=10
+[2020-03-26T01:34:04.333Z] Commit: started.
+[2020-03-26T01:34:04.366Z] Commit: finished creating commit 2b0fb8896b01bfa58222cdbc09f637fe391d6997
+[2020-03-26T01:34:07.136Z] Push develop: started.
+[2020-03-26T01:34:11.297Z] Push develop: finished. gk-log://duration?t=4161
+[2020-03-26T01:39:37.856Z] Stage 11 files for commit: started.
+[2020-03-26T01:39:37.947Z] Stage 11 files for commit: finished. gk-log://duration?t=91
+[2020-03-26T01:39:38.805Z] Commit: started.
+[2020-03-26T01:39:38.861Z] Commit: finished creating commit 9412728e583fe969c35dea06910f80de3a2d1488
+[2020-03-26T01:39:41.389Z] Push develop: started.
+[2020-03-26T01:39:45.414Z] Push develop: finished. gk-log://duration?t=4025
+[2020-03-26T01:41:09.186Z] Stage 8 files for commit: started.
+[2020-03-26T01:41:09.248Z] Stage 8 files for commit: finished. gk-log://duration?t=62
+[2020-03-26T01:41:20.460Z] Commit: started.
+[2020-03-26T01:41:20.501Z] Commit: finished creating commit 95028a16c169509a059ff938d945bcb100e0ddad
+[2020-03-26T01:41:22.555Z] Push develop: started.
+[2020-03-26T01:41:26.686Z] Push develop: finished. gk-log://duration?t=4131
+[2020-03-26T01:44:35.854Z] Stage src/Subscription/Manager/PluginAPI.php for commit: started.
+[2020-03-26T01:44:35.914Z] Stage src/Subscription/Manager/PluginAPI.php for commit: finished. gk-log://duration?t=60
+[2020-03-26T01:44:56.805Z] Commit: started.
+[2020-03-26T01:44:56.851Z] Commit: finished creating commit f5e27b34a168ed8c9bbd452565ed4902b27d30d7
+[2020-03-26T01:44:58.873Z] Push develop: started.
+[2020-03-26T01:45:02.866Z] Push develop: finished. gk-log://duration?t=3993
+[2020-03-26T02:08:17.988Z] Stage 2 files for commit: started.
+[2020-03-26T02:08:18.074Z] Stage 2 files for commit: finished. gk-log://duration?t=86
+[2020-03-26T02:08:29.386Z] Commit: started.
+[2020-03-26T02:08:29.437Z] Commit: finished creating commit f2b7947644739c589c60736f5c13eb05942a383b
+[2020-03-26T02:08:31.929Z] Push develop: started.
+[2020-03-26T02:08:35.900Z] Push develop: finished. gk-log://duration?t=3971
+[2020-03-26T02:08:45.665Z] Start git flow feature 'services': started.
+[2020-03-26T02:08:45.755Z] Start git flow feature 'services': finished. gk-log://duration?t=90
+[2020-03-26T02:20:42.992Z] Stage src/Service/Container/ServiceContainer.php for commit: started.
+[2020-03-26T02:20:43.043Z] Stage src/Service/Container/ServiceContainer.php for commit: finished. gk-log://duration?t=51
+[2020-03-26T02:20:46.469Z] Commit: started.
+[2020-03-26T02:20:46.506Z] Commit: finished creating commit afdc5d2245f9d4a2e249c326a64e0e5c52355ebe
+[2020-03-26T02:33:54.987Z] Stage 3 files for commit: started.
+[2020-03-26T02:33:55.055Z] Stage 3 files for commit: finished. gk-log://duration?t=68
+[2020-03-26T02:33:56.163Z] Commit: started.
+[2020-03-26T02:33:56.218Z] Commit: finished creating commit 021b03b4925711643e475c2995c10680d63626d0
+[2020-03-26T03:00:08.044Z] Fetch remote origin: failed to connect to github.com: Network is down
+[2020-03-26T03:07:09.443Z] Fetch remote origin: failed to connect to github.com: Network is down
+[2020-03-26T03:13:11.544Z] Fetch remote origin: failed to connect to github.com: Network is down
+[2020-03-26T03:18:11.347Z] Fetch remote origin: failed to connect to github.com: Network is down
+[2020-03-26T03:25:14.090Z] Fetch remote origin: failed to connect to github.com: Network is down
+[2020-03-26T03:31:14.004Z] Fetch remote origin: failed to connect to github.com: Network is down
+[2020-03-26T03:38:15.375Z] Fetch remote origin: failed to connect to github.com: Network is down
+[2020-03-26T03:47:35.763Z] Finish git flow feature 'services': started.
+[2020-03-26T03:47:36.168Z] Finish git flow feature 'services': finished. gk-log://duration?t=405
+[2020-03-26T03:47:37.823Z] Push develop: started.
+[2020-03-26T03:47:41.917Z] Push develop: finished. gk-log://duration?t=4094
+[2020-03-26T03:47:53.887Z] Start git flow feature 'restructure': started.
+[2020-03-26T03:47:53.975Z] Start git flow feature 'restructure': finished. gk-log://duration?t=88
+[2020-03-26T03:53:16.904Z] Commit: started.
+[2020-03-26T03:53:16.961Z] Commit: finished creating commit 964222c39d9091ac63b6a0f7c6e3bc2541ac59e6
+[2020-03-26T03:53:23.149Z] Stage 26 files for commit: started.
+[2020-03-26T03:53:23.278Z] Stage 26 files for commit: finished. gk-log://duration?t=129
+[2020-03-26T03:53:25.433Z] Amend commit 964222c39d9091ac63b6a0f7c6e3bc2541ac59e6: started.
+[2020-03-26T03:53:25.450Z] Amend commit 964222c39d9091ac63b6a0f7c6e3bc2541ac59e6: finished.
+[2020-03-26T03:53:30.394Z] Finish git flow feature 'restructure': started.
+[2020-03-26T03:53:30.696Z] Finish git flow feature 'restructure': finished. gk-log://duration?t=302
+[2020-03-26T03:53:32.846Z] Push develop: started.
+[2020-03-26T03:53:36.928Z] Push develop: finished. gk-log://duration?t=4082
+[2020-03-26T03:54:52.160Z] Start git flow release '1.0.0': started.
+[2020-03-26T03:54:52.269Z] Start git flow release '1.0.0': finished. gk-log://duration?t=109
+[2020-03-26T03:56:14.646Z] Stage README.md for commit: started.
+[2020-03-26T03:56:14.727Z] Stage README.md for commit: finished. gk-log://duration?t=81
+[2020-03-26T03:56:15.910Z] Commit: started.
+[2020-03-26T03:56:15.968Z] Commit: finished creating commit 1679854e40ed75a4acdeb600146b0afa3656363d
+[2020-03-26T03:56:46.262Z] Stage 3 files for commit: started.
+[2020-03-26T03:56:46.323Z] Stage 3 files for commit: finished. gk-log://duration?t=61
+[2020-03-26T03:56:47.307Z] Commit: started.
+[2020-03-26T03:56:47.340Z] Commit: finished creating commit 3c1e1cf956aba579962e72d5381975fd4489f862
+[2020-03-26T03:56:56.490Z] Finish git flow release '1.0.0': started.
+[2020-03-26T03:56:56.801Z] Finish git flow release '1.0.0': finished. gk-log://duration?t=311
+[2020-03-26T03:57:02.069Z] Push master: started.
+[2020-03-26T03:57:06.154Z] Push master: finished. gk-log://duration?t=4085
+[2020-03-26T03:57:09.028Z] Pushing 1.0.0 to origin: started.
+[2020-03-26T03:57:13.228Z] Pushing 1.0.0 to origin: finished. gk-log://duration?t=4200
+[2020-03-26T03:57:13.972Z] Checkout refs/heads/develop: started.
+[2020-03-26T03:57:14.236Z] Checkout refs/heads/develop: finished. gk-log://duration?t=264
+[2020-03-26T03:57:15.283Z] Push develop: started.
+[2020-03-26T03:57:19.411Z] Push develop: finished. gk-log://duration?t=4128

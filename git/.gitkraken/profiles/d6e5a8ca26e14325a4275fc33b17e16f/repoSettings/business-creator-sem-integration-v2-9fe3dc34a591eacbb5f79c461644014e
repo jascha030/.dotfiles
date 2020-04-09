@@ -1,0 +1,66 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "business-creator-sem-integration-v2": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "business-creator-sem-integration-v2"
+        }
+      }
+    }
+  },
+  "remoteHeadCollectionByRemoteName": {
+    "origin": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "6fc607c75125ca9ef74f167eb06bcbb9da73631f",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/develop": {
+        "name": "refs/heads/develop",
+        "oid": "632b467f79d0bf27177d00100a72ec142218218b",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feature/SEMReservation": {
+        "name": "refs/heads/feature/SEMReservation",
+        "oid": "91784ce41f5d4e0da9caa52a9c08e10c51545dd8",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "6fc607c75125ca9ef74f167eb06bcbb9da73631f",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  },
+  "collapsedSections": [
+    "LOCAL",
+    "REMOTE",
+    "STASHES"
+  ],
+  "layout": {
+    "GraphPanel": {
+      "Tree": {
+        "width": 106
+      }
+    }
+  },
+  "upstreamFrecencyMetadata": {
+    "origin": {
+      "id": "remote-origin",
+      "timestamps": [
+        1576763296837
+      ],
+      "total": 1
+    }
+  }
+}

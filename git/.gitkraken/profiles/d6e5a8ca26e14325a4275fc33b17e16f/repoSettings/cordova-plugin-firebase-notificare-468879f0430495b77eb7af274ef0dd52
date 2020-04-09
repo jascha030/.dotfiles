@@ -1,0 +1,39 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "translas-api": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "translas-api"
+        },
+        "cordova-plugin-firebase-notificare": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "cordova-plugin-firebase-notificare"
+        }
+      },
+      "pondevelopment": {
+        "vag-app": {
+          "hostingServiceType": "bitbucket",
+          "owner": "pondevelopment",
+          "name": "vag-app"
+        },
+        "mind-module-firebase-notificare": {
+          "hostingServiceType": "bitbucket",
+          "owner": "pondevelopment",
+          "name": "mind-module-firebase-notificare"
+        }
+      }
+    },
+    "github": {
+      "jascha030": {
+        "DI-Container": {
+          "hostingServiceType": "github",
+          "owner": "jascha030",
+          "name": "DI-Container"
+        }
+      }
+    }
+  }
+}

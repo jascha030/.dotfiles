@@ -1,0 +1,13 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "pondevelopment": {
+        "vag-app": {
+          "hostingServiceType": "bitbucket",
+          "owner": "pondevelopment",
+          "name": "vag-app"
+        }
+      }
+    }
+  }
+}

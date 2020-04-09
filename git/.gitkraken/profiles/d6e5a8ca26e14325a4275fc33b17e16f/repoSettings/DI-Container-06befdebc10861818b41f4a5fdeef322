@@ -1,0 +1,147 @@
+{
+  "remoteParents": {
+    "github": {
+      "jascha030": {
+        "DI-Container": {
+          "hostingServiceType": "github",
+          "owner": "jascha030",
+          "name": "DI-Container"
+        }
+      }
+    },
+    "bitbucket": {
+      "socialbrothers": {
+        "wind-n-wheels": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "wind-n-wheels"
+        }
+      }
+    }
+  },
+  "upstreamFrecencyMetadata": {
+    "origin": {
+      "id": "remote-origin",
+      "timestamps": [
+        1577098075354,
+        1577180384577,
+        1582751228318
+      ],
+      "total": 3
+    }
+  },
+  "remoteHeadCollectionByRemoteName": {
+    "origin": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "86869a63613d50c6edacd5552c62d0353fb3d433",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/develop": {
+        "name": "refs/heads/develop",
+        "oid": "21a96e232b80a5ece575fd96cc79111ee0ab5afd",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feature/constructor-arguments": {
+        "name": "refs/heads/feature/constructor-arguments",
+        "oid": "dd594f4cb0b51454638c51aded85a5bc1d5a7c5d",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "86869a63613d50c6edacd5552c62d0353fb3d433",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.0.0": {
+        "name": "refs/tags/1.0.0",
+        "oid": "1e103446f1d21c7798080afe3a2571f586a23c59",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.0.0^{}": {
+        "name": "refs/tags/1.0.0^{}",
+        "oid": "54b746f66520d8e9cbb02dd142cc73417361f881",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.1.0": {
+        "name": "refs/tags/1.1.0",
+        "oid": "7a554f92b002b76d24730c3c0b53c7266ab0ecd5",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.1.0^{}": {
+        "name": "refs/tags/1.1.0^{}",
+        "oid": "bc1660f8f19e9d026f48710f969b640f688c2b07",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.2.0": {
+        "name": "refs/tags/1.2.0",
+        "oid": "73ad9ee39751db8a80bfad6f9502467100e4a562",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.2.0^{}": {
+        "name": "refs/tags/1.2.0^{}",
+        "oid": "669546dd1dc944dedb17b910da9f5977b0a38740",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.3.0": {
+        "name": "refs/tags/1.3.0",
+        "oid": "b766f2a4bf64cb0e51057446e6cd6f133c45ebb8",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.3.0^{}": {
+        "name": "refs/tags/1.3.0^{}",
+        "oid": "346ba3d1555dd277f08708733c2cffd0fe995f62",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.4.0": {
+        "name": "refs/tags/1.4.0",
+        "oid": "53dc95f26ae967eb18e8ccb478b2d9aecb551edf",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.4.0^{}": {
+        "name": "refs/tags/1.4.0^{}",
+        "oid": "86869a63613d50c6edacd5552c62d0353fb3d433",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  },
+  "collapsedSections": [],
+  "layout": {
+    "GraphPanel": {
+      "Tree": {
+        "width": 150
+      }
+    }
+  },
+  "collapsedBranchFolders": [
+    "LOCAL-feature",
+    "GITFLOW-feature"
+  ]
+}

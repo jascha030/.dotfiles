@@ -1,0 +1,57 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "business-creator-sem-integration-v2": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "business-creator-sem-integration-v2"
+        }
+      }
+    },
+    "github": {
+      "jascha030": {
+        "WP-OOP-Plugin-Library": {
+          "hostingServiceType": "github",
+          "owner": "jascha030",
+          "name": "WP-OOP-Plugin-Library"
+        }
+      }
+    }
+  },
+  "remoteHeadCollectionByRemoteName": {
+    "origin": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "560d36abe6ee4bebd67727b1d606e22a00608619",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/develop": {
+        "name": "refs/heads/develop",
+        "oid": "560d36abe6ee4bebd67727b1d606e22a00608619",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "560d36abe6ee4bebd67727b1d606e22a00608619",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  },
+  "upstreamFrecencyMetadata": {
+    "origin": {
+      "id": "remote-origin",
+      "timestamps": [
+        1576779154166,
+        1576779163399
+      ],
+      "total": 2
+    }
+  }
+}

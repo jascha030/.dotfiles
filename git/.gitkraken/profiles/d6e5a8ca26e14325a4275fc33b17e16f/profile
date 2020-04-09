@@ -1,0 +1,71 @@
+{
+  "userEmail": "mr.jascha@gmail.com",
+  "userName": "Jascha van Aalst",
+  "services": {
+    "bitbucket": {
+      "ssh": {
+        "keyState": "internal",
+        "publicKeyPath": "/Users/jaschavanaalst/.gitkraken/profiles/d6e5a8ca26e14325a4275fc33b17e16f/ssh/gitkraken_MacBook-Pro-van-Jascha.local_bitbucket_rsa.pub",
+        "privateKeyPath": "/Users/jaschavanaalst/.gitkraken/profiles/d6e5a8ca26e14325a4275fc33b17e16f/ssh/gitkraken_MacBook-Pro-van-Jascha.local_bitbucket_rsa"
+      }
+    }
+  },
+  "layout": {
+    "RefPanel": {
+      "width": 281,
+      "open": true
+    },
+    "DetailPanel": {
+      "width": 400
+    },
+    "CommitMessage": {
+      "rightPanelHeight": 163
+    }
+  },
+  "fileNodeList": {
+    "viewMode": "tree_view",
+    "sort": "name_descending"
+  },
+  "defaultTerminal": "iTerm2",
+  "editor": {
+    "fontFamily": "Monaco"
+  },
+  "repoInit": {
+    "lastRepoInitPath": "/Users/jaschavanaalst/Documents/Socialbrothers/Plugins/SocialBrothersReservationMaker"
+  },
+  "tabInfo": {
+    "tabs": [
+      {
+        "id": "3e802d63-ec74-4c96-942f-fb630e68cafc",
+        "type": "REPO",
+        "repoName": "vag-app",
+        "repoPath": "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/MIND/FIXTEST/vag-app/"
+      },
+      {
+        "id": "ae46492b-fe3d-4512-ae4e-d7cfe7d55e7b",
+        "type": "REPO",
+        "repoName": "wpol-subscriptions",
+        "repoPath": "/Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wpol-subscriptions/"
+      },
+      {
+        "id": "cac23a18-71f2-4d56-b94e-e6741cad98db",
+        "type": "REPO",
+        "repoName": "wp-settings-page",
+        "repoPath": "/Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/"
+      },
+      {
+        "id": "6ea2b8dc-d552-4499-b86f-356e40bafd41",
+        "type": "REPO",
+        "repoName": "container-online",
+        "repoPath": "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/NLCONT-CARNAVON/container-online/"
+      }
+    ],
+    "selectedTabId": "6ea2b8dc-d552-4499-b86f-356e40bafd41"
+  },
+  "profileIcon": "gravatar",
+  "profileName": "Jascha van Aalst",
+  "useCustomTerminalCmd": false,
+  "ui": {
+    "theme": "dark"
+  }
+}

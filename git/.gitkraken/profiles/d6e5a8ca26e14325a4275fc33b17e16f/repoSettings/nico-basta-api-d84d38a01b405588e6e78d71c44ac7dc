@@ -1,0 +1,37 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "nico-basta-api": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "nico-basta-api"
+        }
+      }
+    }
+  },
+  "collapsedSections": [],
+  "layout": {
+    "GraphPanel": {
+      "Tree": {
+        "width": 106
+      }
+    }
+  },
+  "upstreamFrecencyMetadata": {
+    "origin": {
+      "timestamps": [
+        1532005914078,
+        1532012625929,
+        1532081915342,
+        1532093416202,
+        1532351511452,
+        1532424945405,
+        1532434559314,
+        1532504897821
+      ],
+      "total": 8
+    }
+  },
+  "lastPrivateRepoPrompt": "Fri Jul 20 2018 09:24:52 GMT+0200 (CEST)"
+}

@@ -1,0 +1,35 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/bin/node',
+1 verbose cli   '/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'cordova-plugin-firebase-notificare@1.0.3',
+1 verbose cli   '--production',
+1 verbose cli   '--save' ]
+2 info using npm@6.11.3
+3 info using node@v10.17.0
+4 verbose npm-session aeacb19570109bbb
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 http fetch GET 404 https://nexusrepo.pondevelopment.com/repository/npm-all/cordova-plugin-firebase-notificare 847ms
+8 http fetch GET 404 https://nexusrepo.pondevelopment.com/repository/npm-all/cordova-plugin-firebase-notificare 30ms
+9 silly fetchPackageMetaData error for cordova-plugin-firebase-notificare@1.0.3 404 Not Found - GET https://nexusrepo.pondevelopment.com/repository/npm-all/cordova-plugin-firebase-notificare - Not found
+10 timing stage:rollbackFailedOptional Completed in 0ms
+11 timing stage:runTopLevelLifecycles Completed in 3588ms
+12 verbose stack Error: 404 Not Found - GET https://nexusrepo.pondevelopment.com/repository/npm-all/cordova-plugin-firebase-notificare - Not found
+12 verbose stack     at res.buffer.catch.then.body (/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/lib/node_modules/npm/node_modules/npm-registry-fetch/check-response.js:104:15)
+12 verbose stack     at process._tickCallback (internal/process/next_tick.js:68:7)
+13 verbose statusCode 404
+14 verbose pkgid cordova-plugin-firebase-notificare@1.0.3
+15 verbose cwd /Users/jaschavanaalst/Documents/Socialbrothers/Projects/MIND/TEST/vag-app
+16 verbose Darwin 19.0.0
+17 verbose argv "/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/bin/node" "/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/bin/npm" "install" "cordova-plugin-firebase-notificare@1.0.3" "--production" "--save"
+18 verbose node v10.17.0
+19 verbose npm  v6.11.3
+20 error code E404
+21 error 404 Not Found - GET https://nexusrepo.pondevelopment.com/repository/npm-all/cordova-plugin-firebase-notificare - Not found
+22 error 404
+23 error 404 'cordova-plugin-firebase-notificare@1.0.3' is not in the npm registry.
+24 error 404 You should bug the author to publish it (or use the name yourself!)
+25 error 404 Note that you can also install from a
+26 error 404 tarball, folder, http url, or git url.
+27 verbose exit [ 1, true ]

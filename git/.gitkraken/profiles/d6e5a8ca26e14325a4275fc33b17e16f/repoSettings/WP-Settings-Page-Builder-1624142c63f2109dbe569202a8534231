@@ -1,0 +1,66 @@
+{
+  "remoteParents": {
+    "github": {
+      "jascha030": {
+        "WP-settings-page-builder": {
+          "hostingServiceType": "github",
+          "owner": "jascha030",
+          "name": "WP-settings-page-builder"
+        }
+      }
+    },
+    "bitbucket": {
+      "socialbrothers": {
+        "container-online-v2-plugin": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "container-online-v2-plugin"
+        }
+      }
+    }
+  },
+  "remoteHeadCollectionByRemoteName": {
+    "origin": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "e7372886d33d8ddacf6b3dacef55ce11230046f6",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/develop": {
+        "name": "refs/heads/develop",
+        "oid": "c00a0812c7afbedd6eb97557721c3ac3559f3ffc",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "e7372886d33d8ddacf6b3dacef55ce11230046f6",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  },
+  "upstreamFrecencyMetadata": {
+    "origin": {
+      "id": "remote-origin",
+      "timestamps": [
+        1577366024341
+      ],
+      "total": 1
+    }
+  },
+  "layout": {
+    "GraphPanel": {
+      "Tree": {
+        "width": 128
+      }
+    }
+  },
+  "collapsedSections": [
+    "GITFLOW"
+  ]
+}

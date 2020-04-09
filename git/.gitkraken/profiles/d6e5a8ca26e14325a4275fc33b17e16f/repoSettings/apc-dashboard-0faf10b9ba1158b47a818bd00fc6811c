@@ -1,0 +1,10 @@
+{
+  "remoteParents": {},
+  "collapsedSections": [
+    "LOCAL"
+  ],
+  "templates": {
+    "useCommitTemplate": true,
+    "shouldRemoveComments": false
+  }
+}

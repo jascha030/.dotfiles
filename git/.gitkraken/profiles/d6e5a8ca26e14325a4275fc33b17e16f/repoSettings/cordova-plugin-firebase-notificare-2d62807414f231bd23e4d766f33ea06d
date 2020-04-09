@@ -1,0 +1,70 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "pondevelopment": {
+        "mind-module-firebase-notificare": {
+          "hostingServiceType": "bitbucket",
+          "owner": "pondevelopment",
+          "name": "mind-module-firebase-notificare"
+        }
+      },
+      "socialbrothers": {
+        "cordova-plugin-firebase-notificare": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "cordova-plugin-firebase-notificare"
+        }
+      }
+    }
+  },
+  "remoteHeadCollectionByRemoteName": {
+    "origin": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "e7941321d31299450b1d51d80f83c6035caeef22",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "e7941321d31299450b1d51d80f83c6035caeef22",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    },
+    "mind-nexus": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "df692882e0d9623ad4f01215a238fff53f182d4d",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "df692882e0d9623ad4f01215a238fff53f182d4d",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  },
+  "layout": {
+    "GraphPanel": {
+      "Tree": {
+        "width": 84
+      }
+    }
+  },
+  "upstreamFrecencyMetadata": {
+    "origin": {
+      "id": "remote-origin",
+      "timestamps": [
+        1583875852007
+      ],
+      "total": 1
+    }
+  }
+}

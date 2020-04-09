@@ -1,0 +1,176 @@
+[2020-03-04T14:15:16.350Z] Checkout refs/remotes/origin/version/2.0.6: started.
+[2020-03-04T14:15:16.394Z] Create ref refs/heads/version/2.0.6 at 79bc36ef7f9ddab3c1466f7d428c83f7c64539da: started.
+[2020-03-04T14:15:16.475Z] Create ref refs/heads/version/2.0.6 at 79bc36ef7f9ddab3c1466f7d428c83f7c64539da: finished. gk-log://duration?t=81
+[2020-03-04T14:15:18.672Z] Checkout refs/remotes/origin/version/2.0.6: finished. gk-log://duration?t=2322
+[2020-03-04T14:15:22.693Z] Pull version/2.0.6: started.
+[2020-03-04T14:15:22.720Z] Fetch remote origin: started
+[2020-03-04T14:15:25.060Z] Fetch remote origin: finished gk-log://duration?t=2340
+[2020-03-04T14:15:25.095Z] Merge origin/version/2.0.6 into version/2.0.6: started.
+[2020-03-04T14:15:25.700Z] Merge origin/version/2.0.6 into version/2.0.6: finished. gk-log://duration?t=605
+[2020-03-04T14:15:25.719Z] Pull version/2.0.6: finished. gk-log://duration?t=3026
+[2020-03-04T14:58:23.017Z] Stage src/components/notificare-message/notificare-message.module.ts for commit: started.
+[2020-03-04T14:58:24.777Z] Stage src/components/notificare-message/notificare-message.module.ts for commit: finished. gk-log://duration?t=1760
+[2020-03-04T14:58:25.292Z] Stage src/components/notificare-message/notificare-message.component.ts for commit: started.
+[2020-03-04T14:58:26.704Z] Stage src/components/notificare-message/notificare-message.component.ts for commit: finished. gk-log://duration?t=1412
+[2020-03-04T14:58:27.270Z] Stage src/components/notificare-message/notificare-message.component.html for commit: started.
+[2020-03-04T14:58:29.059Z] Stage src/components/notificare-message/notificare-message.component.html for commit: finished. gk-log://duration?t=1789
+[2020-03-04T14:59:07.139Z] Commit: started.
+[2020-03-04T14:59:08.905Z] Commit: finished creating commit a8f6fa3d6a8fe69dd2a34eae9377e5dd91bf85e6
+[2020-03-04T14:59:12.214Z] Push version/2.0.6: started.
+[2020-03-04T14:59:15.611Z] Push version/2.0.6: finished. gk-log://duration?t=3397
+[2020-03-06T10:37:20.125Z] Discard changes in src/state/index.ts: started.
+[2020-03-06T10:37:21.231Z] Discard changes in src/state/index.ts: finished. gk-log://duration?t=1106
+[2020-03-06T10:37:23.281Z] Discard changes in src/state/index.ts: started.
+[2020-03-06T10:37:24.392Z] Discard changes in src/state/index.ts: finished. gk-log://duration?t=1111
+[2020-03-06T10:37:40.818Z] Discard changes in src/state/index.ts: started.
+[2020-03-06T10:37:42.699Z] Discard changes in src/state/index.ts: finished. gk-log://duration?t=1881
+[2020-03-06T10:37:44.009Z] Discard changes in src/state/index.ts: started.
+[2020-03-06T10:37:45.150Z] Discard changes in src/state/index.ts: finished. gk-log://duration?t=1141
+[2020-03-06T10:37:46.231Z] Discard changes in src/state/index.ts: started.
+[2020-03-06T10:37:47.224Z] Discard changes in src/state/index.ts: finished. gk-log://duration?t=993
+[2020-03-06T10:37:48.862Z] Discard changes in src/state/index.ts: started.
+[2020-03-06T10:37:49.977Z] Discard changes in src/state/index.ts: finished. gk-log://duration?t=1115
+[2020-03-06T10:37:51.827Z] Discard changes in src/state/index.ts: started.
+[2020-03-06T10:37:52.784Z] Discard changes in src/state/index.ts: finished. gk-log://duration?t=957
+[2020-03-06T10:37:53.870Z] Discard changes in src/state/index.ts: started.
+[2020-03-06T10:37:54.809Z] Discard changes in src/state/index.ts: finished. gk-log://duration?t=939
+[2020-03-06T12:35:04.408Z] Stage 7 files for commit: started.
+[2020-03-06T12:35:06.286Z] Stage 7 files for commit: finished. gk-log://duration?t=1878
+[2020-03-06T12:40:41.605Z] Stage src/components/notificare-message-header/notificare-message-header.module.ts for commit: started.
+[2020-03-06T12:40:43.373Z] Stage src/components/notificare-message-header/notificare-message-header.module.ts for commit: finished. gk-log://duration?t=1768
+[2020-03-06T12:40:44.010Z] Stage src/components/notificare-message-header/notificare-message-header.component.html for commit: started.
+[2020-03-06T12:40:45.118Z] Stage src/components/notificare-message-header/notificare-message-header.component.html for commit: finished. gk-log://duration?t=1108
+[2020-03-06T12:40:53.546Z] Commit: started.
+[2020-03-06T12:40:54.569Z] Commit: finished creating commit 9102a71343b38f720cf955c943a1dc91e65a6e7f
+[2020-03-06T12:41:20.547Z] Stage src/pages/message-inbox/message-inbox.page.html for commit: started.
+[2020-03-06T12:41:21.836Z] Stage src/pages/message-inbox/message-inbox.page.html for commit: finished. gk-log://duration?t=1289
+[2020-03-06T12:41:29.998Z] Stage src/pages/message-inbox/message-inbox.module.ts for commit: started.
+[2020-03-06T12:41:31.591Z] Stage src/pages/message-inbox/message-inbox.module.ts for commit: finished. gk-log://duration?t=1593
+[2020-03-06T12:41:33.926Z] Stage src/app/app.scss for commit: started.
+[2020-03-06T12:41:35.845Z] Stage src/app/app.scss for commit: finished. gk-log://duration?t=1919
+[2020-03-06T12:42:20.524Z] Stage src/state/effects/login.effects.ts for commit: started.
+[2020-03-06T12:42:22.632Z] Stage src/state/effects/login.effects.ts for commit: finished. gk-log://duration?t=2108
+[2020-03-06T12:42:23.629Z] Stage src/state/effects/index.ts for commit: started.
+[2020-03-06T12:42:24.932Z] Stage src/state/effects/index.ts for commit: finished. gk-log://duration?t=1303
+[2020-03-06T12:42:26.257Z] Stage src/state/effects/driver.effects.ts for commit: started.
+[2020-03-06T12:42:27.413Z] Stage src/state/effects/driver.effects.ts for commit: finished. gk-log://duration?t=1156
+[2020-03-06T12:42:32.201Z] Stage src/state/index.ts for commit: started.
+[2020-03-06T12:42:33.466Z] Stage src/state/index.ts for commit: finished. gk-log://duration?t=1265
+[2020-03-06T12:44:40.116Z] Stage changes in scripts/googleMapsFix.js: started.
+[2020-03-06T12:44:41.519Z] Stage changes in scripts/googleMapsFix.js: finished. gk-log://duration?t=1403
+[2020-03-06T12:44:48.829Z] Stage .gitignore for commit: started.
+[2020-03-06T12:44:50.105Z] Stage .gitignore for commit: finished. gk-log://duration?t=1276
+[2020-03-06T12:45:37.448Z] Commit: started.
+[2020-03-06T12:45:38.440Z] Commit: finished creating commit 59234d35425ebc7f51670685542911af5e851aff
+[2020-03-06T12:48:17.675Z] Push version/2.0.6: started.
+[2020-03-06T12:48:29.453Z] Push version/2.0.6: cancelled. gk-log://duration?t=11778
+[2020-03-06T12:48:30.753Z] Pull version/2.0.6: started.
+[2020-03-06T12:48:30.783Z] Fetch remote origin: started
+[2020-03-06T12:48:32.542Z] Fetch remote origin: finished gk-log://duration?t=1759
+[2020-03-06T12:48:32.577Z] Merge origin/version/2.0.6 into version/2.0.6: started.
+[2020-03-06T12:48:33.470Z] Auto-stash uncommitted changes: started.
+[2020-03-06T12:48:33.490Z] Stage 4 files for stash: started.
+[2020-03-06T12:48:34.804Z] Stage 4 files for stash: finished. gk-log://duration?t=1314
+[2020-03-06T12:48:38.464Z] Auto-stash uncommitted changes: finished. Stash sha: deca31903d78b5a2a4bcc91f00e1ed6149716157 gk-log://duration?t=4994
+[2020-03-06T12:48:38.794Z] Pop most recent stash: started.
+[2020-03-06T12:48:38.935Z] Pop stash deca31903d78b5a2a4bcc91f00e1ed6149716157: finished. gk-log://duration?t=141
+[2020-03-06T12:48:38.989Z] Merge origin/version/2.0.6 into version/2.0.6: finished. gk-log://duration?t=6412
+[2020-03-06T12:48:38.991Z] Pull version/2.0.6: finished. gk-log://duration?t=8238
+[2020-03-06T12:48:54.509Z] Merge version/2.0.6 into origin/version/2.0.6: started.
+[2020-03-06T12:48:54.573Z] Merge version/2.0.6 into origin/version/2.0.6: finished. gk-log://duration?t=64
+[2020-03-06T12:48:58.386Z] Pull version/2.0.6: started.
+[2020-03-06T12:48:58.405Z] Fetch remote origin: started
+[2020-03-06T12:49:00.145Z] Fetch remote origin: finished gk-log://duration?t=1739
+[2020-03-06T12:49:00.314Z] Merge origin/version/2.0.6 into version/2.0.6: started.
+[2020-03-06T12:49:00.337Z] Merge origin/version/2.0.6 into version/2.0.6: finished. gk-log://duration?t=23
+[2020-03-06T12:49:00.367Z] Pull version/2.0.6: finished. gk-log://duration?t=1981
+[2020-03-06T12:49:04.422Z] Push version/2.0.6: started.
+[2020-03-06T12:49:10.977Z] Push version/2.0.6: finished. gk-log://duration?t=6555
+[2020-03-06T13:08:58.045Z] Unstage 5 files: started.
+[2020-03-06T13:08:59.567Z] Unstage 5 files: finished. gk-log://duration?t=1522
+[2020-03-06T16:55:51.565Z] Fetch remote origin: failed to resolve address for bitbucket.org: nodename nor servname provided, or not known
+[2020-03-06T18:19:12.062Z] Fetch remote origin: failed to start SSH session: 
+[2020-03-07T17:55:32.640Z] Fetch remote origin: failed to connect to bitbucket.org: Network is down
+[2020-03-09T11:35:02.318Z] Fetch remote origin: failed to resolve address for bitbucket.org: nodename nor servname provided, or not known
+[2020-03-10T08:11:29.688Z] Stage src/services/notificare-service/notificare.service.ts for commit: started.
+[2020-03-10T08:11:31.063Z] Stage src/services/notificare-service/notificare.service.ts for commit: finished. gk-log://duration?t=1375
+[2020-03-10T08:11:50.723Z] Commit: started.
+[2020-03-10T08:11:51.759Z] Commit: finished creating commit 009f17da04e7cecc3abb2fa08e2ce6acb3e1258d
+[2020-03-10T08:12:01.282Z] Push version/2.0.6: started.
+[2020-03-10T08:12:05.464Z] Push version/2.0.6: finished. gk-log://duration?t=4182
+[2020-03-10T08:29:58.616Z] Checkout refs/remotes/origin/version/2.0.6: started.
+[2020-03-10T08:29:58.677Z] Create ref refs/heads/version/2.0.6 at 009f17da04e7cecc3abb2fa08e2ce6acb3e1258d: started.
+[2020-03-10T08:29:58.859Z] Create ref refs/heads/version/2.0.6 at 009f17da04e7cecc3abb2fa08e2ce6acb3e1258d: finished. gk-log://duration?t=182
+[2020-03-10T08:29:59.057Z] Checkout refs/remotes/origin/version/2.0.6: finished. gk-log://duration?t=441
+[2020-03-10T08:30:08.507Z] Unstage 4 files: started.
+[2020-03-10T08:30:09.940Z] Unstage 4 files: finished. gk-log://duration?t=1433
+[2020-03-10T08:30:09.982Z] Reset all files: started.
+[2020-03-10T08:30:10.061Z] Reset all files: finished. gk-log://duration?t=79
+[2020-03-10T08:30:11.195Z] Reset all submodules: started.
+[2020-03-10T08:30:11.205Z] Reset all submodules: finished. gk-log://duration?t=10
+[2020-03-10T08:30:13.815Z] Checkout refs/heads/version/2.0.6: started.
+[2020-03-10T08:30:15.721Z] Checkout refs/heads/version/2.0.6: finished. gk-log://duration?t=1906
+[2020-03-10T12:07:49.088Z] Checkout refs/remotes/origin/version/2.0.6: started.
+[2020-03-10T12:07:49.123Z] Create ref refs/heads/version/2.0.6 at 009f17da04e7cecc3abb2fa08e2ce6acb3e1258d: started.
+[2020-03-10T12:07:49.198Z] Create ref refs/heads/version/2.0.6 at 009f17da04e7cecc3abb2fa08e2ce6acb3e1258d: finished. gk-log://duration?t=75
+[2020-03-10T12:07:51.556Z] Checkout refs/remotes/origin/version/2.0.6: finished. gk-log://duration?t=2468
+[2020-03-10T12:46:54.624Z] Checkout refs/remotes/origin/version/2.0.6: started.
+[2020-03-10T12:46:54.654Z] Create ref refs/heads/version/2.0.6 at 009f17da04e7cecc3abb2fa08e2ce6acb3e1258d: started.
+[2020-03-10T12:46:54.783Z] Create ref refs/heads/version/2.0.6 at 009f17da04e7cecc3abb2fa08e2ce6acb3e1258d: finished. gk-log://duration?t=129
+[2020-03-10T12:46:55.081Z] Checkout refs/remotes/origin/version/2.0.6: finished. gk-log://duration?t=457
+[2020-03-10T12:47:01.590Z] Unstage 5 files: started.
+[2020-03-10T12:47:03.684Z] Unstage 5 files: finished. gk-log://duration?t=2094
+[2020-03-10T12:47:03.770Z] Reset all files: started.
+[2020-03-10T12:47:03.911Z] Reset all files: finished. gk-log://duration?t=141
+[2020-03-10T12:47:06.681Z] Reset all submodules: started.
+[2020-03-10T12:47:06.694Z] Reset all submodules: finished. gk-log://duration?t=13
+[2020-03-10T12:47:09.866Z] Checkout refs/heads/version/2.0.6: started.
+[2020-03-10T12:47:10.961Z] Checkout refs/heads/version/2.0.6: finished. gk-log://duration?t=1095
+[2020-03-10T12:53:51.860Z] Checkout refs/remotes/origin/version/2.0.6: started.
+[2020-03-10T12:53:51.896Z] Create ref refs/heads/version/2.0.6 at 009f17da04e7cecc3abb2fa08e2ce6acb3e1258d: started.
+[2020-03-10T12:53:52.014Z] Create ref refs/heads/version/2.0.6 at 009f17da04e7cecc3abb2fa08e2ce6acb3e1258d: finished. gk-log://duration?t=118
+[2020-03-10T12:53:52.212Z] Checkout refs/remotes/origin/version/2.0.6: finished. gk-log://duration?t=352
+[2020-03-10T12:54:04.463Z] Unstage 2 files: started.
+[2020-03-10T12:54:06.683Z] Unstage 2 files: finished. gk-log://duration?t=2220
+[2020-03-10T12:54:06.740Z] Reset all files: started.
+[2020-03-10T12:54:06.811Z] Reset all files: finished. gk-log://duration?t=71
+[2020-03-10T12:54:09.287Z] Reset all submodules: started.
+[2020-03-10T12:54:09.293Z] Reset all submodules: finished. gk-log://duration?t=6
+[2020-03-10T12:54:13.562Z] Checkout refs/heads/version/2.0.6: started.
+[2020-03-10T12:54:16.214Z] Checkout refs/heads/version/2.0.6: finished. gk-log://duration?t=2652
+[2020-03-10T13:58:58.288Z] Create ref refs/heads/version/test-firebase at a8f6fa3d6a8fe69dd2a34eae9377e5dd91bf85e6: started.
+[2020-03-10T13:58:58.386Z] Create ref refs/heads/version/test-firebase at a8f6fa3d6a8fe69dd2a34eae9377e5dd91bf85e6: finished. gk-log://duration?t=98
+[2020-03-10T13:58:58.500Z] Checkout refs/heads/version/test-firebase: started.
+[2020-03-10T13:59:02.397Z] Checkout refs/heads/version/test-firebase: finished. gk-log://duration?t=3897
+[2020-03-10T20:51:50.112Z] Unstage package.json: started.
+[2020-03-10T20:51:51.948Z] Unstage package.json: finished. gk-log://duration?t=1836
+[2020-03-10T20:51:52.006Z] Reset all files: started.
+[2020-03-10T20:51:52.073Z] Reset all files: finished. gk-log://duration?t=67
+[2020-03-10T20:51:52.586Z] Reset all submodules: started.
+[2020-03-10T20:51:52.595Z] Reset all submodules: finished. gk-log://duration?t=9
+[2020-03-10T20:51:57.907Z] Checkout refs/remotes/origin/version/2.0.6: started.
+[2020-03-10T20:51:57.957Z] Create ref refs/heads/version/2.0.6 at 009f17da04e7cecc3abb2fa08e2ce6acb3e1258d: started.
+[2020-03-10T20:51:58.047Z] Create ref refs/heads/version/2.0.6 at 009f17da04e7cecc3abb2fa08e2ce6acb3e1258d: finished. gk-log://duration?t=90
+[2020-03-10T20:51:58.526Z] Checkout refs/remotes/origin/version/2.0.6: finished. gk-log://duration?t=619
+[2020-03-10T20:56:49.300Z] Checkout refs/remotes/origin/version/2.0.6: started.
+[2020-03-10T20:56:49.353Z] Create ref refs/heads/version/2.0.6 at 009f17da04e7cecc3abb2fa08e2ce6acb3e1258d: started.
+[2020-03-10T20:56:49.464Z] Create ref refs/heads/version/2.0.6 at 009f17da04e7cecc3abb2fa08e2ce6acb3e1258d: finished. gk-log://duration?t=111
+[2020-03-10T20:56:50.702Z] Checkout refs/remotes/origin/version/2.0.6: finished. gk-log://duration?t=1402
+[2020-03-13T13:35:24.115Z] Create ref refs/heads/feature/test-notificare-android at 2d63767fbeb09e6272597dc8b8c607f5a67f1bcb: started.
+[2020-03-13T13:35:24.201Z] Create ref refs/heads/feature/test-notificare-android at 2d63767fbeb09e6272597dc8b8c607f5a67f1bcb: finished. gk-log://duration?t=86
+[2020-03-13T13:35:24.266Z] Checkout refs/heads/feature/test-notificare-android: started.
+[2020-03-13T13:35:24.721Z] Checkout refs/heads/feature/test-notificare-android: finished. gk-log://duration?t=455
+[2020-03-13T14:15:51.950Z] Unstage 6 files: started.
+[2020-03-13T14:15:52.682Z] Unstage 6 files: finished. gk-log://duration?t=732
+[2020-03-13T14:15:52.829Z] Reset all files: started.
+[2020-03-13T14:15:52.989Z] Reset all files: finished. gk-log://duration?t=160
+[2020-03-13T14:15:53.547Z] Reset all submodules: started.
+[2020-03-13T14:15:53.557Z] Reset all submodules: finished. gk-log://duration?t=10
+[2020-03-17T09:56:58.694Z] Unstage 7 files: started.
+[2020-03-17T09:56:58.908Z] Unstage 7 files: finished. gk-log://duration?t=214
+[2020-03-17T09:56:58.959Z] Reset all files: started.
+[2020-03-17T09:56:59.074Z] Reset all files: finished. gk-log://duration?t=115
+[2020-03-17T09:56:59.337Z] Reset all submodules: started.
+[2020-03-17T09:56:59.349Z] Reset all submodules: finished. gk-log://duration?t=12
+[2020-03-17T09:57:01.096Z] Pull feature/test-notificare-android: started.
+[2020-03-17T09:57:05.840Z] Pull feature/test-notificare-android: cancelled. gk-log://duration?t=4744

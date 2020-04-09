@@ -1,0 +1,17 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "sparcity_api": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "sparcity_api"
+        }
+      }
+    }
+  },
+  "templates": {
+    "useCommitTemplate": true,
+    "shouldRemoveComments": false
+  }
+}

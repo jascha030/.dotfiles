@@ -1,0 +1,22 @@
+{
+  "remoteParents": {
+    "github": {
+      "jascha030": {
+        "cordova-firebasex-notificare-dispatcher": {
+          "hostingServiceType": "github",
+          "owner": "jascha030",
+          "name": "cordova-firebasex-notificare-dispatcher"
+        }
+      }
+    },
+    "bitbucket": {
+      "socialbrothers": {
+        "translas-app": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "translas-app"
+        }
+      }
+    }
+  }
+}

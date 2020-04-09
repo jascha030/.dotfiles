@@ -1,0 +1,4 @@
+[2020-04-07T15:29:00.799Z] Checkout refs/remotes/origin/version/2.0.6: started.
+[2020-04-07T15:29:00.845Z] Create ref refs/heads/version/2.0.6 at 0a01c5417e5c7f7230774fd076f91088ea8c3b6a: started.
+[2020-04-07T15:29:01.012Z] Create ref refs/heads/version/2.0.6 at 0a01c5417e5c7f7230774fd076f91088ea8c3b6a: finished. gk-log://duration?t=167
+[2020-04-07T15:29:03.766Z] Checkout refs/remotes/origin/version/2.0.6: finished. gk-log://duration?t=2967

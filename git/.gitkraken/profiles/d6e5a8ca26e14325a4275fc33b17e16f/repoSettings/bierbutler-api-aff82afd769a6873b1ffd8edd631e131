@@ -1,0 +1,18 @@
+{
+  "lastPrivateRepoPrompt": "Thu Mar 08 2018 09:34:44 GMT+0100 (CET)",
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "bierbutler-api": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "bierbutler-api"
+        }
+      }
+    }
+  },
+  "templates": {
+    "useCommitTemplate": true,
+    "shouldRemoveComments": false
+  }
+}

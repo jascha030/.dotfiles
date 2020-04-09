@@ -1,0 +1,58 @@
+{
+  "remoteParents": {
+    "github": {
+      "jascha030": {
+        "wp-settings-page": {
+          "hostingServiceType": "github",
+          "owner": "jascha030",
+          "name": "wp-settings-page"
+        }
+      }
+    },
+    "bitbucket": {
+      "socialbrothers": {
+        "wp-funforest-recras": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "wp-funforest-recras"
+        }
+      }
+    }
+  },
+  "collapsedRemotes": [],
+  "upstreamFrecencyMetadata": {
+    "origin": {
+      "id": "remote-origin",
+      "timestamps": [
+        1585259792446,
+        1585259810716
+      ],
+      "total": 2
+    }
+  },
+  "remoteHeadCollectionByRemoteName": {
+    "origin": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "e689fb798f2afc535e2988c01fb52a60de2804ff",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/develop": {
+        "name": "refs/heads/develop",
+        "oid": "3a3214a02c3036b8a9217c780661b4d3a18b4e24",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "e689fb798f2afc535e2988c01fb52a60de2804ff",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  }
+}

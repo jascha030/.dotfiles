@@ -1,0 +1,16 @@
+[2020-02-05T12:07:18.291Z] Checkout refs/remotes/origin/version/2.0.5: started.
+[2020-02-05T12:07:18.581Z] Create ref refs/heads/version/2.0.5 at 65c6050e25f005bdd0a160c61f009a4ca4c7e9cd: started.
+[2020-02-05T12:07:18.827Z] Create ref refs/heads/version/2.0.5 at 65c6050e25f005bdd0a160c61f009a4ca4c7e9cd: finished. gk-log://duration?t=246
+[2020-02-05T12:07:18.923Z] Checkout refs/remotes/origin/version/2.0.5: finished. gk-log://duration?t=632
+[2020-02-05T12:07:31.475Z] Unstage 2 files: started.
+[2020-02-05T12:07:33.532Z] Unstage 2 files: finished. gk-log://duration?t=2057
+[2020-02-05T12:07:33.618Z] Reset all files: started.
+[2020-02-05T12:07:33.716Z] Reset all files: finished. gk-log://duration?t=98
+[2020-02-05T12:07:37.879Z] Reset all submodules: started.
+[2020-02-05T12:07:37.886Z] Reset all submodules: finished. gk-log://duration?t=7
+[2020-02-05T12:07:50.872Z] Checkout refs/heads/version/2.0.5: started.
+[2020-02-05T12:07:53.145Z] Checkout refs/heads/version/2.0.5: finished. gk-log://duration?t=2273
+[2020-02-05T12:12:01.563Z] Checkout refs/remotes/origin/version/2.0.5: started.
+[2020-02-05T12:12:01.622Z] Create ref refs/heads/version/2.0.5 at 65c6050e25f005bdd0a160c61f009a4ca4c7e9cd: started.
+[2020-02-05T12:12:01.740Z] Create ref refs/heads/version/2.0.5 at 65c6050e25f005bdd0a160c61f009a4ca4c7e9cd: finished. gk-log://duration?t=118
+[2020-02-05T12:12:05.415Z] Checkout refs/remotes/origin/version/2.0.5: finished. gk-log://duration?t=3852

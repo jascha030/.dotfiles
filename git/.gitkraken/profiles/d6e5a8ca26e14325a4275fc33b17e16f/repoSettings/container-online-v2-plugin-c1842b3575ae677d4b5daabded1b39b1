@@ -1,0 +1,45 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "container-online-v2-plugin": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "container-online-v2-plugin"
+        }
+      }
+    }
+  },
+  "remoteHeadCollectionByRemoteName": {
+    "origin": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "4110409301b77a8547023da650b1ea970b55e318",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/develop": {
+        "name": "refs/heads/develop",
+        "oid": "b7298cfa6fc22cde8dd131aa290d5f4ef9fdfd32",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "4110409301b77a8547023da650b1ea970b55e318",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/release/2.5.0": {
+        "name": "refs/heads/release/2.5.0",
+        "oid": "6c0be5ca3ce7c3bc410eb0c470def7a866f76130",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  }
+}

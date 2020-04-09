@@ -1,0 +1,233 @@
+[2020-01-13T13:46:31.030Z] Stage .gitignore for commit: started.
+[2020-01-13T13:46:31.096Z] Stage .gitignore for commit: finished. gk-log://duration?t=66
+[2020-01-13T13:46:40.460Z] Commit: started.
+[2020-01-13T13:46:40.501Z] Commit: finished creating commit 2934c6823165ea796cce10f4868c8f88fd736f21
+[2020-01-13T13:46:55.527Z] Stage composer.lock for commit: started.
+[2020-01-13T13:46:55.672Z] Stage composer.lock for commit: finished. gk-log://duration?t=145
+[2020-01-13T13:46:56.218Z] Stage composer.json for commit: started.
+[2020-01-13T13:46:56.382Z] Stage composer.json for commit: finished. gk-log://duration?t=164
+[2020-01-13T13:46:59.303Z] Stage .env for commit: started.
+[2020-01-13T13:46:59.592Z] Stage .env for commit: finished. gk-log://duration?t=289
+[2020-01-13T13:47:10.049Z] Commit: started.
+[2020-01-13T13:47:10.082Z] Commit: finished creating commit e524425fb47fe7326bcb09d4fa05e89a22209e95
+[2020-01-13T13:47:14.130Z] Stage recras-koppeling.php for commit: started.
+[2020-01-13T13:47:14.184Z] Stage recras-koppeling.php for commit: finished. gk-log://duration?t=54
+[2020-01-13T13:47:16.480Z] Stage 39 files for commit: started.
+[2020-01-13T13:47:17.025Z] Stage 39 files for commit: finished. gk-log://duration?t=545
+[2020-01-13T13:47:22.588Z] Commit: started.
+[2020-01-13T13:47:22.647Z] Commit: finished creating commit 8e9d47594d11742c0c5793866b28e773fa4e880b
+[2020-01-13T13:47:32.575Z] Initialize git flow: started.
+[2020-01-13T13:47:32.695Z] Initialize git flow: finished. gk-log://duration?t=120
+[2020-01-13T13:47:38.179Z] Checkout refs/heads/develop: started.
+[2020-01-13T13:47:38.305Z] Checkout refs/heads/develop: finished. gk-log://duration?t=126
+[2020-01-13T13:49:18.160Z] Start git flow feature 'plugin-restructure': started.
+[2020-01-13T13:49:18.243Z] Start git flow feature 'plugin-restructure': finished. gk-log://duration?t=83
+[2020-01-13T14:25:17.641Z] Stage 11 files for commit: started.
+[2020-01-13T14:25:17.798Z] Stage 11 files for commit: finished. gk-log://duration?t=157
+[2020-01-13T14:25:21.938Z] Commit: started.
+[2020-01-13T14:25:21.986Z] Commit: finished creating commit ffab6e4082e2aa34eddbaf095f280dc941532613
+[2020-01-13T14:25:54.207Z] Stage recras-koppeling.php for commit: started.
+[2020-01-13T14:25:54.254Z] Stage recras-koppeling.php for commit: finished. gk-log://duration?t=47
+[2020-01-13T14:26:03.889Z] Amend commit ffab6e4082e2aa34eddbaf095f280dc941532613: started.
+[2020-01-13T14:26:03.913Z] Amend commit ffab6e4082e2aa34eddbaf095f280dc941532613: finished.
+[2020-01-13T14:28:27.271Z] Stage src/Core/Actions/PluginActions.php for commit: started.
+[2020-01-13T14:28:27.558Z] Stage src/Core/Actions/PluginActions.php for commit: finished. gk-log://duration?t=287
+[2020-01-13T14:28:28.857Z] Commit: started.
+[2020-01-13T14:28:28.895Z] Commit: finished creating commit 7589c5995aa56c25aa5d88a41b8ce588c3476b57
+[2020-01-13T14:48:08.443Z] Stage 2 files for commit: started.
+[2020-01-13T14:48:08.507Z] Stage 2 files for commit: finished. gk-log://duration?t=64
+[2020-01-13T14:48:09.535Z] Commit: started.
+[2020-01-13T14:48:09.584Z] Commit: finished creating commit f8ea9fe6e022be462eb36a9bdc0a082c6993bb1f
+[2020-01-13T15:20:54.983Z] Stage .env for commit: started.
+[2020-01-13T15:20:55.196Z] Stage .env for commit: finished. gk-log://duration?t=213
+[2020-01-13T15:21:02.450Z] Commit: started.
+[2020-01-13T15:21:02.498Z] Commit: finished creating commit 237bd9fd059409c0661b9394b5924d91e50559a9
+[2020-01-13T15:21:06.335Z] Stage recras-koppeling.php for commit: started.
+[2020-01-13T15:21:06.577Z] Stage recras-koppeling.php for commit: finished. gk-log://duration?t=241
+[2020-01-13T15:21:16.424Z] Stage 4 files for commit: started.
+[2020-01-13T15:21:16.547Z] Stage 4 files for commit: finished. gk-log://duration?t=123
+[2020-01-13T15:21:24.411Z] Commit: started.
+[2020-01-13T15:21:24.452Z] Commit: finished creating commit d9e820f72f3efd4f5b618e684da16f957c0a7fff
+[2020-01-13T15:23:49.738Z] Finish git flow feature 'plugin-restructure': started.
+[2020-01-13T15:23:50.692Z] Finish git flow feature 'plugin-restructure': finished. gk-log://duration?t=954
+[2020-01-13T15:24:06.274Z] Start git flow feature 'ajax': started.
+[2020-01-13T15:24:06.449Z] Start git flow feature 'ajax': finished. gk-log://duration?t=175
+[2020-01-13T15:25:01.983Z] Stage src/Actions/AjaxActions.php for commit: started.
+[2020-01-13T15:25:02.061Z] Stage src/Actions/AjaxActions.php for commit: finished. gk-log://duration?t=78
+[2020-01-13T15:25:11.354Z] Commit: started.
+[2020-01-13T15:25:11.426Z] Commit: finished creating commit 3d5095b96a7e7813e495581237e33f7ce301e4bc
+[2020-01-13T15:39:26.675Z] Stage recras-koppeling.php for commit: started.
+[2020-01-13T15:39:26.759Z] Stage recras-koppeling.php for commit: finished. gk-log://duration?t=84
+[2020-01-13T15:39:28.668Z] Stage 3 files for commit: started.
+[2020-01-13T15:39:28.759Z] Stage 3 files for commit: finished. gk-log://duration?t=91
+[2020-01-13T15:39:47.452Z] Commit: started.
+[2020-01-13T15:39:47.540Z] Commit: finished creating commit 064d690388060220a2685b3b5cf0748d9615aaa2
+[2020-01-13T15:41:12.686Z] Stage recras-koppeling.php for commit: started.
+[2020-01-13T15:41:12.759Z] Stage recras-koppeling.php for commit: finished. gk-log://duration?t=73
+[2020-01-13T15:41:14.631Z] Amend commit 064d690388060220a2685b3b5cf0748d9615aaa2: started.
+[2020-01-13T15:41:14.646Z] Amend commit 064d690388060220a2685b3b5cf0748d9615aaa2: finished.
+[2020-01-13T15:41:19.727Z] Finish git flow feature 'ajax': started.
+[2020-01-13T15:41:19.955Z] Finish git flow feature 'ajax': finished. gk-log://duration?t=228
+[2020-01-13T15:52:48.568Z] Start git flow feature 'quickfixes': started.
+[2020-01-13T15:52:48.626Z] Auto-stash uncommitted changes: started.
+[2020-01-13T15:52:48.660Z] Stage templates/template-recras-form.php for stash: started.
+[2020-01-13T15:52:48.761Z] Stage templates/template-recras-form.php for stash: finished. gk-log://duration?t=101
+[2020-01-13T15:52:48.992Z] Auto-stash uncommitted changes: finished. Stash sha: 6de23c44cabc4c4ba3fa93d77ba38cfb7fb4b88d gk-log://duration?t=366
+[2020-01-13T15:52:49.194Z] Pop most recent stash: started.
+[2020-01-13T15:52:49.407Z] Pop stash 6de23c44cabc4c4ba3fa93d77ba38cfb7fb4b88d: finished. gk-log://duration?t=213
+[2020-01-13T15:52:49.553Z] Start git flow feature 'quickfixes': finished. gk-log://duration?t=985
+[2020-01-13T15:52:56.134Z] Stage templates/template-recras-form.php for commit: started.
+[2020-01-13T15:52:56.296Z] Stage templates/template-recras-form.php for commit: finished. gk-log://duration?t=162
+[2020-01-13T15:53:04.458Z] Commit: started.
+[2020-01-13T15:53:04.530Z] Commit: finished creating commit 0feb4dd919e3519ad5184d1da7281e30b5aa23ab
+[2020-01-13T15:53:58.882Z] Finish git flow feature 'quickfixes': started.
+[2020-01-13T15:53:58.994Z] Finish git flow feature 'quickfixes': finished. gk-log://duration?t=112
+[2020-01-13T15:54:15.786Z] Start git flow feature 'shortcode-options': started.
+[2020-01-13T15:54:15.920Z] Start git flow feature 'shortcode-options': finished. gk-log://duration?t=134
+[2020-01-13T15:55:00.339Z] Stage src/Core/Container/RecrasConnectionContainer.php for commit: started.
+[2020-01-13T15:55:00.434Z] Stage src/Core/Container/RecrasConnectionContainer.php for commit: finished. gk-log://duration?t=95
+[2020-01-13T15:55:08.251Z] Commit: started.
+[2020-01-13T15:55:08.329Z] Commit: finished creating commit 6cbdf5596d3c7029377edc472fa4f734abb24597
+[2020-01-13T16:09:02.731Z] Stage recras-koppeling.php for commit: started.
+[2020-01-13T16:09:02.813Z] Stage recras-koppeling.php for commit: finished. gk-log://duration?t=82
+[2020-01-13T16:09:04.871Z] Stage 3 files for commit: started.
+[2020-01-13T16:09:04.953Z] Stage 3 files for commit: finished. gk-log://duration?t=82
+[2020-01-13T16:09:21.518Z] Commit: started.
+[2020-01-13T16:09:21.597Z] Commit: finished creating commit 631f8bbc4bf33d92450c34e3459193b66904e702
+[2020-01-13T16:36:39.843Z] Stage templates/template-recras-form.php for commit: started.
+[2020-01-13T16:36:39.938Z] Stage templates/template-recras-form.php for commit: finished. gk-log://duration?t=95
+[2020-01-13T16:36:40.892Z] Stage src/Actions/ShortCodeActions.php for commit: started.
+[2020-01-13T16:36:40.982Z] Stage src/Actions/ShortCodeActions.php for commit: finished. gk-log://duration?t=90
+[2020-01-13T16:37:36.088Z] Commit: started.
+[2020-01-13T16:37:36.185Z] Commit: finished creating commit 438f6e35f32271f7b230490556b3b90d14df55a3
+[2020-01-13T16:37:41.545Z] Finish git flow feature 'shortcode-options': started.
+[2020-01-13T16:38:02.532Z] Finish git flow feature 'shortcode-options': started.
+[2020-01-13T16:38:02.551Z] Finish git flow feature 'shortcode-options': cannot locate local branch 'feature/shortcode-options'
+[2020-01-13T16:38:02.570Z] Finish git flow feature 'shortcode-options': finished with errors. gk-log://duration?t=37
+[2020-01-13T16:38:09.116Z] Fetch all remotes: started.
+[2020-01-13T16:38:09.130Z] Fetch all remotes: finished. gk-log://duration?t=14
+[2020-01-13T16:40:43.068Z] Checkout refs/heads/master: started.
+[2020-01-13T16:40:43.432Z] Checkout refs/heads/master: finished. gk-log://duration?t=364
+[2020-01-13T16:40:44.808Z] Push master: started.
+[2020-01-13T16:40:47.557Z] Set upstream for master: started.
+[2020-01-13T16:40:47.722Z] Set upstream for master: finished. gk-log://duration?t=165
+[2020-01-13T16:40:52.861Z] Push master: finished. gk-log://duration?t=8053
+[2020-01-13T16:40:52.894Z] Checkout refs/heads/develop: started.
+[2020-01-13T16:40:53.154Z] Checkout refs/heads/develop: finished. gk-log://duration?t=260
+[2020-01-13T16:40:54.987Z] Push develop: started.
+[2020-01-13T16:40:56.514Z] Set upstream for develop: started.
+[2020-01-13T16:40:56.616Z] Set upstream for develop: finished. gk-log://duration?t=102
+[2020-01-13T16:40:59.620Z] Push develop: finished. gk-log://duration?t=4633
+[2020-01-14T08:09:48.753Z] Fetch remote origin: failed to resolve address for bitbucket.org: nodename nor servname provided, or not known
+[2020-01-14T08:24:54.425Z] Start git flow feature 'formatting': started.
+[2020-01-14T08:24:54.487Z] Auto-stash uncommitted changes: started.
+[2020-01-14T08:24:54.516Z] Stage 2 files for stash: started.
+[2020-01-14T08:24:54.685Z] Stage 2 files for stash: finished. gk-log://duration?t=169
+[2020-01-14T08:24:55.001Z] Auto-stash uncommitted changes: finished. Stash sha: eec1ea281eb3f3ffbcffd684897e9382d65f724c gk-log://duration?t=514
+[2020-01-14T08:24:55.269Z] Pop most recent stash: started.
+[2020-01-14T08:24:55.332Z] Pop stash eec1ea281eb3f3ffbcffd684897e9382d65f724c: finished. gk-log://duration?t=63
+[2020-01-14T08:24:55.530Z] Start git flow feature 'formatting': finished. gk-log://duration?t=1105
+[2020-01-14T08:28:39.888Z] Stage 6 files for commit: started.
+[2020-01-14T08:28:40.010Z] Stage 6 files for commit: finished. gk-log://duration?t=121
+[2020-01-14T08:28:50.700Z] Commit: started.
+[2020-01-14T08:28:50.803Z] Commit: finished creating commit b7b67aa2bdaddca4a02464d821ea0b9a14e58112
+[2020-01-14T08:28:54.674Z] Finish git flow feature 'formatting': started.
+[2020-01-14T08:28:54.818Z] Finish git flow feature 'formatting': finished. gk-log://duration?t=144
+[2020-01-14T08:28:57.254Z] Push develop: started.
+[2020-01-14T08:29:00.226Z] Push develop: finished. gk-log://duration?t=2972
+[2020-01-14T09:01:52.367Z] Start git flow feature 'update-plugin': started.
+[2020-01-14T09:01:52.423Z] Auto-stash uncommitted changes: started.
+[2020-01-14T09:01:52.448Z] Stage 3 files for stash: started.
+[2020-01-14T09:01:52.562Z] Stage 3 files for stash: finished. gk-log://duration?t=114
+[2020-01-14T09:01:52.783Z] Auto-stash uncommitted changes: finished. Stash sha: c28dfc78639d60815c68e6c6f5e2d79ff6811a38 gk-log://duration?t=360
+[2020-01-14T09:01:52.850Z] Pop most recent stash: started.
+[2020-01-14T09:01:52.991Z] Pop stash c28dfc78639d60815c68e6c6f5e2d79ff6811a38: finished. gk-log://duration?t=141
+[2020-01-14T09:01:53.150Z] Start git flow feature 'update-plugin': finished. gk-log://duration?t=783
+[2020-01-14T09:01:55.388Z] Stage 3 files for commit: started.
+[2020-01-14T09:01:55.520Z] Stage 3 files for commit: finished. gk-log://duration?t=131
+[2020-01-14T09:02:06.577Z] Commit: started.
+[2020-01-14T09:02:06.648Z] Commit: finished creating commit 22b4594c4df51fa25a0d2f1536b8d4427f2643bd
+[2020-01-14T09:02:11.210Z] Finish git flow feature 'update-plugin': started.
+[2020-01-14T09:02:11.422Z] Finish git flow feature 'update-plugin': finished. gk-log://duration?t=212
+[2020-01-14T09:02:13.314Z] Push develop: started.
+[2020-01-14T09:02:16.783Z] Push develop: finished. gk-log://duration?t=3469
+[2020-01-14T09:03:19.183Z] Stage src/Core/Container/RecrasConnectionContainer.php for commit: started.
+[2020-01-14T09:03:19.274Z] Stage src/Core/Container/RecrasConnectionContainer.php for commit: finished. gk-log://duration?t=91
+[2020-01-14T09:03:32.011Z] Commit: started.
+[2020-01-14T09:03:32.091Z] Commit: finished creating commit 3d8d416c2ecd09907494704aa78fd57c878ea0c7
+[2020-01-14T09:03:34.006Z] Push develop: started.
+[2020-01-14T09:03:35.952Z] Push develop: finished. gk-log://duration?t=1946
+[2020-01-14T10:15:07.486Z] Start git flow feature 'php<7-compatibility': started.
+[2020-01-14T10:15:07.639Z] Start git flow feature 'php<7-compatibility': finished. gk-log://duration?t=153
+[2020-01-14T10:15:20.234Z] Checkout refs/heads/develop: started.
+[2020-01-14T10:15:20.393Z] Checkout refs/heads/develop: finished. gk-log://duration?t=159
+[2020-01-14T10:15:25.204Z] Delete ref refs/heads/feature/php<7-compatibility at 3d8d416c2ecd09907494704aa78fd57c878ea0c7: started.
+[2020-01-14T10:15:25.234Z] Delete ref refs/heads/feature/php<7-compatibility at 3d8d416c2ecd09907494704aa78fd57c878ea0c7: finished. gk-log://duration?t=30
+[2020-01-14T10:16:35.079Z] Stage composer.lock for commit: started.
+[2020-01-14T10:16:35.162Z] Stage composer.lock for commit: finished. gk-log://duration?t=83
+[2020-01-14T10:16:46.060Z] Commit: started.
+[2020-01-14T10:16:46.139Z] Commit: finished creating commit 52dd4e0f16a63e8cf35aedd5878e302da665bbf5
+[2020-01-14T10:16:48.515Z] Push develop: started.
+[2020-01-14T10:16:51.036Z] Push develop: finished. gk-log://duration?t=2521
+[2020-01-14T10:40:00.082Z] Stage composer.lock for commit: started.
+[2020-01-14T10:40:00.175Z] Stage composer.lock for commit: finished. gk-log://duration?t=93
+[2020-01-14T10:40:00.767Z] Stage composer.json for commit: started.
+[2020-01-14T10:40:00.857Z] Stage composer.json for commit: finished. gk-log://duration?t=90
+[2020-01-14T10:40:02.762Z] Amend commit 52dd4e0f16a63e8cf35aedd5878e302da665bbf5: started.
+[2020-01-14T10:40:02.782Z] Amend commit 52dd4e0f16a63e8cf35aedd5878e302da665bbf5: finished.
+[2020-01-14T10:40:08.036Z] Push develop: started.
+[2020-01-14T10:40:11.455Z] Pull develop: started.
+[2020-01-14T10:40:11.470Z] Fetch remote origin: started
+[2020-01-14T10:40:17.686Z] Fetch remote origin: finished gk-log://duration?t=6216
+[2020-01-14T10:40:17.710Z] Merge origin/develop into develop: started.
+[2020-01-14T10:40:17.781Z] Merge origin/develop into develop: finished. gk-log://duration?t=71
+[2020-01-14T10:40:17.787Z] Pull develop: finished. gk-log://duration?t=6332
+[2020-01-14T10:40:20.672Z] Push develop: finished. gk-log://duration?t=12635
+[2020-01-14T10:41:01.531Z] Stage src/Actions/ShortCodeActions.php for commit: started.
+[2020-01-14T10:41:01.620Z] Stage src/Actions/ShortCodeActions.php for commit: finished. gk-log://duration?t=89
+[2020-01-14T10:41:14.521Z] Commit: started.
+[2020-01-14T10:41:14.601Z] Commit: finished creating commit 87fc949871af1394cab12aed2104203f101aaa16
+[2020-01-14T10:41:28.998Z] Stage src/Actions/ShortCodeActions.php for commit: started.
+[2020-01-14T10:41:29.141Z] Stage src/Actions/ShortCodeActions.php for commit: finished. gk-log://duration?t=143
+[2020-01-14T10:41:31.600Z] Amend commit 87fc949871af1394cab12aed2104203f101aaa16: started.
+[2020-01-14T10:41:31.616Z] Amend commit 87fc949871af1394cab12aed2104203f101aaa16: finished.
+[2020-01-14T10:41:33.708Z] Push develop: started.
+[2020-01-14T10:41:36.083Z] Push develop: finished. gk-log://duration?t=2375
+[2020-01-14T10:53:51.450Z] Start git flow feature 'minimum-amount': started.
+[2020-01-14T10:53:51.530Z] Auto-stash uncommitted changes: started.
+[2020-01-14T10:53:51.552Z] Stage assets/js/bookingForm.js for stash: started.
+[2020-01-14T10:53:51.646Z] Stage assets/js/bookingForm.js for stash: finished. gk-log://duration?t=94
+[2020-01-14T10:53:51.889Z] Auto-stash uncommitted changes: finished. Stash sha: 4fe22769ef72ab0dc9849aeea19fca66ef706d55 gk-log://duration?t=359
+[2020-01-14T10:53:51.968Z] Pop most recent stash: started.
+[2020-01-14T10:53:52.002Z] Pop stash 4fe22769ef72ab0dc9849aeea19fca66ef706d55: finished. gk-log://duration?t=34
+[2020-01-14T10:53:52.234Z] Start git flow feature 'minimum-amount': finished. gk-log://duration?t=784
+[2020-01-14T11:02:42.396Z] Stage composer.lock for commit: started.
+[2020-01-14T11:02:42.568Z] Stage composer.lock for commit: finished. gk-log://duration?t=172
+[2020-01-14T11:02:50.486Z] Stage assets/js/bookingForm.js for commit: started.
+[2020-01-14T11:02:50.579Z] Stage assets/js/bookingForm.js for commit: finished. gk-log://duration?t=93
+[2020-01-14T12:30:35.833Z] Stage assets/js/bookingForm.js for commit: started.
+[2020-01-14T12:30:35.996Z] Stage assets/js/bookingForm.js for commit: finished. gk-log://duration?t=163
+[2020-01-14T12:31:11.751Z] Commit: started.
+[2020-01-14T12:31:11.841Z] Commit: finished creating commit 4bd0a89cda44d7749a0086e2636e9a730125d284
+[2020-01-14T12:45:55.042Z] Finish git flow feature 'minimum-amount': started.
+[2020-01-14T12:48:26.641Z] Finish git flow feature 'minimum-amount': started.
+[2020-01-14T12:48:26.663Z] Finish git flow feature 'minimum-amount': cannot locate local branch 'feature/minimum-amount'
+[2020-01-14T12:48:26.691Z] Finish git flow feature 'minimum-amount': finished with errors. gk-log://duration?t=50
+[2020-01-14T12:48:42.125Z] Push develop: started.
+[2020-01-14T12:48:44.380Z] Push develop: finished. gk-log://duration?t=2255
+[2020-01-14T12:49:23.560Z] Start git flow feature 'bookingdate-minimum': started.
+[2020-01-14T12:49:23.724Z] Start git flow feature 'bookingdate-minimum': finished. gk-log://duration?t=164
+[2020-01-15T09:04:58.757Z] Discard changes in src/Actions/AjaxActions.php: started.
+[2020-01-15T09:04:59.010Z] Discard changes in src/Actions/AjaxActions.php: finished. gk-log://duration?t=253
+[2020-01-15T09:05:03.233Z] Stage composer.lock for commit: started.
+[2020-01-15T09:05:03.418Z] Stage composer.lock for commit: finished. gk-log://duration?t=185
+[2020-01-15T09:05:08.424Z] Stage assets/js/bookingForm.js for commit: started.
+[2020-01-15T09:05:08.595Z] Stage assets/js/bookingForm.js for commit: finished. gk-log://duration?t=171
+[2020-01-15T09:05:15.549Z] Commit: started.
+[2020-01-15T09:05:15.633Z] Commit: finished creating commit 0268ee62c80cf4bfde35ce1bdc8af9e4b45111d0
+[2020-01-15T09:05:20.949Z] Finish git flow feature 'bookingdate-minimum': started.
+[2020-01-15T09:05:21.078Z] Finish git flow feature 'bookingdate-minimum': finished. gk-log://duration?t=129
+[2020-01-15T09:05:28.725Z] Push develop: started.
+[2020-01-15T09:05:31.466Z] Push develop: finished. gk-log://duration?t=2741
+[2020-01-15T09:05:31.536Z] Push develop: started.
+[2020-01-15T09:05:33.694Z] Push develop: finished. gk-log://duration?t=2158

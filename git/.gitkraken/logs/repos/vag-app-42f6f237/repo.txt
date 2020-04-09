@@ -1,0 +1,223 @@
+[2020-03-25T15:08:37.897Z] Checkout refs/remotes/origin/version/2.0.6: started.
+[2020-03-25T15:08:37.956Z] Create ref refs/heads/version/2.0.6 at 2f82d021b41fe2381df6ba7af6dc3971b15fe501: started.
+[2020-03-25T15:08:38.060Z] Create ref refs/heads/version/2.0.6 at 2f82d021b41fe2381df6ba7af6dc3971b15fe501: finished. gk-log://duration?t=104
+[2020-03-25T15:08:43.090Z] Checkout refs/remotes/origin/version/2.0.6: finished. gk-log://duration?t=5193
+[2020-03-25T15:50:12.181Z] Stage src/services/notificare-service/notificare.service.ts for commit: started.
+[2020-03-25T15:50:17.330Z] Stage src/services/notificare-service/notificare.service.ts for commit: finished. gk-log://duration?t=5149
+[2020-03-25T15:51:44.828Z] Commit: started.
+[2020-03-25T15:51:50.212Z] Commit: finished creating commit b4737791dd477aaba82b6dc141a35c87eff526b0
+[2020-03-25T15:53:58.022Z] Push version/2.0.6: started.
+[2020-03-25T15:54:01.317Z] Push version/2.0.6: finished. gk-log://duration?t=3295
+[2020-03-27T15:11:18.147Z] Stage src/components/notificare-message-header/notificare-message-header.component.html for commit: started.
+[2020-03-27T15:11:18.491Z] Stage src/components/notificare-message-header/notificare-message-header.component.html for commit: finished. gk-log://duration?t=344
+[2020-03-27T15:11:39.224Z] Commit: started.
+[2020-03-27T15:11:39.355Z] Commit: finished creating commit 00a4e74ad6c547e027ed4adc9251a4bec200d1fb
+[2020-03-30T13:38:44.105Z] Push version/2.0.6: started.
+[2020-03-30T13:40:06.904Z] Pull version/2.0.6: started.
+[2020-03-30T13:40:06.935Z] Fetch remote origin: started
+[2020-03-30T13:40:08.905Z] Fetch remote origin: finished gk-log://duration?t=1970
+[2020-03-30T13:40:09.038Z] Merge origin/version/2.0.6 into version/2.0.6: started.
+[2020-03-30T13:40:09.110Z] Auto-stash uncommitted changes: started.
+[2020-03-30T13:40:09.133Z] Stage 8 files for stash: started.
+[2020-03-30T13:40:09.315Z] Stage 8 files for stash: finished. gk-log://duration?t=182
+[2020-03-30T13:40:09.705Z] Auto-stash uncommitted changes: finished. Stash sha: cde8e3a5c01b2c45197d57b8ba62c43f3c798924 gk-log://duration?t=595
+[2020-03-30T13:40:10.125Z] Pop most recent stash: started.
+[2020-03-30T13:40:10.357Z] Pop stash cde8e3a5c01b2c45197d57b8ba62c43f3c798924: finished. gk-log://duration?t=232
+[2020-03-30T13:40:10.385Z] Merge origin/version/2.0.6 into version/2.0.6: finished. gk-log://duration?t=1347
+[2020-03-30T13:40:10.390Z] Pull version/2.0.6: finished. gk-log://duration?t=3486
+[2020-03-30T13:40:14.790Z] Push version/2.0.6: finished. gk-log://duration?t=90685
+[2020-03-31T18:16:37.859Z] Pull version/2.0.6: started.
+[2020-03-31T18:16:37.881Z] Fetch remote origin: started
+[2020-03-31T18:16:39.244Z] Fetch remote origin: finished gk-log://duration?t=1363
+[2020-03-31T18:16:39.294Z] Merge origin/version/2.0.6 into version/2.0.6: started.
+[2020-03-31T18:16:39.320Z] Merge origin/version/2.0.6 into version/2.0.6: finished. gk-log://duration?t=26
+[2020-03-31T18:16:39.352Z] Pull version/2.0.6: finished. gk-log://duration?t=1493
+[2020-04-01T04:45:33.414Z] Fetch remote origin: failed to resolve address for bitbucket.org: nodename nor servname provided, or not known
+[2020-04-01T13:13:09.580Z] Stage src/app/app.component.ts for commit: started.
+[2020-04-01T13:13:09.833Z] Stage src/app/app.component.ts for commit: finished. gk-log://duration?t=253
+[2020-04-01T13:13:12.515Z] Unstage notificareconfig.properties: started.
+[2020-04-01T13:13:12.657Z] Unstage notificareconfig.properties: finished. gk-log://duration?t=142
+[2020-04-01T13:13:13.221Z] Unstage Notificare.plist: started.
+[2020-04-01T13:13:13.344Z] Unstage Notificare.plist: finished. gk-log://duration?t=123
+[2020-04-02T14:58:12.701Z] Reset unstaged changes in src/state/effects/login.effects.ts: started.
+[2020-04-02T14:58:12.738Z] Reset unstaged changes in src/state/effects/login.effects.ts: finished. gk-log://duration?t=37
+[2020-04-03T14:31:40.712Z] Stage src/services/notificare-service/notificare.service.ts for commit: started.
+[2020-04-03T14:31:40.867Z] Stage src/services/notificare-service/notificare.service.ts for commit: finished. gk-log://duration?t=155
+[2020-04-03T14:31:51.882Z] Unstage src/app/app.component.ts: started.
+[2020-04-03T14:31:52.309Z] Unstage src/app/app.component.ts: finished. gk-log://duration?t=427
+[2020-04-03T14:32:31.596Z] Stage src/app/app.component.ts for commit: started.
+[2020-04-03T14:32:31.863Z] Stage src/app/app.component.ts for commit: finished. gk-log://duration?t=267
+[2020-04-03T14:32:37.541Z] Unstage 13 files: started.
+[2020-04-03T14:32:37.730Z] Unstage 13 files: finished. gk-log://duration?t=189
+[2020-04-03T14:32:48.490Z] Stage src/app/app.component.ts for commit: started.
+[2020-04-03T14:32:48.844Z] Stage src/app/app.component.ts for commit: finished. gk-log://duration?t=354
+[2020-04-03T14:33:42.624Z] Stage src/services/notificare-service/notificare.service.ts for commit: started.
+[2020-04-03T14:33:42.938Z] Stage src/services/notificare-service/notificare.service.ts for commit: finished. gk-log://duration?t=314
+[2020-04-03T14:34:30.575Z] Commit: started.
+[2020-04-03T14:34:30.697Z] Commit: finished creating commit 6c9b11f3f4b42ad611a00fc57d4b7686fddb4a39
+[2020-04-06T09:41:57.689Z] Stage changes in src/app/app.component.ts: started.
+[2020-04-06T09:41:58.043Z] Stage changes in src/app/app.component.ts: finished. gk-log://duration?t=353
+[2020-04-06T09:41:59.497Z] Discard changes in src/app/app.component.ts: started.
+[2020-04-06T09:41:59.668Z] Discard changes in src/app/app.component.ts: finished. gk-log://duration?t=170
+[2020-04-06T09:42:04.205Z] Discard changes in src/app/app.component.ts: started.
+[2020-04-06T09:42:04.320Z] Discard changes in src/app/app.component.ts: finished. gk-log://duration?t=115
+[2020-04-06T09:42:07.511Z] Stage changes in src/app/app.component.ts: started.
+[2020-04-06T09:42:07.657Z] Stage changes in src/app/app.component.ts: finished. gk-log://duration?t=146
+[2020-04-06T09:42:09.443Z] Stage changes in src/app/app.component.ts: started.
+[2020-04-06T09:42:09.906Z] Stage changes in src/app/app.component.ts: finished. gk-log://duration?t=463
+[2020-04-06T09:42:29.268Z] Commit: started.
+[2020-04-06T09:42:29.424Z] Commit: finished creating commit 11862d79ea82e7904159e5d5e3604a9480b2c52d
+[2020-04-06T09:42:49.937Z] Stage src/services/notificare-service/notificare.service.ts for commit: started.
+[2020-04-06T09:42:50.278Z] Stage src/services/notificare-service/notificare.service.ts for commit: finished. gk-log://duration?t=341
+[2020-04-06T09:42:53.218Z] Amend commit 11862d79ea82e7904159e5d5e3604a9480b2c52d: started.
+[2020-04-06T09:42:53.407Z] Amend commit 11862d79ea82e7904159e5d5e3604a9480b2c52d: finished.
+[2020-04-06T09:43:10.640Z] Stage src/state/effects/notificare.effects.ts for commit: started.
+[2020-04-06T09:43:10.993Z] Stage src/state/effects/notificare.effects.ts for commit: finished. gk-log://duration?t=353
+[2020-04-06T09:43:19.968Z] Reset unstaged changes in src/state/effects/driver.effects.ts: started.
+[2020-04-06T09:43:20.000Z] Reset unstaged changes in src/state/effects/driver.effects.ts: finished. gk-log://duration?t=32
+[2020-04-06T11:45:24.592Z] Discard changes in src/app/app.component.ts: started.
+[2020-04-06T11:45:24.733Z] Discard changes in src/app/app.component.ts: finished. gk-log://duration?t=141
+[2020-04-06T11:45:28.047Z] Discard changes in src/app/app.component.ts: started.
+[2020-04-06T11:45:28.218Z] Discard changes in src/app/app.component.ts: finished. gk-log://duration?t=171
+[2020-04-06T15:44:54.447Z] Stage src/app/app.component.ts for commit: started.
+[2020-04-06T15:44:55.016Z] Stage src/app/app.component.ts for commit: finished. gk-log://duration?t=569
+[2020-04-06T15:45:50.184Z] Stage src/services/notificare-service/notificare.service.ts for commit: started.
+[2020-04-06T15:45:50.776Z] Stage src/services/notificare-service/notificare.service.ts for commit: finished. gk-log://duration?t=592
+[2020-04-06T15:46:05.474Z] Reset unstaged changes in src/state/effects/login.effects.ts: started.
+[2020-04-06T15:46:05.497Z] Reset unstaged changes in src/state/effects/login.effects.ts: finished. gk-log://duration?t=23
+[2020-04-06T15:48:04.472Z] Stage changes in src/state/actions/notificare.actions.ts: started.
+[2020-04-06T15:48:04.602Z] Stage changes in src/state/actions/notificare.actions.ts: finished. gk-log://duration?t=130
+[2020-04-06T15:48:05.951Z] Stage changes in src/state/actions/notificare.actions.ts: started.
+[2020-04-06T15:48:06.073Z] Stage changes in src/state/actions/notificare.actions.ts: finished. gk-log://duration?t=122
+[2020-04-06T15:48:07.041Z] Stage changes in src/state/actions/notificare.actions.ts: started.
+[2020-04-06T15:48:07.187Z] Stage changes in src/state/actions/notificare.actions.ts: finished. gk-log://duration?t=146
+[2020-04-06T15:48:08.073Z] Stage changes in src/state/actions/notificare.actions.ts: started.
+[2020-04-06T15:48:08.302Z] Stage changes in src/state/actions/notificare.actions.ts: finished. gk-log://duration?t=229
+[2020-04-06T15:48:57.643Z] Commit: started.
+[2020-04-06T15:48:57.755Z] Commit: finished creating commit d89056f897a6ddcf7d36c6873830bfb99d54edce
+[2020-04-06T16:09:41.669Z] Push version/2.0.6: started.
+[2020-04-06T16:09:48.151Z] Push version/2.0.6: finished. gk-log://duration?t=6482
+[2020-04-06T21:39:46.174Z] Stage changes in src/state/effects/notificare.effects.ts: started.
+[2020-04-06T21:39:46.362Z] Stage changes in src/state/effects/notificare.effects.ts: finished. gk-log://duration?t=188
+[2020-04-06T21:39:49.502Z] Stage changes in src/state/effects/notificare.effects.ts: started.
+[2020-04-06T21:39:49.646Z] Stage changes in src/state/effects/notificare.effects.ts: finished. gk-log://duration?t=144
+[2020-04-06T21:39:54.715Z] Discard changes in src/state/effects/notificare.effects.ts: started.
+[2020-04-06T21:39:54.839Z] Discard changes in src/state/effects/notificare.effects.ts: finished. gk-log://duration?t=124
+[2020-04-06T21:41:02.061Z] Discard changes in src/state/actions/notificare.actions.ts: started.
+[2020-04-06T21:41:02.275Z] Discard changes in src/state/actions/notificare.actions.ts: finished. gk-log://duration?t=214
+[2020-04-06T21:41:20.243Z] Discard changes in src/services/notificare-service/notificare.service.ts: started.
+[2020-04-06T21:41:20.379Z] Discard changes in src/services/notificare-service/notificare.service.ts: finished. gk-log://duration?t=136
+[2020-04-06T21:41:31.449Z] Stage changes in src/services/notificare-service/notificare.service.ts: started.
+[2020-04-06T21:41:31.590Z] Stage changes in src/services/notificare-service/notificare.service.ts: finished. gk-log://duration?t=141
+[2020-04-06T21:41:35.937Z] Stage changes in src/services/notificare-service/notificare.service.ts: started.
+[2020-04-06T21:41:36.076Z] Stage changes in src/services/notificare-service/notificare.service.ts: finished. gk-log://duration?t=139
+[2020-04-06T21:41:43.563Z] Unstage src/services/notificare-service/notificare.service.ts: started.
+[2020-04-06T21:41:43.748Z] Unstage src/services/notificare-service/notificare.service.ts: finished. gk-log://duration?t=185
+[2020-04-06T21:42:02.097Z] Stage changes in src/services/notificare-service/notificare.service.ts: started.
+[2020-04-06T21:42:02.234Z] Stage changes in src/services/notificare-service/notificare.service.ts: finished. gk-log://duration?t=137
+[2020-04-06T21:42:12.201Z] Commit: started.
+[2020-04-06T21:42:12.312Z] Commit: finished creating commit 7efe97190e8acdd3d23a3c8ffffd8c2ce465327b
+[2020-04-06T21:43:02.938Z] Discard changes in src/app/app.component.ts: started.
+[2020-04-06T21:43:03.141Z] Discard changes in src/app/app.component.ts: finished. gk-log://duration?t=203
+[2020-04-06T21:43:18.479Z] Stage src/services/notificare-service/notificare.service.ts for commit: started.
+[2020-04-06T21:43:18.777Z] Stage src/services/notificare-service/notificare.service.ts for commit: finished. gk-log://duration?t=298
+[2020-04-07T08:22:46.189Z] Commit: started.
+[2020-04-07T08:22:46.301Z] Commit: finished creating commit b3970e3b925931a95d01c284d5b0961757b82d16
+[2020-04-07T08:22:49.434Z] Push version/2.0.6: started.
+[2020-04-07T08:22:53.142Z] Push version/2.0.6: finished. gk-log://duration?t=3708
+[2020-04-07T08:23:26.705Z] Amend message of commit b3970e3b925931a95d01c284d5b0961757b82d16: started.
+[2020-04-07T08:23:26.713Z] Amend message of commit b3970e3b925931a95d01c284d5b0961757b82d16: finished.
+[2020-04-07T12:46:37.981Z] Push version/2.0.6: started.
+[2020-04-07T12:46:44.306Z] Push version/2.0.6: cancelled. gk-log://duration?t=6325
+[2020-04-07T12:46:53.749Z] Stage src/state/effects/notificare.effects.ts for commit: started.
+[2020-04-07T12:46:54.274Z] Stage src/state/effects/notificare.effects.ts for commit: finished. gk-log://duration?t=525
+[2020-04-07T12:46:59.598Z] Stage src/services/notificare-service/notificare.service.ts for commit: started.
+[2020-04-07T12:46:59.870Z] Stage src/services/notificare-service/notificare.service.ts for commit: finished. gk-log://duration?t=272
+[2020-04-07T14:40:46.835Z] Stage changes in src/services/notificare-service/notificare.service.ts: started.
+[2020-04-07T14:40:47.189Z] Stage changes in src/services/notificare-service/notificare.service.ts: finished. gk-log://duration?t=354
+[2020-04-07T14:41:00.171Z] Commit: started.
+[2020-04-07T14:41:00.303Z] Commit: finished creating commit 277f7f4ac6bc4268c518d6f149dc61e7f78f6262
+[2020-04-07T14:41:02.678Z] Push version/2.0.6: started.
+[2020-04-07T14:41:16.373Z] Pull version/2.0.6: started.
+[2020-04-07T14:41:16.387Z] Fetch remote origin: started
+[2020-04-07T14:41:18.927Z] Fetch remote origin: finished gk-log://duration?t=2540
+[2020-04-07T14:41:19.064Z] Merge origin/version/2.0.6 into version/2.0.6: started.
+[2020-04-07T14:41:19.123Z] Auto-stash uncommitted changes: started.
+[2020-04-07T14:41:19.154Z] Stage 7 files for stash: started.
+[2020-04-07T14:41:19.372Z] Stage 7 files for stash: finished. gk-log://duration?t=218
+[2020-04-07T14:41:19.812Z] Auto-stash uncommitted changes: finished. Stash sha: 50e6bb079faef62a5edd33481a12275da9b6b00a gk-log://duration?t=689
+[2020-04-07T14:41:20.301Z] Merge origin/version/2.0.6 into version/2.0.6: There are merge conflicts that need to be resolved
+[2020-04-07T14:41:20.390Z] Merge origin/version/2.0.6 into version/2.0.6: finished with errors. gk-log://duration?t=1326
+[2020-04-07T14:41:20.393Z] Pull version/2.0.6: merge failed
+[2020-04-07T14:41:20.394Z] Pull version/2.0.6: finished with errors. gk-log://duration?t=4021
+[2020-04-07T14:41:20.396Z] Push version/2.0.6: merge failed
+[2020-04-07T14:41:20.399Z] Push version/2.0.6: finished with errors. gk-log://duration?t=17721
+[2020-04-07T14:41:26.787Z] Opening src/services/notificare-service/notificare.service.ts in built-in merge tool
+[2020-04-07T14:41:41.448Z] Save merged src/services/notificare-service/notificare.service.ts: started.
+[2020-04-07T14:41:41.456Z] Save merged src/services/notificare-service/notificare.service.ts: finished. gk-log://duration?t=8
+[2020-04-07T14:41:41.459Z] Stage src/services/notificare-service/notificare.service.ts for commit: started.
+[2020-04-07T14:41:41.811Z] Stage src/services/notificare-service/notificare.service.ts for commit: finished. gk-log://duration?t=352
+[2020-04-07T14:41:46.746Z] Push version/2.0.6: started.
+[2020-04-07T14:41:49.672Z] Pull version/2.0.6: started.
+[2020-04-07T14:41:49.683Z] Fetch remote origin: started
+[2020-04-07T14:41:51.365Z] Fetch remote origin: finished gk-log://duration?t=1682
+[2020-04-07T14:41:51.393Z] Merge origin/version/2.0.6 into version/2.0.6: started.
+[2020-04-07T14:41:51.494Z] Merge origin/version/2.0.6 into version/2.0.6: There are merge conflicts that need to be resolved
+[2020-04-07T14:41:51.506Z] Merge origin/version/2.0.6 into version/2.0.6: finished with errors. gk-log://duration?t=113
+[2020-04-07T14:41:51.507Z] Pull version/2.0.6: merge failed
+[2020-04-07T14:41:51.509Z] Pull version/2.0.6: finished with errors. gk-log://duration?t=1837
+[2020-04-07T14:41:51.518Z] Push version/2.0.6: merge failed
+[2020-04-07T14:41:51.519Z] Push version/2.0.6: finished with errors. gk-log://duration?t=4773
+[2020-04-07T14:41:56.205Z] Opening src/services/notificare-service/notificare.service.ts in built-in merge tool
+[2020-04-07T14:42:03.216Z] Save merged src/services/notificare-service/notificare.service.ts: started.
+[2020-04-07T14:42:03.223Z] Save merged src/services/notificare-service/notificare.service.ts: finished. gk-log://duration?t=6
+[2020-04-07T14:42:03.225Z] Stage src/services/notificare-service/notificare.service.ts for commit: started.
+[2020-04-07T14:42:03.505Z] Stage src/services/notificare-service/notificare.service.ts for commit: finished. gk-log://duration?t=280
+[2020-04-07T14:42:16.341Z] Push version/2.0.6: started.
+[2020-04-07T14:42:19.620Z] Pull version/2.0.6: started.
+[2020-04-07T14:42:19.633Z] Fetch remote origin: started
+[2020-04-07T14:42:21.930Z] Fetch remote origin: finished gk-log://duration?t=2297
+[2020-04-07T14:42:21.963Z] Merge origin/version/2.0.6 into version/2.0.6: started.
+[2020-04-07T14:42:22.088Z] Merge origin/version/2.0.6 into version/2.0.6: There are merge conflicts that need to be resolved
+[2020-04-07T14:42:22.107Z] Merge origin/version/2.0.6 into version/2.0.6: finished with errors. gk-log://duration?t=144
+[2020-04-07T14:42:22.109Z] Pull version/2.0.6: merge failed
+[2020-04-07T14:42:22.111Z] Pull version/2.0.6: finished with errors. gk-log://duration?t=2491
+[2020-04-07T14:42:22.113Z] Push version/2.0.6: merge failed
+[2020-04-07T14:42:22.115Z] Push version/2.0.6: finished with errors. gk-log://duration?t=5774
+[2020-04-07T14:42:33.421Z] Stage src/services/notificare-service/notificare.service.ts for commit: started.
+[2020-04-07T14:42:33.562Z] Stage src/services/notificare-service/notificare.service.ts for commit: finished. gk-log://duration?t=141
+[2020-04-07T14:42:40.445Z] Unstage changes in src/services/notificare-service/notificare.service.ts: started.
+[2020-04-07T14:42:40.643Z] Unstage changes in src/services/notificare-service/notificare.service.ts: finished. gk-log://duration?t=198
+[2020-04-07T14:42:43.058Z] Discard changes in src/services/notificare-service/notificare.service.ts: started.
+[2020-04-07T14:42:43.308Z] Discard changes in src/services/notificare-service/notificare.service.ts: finished. gk-log://duration?t=250
+[2020-04-07T14:42:49.379Z] Checkout refs/remotes/origin/version/2.0.6: started.
+[2020-04-07T14:42:52.288Z] Checkout refs/remotes/origin/version/2.0.6: cancelled. gk-log://duration?t=2909
+[2020-04-07T14:42:54.136Z] Pull version/2.0.6: started.
+[2020-04-07T14:42:54.154Z] Fetch remote origin: started
+[2020-04-07T14:42:55.816Z] Fetch remote origin: finished gk-log://duration?t=1662
+[2020-04-07T14:42:55.844Z] Merge origin/version/2.0.6 into version/2.0.6: started.
+[2020-04-07T14:42:55.948Z] Merge origin/version/2.0.6 into version/2.0.6: There are merge conflicts that need to be resolved
+[2020-04-07T14:42:55.970Z] Merge origin/version/2.0.6 into version/2.0.6: finished with errors. gk-log://duration?t=126
+[2020-04-07T14:42:55.972Z] Pull version/2.0.6: merge failed
+[2020-04-07T14:42:55.974Z] Pull version/2.0.6: finished with errors. gk-log://duration?t=1838
+[2020-04-07T14:42:59.724Z] Opening src/services/notificare-service/notificare.service.ts in built-in merge tool
+[2020-04-07T14:43:12.046Z] Save merged src/services/notificare-service/notificare.service.ts: started.
+[2020-04-07T14:43:12.053Z] Save merged src/services/notificare-service/notificare.service.ts: finished. gk-log://duration?t=7
+[2020-04-07T14:43:12.055Z] Stage src/services/notificare-service/notificare.service.ts for commit: started.
+[2020-04-07T14:43:12.390Z] Stage src/services/notificare-service/notificare.service.ts for commit: finished. gk-log://duration?t=335
+[2020-04-07T14:43:14.386Z] Push version/2.0.6: started.
+[2020-04-07T14:43:31.169Z] Push version/2.0.6: cancelled. gk-log://duration?t=16783
+[2020-04-07T14:43:37.516Z] Push version/2.0.6: started.
+[2020-04-07T14:43:48.582Z] Push version/2.0.6: finished. gk-log://duration?t=11066
+[2020-04-07T14:46:05.894Z] Stage src/services/notificare-service/notificare.service.ts for commit: started.
+[2020-04-07T14:46:06.095Z] Stage src/services/notificare-service/notificare.service.ts for commit: finished. gk-log://duration?t=201
+[2020-04-07T14:46:27.200Z] Stage src/services/notificare-service/notificare.service.ts for commit: started.
+[2020-04-07T14:46:27.325Z] Stage src/services/notificare-service/notificare.service.ts for commit: finished. gk-log://duration?t=125
+[2020-04-07T14:46:38.586Z] Commit: started.
+[2020-04-07T14:46:38.686Z] Commit: finished creating commit 0a01c5417e5c7f7230774fd076f91088ea8c3b6a
+[2020-04-07T14:46:40.627Z] Push version/2.0.6: started.
+[2020-04-07T14:46:43.686Z] Push version/2.0.6: finished. gk-log://duration?t=3059
+[2020-04-07T15:10:14.177Z] Apply stash 867490d7d14d2307da95e831d226948a2f376202: started.
+[2020-04-07T15:10:14.301Z] Apply stash 50e6bb079faef62a5edd33481a12275da9b6b00a: finished. gk-log://duration?t=124
+[2020-04-07T15:10:18.961Z] Unstage 7 files: started.
+[2020-04-07T15:10:19.048Z] Unstage 7 files: finished. gk-log://duration?t=87

@@ -1,0 +1,116 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "translas-api": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "translas-api"
+        }
+      }
+    }
+  },
+  "layout": {
+    "GraphPanel": {
+      "Tree": {
+        "width": 106
+      },
+      "RefZone": {
+        "width": 300
+      }
+    }
+  },
+  "collapsedBranchFolders": [
+    "LOCAL-feature"
+  ],
+  "lastPrivateRepoPrompt": "Tue May 28 2019 10:25:33 GMT+0200 (CEST)",
+  "upstreamFrecencyMetadata": {
+    "origin": {
+      "timestamps": [
+        1541756753719,
+        1541761268076,
+        1545215718520,
+        1545228417563,
+        1545299737076,
+        1545992378416,
+        1561734090079,
+        1580202203244
+      ],
+      "total": 8
+    }
+  },
+  "remoteHeadCollectionByRemoteName": {
+    "origin": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "f780b481e61f2cfc1ff5d8405f177758acaf6ef6",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/develop": {
+        "name": "refs/heads/develop",
+        "oid": "5c5786ffce3794473b98030dbfabb608bf399b9d",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feature/ProductMedia": {
+        "name": "refs/heads/feature/ProductMedia",
+        "oid": "36c116a715aac6706452cbd43b0707d8fe92c457",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feature/contact": {
+        "name": "refs/heads/feature/contact",
+        "oid": "7b853760fd9198c98a7259d0a1b8a55c533a5b23",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feature/extra-media-relations": {
+        "name": "refs/heads/feature/extra-media-relations",
+        "oid": "75c933de3e4ed45b5e59b1c4511cabe93105e8b9",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feature/productinfo": {
+        "name": "refs/heads/feature/productinfo",
+        "oid": "9ae25c37c46c4c36377889c5c161d0c2648536d1",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feature/questions": {
+        "name": "refs/heads/feature/questions",
+        "oid": "5b81efd766fe060589b38bf603d7030247ed35ae",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feature/questions-restructure": {
+        "name": "refs/heads/feature/questions-restructure",
+        "oid": "56b482db5df6fde298c6cf55efb1fabb34247206",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feature/user-management": {
+        "name": "refs/heads/feature/user-management",
+        "oid": "3fc383c5eecb075f56a4e3ae4911e3ef02b463a6",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "f780b481e61f2cfc1ff5d8405f177758acaf6ef6",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  }
+}

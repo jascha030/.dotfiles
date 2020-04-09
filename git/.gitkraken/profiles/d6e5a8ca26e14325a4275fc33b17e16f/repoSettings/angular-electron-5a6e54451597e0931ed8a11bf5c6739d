@@ -1,0 +1,18 @@
+{
+  "remoteParents": {
+    "github": {
+      "jascha030": {
+        "JPC_Drumpad": {
+          "hostingServiceType": "github",
+          "owner": "jascha030",
+          "name": "JPC_Drumpad"
+        }
+      }
+    }
+  },
+  "collapsedSections": [],
+  "templates": {
+    "useCommitTemplate": true,
+    "shouldRemoveComments": false
+  }
+}

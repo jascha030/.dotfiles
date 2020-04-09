@@ -1,0 +1,18 @@
+{
+  "lastPrivateRepoPrompt": "Thu Apr 26 2018 13:59:41 GMT+0200 (CEST)",
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "rijkzwaan-app": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "rijkzwaan-app"
+        }
+      }
+    }
+  },
+  "templates": {
+    "useCommitTemplate": true,
+    "shouldRemoveComments": false
+  }
+}

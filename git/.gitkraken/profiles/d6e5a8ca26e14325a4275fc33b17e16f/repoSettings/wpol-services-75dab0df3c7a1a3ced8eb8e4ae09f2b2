@@ -1,0 +1,70 @@
+{
+  "remoteParents": {
+    "github": {
+      "jascha030": {
+        "wpol-services": {
+          "hostingServiceType": "github",
+          "owner": "jascha030",
+          "name": "wpol-services"
+        }
+      }
+    }
+  },
+  "collapsedRemotes": [],
+  "upstreamFrecencyMetadata": {
+    "origin": {
+      "id": "remote-origin",
+      "timestamps": [
+        1585248811588,
+        1585248834062
+      ],
+      "total": 2
+    }
+  },
+  "remoteHeadCollectionByRemoteName": {
+    "origin": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "e8dd8ea1a18e9c6f06f7b8dfd1a4a5d9d71df428",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/develop": {
+        "name": "refs/heads/develop",
+        "oid": "99ba6b3b37696a18c488bf3192c75003489dcba8",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "e8dd8ea1a18e9c6f06f7b8dfd1a4a5d9d71df428",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.0.0": {
+        "name": "refs/tags/1.0.0",
+        "oid": "76836971c7a1bd1b2c8262a2794208a199c9a7f6",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.0.0^{}": {
+        "name": "refs/tags/1.0.0^{}",
+        "oid": "e8dd8ea1a18e9c6f06f7b8dfd1a4a5d9d71df428",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  },
+  "layout": {
+    "GraphPanel": {
+      "Tree": {
+        "width": 106
+      }
+    }
+  }
+}

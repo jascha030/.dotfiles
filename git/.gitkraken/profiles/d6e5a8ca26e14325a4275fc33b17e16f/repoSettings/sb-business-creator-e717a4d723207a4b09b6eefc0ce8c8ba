@@ -1,0 +1,31 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "sem-business-creator-plugin": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "sem-business-creator-plugin"
+        }
+      }
+    }
+  },
+  "remoteHeadCollectionByRemoteName": {
+    "origin": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "d3e55ea129f838ba62aabc1563984c5c045785fa",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "d3e55ea129f838ba62aabc1563984c5c045785fa",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  }
+}

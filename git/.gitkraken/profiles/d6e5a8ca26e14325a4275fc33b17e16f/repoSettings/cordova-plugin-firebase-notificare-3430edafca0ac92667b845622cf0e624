@@ -1,0 +1,83 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "cordova-plugin-firebase-notificare": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "cordova-plugin-firebase-notificare"
+        }
+      }
+    },
+    "github": {
+      "jascha030": {
+        "cordova-firebasex-notificare-dispatcher": {
+          "hostingServiceType": "github",
+          "owner": "jascha030",
+          "name": "cordova-firebasex-notificare-dispatcher"
+        }
+      }
+    }
+  },
+  "remoteHeadCollectionByRemoteName": {
+    "origin": {
+      "refs/heads/develop": {
+        "name": "refs/heads/develop",
+        "oid": "ababba442dd41aeb430f6be7477399d016ddfc3c",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "fb3eddef6c198d9671331da80efd226b1a4a7110",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.0.0": {
+        "name": "refs/tags/1.0.0",
+        "oid": "ed31e5c771240f3d9205864a46202d1317a05c09",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    },
+    "mind-nexus": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "2d8461c3b28748c0ab058d6176394fd1338f5094",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "2d8461c3b28748c0ab058d6176394fd1338f5094",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  },
+  "collapsedRemotes": [
+    "origin"
+  ],
+  "upstreamFrecencyMetadata": {
+    "origin": {
+      "id": "remote-origin",
+      "timestamps": [
+        1579783454367,
+        1579818081109
+      ],
+      "total": 2
+    }
+  },
+  "layout": {
+    "GraphPanel": {
+      "Tree": {
+        "width": 106
+      }
+    }
+  }
+}

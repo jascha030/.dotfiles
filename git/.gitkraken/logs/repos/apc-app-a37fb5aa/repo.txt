@@ -1,0 +1,295 @@
+[2019-12-20T10:29:02.455Z] Stage 3 files for commit: started.
+[2019-12-20T10:29:02.652Z] Stage 3 files for commit: finished. gk-log://duration?t=197
+[2019-12-20T10:43:31.904Z] Commit: started.
+[2019-12-20T10:43:31.984Z] Commit: finished creating commit c97c38bd4b7e17baefec61faa30f94713eeb128c
+[2019-12-20T10:43:38.577Z] Push september-fixes: started.
+[2019-12-20T10:43:43.920Z] Push september-fixes: finished. gk-log://duration?t=5343
+[2019-12-20T10:43:50.406Z] Merge september-fixes into development: started.
+[2019-12-20T10:43:50.480Z] Merge september-fixes into development: finished. gk-log://duration?t=74
+[2019-12-20T10:43:53.122Z] Checkout refs/heads/development: started.
+[2019-12-20T10:43:53.330Z] Checkout refs/heads/development: finished. gk-log://duration?t=208
+[2019-12-20T10:43:55.911Z] Push development: started.
+[2019-12-20T10:43:59.032Z] Push development: finished. gk-log://duration?t=3121
+[2019-12-20T10:44:01.460Z] Checkout refs/heads/september-fixes: started.
+[2019-12-20T10:44:01.616Z] Checkout refs/heads/september-fixes: finished. gk-log://duration?t=155
+[2019-12-20T10:44:09.075Z] Delete ref refs/remotes/origin/september-fixes at c97c38bd4b7e17baefec61faa30f94713eeb128c: started.
+[2019-12-20T10:44:12.164Z] Delete ref refs/remotes/origin/september-fixes at c97c38bd4b7e17baefec61faa30f94713eeb128c: finished. gk-log://duration?t=3088
+[2019-12-20T11:19:20.449Z] Checkout refs/heads/development: started.
+[2019-12-20T11:19:20.720Z] Checkout refs/heads/development: finished. gk-log://duration?t=271
+[2020-01-10T10:04:04.881Z] Initialize git flow: started.
+[2020-01-10T10:04:04.900Z] Initialize git flow: The branch set as the `master` branch must already exist locally
+[2020-01-10T10:04:04.901Z] Initialize git flow: finished with errors. gk-log://duration?t=20
+[2020-01-10T10:04:39.167Z] Checkout refs/remotes/origin/master: started.
+[2020-01-10T10:04:39.226Z] Create ref refs/heads/master at 4d6dffe91d4aa5a9f186af99dffc09257271d8ec: started.
+[2020-01-10T10:04:39.353Z] Create ref refs/heads/master at 4d6dffe91d4aa5a9f186af99dffc09257271d8ec: finished. gk-log://duration?t=127
+[2020-01-10T10:04:39.537Z] Checkout refs/remotes/origin/master: finished. gk-log://duration?t=370
+[2020-01-10T10:04:50.380Z] Stage src/providers/global/global.ts for commit: started.
+[2020-01-10T10:04:50.586Z] Stage src/providers/global/global.ts for commit: finished. gk-log://duration?t=206
+[2020-01-10T10:04:58.881Z] Stage package.json for commit: started.
+[2020-01-10T10:04:59.126Z] Stage package.json for commit: finished. gk-log://duration?t=244
+[2020-01-10T10:04:59.873Z] Stage package-lock.json for commit: started.
+[2020-01-10T10:05:00.140Z] Stage package-lock.json for commit: finished. gk-log://duration?t=266
+[2020-01-10T10:05:08.978Z] Commit: started.
+[2020-01-10T10:05:09.044Z] Commit: finished creating commit d18ecafe682467f4820dfb214f073b26c0822e3c
+[2020-01-10T10:05:15.029Z] Stash uncommitted changes: started.
+[2020-01-10T10:05:15.051Z] Stage 4 files for stash: started.
+[2020-01-10T10:05:15.133Z] Stage 4 files for stash: finished. gk-log://duration?t=82
+[2020-01-10T10:05:15.369Z] Stash uncommitted changes: finished. Stash sha: 499540810ad6e1e28ff7dcfc2a150cf6b8f203e9 gk-log://duration?t=340
+[2020-01-10T10:05:18.262Z] Push development: started.
+[2020-01-10T10:05:23.371Z] Push development: finished. gk-log://duration?t=5109
+[2020-01-10T10:05:29.761Z] Checkout refs/heads/master: started.
+[2020-01-10T10:05:30.180Z] Checkout refs/heads/master: finished. gk-log://duration?t=419
+[2020-01-10T10:05:34.631Z] Checkout refs/heads/development: started.
+[2020-01-10T10:05:35.062Z] Checkout refs/heads/development: finished. gk-log://duration?t=431
+[2020-01-10T10:05:40.538Z] Initialize git flow: started.
+[2020-01-10T10:05:40.659Z] Initialize git flow: finished. gk-log://duration?t=121
+[2020-01-10T10:06:19.498Z] Delete ref refs/remotes/origin/WE-NEED-TO-GO-BACK at 86190f99b0b56117a76ff900a2a5c42053015480: started.
+[2020-01-10T10:06:21.820Z] Delete ref refs/remotes/origin/WE-NEED-TO-GO-BACK at 86190f99b0b56117a76ff900a2a5c42053015480: finished. gk-log://duration?t=2322
+[2020-01-10T10:06:37.439Z] Delete ref refs/heads/september-fixes at c97c38bd4b7e17baefec61faa30f94713eeb128c: started.
+[2020-01-10T10:06:37.502Z] Delete ref refs/heads/september-fixes at c97c38bd4b7e17baefec61faa30f94713eeb128c: finished. gk-log://duration?t=62
+[2020-01-10T10:06:46.612Z] Delete ref refs/remotes/origin/martijns-brans at c8e5b5a2cf23e20fadd8e96981337cc26bae7fa9: started.
+[2020-01-10T10:06:48.372Z] Delete ref refs/remotes/origin/martijns-brans at c8e5b5a2cf23e20fadd8e96981337cc26bae7fa9: finished. gk-log://duration?t=1760
+[2020-01-10T10:06:53.635Z] Delete ref refs/remotes/origin/before-upgrade at bc3eacd8d08c0c2cf52662d1f45af0009eea7318: started.
+[2020-01-10T10:06:55.397Z] Delete ref refs/remotes/origin/before-upgrade at bc3eacd8d08c0c2cf52662d1f45af0009eea7318: finished. gk-log://duration?t=1762
+[2020-01-10T10:07:03.452Z] Delete ref refs/remotes/origin/groteFeedbackMartijn at 892724cc321c9d7ca0758c7322fad0cd6e4f6716: started.
+[2020-01-10T10:07:07.644Z] Delete ref refs/remotes/origin/groteFeedbackMartijn at 892724cc321c9d7ca0758c7322fad0cd6e4f6716: finished. gk-log://duration?t=4192
+[2020-01-10T10:07:15.296Z] Delete ref refs/remotes/origin/feedbackAgain at 9a7a2f152b7e50b4fb3206af39d02e026171dbe5: started.
+[2020-01-10T10:07:17.064Z] Delete ref refs/remotes/origin/feedbackAgain at 9a7a2f152b7e50b4fb3206af39d02e026171dbe5: finished. gk-log://duration?t=1768
+[2020-01-10T10:07:24.939Z] Delete ref refs/remotes/origin/feedbackverwerken at a76c97a59b067a4603727c1b37b451eb4cd48086: started.
+[2020-01-10T10:07:26.715Z] Delete ref refs/remotes/origin/feedbackverwerken at a76c97a59b067a4603727c1b37b451eb4cd48086: finished. gk-log://duration?t=1776
+[2020-01-10T10:07:32.956Z] Delete ref refs/remotes/origin/feedbackChris at 942df6bf9fa9eb71330dcd9ab0dd8671ecbf3824: started.
+[2020-01-10T10:07:35.031Z] Delete ref refs/remotes/origin/feedbackChris at 942df6bf9fa9eb71330dcd9ab0dd8671ecbf3824: finished. gk-log://duration?t=2075
+[2020-01-10T10:07:41.863Z] Delete ref refs/remotes/origin/my-progress at e53c8e953470068c61fd73a3645f6363ae20a258: started.
+[2020-01-10T10:07:44.166Z] Delete ref refs/remotes/origin/my-progress at e53c8e953470068c61fd73a3645f6363ae20a258: finished. gk-log://duration?t=2303
+[2020-01-10T10:07:50.972Z] Delete ref refs/remotes/origin/reminders at f5eef9cc86d83ef4ebc27626a8f850119175adf3: started.
+[2020-01-10T10:07:53.559Z] Delete ref refs/remotes/origin/reminders at f5eef9cc86d83ef4ebc27626a8f850119175adf3: finished. gk-log://duration?t=2587
+[2020-01-10T10:08:00.208Z] Delete ref refs/remotes/origin/feedbackAccepted at dfafc686bfde0d9ab8b5e47afcbc5c6c7b7cb70e: started.
+[2020-01-10T10:08:05.999Z] Delete ref refs/remotes/origin/feedbackAccepted at dfafc686bfde0d9ab8b5e47afcbc5c6c7b7cb70e: finished. gk-log://duration?t=5791
+[2020-01-10T10:08:07.717Z] Delete ref refs/remotes/origin/code-cleanup at 191a8c0b4518ba5ec82fff7049c23dd1544c2c56: started.
+[2020-01-10T10:08:11.575Z] Delete ref refs/remotes/origin/code-cleanup at 191a8c0b4518ba5ec82fff7049c23dd1544c2c56: finished. gk-log://duration?t=3858
+[2020-01-10T10:08:17.946Z] Delete ref refs/remotes/origin/chatfunctie at 3e60c633fccb72ca8aa47c2ae22e9fac8896eab0: started.
+[2020-01-10T10:08:19.808Z] Delete ref refs/remotes/origin/chatfunctie at 3e60c633fccb72ca8aa47c2ae22e9fac8896eab0: finished. gk-log://duration?t=1862
+[2020-01-10T10:08:43.827Z] Delete ref refs/remotes/origin/HOTFIX-add-reminder at 5f6527e56bf9a846614064b0a9095d32e4324d64: started.
+[2020-01-10T10:08:45.745Z] Delete ref refs/remotes/origin/HOTFIX-add-reminder at 5f6527e56bf9a846614064b0a9095d32e4324d64: finished. gk-log://duration?t=1918
+[2020-01-10T10:08:49.098Z] Delete ref refs/remotes/origin/add-user-from-adressbook at e1d15b6713aee0367b35b15a334ad9e5bcc3e3fa: started.
+[2020-01-10T10:08:51.384Z] Delete ref refs/remotes/origin/add-user-from-adressbook at e1d15b6713aee0367b35b15a334ad9e5bcc3e3fa: finished. gk-log://duration?t=2286
+[2020-01-10T10:09:07.104Z] Delete ref refs/remotes/origin/pages-as-module at ca2878f782eeb39db3a1e7542b9f483020856df4: started.
+[2020-01-10T10:09:14.391Z] Delete ref refs/remotes/origin/pages-as-module at ca2878f782eeb39db3a1e7542b9f483020856df4: finished. gk-log://duration?t=7287
+[2020-01-10T10:09:19.920Z] Delete ref refs/remotes/origin/feedback-overview-page at e9c54e1a8384e8a4150941f3c9e01ffd23fc759d: started.
+[2020-01-10T10:09:21.775Z] Delete ref refs/remotes/origin/feedback-overview-page at e9c54e1a8384e8a4150941f3c9e01ffd23fc759d: finished. gk-log://duration?t=1854
+[2020-01-10T10:09:33.371Z] Delete ref refs/remotes/origin/feedbackSupporter at 88f565554c8afa3db37ffd13bd354b60bde15b9e: started.
+[2020-01-10T10:09:35.139Z] Delete ref refs/remotes/origin/feedbackSupporter at 88f565554c8afa3db37ffd13bd354b60bde15b9e: finished. gk-log://duration?t=1768
+[2020-01-10T10:09:50.979Z] Delete ref refs/remotes/origin/style-aanpassingen at b06fdf8a265518001031393c8206fa41fc3ae735: started.
+[2020-01-10T10:09:52.756Z] Delete ref refs/remotes/origin/style-aanpassingen at b06fdf8a265518001031393c8206fa41fc3ae735: finished. gk-log://duration?t=1777
+[2020-01-10T10:10:04.711Z] Delete ref refs/remotes/origin/forget-password at 2415a57c5bca98c7d0c8f83a28610bfd36f8bd9f: started.
+[2020-01-10T10:10:13.384Z] Delete ref refs/remotes/origin/forget-password at 2415a57c5bca98c7d0c8f83a28610bfd36f8bd9f: finished. gk-log://duration?t=8673
+[2020-01-10T10:10:15.473Z] Delete ref refs/remotes/origin/hotfix-loginFlow at 41e5c917ae70b0a9a5dcae247b848437bc910124: started.
+[2020-01-10T10:10:17.507Z] Delete ref refs/remotes/origin/hotfix-loginFlow at 41e5c917ae70b0a9a5dcae247b848437bc910124: finished. gk-log://duration?t=2034
+[2020-01-10T10:12:16.554Z] Start git flow feature 'reminder-datepicker': started.
+[2020-01-10T10:12:17.098Z] Start git flow feature 'reminder-datepicker': finished. gk-log://duration?t=544
+[2020-01-10T10:12:39.146Z] Checkout refs/heads/development: started.
+[2020-01-10T10:12:39.780Z] Checkout refs/heads/development: finished. gk-log://duration?t=634
+[2020-01-10T10:12:53.818Z] Delete ref refs/heads/feature/reminder-datepicker at 4d6dffe91d4aa5a9f186af99dffc09257271d8ec: started.
+[2020-01-10T10:12:53.890Z] Delete ref refs/heads/feature/reminder-datepicker at 4d6dffe91d4aa5a9f186af99dffc09257271d8ec: finished. gk-log://duration?t=72
+[2020-01-10T10:13:08.071Z] Checkout refs/heads/develop: started.
+[2020-01-10T10:13:08.455Z] Checkout refs/heads/develop: finished. gk-log://duration?t=384
+[2020-01-10T10:13:16.044Z] Merge development into develop: started.
+[2020-01-10T10:13:16.099Z] Auto-stash uncommitted changes: started.
+[2020-01-10T10:13:16.124Z] Stage 24 files for stash: started.
+[2020-01-10T10:13:16.266Z] Stage 24 files for stash: finished. gk-log://duration?t=142
+[2020-01-10T10:13:16.389Z] Auto-stash uncommitted changes: finished. Stash sha: 71bf9bf2debaff0ac568cc09ae3972652f2832fd gk-log://duration?t=290
+[2020-01-10T10:13:16.624Z] Finish merge development into develop: started.
+[2020-01-10T10:13:16.641Z] Finish merge development into develop: finished. gk-log://duration?t=17
+[2020-01-10T10:13:16.665Z] Pop most recent stash: started.
+[2020-01-10T10:13:16.965Z] Pop stash 71bf9bf2debaff0ac568cc09ae3972652f2832fd: finished. gk-log://duration?t=300
+[2020-01-10T10:13:16.994Z] Merge development into develop: finished. gk-log://duration?t=950
+[2020-01-10T10:13:24.350Z] Checkout refs/heads/development: started.
+[2020-01-10T10:13:24.877Z] Checkout refs/heads/development: finished. gk-log://duration?t=527
+[2020-01-10T10:13:34.800Z] Unstage 24 files: started.
+[2020-01-10T10:13:35.036Z] Unstage 24 files: finished. gk-log://duration?t=236
+[2020-01-10T10:13:37.119Z] Checkout refs/heads/develop: started.
+[2020-01-10T10:13:37.390Z] Checkout refs/heads/develop: finished. gk-log://duration?t=271
+[2020-01-10T10:13:44.669Z] Checkout refs/heads/development: started.
+[2020-01-10T10:13:44.938Z] Checkout refs/heads/development: finished. gk-log://duration?t=269
+[2020-01-10T10:13:48.706Z] Checkout refs/heads/develop: started.
+[2020-01-10T10:13:48.962Z] Checkout refs/heads/develop: finished. gk-log://duration?t=256
+[2020-01-10T10:14:06.025Z] Checkout refs/heads/development: started.
+[2020-01-10T10:14:06.322Z] Checkout refs/heads/development: finished. gk-log://duration?t=297
+[2020-01-10T10:14:08.563Z] Checkout refs/heads/develop: started.
+[2020-01-10T10:14:08.761Z] Checkout refs/heads/develop: finished. gk-log://duration?t=198
+[2020-01-10T10:14:25.789Z] Start git flow feature 'reminder-datepicker': started.
+[2020-01-10T10:14:25.986Z] Start git flow feature 'reminder-datepicker': finished. gk-log://duration?t=197
+[2020-01-10T10:14:38.724Z] Apply stash 729e11203c0bc10b8d5868712cf08418e54f213b: started.
+[2020-01-10T10:14:38.758Z] Apply stash 499540810ad6e1e28ff7dcfc2a150cf6b8f203e9: finished. gk-log://duration?t=34
+[2020-01-10T10:14:43.905Z] Stage src/pages/reminders/add-new-reminder/add-new-reminder.ts for commit: started.
+[2020-01-10T10:14:44.203Z] Stage src/pages/reminders/add-new-reminder/add-new-reminder.ts for commit: finished. gk-log://duration?t=298
+[2020-01-10T10:15:03.273Z] Commit: started.
+[2020-01-10T10:15:03.402Z] Commit: finished creating commit b2566ff9bda839218b322151a318caa0bde5ca5c
+[2020-01-10T10:15:13.050Z] Finish git flow feature 'reminder-datepicker': started.
+[2020-01-10T10:15:13.412Z] Finish git flow feature 'reminder-datepicker': finished. gk-log://duration?t=362
+[2020-01-10T10:15:40.071Z] Start git flow feature 'complete-changes': started.
+[2020-01-10T10:15:40.250Z] Auto-stash uncommitted changes: started.
+[2020-01-10T10:15:40.281Z] Stage 3 files for stash: started.
+[2020-01-10T10:15:40.449Z] Stage 3 files for stash: finished. gk-log://duration?t=168
+[2020-01-10T10:15:40.850Z] Auto-stash uncommitted changes: finished. Stash sha: 2b94235449022b3b94a23570504b5c2d7108cb2e gk-log://duration?t=600
+[2020-01-10T10:15:40.925Z] Pop most recent stash: started.
+[2020-01-10T10:15:41.061Z] Pop stash 2b94235449022b3b94a23570504b5c2d7108cb2e: finished. gk-log://duration?t=136
+[2020-01-10T10:15:41.359Z] Start git flow feature 'complete-changes': finished. gk-log://duration?t=1288
+[2020-01-10T10:15:49.832Z] Stage src/pages/changes/recipes/recipes.html for commit: started.
+[2020-01-10T10:15:50.060Z] Stage src/pages/changes/recipes/recipes.html for commit: finished. gk-log://duration?t=228
+[2020-01-10T10:15:55.471Z] Commit: started.
+[2020-01-10T10:15:55.589Z] Commit: finished creating commit 05e210f64469d8bf81c24fb922ca4ee482ed5ccf
+[2020-01-10T10:16:03.879Z] Stage src/pages/changes/recipes/addNewRecipe/addNewRecipes.ts for commit: started.
+[2020-01-10T10:16:04.087Z] Stage src/pages/changes/recipes/addNewRecipe/addNewRecipes.ts for commit: finished. gk-log://duration?t=208
+[2020-01-10T10:16:05.593Z] Stage src/pages/changes/recipes/addNewRecipe/addNewRecipes.html for commit: started.
+[2020-01-10T10:16:05.787Z] Stage src/pages/changes/recipes/addNewRecipe/addNewRecipes.html for commit: finished. gk-log://duration?t=194
+[2020-01-10T10:16:11.944Z] Commit: started.
+[2020-01-10T10:16:12.045Z] Commit: finished creating commit 4453133f5aa61a37610d7c402477ca7548207e20
+[2020-01-10T10:16:15.365Z] Checkout refs/heads/develop: started.
+[2020-01-10T10:16:15.571Z] Checkout refs/heads/develop: finished. gk-log://duration?t=206
+[2020-01-10T10:16:16.589Z] Push develop: started.
+[2020-01-10T10:16:19.539Z] Set upstream for develop: started.
+[2020-01-10T10:16:19.724Z] Set upstream for develop: finished. gk-log://duration?t=185
+[2020-01-10T10:16:22.424Z] Push develop: finished. gk-log://duration?t=5835
+[2020-01-10T10:16:22.458Z] Checkout refs/heads/feature/complete-changes: started.
+[2020-01-10T10:16:22.641Z] Checkout refs/heads/feature/complete-changes: finished. gk-log://duration?t=183
+[2020-01-10T10:17:22.675Z] Checkout refs/remotes/origin/feature/home-as-primary: started.
+[2020-01-10T10:17:22.724Z] Create ref refs/heads/feature/home-as-primary at 72413cb3de8768fb2f22f1436df9fffec2ea42a9: started.
+[2020-01-10T10:17:22.800Z] Create ref refs/heads/feature/home-as-primary at 72413cb3de8768fb2f22f1436df9fffec2ea42a9: finished. gk-log://duration?t=76
+[2020-01-10T10:17:23.096Z] Checkout refs/remotes/origin/feature/home-as-primary: finished. gk-log://duration?t=421
+[2020-01-10T10:17:27.343Z] Checkout refs/heads/feature/complete-changes: started.
+[2020-01-10T10:17:27.804Z] Checkout refs/heads/feature/complete-changes: finished. gk-log://duration?t=461
+[2020-01-10T10:20:24.627Z] Stash uncommitted changes: started.
+[2020-01-10T10:20:24.673Z] Stage src/pages/changes/addnewchange/addNewChanges.ts for stash: started.
+[2020-01-10T10:20:25.021Z] Stage src/pages/changes/addnewchange/addNewChanges.ts for stash: finished. gk-log://duration?t=348
+[2020-01-10T10:20:25.434Z] Stash uncommitted changes: finished. Stash sha: f11bdba39967e124eb55cdf84183455b29ff0ec1 gk-log://duration?t=807
+[2020-01-10T10:20:30.895Z] Checkout refs/heads/develop: started.
+[2020-01-10T10:20:31.288Z] Checkout refs/heads/develop: finished. gk-log://duration?t=393
+[2020-01-10T10:20:40.713Z] Start git flow feature 'cleanup': started.
+[2020-01-10T10:20:40.949Z] Start git flow feature 'cleanup': finished. gk-log://duration?t=236
+[2020-01-10T10:34:05.818Z] Stage 31 files for commit: started.
+[2020-01-10T10:34:06.045Z] Stage 31 files for commit: finished. gk-log://duration?t=227
+[2020-01-10T10:34:06.885Z] Commit: started.
+[2020-01-10T10:34:07.022Z] Commit: finished creating commit 23a74609ed9c0366032e5f7a191a2589ec7f7efd
+[2020-01-10T10:35:17.291Z] Finish git flow feature 'cleanup': started.
+[2020-01-10T10:35:17.930Z] Finish git flow feature 'cleanup': finished. gk-log://duration?t=639
+[2020-01-10T10:35:25.840Z] Checkout refs/heads/feature/complete-changes: started.
+[2020-01-10T10:35:26.576Z] Checkout refs/heads/feature/complete-changes: finished. gk-log://duration?t=736
+[2020-01-10T10:35:29.323Z] Merge develop into feature/complete-changes: started.
+[2020-01-10T10:35:29.544Z] Finish merge develop into feature/complete-changes: started.
+[2020-01-10T10:35:29.605Z] Finish merge develop into feature/complete-changes: finished. gk-log://duration?t=61
+[2020-01-10T10:35:29.626Z] Merge develop into feature/complete-changes: finished. gk-log://duration?t=303
+[2020-01-10T10:36:45.381Z] Stage 88 files for commit: started.
+[2020-01-10T10:36:45.855Z] Stage 88 files for commit: finished. gk-log://duration?t=474
+[2020-01-10T10:36:46.333Z] Commit: started.
+[2020-01-10T10:36:46.460Z] Commit: finished creating commit 29e527855d0fcdbbae310c9798fe8d389b894b3a
+[2020-01-10T10:37:47.864Z] Stage 2 files for commit: started.
+[2020-01-10T10:37:47.952Z] Stage 2 files for commit: finished. gk-log://duration?t=88
+[2020-01-10T10:37:48.650Z] Amend commit 29e527855d0fcdbbae310c9798fe8d389b894b3a: started.
+[2020-01-10T10:37:48.692Z] Amend commit 29e527855d0fcdbbae310c9798fe8d389b894b3a: finished.
+[2020-01-10T10:38:39.526Z] Checkout refs/heads/develop: started.
+[2020-01-10T10:38:39.818Z] Checkout refs/heads/develop: finished. gk-log://duration?t=292
+[2020-01-10T10:38:41.357Z] Push develop: started.
+[2020-01-10T10:38:44.782Z] Push develop: finished. gk-log://duration?t=3425
+[2020-01-10T10:38:47.028Z] Checkout refs/heads/feature/complete-changes: started.
+[2020-01-10T10:38:47.370Z] Checkout refs/heads/feature/complete-changes: finished. gk-log://duration?t=342
+[2020-01-10T10:44:23.454Z] Stage src/providers/global/global.ts for commit: started.
+[2020-01-10T10:44:23.672Z] Stage src/providers/global/global.ts for commit: finished. gk-log://duration?t=218
+[2020-01-10T10:44:24.343Z] Amend commit 3cd86947afbc9f70440bc66c978c13b8bae95bc3: started.
+[2020-01-10T10:44:24.389Z] Amend commit 3cd86947afbc9f70440bc66c978c13b8bae95bc3: finished.
+[2020-01-10T10:50:59.932Z] Stage src/app/app.module.ts for commit: started.
+[2020-01-10T10:51:00.168Z] Stage src/app/app.module.ts for commit: finished. gk-log://duration?t=236
+[2020-01-10T10:51:02.185Z] Amend commit b70cf7cb59b4e07835b4f1eecd6e23826fd91f9e: started.
+[2020-01-10T10:51:02.233Z] Amend commit b70cf7cb59b4e07835b4f1eecd6e23826fd91f9e: finished.
+[2020-01-10T10:58:05.613Z] Amend commit aad82ff53f2eafa616bf90b802ddc59a80d77e3b: started.
+[2020-01-10T10:58:05.620Z] Amend commit aad82ff53f2eafa616bf90b802ddc59a80d77e3b: finished.
+[2020-01-10T10:58:08.155Z] Stage src/providers/change/change.ts for commit: started.
+[2020-01-10T10:58:08.382Z] Stage src/providers/change/change.ts for commit: finished. gk-log://duration?t=227
+[2020-01-10T10:58:10.078Z] Amend commit ee4ddc6204aeb1ede3e2d1d174f2a1dc5dcee1a5: started.
+[2020-01-10T10:58:10.118Z] Amend commit ee4ddc6204aeb1ede3e2d1d174f2a1dc5dcee1a5: finished.
+[2020-01-10T11:02:44.673Z] Stage src/providers/change/change.ts for commit: started.
+[2020-01-10T11:02:44.816Z] Stage src/providers/change/change.ts for commit: finished. gk-log://duration?t=143
+[2020-01-10T11:02:46.241Z] Amend commit 5f563f658c470d4e09ea1d63846d112e8cf05006: started.
+[2020-01-10T11:02:46.289Z] Amend commit 5f563f658c470d4e09ea1d63846d112e8cf05006: finished.
+[2020-01-10T12:40:09.200Z] Stage src/pages/changes/editChange/editChange.ts for commit: started.
+[2020-01-10T12:40:09.433Z] Stage src/pages/changes/editChange/editChange.ts for commit: finished. gk-log://duration?t=233
+[2020-01-10T12:40:14.229Z] Stage src/pages/changes/editChange/editChange.html for commit: started.
+[2020-01-10T12:40:14.446Z] Stage src/pages/changes/editChange/editChange.html for commit: finished. gk-log://duration?t=217
+[2020-01-10T12:40:27.105Z] Commit: started.
+[2020-01-10T12:40:27.227Z] Commit: finished creating commit 7224eab1995462acce9e8954678e421401b9c6a1
+[2020-01-13T08:54:14.782Z] Stage src/pages/changes/recipes/addNewRecipe/addNewRecipes.ts for commit: started.
+[2020-01-13T08:54:15.144Z] Stage src/pages/changes/recipes/addNewRecipe/addNewRecipes.ts for commit: finished. gk-log://duration?t=362
+[2020-01-13T08:54:18.379Z] Stage src/providers/change/change.ts for commit: started.
+[2020-01-13T08:54:18.606Z] Stage src/providers/change/change.ts for commit: finished. gk-log://duration?t=227
+[2020-01-13T08:54:37.274Z] Commit: started.
+[2020-01-13T08:54:37.392Z] Commit: finished creating commit ba0b90831fce5dad366ff7ab0e031e3978ea1f8f
+[2020-01-16T08:41:35.873Z] Delete ref refs/remotes/origin/bobs-brans at 16c10ab2ddd2c1e2b5dfc9e641e51282fd33f169: started.
+[2020-01-16T08:41:37.910Z] Delete ref refs/remotes/origin/bobs-brans at 16c10ab2ddd2c1e2b5dfc9e641e51282fd33f169: finished. gk-log://duration?t=2037
+[2020-01-16T08:41:42.145Z] Delete ref refs/remotes/origin/changes-scherm at c898f85e6bf0df47e256604190ed4cbc5953faf0: started.
+[2020-01-16T08:41:44.529Z] Delete ref refs/remotes/origin/changes-scherm at c898f85e6bf0df47e256604190ed4cbc5953faf0: finished. gk-log://duration?t=2384
+[2020-01-16T08:42:05.055Z] Delete ref refs/heads/feature/home-as-primary at 72413cb3de8768fb2f22f1436df9fffec2ea42a9: started.
+[2020-01-16T08:42:05.108Z] Delete ref refs/heads/feature/home-as-primary at 72413cb3de8768fb2f22f1436df9fffec2ea42a9: finished. gk-log://duration?t=53
+[2020-01-16T08:42:05.122Z] Delete ref refs/remotes/origin/feature/home-as-primary at 72413cb3de8768fb2f22f1436df9fffec2ea42a9: started.
+[2020-01-16T08:42:10.325Z] Delete ref refs/remotes/origin/feature/home-as-primary at 72413cb3de8768fb2f22f1436df9fffec2ea42a9: finished. gk-log://duration?t=5203
+[2020-01-16T08:42:18.789Z] Delete ref refs/remotes/origin/feature/recipes-in-changes at b7ac2fb9a3333d154274f793dc6d941b25f2c261: started.
+[2020-01-16T08:42:20.613Z] Delete ref refs/remotes/origin/feature/recipes-in-changes at b7ac2fb9a3333d154274f793dc6d941b25f2c261: finished. gk-log://duration?t=1824
+[2020-01-16T08:42:27.825Z] Delete ref refs/remotes/origin/schermen at 2ff2faa92b2bc63932972a9ab30432b18e153920: started.
+[2020-01-16T08:42:29.753Z] Delete ref refs/remotes/origin/schermen at 2ff2faa92b2bc63932972a9ab30432b18e153920: finished. gk-log://duration?t=1928
+[2020-01-16T08:42:33.159Z] Delete ref refs/remotes/origin/login-flow at 6576342c18bea2ca4fd0a28120c6630b5b9489a0: started.
+[2020-01-16T08:42:35.039Z] Delete ref refs/remotes/origin/login-flow at 6576342c18bea2ca4fd0a28120c6630b5b9489a0: finished. gk-log://duration?t=1880
+[2020-01-16T08:42:41.481Z] Delete ref refs/remotes/origin/add-reminder at 6fd67307091c935a499190f1a2d97108285fb8d4: started.
+[2020-01-16T08:42:43.289Z] Delete ref refs/remotes/origin/add-reminder at 6fd67307091c935a499190f1a2d97108285fb8d4: finished. gk-log://duration?t=1808
+[2020-01-16T08:42:48.963Z] Delete ref refs/remotes/origin/fix-support-routing at 1594550a6c855a3eee1f07fc9a78159dad051614: started.
+[2020-01-16T08:42:50.752Z] Delete ref refs/remotes/origin/fix-support-routing at 1594550a6c855a3eee1f07fc9a78159dad051614: finished. gk-log://duration?t=1789
+[2020-01-16T08:42:54.780Z] Delete ref refs/remotes/origin/document-page at 613ed1f5024b78e445b920d8d544187ba1351741: started.
+[2020-01-16T08:42:57.023Z] Delete ref refs/remotes/origin/document-page at 613ed1f5024b78e445b920d8d544187ba1351741: finished. gk-log://duration?t=2243
+[2020-01-16T08:43:04.315Z] Delete ref refs/remotes/origin/aanpassingen-schermen at 25355fea7f4761d333efb05988f5e36b845f3a08: started.
+[2020-01-16T08:43:06.291Z] Delete ref refs/remotes/origin/aanpassingen-schermen at 25355fea7f4761d333efb05988f5e36b845f3a08: finished. gk-log://duration?t=1976
+[2020-01-16T08:43:10.317Z] Delete ref refs/remotes/origin/aanpasingen-schermen-merge at 8d624935cb45b53a0b914402c8e41d9fe9f7b09b: started.
+[2020-01-16T08:43:16.151Z] Delete ref refs/remotes/origin/aanpasingen-schermen-merge at 8d624935cb45b53a0b914402c8e41d9fe9f7b09b: finished. gk-log://duration?t=5834
+[2020-01-16T08:44:18.744Z] Stage 8 files for commit: started.
+[2020-01-16T08:44:18.887Z] Stage 8 files for commit: finished. gk-log://duration?t=143
+[2020-01-16T08:44:33.982Z] Commit: started.
+[2020-01-16T08:44:34.166Z] Commit: finished creating commit a828720cf839eab0b6f636e2245367a697d475a0
+[2020-01-16T08:44:39.823Z] Finish git flow feature 'complete-changes': started.
+[2020-01-16T08:44:40.287Z] Finish git flow feature 'complete-changes': finished. gk-log://duration?t=464
+[2020-01-16T08:44:43.438Z] Push develop: started.
+[2020-01-16T08:44:47.603Z] Push develop: finished. gk-log://duration?t=4165
+[2020-01-16T08:54:35.931Z] Stage 2 files for commit: started.
+[2020-01-16T08:54:36.144Z] Stage 2 files for commit: finished. gk-log://duration?t=213
+[2020-01-16T08:54:36.950Z] Commit: started.
+[2020-01-16T08:54:37.059Z] Commit: finished creating commit dd30d8b9fb25005ff475c7f2feede2c0e8fb1a57
+[2020-01-16T08:54:48.577Z] Push develop: started.
+[2020-01-16T08:54:50.687Z] Push develop: finished. gk-log://duration?t=2110
+[2020-01-16T13:43:54.705Z] Stage config.xml for commit: started.
+[2020-01-16T13:43:54.943Z] Stage config.xml for commit: finished. gk-log://duration?t=238
+[2020-01-16T13:44:32.732Z] Commit: started.
+[2020-01-16T13:44:32.889Z] Commit: finished creating commit 1835ae2fbe8d0f8d60fd3c51096f8c1952a8c767
+[2020-01-16T13:44:37.439Z] Unstage 188 files: started.
+[2020-01-16T13:44:37.560Z] Unstage 188 files: finished. gk-log://duration?t=121
+[2020-01-16T13:44:37.583Z] Reset all files: started.
+[2020-01-16T13:44:37.988Z] Reset all files: finished. gk-log://duration?t=405
+[2020-01-16T13:44:38.262Z] Reset all submodules: started.
+[2020-01-16T13:44:38.270Z] Reset all submodules: finished. gk-log://duration?t=8
+[2020-01-16T14:27:39.137Z] Fetch remote origin: failed to resolve address for bitbucket.org: nodename nor servname provided, or not known
+[2020-01-16T14:35:47.356Z] Fetch remote origin: failed to resolve address for bitbucket.org: nodename nor servname provided, or not known
+[2020-01-16T14:58:36.040Z] Fetch remote origin: failed to resolve address for bitbucket.org: nodename nor servname provided, or not known
+[2020-01-16T15:02:45.013Z] Fetch remote origin: failed to resolve address for bitbucket.org: nodename nor servname provided, or not known
+[2020-01-16T15:33:22.623Z] Fetch remote origin: failed to resolve address for bitbucket.org: nodename nor servname provided, or not known
+[2020-01-16T16:19:32.682Z] Fetch remote origin: failed to resolve address for bitbucket.org: nodename nor servname provided, or not known
+[2020-01-16T21:05:40.379Z] Fetch remote origin: failed to connect to bitbucket.org: Network is down
+[2020-01-17T08:22:13.759Z] Fetch remote origin: failed to resolve address for bitbucket.org: nodename nor servname provided, or not known
+[2020-01-17T08:30:41.325Z] Push develop: started.
+[2020-01-17T08:30:44.810Z] Push develop: finished. gk-log://duration?t=3485
+[2020-03-06T15:33:54.893Z] Ignore src/models: started.
+[2020-03-06T15:33:56.230Z] Ignore src/models: finished. gk-log://duration?t=1337
+[2020-03-06T15:37:43.435Z] Unstage 307 files: started.
+[2020-03-06T15:37:43.542Z] Unstage 307 files: finished. gk-log://duration?t=107
+[2020-03-06T15:37:48.441Z] Unstage 307 files: started.
+[2020-03-06T15:37:48.515Z] Unstage 307 files: finished. gk-log://duration?t=74
+[2020-03-06T15:37:48.529Z] Reset all files: started.
+[2020-03-06T15:37:48.689Z] Reset all files: finished. gk-log://duration?t=160
+[2020-03-06T15:37:48.942Z] Reset all submodules: started.
+[2020-03-06T15:37:49.069Z] Reset all submodules: finished. gk-log://duration?t=127
+[2020-03-23T15:37:52.015Z] Start git flow feature 'cleanup': started.
+[2020-03-23T15:37:52.371Z] Start git flow feature 'cleanup': finished. gk-log://duration?t=356

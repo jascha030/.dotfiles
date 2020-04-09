@@ -1,0 +1,8 @@
+[2020-02-05T09:52:47.342Z] Checkout refs/remotes/origin/version/2.0.3: started.
+[2020-02-05T09:52:47.666Z] Create ref refs/heads/version/2.0.3 at 2976b11fe4b7ef6d4e6cf1d0e7db6dfb6fd4759b: started.
+[2020-02-05T09:52:47.673Z] Create ref refs/heads/version/2.0.3 at 2976b11fe4b7ef6d4e6cf1d0e7db6dfb6fd4759b: finished. gk-log://duration?t=7
+[2020-02-05T09:52:50.818Z] Checkout refs/remotes/origin/version/2.0.3: finished. gk-log://duration?t=3476
+[2020-02-05T11:27:34.656Z] Checkout refs/remotes/origin/version/2.0.5: started.
+[2020-02-05T11:27:34.725Z] Create ref refs/heads/version/2.0.5 at 65c6050e25f005bdd0a160c61f009a4ca4c7e9cd: started.
+[2020-02-05T11:27:34.854Z] Create ref refs/heads/version/2.0.5 at 65c6050e25f005bdd0a160c61f009a4ca4c7e9cd: finished. gk-log://duration?t=129
+[2020-02-05T11:27:37.005Z] Checkout refs/remotes/origin/version/2.0.5: finished. gk-log://duration?t=2349

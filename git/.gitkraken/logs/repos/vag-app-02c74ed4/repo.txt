@@ -1,0 +1,120 @@
+[2020-01-06T13:26:23.867Z] Stage src/services/notificare-service/notificare.service.ts for commit: started.
+[2020-01-06T13:26:24.374Z] Stage src/services/notificare-service/notificare.service.ts for commit: finished. gk-log://duration?t=507
+[2020-01-06T13:26:49.236Z] Stage src/pages/message-inbox/message-inbox.page.ts for commit: started.
+[2020-01-06T13:26:49.731Z] Stage src/pages/message-inbox/message-inbox.page.ts for commit: finished. gk-log://duration?t=495
+[2020-01-06T13:26:50.189Z] Stage src/pages/message-inbox/message-inbox.page.html for commit: started.
+[2020-01-06T13:26:50.643Z] Stage src/pages/message-inbox/message-inbox.page.html for commit: finished. gk-log://duration?t=454
+[2020-01-06T13:26:56.752Z] Stage src/pages/message-details/message-details.page.ts for commit: started.
+[2020-01-06T13:26:57.082Z] Stage src/pages/message-details/message-details.page.ts for commit: finished. gk-log://duration?t=330
+[2020-01-06T13:27:01.649Z] Stage src/pages/message-details/message-details.page.scss for commit: started.
+[2020-01-06T13:27:02.053Z] Stage src/pages/message-details/message-details.page.scss for commit: finished. gk-log://duration?t=404
+[2020-01-06T13:27:05.650Z] Stage src/pages/message-details/message-details.page.html for commit: started.
+[2020-01-06T13:27:05.968Z] Stage src/pages/message-details/message-details.page.html for commit: finished. gk-log://duration?t=318
+[2020-01-06T13:27:08.357Z] Stage src/models/message/inboxMessage.ts for commit: started.
+[2020-01-06T13:27:08.914Z] Stage src/models/message/inboxMessage.ts for commit: finished. gk-log://duration?t=557
+[2020-01-06T13:27:18.443Z] Unstage src/brands/skoda/splashicon/.splash.psd.icloud: started.
+[2020-01-06T13:27:18.716Z] Unstage src/brands/skoda/splashicon/.splash.psd.icloud: finished. gk-log://duration?t=273
+[2020-01-06T13:27:20.656Z] Unstage src/brands/audi/splashicon/.splash.psd.icloud: started.
+[2020-01-06T13:27:20.894Z] Unstage src/brands/audi/splashicon/.splash.psd.icloud: finished. gk-log://duration?t=238
+[2020-01-06T13:27:23.154Z] Unstage src/brands/seat/splashicon/.splash.psd.icloud: started.
+[2020-01-06T13:27:23.401Z] Unstage src/brands/seat/splashicon/.splash.psd.icloud: finished. gk-log://duration?t=247
+[2020-01-06T13:36:48.082Z] Stage changes in package.json: started.
+[2020-01-06T13:36:48.379Z] Stage changes in package.json: finished. gk-log://duration?t=297
+[2020-01-06T13:37:05.820Z] Stage package.json for commit: started.
+[2020-01-06T13:37:07.343Z] Stage package.json for commit: finished. gk-log://duration?t=1523
+[2020-01-06T13:37:35.061Z] Stage package-lock.json for commit: started.
+[2020-01-06T13:37:35.476Z] Stage package-lock.json for commit: finished. gk-log://duration?t=415
+[2020-01-09T08:36:42.331Z] Stage src/pages/message-inbox/message-inbox.page.ts for commit: started.
+[2020-01-09T08:36:42.683Z] Stage src/pages/message-inbox/message-inbox.page.ts for commit: finished. gk-log://duration?t=352
+[2020-01-09T08:36:43.224Z] Stage src/pages/message-inbox/message-inbox.page.html for commit: started.
+[2020-01-09T08:36:43.471Z] Stage src/pages/message-inbox/message-inbox.page.html for commit: finished. gk-log://duration?t=247
+[2020-01-09T08:36:45.062Z] Stage src/pages/message-details/message-details.page.html for commit: started.
+[2020-01-09T08:36:45.278Z] Stage src/pages/message-details/message-details.page.html for commit: finished. gk-log://duration?t=216
+[2020-01-09T08:37:41.320Z] Stage src/models/message/inboxMessage.ts for commit: started.
+[2020-01-09T08:37:41.711Z] Stage src/models/message/inboxMessage.ts for commit: finished. gk-log://duration?t=391
+[2020-01-09T08:38:02.649Z] Stage src/services/notificare-service/notificare.service.ts for commit: started.
+[2020-01-09T08:38:02.981Z] Stage src/services/notificare-service/notificare.service.ts for commit: finished. gk-log://duration?t=332
+[2020-01-09T08:38:30.685Z] Commit: started.
+[2020-01-09T08:38:30.773Z] Commit: finished creating commit 08a19137f7b32913c317866c420570ef099bc776
+[2020-01-09T08:38:35.377Z] Push version/notificare: started.
+[2020-01-09T08:38:43.808Z] Pull version/notificare: started.
+[2020-01-09T08:38:43.824Z] Fetch remote origin: started
+[2020-01-09T08:38:45.664Z] Fetch remote origin: finished gk-log://duration?t=1840
+[2020-01-09T08:38:45.699Z] Merge origin/version/notificare into version/notificare: started.
+[2020-01-09T08:38:45.748Z] Auto-stash uncommitted changes: started.
+[2020-01-09T08:38:45.761Z] Stage 8 files for stash: started.
+[2020-01-09T08:38:46.100Z] Stage 8 files for stash: finished. gk-log://duration?t=339
+[2020-01-09T08:38:46.633Z] Auto-stash uncommitted changes: finished. Stash sha: 7ba53e0eafe4db9d3c16b3d53a98eedfdeed87ac gk-log://duration?t=885
+[2020-01-09T08:38:46.874Z] Merge origin/version/notificare into version/notificare: There are merge conflicts that need to be resolved
+[2020-01-09T08:38:46.906Z] Merge origin/version/notificare into version/notificare: finished with errors. gk-log://duration?t=1207
+[2020-01-09T08:38:46.910Z] Pull version/notificare: merge failed
+[2020-01-09T08:38:46.913Z] Pull version/notificare: finished with errors. gk-log://duration?t=3105
+[2020-01-09T08:38:46.916Z] Push version/notificare: merge failed
+[2020-01-09T08:38:46.918Z] Push version/notificare: finished with errors. gk-log://duration?t=11541
+[2020-01-09T08:38:50.328Z] Opening package.json in built-in merge tool
+[2020-01-09T08:39:06.210Z] Save merged package.json: started.
+[2020-01-09T08:39:06.217Z] Save merged package.json: finished. gk-log://duration?t=7
+[2020-01-09T08:39:06.217Z] Stage package.json for commit: started.
+[2020-01-09T08:39:06.606Z] Stage package.json for commit: finished. gk-log://duration?t=389
+[2020-01-09T08:39:13.810Z] Finish merge origin/version/notificare into version/notificare: started.
+[2020-01-09T08:39:13.822Z] Finish merge origin/version/notificare into version/notificare: finished. gk-log://duration?t=12
+[2020-01-09T08:39:23.223Z] Push version/notificare: started.
+[2020-01-09T08:39:27.433Z] Push version/notificare: finished. gk-log://duration?t=4209
+[2020-01-09T14:24:58.157Z] Stage package.json for commit: started.
+[2020-01-09T14:24:58.603Z] Stage package.json for commit: finished. gk-log://duration?t=446
+[2020-01-27T09:44:29.232Z] Checkout refs/remotes/origin/version/2.0.6: started.
+[2020-01-27T09:44:29.283Z] Create ref refs/heads/version/2.0.6 at bb9a79117d73170ef000914967c81bd8cf4cd304: started.
+[2020-01-27T09:44:29.360Z] Create ref refs/heads/version/2.0.6 at bb9a79117d73170ef000914967c81bd8cf4cd304: finished. gk-log://duration?t=77
+[2020-01-27T09:44:31.773Z] Checkout refs/remotes/origin/version/2.0.6: finished. gk-log://duration?t=2541
+[2020-01-27T09:49:40.747Z] Checkout refs/heads/master: started.
+[2020-01-27T09:49:40.907Z] Checkout refs/heads/master: finished. gk-log://duration?t=160
+[2020-01-27T09:49:50.578Z] Discard changes in src/brands/global/scripts/config.sh: started.
+[2020-01-27T09:49:51.975Z] Discard changes in src/brands/global/scripts/config.sh: finished. gk-log://duration?t=1397
+[2020-01-27T09:49:56.431Z] Checkout refs/heads/master: started.
+[2020-01-27T09:50:00.769Z] Checkout refs/heads/master: finished. gk-log://duration?t=4338
+[2020-01-27T09:50:18.737Z] Checkout refs/heads/version/2.0.6: started.
+[2020-01-27T09:50:20.217Z] Checkout refs/heads/version/2.0.6: finished. gk-log://duration?t=1480
+[2020-01-27T10:15:18.580Z] Stage src/brands/seat/config/config.xml for commit: started.
+[2020-01-27T10:15:20.338Z] Stage src/brands/seat/config/config.xml for commit: finished. gk-log://duration?t=1758
+[2020-01-27T10:17:58.423Z] Commit: started.
+[2020-01-27T10:18:01.069Z] Commit: finished creating commit df4726ef4230b1029ace7e45738a8e562083f584
+[2020-01-27T12:09:01.823Z] Push version/2.0.6: started.
+[2020-01-27T12:09:08.603Z] Push version/2.0.6: finished. gk-log://duration?t=6780
+[2020-01-28T16:46:33.271Z] Fetch remote origin: failed to resolve address for bitbucket.org: nodename nor servname provided, or not known
+[2020-01-28T17:38:09.246Z] Fetch remote origin: failed to resolve address for bitbucket.org: nodename nor servname provided, or not known
+[2020-01-29T09:52:32.315Z] Checkout refs/heads/master: started.
+[2020-01-29T09:52:32.462Z] Checkout refs/heads/master: finished. gk-log://duration?t=147
+[2020-01-29T09:52:37.422Z] Unstage 6 files: started.
+[2020-01-29T09:52:38.928Z] Unstage 6 files: finished. gk-log://duration?t=1506
+[2020-01-29T09:52:38.987Z] Reset all files: started.
+[2020-01-29T09:52:39.108Z] Reset all files: finished. gk-log://duration?t=121
+[2020-01-29T09:52:43.280Z] Reset all submodules: started.
+[2020-01-29T09:52:43.293Z] Reset all submodules: finished. gk-log://duration?t=13
+[2020-01-29T09:52:44.333Z] Checkout refs/heads/master: started.
+[2020-01-29T09:52:45.659Z] Checkout refs/heads/master: finished. gk-log://duration?t=1326
+[2020-01-29T10:54:28.010Z] Checkout refs/heads/version/2.0.6: started.
+[2020-01-29T10:54:30.853Z] Checkout refs/heads/version/2.0.6: finished. gk-log://duration?t=2843
+[2020-01-29T14:52:56.529Z] Unstage 6 files: started.
+[2020-01-29T14:52:57.942Z] Unstage 6 files: finished. gk-log://duration?t=1413
+[2020-01-29T14:52:58.001Z] Reset all files: started.
+[2020-01-29T14:52:58.200Z] Reset all files: finished. gk-log://duration?t=199
+[2020-01-29T14:53:02.115Z] Reset all submodules: started.
+[2020-01-29T14:53:02.130Z] Reset all submodules: finished. gk-log://duration?t=15
+[2020-01-29T14:53:03.461Z] Checkout refs/heads/master: started.
+[2020-01-29T14:53:04.812Z] Checkout refs/heads/master: finished. gk-log://duration?t=1351
+[2020-01-29T15:13:15.950Z] Unstage 4 files: started.
+[2020-01-29T15:13:17.430Z] Unstage 4 files: finished. gk-log://duration?t=1480
+[2020-01-29T15:13:17.484Z] Reset all files: started.
+[2020-01-29T15:13:17.652Z] Reset all files: finished. gk-log://duration?t=168
+[2020-01-29T15:13:21.689Z] Checkout refs/heads/version/2.0.6: started.
+[2020-01-29T15:13:23.326Z] Checkout refs/heads/version/2.0.6: finished. gk-log://duration?t=1637
+[2020-01-29T15:13:23.489Z] Reset all submodules: started.
+[2020-01-29T15:13:23.601Z] Reset all submodules: finished. gk-log://duration?t=112
+[2020-01-29T16:16:30.897Z] Reset unstaged changes in 2 files: started.
+[2020-01-29T16:16:30.940Z] Reset unstaged changes in 2 files: finished. gk-log://duration?t=43
+[2020-01-29T16:16:34.950Z] Reset unstaged changes in 2 files: started.
+[2020-01-29T16:16:35.099Z] Reset unstaged changes in 2 files: finished. gk-log://duration?t=149
+[2020-01-30T16:13:22.847Z] Checkout refs/remotes/origin/version/2.0.5: started.
+[2020-01-30T16:13:22.898Z] Create ref refs/heads/version/2.0.5 at 65c6050e25f005bdd0a160c61f009a4ca4c7e9cd: started.
+[2020-01-30T16:13:22.969Z] Create ref refs/heads/version/2.0.5 at 65c6050e25f005bdd0a160c61f009a4ca4c7e9cd: finished. gk-log://duration?t=71
+[2020-01-30T16:13:25.032Z] Checkout refs/remotes/origin/version/2.0.5: finished. gk-log://duration?t=2185

@@ -1,0 +1,22 @@
+{
+  "upstreamFrecencyMetadata": {
+    "origin": {
+      "timestamps": [
+        1540978662550
+      ],
+      "total": 1
+    }
+  },
+  "lastPrivateRepoPrompt": "Wed Oct 31 2018 10:37:42 GMT+0100 (CET)",
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "translas-api": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "translas-api"
+        }
+      }
+    }
+  }
+}

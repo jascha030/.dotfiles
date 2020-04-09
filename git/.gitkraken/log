@@ -1,0 +1,14 @@
+{
+  "log": [
+    {
+      "actionName": "app_settings_action_set",
+      "count": 3,
+      "totalMS": 1
+    },
+    {
+      "actionName": "refresh_action_refresh_success",
+      "count": 51,
+      "totalMS": 3
+    }
+  ]
+}

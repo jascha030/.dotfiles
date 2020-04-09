@@ -1,0 +1,44 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/bin/node',
+1 verbose cli   '/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'cordova-ios@0.0.1',
+1 verbose cli   '--production',
+1 verbose cli   '--save-exact' ]
+2 info using npm@6.11.3
+3 info using node@v10.17.0
+4 verbose npm-session 5f325d3a508897a0
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 http fetch GET 304 https://registry.npmjs.org/cordova-ios 170ms (from cache)
+8 silly registry:manifest no matching version for cordova-ios@0.0.1 in the cache. Forcing revalidation.
+9 http fetch GET 200 https://registry.npmjs.org/cordova-ios 165ms
+10 silly fetchPackageMetaData error for cordova-ios@0.0.1 No matching version found for cordova-ios@0.0.1.
+11 timing stage:rollbackFailedOptional Completed in 9ms
+12 timing stage:runTopLevelLifecycles Completed in 1791ms
+13 verbose type version
+14 verbose stack cordova-ios: No matching version found for cordova-ios@0.0.1.
+14 verbose stack     at pickManifest (/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/lib/node_modules/npm/node_modules/npm-pick-manifest/index.js:122:13)
+14 verbose stack     at fetchPackument.then.packument (/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/lib/node_modules/npm/node_modules/pacote/lib/fetchers/registry/manifest.js:43:18)
+14 verbose stack     at tryCatcher (/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/util.js:16:23)
+14 verbose stack     at Promise._settlePromiseFromHandler (/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/promise.js:517:31)
+14 verbose stack     at Promise._settlePromise (/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/promise.js:574:18)
+14 verbose stack     at Promise._settlePromise0 (/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/promise.js:619:10)
+14 verbose stack     at Promise._settlePromises (/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/promise.js:699:18)
+14 verbose stack     at _drainQueueStep (/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/async.js:138:12)
+14 verbose stack     at _drainQueue (/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/async.js:131:9)
+14 verbose stack     at Async._drainQueues (/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/async.js:147:5)
+14 verbose stack     at Immediate.Async.drainQueues [as _onImmediate] (/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/async.js:17:14)
+14 verbose stack     at runCallback (timers.js:705:18)
+14 verbose stack     at tryOnImmediate (timers.js:676:5)
+14 verbose stack     at processImmediate (timers.js:658:5)
+15 verbose cwd /Users/jaschavanaalst/Documents/Socialbrothers/Projects/apc-rebuild/apc-app
+16 verbose Darwin 19.0.0
+17 verbose argv "/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/bin/node" "/Users/jaschavanaalst/.nvm/versions/node/v10.17.0/bin/npm" "install" "cordova-ios@0.0.1" "--production" "--save-exact"
+18 verbose node v10.17.0
+19 verbose npm  v6.11.3
+20 error code ETARGET
+21 error notarget No matching version found for cordova-ios@0.0.1.
+22 error notarget In most cases you or one of your dependencies are requesting
+22 error notarget a package version that doesn't exist.
+23 verbose exit [ 1, true ]

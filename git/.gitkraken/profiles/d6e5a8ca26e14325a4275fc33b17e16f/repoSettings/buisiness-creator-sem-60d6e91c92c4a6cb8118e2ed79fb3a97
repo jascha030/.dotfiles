@@ -1,0 +1,45 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "business-creator-sem-integration-v2": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "business-creator-sem-integration-v2"
+        }
+      }
+    }
+  },
+  "remoteHeadCollectionByRemoteName": {
+    "origin": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "6fc607c75125ca9ef74f167eb06bcbb9da73631f",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/develop": {
+        "name": "refs/heads/develop",
+        "oid": "45d51e4baf4a88670034ecdbc8f7a6ed6d31e1d2",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feature/core": {
+        "name": "refs/heads/feature/core",
+        "oid": "fafccc2b635a0115d9d280d9189e4538879d2529",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "6fc607c75125ca9ef74f167eb06bcbb9da73631f",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "remoteParents": {
+    "github": {
+      "jascha030": {
+        "DukuDB-api": {
+          "hostingServiceType": "github",
+          "owner": "jascha030",
+          "name": "DukuDB-api"
+        }
+      }
+    }
+  },
+  "templates": {
+    "useCommitTemplate": true,
+    "shouldRemoveComments": false
+  }
+}

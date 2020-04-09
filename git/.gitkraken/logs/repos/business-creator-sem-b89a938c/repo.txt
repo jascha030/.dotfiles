@@ -1,0 +1,173 @@
+[2019-12-17T19:08:01.821Z] Stage templates/admin/sem/page.php for commit: started.
+[2019-12-17T19:08:01.981Z] Stage templates/admin/sem/page.php for commit: finished. gk-log://duration?t=160
+[2019-12-17T19:08:05.040Z] Stage src/Admin/Page/SemAdminPage.php for commit: started.
+[2019-12-17T19:08:05.327Z] Stage src/Admin/Page/SemAdminPage.php for commit: finished. gk-log://duration?t=287
+[2019-12-17T19:08:22.273Z] Commit: started.
+[2019-12-17T19:08:22.313Z] Commit: finished creating commit 9ee1d4e29d09af38fca689b1e64120328defd765
+[2019-12-17T19:08:28.613Z] Discard changes in business-creator-sem.php: started.
+[2019-12-17T19:08:28.735Z] Discard changes in business-creator-sem.php: finished. gk-log://duration?t=122
+[2019-12-17T19:08:59.182Z] Stage composer.json for commit: started.
+[2019-12-17T19:08:59.274Z] Stage composer.json for commit: finished. gk-log://duration?t=92
+[2019-12-17T19:09:00.377Z] Commit: started.
+[2019-12-17T19:09:00.400Z] Commit: finished creating commit 6444a5cd2bfb1fd3cb70b4a6b4df905bac1cda5b
+[2019-12-17T19:28:08.593Z] Stage src/Core/Plugin/Plugin.php for commit: started.
+[2019-12-17T19:28:08.647Z] Stage src/Core/Plugin/Plugin.php for commit: finished. gk-log://duration?t=54
+[2019-12-17T19:28:13.530Z] Stash uncommitted changes: started.
+[2019-12-17T19:28:13.557Z] Stage src/Core/Plugin/Plugin.php for stash: started.
+[2019-12-17T19:28:13.649Z] Stage src/Core/Plugin/Plugin.php for stash: finished. gk-log://duration?t=92
+[2019-12-17T19:28:13.762Z] Stash uncommitted changes: finished. Stash sha: d556867bc8abd1e5f8db0188f878cdf3280b7029 gk-log://duration?t=232
+[2019-12-17T19:28:17.214Z] Checkout refs/heads/develop: started.
+[2019-12-17T19:28:17.370Z] Checkout refs/heads/develop: finished. gk-log://duration?t=156
+[2019-12-17T19:28:20.816Z] Merge feature/admin into develop: started.
+[2019-12-17T19:28:20.932Z] Finish merge feature/admin into develop: started.
+[2019-12-17T19:28:20.946Z] Finish merge feature/admin into develop: finished. gk-log://duration?t=14
+[2019-12-17T19:28:20.959Z] Merge feature/admin into develop: finished. gk-log://duration?t=143
+[2019-12-17T19:33:17.504Z] Push develop: started.
+[2019-12-17T19:33:20.714Z] Push develop: finished. gk-log://duration?t=3210
+[2019-12-17T19:33:31.431Z] Undo Action with reflog message "commit (merge): Merge branch 'feature/admin' into develop": started.
+[2019-12-17T19:33:31.442Z] Undo Action with reflog message "commit (merge): Merge branch 'feature/admin' into develop": finished. gk-log://duration?t=11
+[2019-12-17T19:33:36.578Z] Redo Action with reflog message "commit (merge): Merge branch 'feature/admin' into develop": started.
+[2019-12-17T19:33:36.589Z] Redo Action with reflog message "commit (merge): Merge branch 'feature/admin' into develop": finished. gk-log://duration?t=11
+[2019-12-17T19:33:45.211Z] Finish git flow feature 'admin': started.
+[2019-12-17T19:33:45.319Z] Finish git flow feature 'admin': finished. gk-log://duration?t=108
+[2019-12-17T19:33:47.429Z] Push develop: started.
+[2019-12-17T19:33:50.214Z] Push develop: finished. gk-log://duration?t=2785
+[2019-12-17T21:07:22.065Z] Stage composer.lock for commit: started.
+[2019-12-17T21:07:22.205Z] Stage composer.lock for commit: finished. gk-log://duration?t=140
+[2019-12-17T21:08:10.456Z] Commit: started.
+[2019-12-17T21:08:10.507Z] Commit: finished creating commit 0acedef54b683151670cf0377f9faafe09880192
+[2019-12-17T21:08:14.371Z] Push develop: started.
+[2019-12-17T21:08:17.357Z] Push develop: finished. gk-log://duration?t=2986
+[2019-12-18T08:16:20.348Z] Stage 3 files for commit: started.
+[2019-12-18T08:16:20.417Z] Stage 3 files for commit: finished. gk-log://duration?t=69
+[2019-12-18T08:16:21.787Z] Commit: started.
+[2019-12-18T08:16:21.824Z] Commit: finished creating commit 3fc86806adfa90785a4220ee39256f0655756371
+[2019-12-18T08:16:23.640Z] Push develop: started.
+[2019-12-18T08:16:26.614Z] Push develop: finished. gk-log://duration?t=2974
+[2019-12-18T09:20:52.391Z] Stage 3 files for commit: started.
+[2019-12-18T09:20:52.455Z] Stage 3 files for commit: finished. gk-log://duration?t=64
+[2019-12-18T09:21:34.171Z] Commit: started.
+[2019-12-18T09:21:34.221Z] Commit: finished creating commit 125e31b558a349147dc714118df7b6b99736dc71
+[2019-12-18T09:21:35.921Z] Push develop: started.
+[2019-12-18T09:21:38.131Z] Push develop: finished. gk-log://duration?t=2210
+[2019-12-18T09:31:57.386Z] Stage changes in src/Admin/Page/SemAdminPage.php: started.
+[2019-12-18T09:31:57.515Z] Stage changes in src/Admin/Page/SemAdminPage.php: finished. gk-log://duration?t=129
+[2019-12-18T09:32:07.025Z] Commit: started.
+[2019-12-18T09:32:07.060Z] Commit: finished creating commit 9bab655643c6d855c8610e9a5a5239172da5e46c
+[2019-12-18T09:32:08.862Z] Push develop: started.
+[2019-12-18T09:32:14.668Z] Push develop: finished. gk-log://duration?t=5806
+[2019-12-18T09:32:33.744Z] Checkout refs/heads/master: started.
+[2019-12-18T09:32:33.870Z] Checkout refs/heads/master: finished. gk-log://duration?t=126
+[2019-12-18T09:32:36.626Z] Checkout refs/heads/develop: started.
+[2019-12-18T09:32:36.738Z] Checkout refs/heads/develop: finished. gk-log://duration?t=112
+[2019-12-18T09:33:09.546Z] Start git flow feature 'SEM-API': started.
+[2019-12-18T09:33:09.647Z] Start git flow feature 'SEM-API': finished. gk-log://duration?t=101
+[2019-12-18T09:43:09.751Z] Stage src/Api/Connection/SemConnection.php for commit: started.
+[2019-12-18T09:43:09.796Z] Stage src/Api/Connection/SemConnection.php for commit: finished. gk-log://duration?t=45
+[2019-12-18T09:43:10.780Z] Commit: started.
+[2019-12-18T09:43:10.824Z] Commit: finished creating commit f0792d25b03690c27fedc20531299a3b260b6b2d
+[2019-12-18T10:12:24.195Z] Stage src/Api/Connection/Exception/DomainNotDefinedException.php for commit: started.
+[2019-12-18T10:12:24.277Z] Stage src/Api/Connection/Exception/DomainNotDefinedException.php for commit: finished. gk-log://duration?t=82
+[2019-12-18T10:12:25.018Z] Stage src/Api/Connection/Exception/AuthenticationException.php for commit: started.
+[2019-12-18T10:12:25.063Z] Stage src/Api/Connection/Exception/AuthenticationException.php for commit: finished. gk-log://duration?t=45
+[2019-12-18T10:12:32.594Z] Commit: started.
+[2019-12-18T10:12:32.641Z] Commit: finished creating commit e09abb1b03b3fe09afea58df53e3dc635238234d
+[2019-12-18T10:12:41.525Z] Stage src/Api/Connection/SemConnection.php for commit: started.
+[2019-12-18T10:12:41.660Z] Stage src/Api/Connection/SemConnection.php for commit: finished. gk-log://duration?t=135
+[2019-12-18T10:12:53.556Z] Commit: started.
+[2019-12-18T10:12:53.594Z] Commit: finished creating commit 67b64ba253baa8f664ab18e9021258d81b1c6312
+[2019-12-18T10:55:08.760Z] Stage changes in composer.json: started.
+[2019-12-18T10:55:08.831Z] Stage changes in composer.json: finished. gk-log://duration?t=71
+[2019-12-18T10:56:04.155Z] Stage 2 files for commit: started.
+[2019-12-18T10:56:04.273Z] Stage 2 files for commit: finished. gk-log://duration?t=118
+[2019-12-18T10:56:09.724Z] Commit: started.
+[2019-12-18T10:56:09.753Z] Commit: finished creating commit 9107748879b8cd0ec68be2cc715ef7cbc13636b4
+[2019-12-18T10:56:50.824Z] Stage src/Api/Connection/SemConnection.php for commit: started.
+[2019-12-18T10:56:50.872Z] Stage src/Api/Connection/SemConnection.php for commit: finished. gk-log://duration?t=48
+[2019-12-18T10:56:53.534Z] Commit: started.
+[2019-12-18T10:56:53.569Z] Commit: finished creating commit 8c00ba920ae913d749e5187098ff729ce02180d2
+[2019-12-18T10:57:36.080Z] Stage src/Api/Connection/SemConnection.php for commit: started.
+[2019-12-18T10:57:36.119Z] Stage src/Api/Connection/SemConnection.php for commit: finished. gk-log://duration?t=39
+[2019-12-18T10:57:37.105Z] Commit: started.
+[2019-12-18T10:57:37.145Z] Commit: finished creating commit 1c446197147d879b44016fec57b46d737b79e092
+[2019-12-18T10:57:38.413Z] Push feature/SEM-API: started.
+[2019-12-18T10:57:39.901Z] Push feature/SEM-API: cancelled. gk-log://duration?t=1488
+[2019-12-18T10:58:28.721Z] Stage src/Api/Connection/SemConnection.php for commit: started.
+[2019-12-18T10:58:28.767Z] Stage src/Api/Connection/SemConnection.php for commit: finished. gk-log://duration?t=46
+[2019-12-18T10:58:29.735Z] Commit: started.
+[2019-12-18T10:58:29.771Z] Commit: finished creating commit c35063e8bf1c4757e145e4b43d4b44b2225a88eb
+[2019-12-18T10:59:26.913Z] Checkout refs/heads/develop: started.
+[2019-12-18T10:59:27.115Z] Checkout refs/heads/develop: finished. gk-log://duration?t=202
+[2019-12-18T10:59:37.042Z] Create ref refs/heads/feature/domain-setting at 9bab655643c6d855c8610e9a5a5239172da5e46c: started.
+[2019-12-18T10:59:37.091Z] Create ref refs/heads/feature/domain-setting at 9bab655643c6d855c8610e9a5a5239172da5e46c: finished. gk-log://duration?t=49
+[2019-12-18T10:59:37.127Z] Checkout refs/heads/feature/domain-setting: started.
+[2019-12-18T10:59:37.322Z] Checkout refs/heads/feature/domain-setting: finished. gk-log://duration?t=195
+[2019-12-18T11:03:04.512Z] Stage src/Admin/Page/SemAdminPage.php for commit: started.
+[2019-12-18T11:03:04.564Z] Stage src/Admin/Page/SemAdminPage.php for commit: finished. gk-log://duration?t=52
+[2019-12-18T11:03:05.805Z] Commit: started.
+[2019-12-18T11:03:05.841Z] Commit: finished creating commit f77c97f477a79aa393a416b5bb69df84d8fa389d
+[2019-12-18T11:03:13.914Z] Checkout refs/heads/feature/SEM-API: started.
+[2019-12-18T11:03:14.052Z] Checkout refs/heads/feature/SEM-API: finished. gk-log://duration?t=138
+[2019-12-18T11:03:17.327Z] Merge feature/domain-setting into feature/SEM-API: started.
+[2019-12-18T11:03:17.362Z] Finish merge feature/domain-setting into feature/SEM-API: started.
+[2019-12-18T11:03:17.376Z] Finish merge feature/domain-setting into feature/SEM-API: finished. gk-log://duration?t=14
+[2019-12-18T11:03:17.393Z] Merge feature/domain-setting into feature/SEM-API: finished. gk-log://duration?t=66
+[2019-12-18T11:03:20.243Z] Checkout refs/heads/feature/domain-setting: started.
+[2019-12-18T11:03:20.365Z] Checkout refs/heads/feature/domain-setting: finished. gk-log://duration?t=122
+[2019-12-18T11:03:27.430Z] Finish git flow feature 'domain-setting': started.
+[2019-12-18T11:03:27.541Z] Finish git flow feature 'domain-setting': finished. gk-log://duration?t=111
+[2019-12-18T11:03:31.895Z] Checkout refs/heads/feature/SEM-API: started.
+[2019-12-18T11:03:32.005Z] Checkout refs/heads/feature/SEM-API: finished. gk-log://duration?t=110
+[2019-12-18T11:04:25.046Z] Stage src/Api/Connection/SemConnection.php for commit: started.
+[2019-12-18T11:04:25.097Z] Stage src/Api/Connection/SemConnection.php for commit: finished. gk-log://duration?t=51
+[2019-12-18T11:04:26.413Z] Commit: started.
+[2019-12-18T11:04:26.451Z] Commit: finished creating commit 66d4738bb1c7480c17daba36116f379f1b5c3631
+[2019-12-18T11:04:39.331Z] Finish git flow feature 'SEM-API': started.
+[2019-12-18T11:04:39.599Z] Finish git flow feature 'SEM-API': finished. gk-log://duration?t=268
+[2019-12-18T11:04:55.035Z] Push develop: started.
+[2019-12-18T11:04:59.363Z] Push develop: finished. gk-log://duration?t=4328
+[2019-12-18T11:05:21.762Z] Delete ref refs/remotes/origin/feature/core at fafccc2b635a0115d9d280d9189e4538879d2529: started.
+[2019-12-18T11:05:24.613Z] Delete ref refs/remotes/origin/feature/core at fafccc2b635a0115d9d280d9189e4538879d2529: finished. gk-log://duration?t=2851
+[2019-12-18T12:10:34.920Z] Start git flow feature 'gravityForms': started.
+[2019-12-18T12:10:35.039Z] Start git flow feature 'gravityForms': finished. gk-log://duration?t=119
+[2019-12-18T12:13:45.257Z] Checkout refs/heads/develop: started.
+[2019-12-18T12:13:45.510Z] Checkout refs/heads/develop: finished. gk-log://duration?t=253
+[2019-12-18T12:13:58.309Z] Start git flow feature 'sem-integration': started.
+[2019-12-18T12:13:58.357Z] Auto-stash uncommitted changes: started.
+[2019-12-18T12:13:58.358Z] Stage src/Api/Connection/SemConnection.php for stash: started.
+[2019-12-18T12:13:58.411Z] Stage src/Api/Connection/SemConnection.php for stash: finished. gk-log://duration?t=53
+[2019-12-18T12:13:58.524Z] Auto-stash uncommitted changes: finished. Stash sha: c8657770aed3e1964b787eb98475442285dde9db gk-log://duration?t=167
+[2019-12-18T12:13:58.559Z] Pop most recent stash: started.
+[2019-12-18T12:13:58.589Z] Pop stash c8657770aed3e1964b787eb98475442285dde9db: finished. gk-log://duration?t=30
+[2019-12-18T12:13:58.757Z] Start git flow feature 'sem-integration': finished. gk-log://duration?t=448
+[2019-12-18T12:14:13.209Z] Stage src/Api/Connection/SemConnection.php for commit: started.
+[2019-12-18T12:14:13.353Z] Stage src/Api/Connection/SemConnection.php for commit: finished. gk-log://duration?t=144
+[2019-12-18T12:14:36.571Z] Commit: started.
+[2019-12-18T12:14:36.612Z] Commit: finished creating commit 64314613b5e45b1cd8a57bca99970277430a35e8
+[2019-12-18T16:43:34.478Z] Checkout refs/heads/feature/gravityForms: started.
+[2019-12-18T16:43:34.546Z] Checkout refs/heads/feature/gravityForms: finished. gk-log://duration?t=68
+[2019-12-18T16:43:53.812Z] Stage 6 files for commit: started.
+[2019-12-18T16:43:53.883Z] Stage 6 files for commit: finished. gk-log://duration?t=71
+[2019-12-18T16:43:55.635Z] Stash uncommitted changes: started.
+[2019-12-18T16:43:55.674Z] Stage 6 files for stash: started.
+[2019-12-18T16:43:55.718Z] Stage 6 files for stash: finished. gk-log://duration?t=43
+[2019-12-18T16:43:55.837Z] Stash uncommitted changes: finished. Stash sha: 867ebd6352e9c0da28902e1838aa824de8ef37f9 gk-log://duration?t=202
+[2019-12-18T16:44:04.277Z] Finish git flow feature 'sem-integration': started.
+[2019-12-18T16:44:04.399Z] Finish git flow feature 'sem-integration': finished. gk-log://duration?t=122
+[2019-12-18T16:44:06.736Z] Checkout refs/heads/feature/gravityForms: started.
+[2019-12-18T16:44:06.850Z] Checkout refs/heads/feature/gravityForms: finished. gk-log://duration?t=114
+[2019-12-18T16:44:11.000Z] Apply stash 55b0a45c8a9dc62cb9cd144b5de391ee6de1c831: started.
+[2019-12-18T16:44:11.032Z] Apply stash 867ebd6352e9c0da28902e1838aa824de8ef37f9: finished with merge conflicts. gk-log://duration?t=32
+[2019-12-18T16:44:14.219Z] Opening src/Api/Connection/SemConnection.php in built-in merge tool
+[2019-12-18T16:44:24.865Z] Save merged src/Api/Connection/SemConnection.php: started.
+[2019-12-18T16:44:24.876Z] Save merged src/Api/Connection/SemConnection.php: finished. gk-log://duration?t=11
+[2019-12-18T16:44:24.878Z] Stage src/Api/Connection/SemConnection.php for commit: started.
+[2019-12-18T16:44:25.043Z] Stage src/Api/Connection/SemConnection.php for commit: finished. gk-log://duration?t=165
+[2019-12-18T16:44:54.310Z] Commit: started.
+[2019-12-18T16:44:54.360Z] Commit: finished creating commit f3d1f489fd64995e84fa032de7e667f3935755b9
+[2019-12-18T16:45:47.088Z] Checkout refs/heads/develop: started.
+[2019-12-18T16:45:47.220Z] Checkout refs/heads/develop: finished. gk-log://duration?t=132
+[2019-12-18T16:45:48.510Z] Push develop: started.
+[2019-12-18T16:45:52.496Z] Push develop: finished. gk-log://duration?t=3986
+[2019-12-18T16:45:54.531Z] Checkout refs/heads/feature/gravityForms: started.
+[2019-12-18T16:45:54.656Z] Checkout refs/heads/feature/gravityForms: finished. gk-log://duration?t=125

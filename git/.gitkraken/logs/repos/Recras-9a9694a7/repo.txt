@@ -1,0 +1,323 @@
+[2020-01-13T08:56:03.252Z] Pull develop: started.
+[2020-01-13T08:56:03.271Z] Fetch remote origin: started
+[2020-01-13T08:56:09.556Z] Fetch remote origin: finished gk-log://duration?t=6285
+[2020-01-13T08:56:09.594Z] Merge origin/develop into develop: started.
+[2020-01-13T08:56:09.603Z] Auto-stash uncommitted changes: started.
+[2020-01-13T08:56:09.623Z] Stage src/Helper/AjaxHelperFunctions 2.php for stash: started.
+[2020-01-13T08:56:09.666Z] Stage src/Helper/AjaxHelperFunctions 2.php for stash: finished. gk-log://duration?t=43
+[2020-01-13T08:56:09.798Z] Auto-stash uncommitted changes: finished. Stash sha: 375d638f123f548dc37031b0bf16ab45d2a99ef5 gk-log://duration?t=195
+[2020-01-13T08:56:09.834Z] Pop most recent stash: started.
+[2020-01-13T08:56:09.877Z] Pop stash 375d638f123f548dc37031b0bf16ab45d2a99ef5: finished. gk-log://duration?t=43
+[2020-01-13T08:56:09.914Z] Merge origin/develop into develop: finished. gk-log://duration?t=320
+[2020-01-13T08:56:09.914Z] Pull develop: finished. gk-log://duration?t=6662
+[2020-01-13T09:40:55.215Z] Fetch remote origin: failed to connect to bitbucket.org: Operation timed out
+[2020-01-13T09:41:40.617Z] Fetch remote origin: failed to resolve address for bitbucket.org: nodename nor servname provided, or not known
+[2020-01-13T09:42:40.611Z] Fetch remote origin: failed to resolve address for bitbucket.org: nodename nor servname provided, or not known
+[2020-01-13T09:43:40.600Z] Fetch remote origin: failed to resolve address for bitbucket.org: nodename nor servname provided, or not known
+[2020-01-13T10:37:39.528Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-01-14T09:05:55.180Z] Fetch all remotes: started.
+[2020-01-14T09:05:55.255Z] Fetch all remotes: finished. gk-log://duration?t=75
+[2020-01-14T09:06:07.635Z] Start git flow feature 'dotenv-compatibility': started.
+[2020-01-14T09:06:07.737Z] Start git flow feature 'dotenv-compatibility': finished. gk-log://duration?t=102
+[2020-01-14T10:03:28.469Z] Unstage src/Config/Exception/MissingEnvironmentParametersException.php: started.
+[2020-01-14T10:03:28.514Z] Unstage src/Config/Exception/MissingEnvironmentParametersException.php: finished. gk-log://duration?t=45
+[2020-01-14T10:03:33.156Z] Stage src/Config/Config.php for commit: started.
+[2020-01-14T10:03:33.297Z] Stage src/Config/Config.php for commit: finished. gk-log://duration?t=141
+[2020-01-14T10:03:35.968Z] Stage src/Config/Exception/MissingEnvironmentParametersException.php for commit: started.
+[2020-01-14T10:03:36.136Z] Stage src/Config/Exception/MissingEnvironmentParametersException.php for commit: finished. gk-log://duration?t=168
+[2020-01-14T10:04:04.471Z] Commit: started.
+[2020-01-14T10:04:04.517Z] Commit: finished creating commit a2939218a555fb4bdd4f01a960b42009d4dce49a
+[2020-01-14T10:04:12.449Z] Finish git flow feature 'dotenv-compatibility': started.
+[2020-01-14T10:04:12.591Z] Finish git flow feature 'dotenv-compatibility': finished. gk-log://duration?t=142
+[2020-01-14T10:04:15.334Z] Push develop: started.
+[2020-01-14T10:04:18.544Z] Push develop: finished. gk-log://duration?t=3210
+[2020-01-14T10:06:44.023Z] Start git flow release '1.3.0': started.
+[2020-01-14T10:06:44.139Z] Start git flow release '1.3.0': finished. gk-log://duration?t=116
+[2020-01-14T10:07:20.893Z] Stage src/Config/Config.php for commit: started.
+[2020-01-14T10:07:20.945Z] Stage src/Config/Config.php for commit: finished. gk-log://duration?t=52
+[2020-01-14T10:07:23.027Z] Commit: started.
+[2020-01-14T10:07:23.061Z] Commit: finished creating commit bc4f6876d8ad5d757a7ef15f8c234ed4a1685fab
+[2020-01-14T10:07:38.332Z] Finish git flow release '1.3.0': started.
+[2020-01-14T10:07:38.471Z] Finish git flow release '1.3.0': finished. gk-log://duration?t=139
+[2020-01-14T10:07:41.449Z] Checkout refs/heads/develop: started.
+[2020-01-14T10:07:41.574Z] Checkout refs/heads/develop: finished. gk-log://duration?t=125
+[2020-01-14T10:07:43.092Z] Push develop: started.
+[2020-01-14T10:07:45.281Z] Push develop: finished. gk-log://duration?t=2189
+[2020-01-14T10:07:51.573Z] Pushing 1.3.0 to origin: started.
+[2020-01-14T10:07:53.714Z] Pushing 1.3.0 to origin: finished. gk-log://duration?t=2141
+[2020-01-14T10:09:26.394Z] Checkout refs/remotes/origin/master: started.
+[2020-01-14T10:09:27.892Z] Checkout refs/remotes/origin/master: cancelled. gk-log://duration?t=1498
+[2020-01-14T10:09:54.988Z] Deleting 1.3.0 from origin: started.
+[2020-01-14T10:09:58.300Z] Deleting 1.3.0 from origin: finished. gk-log://duration?t=3312
+[2020-01-14T10:10:02.965Z] Delete ref refs/tags/1.3.0 at 2fef69ca5018fb4221d05b7199b4205fe1fb6622: started.
+[2020-01-14T10:10:02.987Z] Delete ref refs/tags/1.3.0 at 2fef69ca5018fb4221d05b7199b4205fe1fb6622: finished. gk-log://duration?t=22
+[2020-01-14T10:10:06.756Z] Deleting 1.3.0 from all remotes: started.
+[2020-01-14T10:10:06.766Z] Deleting 1.3.0 from origin: started.
+[2020-01-14T10:10:10.399Z] Deleting 1.3.0 from origin: finished. gk-log://duration?t=3633
+[2020-01-14T10:10:10.410Z] Deleting 1.3.0 from all remotes: finished. gk-log://duration?t=3654
+[2020-01-14T10:10:13.258Z] Stage src/Config/Config.php for commit: started.
+[2020-01-14T10:10:13.309Z] Stage src/Config/Config.php for commit: finished. gk-log://duration?t=51
+[2020-01-14T10:10:19.127Z] Commit: started.
+[2020-01-14T10:10:19.160Z] Commit: finished creating commit b6016758129d6eabfaa51f79b5ba957e54b597a8
+[2020-01-14T10:10:22.024Z] Push develop: started.
+[2020-01-14T10:10:24.437Z] Push develop: finished. gk-log://duration?t=2413
+[2020-01-14T10:10:34.847Z] Start git flow release '1.3.0': started.
+[2020-01-14T10:10:34.930Z] Start git flow release '1.3.0': finished. gk-log://duration?t=83
+[2020-01-14T10:10:42.097Z] Finish git flow release '1.3.0': started.
+[2020-01-14T10:10:42.209Z] Finish git flow release '1.3.0': finished. gk-log://duration?t=112
+[2020-01-14T10:10:47.674Z] Checkout refs/heads/develop: started.
+[2020-01-14T10:10:47.793Z] Checkout refs/heads/develop: finished. gk-log://duration?t=119
+[2020-01-14T10:10:49.770Z] Pushing 1.3.0 to origin: started.
+[2020-01-14T10:10:51.848Z] Pushing 1.3.0 to origin: finished. gk-log://duration?t=2078
+[2020-01-14T10:12:03.105Z] Start git flow feature 'readme': started.
+[2020-01-14T10:12:03.222Z] Start git flow feature 'readme': finished. gk-log://duration?t=117
+[2020-01-14T10:12:24.896Z] Checkout refs/heads/develop: started.
+[2020-01-14T10:12:25.022Z] Checkout refs/heads/develop: finished. gk-log://duration?t=126
+[2020-01-14T10:12:30.548Z] Delete ref refs/heads/feature/readme at b6016758129d6eabfaa51f79b5ba957e54b597a8: started.
+[2020-01-14T10:12:30.577Z] Delete ref refs/heads/feature/readme at b6016758129d6eabfaa51f79b5ba957e54b597a8: finished. gk-log://duration?t=29
+[2020-01-14T10:55:12.262Z] Start git flow feature 'minimum-amount-ajax-helper': started.
+[2020-01-14T10:55:12.400Z] Start git flow feature 'minimum-amount-ajax-helper': finished. gk-log://duration?t=137
+[2020-01-14T10:58:08.015Z] Stage src/Helper/AjaxHelperFunctions.php for commit: started.
+[2020-01-14T10:58:08.060Z] Stage src/Helper/AjaxHelperFunctions.php for commit: finished. gk-log://duration?t=45
+[2020-01-14T10:58:08.867Z] Commit: started.
+[2020-01-14T10:58:08.902Z] Commit: finished creating commit 21296007e879532c55f5018bba13900c417390e2
+[2020-01-14T10:58:14.426Z] Finish git flow feature 'minimum-amount-ajax-helper': started.
+[2020-01-14T10:58:14.564Z] Finish git flow feature 'minimum-amount-ajax-helper': finished. gk-log://duration?t=138
+[2020-01-14T10:58:16.556Z] Push develop: started.
+[2020-01-14T10:58:19.190Z] Push develop: finished. gk-log://duration?t=2634
+[2020-01-14T13:54:59.188Z] Start git flow feature 'days-foward': started.
+[2020-01-14T13:54:59.275Z] Start git flow feature 'days-foward': finished. gk-log://duration?t=87
+[2020-01-15T08:43:35.105Z] Stage src/Service/OnlineBooking/OnlineBookingService.php for commit: started.
+[2020-01-15T08:43:35.411Z] Stage src/Service/OnlineBooking/OnlineBookingService.php for commit: finished. gk-log://duration?t=306
+[2020-01-15T08:43:39.565Z] Stage src/Service/Arrangement/ArrangementService.php for commit: started.
+[2020-01-15T08:43:39.728Z] Stage src/Service/Arrangement/ArrangementService.php for commit: finished. gk-log://duration?t=163
+[2020-01-15T08:43:45.347Z] Stage src/Model/ConvertibleToJSON.php for commit: started.
+[2020-01-15T08:43:45.477Z] Stage src/Model/ConvertibleToJSON.php for commit: finished. gk-log://duration?t=130
+[2020-01-15T08:43:48.565Z] Stage src/Model/Booking/Booking.php for commit: started.
+[2020-01-15T08:43:48.701Z] Stage src/Model/Booking/Booking.php for commit: finished. gk-log://duration?t=136
+[2020-01-15T08:43:56.320Z] Stage src/Helper/AjaxHelperFunctions.php for commit: started.
+[2020-01-15T08:43:56.436Z] Stage src/Helper/AjaxHelperFunctions.php for commit: finished. gk-log://duration?t=116
+[2020-01-15T08:43:58.599Z] Unstage src/Helper/AjaxHelperFunctions.php: started.
+[2020-01-15T08:43:58.723Z] Unstage src/Helper/AjaxHelperFunctions.php: finished. gk-log://duration?t=124
+[2020-01-15T08:44:27.624Z] Commit: started.
+[2020-01-15T08:44:27.676Z] Commit: finished creating commit 15e3ec36495809a23c8293263f2856172cd7064a
+[2020-01-15T08:44:33.706Z] Unstage src/Helper/AjaxHelperFunctions.php: started.
+[2020-01-15T08:44:33.731Z] Unstage src/Helper/AjaxHelperFunctions.php: finished. gk-log://duration?t=25
+[2020-01-15T08:44:33.740Z] Reset all files: started.
+[2020-01-15T08:44:33.765Z] Reset all files: finished. gk-log://duration?t=25
+[2020-01-15T08:44:33.914Z] Reset all submodules: started.
+[2020-01-15T08:44:33.919Z] Reset all submodules: finished. gk-log://duration?t=5
+[2020-01-15T08:44:38.761Z] Finish git flow feature 'days-foward': started.
+[2020-01-15T08:44:38.943Z] Finish git flow feature 'days-foward': finished. gk-log://duration?t=182
+[2020-01-15T08:44:41.424Z] Push develop: started.
+[2020-01-15T08:44:44.746Z] Push develop: finished. gk-log://duration?t=3322
+[2020-01-15T09:05:59.350Z] Start git flow release '1.3.1': started.
+[2020-01-15T09:05:59.466Z] Start git flow release '1.3.1': finished. gk-log://duration?t=116
+[2020-01-15T09:06:07.585Z] Finish git flow release '1.3.1': started.
+[2020-01-15T09:06:07.738Z] Finish git flow release '1.3.1': finished. gk-log://duration?t=153
+[2020-01-15T09:06:13.937Z] Pushing 1.3.1 to origin: started.
+[2020-01-15T09:06:15.623Z] Checkout refs/heads/develop: started.
+[2020-01-15T09:06:15.748Z] Checkout refs/heads/develop: finished. gk-log://duration?t=125
+[2020-01-15T09:06:16.701Z] Pushing 1.3.1 to origin: finished. gk-log://duration?t=2764
+[2020-03-02T15:38:21.000Z] Pull develop: started.
+[2020-03-02T15:38:21.013Z] Fetch remote origin: started
+[2020-03-02T15:38:22.563Z] Fetch remote origin: finished gk-log://duration?t=1550
+[2020-03-02T15:38:22.597Z] Merge origin/develop into develop: started.
+[2020-03-02T15:38:22.604Z] Auto-stash uncommitted changes: started.
+[2020-03-02T15:38:22.627Z] Stage 5 files for stash: started.
+[2020-03-02T15:38:22.710Z] Stage 5 files for stash: finished. gk-log://duration?t=83
+[2020-03-02T15:38:22.835Z] Auto-stash uncommitted changes: finished. Stash sha: 9878b8750eff15ed14e49bbfe6736346125739b3 gk-log://duration?t=231
+[2020-03-02T15:38:22.932Z] Pop most recent stash: started.
+[2020-03-02T15:38:22.968Z] Pop stash 9878b8750eff15ed14e49bbfe6736346125739b3: finished. gk-log://duration?t=36
+[2020-03-02T15:38:23.014Z] Merge origin/develop into develop: finished. gk-log://duration?t=417
+[2020-03-02T15:38:23.016Z] Pull develop: finished. gk-log://duration?t=2016
+[2020-03-02T15:38:29.032Z] Checkout refs/heads/master: started.
+[2020-03-02T15:38:29.211Z] Checkout refs/heads/master: finished. gk-log://duration?t=179
+[2020-03-02T15:38:30.706Z] Pull master: started.
+[2020-03-02T15:38:30.714Z] Fetch remote origin: started
+[2020-03-02T15:38:32.268Z] Fetch remote origin: finished gk-log://duration?t=1554
+[2020-03-02T15:38:32.317Z] Merge origin/master into master: started.
+[2020-03-02T15:38:32.326Z] Auto-stash uncommitted changes: started.
+[2020-03-02T15:38:32.351Z] Stage 5 files for stash: started.
+[2020-03-02T15:38:32.382Z] Stage 5 files for stash: finished. gk-log://duration?t=31
+[2020-03-02T15:38:32.481Z] Auto-stash uncommitted changes: finished. Stash sha: f0db85220037aecf898699f463398fce62887cb9 gk-log://duration?t=155
+[2020-03-02T15:38:32.542Z] Pop most recent stash: started.
+[2020-03-02T15:38:32.585Z] Pop stash f0db85220037aecf898699f463398fce62887cb9: finished. gk-log://duration?t=42
+[2020-03-02T15:38:32.615Z] Merge origin/master into master: finished. gk-log://duration?t=298
+[2020-03-02T15:38:32.616Z] Pull master: finished. gk-log://duration?t=1910
+[2020-03-02T15:38:52.399Z] Unstage 5 files: started.
+[2020-03-02T15:38:52.519Z] Unstage 5 files: finished. gk-log://duration?t=120
+[2020-03-02T15:40:11.599Z] Unstage 5 files: started.
+[2020-03-02T15:40:11.660Z] Unstage 5 files: finished. gk-log://duration?t=61
+[2020-03-02T15:40:11.684Z] Reset all files: started.
+[2020-03-02T15:40:11.729Z] Reset all files: finished. gk-log://duration?t=45
+[2020-03-02T15:40:11.776Z] Reset all submodules: started.
+[2020-03-02T15:40:11.781Z] Reset all submodules: finished. gk-log://duration?t=5
+[2020-03-02T15:41:02.329Z] Pull master: started.
+[2020-03-02T15:41:02.337Z] Fetch remote origin: started
+[2020-03-02T15:41:09.792Z] Fetch remote origin: finished gk-log://duration?t=7455
+[2020-03-02T15:41:09.825Z] Merge origin/master into master: started.
+[2020-03-02T15:41:09.831Z] Merge origin/master into master: finished. gk-log://duration?t=6
+[2020-03-02T15:41:09.852Z] Pull master: finished. gk-log://duration?t=7523
+[2020-03-02T15:41:11.285Z] Checkout refs/heads/develop: started.
+[2020-03-02T15:41:11.430Z] Checkout refs/heads/develop: finished. gk-log://duration?t=145
+[2020-03-02T15:43:13.066Z] Start git flow feature 'new-form-fields': started.
+[2020-03-02T15:43:13.199Z] Start git flow feature 'new-form-fields': finished. gk-log://duration?t=133
+[2020-03-03T15:45:47.602Z] Stage src/Service/OnlineBooking/OnlineBookingService.php for commit: started.
+[2020-03-03T15:45:47.805Z] Stage src/Service/OnlineBooking/OnlineBookingService.php for commit: finished. gk-log://duration?t=203
+[2020-03-03T15:45:51.120Z] Stage src/Model/Booking/Booking.php for commit: started.
+[2020-03-03T15:45:51.264Z] Stage src/Model/Booking/Booking.php for commit: finished. gk-log://duration?t=144
+[2020-03-03T15:46:01.345Z] Stage src/Helper/ContactFormHelperFunctions.php for commit: started.
+[2020-03-03T15:46:01.505Z] Stage src/Helper/ContactFormHelperFunctions.php for commit: finished. gk-log://duration?t=160
+[2020-03-03T15:46:08.154Z] Stage src/Helper/AjaxHelperFunctions.php for commit: started.
+[2020-03-03T15:46:08.278Z] Stage src/Helper/AjaxHelperFunctions.php for commit: finished. gk-log://duration?t=124
+[2020-03-03T15:46:21.220Z] Unstage src/Helper/ContactFormHelperFunctions.php: started.
+[2020-03-03T15:46:21.294Z] Unstage src/Helper/ContactFormHelperFunctions.php: finished. gk-log://duration?t=74
+[2020-03-03T15:46:30.012Z] Commit: started.
+[2020-03-03T15:46:30.074Z] Commit: finished creating commit d0de8623c1a9226e7c2bd30d5c0d06c6f94d9587
+[2020-03-03T15:46:35.931Z] Stage src/Helper/ContactFormHelperFunctions.php for commit: started.
+[2020-03-03T15:46:36.037Z] Stage src/Helper/ContactFormHelperFunctions.php for commit: finished. gk-log://duration?t=106
+[2020-03-03T15:46:49.815Z] Commit: started.
+[2020-03-03T15:46:49.865Z] Commit: finished creating commit d2e6822ff19bf3aada81463d12038c42a35a67c6
+[2020-03-03T15:47:21.850Z] Finish git flow feature 'new-form-fields': started.
+[2020-03-03T15:47:22.140Z] Finish git flow feature 'new-form-fields': finished. gk-log://duration?t=290
+[2020-03-03T15:47:27.989Z] Push develop: started.
+[2020-03-03T15:47:32.394Z] Push develop: finished. gk-log://duration?t=4405
+[2020-03-03T15:47:36.534Z] Checkout refs/heads/master: started.
+[2020-03-03T15:47:36.682Z] Checkout refs/heads/master: finished. gk-log://duration?t=148
+[2020-03-03T15:47:38.193Z] Checkout refs/remotes/origin/master: started.
+[2020-03-03T15:47:45.076Z] Checkout refs/remotes/origin/master: finished. gk-log://duration?t=6883
+[2020-03-03T15:47:48.105Z] Undo Action with reflog message "branch: Reset to f3cdc505e1e5b34a59dd6e4fbbf93c6e80bb72c4": started.
+[2020-03-03T15:47:48.113Z] Undo Action with reflog message "branch: Reset to f3cdc505e1e5b34a59dd6e4fbbf93c6e80bb72c4": finished. gk-log://duration?t=8
+[2020-03-03T15:48:00.107Z] Checkout refs/heads/feature/days-foward: started.
+[2020-03-03T15:48:00.232Z] Checkout refs/heads/feature/days-foward: finished. gk-log://duration?t=125
+[2020-03-03T15:48:01.747Z] Checkout refs/heads/master: started.
+[2020-03-03T15:48:01.861Z] Checkout refs/heads/master: finished. gk-log://duration?t=114
+[2020-03-03T15:48:03.190Z] Checkout refs/heads/develop: started.
+[2020-03-03T15:48:03.305Z] Checkout refs/heads/develop: finished. gk-log://duration?t=115
+[2020-03-03T15:48:04.221Z] Checkout refs/heads/master: started.
+[2020-03-03T15:48:04.362Z] Checkout refs/heads/master: finished. gk-log://duration?t=141
+[2020-03-03T15:48:06.822Z] Merge develop into master: started.
+[2020-03-03T15:48:06.860Z] Finish merge develop into master: started.
+[2020-03-03T15:48:06.878Z] Finish merge develop into master: finished. gk-log://duration?t=18
+[2020-03-03T15:48:06.898Z] Merge develop into master: finished. gk-log://duration?t=76
+[2020-03-03T15:48:09.319Z] Push master: started.
+[2020-03-03T15:48:12.502Z] Push master: finished. gk-log://duration?t=3183
+[2020-03-03T15:48:30.878Z] Create ref refs/tags/1.5.0 at e70c731d4bd6cd4ff5aabce1c35e6b33770d1554: started.
+[2020-03-03T15:48:30.919Z] Create ref refs/tags/1.5.0 at e70c731d4bd6cd4ff5aabce1c35e6b33770d1554: finished. gk-log://duration?t=41
+[2020-03-03T15:48:37.700Z] Pushing 1.5.0 to origin: started.
+[2020-03-03T15:48:40.052Z] Pushing 1.5.0 to origin: finished. gk-log://duration?t=2351
+[2020-03-03T21:17:09.735Z] Checkout refs/heads/develop: started.
+[2020-03-03T21:17:10.047Z] Checkout refs/heads/develop: finished. gk-log://duration?t=312
+[2020-03-03T21:17:26.540Z] Start git flow feature 'mollie': started.
+[2020-03-03T21:17:26.587Z] Auto-stash uncommitted changes: started.
+[2020-03-03T21:17:26.590Z] Stage src/Helper/ContactFormHelperFunctions.php for stash: started.
+[2020-03-03T21:17:26.641Z] Stage src/Helper/ContactFormHelperFunctions.php for stash: finished. gk-log://duration?t=51
+[2020-03-03T21:17:26.853Z] Auto-stash uncommitted changes: finished. Stash sha: 14308a73dbfae10cbabdb4fb074dcb504c529c91 gk-log://duration?t=266
+[2020-03-03T21:17:26.909Z] Pop most recent stash: started.
+[2020-03-03T21:17:26.944Z] Pop stash 14308a73dbfae10cbabdb4fb074dcb504c529c91: finished. gk-log://duration?t=35
+[2020-03-03T21:17:27.060Z] Start git flow feature 'mollie': finished. gk-log://duration?t=520
+[2020-03-03T21:17:37.880Z] Stage src/Helper/ContactFormHelperFunctions.php for commit: started.
+[2020-03-03T21:17:37.948Z] Stage src/Helper/ContactFormHelperFunctions.php for commit: finished. gk-log://duration?t=68
+[2020-03-03T21:25:36.527Z] Stage src/Helper/ContactFormHelperFunctions.php for commit: started.
+[2020-03-03T21:25:36.676Z] Stage src/Helper/ContactFormHelperFunctions.php for commit: finished. gk-log://duration?t=149
+[2020-03-03T21:25:44.511Z] Commit: started.
+[2020-03-03T21:25:44.561Z] Commit: finished creating commit 232bc4299b91ad3c49a3d29fb78a8fbc7ac15b4c
+[2020-03-03T21:25:58.325Z] Stage src/Helper/ContactFormHelperFunctions.php for commit: started.
+[2020-03-03T21:25:58.374Z] Stage src/Helper/ContactFormHelperFunctions.php for commit: finished. gk-log://duration?t=49
+[2020-03-03T21:26:00.848Z] Amend commit 232bc4299b91ad3c49a3d29fb78a8fbc7ac15b4c: started.
+[2020-03-03T21:26:00.860Z] Amend commit 232bc4299b91ad3c49a3d29fb78a8fbc7ac15b4c: finished.
+[2020-03-03T21:28:16.831Z] Stage 4 files for commit: started.
+[2020-03-03T21:28:16.900Z] Stage 4 files for commit: finished. gk-log://duration?t=69
+[2020-03-03T21:28:17.806Z] Commit: started.
+[2020-03-03T21:28:17.843Z] Commit: finished creating commit 5f4e03f74bd08823db38c7f6e26d8fda403f4b28
+[2020-03-03T21:28:57.786Z] Stage src/Service/Service.php for commit: started.
+[2020-03-03T21:28:57.850Z] Stage src/Service/Service.php for commit: finished. gk-log://duration?t=64
+[2020-03-03T21:28:58.951Z] Amend commit 5f4e03f74bd08823db38c7f6e26d8fda403f4b28: started.
+[2020-03-03T21:28:58.970Z] Amend commit 5f4e03f74bd08823db38c7f6e26d8fda403f4b28: finished.
+[2020-03-03T21:30:37.809Z] Amend commit a508771d80b04fa6d98a203912cb028db1e7d75c: started.
+[2020-03-03T21:30:37.818Z] Amend commit a508771d80b04fa6d98a203912cb028db1e7d75c: finished.
+[2020-03-03T21:30:39.146Z] Stage src/Helper/AjaxHelperFunctions.php for commit: started.
+[2020-03-03T21:30:39.199Z] Stage src/Helper/AjaxHelperFunctions.php for commit: finished. gk-log://duration?t=53
+[2020-03-03T21:30:41.260Z] Amend commit ad8f2de2ad26918b44d242097e5d4ac89e0f8c71: started.
+[2020-03-03T21:30:41.280Z] Amend commit ad8f2de2ad26918b44d242097e5d4ac89e0f8c71: finished.
+[2020-03-03T21:33:59.456Z] Amend commit 4f2b4fcade329d8abdda27981ad2b6164346d06f: started.
+[2020-03-03T21:33:59.462Z] Amend commit 4f2b4fcade329d8abdda27981ad2b6164346d06f: finished.
+[2020-03-03T21:34:02.043Z] Stage src/Model/ContactForm/ContactForm.php for commit: started.
+[2020-03-03T21:34:02.184Z] Stage src/Model/ContactForm/ContactForm.php for commit: finished. gk-log://duration?t=141
+[2020-03-03T21:34:04.193Z] Amend commit ae20e0c02e74abb242051537e2cd5ab9b18e2c04: started.
+[2020-03-03T21:34:04.211Z] Amend commit ae20e0c02e74abb242051537e2cd5ab9b18e2c04: finished.
+[2020-03-03T21:45:25.147Z] Stage 2 files for commit: started.
+[2020-03-03T21:45:25.203Z] Stage 2 files for commit: finished. gk-log://duration?t=56
+[2020-03-03T21:45:34.957Z] Commit: started.
+[2020-03-03T21:45:34.997Z] Commit: finished creating commit 465ab16cdd58051a4eeaa3cfe242ebcf2a3802e1
+[2020-03-03T21:45:41.284Z] Finish git flow feature 'mollie': started.
+[2020-03-03T21:45:41.462Z] Finish git flow feature 'mollie': finished. gk-log://duration?t=178
+[2020-03-03T21:45:49.247Z] Push develop: started.
+[2020-03-03T21:45:52.477Z] Push develop: finished. gk-log://duration?t=3230
+[2020-03-04T08:40:17.252Z] Checkout refs/heads/master: started.
+[2020-03-04T08:40:17.330Z] Checkout refs/heads/master: finished. gk-log://duration?t=78
+[2020-03-04T08:40:24.410Z] Unstage 2 files: started.
+[2020-03-04T08:40:24.445Z] Unstage 2 files: finished. gk-log://duration?t=35
+[2020-03-04T08:40:24.461Z] Reset all files: started.
+[2020-03-04T08:40:24.501Z] Reset all files: finished. gk-log://duration?t=40
+[2020-03-04T08:40:24.637Z] Reset all submodules: started.
+[2020-03-04T08:40:24.661Z] Reset all submodules: finished. gk-log://duration?t=24
+[2020-03-04T08:40:26.072Z] Checkout refs/heads/master: started.
+[2020-03-04T08:40:26.212Z] Checkout refs/heads/master: finished. gk-log://duration?t=140
+[2020-03-04T08:42:42.816Z] Checkout refs/heads/develop: started.
+[2020-03-04T08:42:42.899Z] Checkout refs/heads/develop: finished. gk-log://duration?t=82
+[2020-03-04T08:42:46.808Z] Unstage src/Helper/ContactFormHelperFunctions.php: started.
+[2020-03-04T08:42:46.838Z] Unstage src/Helper/ContactFormHelperFunctions.php: finished. gk-log://duration?t=30
+[2020-03-04T08:42:46.847Z] Reset all files: started.
+[2020-03-04T08:42:46.868Z] Reset all files: finished. gk-log://duration?t=21
+[2020-03-04T08:42:47.017Z] Reset all submodules: started.
+[2020-03-04T08:42:47.028Z] Reset all submodules: finished. gk-log://duration?t=11
+[2020-03-04T08:42:48.626Z] Checkout refs/heads/develop: started.
+[2020-03-04T08:42:48.782Z] Checkout refs/heads/develop: finished. gk-log://duration?t=156
+[2020-03-04T08:43:58.865Z] Stage src/Helper/ContactFormHelperFunctions.php for commit: started.
+[2020-03-04T08:43:58.915Z] Stage src/Helper/ContactFormHelperFunctions.php for commit: finished. gk-log://duration?t=50
+[2020-03-04T08:44:07.499Z] Commit: started.
+[2020-03-04T08:44:07.537Z] Commit: finished creating commit 4f4ab44f67e997c72f80a588b4310523d37d38eb
+[2020-03-04T08:44:09.694Z] Push develop: started.
+[2020-03-04T08:44:13.774Z] Push develop: finished. gk-log://duration?t=4080
+[2020-03-04T08:52:40.650Z] Stage 2 files for commit: started.
+[2020-03-04T08:52:40.715Z] Stage 2 files for commit: finished. gk-log://duration?t=65
+[2020-03-04T08:53:03.975Z] Commit: started.
+[2020-03-04T08:53:04.037Z] Commit: finished creating commit b7986abfc3ac5ec138f64e09833c74323ee848d5
+[2020-03-04T08:53:05.785Z] Push develop: started.
+[2020-03-04T08:53:11.374Z] Push develop: finished. gk-log://duration?t=5589
+[2020-03-04T08:53:13.897Z] Checkout refs/heads/master: started.
+[2020-03-04T08:53:14.092Z] Checkout refs/heads/master: finished. gk-log://duration?t=195
+[2020-03-04T08:53:17.971Z] Merge develop into master: started.
+[2020-03-04T08:53:18.025Z] Finish merge develop into master: started.
+[2020-03-04T08:53:18.037Z] Finish merge develop into master: finished. gk-log://duration?t=12
+[2020-03-04T08:53:18.060Z] Merge develop into master: finished. gk-log://duration?t=89
+[2020-03-04T08:53:19.236Z] Push master: started.
+[2020-03-04T08:53:21.317Z] Push master: finished. gk-log://duration?t=2081
+[2020-03-04T08:53:36.916Z] Create ref refs/tags/1.5.1 at 277b0d3f3b09a0687ae2d7647a3a16922f64f132: started.
+[2020-03-04T08:53:36.952Z] Create ref refs/tags/1.5.1 at 277b0d3f3b09a0687ae2d7647a3a16922f64f132: finished. gk-log://duration?t=36
+[2020-03-04T08:53:41.402Z] Pushing 1.5.1 to origin: started.
+[2020-03-04T08:53:43.465Z] Pushing 1.5.1 to origin: finished. gk-log://duration?t=2063
+[2020-03-04T15:15:53.487Z] Checkout refs/heads/develop: started.
+[2020-03-04T15:15:53.621Z] Checkout refs/heads/develop: finished. gk-log://duration?t=134
+[2020-03-04T15:30:45.104Z] Start git flow feature 'fixes-after-ww': started.
+[2020-03-04T15:30:45.156Z] Auto-stash uncommitted changes: started.
+[2020-03-04T15:30:45.160Z] Stage src/Service/OnlineBooking/OnlineBookingService.php for stash: started.
+[2020-03-04T15:30:45.215Z] Stage src/Service/OnlineBooking/OnlineBookingService.php for stash: finished. gk-log://duration?t=55
+[2020-03-04T15:30:45.341Z] Auto-stash uncommitted changes: finished. Stash sha: 1085f20609c6cd75f748c51393e8899a530570fd gk-log://duration?t=185
+[2020-03-04T15:30:45.424Z] Pop most recent stash: started.
+[2020-03-04T15:30:45.480Z] Pop stash 1085f20609c6cd75f748c51393e8899a530570fd: finished. gk-log://duration?t=56
+[2020-03-04T15:30:45.634Z] Start git flow feature 'fixes-after-ww': finished. gk-log://duration?t=530
+[2020-03-05T12:05:06.957Z] Stage 2 files for commit: started.
+[2020-03-05T12:05:07.127Z] Stage 2 files for commit: finished. gk-log://duration?t=170
+[2020-03-05T12:18:58.542Z] Stage 2 files for commit: started.
+[2020-03-05T12:18:58.600Z] Stage 2 files for commit: finished. gk-log://duration?t=58
+[2020-03-05T12:19:01.645Z] Commit: started.
+[2020-03-05T12:19:01.699Z] Commit: finished creating commit ba7f5122ab337279dd5af9903cb7ee5b5ff04ccc
+[2020-03-05T12:19:09.984Z] Finish git flow feature 'fixes-after-ww': started.
+[2020-03-05T12:19:10.132Z] Finish git flow feature 'fixes-after-ww': finished. gk-log://duration?t=148
+[2020-03-05T12:19:17.726Z] Push develop: started.
+[2020-03-05T12:19:22.815Z] Push develop: finished. gk-log://duration?t=5089
+[2020-03-05T16:16:45.596Z] Fetch remote origin: failed to resolve address for bitbucket.org: nodename nor servname provided, or not known
+[2020-03-05T16:30:10.799Z] Fetch remote origin: failed to resolve address for bitbucket.org: nodename nor servname provided, or not known

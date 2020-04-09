@@ -1,0 +1,29 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "apc-api": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "apc-api"
+        }
+      }
+    }
+  },
+  "upstreamFrecencyMetadata": {
+    "origin": {
+      "timestamps": [
+        1542812762604,
+        1543586784716
+      ],
+      "total": 2
+    }
+  },
+  "layout": {
+    "GraphPanel": {
+      "Tree": {
+        "width": 128
+      }
+    }
+  }
+}

@@ -1,0 +1,407 @@
+[2020-01-10T09:12:10.702Z] Stage src/models/questions/questions.ts for commit: started.
+[2020-01-10T09:12:10.946Z] Stage src/models/questions/questions.ts for commit: finished. gk-log://duration?t=244
+[2020-01-10T09:12:16.164Z] Stage src/global.scss for commit: started.
+[2020-01-10T09:12:16.626Z] Stage src/global.scss for commit: finished. gk-log://duration?t=462
+[2020-01-10T09:12:32.166Z] Unstage resources/icon.png: started.
+[2020-01-10T09:12:32.428Z] Unstage resources/icon.png: finished. gk-log://duration?t=262
+[2020-01-10T09:13:09.504Z] Unstage 116 files: started.
+[2020-01-10T09:13:09.706Z] Unstage 116 files: finished. gk-log://duration?t=202
+[2020-01-10T09:13:12.881Z] Stage config.xml for commit: started.
+[2020-01-10T09:13:13.048Z] Stage config.xml for commit: finished. gk-log://duration?t=166
+[2020-01-10T09:13:16.029Z] Stage ionic.config.json for commit: started.
+[2020-01-10T09:13:16.312Z] Stage ionic.config.json for commit: finished. gk-log://duration?t=283
+[2020-01-10T09:13:19.833Z] Stage package 2.json for commit: started.
+[2020-01-10T09:13:20.091Z] Stage package 2.json for commit: finished. gk-log://duration?t=258
+[2020-01-10T09:13:21.997Z] Stage package-lock.json for commit: started.
+[2020-01-10T09:13:22.317Z] Stage package-lock.json for commit: finished. gk-log://duration?t=320
+[2020-01-10T09:13:22.926Z] Stage package.json for commit: started.
+[2020-01-10T09:13:23.372Z] Stage package.json for commit: finished. gk-log://duration?t=446
+[2020-01-10T09:13:30.882Z] Commit: started.
+[2020-01-10T09:13:31.003Z] Commit: finished creating commit e6e5a8362d2f2e41b3f0e1ffa28ea6464bc316fa
+[2020-01-10T09:13:38.458Z] Push master: started.
+[2020-01-10T09:13:43.694Z] Push master: finished. gk-log://duration?t=5236
+[2020-01-10T09:13:56.852Z] Initialize git flow: started.
+[2020-01-10T09:13:56.960Z] Initialize git flow: finished. gk-log://duration?t=108
+[2020-01-10T09:14:46.239Z] Checkout refs/heads/develop: started.
+[2020-01-10T09:14:46.604Z] Checkout refs/heads/develop: finished. gk-log://duration?t=365
+[2020-01-10T09:14:52.876Z] Start git flow feature 'Youtube-video-ios-13-compatibility': started.
+[2020-01-10T09:14:52.945Z] Auto-stash uncommitted changes: started.
+[2020-01-10T09:14:52.975Z] Stage 111 files for stash: started.
+[2020-01-10T09:14:55.452Z] Stage 111 files for stash: finished. gk-log://duration?t=2477
+[2020-01-10T09:14:57.595Z] Auto-stash uncommitted changes: finished. Stash sha: 21c98ff8659813ff1052457a40fecaee033ae68a gk-log://duration?t=4650
+[2020-01-10T09:14:57.721Z] Pop most recent stash: started.
+[2020-01-10T09:14:58.609Z] Pop stash 21c98ff8659813ff1052457a40fecaee033ae68a: finished. gk-log://duration?t=888
+[2020-01-10T09:14:59.084Z] Start git flow feature 'Youtube-video-ios-13-compatibility': finished. gk-log://duration?t=6208
+[2020-01-10T09:16:25.894Z] Checkout refs/heads/develop: started.
+[2020-01-10T09:16:26.552Z] Checkout refs/heads/develop: finished. gk-log://duration?t=658
+[2020-01-10T09:16:42.292Z] Start git flow feature 'update-q&a': started.
+[2020-01-10T09:16:42.619Z] Auto-stash uncommitted changes: started.
+[2020-01-10T09:16:42.642Z] Stage 111 files for stash: started.
+[2020-01-10T09:16:43.920Z] Stage 111 files for stash: finished. gk-log://duration?t=1278
+[2020-01-10T09:16:46.142Z] Auto-stash uncommitted changes: finished. Stash sha: 0ad176a44e39901cf923c16091dfbac701b8aa9c gk-log://duration?t=3523
+[2020-01-10T09:16:46.239Z] Pop most recent stash: started.
+[2020-01-10T09:16:47.030Z] Pop stash 0ad176a44e39901cf923c16091dfbac701b8aa9c: finished. gk-log://duration?t=791
+[2020-01-10T09:16:47.432Z] Start git flow feature 'update-q&a': finished. gk-log://duration?t=5140
+[2020-01-10T09:16:55.403Z] Stage src/models/questions/questions.ts for commit: started.
+[2020-01-10T09:16:55.790Z] Stage src/models/questions/questions.ts for commit: finished. gk-log://duration?t=387
+[2020-01-10T09:17:02.090Z] Stage src/app/welding-tips-details/welding-tips-details.page.ts for commit: started.
+[2020-01-10T09:17:02.428Z] Stage src/app/welding-tips-details/welding-tips-details.page.ts for commit: finished. gk-log://duration?t=338
+[2020-01-10T09:17:05.361Z] Stage src/app/welding-tips-details/welding-tips-details.page.html for commit: started.
+[2020-01-10T09:17:05.789Z] Stage src/app/welding-tips-details/welding-tips-details.page.html for commit: finished. gk-log://duration?t=428
+[2020-01-10T09:17:19.912Z] Stage src/app/welding-tips/welding-tips.page.ts for commit: started.
+[2020-01-10T09:17:20.267Z] Stage src/app/welding-tips/welding-tips.page.ts for commit: finished. gk-log://duration?t=355
+[2020-01-10T09:17:21.769Z] Stage src/app/welding-tips/welding-tips.page.html for commit: started.
+[2020-01-10T09:17:22.161Z] Stage src/app/welding-tips/welding-tips.page.html for commit: finished. gk-log://duration?t=392
+[2020-01-10T09:17:31.726Z] Stage src/app/problems-solutions-details/problems-solutions-details.page.ts for commit: started.
+[2020-01-10T09:17:32.057Z] Stage src/app/problems-solutions-details/problems-solutions-details.page.ts for commit: finished. gk-log://duration?t=331
+[2020-01-10T09:17:33.165Z] Stage src/app/problems-solutions-details/problems-solutions-details.page.html for commit: started.
+[2020-01-10T09:17:33.504Z] Stage src/app/problems-solutions-details/problems-solutions-details.page.html for commit: finished. gk-log://duration?t=339
+[2020-01-10T09:17:40.112Z] Stage src/app/components/question-category-container/question-category-container.component.ts for commit: started.
+[2020-01-10T09:17:40.453Z] Stage src/app/components/question-category-container/question-category-container.component.ts for commit: finished. gk-log://duration?t=341
+[2020-01-10T09:18:33.579Z] Stage src/app/components/question-category-container/question-category-container.component.html for commit: started.
+[2020-01-10T09:18:33.956Z] Stage src/app/components/question-category-container/question-category-container.component.html for commit: finished. gk-log://duration?t=377
+[2020-01-10T09:19:12.609Z] Commit: started.
+[2020-01-10T09:19:12.909Z] Commit: finished creating commit 0753e92207af6609fe0d1048bc32e16bafab2b8e
+[2020-01-10T09:19:22.682Z] Checkout refs/heads/master: started.
+[2020-01-10T09:19:23.214Z] Checkout refs/heads/master: finished. gk-log://duration?t=532
+[2020-01-10T09:19:25.659Z] Checkout refs/heads/develop: started.
+[2020-01-10T09:19:25.918Z] Checkout refs/heads/develop: finished. gk-log://duration?t=259
+[2020-01-10T09:19:30.737Z] Checkout refs/heads/feature/update-q&a: started.
+[2020-01-10T09:19:31.852Z] Checkout refs/heads/feature/update-q&a: finished. gk-log://duration?t=1115
+[2020-01-10T09:19:39.718Z] Finish git flow feature 'update-q&a': started.
+[2020-01-10T09:19:40.649Z] Finish git flow feature 'update-q&a': finished. gk-log://duration?t=931
+[2020-01-10T09:20:01.964Z] Start git flow feature 'ionic-deprecations': started.
+[2020-01-10T09:20:02.143Z] Auto-stash uncommitted changes: started.
+[2020-01-10T09:20:02.162Z] Stage 81 files for stash: started.
+[2020-01-10T09:20:03.321Z] Stage 81 files for stash: finished. gk-log://duration?t=1159
+[2020-01-10T09:20:04.558Z] Auto-stash uncommitted changes: finished. Stash sha: 7ff6e0535b33e795931e3232e4305499bf4e1e5c gk-log://duration?t=2415
+[2020-01-10T09:20:04.678Z] Pop most recent stash: started.
+[2020-01-10T09:20:04.825Z] Pop stash 7ff6e0535b33e795931e3232e4305499bf4e1e5c: finished. gk-log://duration?t=147
+[2020-01-10T09:20:05.175Z] Start git flow feature 'ionic-deprecations': finished. gk-log://duration?t=3211
+[2020-01-10T09:20:11.044Z] Stage src/app/welcome/welcome.page.html for commit: started.
+[2020-01-10T09:20:11.444Z] Stage src/app/welcome/welcome.page.html for commit: finished. gk-log://duration?t=400
+[2020-01-10T09:20:14.381Z] Stage src/app/specifications-details/specifications-details.page.html for commit: started.
+[2020-01-10T09:20:14.657Z] Stage src/app/specifications-details/specifications-details.page.html for commit: finished. gk-log://duration?t=276
+[2020-01-10T09:20:16.292Z] Stage src/app/specifications/specifications.page.html for commit: started.
+[2020-01-10T09:20:16.497Z] Stage src/app/specifications/specifications.page.html for commit: finished. gk-log://duration?t=205
+[2020-01-10T09:20:17.622Z] Stage src/app/search/search.page.html for commit: started.
+[2020-01-10T09:20:17.951Z] Stage src/app/search/search.page.html for commit: finished. gk-log://duration?t=329
+[2020-01-10T09:20:19.079Z] Stage src/app/register/register.page.html for commit: started.
+[2020-01-10T09:20:19.361Z] Stage src/app/register/register.page.html for commit: finished. gk-log://duration?t=282
+[2020-01-10T09:20:36.756Z] Stage src/app/part-options/part-options.page.html for commit: started.
+[2020-01-10T09:20:37.320Z] Stage src/app/part-options/part-options.page.html for commit: finished. gk-log://duration?t=564
+[2020-01-10T09:20:42.706Z] Stage src/app/maintenance/maintenance.page.html for commit: started.
+[2020-01-10T09:20:43.139Z] Stage src/app/maintenance/maintenance.page.html for commit: finished. gk-log://duration?t=433
+[2020-01-10T09:20:46.399Z] Stage src/app/login/login.page.html for commit: started.
+[2020-01-10T09:20:46.690Z] Stage src/app/login/login.page.html for commit: finished. gk-log://duration?t=291
+[2020-01-10T09:20:48.689Z] Stage src/app/intro/intro.page.html for commit: started.
+[2020-01-10T09:20:48.943Z] Stage src/app/intro/intro.page.html for commit: finished. gk-log://duration?t=254
+[2020-01-10T09:20:51.787Z] Stage src/app/installation/installation.page.html for commit: started.
+[2020-01-10T09:20:52.062Z] Stage src/app/installation/installation.page.html for commit: finished. gk-log://duration?t=275
+[2020-01-10T09:20:55.066Z] Stage src/app/home/home.page.html for commit: started.
+[2020-01-10T09:20:55.349Z] Stage src/app/home/home.page.html for commit: finished. gk-log://duration?t=283
+[2020-01-10T09:21:00.819Z] Stage src/app/details/details.page.html for commit: started.
+[2020-01-10T09:21:01.098Z] Stage src/app/details/details.page.html for commit: finished. gk-log://duration?t=279
+[2020-01-10T09:21:10.389Z] Stage changes in src/app/contact-us/contact-us.page.html: started.
+[2020-01-10T09:21:10.595Z] Stage changes in src/app/contact-us/contact-us.page.html: finished. gk-log://duration?t=206
+[2020-01-10T09:21:28.543Z] Stage src/app/app.component.ts for commit: started.
+[2020-01-10T09:21:29.069Z] Stage src/app/app.component.ts for commit: finished. gk-log://duration?t=526
+[2020-01-10T09:21:29.714Z] Stage src/app/app.component.html for commit: started.
+[2020-01-10T09:21:29.968Z] Stage src/app/app.component.html for commit: finished. gk-log://duration?t=254
+[2020-01-10T09:21:34.531Z] Stage src/global.scss for commit: started.
+[2020-01-10T09:21:34.949Z] Stage src/global.scss for commit: finished. gk-log://duration?t=418
+[2020-01-10T09:21:49.312Z] Commit: started.
+[2020-01-10T09:21:49.491Z] Commit: finished creating commit 7a050a415999c483f2eaeffa633d69f624fedaa2
+[2020-01-10T09:22:19.169Z] Finish git flow feature 'ionic-deprecations': started.
+[2020-01-10T09:22:19.321Z] Finish git flow feature 'ionic-deprecations': 1 conflict prevents checkout
+[2020-01-10T09:22:19.349Z] Finish git flow feature 'ionic-deprecations': finished with errors. gk-log://duration?t=180
+[2020-01-10T09:22:35.347Z] Checkout refs/heads/feature/Youtube-video-ios-13-compatibility: started.
+[2020-01-10T09:22:35.469Z] Checkout refs/heads/feature/Youtube-video-ios-13-compatibility: finished. gk-log://duration?t=122
+[2020-01-10T09:22:42.462Z] Stage 66 files for commit: started.
+[2020-01-10T09:22:43.290Z] Stage 66 files for commit: finished. gk-log://duration?t=828
+[2020-01-10T09:22:47.118Z] Stash uncommitted changes: started.
+[2020-01-10T09:22:47.144Z] Stage 66 files for stash: started.
+[2020-01-10T09:22:47.218Z] Stage 66 files for stash: finished. gk-log://duration?t=74
+[2020-01-10T09:22:48.223Z] Stash uncommitted changes: finished. Stash sha: 0976acec0b91d2534cf9cf5a646382d6669032d6 gk-log://duration?t=1104
+[2020-01-10T09:22:56.387Z] Finish git flow feature 'ionic-deprecations': started.
+[2020-01-10T09:22:56.735Z] Finish git flow feature 'ionic-deprecations': finished. gk-log://duration?t=348
+[2020-01-10T09:23:00.758Z] Checkout refs/heads/feature/Youtube-video-ios-13-compatibility: started.
+[2020-01-10T09:23:00.990Z] Checkout refs/heads/feature/Youtube-video-ios-13-compatibility: finished. gk-log://duration?t=232
+[2020-01-10T09:23:04.246Z] Merge develop into feature/Youtube-video-ios-13-compatibility: started.
+[2020-01-10T09:23:04.658Z] Finish merge develop into feature/Youtube-video-ios-13-compatibility: started.
+[2020-01-10T09:23:04.683Z] Finish merge develop into feature/Youtube-video-ios-13-compatibility: finished. gk-log://duration?t=24
+[2020-01-10T09:23:04.707Z] Merge develop into feature/Youtube-video-ios-13-compatibility: finished. gk-log://duration?t=461
+[2020-01-10T09:23:11.426Z] Apply stash 4e793a7c0c9e3a0afc69f42d3973c4ddcf71c1ac: started.
+[2020-01-10T09:23:11.709Z] Apply stash 0976acec0b91d2534cf9cf5a646382d6669032d6: finished. gk-log://duration?t=283
+[2020-01-10T09:23:25.785Z] Stage src/app/part-options-details/part-options-details.page.html for commit: started.
+[2020-01-10T09:23:26.145Z] Stage src/app/part-options-details/part-options-details.page.html for commit: finished. gk-log://duration?t=360
+[2020-01-10T09:23:27.939Z] Stage src/app/part-options-details/part-options-details.page.scss for commit: started.
+[2020-01-10T09:23:28.180Z] Stage src/app/part-options-details/part-options-details.page.scss for commit: finished. gk-log://duration?t=241
+[2020-01-10T09:23:30.540Z] Stage src/app/part-options-details/part-options-details.page.ts for commit: started.
+[2020-01-10T09:23:31.009Z] Stage src/app/part-options-details/part-options-details.page.ts for commit: finished. gk-log://duration?t=469
+[2020-01-10T09:24:14.549Z] Stage src/app/problems-solutions/problems-solutions.page.ts for commit: started.
+[2020-01-10T09:24:14.821Z] Stage src/app/problems-solutions/problems-solutions.page.ts for commit: finished. gk-log://duration?t=272
+[2020-01-10T09:24:15.300Z] Stage src/app/problems-solutions/problems-solutions.page.html for commit: started.
+[2020-01-10T09:24:15.574Z] Stage src/app/problems-solutions/problems-solutions.page.html for commit: finished. gk-log://duration?t=274
+[2020-01-10T09:24:16.123Z] Stage src/app/part-options/part-options.page.ts for commit: started.
+[2020-01-10T09:24:16.359Z] Stage src/app/part-options/part-options.page.ts for commit: finished. gk-log://duration?t=236
+[2020-01-10T09:24:17.078Z] Stage src/app/maintenance-details/maintenance-details.page.ts for commit: started.
+[2020-01-10T09:24:17.303Z] Stage src/app/maintenance-details/maintenance-details.page.ts for commit: finished. gk-log://duration?t=225
+[2020-01-10T09:24:18.907Z] Stage src/app/maintenance/maintenance.page.ts for commit: started.
+[2020-01-10T09:24:19.093Z] Stage src/app/maintenance/maintenance.page.ts for commit: finished. gk-log://duration?t=186
+[2020-01-10T09:24:24.111Z] Stage src/app/installation-details/installation-details.page.ts for commit: started.
+[2020-01-10T09:24:24.506Z] Stage src/app/installation-details/installation-details.page.ts for commit: finished. gk-log://duration?t=395
+[2020-01-10T09:24:26.324Z] Stage src/app/installation/installation.page.ts for commit: started.
+[2020-01-10T09:24:26.708Z] Stage src/app/installation/installation.page.ts for commit: finished. gk-log://duration?t=384
+[2020-01-10T09:24:28.587Z] Stage src/app/contact-us/contact-us.page.ts for commit: started.
+[2020-01-10T09:24:29.061Z] Stage src/app/contact-us/contact-us.page.ts for commit: finished. gk-log://duration?t=474
+[2020-01-10T09:24:29.664Z] Stage src/app/contact-us/contact-us.page.html for commit: started.
+[2020-01-10T09:24:30.065Z] Stage src/app/contact-us/contact-us.page.html for commit: finished. gk-log://duration?t=401
+[2020-01-10T09:24:36.896Z] Stage src/app/components/components.module.ts for commit: started.
+[2020-01-10T09:24:37.250Z] Stage src/app/components/components.module.ts for commit: finished. gk-log://duration?t=353
+[2020-01-10T09:24:38.472Z] Stage src/app/api.service.ts for commit: started.
+[2020-01-10T09:24:38.928Z] Stage src/app/api.service.ts for commit: finished. gk-log://duration?t=456
+[2020-01-10T09:24:51.061Z] Commit: started.
+[2020-01-10T09:24:51.301Z] Commit: finished creating commit 5511bae0e1da80ede882e5bc875c406545827eb0
+[2020-01-10T09:24:57.801Z] Finish git flow feature 'Youtube-video-ios-13-compatibility': started.
+[2020-01-10T09:24:58.393Z] Finish git flow feature 'Youtube-video-ios-13-compatibility': finished. gk-log://duration?t=592
+[2020-01-10T09:25:24.375Z] Start git flow feature 'app-icons': started.
+[2020-01-10T09:25:24.560Z] Auto-stash uncommitted changes: started.
+[2020-01-10T09:25:24.589Z] Stage 52 files for stash: started.
+[2020-01-10T09:25:25.743Z] Stage 52 files for stash: finished. gk-log://duration?t=1154
+[2020-01-10T09:25:27.092Z] Auto-stash uncommitted changes: finished. Stash sha: b468c349b498e370d5473980b1f41a1af2b6882d gk-log://duration?t=2532
+[2020-01-10T09:25:27.336Z] Pop most recent stash: started.
+[2020-01-10T09:25:27.519Z] Pop stash b468c349b498e370d5473980b1f41a1af2b6882d: finished. gk-log://duration?t=183
+[2020-01-10T09:25:27.993Z] Start git flow feature 'app-icons': finished. gk-log://duration?t=3618
+[2020-01-10T09:25:31.719Z] Stage resources/splash.png for commit: started.
+[2020-01-10T09:25:31.943Z] Stage resources/splash.png for commit: finished. gk-log://duration?t=224
+[2020-01-10T09:25:32.690Z] Stage resources/icon.png for commit: started.
+[2020-01-10T09:25:32.859Z] Stage resources/icon.png for commit: finished. gk-log://duration?t=169
+[2020-01-10T09:25:46.230Z] Commit: started.
+[2020-01-10T09:25:46.407Z] Commit: finished creating commit 7807fdbdd173c30225e4608e5969a6697fdd5841
+[2020-01-10T09:29:12.001Z] Stage .gitignore for commit: started.
+[2020-01-10T09:29:12.309Z] Stage .gitignore for commit: finished. gk-log://duration?t=308
+[2020-01-10T09:30:23.878Z] Discard changes in .gitignore: started.
+[2020-01-10T09:30:24.160Z] Discard changes in .gitignore: finished. gk-log://duration?t=282
+[2020-01-10T09:30:33.450Z] Commit: started.
+[2020-01-10T09:30:33.629Z] Commit: finished creating commit eef20be8814562f272334b4edd115fa2af3d79d9
+[2020-01-10T09:30:40.754Z] Ignore resources/ios: started.
+[2020-01-10T09:30:42.290Z] Ignore resources/ios: finished. gk-log://duration?t=1536
+[2020-01-10T09:30:48.447Z] Ignore resources/android: started.
+[2020-01-10T09:30:49.374Z] Ignore resources/android: finished. gk-log://duration?t=927
+[2020-01-10T09:30:55.233Z] Amend commit eef20be8814562f272334b4edd115fa2af3d79d9: started.
+[2020-01-10T09:30:55.261Z] Amend commit eef20be8814562f272334b4edd115fa2af3d79d9: finished.
+[2020-01-10T09:31:06.289Z] Finish git flow feature 'app-icons': started.
+[2020-01-10T09:31:06.767Z] Finish git flow feature 'app-icons': finished. gk-log://duration?t=478
+[2020-01-10T09:32:09.791Z] Delete ref refs/heads/feature/update at 429e43f269871ec18428cee56af4717bb51b6c74: started.
+[2020-01-10T09:32:09.843Z] Delete ref refs/heads/feature/update at 429e43f269871ec18428cee56af4717bb51b6c74: finished. gk-log://duration?t=52
+[2020-01-10T09:32:15.564Z] Delete ref refs/heads/feature/ionic4stable at e53789d3f5e6411d23b897a815c0f2247e7245a0: started.
+[2020-01-10T09:32:15.613Z] Delete ref refs/heads/feature/ionic4stable at e53789d3f5e6411d23b897a815c0f2247e7245a0: finished. gk-log://duration?t=49
+[2020-01-10T09:32:20.219Z] Delete ref refs/heads/feature/remembe-credentials at 9b6f28dbddbba97a922a2fc88ddce4c7bb65ae94: started.
+[2020-01-10T09:32:20.261Z] Delete ref refs/heads/feature/remembe-credentials at 9b6f28dbddbba97a922a2fc88ddce4c7bb65ae94: finished. gk-log://duration?t=42
+[2020-01-10T09:32:28.384Z] Delete ref refs/remotes/origin/fix/feedback-quickfixes at 988824353413521cff4635eefbb093b00051d51b: started.
+[2020-01-10T09:32:30.372Z] Delete ref refs/remotes/origin/fix/feedback-quickfixes at 988824353413521cff4635eefbb093b00051d51b: finished. gk-log://duration?t=1988
+[2020-01-10T09:32:35.889Z] Delete ref refs/heads/fix/feedback-quickfixes at 988824353413521cff4635eefbb093b00051d51b: started.
+[2020-01-10T09:32:35.934Z] Delete ref refs/heads/fix/feedback-quickfixes at 988824353413521cff4635eefbb093b00051d51b: finished. gk-log://duration?t=45
+[2020-01-10T09:32:41.211Z] Delete ref refs/heads/fix/backButton at bfc4f3f905251655696a505930d1bc406dc7b2da: started.
+[2020-01-10T09:32:41.249Z] Delete ref refs/heads/fix/backButton at bfc4f3f905251655696a505930d1bc406dc7b2da: finished. gk-log://duration?t=38
+[2020-01-10T09:32:41.257Z] Delete ref refs/remotes/origin/fix/backButton at bfc4f3f905251655696a505930d1bc406dc7b2da: started.
+[2020-01-10T09:32:43.147Z] Delete ref refs/remotes/origin/fix/backButton at bfc4f3f905251655696a505930d1bc406dc7b2da: finished. gk-log://duration?t=1890
+[2020-01-10T09:32:47.762Z] Checkout refs/remotes/origin/file-picker-for-contact-form: started.
+[2020-01-10T09:32:47.818Z] Create ref refs/heads/file-picker-for-contact-form at c24fedb08d835f2f4b67785d7b99b4c39f1c9ff3: started.
+[2020-01-10T09:32:47.874Z] Create ref refs/heads/file-picker-for-contact-form at c24fedb08d835f2f4b67785d7b99b4c39f1c9ff3: finished. gk-log://duration?t=56
+[2020-01-10T09:32:48.141Z] Checkout refs/remotes/origin/file-picker-for-contact-form: finished. gk-log://duration?t=379
+[2020-01-10T09:32:51.188Z] Checkout refs/heads/fix/video-thumbnails: started.
+[2020-01-10T09:32:51.487Z] Checkout refs/heads/fix/video-thumbnails: finished. gk-log://duration?t=299
+[2020-01-10T09:32:59.855Z] Checkout refs/heads/develop: started.
+[2020-01-10T09:33:00.857Z] Checkout refs/heads/develop: finished. gk-log://duration?t=1002
+[2020-01-10T09:33:07.592Z] Delete ref refs/heads/fix/video-thumbnails at 29cf6d217d94beb3409be87c145fee6d09f80818: started.
+[2020-01-10T09:33:07.633Z] Delete ref refs/heads/fix/video-thumbnails at 29cf6d217d94beb3409be87c145fee6d09f80818: finished. gk-log://duration?t=41
+[2020-01-10T09:33:07.636Z] Delete ref refs/remotes/origin/fix/video-thumbnails at 29cf6d217d94beb3409be87c145fee6d09f80818: started.
+[2020-01-10T09:33:11.046Z] Delete ref refs/remotes/origin/fix/video-thumbnails at 29cf6d217d94beb3409be87c145fee6d09f80818: finished. gk-log://duration?t=3410
+[2020-01-10T09:33:14.209Z] Push develop: started.
+[2020-01-10T09:33:15.703Z] Set upstream for develop: started.
+[2020-01-10T09:33:15.795Z] Set upstream for develop: finished. gk-log://duration?t=92
+[2020-01-10T09:33:22.437Z] Push develop: finished. gk-log://duration?t=8228
+[2020-01-10T09:34:00.817Z] Start git flow release '0.17': started.
+[2020-01-10T09:34:01.188Z] Start git flow release '0.17': finished. gk-log://duration?t=371
+[2020-01-10T09:34:36.593Z] Stage config.xml for commit: started.
+[2020-01-10T09:34:36.797Z] Stage config.xml for commit: finished. gk-log://duration?t=204
+[2020-01-10T09:34:37.930Z] Commit: started.
+[2020-01-10T09:34:38.144Z] Commit: finished creating commit 5a25732e2699d2269f4b20eefc5d7fc13c8c47b0
+[2020-01-10T09:34:42.773Z] Finish git flow release '0.17': started.
+[2020-01-10T09:34:44.416Z] Finish git flow release '0.17': finished. gk-log://duration?t=1643
+[2020-01-10T09:34:50.678Z] Checkout refs/heads/develop: started.
+[2020-01-10T09:34:51.227Z] Checkout refs/heads/develop: finished. gk-log://duration?t=549
+[2020-01-10T09:34:51.974Z] Push develop: started.
+[2020-01-10T09:34:53.881Z] Push develop: finished. gk-log://duration?t=1907
+[2020-01-10T09:34:56.455Z] Checkout refs/heads/master: started.
+[2020-01-10T09:34:56.747Z] Checkout refs/heads/master: finished. gk-log://duration?t=292
+[2020-01-10T09:34:57.308Z] Push master: started.
+[2020-01-10T09:34:59.461Z] Push master: finished. gk-log://duration?t=2153
+[2020-01-10T09:35:03.720Z] Pushing 0.17 to origin: started.
+[2020-01-10T09:35:06.082Z] Pushing 0.17 to origin: finished. gk-log://duration?t=2362
+[2020-01-22T09:52:40.898Z] Reset unstaged changes in src/app/contact-us/contact-us.page.ts: started.
+[2020-01-22T09:52:40.919Z] Reset unstaged changes in src/app/contact-us/contact-us.page.ts: finished. gk-log://duration?t=21
+[2020-01-22T09:52:48.896Z] Reset unstaged changes in src/app/contact-us/contact-us.page.html: started.
+[2020-01-22T09:52:48.921Z] Reset unstaged changes in src/app/contact-us/contact-us.page.html: finished. gk-log://duration?t=25
+[2020-01-22T09:52:57.825Z] Ignore resources: started.
+[2020-01-22T09:52:59.623Z] Ignore resources: finished. gk-log://duration?t=1798
+[2020-01-22T09:53:02.708Z] Stage package.json for commit: started.
+[2020-01-22T09:53:03.253Z] Stage package.json for commit: finished. gk-log://duration?t=545
+[2020-01-22T09:53:03.852Z] Stage package-lock.json for commit: started.
+[2020-01-22T09:53:04.094Z] Stage package-lock.json for commit: finished. gk-log://duration?t=242
+[2020-01-22T09:53:04.788Z] Stage config.xml for commit: started.
+[2020-01-22T09:53:05.104Z] Stage config.xml for commit: finished. gk-log://duration?t=315
+[2020-01-22T09:53:12.351Z] Checkout refs/heads/develop: started.
+[2020-01-22T09:53:12.728Z] Checkout refs/heads/develop: finished. gk-log://duration?t=377
+[2020-01-22T09:53:17.020Z] Commit: started.
+[2020-01-22T09:53:17.262Z] Commit: finished creating commit 11d72a9e4c5c2d3740e0078e0ef9184ae6e359a6
+[2020-01-22T09:53:22.787Z] Stage src/app/app.module.ts for commit: started.
+[2020-01-22T09:53:22.993Z] Stage src/app/app.module.ts for commit: finished. gk-log://duration?t=206
+[2020-01-22T09:53:31.031Z] Commit: started.
+[2020-01-22T09:53:31.233Z] Commit: finished creating commit 688bcf29e2ba947ffda14152c18d897680af872f
+[2020-01-22T09:53:37.043Z] Push develop: started.
+[2020-01-22T09:53:41.488Z] Push develop: finished. gk-log://duration?t=4445
+[2020-01-22T09:53:50.430Z] Start git flow feature 'take-pictures': started.
+[2020-01-22T09:53:50.588Z] Auto-stash uncommitted changes: started.
+[2020-01-22T09:53:50.611Z] Stage 4 files for stash: started.
+[2020-01-22T09:53:52.317Z] Stage 4 files for stash: finished. gk-log://duration?t=1706
+[2020-01-22T09:53:56.021Z] Auto-stash uncommitted changes: finished. Stash sha: 14303d75ba54f88c21997b013510e0f86b35cdb0 gk-log://duration?t=5433
+[2020-01-22T09:53:56.188Z] Pop most recent stash: started.
+[2020-01-22T09:53:57.674Z] Pop stash 14303d75ba54f88c21997b013510e0f86b35cdb0: finished. gk-log://duration?t=1486
+[2020-01-22T09:53:58.017Z] Start git flow feature 'take-pictures': finished. gk-log://duration?t=7587
+[2020-01-22T09:54:02.856Z] Unstage 4 files: started.
+[2020-01-22T09:54:03.529Z] Unstage 4 files: finished. gk-log://duration?t=673
+[2020-01-23T12:46:43.868Z] Discard changes in src/app/app.component.ts: started.
+[2020-01-23T12:46:44.074Z] Discard changes in src/app/app.component.ts: finished. gk-log://duration?t=206
+[2020-01-23T12:46:47.657Z] Stage changes in src/app/app.component.ts: started.
+[2020-01-23T12:46:48.321Z] Stage changes in src/app/app.component.ts: finished. gk-log://duration?t=664
+[2020-01-23T12:46:49.975Z] Discard changes in src/app/app.component.ts: started.
+[2020-01-23T12:46:50.285Z] Discard changes in src/app/app.component.ts: finished. gk-log://duration?t=310
+[2020-01-23T12:47:29.944Z] Stage changes in src/app/contact-us/contact-us.page.ts: started.
+[2020-01-23T12:47:30.277Z] Stage changes in src/app/contact-us/contact-us.page.ts: finished. gk-log://duration?t=333
+[2020-01-23T12:47:33.215Z] Stage changes in src/app/contact-us/contact-us.page.ts: started.
+[2020-01-23T12:47:33.778Z] Stage changes in src/app/contact-us/contact-us.page.ts: finished. gk-log://duration?t=563
+[2020-01-23T12:47:36.881Z] Stage changes in src/app/contact-us/contact-us.page.ts: started.
+[2020-01-23T12:47:37.091Z] Stage changes in src/app/contact-us/contact-us.page.ts: finished. gk-log://duration?t=210
+[2020-01-23T12:47:38.515Z] Stage changes in src/app/contact-us/contact-us.page.ts: started.
+[2020-01-23T12:47:38.798Z] Stage changes in src/app/contact-us/contact-us.page.ts: finished. gk-log://duration?t=283
+[2020-01-23T12:48:06.182Z] Stage changes in src/app/contact-us/contact-us.page.html: started.
+[2020-01-23T12:48:06.515Z] Stage changes in src/app/contact-us/contact-us.page.html: finished. gk-log://duration?t=333
+[2020-01-23T12:48:19.491Z] Commit: started.
+[2020-01-23T12:48:19.713Z] Commit: finished creating commit 06b9ac5220514bf2e8374d337add25eeb2826a82
+[2020-01-28T09:35:12.572Z] Stage src/global.scss for commit: started.
+[2020-01-28T09:35:12.871Z] Stage src/global.scss for commit: finished. gk-log://duration?t=299
+[2020-01-28T09:35:22.702Z] Stage src/app/app.component.ts for commit: started.
+[2020-01-28T09:35:25.110Z] Stage src/app/app.component.ts for commit: finished. gk-log://duration?t=2408
+[2020-01-28T09:35:28.717Z] Stage src/app/contact.service.ts for commit: started.
+[2020-01-28T09:35:28.990Z] Stage src/app/contact.service.ts for commit: finished. gk-log://duration?t=273
+[2020-01-28T09:35:31.449Z] Stage src/app/contact-us/contact-us.page.ts for commit: started.
+[2020-01-28T09:35:31.697Z] Stage src/app/contact-us/contact-us.page.ts for commit: finished. gk-log://duration?t=248
+[2020-01-28T09:35:33.288Z] Stage src/app/contact-us/contact-us.page.html for commit: started.
+[2020-01-28T09:35:35.245Z] Stage src/app/contact-us/contact-us.page.html for commit: finished. gk-log://duration?t=1956
+[2020-01-28T09:58:30.555Z] Stage src/app/app.component.ts for commit: started.
+[2020-01-28T09:58:32.851Z] Stage src/app/app.component.ts for commit: finished. gk-log://duration?t=2295
+[2020-01-28T09:58:37.474Z] Stage package.json for commit: started.
+[2020-01-28T09:58:37.830Z] Stage package.json for commit: finished. gk-log://duration?t=356
+[2020-01-28T09:58:39.832Z] Stage package-lock.json for commit: started.
+[2020-01-28T09:58:40.196Z] Stage package-lock.json for commit: finished. gk-log://duration?t=364
+[2020-01-28T09:58:43.145Z] Stage config.xml for commit: started.
+[2020-01-28T09:58:43.541Z] Stage config.xml for commit: finished. gk-log://duration?t=396
+[2020-01-28T09:58:59.641Z] Commit: started.
+[2020-01-28T09:58:59.851Z] Commit: finished creating commit cad0a72fea43e03cf20850d7f612a40b6ae906bd
+[2020-01-28T10:14:20.122Z] Stage src/models/products/products.ts for commit: started.
+[2020-01-28T10:14:20.554Z] Stage src/models/products/products.ts for commit: finished. gk-log://duration?t=432
+[2020-01-28T10:30:29.112Z] Finish git flow feature 'take-pictures': started.
+[2020-01-28T10:30:29.212Z] Finish git flow feature 'take-pictures': 2 conflicts prevent checkout
+[2020-01-28T10:30:29.253Z] Finish git flow feature 'take-pictures': finished with errors. gk-log://duration?t=141
+[2020-01-28T10:30:38.916Z] Ignore resources: started.
+[2020-01-28T10:30:40.705Z] Ignore resources: finished. gk-log://duration?t=1789
+[2020-01-28T10:30:51.156Z] Unstage resources/icon.png: started.
+[2020-01-28T10:30:51.356Z] Unstage resources/icon.png: finished. gk-log://duration?t=200
+[2020-01-28T10:30:52.371Z] Unstage resources/splash.png: started.
+[2020-01-28T10:30:52.494Z] Unstage resources/splash.png: finished. gk-log://duration?t=123
+[2020-01-28T10:31:02.953Z] Stage .gitignore for commit: started.
+[2020-01-28T10:31:03.103Z] Stage .gitignore for commit: finished. gk-log://duration?t=150
+[2020-01-28T10:31:08.444Z] Stage src/global.scss for commit: started.
+[2020-01-28T10:31:08.634Z] Stage src/global.scss for commit: finished. gk-log://duration?t=190
+[2020-01-28T10:31:10.369Z] Stage src/app/welcome/welcome.page.scss for commit: started.
+[2020-01-28T10:31:10.834Z] Stage src/app/welcome/welcome.page.scss for commit: finished. gk-log://duration?t=465
+[2020-01-28T10:31:11.789Z] Stage src/app/login/login.page.ts for commit: started.
+[2020-01-28T10:31:11.978Z] Stage src/app/login/login.page.ts for commit: finished. gk-log://duration?t=189
+[2020-01-28T10:31:13.333Z] Stage src/app/contact-us/contact-us.page.html for commit: started.
+[2020-01-28T10:31:13.660Z] Stage src/app/contact-us/contact-us.page.html for commit: finished. gk-log://duration?t=327
+[2020-01-28T10:31:23.991Z] Unstage src/app/contact-us/contact-us.page.html: started.
+[2020-01-28T10:31:24.193Z] Unstage src/app/contact-us/contact-us.page.html: finished. gk-log://duration?t=202
+[2020-01-28T10:31:29.343Z] Discard changes in src/app/contact-us/contact-us.page.html: started.
+[2020-01-28T10:31:29.543Z] Discard changes in src/app/contact-us/contact-us.page.html: finished. gk-log://duration?t=200
+[2020-01-28T10:31:36.471Z] Amend commit cad0a72fea43e03cf20850d7f612a40b6ae906bd: started.
+[2020-01-28T10:31:36.527Z] Amend commit cad0a72fea43e03cf20850d7f612a40b6ae906bd: finished.
+[2020-01-28T10:31:45.656Z] Finish git flow feature 'take-pictures': started.
+[2020-01-28T10:31:47.012Z] Finish git flow feature 'take-pictures': finished. gk-log://duration?t=1356
+[2020-01-28T10:31:49.549Z] Push develop: started.
+[2020-01-28T10:31:53.783Z] Push develop: finished. gk-log://duration?t=4234
+[2020-01-28T10:34:14.218Z] Start git flow release '0.0.18': started.
+[2020-01-28T10:34:14.259Z] Auto-stash uncommitted changes: started.
+[2020-01-28T10:34:14.291Z] Stage package 3.json for stash: started.
+[2020-01-28T10:34:14.384Z] Stage package 3.json for stash: finished. gk-log://duration?t=93
+[2020-01-28T10:34:14.694Z] Auto-stash uncommitted changes: finished. Stash sha: 0b7292a2b5294578c38643853a0f5e4ee28acef8 gk-log://duration?t=435
+[2020-01-28T10:34:14.798Z] Pop most recent stash: started.
+[2020-01-28T10:34:15.938Z] Pop stash 0b7292a2b5294578c38643853a0f5e4ee28acef8: finished. gk-log://duration?t=1140
+[2020-01-28T10:34:16.054Z] Start git flow release '0.0.18': finished. gk-log://duration?t=1836
+[2020-01-28T10:35:02.700Z] Unstage package 3.json: started.
+[2020-01-28T10:35:02.757Z] Unstage package 3.json: finished. gk-log://duration?t=57
+[2020-01-28T10:35:03.900Z] Stage config.xml for commit: started.
+[2020-01-28T10:35:03.970Z] Stage config.xml for commit: finished. gk-log://duration?t=70
+[2020-01-28T10:35:25.647Z] Commit: started.
+[2020-01-28T10:35:25.731Z] Commit: finished creating commit a8d1ae6a684c30c532526ac76d8978e58574adaf
+[2020-01-28T10:35:31.182Z] Finish git flow release '0.0.18': started.
+[2020-01-28T10:35:31.904Z] Finish git flow release '0.0.18': finished. gk-log://duration?t=722
+[2020-01-28T10:35:35.009Z] Checkout refs/heads/develop: started.
+[2020-01-28T10:35:35.248Z] Checkout refs/heads/develop: finished. gk-log://duration?t=239
+[2020-01-28T10:35:36.380Z] Push develop: started.
+[2020-01-28T10:35:42.116Z] Push develop: finished. gk-log://duration?t=5736
+[2020-01-28T10:35:47.600Z] Checkout refs/heads/master: started.
+[2020-01-28T10:35:47.805Z] Checkout refs/heads/master: finished. gk-log://duration?t=205
+[2020-01-28T10:35:49.714Z] Push master: started.
+[2020-01-28T10:35:51.910Z] Push master: finished. gk-log://duration?t=2196
+[2020-01-28T12:13:14.361Z] Checkout refs/heads/develop: started.
+[2020-01-28T12:13:14.777Z] Checkout refs/heads/develop: finished. gk-log://duration?t=416
+[2020-01-28T12:46:28.569Z] Stage config.xml for commit: started.
+[2020-01-28T12:46:28.836Z] Stage config.xml for commit: finished. gk-log://duration?t=267
+[2020-01-28T12:46:45.380Z] Stage package.json for commit: started.
+[2020-01-28T12:46:46.393Z] Stage package.json for commit: finished. gk-log://duration?t=1013
+[2020-01-28T12:46:47.260Z] Stage package-lock.json for commit: started.
+[2020-01-28T12:46:47.472Z] Stage package-lock.json for commit: finished. gk-log://duration?t=212
+[2020-01-28T12:46:50.351Z] Stage network_security_config.xml for commit: started.
+[2020-01-28T12:46:50.623Z] Stage network_security_config.xml for commit: finished. gk-log://duration?t=272
+[2020-01-28T12:46:56.406Z] Stage src/app/contact-us/contact-us.page.ts for commit: started.
+[2020-01-28T12:46:56.641Z] Stage src/app/contact-us/contact-us.page.ts for commit: finished. gk-log://duration?t=235
+[2020-01-28T12:46:58.699Z] Stage src/app/contact-us/contact-us.page.html for commit: started.
+[2020-01-28T12:46:59.010Z] Stage src/app/contact-us/contact-us.page.html for commit: finished. gk-log://duration?t=311
+[2020-01-28T12:47:01.498Z] Commit: started.
+[2020-01-28T12:47:01.675Z] Commit: finished creating commit 26a612cec1566f02d8e361324ab1163ba58cfd75
+[2020-01-28T12:47:12.578Z] Push develop: started.
+[2020-01-28T12:47:16.130Z] Push develop: finished. gk-log://duration?t=3552
+[2020-04-08T14:28:38.066Z] Stage src/app/contact-us/contact-us.page.ts for commit: started.
+[2020-04-08T14:28:38.333Z] Stage src/app/contact-us/contact-us.page.ts for commit: finished. gk-log://duration?t=267
+[2020-04-08T14:28:41.095Z] Unstage package 2.json: started.
+[2020-04-08T14:28:41.221Z] Unstage package 2.json: finished. gk-log://duration?t=126
+[2020-04-08T14:28:50.230Z] Commit: started.
+[2020-04-08T14:28:50.351Z] Commit: finished creating commit 67bc09a37008f5014af9c00c4df1a6505ff0c5ca
+[2020-04-08T14:28:53.239Z] Push develop: started.
+[2020-04-08T14:28:57.043Z] Push develop: finished. gk-log://duration?t=3804
+[2020-04-08T14:29:04.926Z] Reset unstaged changes in package.json: started.
+[2020-04-08T14:29:04.939Z] Reset unstaged changes in package.json: finished. gk-log://duration?t=13
+[2020-04-08T14:29:07.079Z] Unstage 3 files: started.
+[2020-04-08T14:29:07.152Z] Unstage 3 files: finished. gk-log://duration?t=73
+[2020-04-08T14:29:07.185Z] Reset all files: started.
+[2020-04-08T14:29:07.222Z] Reset all files: finished. gk-log://duration?t=37
+[2020-04-08T14:29:07.311Z] Reset all submodules: started.
+[2020-04-08T14:29:07.315Z] Reset all submodules: finished. gk-log://duration?t=4
+[2020-04-08T14:29:24.089Z] Fetch remote origin: failed to resolve path '/Users/jaschavanaalst/Documents/Socialbrothers/Projects/ionic/translas/.git/': No such file or directory
+[2020-04-08T14:30:24.112Z] Fetch remote origin: failed to resolve path '/Users/jaschavanaalst/Documents/Socialbrothers/Projects/ionic/translas/.git/': No such file or directory
+[2020-04-08T14:31:24.097Z] Fetch remote origin: failed to resolve path '/Users/jaschavanaalst/Documents/Socialbrothers/Projects/ionic/translas/.git/': No such file or directory
+[2020-04-08T14:32:24.099Z] Fetch remote origin: failed to resolve path '/Users/jaschavanaalst/Documents/Socialbrothers/Projects/ionic/translas/.git/': No such file or directory
+[2020-04-08T14:33:24.094Z] Fetch remote origin: failed to resolve path '/Users/jaschavanaalst/Documents/Socialbrothers/Projects/ionic/translas/.git/': No such file or directory

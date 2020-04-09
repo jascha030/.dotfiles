@@ -1,0 +1,23 @@
+{
+  "lastPrivateRepoPrompt": "Thu Jun 07 2018 14:41:07 GMT+0200 (CEST)",
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "officetour": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "officetour"
+        }
+      }
+    }
+  },
+  "collapsedRemotes": [],
+  "upstreamFrecencyMetadata": {
+    "origin": {
+      "timestamps": [
+        1528375278387
+      ],
+      "total": 1
+    }
+  }
+}

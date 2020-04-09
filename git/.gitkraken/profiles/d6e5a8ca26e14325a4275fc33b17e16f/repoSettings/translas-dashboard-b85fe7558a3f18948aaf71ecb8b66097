@@ -1,0 +1,13 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "translas-dashboard": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "translas-dashboard"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "lastPrivateRepoPrompt": "Wed Mar 13 2019 11:10:24 GMT+0100 (CET)",
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "apc-api": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "apc-api"
+        }
+      }
+    }
+  },
+  "layout": {
+    "GraphPanel": {
+      "Tree": {
+        "width": 282
+      }
+    }
+  }
+}

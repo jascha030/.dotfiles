@@ -1,0 +1,16 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "translas-api": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "translas-api"
+        }
+      }
+    }
+  },
+  "collapsedSections": [
+    "REMOTE"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "translas-api": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "translas-api"
+        },
+        "translas-dashboard": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "translas-dashboard"
+        }
+      },
+      "pondevelopment": {
+        "vag-app": {
+          "hostingServiceType": "bitbucket",
+          "owner": "pondevelopment",
+          "name": "vag-app"
+        }
+      }
+    },
+    "github": {
+      "jascha030": {
+        "DI-Container": {
+          "hostingServiceType": "github",
+          "owner": "jascha030",
+          "name": "DI-Container"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"name":"min-indent","dist-tags":{"latest":"1.0.0"},"versions":{"1.0.0":{"name":"min-indent","version":"1.0.0","devDependencies":{"ava":"*","xo":"*"},"dist":{"shasum":"cfc45c37e9ec0d8f0a0ec3dd4ef7f7c3abe39256","tarball":"https://registry.npmjs.org/min-indent/-/min-indent-1.0.0.tgz"},"engines":{"node":">=4"}}},"modified":"2017-11-04T07:49:58.279Z"}

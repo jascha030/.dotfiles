@@ -1,0 +1,52 @@
+{
+  "remoteParents": {
+    "github": {
+      "jascha030": {
+        "wpol-subscriptions": {
+          "hostingServiceType": "github",
+          "owner": "jascha030",
+          "name": "wpol-subscriptions"
+        }
+      }
+    }
+  },
+  "remoteHeadCollectionByRemoteName": {
+    "origin": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "3f94e52f43ded32aae66ee16a58187f8883a69e1",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/develop": {
+        "name": "refs/heads/develop",
+        "oid": "0b4335e16b209e51a8e73a09a97af81846fafa39",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "3f94e52f43ded32aae66ee16a58187f8883a69e1",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.0.0": {
+        "name": "refs/tags/1.0.0",
+        "oid": "04f6b75971907b193fde7030e470ab28e6a3a7d6",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.0.0^{}": {
+        "name": "refs/tags/1.0.0^{}",
+        "oid": "879eb9b34056d3f64910b213b6bd441bd0767cee",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  }
+}

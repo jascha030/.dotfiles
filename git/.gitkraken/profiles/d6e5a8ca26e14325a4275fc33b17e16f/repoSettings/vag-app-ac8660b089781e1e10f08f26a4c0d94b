@@ -1,0 +1,311 @@
+{
+  "remoteHeadCollectionByRemoteName": {
+    "origin": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "1962ea55a3e6d2922c0b137b2527c22ac324d85b",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/2.0.10": {
+        "name": "refs/heads/2.0.10",
+        "oid": "d3af36458a18712985f08b79bc9ef127c95dd57b",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/Fix-translation-secure-device": {
+        "name": "refs/heads/Fix-translation-secure-device",
+        "oid": "975de8b5b61d7ed06e858dad44b7b9e3c9f95c6c",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/Ron-Planken/packagejson-edited-online-with-bitbucket-1579105057304": {
+        "name": "refs/heads/Ron-Planken/packagejson-edited-online-with-bitbucket-1579105057304",
+        "oid": "80e7e6711d11d36801b947d82fa0687597f516df",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/VAG-1349-codepush": {
+        "name": "refs/heads/VAG-1349-codepush",
+        "oid": "92b469a8649e56868eeb47d83ff8d8fec817d360",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/VAG-1373-upgrade-to-HttpClientModule": {
+        "name": "refs/heads/VAG-1373-upgrade-to-HttpClientModule",
+        "oid": "b0c2eccebf2c11ff4d6ac4586b6b7c04ad1ee8e6",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/bug/VAG-1288-Android-Q": {
+        "name": "refs/heads/bug/VAG-1288-Android-Q",
+        "oid": "83bc779aecf3df17c8abdbfbe90600d7154293c7",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/bugfix/VAG-1105-reset-password-e-mail-for-volks": {
+        "name": "refs/heads/bugfix/VAG-1105-reset-password-e-mail-for-volks",
+        "oid": "a4ffef55f7240e3db7479e15929bea651c1c4bbb",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/bugfix/VAG-1215-airbag-mil-is-switched-on-when-": {
+        "name": "refs/heads/bugfix/VAG-1215-airbag-mil-is-switched-on-when-",
+        "oid": "33316954e34996f97c037931031d193505358ddb",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/bugfix/VAG-1347-large-phones-show-a-strip-with-": {
+        "name": "refs/heads/bugfix/VAG-1347-large-phones-show-a-strip-with-",
+        "oid": "489ac352be6fb5fe24be95ea67066997762324ce",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/bugfix/VAG-1358-as-a-driver-i-cannot-register-w": {
+        "name": "refs/heads/bugfix/VAG-1358-as-a-driver-i-cannot-register-w",
+        "oid": "490ba8af82739f8fc5f695951615c91b57f5b7b7",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/bugfix/VAG-1362-parkmobile-exclusion-zones": {
+        "name": "refs/heads/bugfix/VAG-1362-parkmobile-exclusion-zones",
+        "oid": "30c40032c4de9cbda171e41898f220a4e8dc7ab8",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/development": {
+        "name": "refs/heads/development",
+        "oid": "d3af36458a18712985f08b79bc9ef127c95dd57b",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feat/automate_testing": {
+        "name": "refs/heads/feat/automate_testing",
+        "oid": "0730c946249c58e3cdc71015a315faa3cd00e514",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feature/MIN-65-enable-direct-communication-di": {
+        "name": "refs/heads/feature/MIN-65-enable-direct-communication-di",
+        "oid": "6bfeac79eb495b114c33b3de5bfed41684dad4e3",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feature/VAG-1191-replace-service-videos": {
+        "name": "refs/heads/feature/VAG-1191-replace-service-videos",
+        "oid": "a4ffef55f7240e3db7479e15929bea651c1c4bbb",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feature/VAG-1295-added-missing-mil-status-to-app": {
+        "name": "refs/heads/feature/VAG-1295-added-missing-mil-status-to-app",
+        "oid": "d3af36458a18712985f08b79bc9ef127c95dd57b",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feature/VAG-1328-add-notification-setting-toggle": {
+        "name": "refs/heads/feature/VAG-1328-add-notification-setting-toggle",
+        "oid": "bc39b48176c0bb156588badc79d053de35cd1ce3",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feature/VAG-1328-filter-for-notifications": {
+        "name": "refs/heads/feature/VAG-1328-filter-for-notifications",
+        "oid": "d0de278fc80038981129a80f5f616d8c101e03c1",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feature/VAG-1335-use-the-provided-path-if-present": {
+        "name": "refs/heads/feature/VAG-1335-use-the-provided-path-if-present",
+        "oid": "ed57089f37579b4f6a0d6b4d5777f382236345af",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feature/VAG-1350-add-an-interactive-map": {
+        "name": "refs/heads/feature/VAG-1350-add-an-interactive-map",
+        "oid": "92a18ebd9c230a57aaaa5e961853c654cd205eab",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feature/VAG-1353-change-workshop-planner-deeplin": {
+        "name": "refs/heads/feature/VAG-1353-change-workshop-planner-deeplin",
+        "oid": "7a9996fffb6622c6cc3ef26ab2a952f8d4726271",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/feature/VAG-message-inbox": {
+        "name": "refs/heads/feature/VAG-message-inbox",
+        "oid": "6852357862707cff94e4f2d7e7467ab1cb594240",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "1962ea55a3e6d2922c0b137b2527c22ac324d85b",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/socialbrothers/inbox_development": {
+        "name": "refs/heads/socialbrothers/inbox_development",
+        "oid": "f38a08cafb08170e6ee1076c301fcda3770bca23",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/spike/1.0.0": {
+        "name": "refs/heads/spike/1.0.0",
+        "oid": "f94612c4c1dab486a183357c53331566e1801fda",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/spike/changed_endpoints": {
+        "name": "refs/heads/spike/changed_endpoints",
+        "oid": "6ad576d26ec6df662ab522c8f2ce5b6a934fb26a",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/spike/okta_login": {
+        "name": "refs/heads/spike/okta_login",
+        "oid": "04b7d3b584f84214dc8c6b5b5ecff1b3a6074054",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/task/VAG-1231_and_others": {
+        "name": "refs/heads/task/VAG-1231_and_others",
+        "oid": "59ddab76ca57cdd406f7d083a501ef2e33f4fa66",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/version/2.0.10": {
+        "name": "refs/heads/version/2.0.10",
+        "oid": "776e4c3ec333c6278d457c9d3a78511c82e69663",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/version/2.0.3": {
+        "name": "refs/heads/version/2.0.3",
+        "oid": "2976b11fe4b7ef6d4e6cf1d0e7db6dfb6fd4759b",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/version/2.0.4": {
+        "name": "refs/heads/version/2.0.4",
+        "oid": "363c8f1a349080098886ca285badacd27860d332",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/version/2.0.5": {
+        "name": "refs/heads/version/2.0.5",
+        "oid": "65c6050e25f005bdd0a160c61f009a4ca4c7e9cd",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/version/2.0.6": {
+        "name": "refs/heads/version/2.0.6",
+        "oid": "b3970e3b925931a95d01c284d5b0961757b82d16",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/version/2.0.7": {
+        "name": "refs/heads/version/2.0.7",
+        "oid": "6bbf401beb25fc22b7fb58138e1f7cfc42be9762",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/version/2.0.8": {
+        "name": "refs/heads/version/2.0.8",
+        "oid": "482d0b35af10d98a2ced15def78f0980e09b70fe",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/version/notificare": {
+        "name": "refs/heads/version/notificare",
+        "oid": "839ce4ebf38470667d6b3739b457708e81619c56",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/version/notificare-pre-release": {
+        "name": "refs/heads/version/notificare-pre-release",
+        "oid": "f9a7346389ab36a370baeb97cf2ae1840fe93eb1",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/remotes/origin/feature/VAG-862_Full_width_last_trip_no_PL": {
+        "name": "refs/remotes/origin/feature/VAG-862_Full_width_last_trip_no_PL",
+        "oid": "f1db1716b02b8ddabc680662bfc97613dedf8214",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  },
+  "layout": {
+    "GraphPanel": {
+      "Tree": {
+        "width": 348
+      }
+    }
+  },
+  "remoteParents": {
+    "bitbucket": {
+      "pondevelopment": {
+        "vag-app": {
+          "hostingServiceType": "bitbucket",
+          "owner": "pondevelopment",
+          "name": "vag-app"
+        }
+      }
+    },
+    "github": {
+      "jascha030": {
+        "WP-Subscriber-Interface": {
+          "hostingServiceType": "github",
+          "owner": "jascha030",
+          "name": "WP-Subscriber-Interface"
+        },
+        "wpol-subscriptions": {
+          "hostingServiceType": "github",
+          "owner": "jascha030",
+          "name": "wpol-subscriptions"
+        }
+      }
+    }
+  }
+}

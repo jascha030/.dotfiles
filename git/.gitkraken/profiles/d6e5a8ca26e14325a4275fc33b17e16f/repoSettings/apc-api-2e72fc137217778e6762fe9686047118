@@ -1,0 +1,18 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "apc-app": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "apc-app"
+        },
+        "apc-api": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "apc-api"
+        }
+      }
+    }
+  }
+}

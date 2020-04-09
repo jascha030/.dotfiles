@@ -1,0 +1,13 @@
+[2020-02-18T16:18:18.545Z] Checkout refs/remotes/origin/version/2.0.6: started.
+[2020-02-18T16:18:18.738Z] Create ref refs/heads/version/2.0.6 at 59aac68c6dc39ede99a971d5e9807a9021f8efb0: started.
+[2020-02-18T16:18:18.739Z] Create ref refs/heads/version/2.0.6 at 59aac68c6dc39ede99a971d5e9807a9021f8efb0: finished. gk-log://duration?t=1
+[2020-02-18T16:18:18.957Z] Checkout refs/remotes/origin/version/2.0.6: finished. gk-log://duration?t=412
+[2020-02-18T16:18:27.795Z] Unstage 2 files: started.
+[2020-02-18T16:18:27.898Z] Unstage 2 files: finished. gk-log://duration?t=103
+[2020-02-18T16:18:27.944Z] Reset all files: started.
+[2020-02-18T16:18:28.018Z] Reset all files: finished. gk-log://duration?t=74
+[2020-02-18T16:18:28.319Z] Reset all submodules: started.
+[2020-02-18T16:18:28.325Z] Reset all submodules: finished. gk-log://duration?t=6
+[2020-02-18T16:18:30.000Z] Checkout refs/heads/version/2.0.6: started.
+[2020-02-18T16:18:30.306Z] Checkout refs/heads/version/2.0.6: finished. gk-log://duration?t=306
+[2020-02-18T18:23:04.252Z] Fetch remote origin: failed to resolve address for bitbucket.org: nodename nor servname provided, or not known

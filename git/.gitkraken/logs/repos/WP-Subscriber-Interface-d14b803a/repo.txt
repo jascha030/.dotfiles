@@ -1,0 +1,172 @@
+[2020-02-26T08:29:32.704Z] Stage .gitignore for commit: started.
+[2020-02-26T08:29:32.896Z] Stage .gitignore for commit: finished. gk-log://duration?t=192
+[2020-02-26T08:29:35.796Z] Stage composer.json for commit: started.
+[2020-02-26T08:29:35.898Z] Stage composer.json for commit: finished. gk-log://duration?t=102
+[2020-02-26T08:29:55.405Z] Commit: started.
+[2020-02-26T08:29:55.436Z] Commit: finished creating commit 254f1a8eacad4dedd1b982fd1386b9bf5a1254dd
+[2020-02-26T08:30:33.882Z] Initialize git flow: started.
+[2020-02-26T08:30:33.939Z] Initialize git flow: finished. gk-log://duration?t=57
+[2020-02-26T08:30:48.586Z] Checkout refs/heads/develop: started.
+[2020-02-26T08:30:48.757Z] Checkout refs/heads/develop: finished. gk-log://duration?t=171
+[2020-02-26T08:34:06.717Z] Start git flow feature 'Subscriber': started.
+[2020-02-26T08:34:06.765Z] Auto-stash uncommitted changes: started.
+[2020-02-26T08:34:06.776Z] Stage 2 files for stash: started.
+[2020-02-26T08:34:06.811Z] Stage 2 files for stash: finished. gk-log://duration?t=35
+[2020-02-26T08:34:06.891Z] Auto-stash uncommitted changes: finished. Stash sha: a7cc3a279b001683745063f6e224bc6a8898ff6b gk-log://duration?t=126
+[2020-02-26T08:34:06.946Z] Pop most recent stash: started.
+[2020-02-26T08:34:06.993Z] Pop stash a7cc3a279b001683745063f6e224bc6a8898ff6b: finished. gk-log://duration?t=47
+[2020-02-26T08:34:07.203Z] Start git flow feature 'Subscriber': finished. gk-log://duration?t=486
+[2020-02-26T08:34:22.758Z] Commit: started.
+[2020-02-26T08:34:22.788Z] Commit: finished creating commit e91bf94d2a5dd2ff45576edfd4f027e81f69b99e
+[2020-02-26T08:37:18.050Z] Stage 2 files for commit: started.
+[2020-02-26T08:37:18.099Z] Stage 2 files for commit: finished. gk-log://duration?t=49
+[2020-02-26T08:37:19.167Z] Commit: started.
+[2020-02-26T08:37:19.194Z] Commit: finished creating commit c34251bb81f9bd014d6d08d21188b678eafb259e
+[2020-02-26T08:39:03.051Z] Stage src/Subscriber/Subscriber.php for commit: started.
+[2020-02-26T08:39:03.088Z] Stage src/Subscriber/Subscriber.php for commit: finished. gk-log://duration?t=37
+[2020-02-26T08:39:14.475Z] Commit: started.
+[2020-02-26T08:39:14.504Z] Commit: finished creating commit 3b3401def3169762096c03fa9fe095ace898cf71
+[2020-02-26T08:39:22.526Z] Finish git flow feature 'Subscriber': started.
+[2020-02-26T08:39:22.622Z] Finish git flow feature 'Subscriber': finished. gk-log://duration?t=96
+[2020-02-26T08:39:39.675Z] Start git flow feature 'manager': started.
+[2020-02-26T08:39:39.748Z] Start git flow feature 'manager': finished. gk-log://duration?t=73
+[2020-03-02T10:38:59.571Z] Stash uncommitted changes: started.
+[2020-03-02T10:38:59.592Z] Stage 7 files for stash: started.
+[2020-03-02T10:38:59.644Z] Stage 7 files for stash: finished. gk-log://duration?t=52
+[2020-03-02T10:38:59.713Z] Stash uncommitted changes: finished. Stash sha: 74ecb15b4d77ef84ace7e8b90de4ff4a8df8bca8 gk-log://duration?t=142
+[2020-03-02T10:39:01.653Z] Checkout refs/heads/develop: started.
+[2020-03-02T10:39:01.818Z] Checkout refs/heads/develop: finished. gk-log://duration?t=165
+[2020-03-02T10:39:10.921Z] Start git flow feature 'subscriptions': started.
+[2020-03-02T10:39:11.007Z] Start git flow feature 'subscriptions': finished. gk-log://duration?t=86
+[2020-03-02T10:54:29.088Z] Stage src/Subscription/Subscription.php for commit: started.
+[2020-03-02T10:54:29.139Z] Stage src/Subscription/Subscription.php for commit: finished. gk-log://duration?t=51
+[2020-03-02T10:54:49.227Z] Stage src/Subscriber/FilterSubscriber.php for commit: started.
+[2020-03-02T10:54:49.286Z] Stage src/Subscriber/FilterSubscriber.php for commit: finished. gk-log://duration?t=59
+[2020-03-02T10:54:49.812Z] Stage src/Subscriber/ActionSubscriber.php for commit: started.
+[2020-03-02T10:54:49.860Z] Stage src/Subscriber/ActionSubscriber.php for commit: finished. gk-log://duration?t=48
+[2020-03-02T10:54:53.256Z] Unstage 5 files: started.
+[2020-03-02T10:54:53.294Z] Unstage 5 files: finished. gk-log://duration?t=38
+[2020-03-02T10:54:56.426Z] Stage src/Subscription/Subscription.php for commit: started.
+[2020-03-02T10:54:56.493Z] Stage src/Subscription/Subscription.php for commit: finished. gk-log://duration?t=67
+[2020-03-02T10:55:09.878Z] Commit: started.
+[2020-03-02T10:55:09.925Z] Commit: finished creating commit dd29d8d4a9bec71b2e97beae098c36d79c1197fb
+[2020-03-02T10:55:22.972Z] Stage src/Subscriber/FilterSubscriber.php for commit: started.
+[2020-03-02T10:55:23.029Z] Stage src/Subscriber/FilterSubscriber.php for commit: finished. gk-log://duration?t=57
+[2020-03-02T10:55:23.606Z] Stage src/Subscriber/ActionSubscriber.php for commit: started.
+[2020-03-02T10:55:23.648Z] Stage src/Subscriber/ActionSubscriber.php for commit: finished. gk-log://duration?t=42
+[2020-03-02T10:55:39.985Z] Commit: started.
+[2020-03-02T10:55:40.031Z] Commit: finished creating commit d8b53998776b8c2352a1b117312c2661ddade90f
+[2020-03-02T10:55:51.913Z] Stage 2 files for commit: started.
+[2020-03-02T10:55:51.958Z] Stage 2 files for commit: finished. gk-log://duration?t=45
+[2020-03-02T11:13:44.413Z] Unstage 5 files: started.
+[2020-03-02T11:13:44.457Z] Unstage 5 files: finished. gk-log://duration?t=44
+[2020-03-02T11:13:53.126Z] Stage src/Subscription/Subscription.php for commit: started.
+[2020-03-02T11:13:53.300Z] Stage src/Subscription/Subscription.php for commit: finished. gk-log://duration?t=174
+[2020-03-02T11:14:00.347Z] Commit: started.
+[2020-03-02T11:14:00.385Z] Commit: finished creating commit f4e3b400c604cddb2fb006fb764d71fb84ebc5e6
+[2020-03-12T09:01:09.362Z] Stage 5 files for commit: started.
+[2020-03-12T09:01:09.494Z] Stage 5 files for commit: finished. gk-log://duration?t=132
+[2020-03-12T09:01:10.337Z] Commit: started.
+[2020-03-12T09:01:10.375Z] Commit: finished creating commit 842437e9d53f6eba023329d482a9accb1633c70c
+[2020-03-12T09:01:18.629Z] Checkout refs/heads/feature/manager: started.
+[2020-03-12T09:01:18.764Z] Checkout refs/heads/feature/manager: finished. gk-log://duration?t=135
+[2020-03-12T09:01:20.069Z] Checkout refs/heads/feature/subscriptions: started.
+[2020-03-12T09:01:20.221Z] Checkout refs/heads/feature/subscriptions: finished. gk-log://duration?t=152
+[2020-03-12T09:01:24.603Z] Checkout refs/heads/develop: started.
+[2020-03-12T09:01:24.710Z] Checkout refs/heads/develop: finished. gk-log://duration?t=107
+[2020-03-12T09:01:29.147Z] Checkout refs/heads/feature/subscriptions: started.
+[2020-03-12T09:01:29.257Z] Checkout refs/heads/feature/subscriptions: finished. gk-log://duration?t=110
+[2020-03-12T09:01:34.989Z] Finish git flow feature 'subscriptions': started.
+[2020-03-12T09:01:35.141Z] Finish git flow feature 'subscriptions': finished. gk-log://duration?t=152
+[2020-03-12T09:03:26.274Z] Push develop: started.
+[2020-03-12T09:03:30.590Z] Set upstream for develop: started.
+[2020-03-12T09:03:30.696Z] Set upstream for develop: finished. gk-log://duration?t=106
+[2020-03-12T09:03:46.161Z] Push develop: finished. gk-log://duration?t=19887
+[2020-03-12T09:04:04.505Z] Delete ref refs/heads/feature/manager at 501158e6c71f013586baa4c56a7f6b462ec17717: started.
+[2020-03-12T09:04:04.548Z] Delete ref refs/heads/feature/manager at 501158e6c71f013586baa4c56a7f6b462ec17717: finished. gk-log://duration?t=43
+[2020-03-12T09:04:09.540Z] Start git flow feature 'manager': started.
+[2020-03-12T09:04:09.612Z] Start git flow feature 'manager': finished. gk-log://duration?t=72
+[2020-03-12T10:07:30.958Z] Unstage src/Subscription/FilterSubscription.php: started.
+[2020-03-12T10:07:31.033Z] Unstage src/Subscription/FilterSubscription.php: finished. gk-log://duration?t=75
+[2020-03-12T10:07:31.600Z] Unstage src/Subscription/ActionSubscription.php: started.
+[2020-03-12T10:07:31.659Z] Unstage src/Subscription/ActionSubscription.php: finished. gk-log://duration?t=59
+[2020-03-12T10:07:35.862Z] Commit: started.
+[2020-03-12T10:07:35.904Z] Commit: finished creating commit 14e690862c8910529d5c61dcf4e7c63b311557c4
+[2020-03-12T10:07:42.806Z] Stage src/Subscription/FilterSubscription.php for commit: started.
+[2020-03-12T10:07:42.852Z] Stage src/Subscription/FilterSubscription.php for commit: finished. gk-log://duration?t=46
+[2020-03-12T10:07:43.412Z] Stage src/Subscription/ActionSubscription.php for commit: started.
+[2020-03-12T10:07:43.458Z] Stage src/Subscription/ActionSubscription.php for commit: finished. gk-log://duration?t=46
+[2020-03-12T10:08:05.349Z] Commit: started.
+[2020-03-12T10:08:05.384Z] Commit: finished creating commit 5470f55e6951e71b6b739b9fa9304c8c9e009873
+[2020-03-12T10:09:09.593Z] Stage src/Subscriber/PluginSubscriber.php for commit: started.
+[2020-03-12T10:09:09.775Z] Stage src/Subscriber/PluginSubscriber.php for commit: finished. gk-log://duration?t=182
+[2020-03-12T10:09:10.634Z] Commit: started.
+[2020-03-12T10:09:10.674Z] Commit: finished creating commit 511f3cb7b94ffc54fa56bf0a4c1320c410624b9f
+[2020-03-12T10:09:42.888Z] Stage changes in src/Subscription/Subscription.php: started.
+[2020-03-12T10:09:42.958Z] Stage changes in src/Subscription/Subscription.php: finished. gk-log://duration?t=70
+[2020-03-12T10:09:57.761Z] Commit: started.
+[2020-03-12T10:09:57.796Z] Commit: finished creating commit b5518b1264052d732718987bfb8fe941a73697a2
+[2020-03-12T10:10:03.152Z] Stage src/Subscription/Subscription.php for commit: started.
+[2020-03-12T10:10:03.413Z] Stage src/Subscription/Subscription.php for commit: finished. gk-log://duration?t=261
+[2020-03-12T10:10:12.409Z] Commit: started.
+[2020-03-12T10:10:12.442Z] Commit: finished creating commit 642cd9f3c1b87292acf1a2f6794daf7bf8f4b6a5
+[2020-03-12T10:10:19.038Z] Stage src/Subscription/SubscriptionManager.php for commit: started.
+[2020-03-12T10:10:19.145Z] Stage src/Subscription/SubscriptionManager.php for commit: finished. gk-log://duration?t=107
+[2020-03-12T10:10:24.223Z] Commit: started.
+[2020-03-12T10:10:24.258Z] Commit: finished creating commit 0f17cdd30a747057e7e24950aee318850ae80f61
+[2020-03-12T10:13:48.404Z] Finish git flow feature 'manager': started.
+[2020-03-12T10:13:48.626Z] Finish git flow feature 'manager': finished. gk-log://duration?t=222
+[2020-03-12T10:13:51.174Z] Push develop: started.
+[2020-03-12T10:13:54.992Z] Push develop: finished. gk-log://duration?t=3818
+[2020-03-12T10:15:03.658Z] Stage src/Subscription/SubscriptionManager.php for commit: started.
+[2020-03-12T10:15:03.810Z] Stage src/Subscription/SubscriptionManager.php for commit: finished. gk-log://duration?t=152
+[2020-03-12T10:15:05.571Z] Stage src/Subscriber/HookSubscriber.php for commit: started.
+[2020-03-12T10:15:05.688Z] Stage src/Subscriber/HookSubscriber.php for commit: finished. gk-log://duration?t=117
+[2020-03-12T10:15:07.089Z] Commit: started.
+[2020-03-12T10:15:07.126Z] Commit: finished creating commit cbad736f8d385417eda65e257c56e0e3746dc16e
+[2020-03-12T10:15:09.038Z] Push develop: started.
+[2020-03-12T10:15:12.825Z] Push develop: finished. gk-log://duration?t=3787
+[2020-03-12T10:15:25.684Z] Start git flow feature 'shortcode-subscriptions': started.
+[2020-03-12T10:15:25.760Z] Start git flow feature 'shortcode-subscriptions': finished. gk-log://duration?t=76
+[2020-03-12T10:20:17.840Z] Unstage src/Subscription/ShortcodeSubscription.php: started.
+[2020-03-12T10:20:17.877Z] Unstage src/Subscription/ShortcodeSubscription.php: finished. gk-log://duration?t=37
+[2020-03-12T10:20:17.902Z] Reset all files: started.
+[2020-03-12T10:20:17.925Z] Reset all files: finished. gk-log://duration?t=23
+[2020-03-12T10:20:17.970Z] Reset all submodules: started.
+[2020-03-12T10:20:17.991Z] Reset all submodules: finished. gk-log://duration?t=21
+[2020-03-12T10:20:19.984Z] Checkout refs/heads/develop: started.
+[2020-03-12T10:20:20.110Z] Checkout refs/heads/develop: finished. gk-log://duration?t=126
+[2020-03-12T10:20:28.936Z] Delete ref refs/heads/feature/shortcode-subscriptions at cbad736f8d385417eda65e257c56e0e3746dc16e: started.
+[2020-03-12T10:20:28.968Z] Delete ref refs/heads/feature/shortcode-subscriptions at cbad736f8d385417eda65e257c56e0e3746dc16e: finished. gk-log://duration?t=32
+[2020-03-12T10:21:10.452Z] Stage 4 files for commit: started.
+[2020-03-12T10:21:10.506Z] Stage 4 files for commit: finished. gk-log://duration?t=54
+[2020-03-12T10:21:17.761Z] Commit: started.
+[2020-03-12T10:21:17.792Z] Commit: finished creating commit fa3dd221bcf430215e18c3862507b228c9f02aa6
+[2020-03-12T10:22:14.268Z] Stage 2 files for commit: started.
+[2020-03-12T10:22:14.330Z] Stage 2 files for commit: finished. gk-log://duration?t=62
+[2020-03-12T10:22:15.587Z] Commit: started.
+[2020-03-12T10:22:15.626Z] Commit: finished creating commit 3a17ff5b818867f33873c63ea041cd1c1d55cbbb
+[2020-03-12T10:22:53.291Z] Push develop: started.
+[2020-03-12T10:22:56.987Z] Push develop: finished. gk-log://duration?t=3696
+[2020-03-12T10:23:03.207Z] Start git flow feature 'shortcodeSubscription': started.
+[2020-03-12T10:23:03.238Z] Auto-stash uncommitted changes: started.
+[2020-03-12T10:23:03.239Z] Stage src/Subscription/ShortcodeSubscription.php for stash: started.
+[2020-03-12T10:23:03.260Z] Stage src/Subscription/ShortcodeSubscription.php for stash: finished. gk-log://duration?t=21
+[2020-03-12T10:23:03.328Z] Auto-stash uncommitted changes: finished. Stash sha: aa271b3ed823832584402bd224023294120441ee gk-log://duration?t=90
+[2020-03-12T10:23:03.384Z] Pop most recent stash: started.
+[2020-03-12T10:23:03.411Z] Pop stash aa271b3ed823832584402bd224023294120441ee: finished. gk-log://duration?t=27
+[2020-03-12T10:23:03.533Z] Start git flow feature 'shortcodeSubscription': finished. gk-log://duration?t=326
+[2020-03-12T10:44:01.359Z] Commit: started.
+[2020-03-12T10:44:01.402Z] Commit: finished creating commit 734bcc5d4f97e7472e43cf3d236d9624d8aaed18
+[2020-03-12T10:44:09.822Z] Stage src/Subscription/SubscriptionManager.php for commit: started.
+[2020-03-12T10:44:09.958Z] Stage src/Subscription/SubscriptionManager.php for commit: finished. gk-log://duration?t=136
+[2020-03-12T10:44:10.527Z] Stage src/Subscription/ShortcodeSubscription.php for commit: started.
+[2020-03-12T10:44:10.681Z] Stage src/Subscription/ShortcodeSubscription.php for commit: finished. gk-log://duration?t=154
+[2020-03-12T10:44:11.320Z] Stage src/Subscriber/Subscriber.php for commit: started.
+[2020-03-12T10:44:11.439Z] Stage src/Subscriber/Subscriber.php for commit: finished. gk-log://duration?t=119
+[2020-03-12T10:44:11.860Z] Stage src/Exception/InvalidMethodException.php for commit: started.
+[2020-03-12T10:44:11.974Z] Stage src/Exception/InvalidMethodException.php for commit: finished. gk-log://duration?t=114
+[2020-03-12T10:44:12.084Z] Stage src/Exception/InvalidFunctionException.php for commit: started.
+[2020-03-12T10:44:12.183Z] Stage src/Exception/InvalidFunctionException.php for commit: finished. gk-log://duration?t=99
+[2020-03-12T10:44:19.764Z] Commit: started.
+[2020-03-12T10:44:19.800Z] Commit: finished creating commit 896fecd0781043cd68923003eca3a60fb349260f
