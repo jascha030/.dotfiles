@@ -1,0 +1,45 @@
+{
+	"name": "feel-better",
+	"displayName": "Feel Better UI Theme",
+	"description": "Feel Better fork from feelgood TextMate Theme",
+	"version": "0.3.0",
+	"publisher": "edipox",
+	"author": "Edipo Vinicius da Silva <edipox@gmail.com> (https://github.com/edipox)",
+	"engines": {
+		"vscode": "^0.10.1"
+	},
+	"galleryBanner": {
+		"color": "#31364A",
+		"theme": "dark"
+	},
+	"categories": [
+		"Themes"
+	],
+	"icon": "icon.png",
+	"keywords": [
+		"material theme",
+		"palenight",
+		"material",
+		"theme",
+		"dark"
+	],
+	"homepage": "https://github.com/edipox/feel-better/blob/master/edipox.Theme-feel_better/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/edipox/feel-better.git"
+	},
+	"contributes": {
+		"themes": [
+			{
+				"label": "Feel Better",
+				"uiTheme": "vs-dark",
+				"path": "./themes/feel_better.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "084ecf9f-b7ac-4975-a544-61bb40e187f2",
+		"publisherId": "a08c5078-272d-4e95-89fc-50d8364e41a7",
+		"publisherDisplayName": "Edipo da Silva"
+	}
+}

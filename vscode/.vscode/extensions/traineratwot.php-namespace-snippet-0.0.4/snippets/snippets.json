@@ -1,0 +1,55 @@
+{
+	"NameSpace1": {
+		"prefix": "namespaceN",
+		"body": [
+			"namespace ${TM_FILEPATH/(.*localhost.)|(.php)//gi};",
+			"$0"
+		],
+		"description": "namespace dir with file name"
+	},
+	"NameSpace2": {
+		"prefix": "<?phpN",
+		"body": [
+			"<?php",
+			"namespace ${TM_FILEPATH/(.*localhost.)|(.php)//gi};",
+			"$0"
+		],
+		"description": "namespace dir with file name"
+	},
+	"NameSpace3": {
+		"prefix": "namespaceD",
+		"body": [
+			"namespace ${TM_DIRECTORY/(.*localhost.)|(.php)//gi};",
+			"$0"
+		],
+		"description": "namespace dir"
+	},
+	"NameSpace4": {
+		"prefix": "<?phpD",
+		"body": [
+			"<?php",
+			"namespace ${TM_DIRECTORY/(.*localhost.)|(.php)//gi};",
+			"$0"
+		],
+		"description": "namespace dir"
+	},
+	"test": {
+		"prefix": "test1",
+		"body": [
+			"$TM_DIRECTORY"
+		],
+		"description": "namespace dir"
+	},
+	"test2": {
+		"prefix": "test2",
+		"body": [
+			"<a href="`
+			if [[ $(pbpaste|wc -l) -eq 0 ]]
+				then pbpaste
+				else echo http://example.com/
+			fi
+		`">$TM_SELECTED_TEXT</a>"
+		],
+		"description": "namespace dir"
+	}
+}

@@ -1,0 +1,225 @@
+{
+	"name": "php-namespace-resolver",
+	"displayName": "PHP Namespace Resolver",
+	"description": "Import and expand php namespaces",
+	"version": "1.1.8",
+	"publisher": "MehediDracula",
+	"author": "Mehedi Hassan <MehediDracula@gmail.com>",
+	"license": "SEE LICENSE IN LICENSE",
+	"engines": {
+		"vscode": "^1.15.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"php",
+		"namespace",
+		"class",
+		"import",
+		"expand"
+	],
+	"galleryBanner": {
+		"color": "#282c34",
+		"theme": "dark"
+	},
+	"activationEvents": [
+		"onLanguage:php",
+		"onCommand:namespaceResolver.import",
+		"onCommand:namespaceResolver.importAll",
+		"onCommand:namespaceResolver.expand",
+		"onCommand:namespaceResolver.sort",
+		"onCommand:namespaceResolver.highlightNotImported",
+		"onCommand:namespaceResolver.highlightNotUsed",
+		"onCommand:namespaceResolver.generateNamespace"
+	],
+	"main": "./src/extension",
+	"icon": "images/icon.png",
+	"contributes": {
+		"menus": {
+			"editor/context": [
+				{
+					"when": "resourceLangId == php",
+					"command": "namespaceResolver.import",
+					"alt": "namespaceResolver.import",
+					"group": "0_namespace_resolver@1"
+				},
+				{
+					"when": "resourceLangId == php",
+					"command": "namespaceResolver.importAll",
+					"alt": "namespaceResolver.importAll",
+					"group": "0_namespace_resolver@2"
+				},
+				{
+					"when": "resourceLangId == php",
+					"command": "namespaceResolver.expand",
+					"alt": "namespaceResolver.expand",
+					"group": "0_namespace_resolver@3"
+				},
+				{
+					"when": "resourceLangId == php",
+					"command": "namespaceResolver.sort",
+					"alt": "namespaceResolver.sort",
+					"group": "0_namespace_resolver@4"
+				},
+				{
+					"when": "resourceLangId == php",
+					"command": "namespaceResolver.highlightNotImported",
+					"alt": "namespaceResolver.highlightNotImported",
+					"group": "0_namespace_resolver@5"
+				},
+				{
+					"when": "resourceLangId == php",
+					"command": "namespaceResolver.highlightNotUsed",
+					"alt": "namespaceResolver.highlightNotUsed",
+					"group": "0_namespace_resolver@6"
+				},
+				{
+					"when": "resourceLangId == php",
+					"command": "namespaceResolver.generateNamespace",
+					"alt": "namespaceResolver.generateNamespace",
+					"group": "0_namespace_resolver@7"
+				}
+			]
+		},
+		"configuration": {
+			"type": "object",
+			"title": "PHP Namespace Resolver extension configuration",
+			"properties": {
+				"namespaceResolver.exclude": {
+					"type": "string",
+					"default": "**/node_modules/**",
+					"description": "Exclude glob pattern while finding files"
+				},
+				"namespaceResolver.showMessageOnStatusBar": {
+					"type": "boolean",
+					"default": false,
+					"description": "Show message on status bar instead of notification box"
+				},
+				"namespaceResolver.autoSort": {
+					"type": "boolean",
+					"default": true,
+					"description": "Auto sort after imports"
+				},
+				"namespaceResolver.sortOnSave": {
+					"type": "boolean",
+					"default": false,
+					"description": "Auto sort when a file is saved"
+				},
+				"namespaceResolver.sortAlphabetically": {
+					"type": "boolean",
+					"default": false,
+					"description": "Sort imports in alphabetical order instead of line length"
+				},
+				"namespaceResolver.sortNatural": {
+					"type": "boolean",
+					"default": false,
+					"description": "Sort imports using a 'natural order' algorithm"
+				},
+				"namespaceResolver.leadingSeparator": {
+					"type": "boolean",
+					"default": true,
+					"description": "Expand class with leading namespace separator"
+				},
+				"namespaceResolver.highlightOnSave": {
+					"type": "boolean",
+					"default": false,
+					"description": "Auto highlight not imported and not used when a file is saved"
+				},
+				"namespaceResolver.highlightOnOpen": {
+					"type": "boolean",
+					"default": false,
+					"description": "Auto highlight not imported and not used when a file is opened"
+				}
+			}
+		},
+		"commands": [
+			{
+				"title": "Import Class",
+				"command": "namespaceResolver.import"
+			},
+			{
+				"title": "Import All Classes",
+				"command": "namespaceResolver.importAll"
+			},
+			{
+				"title": "Expand Class",
+				"command": "namespaceResolver.expand"
+			},
+			{
+				"title": "Sort Imports",
+				"command": "namespaceResolver.sort"
+			},
+			{
+				"title": "Highlight Not Imported Classes",
+				"command": "namespaceResolver.highlightNotImported"
+			},
+			{
+				"title": "Highlight Not Used Classes",
+				"command": "namespaceResolver.highlightNotUsed"
+			},
+			{
+				"title": "Generate namespace for this file",
+				"command": "namespaceResolver.generateNamespace"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "namespaceResolver.import",
+				"key": "ctrl+alt+i",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "namespaceResolver.importAll",
+				"key": "ctrl+alt+a",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "namespaceResolver.expand",
+				"key": "ctrl+alt+e",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "namespaceResolver.sort",
+				"key": "ctrl+alt+s",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "namespaceResolver.highlightNotImported",
+				"key": "ctrl+alt+n",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "namespaceResolver.highlightNotUsed",
+				"key": "ctrl+alt+u",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "namespaceResolver.generateNamespace",
+				"key": "ctrl+alt+g",
+				"when": "editorTextFocus"
+			}
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/MehediDracula/PHP-Namespace-Resolver"
+	},
+	"bugs": {
+		"url": "https://github.com/MehediDracula/PHP-Namespace-Resolver/issues"
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"vscode": "^1.0.0"
+	},
+	"dependencies": {
+		"node-natural-sort": "^0.8.6"
+	},
+	"__metadata": {
+		"id": "651dce1f-eda8-4a5b-aa26-0d1266de8ed1",
+		"publisherId": "e6a54efe-9186-460e-b45b-8da24a8b8d5f",
+		"publisherDisplayName": "Mehedi Hassan"
+	}
+}

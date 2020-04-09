@@ -1,0 +1,21 @@
+{
+    "name": "material-oceanic",
+    "displayName": "Material Oceanic",
+    "description": "Material maar dan oceanic",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.38.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "Material Oceanic Next",
+                "uiTheme": "vs-dark",
+                "path": "./themes/Material Oceanic Next-color-theme.json"
+            }
+        ]
+    }
+}
