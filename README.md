@@ -8,11 +8,12 @@ brew install stow
 
 cd ~
 
-git clone (this repo)
+git clone git@github.com:jascha030/.dotfiles.git
 ```
 
-then run `stow` on each subdirectory
+Next run `stow` on each subdirectory.
 
+Example:
 ```shell
 cd ~/.dotfiles
 
