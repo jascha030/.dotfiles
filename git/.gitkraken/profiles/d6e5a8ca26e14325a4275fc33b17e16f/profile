@@ -52,15 +52,9 @@
         "type": "REPO",
         "repoName": "wp-settings-page",
         "repoPath": "/Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/"
-      },
-      {
-        "id": "6ea2b8dc-d552-4499-b86f-356e40bafd41",
-        "type": "REPO",
-        "repoName": "container-online",
-        "repoPath": "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/NLCONT-CARNAVON/container-online/"
       }
     ],
-    "selectedTabId": "6ea2b8dc-d552-4499-b86f-356e40bafd41"
+    "selectedTabId": "cac23a18-71f2-4d56-b94e-e6741cad98db"
   },
   "profileIcon": "gravatar",
   "profileName": "Jascha van Aalst",

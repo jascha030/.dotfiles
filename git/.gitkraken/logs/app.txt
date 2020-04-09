@@ -1954,3 +1954,13 @@
 [2020-04-09T09:17:31.867Z] Open repository: finished. gk-log://duration?t=1037
 [2020-04-09T09:38:23.638Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/NLCONT-CARNAVON/container-online/: started.
 [2020-04-09T09:38:24.333Z] Open repository: finished. gk-log://duration?t=695
+[2020-04-09T13:42:25.135Z] Detecting Git and Git LFS: started
+[2020-04-09T13:42:27.091Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/NLCONT-CARNAVON/container-online/: started.
+[2020-04-09T13:42:27.451Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/NLCONT-CARNAVON/container-online/: failed to resolve path '/Users/jaschavanaalst/Documents/Socialbrothers/Projects/NLCONT-CARNAVON/container-online': No such file or directory
+[2020-04-09T13:42:27.478Z] Open repository: finished with errors. gk-log://duration?t=387
+[2020-04-09T13:42:27.482Z] Detected Git: 2.21.1
+[2020-04-09T13:42:27.488Z] Did not detect Git LFS
+[2020-04-09T13:42:31.466Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-09T13:42:32.210Z] Open repository: finished. gk-log://duration?t=744
+[2020-04-09T13:42:59.043Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-09T13:42:59.531Z] Open repository: finished. gk-log://duration?t=488

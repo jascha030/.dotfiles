@@ -1,9 +1,7 @@
 {
   "localRepoCache": [
-    "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/NLCONT-CARNAVON/container-online/.git",
-    "/Users/jaschavanaalst/SocialBrothers/container-online-v2-plugin/.git",
-    "/Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wpol-subscriptions/.git",
     "/Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/.git",
+    "/Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wpol-subscriptions/.git",
     "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/MIND/FIXTEST/vag-app/.git",
     "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/MIND/APP/vag-app/.git",
     "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/MIND/CRASH/vag-app/.git",
@@ -14,17 +12,9 @@
     "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/MIND/cordova-plugin-firebase-notificare/.git",
     "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/MIND/test-new/cordova-plugin-firebase-notificare/.git",
     "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/Recras/.git",
-    "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/translas/translas-dashboard/.git",
     "/Users/jaschavanaalst/Documents/Programming/WP-Settings-Page-Builder/.git",
-    "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/translas/translas-api/translas-api-laravel/.git",
     "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/apc-rebuild/apc-dashboard/.git",
-    "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/satis/satis-configuration/.git",
     "/Users/jaschavanaalst/Documents/Programming/WP-OOP-Plugin-Library/.git",
-    "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/business-creators/Boathouse-legacy-staging/plugins/business-creator-sem-integration-v2/.git",
-    "/Applications/MAMP/htdocs/personalwp/wp-content/plugins/testinggrounds/.git",
-    "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/Boathouse Business Creator/plugins/sb-business-creator/.git",
-    "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/nico/nico-basta-api-v3/.git",
-    "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/nico/nicobasta-dashboard/.git",
-    "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/translas/translas-api/translas-api-laravel/translas-api-laravel-sb/.git"
+    "/Applications/MAMP/htdocs/personalwp/wp-content/plugins/testinggrounds/.git"
   ]
 }
