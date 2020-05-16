@@ -19,21 +19,21 @@
     "individual"
   ],
   "windowSettings": {
-    "x": 1714,
-    "y": -648,
+    "x": 1646,
+    "y": 118,
     "width": 1440,
     "height": 877,
     "fullScreen": false,
-    "maximized": false
+    "maximized": true
   },
   "hasSeenNewUserOnboarding": true,
   "userFeatures": [
     {
-      "betaFeaturesEnabled": true,
+      "betaFeaturesEnabled": false,
       "name": "gitkraken"
     },
     {
-      "betaFeaturesEnabled": true,
+      "betaFeaturesEnabled": false,
       "name": "glo"
     },
     {
@@ -46,9 +46,9 @@
   },
   "plugins": {},
   "freePrivateRepoOpensUntilCommercialPrompt": 3,
-  "lastReleaseNotesDisplayed": "6.5.4",
+  "lastReleaseNotesDisplayed": "6.6.0",
   "hasNotConfirmedVersion6LegacyTrial": false,
-  "lastVersion": "6.5.4",
+  "lastVersion": "6.6.0",
   "commits": {
     "maxCommitsInGraph": 2000
   }

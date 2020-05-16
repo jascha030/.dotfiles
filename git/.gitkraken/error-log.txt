@@ -1,10 +1,10 @@
-[Tue Mar 17 2020 10:56:51 GMT+0100 (Central European Standard Time)] Open Failed: Could not find a compatible repository at 'vag-app'.
-[Thu Mar 26 2020 02:33:06 GMT+0100 (Central European Standard Time)] Push Failed: develop:
-[Tue Apr 07 2020 10:31:34 GMT+0200 (Central European Summer Time)] Open Failed: Could not find a compatible repository at 'vag-app'.
-[Tue Apr 07 2020 16:41:20 GMT+0200 (Central European Summer Time)] Push Failed: version/2.0.6:
-[Tue Apr 07 2020 16:41:51 GMT+0200 (Central European Summer Time)] Push Failed: version/2.0.6:
-[Tue Apr 07 2020 16:42:22 GMT+0200 (Central European Summer Time)] Push Failed: version/2.0.6:
-[Tue Apr 07 2020 16:42:55 GMT+0200 (Central European Summer Time)] Pull Failed:
-[Wed Apr 08 2020 16:28:01 GMT+0200 (Central European Summer Time)] Open Failed: Could not find a compatible repository at 'vag-app'.
-[Thu Apr 09 2020 11:38:45 GMT+0200 (Central European Summer Time)] Conflict Detected: There are merge conflicts that need to be resolved
-[Thu Apr 09 2020 15:42:27 GMT+0200 (Central European Summer Time)] Open Failed: Could not find a compatible repository at 'container-online'.
+[Thu Apr 09 2020 23:14:31 GMT+0200 (Central European Summer Time)] Failed to finish feature 'file': 2 conflicts prevent checkout
+[Thu Apr 09 2020 23:36:31 GMT+0200 (Central European Summer Time)] Pull Failed: develop does not exist on origin
+[Fri Apr 10 2020 11:35:56 GMT+0200 (Central European Summer Time)] Open Failed: Could not find a compatible repository at 'Container staging nlcont-xinmaying'.
+[Fri Apr 10 2020 11:36:04 GMT+0200 (Central European Summer Time)] Open Failed: Could not find a compatible repository at 'container-online'.
+[Fri Apr 10 2020 12:14:44 GMT+0200 (Central European Summer Time)] Open Failed: Could not find a compatible repository at 'nlcont-staging-april'.
+[Fri Apr 10 2020 14:45:58 GMT+0200 (Central European Summer Time)] Merge Failed: the requested type does not match the type in ODB
+[Thu Apr 23 2020 08:41:27 GMT+0200 (Central European Summer Time)] Merge Failed: There are merge conflicts that need to be resolved
+[Fri Apr 24 2020 14:51:15 GMT+0200 (Central European Summer Time)] Checkout Failed: 1 conflict prevents checkout. Commit, stash, or discard your changes first.
+[Fri Apr 24 2020 14:51:17 GMT+0200 (Central European Summer Time)] Checkout Failed: 1 conflict prevents checkout. Commit, stash, or discard your changes first.
+[Mon May 04 2020 09:57:26 GMT+0200 (Central European Summer Time)] Checkout Failed: 1 conflict prevents checkout. Commit, stash, or discard your changes first.

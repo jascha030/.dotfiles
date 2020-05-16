@@ -12,6 +12,13 @@
           "owner": "socialbrothers",
           "name": "cordova-plugin-firebase-notificare"
         }
+      },
+      "pondevelopment": {
+        "cordova-plugin-firebasex": {
+          "hostingServiceType": "bitbucket",
+          "owner": "pondevelopment",
+          "name": "cordova-plugin-firebasex"
+        }
       }
     }
   },

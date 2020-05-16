@@ -16,6 +16,13 @@
           "owner": "socialbrothers",
           "name": "wp-funforest-recras"
         }
+      },
+      "pondevelopment": {
+        "cordova-plugin-firebasex": {
+          "hostingServiceType": "bitbucket",
+          "owner": "pondevelopment",
+          "name": "cordova-plugin-firebasex"
+        }
       }
     }
   },
@@ -34,24 +41,45 @@
     "origin": {
       "HEAD": {
         "name": "HEAD",
-        "oid": "e689fb798f2afc535e2988c01fb52a60de2804ff",
+        "oid": "48f4f0249fb361d9e1208b43684d3ac3552ee277",
         "local": 0,
         "loid": "0000000000000000000000000000000000000000",
         "symrefTarget": "refs/heads/master"
       },
       "refs/heads/develop": {
         "name": "refs/heads/develop",
-        "oid": "3a3214a02c3036b8a9217c780661b4d3a18b4e24",
+        "oid": "a295729796b4261966a6e2f2fd2d416a9c6bacc8",
         "local": 1,
         "loid": "0000000000000000000000000000000000000000",
         "symrefTarget": null
       },
       "refs/heads/master": {
         "name": "refs/heads/master",
-        "oid": "e689fb798f2afc535e2988c01fb52a60de2804ff",
+        "oid": "48f4f0249fb361d9e1208b43684d3ac3552ee277",
         "local": 1,
         "loid": "0000000000000000000000000000000000000000",
         "symrefTarget": null
+      },
+      "refs/tags/1.0.0": {
+        "name": "refs/tags/1.0.0",
+        "oid": "523b8a39e64f2a2768b0825396b1feb5d02fcbc6",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.0.0^{}": {
+        "name": "refs/tags/1.0.0^{}",
+        "oid": "48f4f0249fb361d9e1208b43684d3ac3552ee277",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  },
+  "layout": {
+    "GraphPanel": {
+      "Tree": {
+        "width": 128
       }
     }
   }

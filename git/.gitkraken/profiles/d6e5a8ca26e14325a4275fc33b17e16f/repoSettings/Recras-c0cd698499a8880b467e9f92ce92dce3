@@ -6,6 +6,11 @@
           "hostingServiceType": "bitbucket",
           "owner": "socialbrothers",
           "name": "recras-api-koppeling-composer"
+        },
+        "container-online-v2-plugin": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "container-online-v2-plugin"
         }
       },
       "pondevelopment": {
@@ -53,21 +58,21 @@
     "origin": {
       "HEAD": {
         "name": "HEAD",
-        "oid": "277b0d3f3b09a0687ae2d7647a3a16922f64f132",
+        "oid": "2285f2ca8700f1984819a6edf4f69f5ed45a0659",
         "local": 0,
         "loid": "0000000000000000000000000000000000000000",
         "symrefTarget": "refs/heads/master"
       },
       "refs/heads/develop": {
         "name": "refs/heads/develop",
-        "oid": "5ef6618d50cec8009d66c2132a7151079d6efbfa",
+        "oid": "ae0d0feb84f56dc7c6a6abccf4cf993da37044ec",
         "local": 1,
         "loid": "0000000000000000000000000000000000000000",
         "symrefTarget": null
       },
       "refs/heads/master": {
         "name": "refs/heads/master",
-        "oid": "277b0d3f3b09a0687ae2d7647a3a16922f64f132",
+        "oid": "2285f2ca8700f1984819a6edf4f69f5ed45a0659",
         "local": 1,
         "loid": "0000000000000000000000000000000000000000",
         "symrefTarget": null
@@ -152,6 +157,13 @@
       "refs/tags/1.5.1": {
         "name": "refs/tags/1.5.1",
         "oid": "277b0d3f3b09a0687ae2d7647a3a16922f64f132",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.5.2": {
+        "name": "refs/tags/1.5.2",
+        "oid": "2285f2ca8700f1984819a6edf4f69f5ed45a0659",
         "local": 1,
         "loid": "0000000000000000000000000000000000000000",
         "symrefTarget": null

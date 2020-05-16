@@ -1,0 +1,68 @@
+{
+  "remoteParents": {
+    "github": {
+      "jascha030": {
+        "wp-oop-utilities": {
+          "hostingServiceType": "github",
+          "owner": "jascha030",
+          "name": "wp-oop-utilities"
+        }
+      }
+    }
+  },
+  "remoteHeadCollectionByRemoteName": {
+    "origin": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "8b8cdd771574cee2f357dede5edbf1412a3ed57b",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/develop": {
+        "name": "refs/heads/develop",
+        "oid": "710d371c2741d0d87de76ab5d556e57cd365b60c",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "8b8cdd771574cee2f357dede5edbf1412a3ed57b",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.0.0": {
+        "name": "refs/tags/1.0.0",
+        "oid": "a544e921dcf10c630d729824a307c73e4c50fc1b",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.0.0^{}": {
+        "name": "refs/tags/1.0.0^{}",
+        "oid": "8b8cdd771574cee2f357dede5edbf1412a3ed57b",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  },
+  "upstreamFrecencyMetadata": {
+    "origin": {
+      "id": "remote-origin",
+      "timestamps": [
+        1587941261267
+      ],
+      "total": 1
+    }
+  },
+  "layout": {
+    "GraphPanel": {
+      "Tree": {
+        "width": 106
+      }
+    }
+  }
+}

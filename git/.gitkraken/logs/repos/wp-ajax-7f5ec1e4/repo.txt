@@ -1,0 +1,223 @@
+[2020-04-22T08:45:18.561Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-22T08:45:36.095Z] Initialize git flow: started.
+[2020-04-22T08:45:36.154Z] Initialize git flow: finished. gk-log://duration?t=59
+[2020-04-22T08:45:39.178Z] Checkout refs/heads/develop: started.
+[2020-04-22T08:45:39.307Z] Checkout refs/heads/develop: finished. gk-log://duration?t=129
+[2020-04-22T08:45:40.396Z] Push develop: started.
+[2020-04-22T08:45:42.168Z] Set upstream for develop: started.
+[2020-04-22T08:45:42.274Z] Set upstream for develop: finished. gk-log://duration?t=106
+[2020-04-22T08:45:49.891Z] Push develop: finished. gk-log://duration?t=9495
+[2020-04-22T12:16:18.105Z] Unstage src/WpAjax.php: started.
+[2020-04-22T12:16:18.176Z] Unstage src/WpAjax.php: finished. gk-log://duration?t=71
+[2020-04-22T12:16:21.815Z] Stage src/script/AjaxScriptConfig.php for commit: started.
+[2020-04-22T12:16:21.896Z] Stage src/script/AjaxScriptConfig.php for commit: finished. gk-log://duration?t=81
+[2020-04-22T12:16:31.460Z] Commit: started.
+[2020-04-22T12:16:31.534Z] Commit: finished creating commit 20260ed827f9270410a5f2a4a49c1c96329f5f23
+[2020-04-22T12:16:39.173Z] Stage src/WpAjax.php for commit: started.
+[2020-04-22T12:16:39.430Z] Stage src/WpAjax.php for commit: finished. gk-log://duration?t=257
+[2020-04-22T12:16:47.205Z] Commit: started.
+[2020-04-22T12:16:47.238Z] Commit: finished creating commit e2fc428dc411d56089eae12182edfcf821a5066e
+[2020-04-22T12:16:51.191Z] Push develop: started.
+[2020-04-22T12:16:55.357Z] Push develop: finished. gk-log://duration?t=4166
+[2020-04-22T12:17:05.600Z] Start git flow feature 'provider': started.
+[2020-04-22T12:17:05.695Z] Start git flow feature 'provider': finished. gk-log://duration?t=95
+[2020-04-22T12:25:55.907Z] Stage src/Provider/WpAjaxProvider.php for commit: started.
+[2020-04-22T12:25:56.067Z] Stage src/Provider/WpAjaxProvider.php for commit: finished. gk-log://duration?t=160
+[2020-04-22T12:26:30.437Z] Commit: started.
+[2020-04-22T12:26:30.498Z] Commit: finished creating commit 84eacdc62e1432fdf8c50c6d65f4304d2a7f1433
+[2020-04-22T12:29:34.677Z] Stage src/Provider/WpAjaxProvider.php for commit: started.
+[2020-04-22T12:29:34.970Z] Stage src/Provider/WpAjaxProvider.php for commit: finished. gk-log://duration?t=293
+[2020-04-22T12:29:44.163Z] Commit: started.
+[2020-04-22T12:29:44.202Z] Commit: finished creating commit e71595914b9eec13d05895f36988105db29df2a1
+[2020-04-22T12:32:52.706Z] Stage src/Provider/WpAjaxProvider.php for commit: started.
+[2020-04-22T12:32:52.959Z] Stage src/Provider/WpAjaxProvider.php for commit: finished. gk-log://duration?t=253
+[2020-04-22T12:32:54.620Z] Amend commit e71595914b9eec13d05895f36988105db29df2a1: started.
+[2020-04-22T12:32:54.640Z] Amend commit e71595914b9eec13d05895f36988105db29df2a1: finished.
+[2020-04-22T12:33:02.853Z] Stage composer.lock for commit: started.
+[2020-04-22T12:33:03.017Z] Stage composer.lock for commit: finished. gk-log://duration?t=164
+[2020-04-22T12:33:03.966Z] Commit: started.
+[2020-04-22T12:33:04.004Z] Commit: finished creating commit 3dad380a3bccefc13c9a026ee2e435e79f38d091
+[2020-04-22T12:33:10.349Z] Finish git flow feature 'provider': started.
+[2020-04-22T12:33:10.466Z] Finish git flow feature 'provider': finished. gk-log://duration?t=117
+[2020-04-22T12:33:16.480Z] Push develop: started.
+[2020-04-22T12:33:20.574Z] Push develop: finished. gk-log://duration?t=4094
+[2020-04-22T12:34:47.120Z] Start git flow feature '1.0.0': started.
+[2020-04-22T12:34:47.170Z] Auto-stash uncommitted changes: started.
+[2020-04-22T12:34:47.173Z] Stage src/Provider/WpAjaxProvider.php for stash: started.
+[2020-04-22T12:34:47.234Z] Stage src/Provider/WpAjaxProvider.php for stash: finished. gk-log://duration?t=61
+[2020-04-22T12:34:47.357Z] Auto-stash uncommitted changes: finished. Stash sha: db846a8e6cc6627fa379b0f624ea6f929dfc807f gk-log://duration?t=186
+[2020-04-22T12:34:47.495Z] Pop most recent stash: started.
+[2020-04-22T12:34:47.772Z] Pop stash db846a8e6cc6627fa379b0f624ea6f929dfc807f: finished. gk-log://duration?t=277
+[2020-04-22T12:34:47.902Z] Start git flow feature '1.0.0': finished. gk-log://duration?t=782
+[2020-04-22T12:34:55.636Z] Stage src/Provider/WpAjaxProvider.php for commit: started.
+[2020-04-22T12:34:55.682Z] Stage src/Provider/WpAjaxProvider.php for commit: finished. gk-log://duration?t=46
+[2020-04-22T12:34:56.649Z] Commit: started.
+[2020-04-22T12:34:56.674Z] Commit: finished creating commit 2405e13580fd2a726b70a8ed8b7ceb6f71ddb4a3
+[2020-04-22T12:35:01.462Z] Finish git flow feature '1.0.0': started.
+[2020-04-22T12:35:01.577Z] Finish git flow feature '1.0.0': finished. gk-log://duration?t=115
+[2020-04-22T12:35:10.642Z] Checkout refs/heads/master: started.
+[2020-04-22T12:35:10.795Z] Checkout refs/heads/master: finished. gk-log://duration?t=153
+[2020-04-22T12:35:25.015Z] Push master: started.
+[2020-04-22T12:35:29.158Z] Push master: finished. gk-log://duration?t=4143
+[2020-04-22T12:35:31.998Z] Checkout refs/remotes/origin/develop: started.
+[2020-04-22T12:35:33.688Z] Checkout refs/remotes/origin/develop: cancelled. gk-log://duration?t=1690
+[2020-04-22T12:35:34.597Z] Checkout refs/heads/develop: started.
+[2020-04-22T12:35:34.738Z] Checkout refs/heads/develop: finished. gk-log://duration?t=141
+[2020-04-22T12:35:35.552Z] Push develop: started.
+[2020-04-22T12:35:39.815Z] Push develop: finished. gk-log://duration?t=4263
+[2020-04-22T12:35:44.530Z] Start git flow release '1.0.0': started.
+[2020-04-22T12:35:44.633Z] Start git flow release '1.0.0': finished. gk-log://duration?t=103
+[2020-04-22T12:36:46.902Z] Stage composer.json for commit: started.
+[2020-04-22T12:36:46.946Z] Stage composer.json for commit: finished. gk-log://duration?t=44
+[2020-04-22T12:36:54.629Z] Stage composer.json for commit: started.
+[2020-04-22T12:36:54.673Z] Stage composer.json for commit: finished. gk-log://duration?t=44
+[2020-04-22T12:36:55.564Z] Commit: started.
+[2020-04-22T12:36:55.596Z] Commit: finished creating commit 70fa4f75e74f05510d1534c1a5ed9fa906b6dd24
+[2020-04-22T12:36:59.314Z] Finish git flow release '1.0.0': started.
+[2020-04-22T12:36:59.490Z] Finish git flow release '1.0.0': finished. gk-log://duration?t=176
+[2020-04-22T12:37:02.722Z] Checkout refs/heads/develop: started.
+[2020-04-22T12:37:02.890Z] Checkout refs/heads/develop: finished. gk-log://duration?t=168
+[2020-04-22T12:37:03.983Z] Push develop: started.
+[2020-04-22T12:37:08.192Z] Push develop: finished. gk-log://duration?t=4209
+[2020-04-22T12:37:08.887Z] Checkout refs/heads/master: started.
+[2020-04-22T12:37:09.008Z] Checkout refs/heads/master: finished. gk-log://duration?t=121
+[2020-04-22T12:37:10.126Z] Push master: started.
+[2020-04-22T12:37:14.505Z] Push master: finished. gk-log://duration?t=4379
+[2020-04-22T12:37:17.500Z] Pushing 1.0.0 to origin: started.
+[2020-04-22T12:37:21.693Z] Pushing 1.0.0 to origin: finished. gk-log://duration?t=4193
+[2020-04-22T16:36:34.457Z] Pull master: started.
+[2020-04-22T16:36:34.483Z] Fetch remote origin: started
+[2020-04-22T16:36:35.812Z] Fetch remote origin: finished gk-log://duration?t=1329
+[2020-04-22T16:36:35.848Z] Merge origin/master into master: started.
+[2020-04-22T16:36:35.861Z] Auto-stash uncommitted changes: started.
+[2020-04-22T16:36:35.885Z] Stage src/WpAjax.php for stash: started.
+[2020-04-22T16:36:35.932Z] Stage src/WpAjax.php for stash: finished. gk-log://duration?t=47
+[2020-04-22T16:36:36.028Z] Auto-stash uncommitted changes: finished. Stash sha: 13434d6a03342299a9a9a1eebc3ae00c6e94d0ad gk-log://duration?t=167
+[2020-04-22T16:36:36.078Z] Pop most recent stash: started.
+[2020-04-22T16:36:36.109Z] Pop stash 13434d6a03342299a9a9a1eebc3ae00c6e94d0ad: finished. gk-log://duration?t=31
+[2020-04-22T16:36:36.153Z] Merge origin/master into master: finished. gk-log://duration?t=305
+[2020-04-22T16:36:36.156Z] Pull master: finished. gk-log://duration?t=1699
+[2020-04-22T16:36:42.362Z] Discard changes in src/WpAjax.php: started.
+[2020-04-22T16:36:42.515Z] Discard changes in src/WpAjax.php: finished. gk-log://duration?t=153
+[2020-04-22T19:38:51.940Z] Start git flow hotfix 'script': started.
+[2020-04-22T19:38:52.006Z] Auto-stash uncommitted changes: started.
+[2020-04-22T19:38:52.010Z] Stage 3 files for stash: started.
+[2020-04-22T19:38:52.075Z] Stage 3 files for stash: finished. gk-log://duration?t=65
+[2020-04-22T19:38:52.190Z] Auto-stash uncommitted changes: finished. Stash sha: cf1742b2a190949eb315a4ce345445ea1fa7bf8d gk-log://duration?t=184
+[2020-04-22T19:38:52.250Z] Pop most recent stash: started.
+[2020-04-22T19:38:52.314Z] Pop stash cf1742b2a190949eb315a4ce345445ea1fa7bf8d: finished. gk-log://duration?t=64
+[2020-04-22T19:38:52.488Z] Start git flow hotfix 'script': finished. gk-log://duration?t=548
+[2020-04-22T19:39:00.709Z] Stage 3 files for commit: started.
+[2020-04-22T19:39:00.758Z] Stage 3 files for commit: finished. gk-log://duration?t=49
+[2020-04-22T19:39:01.960Z] Commit: started.
+[2020-04-22T19:39:01.986Z] Commit: finished creating commit d7ce1492c8027f59a4c0ab4940fadcb3a154fefe
+[2020-04-22T19:40:25.752Z] Commit: started.
+[2020-04-22T19:40:25.779Z] Commit: finished creating commit ca6d829fa0325768bf81a5001b82f2e29fa473b9
+[2020-04-22T19:42:06.688Z] Finish git flow hotfix 'script': started.
+[2020-04-22T19:42:06.839Z] Finish git flow hotfix 'script': finished. gk-log://duration?t=151
+[2020-04-22T19:42:18.866Z] Push master: started.
+[2020-04-22T19:42:23.323Z] Push master: finished. gk-log://duration?t=4457
+[2020-04-22T19:42:29.372Z] Checkout refs/heads/develop: started.
+[2020-04-22T19:42:29.597Z] Checkout refs/heads/develop: finished. gk-log://duration?t=225
+[2020-04-22T19:42:30.619Z] Push develop: started.
+[2020-04-22T19:42:35.089Z] Push develop: finished. gk-log://duration?t=4470
+[2020-04-22T19:42:38.945Z] Checkout refs/heads/master: started.
+[2020-04-22T19:42:39.113Z] Checkout refs/heads/master: finished. gk-log://duration?t=168
+[2020-04-22T19:42:48.203Z] Delete ref refs/tags/1.0.0 at 7e8841ee7c5b1f580e15b706aeb8e36febf2230d: started.
+[2020-04-22T19:42:48.241Z] Delete ref refs/tags/1.0.0 at 7e8841ee7c5b1f580e15b706aeb8e36febf2230d: finished. gk-log://duration?t=38
+[2020-04-22T19:42:49.777Z] Deleting 1.0.0 from all remotes: started.
+[2020-04-22T19:42:49.793Z] Deleting 1.0.0 from origin: started.
+[2020-04-22T19:42:54.080Z] Deleting 1.0.0 from origin: finished. gk-log://duration?t=4287
+[2020-04-22T19:42:54.099Z] Deleting 1.0.0 from all remotes: finished. gk-log://duration?t=4322
+[2020-04-22T19:42:59.794Z] Create ref refs/tags/1.0.0 at 21f8488a5fc8e5368b7e1c229e9ca148fb755dd9: started.
+[2020-04-22T19:42:59.823Z] Create ref refs/tags/1.0.0 at 21f8488a5fc8e5368b7e1c229e9ca148fb755dd9: finished. gk-log://duration?t=29
+[2020-04-22T19:43:03.488Z] Pushing 1.0.0 to origin: started.
+[2020-04-22T19:43:08.344Z] Pushing 1.0.0 to origin: finished. gk-log://duration?t=4856
+[2020-04-22T19:44:27.557Z] Create ref refs/tags/1.0.1 at 21f8488a5fc8e5368b7e1c229e9ca148fb755dd9: started.
+[2020-04-22T19:44:27.587Z] Create ref refs/tags/1.0.1 at 21f8488a5fc8e5368b7e1c229e9ca148fb755dd9: finished. gk-log://duration?t=30
+[2020-04-22T19:44:30.564Z] Pushing 1.0.1 to origin: started.
+[2020-04-22T19:44:34.841Z] Pushing 1.0.1 to origin: finished. gk-log://duration?t=4277
+[2020-04-22T19:44:36.707Z] Delete ref refs/tags/1.0.0 at 21f8488a5fc8e5368b7e1c229e9ca148fb755dd9: started.
+[2020-04-22T19:44:36.748Z] Delete ref refs/tags/1.0.0 at 21f8488a5fc8e5368b7e1c229e9ca148fb755dd9: finished. gk-log://duration?t=41
+[2020-04-22T19:44:47.377Z] Delete ref refs/tags/1.0.1 at 21f8488a5fc8e5368b7e1c229e9ca148fb755dd9: started.
+[2020-04-22T19:44:47.412Z] Delete ref refs/tags/1.0.1 at 21f8488a5fc8e5368b7e1c229e9ca148fb755dd9: finished. gk-log://duration?t=35
+[2020-04-22T19:44:48.681Z] Deleting 1.0.1 from all remotes: started.
+[2020-04-22T19:44:48.688Z] Deleting 1.0.1 from origin: started.
+[2020-04-22T19:44:53.260Z] Deleting 1.0.1 from origin: finished. gk-log://duration?t=4572
+[2020-04-22T19:44:53.277Z] Deleting 1.0.1 from all remotes: finished. gk-log://duration?t=4596
+[2020-04-22T19:45:04.037Z] Start git flow hotfix '1.0.2': started.
+[2020-04-22T19:45:04.145Z] Start git flow hotfix '1.0.2': finished. gk-log://duration?t=108
+[2020-04-22T19:45:26.211Z] Stage composer.json for commit: started.
+[2020-04-22T19:45:26.259Z] Stage composer.json for commit: finished. gk-log://duration?t=48
+[2020-04-22T19:45:26.954Z] Commit: started.
+[2020-04-22T19:45:26.980Z] Commit: finished creating commit 561d0eeb408594f73cbe24b39dc92b79b7a68697
+[2020-04-22T19:45:32.664Z] Finish git flow hotfix '1.0.2': started.
+[2020-04-22T19:45:32.836Z] Finish git flow hotfix '1.0.2': finished. gk-log://duration?t=172
+[2020-04-22T19:45:34.903Z] Push master: started.
+[2020-04-22T19:45:40.250Z] Push master: finished. gk-log://duration?t=5346
+[2020-04-22T19:45:40.326Z] Checkout refs/heads/develop: started.
+[2020-04-22T19:45:40.445Z] Checkout refs/heads/develop: finished. gk-log://duration?t=119
+[2020-04-22T19:45:41.481Z] Push develop: started.
+[2020-04-22T19:45:45.716Z] Push develop: finished. gk-log://duration?t=4235
+[2020-04-22T19:45:49.895Z] Pushing 1.0.2 to origin: started.
+[2020-04-22T19:45:54.074Z] Pushing 1.0.2 to origin: finished. gk-log://duration?t=4179
+[2020-04-26T22:39:26.276Z] Delete ref refs/tags/1.0.2 at ef7b132c1fa1a3afea7c6c8aeed30f22e661aaaf: started.
+[2020-04-26T22:39:26.329Z] Delete ref refs/tags/1.0.2 at ef7b132c1fa1a3afea7c6c8aeed30f22e661aaaf: finished. gk-log://duration?t=53
+[2020-04-26T22:39:29.901Z] Deleting 1.0.2 from all remotes: started.
+[2020-04-26T22:39:29.912Z] Deleting 1.0.2 from origin: started.
+[2020-04-26T22:39:33.893Z] Deleting 1.0.2 from origin: finished. gk-log://duration?t=3981
+[2020-04-26T22:39:33.918Z] Deleting 1.0.2 from all remotes: finished. gk-log://duration?t=4017
+[2020-04-26T22:39:45.335Z] Stage composer.json for commit: started.
+[2020-04-26T22:39:45.642Z] Stage composer.json for commit: finished. gk-log://duration?t=307
+[2020-04-26T22:39:46.216Z] Stage composer.lock for commit: started.
+[2020-04-26T22:39:46.376Z] Stage composer.lock for commit: finished. gk-log://duration?t=160
+[2020-04-26T22:39:55.492Z] Commit: started.
+[2020-04-26T22:39:55.534Z] Commit: finished creating commit cefd38f982f85301ee5105dd81246b69aac11c6f
+[2020-04-26T22:39:58.435Z] Stage src/LICENSE for commit: started.
+[2020-04-26T22:39:58.592Z] Stage src/LICENSE for commit: finished. gk-log://duration?t=157
+[2020-04-26T22:40:01.159Z] Amend commit cefd38f982f85301ee5105dd81246b69aac11c6f: started.
+[2020-04-26T22:40:01.176Z] Amend commit cefd38f982f85301ee5105dd81246b69aac11c6f: finished.
+[2020-04-26T23:41:02.595Z] Stage src/Script/AjaxScriptFile.php for commit: started.
+[2020-04-26T23:41:02.650Z] Stage src/Script/AjaxScriptFile.php for commit: finished. gk-log://duration?t=55
+[2020-04-26T23:41:11.311Z] Commit: started.
+[2020-04-26T23:41:11.348Z] Commit: finished creating commit fc9e03ab27d0e8a689fafdf847d34b03f4af9ac1
+[2020-04-26T23:41:33.884Z] Stage src/WpAjax.php for commit: started.
+[2020-04-26T23:41:34.241Z] Stage src/WpAjax.php for commit: finished. gk-log://duration?t=357
+[2020-04-26T23:41:41.407Z] Stage src/Provider/WpAjaxProvider.php for commit: started.
+[2020-04-26T23:41:41.542Z] Stage src/Provider/WpAjaxProvider.php for commit: finished. gk-log://duration?t=135
+[2020-04-26T23:41:43.723Z] Commit: started.
+[2020-04-26T23:41:43.759Z] Commit: finished creating commit b54f292f547633270bec450e9430eb7421d9bde5
+[2020-04-26T23:44:12.412Z] Stage src/Provider/WpAjaxProvider.php for commit: started.
+[2020-04-26T23:44:12.691Z] Stage src/Provider/WpAjaxProvider.php for commit: finished. gk-log://duration?t=279
+[2020-04-26T23:44:13.929Z] Stage src/WpAjax.php for commit: started.
+[2020-04-26T23:44:14.188Z] Stage src/WpAjax.php for commit: finished. gk-log://duration?t=259
+[2020-04-26T23:44:15.951Z] Amend commit b54f292f547633270bec450e9430eb7421d9bde5: started.
+[2020-04-26T23:44:15.966Z] Amend commit b54f292f547633270bec450e9430eb7421d9bde5: finished.
+[2020-04-26T23:44:21.621Z] Stage composer.json for commit: started.
+[2020-04-26T23:44:21.864Z] Stage composer.json for commit: finished. gk-log://duration?t=243
+[2020-04-26T23:44:22.359Z] Stage composer.lock for commit: started.
+[2020-04-26T23:44:22.467Z] Stage composer.lock for commit: finished. gk-log://duration?t=108
+[2020-04-26T23:44:33.411Z] Commit: started.
+[2020-04-26T23:44:33.443Z] Commit: finished creating commit a94e991204a8c96ff9abb395b3750a9d71d631a0
+[2020-04-26T23:44:37.868Z] Push develop: started.
+[2020-04-26T23:44:41.985Z] Push develop: finished. gk-log://duration?t=4117
+[2020-04-26T23:45:00.343Z] Start git flow release '1.1.0': started.
+[2020-04-26T23:45:00.454Z] Start git flow release '1.1.0': finished. gk-log://duration?t=111
+[2020-04-26T23:46:39.459Z] Stage src/Provider/WpAjaxProvider.php for commit: started.
+[2020-04-26T23:46:39.539Z] Stage src/Provider/WpAjaxProvider.php for commit: finished. gk-log://duration?t=80
+[2020-04-26T23:46:56.367Z] Commit: started.
+[2020-04-26T23:46:56.399Z] Commit: finished creating commit a572837c4c34bc7b103d5260f65abd4fabd30343
+[2020-04-26T23:47:44.376Z] Finish git flow release '1.1.0': started.
+[2020-04-26T23:47:44.600Z] Finish git flow release '1.1.0': finished. gk-log://duration?t=224
+[2020-04-26T23:47:46.401Z] Push master: started.
+[2020-04-26T23:47:49.562Z] Push master: cancelled. gk-log://duration?t=3161
+[2020-04-26T23:47:49.606Z] Checkout refs/heads/develop: started.
+[2020-04-26T23:47:49.713Z] Checkout refs/heads/develop: finished. gk-log://duration?t=107
+[2020-04-26T23:47:54.051Z] Push develop: started.
+[2020-04-26T23:47:58.239Z] Push develop: finished. gk-log://duration?t=4188
+[2020-04-26T23:47:59.033Z] Checkout refs/heads/master: started.
+[2020-04-26T23:47:59.199Z] Checkout refs/heads/master: finished. gk-log://duration?t=166
+[2020-04-26T23:48:00.293Z] Push master: started.
+[2020-04-26T23:48:15.889Z] Push master: finished. gk-log://duration?t=15596
+[2020-04-26T23:48:18.343Z] Pushing 1.1.0 to origin: started.
+[2020-04-26T23:48:22.381Z] Pushing 1.1.0 to origin: finished. gk-log://duration?t=4038

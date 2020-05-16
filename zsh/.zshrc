@@ -107,6 +107,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias php="/usr/local/opt/php@7.4/bin/php"
+
 alias sbproj="cd ~/Documents/SocialBrothers/Projects/"
 
 alias brewup="brew update; brew upgrade; brew cleanup; brew doctor"
@@ -114,3 +116,9 @@ alias brewup="brew update; brew upgrade; brew cleanup; brew doctor"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="/usr/local/sbin:$PATH"
+
+PATH="/Users/jaschavanaalst/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/jaschavanaalst/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/jaschavanaalst/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/jaschavanaalst/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/jaschavanaalst/perl5"; export PERL_MM_OPT;

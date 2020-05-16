@@ -1,5 +1,5 @@
 source ~/.profile
-export PATH=/Applications/MAMP/bin/php/php7.2.8/bin:$PATH
+
 
 # Create a JAVA_HOME variable, determined dynamically
 export JAVA_HOME=$(/usr/libexec/java_home)

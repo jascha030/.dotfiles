@@ -1,0 +1,52 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "wp-funforest-recras": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "wp-funforest-recras"
+        },
+        "container-online-v2-plugin": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "container-online-v2-plugin"
+        }
+      }
+    }
+  },
+  "remoteHeadCollectionByRemoteName": {
+    "origin": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "edeb5739a4951e004f992b4379f150a5851040a4",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/develop": {
+        "name": "refs/heads/develop",
+        "oid": "762b855b083f22d4bf235479eabd84cb67d7e0cf",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "edeb5739a4951e004f992b4379f150a5851040a4",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  },
+  "upstreamFrecencyMetadata": {
+    "origin": {
+      "id": "remote-origin",
+      "timestamps": [
+        1586469075685
+      ],
+      "total": 1
+    }
+  }
+}

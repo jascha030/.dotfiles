@@ -1,0 +1,75 @@
+{
+  "remoteParents": {
+    "github": {
+      "jascha030": {
+        "wp-ajax": {
+          "hostingServiceType": "github",
+          "owner": "jascha030",
+          "name": "wp-ajax"
+        }
+      }
+    }
+  },
+  "upstreamFrecencyMetadata": {
+    "origin": {
+      "id": "remote-origin",
+      "timestamps": [
+        1587545142219
+      ],
+      "total": 1
+    }
+  },
+  "remoteHeadCollectionByRemoteName": {
+    "origin": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "1b4ef1d9646d839fbe6f0a2a534fedfbf60c6214",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/develop": {
+        "name": "refs/heads/develop",
+        "oid": "535806ca95960962128c9b5e4646aad8796164bb",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "1b4ef1d9646d839fbe6f0a2a534fedfbf60c6214",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.0.0": {
+        "name": "refs/tags/1.0.0",
+        "oid": "21f8488a5fc8e5368b7e1c229e9ca148fb755dd9",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.1.0": {
+        "name": "refs/tags/1.1.0",
+        "oid": "75c4d9509546e98c323ca30d831a04d54b4a1892",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/1.1.0^{}": {
+        "name": "refs/tags/1.1.0^{}",
+        "oid": "1b4ef1d9646d839fbe6f0a2a534fedfbf60c6214",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  },
+  "layout": {
+    "GraphPanel": {
+      "Tree": {
+        "width": 106
+      }
+    }
+  }
+}

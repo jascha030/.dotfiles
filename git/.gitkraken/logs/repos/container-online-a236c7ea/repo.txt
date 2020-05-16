@@ -1,0 +1,13 @@
+[2020-04-10T09:39:43.139Z] Checkout refs/remotes/origin/develop: started.
+[2020-04-10T09:39:43.196Z] Create ref refs/heads/develop at b6b0819fb9bed7f9bb6cae591e0c8f0675704e7a: started.
+[2020-04-10T09:39:43.237Z] Create ref refs/heads/develop at b6b0819fb9bed7f9bb6cae591e0c8f0675704e7a: finished. gk-log://duration?t=41
+[2020-04-10T09:39:43.414Z] Checkout refs/remotes/origin/develop: finished. gk-log://duration?t=275
+[2020-04-10T09:50:40.765Z] Fetch remote origin: failed to resolve path '/Users/jaschavanaalst/SocialBrothers/Projects/Wordpress/container online/Container staging nlcont-xinmaying/container-online/.git/': No such file or directory
+[2020-04-10T09:51:40.768Z] Fetch remote origin: failed to resolve path '/Users/jaschavanaalst/SocialBrothers/Projects/Wordpress/container online/Container staging nlcont-xinmaying/container-online/.git/': No such file or directory
+[2020-04-10T09:52:40.768Z] Fetch remote origin: failed to resolve path '/Users/jaschavanaalst/SocialBrothers/Projects/Wordpress/container online/Container staging nlcont-xinmaying/container-online/.git/': No such file or directory
+[2020-04-10T09:53:40.771Z] Fetch remote origin: failed to resolve path '/Users/jaschavanaalst/SocialBrothers/Projects/Wordpress/container online/Container staging nlcont-xinmaying/container-online/.git/': No such file or directory
+[2020-04-10T09:54:40.773Z] Fetch remote origin: failed to resolve path '/Users/jaschavanaalst/SocialBrothers/Projects/Wordpress/container online/Container staging nlcont-xinmaying/container-online/.git/': No such file or directory
+[2020-04-10T09:55:40.781Z] Fetch remote origin: failed to resolve path '/Users/jaschavanaalst/SocialBrothers/Projects/Wordpress/container online/Container staging nlcont-xinmaying/container-online/.git/': No such file or directory
+[2020-04-10T09:56:40.770Z] Fetch remote origin: failed to resolve path '/Users/jaschavanaalst/SocialBrothers/Projects/Wordpress/container online/Container staging nlcont-xinmaying/container-online/.git/': No such file or directory
+[2020-04-10T09:57:40.772Z] Fetch remote origin: failed to resolve path '/Users/jaschavanaalst/SocialBrothers/Projects/Wordpress/container online/Container staging nlcont-xinmaying/container-online/.git/': No such file or directory
+[2020-04-10T09:58:40.769Z] Fetch remote origin: failed to resolve path '/Users/jaschavanaalst/SocialBrothers/Projects/Wordpress/container online/Container staging nlcont-xinmaying/container-online/.git/': No such file or directory

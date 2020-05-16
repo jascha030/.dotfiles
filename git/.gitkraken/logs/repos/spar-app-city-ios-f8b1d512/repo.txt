@@ -1,0 +1,202 @@
+[2020-05-03T19:18:48.424Z] Ignore .idea: started.
+[2020-05-03T19:18:50.857Z] Ignore .idea: finished. gk-log://duration?t=2433
+[2020-05-03T19:19:43.314Z] Discard changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-03T19:19:46.473Z] Discard changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=3159
+[2020-05-03T19:19:48.822Z] Discard changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-03T19:19:50.984Z] Discard changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=2162
+[2020-05-03T19:19:59.096Z] Discard changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-03T19:20:01.562Z] Discard changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=2466
+[2020-05-03T19:20:42.291Z] Stage .gitignore for commit: started.
+[2020-05-03T19:20:43.883Z] Stage .gitignore for commit: finished. gk-log://duration?t=1592
+[2020-05-03T19:21:03.261Z] Create ref refs/heads/feature/fbsdk-upate at 1fe257b4180d09707688a4b4687023f06f243290: started.
+[2020-05-03T19:21:03.318Z] Create ref refs/heads/feature/fbsdk-upate at 1fe257b4180d09707688a4b4687023f06f243290: finished. gk-log://duration?t=56
+[2020-05-03T19:21:03.357Z] Checkout refs/heads/feature/fbsdk-upate: started.
+[2020-05-03T19:21:06.406Z] Checkout refs/heads/feature/fbsdk-upate: finished. gk-log://duration?t=3049
+[2020-05-03T19:21:11.922Z] Rename branch feature/fbsdk-upate: started.
+[2020-05-03T19:21:16.219Z] Rename branch feature/fbsdk-upate to refs/heads/feature/fbsdk-update: finished. gk-log://duration?t=4297
+[2020-05-03T19:21:27.751Z] Commit: started.
+[2020-05-03T19:21:29.684Z] Commit: finished creating commit 7c4df3e47535b5aabf289251ecd62de522acbf03
+[2020-05-03T19:22:13.341Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-03T19:22:16.566Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=3225
+[2020-05-03T19:22:22.176Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-03T19:22:24.746Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=2570
+[2020-05-03T19:22:26.002Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-03T19:22:28.136Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=2134
+[2020-05-03T19:22:52.094Z] Commit: started.
+[2020-05-03T19:22:53.303Z] Commit: finished creating commit 034b181f6eb01d1f5b872017156b038b0b8f8f98
+[2020-05-03T22:47:58.354Z] Stage Podfile for commit: started.
+[2020-05-03T22:48:00.241Z] Stage Podfile for commit: finished. gk-log://duration?t=1887
+[2020-05-03T22:48:25.128Z] Commit: started.
+[2020-05-03T22:48:26.634Z] Commit: finished creating commit 1b5d43b612785216bd055755a3624b3cc41c639d
+[2020-05-03T22:50:25.741Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-03T22:50:29.438Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=3697
+[2020-05-03T22:50:35.213Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-03T22:50:36.928Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=1715
+[2020-05-04T07:32:47.841Z] Discard changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T07:32:49.510Z] Discard changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=1669
+[2020-05-04T07:32:57.153Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T07:32:58.530Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=1377
+[2020-05-04T07:33:01.160Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T07:33:03.374Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=2214
+[2020-05-04T07:33:07.406Z] Unstage 564 files: started.
+[2020-05-04T07:33:08.891Z] Unstage 564 files: finished. gk-log://duration?t=1485
+[2020-05-04T07:33:17.201Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T07:33:18.874Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=1672
+[2020-05-04T07:33:26.970Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T07:33:28.485Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=1515
+[2020-05-04T07:33:32.178Z] Discard changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T07:33:33.546Z] Discard changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=1368
+[2020-05-04T07:33:45.253Z] Commit: started.
+[2020-05-04T07:33:46.359Z] Commit: finished creating commit 42bca7c366cd8212358dcdd35dfba06ca2426e4c
+[2020-05-04T07:33:53.628Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T07:33:55.048Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=1420
+[2020-05-04T07:33:56.202Z] Amend commit 42bca7c366cd8212358dcdd35dfba06ca2426e4c: started.
+[2020-05-04T07:33:56.223Z] Amend commit 42bca7c366cd8212358dcdd35dfba06ca2426e4c: finished.
+[2020-05-04T07:34:03.486Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T07:34:04.848Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=1362
+[2020-05-04T07:34:06.060Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T07:34:07.458Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=1398
+[2020-05-04T07:34:10.509Z] Unstage 564 files: started.
+[2020-05-04T07:34:12.023Z] Unstage 564 files: finished. gk-log://duration?t=1514
+[2020-05-04T07:34:15.486Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T07:34:16.870Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=1384
+[2020-05-04T07:34:17.641Z] Amend commit 868846bc082fc1b41994575b3fef905b56b59c6b: started.
+[2020-05-04T07:34:17.658Z] Amend commit 868846bc082fc1b41994575b3fef905b56b59c6b: finished.
+[2020-05-04T07:34:19.128Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T07:34:20.603Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=1475
+[2020-05-04T07:34:21.640Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T07:34:22.998Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=1358
+[2020-05-04T07:34:30.028Z] Discard changes in Spar/Services/Socials/Core/SMSocialNetwork.m: started.
+[2020-05-04T07:34:31.398Z] Discard changes in Spar/Services/Socials/Core/SMSocialNetwork.m: finished. gk-log://duration?t=1370
+[2020-05-04T07:34:32.859Z] Discard changes in Spar/Services/Socials/Core/SMSocialNetwork.m: started.
+[2020-05-04T07:34:34.232Z] Discard changes in Spar/Services/Socials/Core/SMSocialNetwork.m: finished. gk-log://duration?t=1373
+[2020-05-04T07:34:36.260Z] Discard changes in Spar/Services/Socials/Core/SMSocialNetwork.m: started.
+[2020-05-04T07:34:37.856Z] Discard changes in Spar/Services/Socials/Core/SMSocialNetwork.m: finished. gk-log://duration?t=1596
+[2020-05-04T07:34:55.990Z] Stage Spar/GUI/ViewControllers/FriendsWithBenefits/SMFriendsWithBenefitsViewController.m for commit: started.
+[2020-05-04T07:34:58.258Z] Stage Spar/GUI/ViewControllers/FriendsWithBenefits/SMFriendsWithBenefitsViewController.m for commit: finished. gk-log://duration?t=2268
+[2020-05-04T07:35:11.796Z] Stage Spar/Services/AppManager/SMAPPManager.m for commit: started.
+[2020-05-04T07:35:13.855Z] Stage Spar/Services/AppManager/SMAPPManager.m for commit: finished. gk-log://duration?t=2059
+[2020-05-04T07:35:27.641Z] Discard changes in Spar/SMAppDelegate.m: started.
+[2020-05-04T07:35:30.287Z] Discard changes in Spar/SMAppDelegate.m: finished. gk-log://duration?t=2646
+[2020-05-04T07:35:47.553Z] Commit: started.
+[2020-05-04T07:35:48.631Z] Commit: finished creating commit f04a552b92e146976de394f1a44d0d949d579d21
+[2020-05-04T07:36:05.682Z] Discard changes in Spar/SM/SMModuleListPagingInvert/SMModuleListPagingInvert.m: started.
+[2020-05-04T07:36:07.202Z] Discard changes in Spar/SM/SMModuleListPagingInvert/SMModuleListPagingInvert.m: finished. gk-log://duration?t=1520
+[2020-05-04T07:36:10.825Z] Discard changes in Spar/GUI/ViewControllers/Base/SMBaseViewController.m: started.
+[2020-05-04T07:36:12.216Z] Discard changes in Spar/GUI/ViewControllers/Base/SMBaseViewController.m: finished. gk-log://duration?t=1391
+[2020-05-04T07:36:15.457Z] Discard changes in Spar/GUI/ViewControllers/Base/SMBaseModuleViewController.m: started.
+[2020-05-04T07:36:16.917Z] Discard changes in Spar/GUI/ViewControllers/Base/SMBaseModuleViewController.m: finished. gk-log://duration?t=1460
+[2020-05-04T07:36:27.793Z] Discard changes in Spar/GUI/ViewControllers/Auth/Start/SMStartViewController.m: started.
+[2020-05-04T07:36:29.551Z] Discard changes in Spar/GUI/ViewControllers/Auth/Start/SMStartViewController.m: finished. gk-log://duration?t=1758
+[2020-05-04T07:37:30.941Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T07:37:32.499Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=1558
+[2020-05-04T07:37:40.054Z] Commit: started.
+[2020-05-04T07:37:41.066Z] Commit: finished creating commit 93861a6e02625f17117e0ce17fa1ebdd39467e10
+[2020-05-04T07:37:44.279Z] Discard changes in Spar/Services/MainStorage/SMMainStorage.m: started.
+[2020-05-04T07:37:45.734Z] Discard changes in Spar/Services/MainStorage/SMMainStorage.m: finished. gk-log://duration?t=1455
+[2020-05-04T07:37:56.216Z] Stage changes in Spar/Info.plist: started.
+[2020-05-04T07:37:57.661Z] Stage changes in Spar/Info.plist: finished. gk-log://duration?t=1445
+[2020-05-04T07:38:07.538Z] Commit: started.
+[2020-05-04T07:38:08.517Z] Commit: finished creating commit 140a3029d81609ff116c6e016df64396cbd00b3b
+[2020-05-04T07:54:55.725Z] Discard changes in Spar/SMAppDelegate.m: started.
+[2020-05-04T07:54:57.507Z] Discard changes in Spar/SMAppDelegate.m: finished. gk-log://duration?t=1782
+[2020-05-04T07:54:58.929Z] Discard changes in Spar/SMAppDelegate.m: started.
+[2020-05-04T07:55:01.167Z] Discard changes in Spar/SMAppDelegate.m: finished. gk-log://duration?t=2238
+[2020-05-04T07:57:25.635Z] Checkout refs/heads/master: started.
+[2020-05-04T07:57:26.832Z] Checkout refs/heads/master: finished. gk-log://duration?t=1197
+[2020-05-04T12:20:02.331Z] Discard changes in Spar/GUI/ViewControllers/Auth/Start/SMStartViewController.m: started.
+[2020-05-04T12:20:04.056Z] Discard changes in Spar/GUI/ViewControllers/Auth/Start/SMStartViewController.m: finished. gk-log://duration?t=1725
+[2020-05-04T12:20:06.006Z] Discard changes in Spar/GUI/ViewControllers/Auth/Start/SMStartViewController.m: started.
+[2020-05-04T12:20:07.574Z] Discard changes in Spar/GUI/ViewControllers/Auth/Start/SMStartViewController.m: finished. gk-log://duration?t=1568
+[2020-05-04T12:20:27.409Z] Stage changes in Spar/GUI/ViewControllers/Auth/Start/SMStartViewController.m: started.
+[2020-05-04T12:20:28.777Z] Stage changes in Spar/GUI/ViewControllers/Auth/Start/SMStartViewController.m: finished. gk-log://duration?t=1368
+[2020-05-04T12:20:32.809Z] Discard changes in Spar/GUI/ViewControllers/Auth/Start/SMStartViewController.m: started.
+[2020-05-04T12:20:34.630Z] Discard changes in Spar/GUI/ViewControllers/Auth/Start/SMStartViewController.m: finished. gk-log://duration?t=1821
+[2020-05-04T12:20:41.717Z] Stage changes in Spar/GUI/ViewControllers/Auth/Start/SMStartViewController.m: started.
+[2020-05-04T12:20:43.320Z] Stage changes in Spar/GUI/ViewControllers/Auth/Start/SMStartViewController.m: finished. gk-log://duration?t=1603
+[2020-05-04T12:20:54.041Z] Stage 3 files for commit: started.
+[2020-05-04T12:20:55.677Z] Stage 3 files for commit: finished. gk-log://duration?t=1636
+[2020-05-04T12:21:42.419Z] Unstage Spar/GUI/ViewControllers/Auth/Start/SMStartViewController.m: started.
+[2020-05-04T12:21:43.841Z] Unstage Spar/GUI/ViewControllers/Auth/Start/SMStartViewController.m: finished. gk-log://duration?t=1422
+[2020-05-04T12:22:08.572Z] Commit: started.
+[2020-05-04T12:22:09.559Z] Commit: finished creating commit ce71d3e796e0c66dae9d4cd4c512d2450b32722c
+[2020-05-04T12:22:21.724Z] Stage Podfile.lock for commit: started.
+[2020-05-04T12:22:23.368Z] Stage Podfile.lock for commit: finished. gk-log://duration?t=1644
+[2020-05-04T12:22:57.688Z] Commit: started.
+[2020-05-04T12:22:59.153Z] Commit: finished creating commit 2becff9dceb4631d676f15db9c5ed50f6f19ecc5
+[2020-05-04T12:24:52.105Z] Ignore Pods: started.
+[2020-05-04T12:24:53.695Z] Ignore Pods: finished. gk-log://duration?t=1590
+[2020-05-04T12:25:00.094Z] Stage .gitignore for commit: started.
+[2020-05-04T12:25:00.749Z] Stage .gitignore for commit: finished. gk-log://duration?t=655
+[2020-05-04T12:25:02.792Z] Unstage 1795 files: started.
+[2020-05-04T12:25:04.910Z] Unstage 1795 files: finished. gk-log://duration?t=2118
+[2020-05-04T12:25:09.198Z] Ignore Pods: started.
+[2020-05-04T12:25:10.349Z] Ignore Pods: finished. gk-log://duration?t=1151
+[2020-05-04T12:25:14.548Z] Stage .gitignore for commit: started.
+[2020-05-04T12:25:14.859Z] Stage .gitignore for commit: finished. gk-log://duration?t=310
+[2020-05-04T12:25:30.399Z] Commit: started.
+[2020-05-04T12:25:30.552Z] Commit: finished creating commit f0fa11e84d91c79de8463cd757438ca10a297e8f
+[2020-05-04T12:25:55.778Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T12:25:55.920Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=142
+[2020-05-04T12:26:00.064Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T12:26:00.191Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=127
+[2020-05-04T12:26:03.706Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T12:26:03.840Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=134
+[2020-05-04T12:26:08.490Z] Discard changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T12:26:08.602Z] Discard changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=112
+[2020-05-04T12:37:50.898Z] Stage changes in Spar/SMAppDelegate.m: started.
+[2020-05-04T12:37:51.013Z] Stage changes in Spar/SMAppDelegate.m: finished. gk-log://duration?t=115
+[2020-05-04T12:37:58.915Z] Stage changes in Spar/SMAppDelegate.m: started.
+[2020-05-04T12:37:59.092Z] Stage changes in Spar/SMAppDelegate.m: finished. gk-log://duration?t=177
+[2020-05-04T12:38:08.509Z] Unstage Spar/SMAppDelegate.m: started.
+[2020-05-04T12:38:08.836Z] Unstage Spar/SMAppDelegate.m: finished. gk-log://duration?t=327
+[2020-05-04T12:38:25.557Z] Stage Spar/GUI/ViewControllers/Auth/Start/SMStartViewController.m for commit: started.
+[2020-05-04T12:38:25.769Z] Stage Spar/GUI/ViewControllers/Auth/Start/SMStartViewController.m for commit: finished. gk-log://duration?t=212
+[2020-05-04T12:38:31.893Z] Discard changes in Spar/GUI/ViewControllers/AccountInfo/SMAccountInfoViewController.m: started.
+[2020-05-04T12:38:32.055Z] Discard changes in Spar/GUI/ViewControllers/AccountInfo/SMAccountInfoViewController.m: finished. gk-log://duration?t=162
+[2020-05-04T12:38:43.763Z] Discard changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T12:38:43.861Z] Discard changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=98
+[2020-05-04T12:48:20.254Z] Commit: started.
+[2020-05-04T12:48:20.349Z] Commit: finished creating commit d359ecd3cc5eab490e5941c1746b3efdfe6893c1
+[2020-05-04T13:18:20.516Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T13:18:20.668Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=152
+[2020-05-04T13:18:23.099Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T13:18:23.212Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=113
+[2020-05-04T13:18:26.170Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T13:18:26.269Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=99
+[2020-05-04T13:18:28.283Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T13:18:28.381Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=98
+[2020-05-04T13:18:30.558Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T13:18:30.668Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=110
+[2020-05-04T13:18:31.774Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T13:18:31.876Z] Stage changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=102
+[2020-05-04T13:18:34.441Z] Discard changes in Spar/Services/Socials/Facebook/SMFacebook.m: started.
+[2020-05-04T13:18:34.677Z] Discard changes in Spar/Services/Socials/Facebook/SMFacebook.m: finished. gk-log://duration?t=236
+[2020-05-04T13:18:38.193Z] Stage Spar/Info.plist for commit: started.
+[2020-05-04T13:18:38.557Z] Stage Spar/Info.plist for commit: finished. gk-log://duration?t=364
+[2020-05-04T13:18:46.599Z] Stage changes in Spar/SMAppDelegate.m: started.
+[2020-05-04T13:18:46.704Z] Stage changes in Spar/SMAppDelegate.m: finished. gk-log://duration?t=105
+[2020-05-04T13:18:50.324Z] Stage changes in Spar/SMAppDelegate.m: started.
+[2020-05-04T13:18:50.419Z] Stage changes in Spar/SMAppDelegate.m: finished. gk-log://duration?t=95
+[2020-05-04T13:18:54.184Z] Stage changes in Spar/SMAppDelegate.m: started.
+[2020-05-04T13:18:54.274Z] Stage changes in Spar/SMAppDelegate.m: finished. gk-log://duration?t=90
+[2020-05-04T13:18:57.274Z] Stage changes in Spar/SMAppDelegate.m: started.
+[2020-05-04T13:18:57.434Z] Stage changes in Spar/SMAppDelegate.m: finished. gk-log://duration?t=160
+[2020-05-04T13:19:02.646Z] Amend commit d359ecd3cc5eab490e5941c1746b3efdfe6893c1: started.
+[2020-05-04T13:19:02.682Z] Amend commit d359ecd3cc5eab490e5941c1746b3efdfe6893c1: finished.
+[2020-05-04T13:19:07.771Z] Push feature/fbsdk-update: started.
+[2020-05-04T13:19:10.341Z] Set upstream for feature/fbsdk-update: started.
+[2020-05-04T13:19:10.449Z] Set upstream for feature/fbsdk-update: finished. gk-log://duration?t=108
+[2020-05-04T13:19:14.483Z] Push feature/fbsdk-update: finished. gk-log://duration?t=6712
+[2020-05-04T13:59:30.770Z] Stage SparCity.xcodeproj/project.pbxproj for commit: started.
+[2020-05-04T13:59:31.263Z] Stage SparCity.xcodeproj/project.pbxproj for commit: finished. gk-log://duration?t=493
+[2020-05-04T13:59:47.584Z] Stage changes in Spar/Info.plist: started.
+[2020-05-04T13:59:47.679Z] Stage changes in Spar/Info.plist: finished. gk-log://duration?t=95
+[2020-05-04T13:59:49.472Z] Stage changes in Spar/Info.plist: started.
+[2020-05-04T13:59:49.560Z] Stage changes in Spar/Info.plist: finished. gk-log://duration?t=88
+[2020-05-04T13:59:50.237Z] Stage changes in Spar/Info.plist: started.
+[2020-05-04T13:59:50.401Z] Stage changes in Spar/Info.plist: finished. gk-log://duration?t=164
+[2020-05-04T13:59:56.055Z] Commit: started.
+[2020-05-04T13:59:56.153Z] Commit: finished creating commit 0dfb1713cca25ea11b385ce467c6db000e43a799
+[2020-05-04T13:59:58.232Z] Push feature/fbsdk-update: started.
+[2020-05-04T14:00:00.866Z] Push feature/fbsdk-update: finished. gk-log://duration?t=2634

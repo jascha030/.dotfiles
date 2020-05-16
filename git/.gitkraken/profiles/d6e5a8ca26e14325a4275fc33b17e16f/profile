@@ -19,7 +19,7 @@
       "width": 400
     },
     "CommitMessage": {
-      "rightPanelHeight": 163
+      "rightPanelHeight": 172
     }
   },
   "fileNodeList": {
@@ -36,25 +36,37 @@
   "tabInfo": {
     "tabs": [
       {
-        "id": "3e802d63-ec74-4c96-942f-fb630e68cafc",
+        "id": "613ad7b4-fba6-41de-ba5a-b03840a6ba34",
+        "type": "REPO",
+        "repoName": "container-online",
+        "repoPath": "/Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/container-online/"
+      },
+      {
+        "id": "1928d166-8596-4d4e-87de-48e9f262141d",
+        "type": "REPO",
+        "repoName": "wp-oop-plugin",
+        "repoPath": "/Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/"
+      },
+      {
+        "id": "592e1946-9345-4a33-b765-12561110c06b",
+        "type": "REPO",
+        "repoName": "cordova-plugin-firebasex",
+        "repoPath": "/Users/jaschavanaalst/SocialBrothers/Projects/MIND/plugins/cordova-plugin-firebasex/"
+      },
+      {
+        "id": "3a34d09a-170e-4df5-987b-7be66aba1bd2",
         "type": "REPO",
         "repoName": "vag-app",
-        "repoPath": "/Users/jaschavanaalst/Documents/Socialbrothers/Projects/MIND/FIXTEST/vag-app/"
+        "repoPath": "/Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/"
       },
       {
-        "id": "ae46492b-fe3d-4512-ae4e-d7cfe7d55e7b",
+        "id": "cb4dcf1e-08ce-41c8-a174-da4d253d4d63",
         "type": "REPO",
-        "repoName": "wpol-subscriptions",
-        "repoPath": "/Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wpol-subscriptions/"
-      },
-      {
-        "id": "cac23a18-71f2-4d56-b94e-e6741cad98db",
-        "type": "REPO",
-        "repoName": "wp-settings-page",
-        "repoPath": "/Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/"
+        "repoName": "spar-app-city-ios",
+        "repoPath": "/Users/jaschavanaalst/SocialBrothers/Projects/ios/spar-app-city-ios/"
       }
     ],
-    "selectedTabId": "cac23a18-71f2-4d56-b94e-e6741cad98db"
+    "selectedTabId": "613ad7b4-fba6-41de-ba5a-b03840a6ba34"
   },
   "profileIcon": "gravatar",
   "profileName": "Jascha van Aalst",

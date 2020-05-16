@@ -14,21 +14,14 @@
     "origin": {
       "HEAD": {
         "name": "HEAD",
-        "oid": "a9def76171be62c0936d099e447fa1ac873b90c2",
+        "oid": "273848a954cb004f1ece1741c0a892db75f7e685",
         "local": 0,
         "loid": "0000000000000000000000000000000000000000",
         "symrefTarget": "refs/heads/master"
       },
-      "refs/heads/develop": {
-        "name": "refs/heads/develop",
-        "oid": "2725a3a7998c5ba5d12b7c9cc8978317e86e528a",
-        "local": 1,
-        "loid": "0000000000000000000000000000000000000000",
-        "symrefTarget": null
-      },
       "refs/heads/master": {
         "name": "refs/heads/master",
-        "oid": "a9def76171be62c0936d099e447fa1ac873b90c2",
+        "oid": "273848a954cb004f1ece1741c0a892db75f7e685",
         "local": 1,
         "loid": "0000000000000000000000000000000000000000",
         "symrefTarget": null
@@ -39,12 +32,20 @@
     "origin": {
       "id": "remote-origin",
       "timestamps": [
-        1585649293968
+        1585649293968,
+        1586468189670
       ],
-      "total": 1
+      "total": 2
     }
   },
   "collapsedSections": [
     "PULL_REQUESTS"
-  ]
+  ],
+  "layout": {
+    "GraphPanel": {
+      "Tree": {
+        "width": 106
+      }
+    }
+  }
 }

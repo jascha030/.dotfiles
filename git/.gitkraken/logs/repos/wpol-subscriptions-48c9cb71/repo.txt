@@ -1029,3 +1029,208 @@
 [2020-04-09T09:14:33.789Z] Fetch remote origin: callback returned unsupported credentials type
 [2020-04-09T09:15:33.774Z] Fetch remote origin: callback returned unsupported credentials type
 [2020-04-09T09:16:33.916Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-09T18:44:32.503Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-09T18:45:31.922Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-09T21:00:33.187Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-09T21:00:43.615Z] Stage src/Manager/SubscriptionManager.php for commit: started.
+[2020-04-09T21:00:43.789Z] Stage src/Manager/SubscriptionManager.php for commit: finished. gk-log://duration?t=174
+[2020-04-09T21:00:49.149Z] Stage src/Subscription.php for commit: started.
+[2020-04-09T21:00:49.239Z] Stage src/Subscription.php for commit: finished. gk-log://duration?t=90
+[2020-04-09T21:01:31.821Z] Unstage src/Manager/SubscriptionManager.php: started.
+[2020-04-09T21:01:31.956Z] Unstage src/Manager/SubscriptionManager.php: finished. gk-log://duration?t=134
+[2020-04-09T21:01:33.270Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-09T21:01:39.604Z] Stage src/Manager/SubscriptionManager.php for commit: started.
+[2020-04-09T21:01:39.827Z] Stage src/Manager/SubscriptionManager.php for commit: finished. gk-log://duration?t=223
+[2020-04-09T21:01:42.250Z] Stage src/HookSubscription.php for commit: started.
+[2020-04-09T21:01:42.431Z] Stage src/HookSubscription.php for commit: finished. gk-log://duration?t=181
+[2020-04-09T21:01:44.232Z] Stage src/Subscribable.php for commit: started.
+[2020-04-09T21:01:44.345Z] Stage src/Subscribable.php for commit: finished. gk-log://duration?t=113
+[2020-04-09T21:02:10.488Z] Commit: started.
+[2020-04-09T21:02:10.531Z] Commit: finished creating commit e5c2ae80ad9cf796270e2b10029e941cd8eaae2e
+[2020-04-09T21:02:13.044Z] Push develop: started.
+[2020-04-09T21:02:41.360Z] Push develop: finished. gk-log://duration?t=28316
+[2020-04-09T21:56:15.371Z] Deleting 1.0.0 from origin: started.
+[2020-04-09T21:56:20.616Z] Deleting 1.0.0 from origin: finished. gk-log://duration?t=5245
+[2020-04-09T21:56:30.047Z] Delete ref refs/tags/1.0.0 at 879eb9b34056d3f64910b213b6bd441bd0767cee: started.
+[2020-04-09T21:56:30.085Z] Delete ref refs/tags/1.0.0 at 879eb9b34056d3f64910b213b6bd441bd0767cee: finished. gk-log://duration?t=38
+[2020-04-09T21:56:31.432Z] Deleting 1.0.0 from all remotes: started.
+[2020-04-09T21:56:31.442Z] Deleting 1.0.0 from origin: started.
+[2020-04-09T21:56:35.662Z] Deleting 1.0.0 from origin: finished. gk-log://duration?t=4220
+[2020-04-09T21:56:35.678Z] Deleting 1.0.0 from all remotes: finished. gk-log://duration?t=4245
+[2020-04-09T21:56:58.367Z] Checkout refs/heads/master: started.
+[2020-04-09T21:56:58.484Z] Checkout refs/heads/master: finished. gk-log://duration?t=117
+[2020-04-09T21:57:03.188Z] Merge develop into master: started.
+[2020-04-09T21:57:03.218Z] Finish merge develop into master: started.
+[2020-04-09T21:57:03.229Z] Finish merge develop into master: finished. gk-log://duration?t=11
+[2020-04-09T21:57:03.244Z] Merge develop into master: finished. gk-log://duration?t=56
+[2020-04-09T21:57:05.947Z] Push master: started.
+[2020-04-09T21:57:10.255Z] Push master: finished. gk-log://duration?t=4308
+[2020-04-09T21:57:11.248Z] Checkout refs/heads/develop: started.
+[2020-04-09T21:57:11.357Z] Checkout refs/heads/develop: finished. gk-log://duration?t=109
+[2020-04-09T21:57:15.665Z] Merge master into develop: started.
+[2020-04-09T21:57:15.696Z] Finish merge master into develop: started.
+[2020-04-09T21:57:15.707Z] Finish merge master into develop: finished. gk-log://duration?t=11
+[2020-04-09T21:57:15.726Z] Merge master into develop: finished. gk-log://duration?t=61
+[2020-04-09T21:57:17.682Z] Push develop: started.
+[2020-04-09T21:57:22.028Z] Push develop: finished. gk-log://duration?t=4346
+[2020-04-09T21:57:25.553Z] Checkout refs/heads/master: started.
+[2020-04-09T21:57:25.677Z] Checkout refs/heads/master: finished. gk-log://duration?t=124
+[2020-04-09T21:57:41.361Z] Create ref refs/tags/1.0.0 at 48fe06cd2d0a984a6af06d486a75d8de8440e8af: started.
+[2020-04-09T21:57:41.391Z] Create ref refs/tags/1.0.0 at 48fe06cd2d0a984a6af06d486a75d8de8440e8af: finished. gk-log://duration?t=30
+[2020-04-09T21:57:44.854Z] Pushing 1.0.0 to origin: started.
+[2020-04-09T21:57:49.088Z] Pushing 1.0.0 to origin: finished. gk-log://duration?t=4234
+[2020-04-09T21:59:22.123Z] Delete ref refs/tags/1.0.0 at 48fe06cd2d0a984a6af06d486a75d8de8440e8af: started.
+[2020-04-09T21:59:22.140Z] Delete ref refs/tags/1.0.0 at 48fe06cd2d0a984a6af06d486a75d8de8440e8af: finished. gk-log://duration?t=17
+[2020-04-09T21:59:23.249Z] Deleting 1.0.0 from all remotes: started.
+[2020-04-09T21:59:23.256Z] Deleting 1.0.0 from origin: started.
+[2020-04-09T21:59:27.193Z] Deleting 1.0.0 from origin: finished. gk-log://duration?t=3937
+[2020-04-09T21:59:27.209Z] Deleting 1.0.0 from all remotes: finished. gk-log://duration?t=3960
+[2020-04-09T21:59:29.300Z] Checkout refs/heads/develop: started.
+[2020-04-09T21:59:29.452Z] Checkout refs/heads/develop: finished. gk-log://duration?t=152
+[2020-04-09T21:59:30.560Z] Checkout refs/heads/master: started.
+[2020-04-09T21:59:30.687Z] Checkout refs/heads/master: finished. gk-log://duration?t=127
+[2020-04-09T22:03:38.843Z] Stage 27 files for commit: started.
+[2020-04-09T22:03:38.961Z] Stage 27 files for commit: finished. gk-log://duration?t=118
+[2020-04-09T22:03:48.111Z] Commit: started.
+[2020-04-09T22:03:48.150Z] Commit: finished creating commit c6e3b9999d0af52250710386fa169ea6bd1e63fb
+[2020-04-09T22:03:50.308Z] Push master: started.
+[2020-04-09T22:03:54.226Z] Push master: finished. gk-log://duration?t=3918
+[2020-04-09T22:03:55.143Z] Checkout refs/heads/develop: started.
+[2020-04-09T22:03:55.282Z] Checkout refs/heads/develop: finished. gk-log://duration?t=139
+[2020-04-09T22:03:58.274Z] Merge master into develop: started.
+[2020-04-09T22:03:58.331Z] Finish merge master into develop: started.
+[2020-04-09T22:03:58.344Z] Finish merge master into develop: finished. gk-log://duration?t=13
+[2020-04-09T22:03:58.360Z] Merge master into develop: finished. gk-log://duration?t=86
+[2020-04-09T22:03:59.589Z] Push develop: started.
+[2020-04-09T22:04:03.584Z] Push develop: finished. gk-log://duration?t=3995
+[2020-04-09T22:06:24.310Z] Stage 3 files for commit: started.
+[2020-04-09T22:06:24.367Z] Stage 3 files for commit: finished. gk-log://duration?t=57
+[2020-04-09T22:06:25.209Z] Commit: started.
+[2020-04-09T22:06:25.244Z] Commit: finished creating commit 81cf7ef649ca03adff7cd5713bf451da4fd01856
+[2020-04-09T22:06:27.350Z] Push develop: started.
+[2020-04-09T22:06:31.392Z] Push develop: finished. gk-log://duration?t=4042
+[2020-04-09T22:06:31.485Z] Checkout refs/heads/master: started.
+[2020-04-09T22:06:31.668Z] Checkout refs/heads/master: finished. gk-log://duration?t=183
+[2020-04-09T22:06:33.930Z] Merge develop into master: started.
+[2020-04-09T22:06:33.962Z] Finish merge develop into master: started.
+[2020-04-09T22:06:33.974Z] Finish merge develop into master: finished. gk-log://duration?t=12
+[2020-04-09T22:06:33.989Z] Merge develop into master: finished. gk-log://duration?t=59
+[2020-04-09T22:06:36.874Z] Push master: started.
+[2020-04-09T22:06:40.963Z] Push master: finished. gk-log://duration?t=4088
+[2020-04-09T22:08:24.379Z] Create ref refs/tags/1.0.0 at 413b47305ad0750cc5eb5a1f180dff5f96705286: started.
+[2020-04-09T22:08:24.417Z] Create ref refs/tags/1.0.0 at 413b47305ad0750cc5eb5a1f180dff5f96705286: finished. gk-log://duration?t=38
+[2020-04-09T22:08:27.949Z] Pushing 1.0.0 to origin: started.
+[2020-04-09T22:08:32.172Z] Pushing 1.0.0 to origin: finished. gk-log://duration?t=4223
+[2020-04-10T08:18:11.262Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-14T15:01:55.233Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:18:26.210Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:18:28.475Z] Checkout refs/heads/develop: started.
+[2020-04-26T11:18:28.630Z] Checkout refs/heads/develop: finished. gk-log://duration?t=155
+[2020-04-26T11:18:46.838Z] Initialize git flow: started.
+[2020-04-26T11:18:46.876Z] Initialize git flow: finished. gk-log://duration?t=38
+[2020-04-26T11:19:06.004Z] Start git flow feature 'auto-provider': started.
+[2020-04-26T11:19:06.099Z] Start git flow feature 'auto-provider': finished. gk-log://duration?t=94
+[2020-04-26T11:19:26.128Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:20:26.136Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:21:26.159Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:22:26.150Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:23:26.156Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:24:26.105Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:25:26.174Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:26:26.162Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:27:26.174Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:28:26.189Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:29:26.194Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:30:26.203Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:31:26.134Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:32:26.128Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:33:26.135Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:34:26.140Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:35:26.134Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:36:26.147Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:37:26.151Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:38:26.146Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:39:26.151Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:40:26.157Z] Fetch remote origin: callback returned unsupported credentials type
+[2020-04-26T11:40:51.509Z] Stage 3 files for commit: started.
+[2020-04-26T11:40:51.569Z] Stage 3 files for commit: finished. gk-log://duration?t=60
+[2020-04-26T11:41:01.418Z] Commit: started.
+[2020-04-26T11:41:01.461Z] Commit: finished creating commit 97cdeb71bab876b9e2aeaf6bc3688fccd0eedd19
+[2020-04-26T11:41:19.275Z] Finish git flow feature 'auto-provider': started.
+[2020-04-26T11:41:19.451Z] Finish git flow feature 'auto-provider': finished. gk-log://duration?t=176
+[2020-04-26T11:41:21.301Z] Push develop: started.
+[2020-04-26T11:41:28.435Z] Push develop: finished. gk-log://duration?t=7134
+[2020-04-26T11:41:40.030Z] Start git flow release '1.0.1': started.
+[2020-04-26T11:41:40.130Z] Start git flow release '1.0.1': finished. gk-log://duration?t=100
+[2020-04-26T11:41:43.948Z] Push release/1.0.1: started.
+[2020-04-26T11:41:46.853Z] Push release/1.0.1: cancelled. gk-log://duration?t=2905
+[2020-04-26T11:44:24.868Z] Stage 4 files for commit: started.
+[2020-04-26T11:44:24.929Z] Stage 4 files for commit: finished. gk-log://duration?t=61
+[2020-04-26T11:44:26.600Z] Commit: started.
+[2020-04-26T11:44:26.637Z] Commit: finished creating commit 3cacda46d4a94a767f8eed47d11391dd716bad27
+[2020-04-26T11:44:30.971Z] Finish git flow release '1.0.1': started.
+[2020-04-26T11:44:31.156Z] Finish git flow release '1.0.1': finished. gk-log://duration?t=185
+[2020-04-26T11:44:35.233Z] Push master: started.
+[2020-04-26T11:44:39.206Z] Push master: finished. gk-log://duration?t=3973
+[2020-04-26T11:44:39.980Z] Checkout refs/heads/develop: started.
+[2020-04-26T11:44:40.127Z] Checkout refs/heads/develop: finished. gk-log://duration?t=147
+[2020-04-26T11:44:41.376Z] Push develop: started.
+[2020-04-26T11:44:45.465Z] Push develop: finished. gk-log://duration?t=4089
+[2020-04-26T11:44:47.150Z] Pushing 1.0.1 to origin: started.
+[2020-04-26T11:44:51.501Z] Pushing 1.0.1 to origin: finished. gk-log://duration?t=4351
+[2020-04-26T11:48:00.214Z] Pushing 1.0.1 to origin: started.
+[2020-04-26T11:48:04.514Z] Pushing 1.0.1 to origin: finished. gk-log://duration?t=4300
+[2020-04-26T11:48:46.124Z] Delete ref refs/tags/1.0.1 at eccfed14d2d0eca95142f927c036fa9372e6e993: started.
+[2020-04-26T11:48:46.177Z] Delete ref refs/tags/1.0.1 at eccfed14d2d0eca95142f927c036fa9372e6e993: finished. gk-log://duration?t=53
+[2020-04-26T11:48:47.566Z] Deleting 1.0.1 from all remotes: started.
+[2020-04-26T11:48:47.575Z] Deleting 1.0.1 from origin: started.
+[2020-04-26T11:48:51.703Z] Deleting 1.0.1 from origin: finished. gk-log://duration?t=4128
+[2020-04-26T11:48:51.723Z] Deleting 1.0.1 from all remotes: finished. gk-log://duration?t=4157
+[2020-04-26T11:48:57.778Z] Start git flow release '1.0.2': started.
+[2020-04-26T11:48:57.882Z] Start git flow release '1.0.2': finished. gk-log://duration?t=104
+[2020-04-26T12:09:00.316Z] Stage 2 files for commit: started.
+[2020-04-26T12:09:00.381Z] Stage 2 files for commit: finished. gk-log://duration?t=65
+[2020-04-26T12:09:01.340Z] Commit: started.
+[2020-04-26T12:09:01.369Z] Commit: finished creating commit 3d8670c871d0d22f402bbc90929292f98fd3cd52
+[2020-04-26T12:09:05.674Z] Finish git flow release '1.0.2': started.
+[2020-04-26T12:09:05.843Z] Finish git flow release '1.0.2': finished. gk-log://duration?t=169
+[2020-04-26T12:09:07.554Z] Push master: started.
+[2020-04-26T12:09:11.648Z] Push master: finished. gk-log://duration?t=4094
+[2020-04-26T12:09:12.312Z] Checkout refs/heads/develop: started.
+[2020-04-26T12:09:12.462Z] Checkout refs/heads/develop: finished. gk-log://duration?t=150
+[2020-04-26T12:09:13.650Z] Push develop: started.
+[2020-04-26T12:09:17.779Z] Push develop: finished. gk-log://duration?t=4129
+[2020-04-26T12:09:56.123Z] Pushing 1.0.2 to origin: started.
+[2020-04-26T12:10:00.362Z] Pushing 1.0.2 to origin: finished. gk-log://duration?t=4239
+[2020-04-26T22:33:03.176Z] Start git flow release '1.0.3': started.
+[2020-04-26T22:33:03.220Z] Auto-stash uncommitted changes: started.
+[2020-04-26T22:33:03.224Z] Stage src/LICENSE for stash: started.
+[2020-04-26T22:33:03.265Z] Stage src/LICENSE for stash: finished. gk-log://duration?t=41
+[2020-04-26T22:33:03.383Z] Auto-stash uncommitted changes: finished. Stash sha: 6573a6b5fc736e40a6b13515981c0138af5d8f5b gk-log://duration?t=163
+[2020-04-26T22:33:03.490Z] Pop most recent stash: started.
+[2020-04-26T22:33:03.546Z] Pop stash 6573a6b5fc736e40a6b13515981c0138af5d8f5b: finished. gk-log://duration?t=56
+[2020-04-26T22:33:03.753Z] Start git flow release '1.0.3': finished. gk-log://duration?t=577
+[2020-04-26T22:33:39.258Z] Stage 3 files for commit: started.
+[2020-04-26T22:33:39.310Z] Stage 3 files for commit: finished. gk-log://duration?t=52
+[2020-04-26T22:33:56.790Z] Commit: started.
+[2020-04-26T22:33:56.824Z] Commit: finished creating commit b3c1b255db93b990a9b0ff002f2fe0a7b8462540
+[2020-04-26T22:35:06.502Z] Stage src/Manager/PluginAPI.php for commit: started.
+[2020-04-26T22:35:06.566Z] Stage src/Manager/PluginAPI.php for commit: finished. gk-log://duration?t=64
+[2020-04-26T22:35:07.531Z] Commit: started.
+[2020-04-26T22:35:07.568Z] Commit: finished creating commit 847ab94cbd3bd4001e4a4fa7d8052bd62eb20593
+[2020-04-26T22:35:14.218Z] Finish git flow release '1.0.3': started.
+[2020-04-26T22:35:14.372Z] Finish git flow release '1.0.3': finished. gk-log://duration?t=153
+[2020-04-26T22:35:19.711Z] Push master: started.
+[2020-04-26T22:35:23.978Z] Push master: finished. gk-log://duration?t=4267
+[2020-04-26T22:35:24.680Z] Checkout refs/heads/develop: started.
+[2020-04-26T22:35:24.865Z] Checkout refs/heads/develop: finished. gk-log://duration?t=185
+[2020-04-26T22:35:25.536Z] Push develop: started.
+[2020-04-26T22:35:29.838Z] Push develop: finished. gk-log://duration?t=4302
+[2020-04-26T22:35:35.231Z] Delete ref refs/tags/1.0.2 at 191bea22a26622c3f16b41adf82fdce5b5ea25df: started.
+[2020-04-26T22:35:35.252Z] Delete ref refs/tags/1.0.2 at 191bea22a26622c3f16b41adf82fdce5b5ea25df: finished. gk-log://duration?t=20
+[2020-04-26T22:35:37.855Z] Deleting 1.0.2 from all remotes: started.
+[2020-04-26T22:35:37.864Z] Deleting 1.0.2 from origin: started.
+[2020-04-26T22:35:41.980Z] Deleting 1.0.2 from origin: finished. gk-log://duration?t=4116
+[2020-04-26T22:35:42.010Z] Deleting 1.0.2 from all remotes: finished. gk-log://duration?t=4154
+[2020-04-26T22:35:42.012Z] Pushing 1.0.3 to origin: started.
+[2020-04-26T22:35:46.383Z] Pushing 1.0.3 to origin: finished. gk-log://duration?t=4371

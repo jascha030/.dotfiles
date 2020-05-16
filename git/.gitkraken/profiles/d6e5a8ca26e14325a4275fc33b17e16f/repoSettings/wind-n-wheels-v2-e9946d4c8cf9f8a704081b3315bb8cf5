@@ -1,0 +1,38 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "socialbrothers": {
+        "wind-n-wheels-v2": {
+          "hostingServiceType": "bitbucket",
+          "owner": "socialbrothers",
+          "name": "wind-n-wheels-v2"
+        }
+      }
+    }
+  },
+  "remoteHeadCollectionByRemoteName": {
+    "origin": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "c908a675c9dc327a1db09b94c1a13d29ad0f0264",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/develop": {
+        "name": "refs/heads/develop",
+        "oid": "10ff303e314db9e952009e4b17cbf34a3111e5ef",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "c908a675c9dc327a1db09b94c1a13d29ad0f0264",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  }
+}

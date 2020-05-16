@@ -1964,3 +1964,480 @@
 [2020-04-09T13:42:32.210Z] Open repository: finished. gk-log://duration?t=744
 [2020-04-09T13:42:59.043Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
 [2020-04-09T13:42:59.531Z] Open repository: finished. gk-log://duration?t=488
+[2020-04-09T18:44:30.383Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wpol-subscriptions/: started.
+[2020-04-09T18:44:31.236Z] Open repository: finished. gk-log://duration?t=853
+[2020-04-09T18:45:52.160Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-09T18:45:52.504Z] Open repository: finished. gk-log://duration?t=344
+[2020-04-09T21:00:32.051Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wpol-subscriptions/: started.
+[2020-04-09T21:00:32.525Z] Open repository: finished. gk-log://duration?t=474
+[2020-04-09T21:13:30.170Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-09T21:13:30.745Z] Open repository: finished. gk-log://duration?t=575
+[2020-04-09T21:15:13.127Z] Detecting Git and Git LFS: started
+[2020-04-09T21:15:15.362Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-09T21:15:15.827Z] Detected Git: 2.21.1
+[2020-04-09T21:15:16.010Z] Did not detect Git LFS
+[2020-04-09T21:15:16.997Z] Open repository: finished. gk-log://duration?t=1635
+[2020-04-09T21:33:19.681Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wpol-subscriptions/: started.
+[2020-04-09T21:33:20.351Z] Open repository: finished. gk-log://duration?t=670
+[2020-04-09T21:35:57.459Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/fftemp/wp-funforest-recras/: started.
+[2020-04-09T21:35:58.030Z] Open repository: finished. gk-log://duration?t=570
+[2020-04-09T21:40:45.917Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-09T21:40:46.295Z] Open repository: finished. gk-log://duration?t=378
+[2020-04-09T21:42:30.251Z] Open repository /Users/jaschavanaalst/SocialBrothers/Plugins/wp-funforest-recras/: started.
+[2020-04-09T21:42:30.772Z] Open repository: finished. gk-log://duration?t=521
+[2020-04-09T21:52:49.452Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-09T21:52:49.835Z] Open repository: finished. gk-log://duration?t=382
+[2020-04-09T21:56:10.121Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wpol-subscriptions/: started.
+[2020-04-09T21:56:10.404Z] Open repository: finished. gk-log://duration?t=283
+[2020-04-09T21:56:35.956Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/MIND/FIXTEST/vag-app/: started.
+[2020-04-09T21:56:36.899Z] Open repository: finished. gk-log://duration?t=943
+[2020-04-09T21:56:37.518Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-09T21:56:37.792Z] Open repository: finished. gk-log://duration?t=274
+[2020-04-09T21:56:47.462Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wpol-subscriptions/: started.
+[2020-04-09T21:56:47.689Z] Open repository: finished. gk-log://duration?t=227
+[2020-04-10T08:18:07.276Z] Detecting Git and Git LFS: started
+[2020-04-10T08:18:09.045Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wpol-subscriptions/: started.
+[2020-04-10T08:18:09.354Z] Detected Git: 2.21.1
+[2020-04-10T08:18:09.472Z] Did not detect Git LFS
+[2020-04-10T08:18:10.162Z] Open repository: finished. gk-log://duration?t=1117
+[2020-04-10T08:18:12.501Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-10T08:18:12.977Z] Open repository: finished. gk-log://duration?t=476
+[2020-04-10T08:18:23.892Z] Open repository /Users/jaschavanaalst/SocialBrothers/Plugins/wp-funforest-recras/: started.
+[2020-04-10T08:18:24.237Z] Open repository: finished. gk-log://duration?t=345
+[2020-04-10T09:07:47.107Z] Send usage data to Axosoft: started.
+[2020-04-10T09:07:47.569Z] Send usage data to Axosoft: finished. (Thank you!) gk-log://duration?t=462
+[2020-04-10T09:22:00.049Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/Wordpress/container online/NLCONT-CARNAVON/container-online/: started.
+[2020-04-10T09:22:00.511Z] Open repository: finished. gk-log://duration?t=462
+[2020-04-10T09:35:42.981Z] Open repository /Users/jaschavanaalst/SocialBrothers/Plugins/wp-funforest-recras/: started.
+[2020-04-10T09:35:43.558Z] Open repository: finished. gk-log://duration?t=577
+[2020-04-10T09:35:56.219Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/Wordpress/container online/Container staging nlcont-xinmaying/: started.
+[2020-04-10T09:35:56.311Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/Wordpress/container online/Container staging nlcont-xinmaying/: could not find repository from '/Users/jaschavanaalst/SocialBrothers/Projects/Wordpress/container online/Container staging nlcont-xinmaying'
+[2020-04-10T09:35:56.339Z] Open repository: finished with errors. gk-log://duration?t=120
+[2020-04-10T09:36:04.467Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/Wordpress/container online/Container staging nlcont-xinmaying/container-online/: started.
+[2020-04-10T09:36:04.533Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/Wordpress/container online/Container staging nlcont-xinmaying/container-online/: could not find repository from '/Users/jaschavanaalst/SocialBrothers/Projects/Wordpress/container online/Container staging nlcont-xinmaying/container-online'
+[2020-04-10T09:36:04.542Z] Open repository: finished with errors. gk-log://duration?t=75
+[2020-04-10T09:39:40.032Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/Wordpress/container online/Container staging nlcont-xinmaying/container-online/: started.
+[2020-04-10T09:39:40.647Z] Open repository: finished. gk-log://duration?t=615
+[2020-04-10T09:59:27.003Z] Open repository /Users/jaschavanaalst/SocialBrothers/Plugins/wp-funforest-recras/: started.
+[2020-04-10T09:59:27.315Z] Open repository: finished. gk-log://duration?t=312
+[2020-04-10T10:14:44.805Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/: started.
+[2020-04-10T10:14:44.956Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/: could not find repository from '/Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april'
+[2020-04-10T10:14:44.976Z] Open repository: finished with errors. gk-log://duration?t=171
+[2020-04-10T10:14:56.641Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/container-online/: started.
+[2020-04-10T10:14:57.114Z] Open repository: finished. gk-log://duration?t=473
+[2020-04-10T12:35:23.050Z] Open repository /Users/jaschavanaalst/SocialBrothers/Plugins/recras-koppeling/: started.
+[2020-04-10T12:35:23.728Z] Open repository: finished. gk-log://duration?t=678
+[2020-04-10T12:35:31.734Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/container-online/: started.
+[2020-04-10T12:35:32.120Z] Open repository: finished. gk-log://duration?t=386
+[2020-04-10T12:36:56.482Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/Recras/: started.
+[2020-04-10T12:36:57.118Z] Open repository: finished. gk-log://duration?t=636
+[2020-04-10T12:40:29.606Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/container-online/: started.
+[2020-04-10T12:40:29.891Z] Open repository: finished. gk-log://duration?t=285
+[2020-04-10T12:40:55.293Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/Recras/: started.
+[2020-04-10T12:40:55.573Z] Open repository: finished. gk-log://duration?t=280
+[2020-04-12T18:57:10.557Z] Detecting Git and Git LFS: started
+[2020-04-12T18:57:12.345Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/Recras/: started.
+[2020-04-12T18:57:12.943Z] Detected Git: 2.21.1
+[2020-04-12T18:57:13.070Z] Did not detect Git LFS
+[2020-04-12T18:57:14.135Z] Open repository: finished. gk-log://duration?t=1790
+[2020-04-12T18:57:35.303Z] Open repository /Users/jaschavanaalst/Programming/node/angular/formula-manager/: started.
+[2020-04-12T18:57:35.704Z] Open repository: finished. gk-log://duration?t=401
+[2020-04-12T18:57:42.617Z] Send usage data to Axosoft: started.
+[2020-04-12T18:57:42.764Z] Send usage data to Axosoft: finished. (Thank you!) gk-log://duration?t=147
+[2020-04-13T18:59:16.386Z] Send usage data to Axosoft: started.
+[2020-04-13T18:59:16.539Z] Send usage data to Axosoft: finished. (Thank you!) gk-log://duration?t=153
+[2020-04-14T09:08:19.844Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/container-online/: started.
+[2020-04-14T09:08:20.657Z] Open repository: finished. gk-log://duration?t=813
+[2020-04-14T10:07:41.208Z] Open repository /Users/jaschavanaalst/SocialBrothers/Plugins/wp-funforest-recras/: started.
+[2020-04-14T10:07:41.962Z] Open repository: finished. gk-log://duration?t=754
+[2020-04-14T11:55:56.430Z] Open repository /Users/jaschavanaalst/Programming/node/angular/formula-manager/: started.
+[2020-04-14T11:55:56.812Z] Open repository: finished. gk-log://duration?t=382
+[2020-04-14T14:04:53.777Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/Recras/: started.
+[2020-04-14T14:04:54.586Z] Open repository: finished. gk-log://duration?t=809
+[2020-04-14T14:04:56.187Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/container-online/: started.
+[2020-04-14T14:04:56.569Z] Open repository: finished. gk-log://duration?t=382
+[2020-04-14T14:29:07.602Z] Open repository /Users/jaschavanaalst/SocialBrothers/Plugins/wp-funforest-recras/: started.
+[2020-04-14T14:29:08.116Z] Open repository: finished. gk-log://duration?t=514
+[2020-04-14T14:29:08.999Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-14T14:29:09.564Z] Open repository: finished. gk-log://duration?t=565
+[2020-04-14T14:29:10.792Z] Open repository /Users/jaschavanaalst/SocialBrothers/Plugins/wp-funforest-recras/: started.
+[2020-04-14T14:29:11.168Z] Open repository: finished. gk-log://duration?t=376
+[2020-04-14T15:01:43.022Z] Detecting Git and Git LFS: started
+[2020-04-14T15:01:45.697Z] Open repository /Users/jaschavanaalst/SocialBrothers/Plugins/wp-funforest-recras/: started.
+[2020-04-14T15:01:46.166Z] Detected Git: 2.21.1
+[2020-04-14T15:01:46.318Z] Did not detect Git LFS
+[2020-04-14T15:01:47.739Z] Open repository: finished. gk-log://duration?t=2042
+[2020-04-14T15:01:50.579Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-14T15:01:51.548Z] Open repository: finished. gk-log://duration?t=969
+[2020-04-14T15:01:53.342Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wpol-subscriptions/: started.
+[2020-04-14T15:01:54.260Z] Open repository: finished. gk-log://duration?t=918
+[2020-04-14T15:01:55.496Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/MIND/FIXTEST/vag-app/: started.
+[2020-04-14T15:01:56.917Z] Open repository: finished. gk-log://duration?t=1421
+[2020-04-14T15:02:21.288Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-14T15:02:22.061Z] Open repository: finished. gk-log://duration?t=773
+[2020-04-14T15:06:53.948Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/MIND/FIXTEST/vag-app/: started.
+[2020-04-14T15:06:55.429Z] Open repository: finished. gk-log://duration?t=1481
+[2020-04-14T18:59:16.801Z] Send usage data to Axosoft: started.
+[2020-04-14T18:59:17.129Z] Send usage data to Axosoft: finished. (Thank you!) gk-log://duration?t=328
+[2020-04-14T19:18:18.902Z] Open repository /Users/jaschavanaalst/Programming/node/electron/f-one-manager/: started.
+[2020-04-14T19:18:19.563Z] Open repository: finished. gk-log://duration?t=661
+[2020-04-15T11:59:17.538Z] Detecting Git and Git LFS: started
+[2020-04-15T11:59:19.500Z] Open repository /Users/jaschavanaalst/Programming/node/electron/f-one-manager/: started.
+[2020-04-15T11:59:19.965Z] Detected Git: 2.21.1
+[2020-04-15T11:59:20.062Z] Did not detect Git LFS
+[2020-04-15T11:59:21.170Z] Open repository: finished. gk-log://duration?t=1670
+[2020-04-16T13:16:39.034Z] Detecting Git and Git LFS: started
+[2020-04-16T13:16:40.513Z] Open repository /Users/jaschavanaalst/Programming/node/electron/f-one-manager/: started.
+[2020-04-16T13:16:40.924Z] Detected Git: 2.21.1
+[2020-04-16T13:16:41.043Z] Did not detect Git LFS
+[2020-04-16T13:16:41.926Z] Open repository: finished. gk-log://duration?t=1413
+[2020-04-16T13:17:10.753Z] Send usage data to Axosoft: started.
+[2020-04-16T13:17:10.914Z] Send usage data to Axosoft: finished. (Thank you!) gk-log://duration?t=161
+[2020-04-16T23:21:39.781Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-16T23:21:40.876Z] Open repository: finished. gk-log://duration?t=1095
+[2020-04-17T07:51:05.324Z] Detecting Git and Git LFS: started
+[2020-04-17T07:51:07.493Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-17T07:51:07.888Z] Detected Git: 2.21.1
+[2020-04-17T07:51:08.019Z] Did not detect Git LFS
+[2020-04-17T07:51:09.486Z] Open repository: finished. gk-log://duration?t=1993
+[2020-04-17T07:51:11.835Z] Open repository /Users/jaschavanaalst/Programming/node/angular/formula-manager/: started.
+[2020-04-17T07:51:12.311Z] Open repository: finished. gk-log://duration?t=476
+[2020-04-17T13:17:14.475Z] Send usage data to Axosoft: started.
+[2020-04-17T13:17:14.895Z] Send usage data to Axosoft: finished. (Thank you!) gk-log://duration?t=419
+[2020-04-17T14:59:08.475Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-17T14:59:09.846Z] Open repository: finished. gk-log://duration?t=1371
+[2020-04-17T18:21:25.874Z] Detecting Git and Git LFS: started
+[2020-04-17T18:21:28.484Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-17T18:21:29.102Z] Detected Git: 2.21.1
+[2020-04-17T18:21:29.322Z] Did not detect Git LFS
+[2020-04-17T18:21:32.018Z] Open repository: finished. gk-log://duration?t=3534
+[2020-04-17T18:39:30.118Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-17T18:39:30.680Z] Open repository: finished. gk-log://duration?t=561
+[2020-04-17T18:48:59.677Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-17T18:48:59.832Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: Repo is empty
+[2020-04-17T18:48:59.833Z] Open repository: finished with errors. gk-log://duration?t=156
+[2020-04-17T18:49:01.295Z] Initialize repository at /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started
+[2020-04-17T18:49:01.393Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-17T18:49:02.101Z] Open repository: finished. gk-log://duration?t=708
+[2020-04-17T18:49:02.172Z] Initialize repository at /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: finished.
+[2020-04-18T20:00:16.002Z] Detecting Git and Git LFS: started
+[2020-04-18T20:00:17.705Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-18T20:00:18.055Z] Detected Git: 2.21.1
+[2020-04-18T20:00:18.215Z] Did not detect Git LFS
+[2020-04-18T20:00:18.972Z] Open repository: finished. gk-log://duration?t=1267
+[2020-04-18T20:00:48.396Z] Send usage data to Axosoft: started.
+[2020-04-18T20:00:48.599Z] Send usage data to Axosoft: finished. (Thank you!) gk-log://duration?t=203
+[2020-04-19T17:47:11.865Z] Detecting Git and Git LFS: started
+[2020-04-19T17:47:13.441Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-19T17:47:13.768Z] Detected Git: 2.21.1
+[2020-04-19T17:47:13.949Z] Did not detect Git LFS
+[2020-04-19T17:47:14.614Z] Open repository: finished. gk-log://duration?t=1173
+[2020-04-19T18:28:33.681Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-19T18:28:34.614Z] Open repository: finished. gk-log://duration?t=933
+[2020-04-19T19:13:40.407Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-19T19:13:41.679Z] Open repository: finished. gk-log://duration?t=1272
+[2020-04-19T19:13:42.113Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-19T19:13:42.354Z] Open repository: finished. gk-log://duration?t=241
+[2020-04-19T19:21:40.069Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-19T19:21:40.516Z] Open repository: finished. gk-log://duration?t=447
+[2020-04-19T19:25:18.697Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-19T19:25:18.961Z] Open repository: finished. gk-log://duration?t=264
+[2020-04-19T19:26:00.868Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-19T19:26:01.208Z] Open repository: finished. gk-log://duration?t=340
+[2020-04-19T19:53:02.333Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-19T19:53:03.605Z] Open repository: finished. gk-log://duration?t=1272
+[2020-04-19T19:53:04.000Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/Recras/: started.
+[2020-04-19T19:53:04.862Z] Open repository: finished. gk-log://duration?t=862
+[2020-04-19T19:53:06.958Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/container-online/: started.
+[2020-04-19T19:53:07.450Z] Open repository: finished. gk-log://duration?t=492
+[2020-04-19T19:53:10.562Z] Open repository /Users/jaschavanaalst/SocialBrothers/Plugins/wp-funforest-recras/: started.
+[2020-04-19T19:53:10.990Z] Open repository: finished. gk-log://duration?t=427
+[2020-04-19T19:53:12.554Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/MIND/FIXTEST/vag-app/: started.
+[2020-04-19T19:53:13.504Z] Open repository: finished. gk-log://duration?t=950
+[2020-04-19T19:53:16.099Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-19T19:53:16.361Z] Open repository: finished. gk-log://duration?t=262
+[2020-04-20T09:38:23.594Z] Detecting Git and Git LFS: started
+[2020-04-20T09:38:25.565Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-20T09:38:25.878Z] Detected Git: 2.21.1
+[2020-04-20T09:38:25.957Z] Did not detect Git LFS
+[2020-04-20T09:38:26.630Z] Open repository: finished. gk-log://duration?t=1065
+[2020-04-20T09:38:55.640Z] Send usage data to Axosoft: started.
+[2020-04-20T09:38:55.791Z] Send usage data to Axosoft: finished. (Thank you!) gk-log://duration?t=151
+[2020-04-20T10:20:47.569Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/plugins/cordova-plugin-firebasex/: started.
+[2020-04-20T10:20:49.357Z] Open repository: finished. gk-log://duration?t=1788
+[2020-04-20T11:03:06.119Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-20T11:03:06.424Z] Open repository: finished. gk-log://duration?t=305
+[2020-04-20T11:03:06.816Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-20T11:03:07.333Z] Open repository: finished. gk-log://duration?t=517
+[2020-04-20T11:03:08.121Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-20T11:03:08.891Z] Open repository: finished. gk-log://duration?t=770
+[2020-04-20T11:04:18.698Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-20T11:04:19.038Z] Open repository: finished. gk-log://duration?t=340
+[2020-04-20T11:04:20.439Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-20T11:04:20.703Z] Open repository: finished. gk-log://duration?t=264
+[2020-04-20T12:58:29.510Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/plugins/cordova-plugin-firebasex/: started.
+[2020-04-20T12:58:30.231Z] Open repository: finished. gk-log://duration?t=721
+[2020-04-20T12:58:57.738Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-20T12:58:58.638Z] Open repository: finished. gk-log://duration?t=900
+[2020-04-20T12:59:00.758Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/plugins/cordova-plugin-firebasex/: started.
+[2020-04-20T12:59:01.394Z] Open repository: finished. gk-log://duration?t=636
+[2020-04-20T13:19:56.715Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-20T13:19:57.630Z] Open repository: finished. gk-log://duration?t=915
+[2020-04-20T14:35:32.713Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/apc-rebuild/apc-app/: started.
+[2020-04-20T14:35:33.827Z] Open repository: finished. gk-log://duration?t=1113
+[2020-04-21T12:04:36.497Z] Detecting Git and Git LFS: started
+[2020-04-21T12:04:38.606Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/apc-rebuild/apc-app/: started.
+[2020-04-21T12:04:39.002Z] Detected Git: 2.21.1
+[2020-04-21T12:04:39.208Z] Did not detect Git LFS
+[2020-04-21T12:04:40.640Z] Open repository: finished. gk-log://duration?t=2034
+[2020-04-21T12:04:46.368Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-21T12:04:46.954Z] Open repository: finished. gk-log://duration?t=586
+[2020-04-21T12:04:48.657Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-21T12:04:49.273Z] Open repository: finished. gk-log://duration?t=616
+[2020-04-21T12:04:49.948Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-21T12:04:51.244Z] Open repository: finished. gk-log://duration?t=1296
+[2020-04-21T12:05:08.927Z] Send usage data to Axosoft: started.
+[2020-04-21T12:05:09.107Z] Send usage data to Axosoft: finished. (Thank you!) gk-log://duration?t=180
+[2020-04-22T08:30:48.076Z] Detecting Git and Git LFS: started
+[2020-04-22T08:30:50.047Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-22T08:30:50.358Z] Detected Git: 2.21.1
+[2020-04-22T08:30:50.512Z] Did not detect Git LFS
+[2020-04-22T08:30:51.969Z] Open repository: finished. gk-log://duration?t=1922
+[2020-04-22T08:31:08.104Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/apc-rebuild/apc-app/: started.
+[2020-04-22T08:31:08.926Z] Open repository: finished. gk-log://duration?t=822
+[2020-04-22T08:33:14.722Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/MIND/FIXTEST/vag-app/: started.
+[2020-04-22T08:33:15.684Z] Open repository: finished. gk-log://duration?t=962
+[2020-04-22T08:33:18.911Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/container-online/: started.
+[2020-04-22T08:33:19.403Z] Open repository: finished. gk-log://duration?t=492
+[2020-04-22T08:33:23.938Z] Open repository /Users/jaschavanaalst/Programming/node/angular/formula-manager/: started.
+[2020-04-22T08:33:24.374Z] Open repository: finished. gk-log://duration?t=436
+[2020-04-22T08:33:30.423Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-22T08:33:30.915Z] Open repository: finished. gk-log://duration?t=492
+[2020-04-22T08:33:33.482Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-22T08:33:34.127Z] Open repository: finished. gk-log://duration?t=645
+[2020-04-22T08:33:36.692Z] Open repository /Users/jaschavanaalst/Programming/node/angular/formula-manager/: started.
+[2020-04-22T08:33:36.911Z] Open repository: finished. gk-log://duration?t=219
+[2020-04-22T08:33:37.936Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-22T08:33:38.238Z] Open repository: finished. gk-log://duration?t=302
+[2020-04-22T08:33:40.399Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-22T08:33:40.789Z] Open repository: finished. gk-log://duration?t=390
+[2020-04-22T08:33:45.362Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/plugins/cordova-plugin-firebasex/: started.
+[2020-04-22T08:33:45.890Z] Open repository: finished. gk-log://duration?t=528
+[2020-04-22T08:43:17.208Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-ajax/: started.
+[2020-04-22T08:43:17.841Z] Open repository: finished. gk-log://duration?t=633
+[2020-04-22T12:05:09.270Z] Send usage data to Axosoft: started.
+[2020-04-22T12:05:09.770Z] Send usage data to Axosoft: finished. (Thank you!) gk-log://duration?t=500
+[2020-04-22T15:06:15.192Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-22T15:06:16.211Z] Open repository: finished. gk-log://duration?t=1019
+[2020-04-22T16:34:45.920Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/container-online/: started.
+[2020-04-22T16:34:46.450Z] Open repository: finished. gk-log://duration?t=530
+[2020-04-22T16:34:48.516Z] Open repository /Users/jaschavanaalst/Programming/node/angular/formula-manager/: started.
+[2020-04-22T16:34:48.719Z] Open repository: finished. gk-log://duration?t=203
+[2020-04-22T16:34:50.812Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-22T16:34:51.273Z] Open repository: finished. gk-log://duration?t=461
+[2020-04-22T16:34:54.326Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-22T16:34:54.640Z] Open repository: finished. gk-log://duration?t=314
+[2020-04-22T16:34:56.846Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/plugins/cordova-plugin-firebasex/: started.
+[2020-04-22T16:34:57.209Z] Open repository: finished. gk-log://duration?t=363
+[2020-04-22T16:35:00.628Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-22T16:35:00.852Z] Open repository: finished. gk-log://duration?t=224
+[2020-04-22T16:35:02.511Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/apc-rebuild/apc-app/: started.
+[2020-04-22T16:35:03.222Z] Open repository: finished. gk-log://duration?t=711
+[2020-04-22T16:35:06.887Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-ajax/: started.
+[2020-04-22T16:35:07.087Z] Open repository: finished. gk-log://duration?t=200
+[2020-04-22T19:48:31.353Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-22T19:48:31.680Z] Open repository: finished. gk-log://duration?t=327
+[2020-04-22T19:56:59.171Z] Detecting Git and Git LFS: started
+[2020-04-22T21:33:15.974Z] Detecting Git and Git LFS: started
+[2020-04-22T21:33:17.722Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-22T21:33:18.117Z] Detected Git: 2.21.1
+[2020-04-22T21:33:18.234Z] Did not detect Git LFS
+[2020-04-22T21:33:18.725Z] Open repository: finished. gk-log://duration?t=1003
+[2020-04-22T21:57:41.366Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-settings-page/: started.
+[2020-04-22T21:57:42.162Z] Open repository: finished. gk-log://duration?t=796
+[2020-04-22T21:57:45.707Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-22T21:57:46.670Z] Open repository: finished. gk-log://duration?t=963
+[2020-04-22T21:57:48.185Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-22T21:57:48.478Z] Open repository: finished. gk-log://duration?t=293
+[2020-04-23T06:39:27.999Z] Detecting Git and Git LFS: started
+[2020-04-23T06:39:30.330Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-23T06:39:30.816Z] Detected Git: 2.21.1
+[2020-04-23T06:39:31.044Z] Did not detect Git LFS
+[2020-04-23T06:39:32.171Z] Open repository: finished. gk-log://duration?t=1841
+[2020-04-23T06:39:45.323Z] Open repository /Users/jaschavanaalst/SocialBrothers/wind-n-wheels-v2/: started.
+[2020-04-23T06:39:46.008Z] Open repository: finished. gk-log://duration?t=685
+[2020-04-23T09:25:06.898Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/container-online/: started.
+[2020-04-23T09:25:07.949Z] Open repository: finished. gk-log://duration?t=1051
+[2020-04-23T12:05:09.420Z] Send usage data to Axosoft: started.
+[2020-04-23T12:05:09.837Z] Send usage data to Axosoft: finished. (Thank you!) gk-log://duration?t=417
+[2020-04-23T14:50:27.174Z] Open repository /Users/jaschavanaalst/SocialBrothers/wind-n-wheels-v2/: started.
+[2020-04-23T14:50:27.771Z] Open repository: finished. gk-log://duration?t=597
+[2020-04-23T20:11:33.031Z] Detecting Git and Git LFS: started
+[2020-04-23T20:11:35.272Z] Open repository /Users/jaschavanaalst/SocialBrothers/wind-n-wheels-v2/: started.
+[2020-04-23T20:11:35.660Z] Detected Git: 2.21.1
+[2020-04-23T20:11:35.774Z] Did not detect Git LFS
+[2020-04-23T20:11:36.472Z] Open repository: finished. gk-log://duration?t=1200
+[2020-04-23T20:11:51.592Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/container-online/: started.
+[2020-04-23T20:11:51.975Z] Open repository: finished. gk-log://duration?t=383
+[2020-04-23T20:11:56.451Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-23T20:11:57.131Z] Open repository: finished. gk-log://duration?t=680
+[2020-04-23T21:01:15.071Z] Detecting Git and Git LFS: started
+[2020-04-23T21:01:16.356Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-23T21:01:16.839Z] Detected Git: 2.21.1
+[2020-04-23T21:01:16.958Z] Did not detect Git LFS
+[2020-04-23T21:01:17.938Z] Open repository: finished. gk-log://duration?t=1582
+[2020-04-24T09:55:22.912Z] Detecting Git and Git LFS: started
+[2020-04-24T09:55:25.229Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-24T09:55:26.061Z] Detected Git: 2.21.1
+[2020-04-24T09:55:26.327Z] Did not detect Git LFS
+[2020-04-24T09:55:27.796Z] Open repository: finished. gk-log://duration?t=2567
+[2020-04-24T12:05:12.631Z] Send usage data to Axosoft: started.
+[2020-04-24T12:05:13.221Z] Send usage data to Axosoft: finished. (Thank you!) gk-log://duration?t=590
+[2020-04-24T13:51:04.548Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/apc-rebuild/apc-app/: started.
+[2020-04-24T13:51:05.617Z] Open repository: finished. gk-log://duration?t=1069
+[2020-04-24T14:50:49.696Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/apc-rebuild/apc-api/: started.
+[2020-04-24T14:50:50.356Z] Open repository: finished. gk-log://duration?t=660
+[2020-04-24T14:56:42.360Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/apc-rebuild/apc-app/: started.
+[2020-04-24T14:56:43.610Z] Open repository: finished. gk-log://duration?t=1250
+[2020-04-25T21:11:04.762Z] Detecting Git and Git LFS: started
+[2020-04-25T21:11:06.616Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/apc-rebuild/apc-app/: started.
+[2020-04-25T21:11:06.959Z] Detected Git: 2.21.1
+[2020-04-25T21:11:07.169Z] Did not detect Git LFS
+[2020-04-25T21:11:09.431Z] Open repository: finished. gk-log://duration?t=2815
+[2020-04-25T21:11:15.167Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-25T21:11:15.730Z] Open repository: finished. gk-log://duration?t=563
+[2020-04-25T21:11:36.686Z] Send usage data to Axosoft: started.
+[2020-04-25T21:11:36.848Z] Send usage data to Axosoft: finished. (Thank you!) gk-log://duration?t=162
+[2020-04-26T11:16:37.072Z] Detecting Git and Git LFS: started
+[2020-04-26T11:16:38.913Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-26T11:16:39.287Z] Detected Git: 2.21.1
+[2020-04-26T11:16:39.413Z] Did not detect Git LFS
+[2020-04-26T11:16:40.039Z] Open repository: finished. gk-log://duration?t=1126
+[2020-04-26T11:18:24.552Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wpol-subscriptions/: started.
+[2020-04-26T11:18:25.302Z] Open repository: finished. gk-log://duration?t=750
+[2020-04-26T18:57:56.377Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/apc-rebuild/apc-api/: started.
+[2020-04-26T18:57:58.074Z] Open repository: finished. gk-log://duration?t=1697
+[2020-04-26T18:58:00.094Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-26T18:58:00.711Z] Open repository: finished. gk-log://duration?t=617
+[2020-04-26T21:11:36.433Z] Send usage data to Axosoft: started.
+[2020-04-26T21:11:36.877Z] Send usage data to Axosoft: finished. (Thank you!) gk-log://duration?t=444
+[2020-04-26T22:32:48.419Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wpol-subscriptions/: started.
+[2020-04-26T22:32:48.942Z] Open repository: finished. gk-log://duration?t=523
+[2020-04-26T22:39:07.764Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/apc-rebuild/apc-api/: started.
+[2020-04-26T22:39:08.341Z] Open repository: finished. gk-log://duration?t=577
+[2020-04-26T22:39:10.088Z] Open repository /Users/jaschavanaalst/SocialBrothers/wind-n-wheels-v2/: started.
+[2020-04-26T22:39:10.695Z] Open repository: finished. gk-log://duration?t=607
+[2020-04-26T22:39:13.677Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-ajax/: started.
+[2020-04-26T22:39:14.195Z] Open repository: finished. gk-log://duration?t=518
+[2020-04-26T22:46:18.131Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-utilities/: started.
+[2020-04-26T22:46:18.228Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-utilities/: Repo is empty
+[2020-04-26T22:46:18.242Z] Open repository: finished with errors. gk-log://duration?t=111
+[2020-04-26T22:46:19.464Z] Initialize repository at /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-utilities/: started
+[2020-04-26T22:46:19.542Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-utilities/: started.
+[2020-04-26T22:46:20.101Z] Open repository: finished. gk-log://duration?t=559
+[2020-04-26T22:46:20.169Z] Initialize repository at /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-utilities/: finished.
+[2020-04-26T23:40:54.491Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-ajax/: started.
+[2020-04-26T23:40:55.009Z] Open repository: finished. gk-log://duration?t=518
+[2020-04-27T00:07:32.086Z] Open repository /Users/jaschavanaalst/Documents/Socialbrothers/Projects/apc-rebuild/apc-app/: started.
+[2020-04-27T00:07:33.028Z] Open repository: finished. gk-log://duration?t=942
+[2020-04-27T00:07:45.983Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-ajax/: started.
+[2020-04-27T00:07:46.389Z] Open repository: finished. gk-log://duration?t=406
+[2020-04-27T00:07:47.845Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-27T00:07:48.112Z] Open repository: finished. gk-log://duration?t=267
+[2020-04-27T00:07:50.634Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-27T00:07:51.559Z] Open repository: finished. gk-log://duration?t=925
+[2020-04-27T00:07:55.184Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/container-online/: started.
+[2020-04-27T00:07:55.614Z] Open repository: finished. gk-log://duration?t=430
+[2020-04-27T00:07:58.326Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-27T00:07:58.576Z] Open repository: finished. gk-log://duration?t=250
+[2020-04-27T00:27:36.796Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-ajax/: started.
+[2020-04-27T00:27:37.344Z] Open repository: finished. gk-log://duration?t=548
+[2020-04-27T00:27:40.861Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wpol-subscriptions/: started.
+[2020-04-27T00:27:41.274Z] Open repository: finished. gk-log://duration?t=413
+[2020-04-27T00:27:46.040Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-utilities/: started.
+[2020-04-27T00:27:46.294Z] Open repository: finished. gk-log://duration?t=254
+[2020-04-27T00:27:51.005Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wpol-subscriptions/: started.
+[2020-04-27T00:27:51.272Z] Open repository: finished. gk-log://duration?t=267
+[2020-04-27T00:27:54.934Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-ajax/: started.
+[2020-04-27T00:27:55.167Z] Open repository: finished. gk-log://duration?t=233
+[2020-04-27T00:27:56.646Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-27T00:27:56.885Z] Open repository: finished. gk-log://duration?t=239
+[2020-04-27T00:27:58.160Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wpol-subscriptions/: started.
+[2020-04-27T00:27:58.548Z] Open repository: finished. gk-log://duration?t=388
+[2020-04-27T00:27:59.145Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-27T00:27:59.386Z] Open repository: finished. gk-log://duration?t=241
+[2020-04-27T00:28:01.758Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wpol-subscriptions/: started.
+[2020-04-27T00:28:02.008Z] Open repository: finished. gk-log://duration?t=250
+[2020-04-27T00:28:16.128Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/container-online/: started.
+[2020-04-27T00:28:16.409Z] Open repository: finished. gk-log://duration?t=281
+[2020-04-27T00:28:19.466Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wpol-subscriptions/: started.
+[2020-04-27T00:28:19.720Z] Open repository: finished. gk-log://duration?t=254
+[2020-04-27T00:28:22.629Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-27T00:28:22.850Z] Open repository: finished. gk-log://duration?t=221
+[2020-04-27T00:28:24.284Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wpol-subscriptions/: started.
+[2020-04-27T00:28:24.546Z] Open repository: finished. gk-log://duration?t=262
+[2020-04-27T00:28:27.119Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/container-online/: started.
+[2020-04-27T00:28:27.388Z] Open repository: finished. gk-log://duration?t=269
+[2020-04-27T00:28:28.092Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-27T00:28:28.330Z] Open repository: finished. gk-log://duration?t=238
+[2020-04-28T10:53:35.018Z] Detecting Git and Git LFS: started
+[2020-04-28T10:53:36.989Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-04-28T10:53:37.187Z] Detected Git: 2.21.1
+[2020-04-28T10:53:37.312Z] Did not detect Git LFS
+[2020-04-28T10:53:37.930Z] Open repository: finished. gk-log://duration?t=941
+[2020-04-28T10:54:07.047Z] Send usage data to Axosoft: started.
+[2020-04-28T10:54:07.195Z] Send usage data to Axosoft: finished. (Thank you!) gk-log://duration?t=148
+[2020-04-28T10:54:40.336Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/plugins/cordova-plugin-firebasex/: started.
+[2020-04-28T10:54:41.087Z] Open repository: finished. gk-log://duration?t=751
+[2020-04-28T10:56:42.618Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/plugins/mind-module-firebase-notificare/: started.
+[2020-04-28T10:56:43.118Z] Open repository: finished. gk-log://duration?t=499
+[2020-04-28T11:16:37.617Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/plugins/cordova-plugin-firebasex/: started.
+[2020-04-28T11:16:38.168Z] Open repository: finished. gk-log://duration?t=551
+[2020-04-28T11:16:38.551Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/container-online/: started.
+[2020-04-28T11:16:39.047Z] Open repository: finished. gk-log://duration?t=496
+[2020-04-28T11:16:42.420Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-28T11:16:43.042Z] Open repository: finished. gk-log://duration?t=622
+[2020-04-28T11:47:29.698Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/plugins/mind-module-firebase-notificare/: started.
+[2020-04-28T11:47:29.997Z] Open repository: finished. gk-log://duration?t=299
+[2020-04-29T13:02:33.395Z] Detecting Git and Git LFS: started
+[2020-04-29T13:02:35.617Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/plugins/mind-module-firebase-notificare/: started.
+[2020-04-29T13:02:36.302Z] Detected Git: 2.21.1
+[2020-04-29T13:02:36.476Z] Did not detect Git LFS
+[2020-04-29T13:02:37.619Z] Open repository: finished. gk-log://duration?t=2002
+[2020-04-29T13:02:41.524Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/plugins/cordova-plugin-firebasex/: started.
+[2020-04-29T13:02:42.345Z] Open repository: finished. gk-log://duration?t=821
+[2020-04-29T13:03:05.895Z] Send usage data to Axosoft: started.
+[2020-04-29T13:03:06.044Z] Send usage data to Axosoft: finished. (Thank you!) gk-log://duration?t=149
+[2020-04-29T13:03:19.615Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/vag-app/: started.
+[2020-04-29T13:03:20.606Z] Open repository: finished. gk-log://duration?t=991
+[2020-04-29T13:03:24.099Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/MIND/plugins/cordova-plugin-firebasex/: started.
+[2020-04-29T13:03:24.559Z] Open repository: finished. gk-log://duration?t=460
+[2020-04-29T13:03:26.744Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/container-online/: started.
+[2020-04-29T13:03:27.313Z] Open repository: finished. gk-log://duration?t=569
+[2020-04-29T14:46:36.319Z] Detecting Git and Git LFS: started
+[2020-04-29T14:46:38.401Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/container-online/: started.
+[2020-04-29T14:46:38.743Z] Detected Git: 2.21.1
+[2020-04-29T14:46:38.965Z] Did not detect Git LFS
+[2020-04-29T14:46:39.796Z] Open repository: finished. gk-log://duration?t=1395
+[2020-04-30T13:14:39.435Z] Send usage data to Axosoft: started.
+[2020-04-30T13:14:40.060Z] Send usage data to Axosoft: finished. (Thank you!) gk-log://duration?t=625
+[2020-05-03T14:44:34.005Z] Detecting Git and Git LFS: started
+[2020-05-03T14:44:36.229Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/container-online/: started.
+[2020-05-03T14:44:36.779Z] Detected Git: 2.21.1
+[2020-05-03T14:44:36.979Z] Did not detect Git LFS
+[2020-05-03T14:44:38.176Z] Open repository: finished. gk-log://duration?t=1947
+[2020-05-03T14:44:39.980Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-05-03T14:44:40.646Z] Open repository: finished. gk-log://duration?t=666
+[2020-05-03T14:45:06.476Z] Send usage data to Axosoft: started.
+[2020-05-03T14:45:06.606Z] Send usage data to Axosoft: finished. (Thank you!) gk-log://duration?t=130
+[2020-05-03T19:17:53.107Z] Detecting Git and Git LFS: started
+[2020-05-03T19:17:56.108Z] Open repository /Users/jaschavanaalst/Programming/Wordpress/WPOLIB/wp-oop-plugin/: started.
+[2020-05-03T19:17:57.211Z] Detected Git: 2.21.1
+[2020-05-03T19:17:57.614Z] Did not detect Git LFS
+[2020-05-03T19:17:59.790Z] Open repository: finished. gk-log://duration?t=3682
+[2020-05-03T19:18:15.838Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/ios/spar-app-city-ios/: started.
+[2020-05-03T19:18:20.566Z] Open repository: finished. gk-log://duration?t=4728
+[2020-05-04T14:16:31.310Z] Open repository /Users/jaschavanaalst/SocialBrothers/Projects/nlcont-staging-april/container-online/: started.
+[2020-05-04T14:16:31.997Z] Open repository: finished. gk-log://duration?t=687
+[2020-05-04T14:45:07.458Z] Send usage data to Axosoft: started.
+[2020-05-04T14:45:07.807Z] Send usage data to Axosoft: finished. (Thank you!) gk-log://duration?t=349

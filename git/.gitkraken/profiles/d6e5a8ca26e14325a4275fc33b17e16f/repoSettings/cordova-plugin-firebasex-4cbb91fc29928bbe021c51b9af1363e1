@@ -1,0 +1,386 @@
+{
+  "remoteParents": {
+    "bitbucket": {
+      "pondevelopment": {
+        "cordova-plugin-firebasex": {
+          "hostingServiceType": "bitbucket",
+          "owner": "pondevelopment",
+          "name": "cordova-plugin-firebasex"
+        },
+        "mind-module-firebase-notificare": {
+          "hostingServiceType": "bitbucket",
+          "owner": "pondevelopment",
+          "name": "mind-module-firebase-notificare"
+        }
+      }
+    }
+  },
+  "remoteHeadCollectionByRemoteName": {
+    "origin": {
+      "HEAD": {
+        "name": "HEAD",
+        "oid": "5de352c66d96fd601eb43153027e21cc9c4f632a",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": "refs/heads/master"
+      },
+      "refs/heads/cli_build": {
+        "name": "refs/heads/cli_build",
+        "oid": "23f2b11a664a97633b196b4f3188b1b84c9f2971",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/dev": {
+        "name": "refs/heads/dev",
+        "oid": "69565d152c22dc3eae024dcaf2b3324ea076eeb1",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/master": {
+        "name": "refs/heads/master",
+        "oid": "5de352c66d96fd601eb43153027e21cc9c4f632a",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/release/6.1.0": {
+        "name": "refs/heads/release/6.1.0",
+        "oid": "412b73609031e7f9835ec1fab5fb2dde3e6a3cf9",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/heads/release/6.1.1": {
+        "name": "refs/heads/release/6.1.1",
+        "oid": "1b7a5bd822aa75f6554f0bd87443f26cbe726012",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/2.0.6": {
+        "name": "refs/tags/2.0.6",
+        "oid": "bbfd4548c0b9a06647aeb6b1850798757791b816",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/2.0.7": {
+        "name": "refs/tags/2.0.7",
+        "oid": "98abbc2f895fe8186e44de2474698f9cd596beab",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/2.1.0": {
+        "name": "refs/tags/2.1.0",
+        "oid": "a0b29d408bd70319a3e9096c39fb64e2c8fc6514",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/2.1.1": {
+        "name": "refs/tags/2.1.1",
+        "oid": "5805972b914fd8f11bd8a93d25be63ba317fbdd7",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/2.1.2": {
+        "name": "refs/tags/2.1.2",
+        "oid": "965085235fbe396bf7b3e1df98fa742e4346af57",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/3.0.0": {
+        "name": "refs/tags/3.0.0",
+        "oid": "594d4a32fc3dbcfe770acf00640397fb2383d5cc",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/3.0.1": {
+        "name": "refs/tags/3.0.1",
+        "oid": "e10dea990fd36409a40676a4e31ab8045c994997",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/3.0.2": {
+        "name": "refs/tags/3.0.2",
+        "oid": "eb0b805ac362fbb1fe0cccd7b2c599024f87805d",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/3.0.3": {
+        "name": "refs/tags/3.0.3",
+        "oid": "769341b498c1e6b192fef8758f33265f3593249e",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/3.0.4": {
+        "name": "refs/tags/3.0.4",
+        "oid": "599bd443982527df5fcbe154e242e2a117f096db",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/3.0.5": {
+        "name": "refs/tags/3.0.5",
+        "oid": "4f5e90c17b5090acfe069d4fc3f38c1e20277b26",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/3.0.6": {
+        "name": "refs/tags/3.0.6",
+        "oid": "4753c3a32a1017c7488f301bf8ec37e988e7b5ef",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/3.0.7": {
+        "name": "refs/tags/3.0.7",
+        "oid": "4f2666c1f15854d4c3665ced5a78662e14e3a6ab",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/3.0.8": {
+        "name": "refs/tags/3.0.8",
+        "oid": "593dd857c9e19877e36719c489c0c88fbbb0e22c",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/4.0.0": {
+        "name": "refs/tags/4.0.0",
+        "oid": "6c537df9d8f04efee33912e0177f41d80fa4f1e6",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/4.0.0^{}": {
+        "name": "refs/tags/4.0.0^{}",
+        "oid": "dce411ff48ae2c390815fd4f0d9b0c0b3fd9f49d",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/5.0.0": {
+        "name": "refs/tags/5.0.0",
+        "oid": "72b10ef160f8a1863c81e551097bc4ccd6c11b3e",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/6.0.0": {
+        "name": "refs/tags/6.0.0",
+        "oid": "63f319a5ae369b66959d5714c92d9e9e04a509dd",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/6.0.1": {
+        "name": "refs/tags/6.0.1",
+        "oid": "582a360a073e08951d9f259aa558f8f5bd53f701",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/6.0.2": {
+        "name": "refs/tags/6.0.2",
+        "oid": "90e77a986338f37c5c7a9c3ae9c740feef7e48f2",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/6.0.3": {
+        "name": "refs/tags/6.0.3",
+        "oid": "717126d3ab4845b75c9ef33811f6b9968767e5c6",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/6.0.4": {
+        "name": "refs/tags/6.0.4",
+        "oid": "c25195c8997ce7e0a8d315dcf0d7a9635f4ecfb8",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/6.0.5": {
+        "name": "refs/tags/6.0.5",
+        "oid": "b7691a2a7335fd3a834071a8bce4a9e782e3e2e4",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/6.0.6": {
+        "name": "refs/tags/6.0.6",
+        "oid": "f7199fa19f03b3ef35dc6fbd3c03d0645072a820",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/6.0.7": {
+        "name": "refs/tags/6.0.7",
+        "oid": "e47439927d88e9639eda5cb5ee6346c37123d936",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/6.1.0": {
+        "name": "refs/tags/6.1.0",
+        "oid": "412b73609031e7f9835ec1fab5fb2dde3e6a3cf9",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/7.0.0": {
+        "name": "refs/tags/7.0.0",
+        "oid": "b8108909159c089026380bf53f86a049e2a75a49",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/7.0.1": {
+        "name": "refs/tags/7.0.1",
+        "oid": "665113d7f0e2aea549e8b9aae737aa34d238fa5d",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/7.0.2": {
+        "name": "refs/tags/7.0.2",
+        "oid": "dba171495d0785a3c43e7b2b1e4be369573dbcc3",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/8.0.0": {
+        "name": "refs/tags/8.0.0",
+        "oid": "be2e4f5fe3485484c87cf2fb90724d93a54c9751",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/8.0.1": {
+        "name": "refs/tags/8.0.1",
+        "oid": "80587272097c97936a86eee10ed4d55606cffd5c",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/8.1.0": {
+        "name": "refs/tags/8.1.0",
+        "oid": "ba179de69c1c0a83169f62e5614de68d03d95741",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/8.1.1": {
+        "name": "refs/tags/8.1.1",
+        "oid": "4c9a5275bc957efb4a921acfd8816624bcc53af0",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/9.0.0": {
+        "name": "refs/tags/9.0.0",
+        "oid": "16f6e3ec5b0cf01e5415a2612449fe4b514803c9",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/9.0.1": {
+        "name": "refs/tags/9.0.1",
+        "oid": "3cf6b9e6f79009304506b9ab0263cc3398bd4b78",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/9.0.1-cli": {
+        "name": "refs/tags/9.0.1-cli",
+        "oid": "54bdf866601793ebcca0326035c23ce0e477bd42",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/9.0.2": {
+        "name": "refs/tags/9.0.2",
+        "oid": "db1570b2dc2f558cdcccab4e8946d41cf7f966af",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/9.0.2-cli": {
+        "name": "refs/tags/9.0.2-cli",
+        "oid": "edbe7e5e15f5e55c50763cb578504905134bdc00",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/9.0.3": {
+        "name": "refs/tags/9.0.3",
+        "oid": "d6c3b247232cdcfd95828137c6a96bb393d98ebd",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/9.0.3-cli": {
+        "name": "refs/tags/9.0.3-cli",
+        "oid": "e19763702df67b188a93d2e800a4b14484f944a7",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/9.1.0": {
+        "name": "refs/tags/9.1.0",
+        "oid": "5de352c66d96fd601eb43153027e21cc9c4f632a",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/9.1.0-cli": {
+        "name": "refs/tags/9.1.0-cli",
+        "oid": "23f2b11a664a97633b196b4f3188b1b84c9f2971",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/v1.0.1": {
+        "name": "refs/tags/v1.0.1",
+        "oid": "029ff87c5a416c5806646916fabed5a754c0db57",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/v1.0.1^{}": {
+        "name": "refs/tags/v1.0.1^{}",
+        "oid": "65f9e4572d81915dbd90a5c848ec693b8cc0fa61",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/v1.0.2": {
+        "name": "refs/tags/v1.0.2",
+        "oid": "9b4c8dd8a2737d76a20b75f63e531163d0095e0a",
+        "local": 1,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      },
+      "refs/tags/v1.0.2^{}": {
+        "name": "refs/tags/v1.0.2^{}",
+        "oid": "74d2aa3a57a84a674a4806ec6bd8ed10d59e47ee",
+        "local": 0,
+        "loid": "0000000000000000000000000000000000000000",
+        "symrefTarget": null
+      }
+    }
+  }
+}
