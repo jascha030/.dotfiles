@@ -113,6 +113,8 @@ alias sbproj="cd ~/Documents/SocialBrothers/Projects/"
 
 alias brewup="brew update; brew upgrade; brew cleanup; brew doctor"
 
+alias tm-auto="sudo tmutil startbackup --auto; tmutil status"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="/usr/local/sbin:$PATH"
