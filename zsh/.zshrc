@@ -77,7 +77,7 @@ POWERLEVEL9K_MODE="awesome-patched"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nvm composer npm npx zsh-interactive-cd osx)
+plugins=(git nvm composer npm npx zsh-interactive-cd osx xcode sudo)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,6 +114,8 @@ alias sbproj="cd ~/Documents/SocialBrothers/Projects/"
 alias brewup="brew update; brew upgrade; brew cleanup; brew doctor"
 
 alias tm-auto="sudo tmutil startbackup --auto; tmutil status"
+
+alias browser="/Applications/Brave\ Browser\ Nightly.app; --args --process-per-site"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
