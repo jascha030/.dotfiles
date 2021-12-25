@@ -1,4 +1,0 @@
-[2020-03-13T15:49:57.000Z] Create ref refs/heads/version/test-sdk-notificare at 79bc36ef7f9ddab3c1466f7d428c83f7c64539da: started.
-[2020-03-13T15:49:57.124Z] Create ref refs/heads/version/test-sdk-notificare at 79bc36ef7f9ddab3c1466f7d428c83f7c64539da: finished. gk-log://duration?t=124
-[2020-03-13T15:49:57.193Z] Checkout refs/heads/version/test-sdk-notificare: started.
-[2020-03-13T15:49:59.423Z] Checkout refs/heads/version/test-sdk-notificare: finished. gk-log://duration?t=2230

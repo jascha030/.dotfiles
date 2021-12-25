@@ -1,7 +1,0 @@
-{
-  "remoteParents": {},
-  "templates": {
-    "useCommitTemplate": true,
-    "shouldRemoveComments": false
-  }
-}
