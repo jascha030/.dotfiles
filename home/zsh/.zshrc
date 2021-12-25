@@ -28,15 +28,9 @@ fi
 #--------------------------------------------------- Globals -------------------------------------------------------- #
 
 export DOTFILES="${HOME}/.dotfiles"
-export DOTZSH="${DOTFILES}/zsh"
+export DOTHOME="${DOTFILES}/home"
 
-# Project directories
-export WORKINGDIR="${HOME}/.workingDir"
-export PROJECTS="${WORKINGDIR}/Projects"
-export SBPROJECTS="${PROJECTS}/Socialbrothers"
-
-# Brewfile
-export HOMEBREW_BUNDLE_FILE="${DOTFILES}/macos/Brewfile"
+# Brewfile @todo
 
 # Editor globals
 export PSTORM='phpstorm'
@@ -44,35 +38,42 @@ export NVIM='nvim'
 export EDITOR=$NVIM
 export VISUAL=$NVIM
 
-export DOTCONFIGDIR="${DOTFILES}/config"
-
 export NPM_CHECK_INSTALLER="pnpm npm-check -u"
 
 #----------------------------------------------- Sources & Paths -----------------------------------------------------#
 
-[[ ! -f "${DOTZSH}/aliases.zsh" ]] || source "${DOTZSH}/aliases.zsh"
-[[ ! -f "${DOTZSH}/path.zsh" ]] || source "${DOTZSH}/path.zsh"
+ZSH_FILES=(
+	".path.zsh"
+	".aliases.zsh"
+	".p10k.zsh"
+	".fzf.zsh"
+)
 
-# Linked ZSH files
-[[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+for DOT in $ZSH_FILES; do
+	[ -f $HOME/$DOT ] && source $HOME/$DOT
+done
 
-source "$HOME/.cargo/env"
-. "$HOME/.cargo/env"
+#----------------------------------------------- Other Init & Added by installs --------------------------------------#
+
+# Rust
+source "${HOME}/.cargo/env"
+. "${HOME}/.cargo/env"
 
 # PyEnv
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(fnm env)"
 
-# uninstall by removing these lines
+# tabtab
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
-
-# iTerm2 integration
+# iTerm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# Output funny msg when done
+#---------------------------------------------------------------------------------------------------------------------#
+
+# Display Hackerman-ness for people who don't understand terminals when done.
 LOLCAT=$(which lolcat)
 TMUX_COLS_WIDTH=$(tmux display -p '#{pane_width}-#{pane_height}')
 
 figlet -Lcw $TMUX_COLS_WIDTH -f speed "Hackerman Mode 030" | $LOLCAT
+
