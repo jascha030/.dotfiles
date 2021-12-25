@@ -1,0 +1,31 @@
+# Oh-my-zsh!
+antigen use oh-my-zsh
+
+# Bundles so we don't drop a bundle
+antigen bundle git
+antigen bundle command-not-found
+antigen bundle z
+antigen bundle tmux
+antigen bundle pip
+antigen bundle fzf
+
+# Fzf, See what all the "Fuzz" is about...
+antigen bundle leophys/zsh-plugin-fzf-finder
+antigen bundle Aloxaf/fzf-tab
+
+# Color the whole Schwip Schwap accordingly
+antigen bundle chrissicool/zsh-256color
+
+antigen bundle lukechilds/zsh-nvm
+
+THEME=romkatv/powerlevel10k
+antigen list | grep $THEME; if [ $? -ne 0 ]; then antigen theme $THEME; fi
+
+# ZSHeuuuuujjjjj
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Apply gently on burning area.
+antigen apply
+

@@ -4,8 +4,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Antigen
-[ -f $HOME/.dotfiles/antigen/antigen.zsh ] && source $HOME/.dotfiles/antigen/antigen.zsh
-[ -f $HOME/.dotfiles/antigen/.antigenrc ] && source $HOME/.dotfiles/antigen/.antigenrc
+[ -f $HOME/antigen.zsh ] && source $HOME/antigen.zsh
+[ -f $HOME/.antigenrc ] && source $HOME/.antigenrc
 
 eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 
