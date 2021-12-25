@@ -1,0 +1,57 @@
+#! /bin/bash
+
+PROJECT_ROOT_DIR=`echo $PWD`
+PUBLIC_DIR="$PROJECT_ROOT_DIR"/app/public/
+COMPOSER_FILE_DIR="$PUBLIC_DIR"
+
+GIT=`which git`
+COMPOSER=`which composer`
+VALET=`which valet`
+
+if [ ! -f $COMPOSER_FILE_DIR/composer.json ]; then
+    COMPOSER_FILE_DIR="$PROJECT_ROOT_DIR"
+
+    if [ ! -f $COMPOSER_FILE_DIR/composer.json ]; then
+        exit "No composer.json found"
+    fi
+fi
+
+
+cd $PUBLIC_DIR
+echo "Setting up Wordpress..."
+
+rm -rf ./*
+rm -rf ./.* 2> /dev/null
+
+# Clone Wordpress from git
+$GIT clone git@github.com:WordPress/WordPress.git ./
+rm -rf ./.git
+
+cd ../../
+$GIT reset --hard
+
+# Install node dependencies and run webpack
+yarn
+yarn build
+
+# Composer
+cd $COMPOSER_FILE_DIR/
+$COMPOSER clear-cache
+$COMPOSER install
+
+echo "Please fill in a test url for valet to link to this project" \n ":"
+read URL
+
+$VALET link $URL
+
+read -p "Do you want to secure this url (https) [y/n]" -n 1 -r
+echo    
+
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    $VALET secure
+fi
+
+echo \n
+echo "Done!"
+
