@@ -1,0 +1,7 @@
+# Jetbrains on open once w Intellij Bcuz 2 RT'ded too figure sum shell syntax.
+/.idea/
+
+# Mac
+*.DS_Store
+**.cache
+
