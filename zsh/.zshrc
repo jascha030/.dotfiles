@@ -53,7 +53,11 @@ for DOT in $ZSH_FILES; do
 	[ -f $HOME/$DOT ] && source $HOME/$DOT
 done
 
-AUTO_LS_COMMANDS=(ls git-status)
+auto-ls-lsd () {
+	ll
+}
+
+AUTO_LS_COMMANDS=(lsd git-status)
 
 #----------------------------------------------- Other Init & Added by installs --------------------------------------#
 
