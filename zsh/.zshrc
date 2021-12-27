@@ -54,7 +54,7 @@ for DOT in $ZSH_FILES; do
 done
 
 auto-ls-lsd () {
-	ll
+	lsd -Ahl --color --group-dirs=first
 }
 
 AUTO_LS_COMMANDS=(lsd git-status)

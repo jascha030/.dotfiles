@@ -15,7 +15,6 @@ alias c="clear"
 
 # Navigation
 alias ll="lsd -Ahl --color --group-dirs=first"
-alias ls="ll"
 alias lc="ll | lolcat"
 alias colorls="ll"
 alias llb="ll | bat"
