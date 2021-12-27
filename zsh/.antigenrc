@@ -17,6 +17,7 @@ antigen bundle Aloxaf/fzf-tab
 antigen bundle chrissicool/zsh-256color
 
 antigen bundle lukechilds/zsh-nvm
+antigen bundle desyncr/auto-ls
 
 THEME=romkatv/powerlevel10k
 antigen list | grep $THEME; if [ $? -ne 0 ]; then antigen theme $THEME; fi

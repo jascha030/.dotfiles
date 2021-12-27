@@ -53,6 +53,8 @@ for DOT in $ZSH_FILES; do
 	[ -f $HOME/$DOT ] && source $HOME/$DOT
 done
 
+AUTO_LS_COMMANDS=(ls git-status)
+
 #----------------------------------------------- Other Init & Added by installs --------------------------------------#
 
 # Rust

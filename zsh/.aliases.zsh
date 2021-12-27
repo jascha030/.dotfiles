@@ -4,7 +4,7 @@
 alias edit="${EDITOR} $1"
 alias zshconfig="edit $DOTFILES/.zshrc"
 alias e:zshrc="zshconfig"
-alias e:aliases="edit ${DOTZSH}/.aliases.zsh"
+alias e:aliases="edit ${HOME}/.aliases.zsh"
 alias e:path="edit ${HOME}/.path.zsh"
 
 # Terminal / general
@@ -15,6 +15,7 @@ alias c="clear"
 
 # Navigation
 alias ll="lsd -Ahl --color --group-dirs=first"
+alias ls="ll"
 alias lc="ll | lolcat"
 alias colorls="ll"
 alias llb="ll | bat"
