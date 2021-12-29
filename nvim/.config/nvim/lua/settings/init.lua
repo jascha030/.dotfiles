@@ -12,6 +12,7 @@ end
 -- Colors
 cmd([[colorscheme tokyonight]])
 
+
 -- Tabs (expandtab, smartindent defined in options_buffer)
 local options_global = {
     mouse = 'a',
@@ -24,6 +25,7 @@ local options_global = {
     tabstop = 4,
     shiftwidth = 4,
     fileencoding = 'utf-8',
+	fillchars = 'eob: ,msgsep:‾'
 }
 
 local options_buffer = {
