@@ -59,9 +59,7 @@ cmd([[colorscheme tokyonight]])
 
 -- [[require modules]]
 
--- Packer startup logic & installed plugins list
-require 'packer-plugins'
--- Plugin module containing plugin configurations
-require 'plugins'
--- Keymap module
+require 'packer-plugins'    -- Packer startup logic & installed plugins list
+require 'plugins'           -- Plugin module containing plugin configurations
+require 'lsp'
 require 'keymap'
