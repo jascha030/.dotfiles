@@ -11,18 +11,20 @@ eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-ins
 
 #------------------------------------------------------ Tmux -------------------------------------------------------- #
 
-ZSH_TMUX_AUTOSTART=true
+if [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]] then
+	ZSH_TMUX_AUTOSTART=true
 
-# Workaround because of macos' outdated ncurses.
-# Figured out using: https://gist.github.com/bbqtd/a4ac060d6f6b9ea6fe3aabe735aa9d95
-if [[ $TERM == "tmux-256color" ]]; then
-    export TERM=screen-256color
-fi
+	# Workaround because of macos' outdated ncurses.
+	# Figured out using: https://gist.github.com/bbqtd/a4ac060d6f6b9ea6fe3aabe735aa9d95
+	if [[ $TERM == "tmux-256color" ]]; then
+    	export TERM=screen-256color
+	fi
 
-if which tmux 2>&1 >/dev/null; then
-   if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
-       tmux attach -t main || tmux new -s main; exit
-   fi
+	if which tmux 2>&1 >/dev/null; then
+   		if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
+			tmux attach -t main || tmux new -s main; exit
+   		fi
+	fi
 fi
 
 #--------------------------------------------------- Globals -------------------------------------------------------- #
@@ -75,11 +77,16 @@ eval "$(fnm env)"
 # iTerm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+if [[ $TERMINAL_EMULATOR == "JetBrains-JediTerm" ]] then
+	unset ITERM_SHELL_INTEGRATION_INSTALLED && p10k reload
+fi
+
 #---------------------------------------------------------------------------------------------------------------------#
 
 # Display Hackerman-ness for people who don't understand terminals when done.
 LOLCAT=$(which lolcat)
 TMUX_COLS_WIDTH=$(tmux display -p '#{pane_width}-#{pane_height}')
 
+clear
 figlet -Lcw $TMUX_COLS_WIDTH -f speed "Hackerman Mode 030" | $LOLCAT
 
