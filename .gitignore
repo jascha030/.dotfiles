@@ -5,3 +5,6 @@
 *.DS_Store
 **.cache
 
+
+nvim/.config/nvim1
+nvim/.idea
