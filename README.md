@@ -1,6 +1,6 @@
 # Jascha030's dotfiles
 
-![iTerm home](https://github.com/jascha030/.dotfiles/blob/main/.util/img/term-home.png?raw=true)
+![iTerm home](https://github.com/jascha030/.dotfiles/blob/main/util/img/term-home.png?raw=true)
 
 Backup of my .dotfiles (zsh, bash, git, npm)
 
@@ -35,5 +35,5 @@ After a colleague made a remark about now using stow in [his dotfiles repo](http
 
 ## More img
 
-![terminal in action](https://github.com/jascha030/.dotfiles/blob/main/.util/img/nvim-tmux-lazygit.png?raw=true)
+![terminal in action](https://github.com/jascha030/.dotfiles/blob/main/util/img/nvim-tmux-lazygit.png?raw=true)
 
