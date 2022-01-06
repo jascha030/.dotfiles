@@ -8,6 +8,9 @@ antigen bundle z
 antigen bundle tmux
 antigen bundle pip
 antigen bundle fzf
+antigen bundle jsontools
+antigen bundle copybuffer
+
 
 # Fzf, See what all the "Fuzz" is about...
 antigen bundle leophys/zsh-plugin-fzf-finder
