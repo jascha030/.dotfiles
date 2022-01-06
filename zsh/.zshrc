@@ -61,6 +61,8 @@ auto-ls-lsd () {
 
 AUTO_LS_COMMANDS=(lsd git-status)
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
+
 #----------------------------------------------- Other Init & Added by installs --------------------------------------#
 
 # Rust
