@@ -1,6 +1,6 @@
-local handlers = {}
+local M = {}
 
-handlers.setup = function()
+M.setup = function()
     local signs = {
         { name = "DiagnosticSignError", text = "" },
         { name = "DiagnosticSignWarn", text = "" },
@@ -44,21 +44,22 @@ end
 local function lsp_highlight_document(client)
     -- Set auto commands conditional on server_capabilities
     if client.resolved_capabilities.document_highlight then
-        vim.api.nvim_exec(
-                [[
+        vim.api.nvim_exec([[
+                hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
+                hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
+                hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
                 augroup lsp_document_highlight
                     autocmd! * <buffer>
                     autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
                     autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
                 augroup END
-                ]],
-                false
-        )
+            ]], false)
     end
 end
 
 local function lsp_keymaps(bufnr)
     local opts = { noremap = true, silent = true }
+
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
@@ -74,7 +75,7 @@ local function lsp_keymaps(bufnr)
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
-handlers.on_attach = function(client, buf_nr)
+M.on_attach = function(client, buf_nr)
     lsp_keymaps(buf_nr)
     lsp_highlight_document(client)
 end
@@ -82,10 +83,10 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_ok then
+  if not status_ok then
     return
 end
 
-handlers.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
-return handlers
+return M
