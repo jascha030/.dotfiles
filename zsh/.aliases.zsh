@@ -2,7 +2,7 @@
 
 # Edit shortcuts
 alias edit="${EDITOR} $1"
-alias zshconfig="edit $DOTFILES/.zshrc"
+alias zshconfig="edit $DOTFILES/zsh/.zshrc"
 alias e:zshrc="zshconfig"
 alias e:aliases="edit ${HOME}/.aliases.zsh"
 alias e:path="edit ${HOME}/.path.zsh"
@@ -22,7 +22,10 @@ alias lr="colorls --tree=5"
 
 # Shortcuts to dirs
 alias dotfiles="cd ${DOTFILES}"
-
+alias df="cd ${DOTFILES}"
+alias df:nvim="cd ${DOTFILES}/nvim/.config/nvim"
+alias df:util="cd ${DOTFILES}/util"
+alias df:zsh="cd ${DOTFILES}/zsh"
 
 # Utils
 
