@@ -45,14 +45,15 @@ if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({ 'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path })
     execute 'packadd packer.nvim'
 end
+-- Auto commands
+cmd([[autocmd BufWritePost packer.lua PackerCompile]])
+
+-- Load packer
+cmd([[packadd packer.nvim]], false)
 
 -- Set listed options from options module per scope
 set_options_per_scope(scopes, require 'options')
 
--- Auto commands
-cmd([[autocmd BufWritePost packer.lua PackerCompile]])
--- Load packer
-cmd([[packadd packer.nvim]], false)
 -- Set colorscheme
 cmd([[colorscheme tokyonight]])
 
