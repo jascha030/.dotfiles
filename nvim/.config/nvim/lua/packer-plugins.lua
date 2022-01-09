@@ -35,4 +35,5 @@ return require('packer').startup(function()
   use 'folke/tokyonight.nvim'
   use 'ncm2/ncm2'
   use 'wakatime/vim-wakatime'
+  use 'voldikss/vim-floaterm'
 end)
