@@ -57,6 +57,8 @@ for DOT in $ZSH_FILES; do
 	[ -f $HOME/$DOT ] && source $HOME/$DOT
 done
 
+#----------------------------------------------- Auto-ls settings ----------------------------------------------------#
+
 auto-ls-lsd () {
 	lsd -Ahl --color --group-dirs=first
 }
@@ -91,6 +93,14 @@ fi
 LOLCAT=$(which lolcat)
 TMUX_COLS_WIDTH=$(tmux display -p '#{pane_width}-#{pane_height}')
 
+[[ $VIM_TERM_MODE_ACTIVE == false ]] && LOLCAT_MSG_TEXT="Hackerman Mode 030" || LOLCAT_MSG_TEXT="NEOVIM 030"
+[[ $VIM_TERM_MODE_ACTIVE == false ]] && LOLCAT_MSG_FONT="speed" || LOLCAT_MSG_FONT="larry3d"
+
+if [[ $VIM_TERM_MODE_ACTIVE == true ]]; then
+  sleep 1
+fi
+
 clear
-figlet -Lcw $TMUX_COLS_WIDTH -f speed "Hackerman Mode 030" | $LOLCAT
+
+figlet -Lcw $TMUX_COLS_WIDTH -f $LOLCAT_MSG_FONT $LOLCAT_MSG_TEXT | $LOLCAT
 
