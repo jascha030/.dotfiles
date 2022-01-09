@@ -11,7 +11,9 @@ eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-ins
 
 #------------------------------------------------------ Tmux -------------------------------------------------------- #
 
-if [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]] then
+[[ -v VIM && -v VIMRUNTIME && -v MYVIMRC  ]] && VIM_TERM_MODE_ACTIVE=true || VIM_TERM_MODE_ACTIVE=false
+
+if [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" && $VIM_TERM_MODE_ACTIVE != true ]]; then
 	ZSH_TMUX_AUTOSTART=true
 
 	# Workaround because of macos' outdated ncurses.
@@ -21,9 +23,9 @@ if [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]] then
 	fi
 
 	if which tmux 2>&1 >/dev/null; then
-   		if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
+   	if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
 			tmux attach -t main || tmux new -s main; exit
-   		fi
+   	fi
 	fi
 fi
 
