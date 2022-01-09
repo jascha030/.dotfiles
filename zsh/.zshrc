@@ -3,10 +3,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Clean up annoying history files .etc (place them in $HOME/.config/datafiles
+[ -f $HOME/.dotfiles/zsh/.data.zsh ] && source $HOME/.dotfiles/zsh/.data.zsh
+
 # Antigen
 [ -f $HOME/antigen.zsh ] && source $HOME/antigen.zsh
 [ -f $HOME/.antigenrc ] && source $HOME/.antigenrc
 
+# fasd
 eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 
 #------------------------------------------------------ Tmux -------------------------------------------------------- #
@@ -43,6 +47,7 @@ export EDITOR=$NVIM
 export VISUAL=$NVIM
 
 export NPM_CHECK_INSTALLER="pnpm npm-check -u"
+export MYSQL_HISTFILE="${HOME}/.config/datafiles/.mysql_history"
 
 #----------------------------------------------- Sources & Paths -----------------------------------------------------#
 
@@ -67,7 +72,7 @@ AUTO_LS_COMMANDS=(lsd git-status)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
 
-#----------------------------------------------- Other Init & Added by installs --------------------------------------#
+#----------------------------------------- Other Init & Added by installs --------------------------------------------#
 
 # Rust
 source "${HOME}/.cargo/env"
@@ -80,6 +85,7 @@ eval "$(fnm env)"
 
 # tabtab
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
+
 # iTerm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -87,20 +93,21 @@ if [[ $TERMINAL_EMULATOR == "JetBrains-JediTerm" ]] then
 	unset ITERM_SHELL_INTEGRATION_INSTALLED && p10k reload
 fi
 
-#---------------------------------------------------------------------------------------------------------------------#
+#------------------- Display Hackerman-ness for people who don't understand terminals when done ----------------------#
 
-# Display Hackerman-ness for people who don't understand terminals when done.
 LOLCAT=$(which lolcat)
 TMUX_COLS_WIDTH=$(tmux display -p '#{pane_width}-#{pane_height}')
 
 [[ $VIM_TERM_MODE_ACTIVE == false ]] && LOLCAT_MSG_TEXT="Hackerman Mode 030" || LOLCAT_MSG_TEXT="NEOVIM 030"
 [[ $VIM_TERM_MODE_ACTIVE == false ]] && LOLCAT_MSG_FONT="speed" || LOLCAT_MSG_FONT="larry3d"
 
-if [[ $VIM_TERM_MODE_ACTIVE == true ]]; then
-  sleep 1
-fi
+[[ $VIM_TERM_MODE_ACTIVE == true ]] && sleep 1
 
 clear
 
-figlet -Lcw $TMUX_COLS_WIDTH -f $LOLCAT_MSG_FONT $LOLCAT_MSG_TEXT | $LOLCAT
+if [[ $VIM_TERM_MODE_ACTIVE == false ]]; then
+  figlet -Lcw $TMUX_COLS_WIDTH -f $LOLCAT_MSG_FONT $LOLCAT_MSG_TEXT | $LOLCAT
+else
+  figlet -Lc -f $LOLCAT_MSG_FONT $LOLCAT_MSG_TEXT | $LOLCAT
+fi
 
