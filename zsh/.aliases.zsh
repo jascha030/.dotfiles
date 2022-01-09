@@ -24,13 +24,14 @@ alias lr="colorls --tree=5"
 alias dotfiles="cd ${DOTFILES}"
 alias df="cd ${DOTFILES}"
 alias df:nvim="cd ${DOTFILES}/nvim/.config/nvim"
+alias df:tmux="cd ${DOTFILES}/tmux/.config/tmux"
 alias df:util="cd ${DOTFILES}/util"
 alias df:zsh="cd ${DOTFILES}/zsh"
 
 # Utils
 
 # Copy Broodje Ben to clipboard.
-alias cpbroodje="echo \"38. Witte Italiaanse Bol met Gerookte Kip, Avocado mayonaise met extra avocado en een blikkie cola. - €8,50\" | pbcopy"
+alias cpbroodje="echo \"38. Witte Italiaanse Bol met Gerookte Kip, Avocado mayonaise met extra avocado en een blikkie cola. - €8,75\" | pbcopy"
 
 # Start screensaver
 alias scrsvr="open -a ScreenSaverEngine"
