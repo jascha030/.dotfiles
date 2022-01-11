@@ -36,7 +36,6 @@ alias cpbroodje="echo \"38. Witte Italiaanse Bol met Gerookte Kip, Avocado mayon
 # Start screensaver
 alias scrsvr="open -a ScreenSaverEngine"
 
-
 # Bat instead of cat
 alias cat="bat"
 alias ogcat="\cat"
@@ -65,7 +64,7 @@ alias pstorm="phpstorm ." # Phpstorm
 alias wstorm="webstorm ." # Webstorm
 alias idea="idea ."       # Intellij IDEA
 
-# Working dir
+# Working dirs
 alias dev="cd ${HOME}/.development/Projects"
 alias library="cd $HOME/Library"
 
@@ -93,4 +92,6 @@ alias c:wpindex="echo \"<?php\n//silence is golden\" >index.php"
 alias vim="nvim"
 alias composerreset="rm -rf vendor/ composer.lock && composer clear-cache && composer install"
 alias checkitalics="echo -e '\e[3mitalic\e[23m'"
+
+alias sbcrepo='echo "{\"type\": \"composer\", \"url\": \"https://composer.sbdev.nl/\"}" | pp_json | pbcopy'
 
