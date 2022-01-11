@@ -12,7 +12,7 @@ export NPM_CHECK_INSTALLER="pnpm npm-check -u"
 export MYSQL_HISTFILE="${HOME}/.config/datafiles/.mysql_history"
 
 # Source $PATH
-[[ -f "$DOTFILES"/zsh/.path ]] && source "$DOTFILES"/zsh/.path
+[[ -f "$DOTFILES"/zsh/.path.zsh ]] && source "$DOTFILES"/zsh/.path.zsh
 
 # CPPFLAGS for openssl@1.1
 export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
