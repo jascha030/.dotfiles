@@ -36,7 +36,6 @@ fi
 #----------------------------------------------- Sources & Paths -----------------------------------------------------#
 
 ZSH_FILES=(
-	".path.zsh"
 	".aliases.zsh"
 	".p10k.zsh"
 	".fzf.zsh"
@@ -75,7 +74,9 @@ fi
 
 #------------------- Display Hackerman-ness for people who don't understand terminals when done ----------------------#
 
-LOLCAT=$(which lolcat)
+_RANDOM_LC_NUM=$(( ( RANDOM % 10 )  + 1 ))
+[[ $_RANDOM_LC_NUM > 5 ]] && RANDOM_LC=$(which lolcat) || RANDOM_LC=$(which lolcrab) 
+
 
 [[ $VIM_TERM_MODE_ACTIVE == false ]] && LOLCAT_MSG_TEXT="Hackerman Mode 030" || LOLCAT_MSG_TEXT="NEOVIM 030"
 [[ $VIM_TERM_MODE_ACTIVE == false ]] && LOLCAT_MSG_FONT="speed" || LOLCAT_MSG_FONT="larry3d"
@@ -83,5 +84,5 @@ LOLCAT=$(which lolcat)
 
 clear
 
-figlet -Lcw $COLS_W -f $LOLCAT_MSG_FONT $LOLCAT_MSG_TEXT | $LOLCAT
+figlet -Lcw $COLS_W -f $LOLCAT_MSG_FONT $LOLCAT_MSG_TEXT | $RANDOM_LC
 
