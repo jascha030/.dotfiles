@@ -22,7 +22,7 @@ map('v', '<C-c>', ':OSCYank<CR>', opts)
 -- Terminal
 -- map('n', '<C-t>', ':terminal<CR>i', opts)
 map('n', '<C-t>', ':FloatermToggle[!]<CR>', opts)
-map('t', '<Esc>', '<C-\\><C-n> :FloatermToggle[!]<CR>', opts)
+map('t', '<C-t>', '<C-\\><C-n> :FloatermToggle[!]<CR>', opts)
 map('t', '<M-[>', '<Esc>', opts)
 map('t', '<C-v><Esc>', '<Esc>', opts)
 
