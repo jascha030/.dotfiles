@@ -33,22 +33,6 @@ if [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" && $VIM_TERM_MODE_ACTIVE != tru
 	fi
 fi
 
-#--------------------------------------------------- Globals -------------------------------------------------------- #
-
-export DOTFILES="${HOME}/.dotfiles"
-export DOTHOME="${DOTFILES}/home"
-
-# Brewfile @todo
-
-# Editor globals
-export PSTORM='phpstorm'
-export NVIM='nvim'
-export EDITOR=$NVIM
-export VISUAL=$NVIM
-
-export NPM_CHECK_INSTALLER="pnpm npm-check -u"
-export MYSQL_HISTFILE="${HOME}/.config/datafiles/.mysql_history"
-
 #----------------------------------------------- Sources & Paths -----------------------------------------------------#
 
 ZSH_FILES=(
@@ -74,10 +58,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
 
 #----------------------------------------- Other Init & Added by installs --------------------------------------------#
 
-# Rust
-source "${HOME}/.cargo/env"
-. "${HOME}/.cargo/env"
-
 # PyEnv
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
@@ -96,18 +76,12 @@ fi
 #------------------- Display Hackerman-ness for people who don't understand terminals when done ----------------------#
 
 LOLCAT=$(which lolcat)
-TMUX_COLS_WIDTH=$(tmux display -p '#{pane_width}-#{pane_height}')
 
 [[ $VIM_TERM_MODE_ACTIVE == false ]] && LOLCAT_MSG_TEXT="Hackerman Mode 030" || LOLCAT_MSG_TEXT="NEOVIM 030"
 [[ $VIM_TERM_MODE_ACTIVE == false ]] && LOLCAT_MSG_FONT="speed" || LOLCAT_MSG_FONT="larry3d"
-
-[[ $VIM_TERM_MODE_ACTIVE == true ]] && sleep 1
+[[ $VIM_TERM_MODE_ACTIVE == false ]] && COLS_W$(tmux display -p '#{pane_width}-#{pane_height}') || COLS_W=$(tput cols)
 
 clear
 
-if [[ $VIM_TERM_MODE_ACTIVE == false ]]; then
-  figlet -Lcw $TMUX_COLS_WIDTH -f $LOLCAT_MSG_FONT $LOLCAT_MSG_TEXT | $LOLCAT
-else
-  figlet -Lc -f $LOLCAT_MSG_FONT $LOLCAT_MSG_TEXT | $LOLCAT
-fi
+figlet -Lcw $COLS_W -f $LOLCAT_MSG_FONT $LOLCAT_MSG_TEXT | $LOLCAT
 
