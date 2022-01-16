@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-BATT_STAT=$(pmset -g batt | grep -Eo '\d{1,3}%' | cut -c -3)
+BATT_STAT_FULL=$(pmset -g batt | grep -Eo '\d{1,3}%')
+BATT_STAT=${BATT_STAT_FULL::-1}
 
 if (($BATT_STAT < 10)); then
   BATT_ICON=""
