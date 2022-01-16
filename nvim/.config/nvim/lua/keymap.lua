@@ -6,6 +6,7 @@ local opts =  {noremap = true}
 -- Nvim Tree
 map('n', '<C-n>', ':NvimTreeToggle<CR>', {noremap = true})
 map('n', '<leader>f', ":lua require('plugins.telescope').project_files()<CR>", {noremap = true, silent = true})
+map('n', 'N', ':NvimTreeFocus<CR>', {noremap = true})
 
 --  Telescope
 map('n', 'ss', ':Telescope<CR>', opts)
