@@ -1,6 +1,7 @@
 require'nvim-tree'.setup {
     disable_netrw       = true,
     hijack_netrw        = true,
+    hijack_cursor       = true,
     open_on_setup       = false,
     ignore_ft_on_setup  = {},
     update_to_buf_dir   = {
@@ -21,17 +22,17 @@ require'nvim-tree'.setup {
             default = '',
             symlink = '',
             git = {
-                unstaged = "", 
-                staged = "✓", 
-                unmerged = "", 
-                renamed = "➜", 
+                unstaged = "",
+                staged = "✓",
+                unmerged = "",
+                renamed = "➜",
                 untracked = ""
             },
             folder = {
-                default = "", 
-                open = "", 
-                empty = "", 
-                empty_open = "", 
+                default = "",
+                open = "",
+                empty = "",
+                empty_open = "",
                 symlink = ""
             }
         }
@@ -46,6 +47,7 @@ require'nvim-tree'.setup {
         args = {}
     },
     view = {
+        hide_root_folder = true,
         width = 30,
         height = 30,
         side = 'right',
