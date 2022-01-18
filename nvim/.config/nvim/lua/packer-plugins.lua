@@ -36,4 +36,5 @@ return require('packer').startup(function()
   use 'ncm2/ncm2'
   use 'wakatime/vim-wakatime'
   use 'voldikss/vim-floaterm'
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
 end)
