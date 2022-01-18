@@ -1,5 +1,16 @@
 local M = {}
 
+function M.show_line_diagnostics()
+  local opts = {
+    focusable = false,
+    close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+    border = 'rounded',
+    source = 'always',
+    prefix = ' '
+  }
+  vim.diagnostic.open_float(nil, opts)
+end
+
 M.setup = function()
     local signs = {
         { name = "DiagnosticSignError", text = " " },
@@ -50,7 +61,7 @@ local function lsp_highlight_document(client)
                 hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
                 augroup lsp_document_highlight
                     autocmd! * <buffer>
-                    autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+                    autocmd CursorHold <buffer> lua require('lsp.handlers').show_line_diagnostics()
                     autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
                 augroup END
             ]], false)

@@ -14,6 +14,7 @@ local options_global = {
     smartindent = true,
     number = true,
     cursorline = true,
+    updatetime = 400
 }
 
 local options_buffer = {
