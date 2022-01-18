@@ -36,5 +36,6 @@ return require('packer').startup(function()
   use 'ncm2/ncm2'
   use 'wakatime/vim-wakatime'
   use 'voldikss/vim-floaterm'
+  use("petertriho/nvim-scrollbar")
   use 'nvim-treesitter/nvim-treesitter-textobjects'
 end)
