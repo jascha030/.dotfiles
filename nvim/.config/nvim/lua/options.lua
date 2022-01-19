@@ -14,6 +14,7 @@ local options_global = {
     smartindent = true,
     number = true,
     cursorline = true,
+    modifiable = true,
     updatetime = 400
 }
 
