@@ -95,3 +95,5 @@ alias checkitalics="echo -e '\e[3mitalic\e[23m'"
 
 alias sbcrepo='echo "{\"type\": \"composer\", \"url\": \"https://composer.sbdev.nl/\"}" | pp_json | pbcopy'
 
+alias luamake=/Users/jaschavanaalst/tools/lua-language-server/3rd/luamake/luamake
+
