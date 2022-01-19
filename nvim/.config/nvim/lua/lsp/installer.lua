@@ -9,14 +9,13 @@ lsp_installer.on_server_ready(function(server)
         on_attach = require('lsp.handlers').on_attach,
         capabilities = require('lsp.handlers').capabilities,
     }
+    
+    if server.name == 'intelephense' then
+      opts = vim.tbl_deep_extend('force', require'lsp.settings.intelephense', opts)
+    end
 
-    local custom_server_options = { 'intelephense', }
-
-    for server_name in pairs(custom_server_options) do
-        if server.name == name then
-            local server_opts = require('lsp.settings.' .. server_name)
-            opts = vim.tbl_deep_extend("force", server_opts, opts)
-        end
+    if server.name == 'sumneko_lua' then
+      opts = vim.tbl_deep_extend("force", require'lsp.settings.sumneko_lua', opts)
     end
 
     server:setup(opts)
