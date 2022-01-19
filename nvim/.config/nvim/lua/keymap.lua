@@ -27,3 +27,6 @@ map('t', '<C-t>', '<C-\\><C-n> :FloatermToggle[!]<CR>', opts)
 map('t', '<M-[>', '<Esc>', opts)
 map('t', '<C-v><Esc>', '<Esc>', opts)
 
+-- Hop hop, keymappie erop
+map('n', '<Tab>', ':HopWord<CR>', opts)
+
