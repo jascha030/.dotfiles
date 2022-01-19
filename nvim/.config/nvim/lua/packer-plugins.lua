@@ -1,5 +1,6 @@
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
+  use {'lewis6991/impatient.nvim', config = [[require('impatient')]]}
 	use {
 		'neovim/nvim-lspconfig',
     'williamboman/nvim-lsp-installer',
@@ -8,10 +9,18 @@ return require('packer').startup(function()
 	use { 'nvim-treesitter/nvim-treesitter', irun = ':TSUpdate' }
 	use 'nvim-treesitter/playground'
 	use 'onsails/lspkind-nvim'
-	use {
+	use { 'phaazon/hop.nvim', branch = 'v1' }
+  use {
 		'hoob3rt/lualine.nvim',
   	requires = {'kyazdani42/nvim-web-devicons', opt = true}
 	}
+  use {
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    config = function ()
+        require'alpha'.setup(require'alpha.themes.startify'.opts)
+    end
+  }
 	use 'kyazdani42/nvim-tree.lua'
   use 'norcalli/nvim-colorizer.lua'
   use {
@@ -36,6 +45,6 @@ return require('packer').startup(function()
   use 'ncm2/ncm2'
   use 'wakatime/vim-wakatime'
   use 'voldikss/vim-floaterm'
-  use("petertriho/nvim-scrollbar")
+  use 'petertriho/nvim-scrollbar'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
 end)
