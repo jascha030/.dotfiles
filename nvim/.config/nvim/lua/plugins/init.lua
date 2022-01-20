@@ -6,4 +6,5 @@ require 'plugins.markdown-preview'
 require 'plugins.telescope'
 require 'plugins.nvim-scrollbar'
 require 'plugins.hop'
+require 'plugins.cokeline'
 

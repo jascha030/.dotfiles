@@ -47,4 +47,11 @@ return require('packer').startup(function()
   use 'voldikss/vim-floaterm'
   use 'petertriho/nvim-scrollbar'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use({
+    'noib3/nvim-cokeline',
+    requires = 'kyazdani42/nvim-web-devicons', -- If you want devicons
+    config = function()
+      require('cokeline').setup()
+    end
+  })
 end)
