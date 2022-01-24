@@ -27,6 +27,7 @@ alias df:nvim="cd ${DOTFILES}/nvim/.config/nvim"
 alias df:tmux="cd ${DOTFILES}/tmux/.config/tmux"
 alias df:util="cd ${DOTFILES}/util"
 alias df:zsh="cd ${DOTFILES}/zsh"
+alias df:alacritty="cd ${DOTFILES}/alacritty/.config/alacritty"
 
 # Utils
 
