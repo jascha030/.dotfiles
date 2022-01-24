@@ -15,24 +15,26 @@ eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-ins
 
 #------------------------------------------------------ Tmux -------------------------------------------------------- #
 
-[[ -v VIM && -v VIMRUNTIME && -v MYVIMRC  ]] && VIM_TERM_MODE_ACTIVE=true || VIM_TERM_MODE_ACTIVE=false
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 
-if [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" && $VIM_TERM_MODE_ACTIVE != true ]]; then
-	ZSH_TMUX_AUTOSTART=true
+  [[ -v VIM && -v VIMRUNTIME && -v MYVIMRC  ]] && VIM_TERM_MODE_ACTIVE=true || VIM_TERM_MODE_ACTIVE=false
 
-	# Workaround because of macos' outdated ncurses.
-	# Figured out using: https://gist.github.com/bbqtd/a4ac060d6f6b9ea6fe3aabe735aa9d95
-	if [[ $TERM == "tmux-256color" ]]; then
-    	export TERM=screen-256color
-	fi
+  if [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" && $VIM_TERM_MODE_ACTIVE != true ]]; then
+	  ZSH_TMUX_AUTOSTART=true
 
-	if which tmux 2>&1 >/dev/null; then
-   	if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
-			tmux attach -t main || tmux new -s main; exit
-   	fi
-	fi
+	  # Workaround because of macos' outdated ncurses.
+	  # Figured out using: https://gist.github.com/bbqtd/a4ac060d6f6b9ea6fe3aabe735aa9d95
+	  if [[ $TERM == "tmux-256color" ]]; then
+      	export TERM=screen-256color
+	  fi
+
+	  if which tmux 2>&1 >/dev/null; then
+   	  if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
+			  tmux attach -t main || tmux new -s main; exit
+   	  fi
+	  fi
+  fi
 fi
-
 #----------------------------------------------- Sources & Paths -----------------------------------------------------#
 
 ZSH_FILES=(
