@@ -4,21 +4,16 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-env:
+#env:
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  TERM: xterm-256color
+  # TERM: xterm-256color
 
 window:
-  # Window dimensions (changes require restart)
-  #
-  # Number of lines/columns (not pixels) in the terminal. The number of columns
-  # must be at least `2`, while using a value of `0` for columns and lines will
-  # fall back to the window manager's recommended size.
   dimensions:
     columns: 175
     lines: 45
@@ -37,7 +32,7 @@ window:
   # by DPI and the specified value is always added at both opposing sides.
   padding:
     x: 8
-    y: 2
+    y: 4
   
   dynamic_padding: true
   # Values for `decorations`:
@@ -83,11 +78,6 @@ window:
 # Font configuration
 font:
   normal:
-    # Font family
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux/BSD) monospace
-    #   - (Windows) Consolas
     family: MesloLGS Nerd Font
     style: Regular
   bold:
@@ -375,10 +365,10 @@ live_config_reload: true
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-#shell:
-#  program: /bin/bash
-#  args:
-#    - --login
+shell:
+  program: /bin/zsh
+  args:
+    - --login
 
 # Startup directory
 #
