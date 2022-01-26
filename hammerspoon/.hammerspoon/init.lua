@@ -22,6 +22,19 @@ doubleTap.action = function ()
     winFrame = win:frame()
     scrFrame = mainScreen:fullFrame()
 
+    -- Center window if not snapped left or right
+    if  scrFrame.x ~= winFrame.x
+        and scrFrame.y ~= winFrame.y
+        and scrFrame.x2 ~= winFrame.x2
+        and scrFrame.y2 ~= winFrame.y2
+    then
+      winFrame.h = (scrFrame.h / 3) * 2
+      winFrame.w = scrFrame.w / 2
+
+      winFrame.y = (scrFrame.y2 / 2) - (winFrame.h / 2)
+      winFrame.x = (scrFrame.x2 / 2) - (winFrame.w / 2)
+    end
+
     win:setFrame(winFrame, 0)
     win:spacesMoveTo(space)
 
