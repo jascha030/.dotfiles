@@ -53,6 +53,15 @@ alias tm-auto="sudo tmutil startbackup --auto; tmutil status"
 alias valetrm="rm $HOME/.config/valet/valet.sock"
 alias valetr="valetrm && valet restart" # Make a symbolic link in current dir.
 
+# Switch php versions
+alias "php7.4"="valet use php@7.4"
+alias "php8.0"="valet use php@8.0"
+alias "php8.1"="valet use php"
+alias php7="valet use php@7.4"
+alias php8="valet use php@8.0"
+alias php81="valet use php"
+
+
 # Chrome with just a little bit less RAMpage.
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --process-per-site"
 alias browser="chrome"
