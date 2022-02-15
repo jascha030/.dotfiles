@@ -54,12 +54,12 @@ alias valetrm="rm $HOME/.config/valet/valet.sock"
 alias valetr="valetrm && valet restart" # Make a symbolic link in current dir.
 
 # Switch php versions
-alias "php7.4"="valet use php@7.4"
-alias "php8.0"="valet use php@8.0"
-alias "php8.1"="valet use php"
-alias php7="valet use php@7.4"
-alias php8="valet use php@8.0"
-alias php81="valet use php"
+alias "php7.4"="valet use php@7.4 && composer global update"
+alias "php8.0"="valet use php@8.0 && composer global update"
+alias "php8.1"="valet use php && composer global update"
+alias php7="valet use php@7.4 && composer global update"
+alias php8="valet use php@8.0 && composer global update"
+alias php81="valet use php && composer global update"
 
 
 # Chrome with just a little bit less RAMpage.
