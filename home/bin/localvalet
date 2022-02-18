@@ -1,57 +1,78 @@
-#! /bin/bash
+#! /bin/zsh
 
-PROJECT_ROOT_DIR=`echo $PWD`
-PUBLIC_DIR="$PROJECT_ROOT_DIR"/app/public/
-COMPOSER_FILE_DIR="$PUBLIC_DIR"
+# Tools
+GIT=$(which git)
+COMPOSER=$(which composer)
+VALET=$(which valet)
+YARN=$(which yarn)
 
-GIT=`which git`
-COMPOSER=`which composer`
-VALET=`which valet`
+# Directories
+START_DIR=$(echo $PWD)
+GIT_ROOT=$(git rev-parse --show-toplevel)
+WP_ROOT="${GIT_ROOT}"/app/public
+COMPOSER_DIR="${WP_ROOT}"
 
-if [ ! -f $COMPOSER_FILE_DIR/composer.json ]; then
-    COMPOSER_FILE_DIR="$PROJECT_ROOT_DIR"
+# Find composer.json in either public folder or git root.
+if [ ! -f ${COMPOSER_DIR}/composer.json ]; then
+    COMPOSER_DIR="${GIT_ROOT}"
 
-    if [ ! -f $COMPOSER_FILE_DIR/composer.json ]; then
-        exit "No composer.json found"
+    if [ ! -f $COMPOSER_DIR/composer.json ]; then
+        exit "No composer.json found."
     fi
 fi
 
+# Start in git root and init git-flow
+cd $GIT_ROOT
+$GIT flow init
 
-cd $PUBLIC_DIR
-echo "Setting up Wordpress..."
+# Empty out public dir 
+rm -rf $WP_ROOT && mkdir $WP_ROOT
 
-rm -rf ./*
-rm -rf ./.* 2> /dev/null
+# Clone WordPress install to public dir
+$GIT clone git@github.com:WordPress/WordPress.git $WP_ROOT
+cd $WP_ROOT && rm -rf .git wp-content/themes/twentyeleven wp-content/themes/twentyfifteen wp-content/themes/twentyfourteen wp-content/themes/twentynineteen wp-content/themes/twentyseventeen wp-content/themes/twentysixteen wp-content/themes/twentyten wp-content/themes/twentythirteen wp-content/themes/twentytwelve wp-content/themes/twentytwenty
 
-# Clone Wordpress from git
-$GIT clone git@github.com:WordPress/WordPress.git ./
-rm -rf ./.git
+# Git reset puts the socialbrothers theme back in our new WP install
+cd $GIT_ROOT && $GIT reset --hard
 
-cd ../../
-$GIT reset --hard
+# Install dependencies
+cd $COMPOSER_DIR && $COMPOSER clear-cache && $COMPOSER install
+cd $GIT_ROOT && $YARN && $YARN build
 
-# Install node dependencies and run webpack
-yarn
-yarn build
+read -q "REPLY?Do you want to create a new database? [y/n]" -n 1 -r
+echo 
 
-# Composer
-cd $COMPOSER_FILE_DIR/
-$COMPOSER clear-cache
-$COMPOSER install
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  echo "Database name" \n ": "
+  read WPDBNAME
 
-echo "Please fill in a test url for valet to link to this project" \n ":"
-read URL
+  echo "mysql user" \n ": "
+  read WPMYSQLUSER
 
-$VALET link $URL
-
-read -p "Do you want to secure this url (https) [y/n]" -n 1 -r
-echo    
-
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-    $VALET secure
+  $(echo "CREATE DATABASE ${WPDBNAME};" | mysql -u $WPMYSQLUSER -p)
 fi
 
-echo \n
-echo "Done!"
+# Optionally link with valet
+read -q "REPLY?Do you want to link the public root with valet? [y/n]" -n 1 -r
+echo 
+
+if [[ $REPLY =~ ^[Yy]$ ]]; 
+then
+  echo "Url domain \n: "
+  read URL  
+  
+  $VALET link $URL
+
+  read -q "REPLY?Do you want to secure the url (https)? [y/n]" -n 1 -r
+  echo 
+  [[ $REPLY =~ ^[Yy]$ ]] && $VALET secure
+
+  echo \n "Done!"
+  $($VALET open)
+  
+  cd $START_DIR
+else
+  cd $START_DIR
+  echo \n "Done!"
+fi
 
