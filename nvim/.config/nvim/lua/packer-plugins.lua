@@ -46,6 +46,7 @@ return require('packer').startup(function()
   use 'wakatime/vim-wakatime'
   use 'voldikss/vim-floaterm'
   use 'petertriho/nvim-scrollbar'
+  use 'terryma/vim-multiple-cursors'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use({
     'noib3/nvim-cokeline',
