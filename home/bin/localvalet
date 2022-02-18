@@ -39,31 +39,31 @@ cd $GIT_ROOT && $GIT reset --hard
 cd $COMPOSER_DIR && $COMPOSER clear-cache && $COMPOSER install
 cd $GIT_ROOT && $YARN && $YARN build
 
-read -q "REPLY?Do you want to create a new database? [y/n]" -n 1 -r
+read -q "REPLY?Do you want to create a new database? [y/n]: " -n 1 -r
 echo 
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-  echo "Database name" \n ": "
+  echo "Database name: "
   read WPDBNAME
 
-  echo "mysql user" \n ": "
+  echo "mysql user: "
   read WPMYSQLUSER
 
   $(echo "CREATE DATABASE ${WPDBNAME};" | mysql -u $WPMYSQLUSER -p)
 fi
 
 # Optionally link with valet
-read -q "REPLY?Do you want to link the public root with valet? [y/n]" -n 1 -r
+read -q "REPLY?Do you want to link the public root with valet? [y/n]: " -n 1 -r
 echo 
 
 if [[ $REPLY =~ ^[Yy]$ ]]; 
 then
-  echo "Url domain \n: "
+  echo "Url domain: "
   read URL  
-  
-  $VALET link $URL
+ 
+  cd $WP_ROOT && $VALET link $URL
 
-  read -q "REPLY?Do you want to secure the url (https)? [y/n]" -n 1 -r
+  read -q "REPLY?Do you want to secure the url (https)? [y/n]: " -n 1 -r
   echo 
   [[ $REPLY =~ ^[Yy]$ ]] && $VALET secure
 
