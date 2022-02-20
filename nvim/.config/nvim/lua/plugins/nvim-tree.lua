@@ -10,7 +10,6 @@ require'nvim-tree'.setup {
     },
     auto_close          = true,
     open_on_tab         = false,
-    hijack_cursor       = false,
     update_cwd          = false,
     diagnostics         = {
         enable = false,
@@ -48,7 +47,7 @@ require'nvim-tree'.setup {
     },
     view = {
         hide_root_folder = true,
-        width = 30,
+        width = 40,
         height = 30,
         side = 'right',
         auto_resize = false,
