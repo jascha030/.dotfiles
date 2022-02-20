@@ -15,5 +15,7 @@ M.tableMerge = function(t1, t2)
     return t1
 end
 
+M.window = require 'utils.window'
+
 return M
 
