@@ -35,37 +35,16 @@ window:
     y: 6
   
   dynamic_padding: true
-  # Values for `decorations`:
-  #     - full: Borders and title bar
-  #     - none: Neither borders nor title bar
-  # Values for `decorations` (macOS only):
-  #     - transparent: Title bar, transparent background and title bar buttons
-  #     - buttonless: Title bar, transparent background and no title bar buttons
   decorations: buttonless
 
   # Startup Mode (changes require restart)
-  # Values for `startup_mode`:
   #   - Windowed
   #   - Maximized
   #   - Fullscreen
-  # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
   startup_mode: Windowed
   title: Alacritty
   dynamic_title: false
-
-  # Window class (Linux/BSD only):
-  #class:
-    # Application instance name
-    #instance: Alacritty
-    # General application class
-    #general: Alacritty
-
-  # GTK theme variant (Linux/BSD only)
-  #
-  # Override the variant of the GTK theme. Commonly supported values are `dark`
-  # and `light`. Set this to `None` to use the default theme variant.
-  #gtk_theme_variant: None
 
 #scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -99,21 +78,21 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 16.0
+  size: 16.5
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
-  #offset:
-  #  x: 0
-  #  y: 0
+  offset:
+    x: 0
+    y: 1
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
   # right, increasing `y` moves the glyph upward.
-  #glyph_offset:
-  #  x: 0
-  #  y: 0
+  glyph_offset:
+    x: 0 
+    y: 1 
 
   use_thin_strokes: true
 
