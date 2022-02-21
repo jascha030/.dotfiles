@@ -107,3 +107,5 @@ alias sbcrepo='echo "{\"type\": \"composer\", \"url\": \"https://composer.sbdev.
 
 alias luamake=/Users/jaschavanaalst/tools/lua-language-server/3rd/luamake/luamake
 
+alias dfile:.gitignore="echo $'.idea\n\n.vscode\n\nvendor\n\n**.cache\n.DS_Store\n' > .gitignore"
+
