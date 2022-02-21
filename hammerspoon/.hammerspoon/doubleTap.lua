@@ -1,17 +1,27 @@
-local alert    = require("hs.alert")
-local timer    = require("hs.timer")
-local eventtap = require("hs.eventtap")
+local alert    = require 'hs.alert'
+local timer    = require 'hs.timer'
+local eventtap = require 'hs.eventtap'
 
 local events   = eventtap.event.types
-
 local module   = {}
 
-module.timeFrame = 1
+-- Default config
+-- timeFrame:
+--    Max interval time between keypresses (in seconds).
+--    type: int
+--    default: 1
+      module.timeFrame = 1
 
-module.action = function()
-    alert("You double tapped cmd!")
-end
+-- action:
+--    The callback function executed on doubleTap.
+--    type: function
+--    default: Displays message as alert
+      module.action = function()
+        alert("You double tapped cmd!")
+      end
 
+
+-- doubleTap Function
 local timeFirstControl, firstDown, secondDown = 0, false, false
 
 -- verify that no keyboard flags are being pressed
