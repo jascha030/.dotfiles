@@ -7,9 +7,10 @@ scrolling:
   multiplier: 3
 
 import:
-  - /Users/jaschavanaalst/.dotfiles/alacritty/.config/alacritty/window.yml
-  - /Users/jaschavanaalst/.dotfiles/alacritty/.config/alacritty/font.yml
-  - /Users/jaschavanaalst/.dotfiles/alacritty/.config/alacritty/colors.yml
+  - Users/jaschavanaalst/.config/alacritty/window.yml
+  - Users/jaschavanaalst/.config/alacritty/font.yml
+  - Users/jaschavanaalst/.config/alacritty/colors.yml
+  - Users/jaschavanaalst/.config/alacritty/key-bindings.yml
 
 # Live config reload (changes require restart)
 live_config_reload: true
