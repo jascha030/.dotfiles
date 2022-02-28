@@ -23,7 +23,29 @@ local scheme = {
   background = colors.background,
   foreground = colors.foreground,
   cursor_bg = colors.yellow,
-  cursor_fg = colors.background
+  cursor_fg = colors.background,
+
+  ansi = {
+    '#1d1f21',
+    '#ea1479',
+    '#b5bd68',
+    '#ffcc00',
+    '#81a2be',
+    '#b294bb',
+    '#8abeb7',
+    '#c5c8c6'
+  },
+
+  brights = {
+    '#666666',
+    '#d54e53',
+    '#b9ca4a',
+    '#e7c547',
+    '#7aa6da',
+    '#c397d8',
+    '#70c0b1',
+    '#eaeaea'
+  }
 }
 
 return {
