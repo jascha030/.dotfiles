@@ -29,6 +29,15 @@ local toggle = function (appName, screen)
       utils.window.move(instance, space, mainScreen, screen)
     end
   end
+
+  hs.window.filter.default:subscribe(hs.window.filter.windowFocused, function(window, app)
+    local terminal = hs.application.get(app)
+
+    if terminal ~= nil then
+      -- uncomment to unfocus
+      terminal:hide()
+    end
+  end)
 end
 
 return {

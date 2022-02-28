@@ -11,7 +11,6 @@ local termApp = settings:get('termApp')
 -- Default screen
 local builtinScreen = settings:get('builtInScreen')
 
-
 -- DoubleTap
 --    key = cmd,
 --    map = term.toggle
