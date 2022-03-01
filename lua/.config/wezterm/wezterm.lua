@@ -6,7 +6,8 @@ local fonts = {
   italic = wezterm.font(
     "Dank Mono",
     {
-      italic = true
+      italic = true,
+      weight = 500
     }
   )
 }
