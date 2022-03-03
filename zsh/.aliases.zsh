@@ -83,6 +83,9 @@ alias cache:spotify="cd ${HOME}/Library/Application Support/spotify"
 # Start composer project start-composerpr
 alias cmprj="start-composerpr"
 
+alias c:pu="composer run phpunit"
+alias c:pcs="composer run format"
+
 # Suffix Aliases
 alias -s php=pstorm
 alias -s {.zshrc,zsh,sh,json,yaml,.env,cs,ts,html}=nvim
