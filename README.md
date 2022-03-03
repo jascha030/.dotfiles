@@ -39,7 +39,7 @@ After a colleague made a remark about now using stow in [his dotfiles repo](http
 
 ### Iterm
 
-![terminal in action](https://github.com/jascha030/.dotfiles/blob/main/util/img/nvim-tmux-lazygit.png?raw=true)
+![terminal in action](https://github.com/jascha030/.dotfiles/blob/main/util/img/nvim-tmux-lazygit-iterm.png?raw=true)
 
 ![iTerm home](https://github.com/jascha030/.dotfiles/blob/main/util/img/term-home-iterm.png?raw=true)
 
