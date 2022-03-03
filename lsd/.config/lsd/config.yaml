@@ -50,6 +50,8 @@ icons:
 # A list of globs to ignore when listing.
 ignore-globs:
   - .DS_Store
+  - .php-cs-fixer.cache
+  - .phpunit.result.cache
 
 # == Indicators ==
 # Whether to add indicator characters to certain listed files.
