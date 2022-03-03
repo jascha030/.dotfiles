@@ -1,6 +1,8 @@
 # Jascha030's dotfiles
 
-![iTerm home](https://github.com/jascha030/.dotfiles/blob/main/util/img/term-home.png?raw=true)
+**Current screenshot on WezTerm**
+
+![WezTerm home](https://github.com/jascha030/.dotfiles/blob/main/util/img/term-home-wezterm.png?raw=true)
 
 Backup of my .dotfiles (zsh, bash, git, npm)
 
@@ -35,5 +37,13 @@ After a colleague made a remark about now using stow in [his dotfiles repo](http
 
 ## More img
 
+### Iterm
+
 ![terminal in action](https://github.com/jascha030/.dotfiles/blob/main/util/img/nvim-tmux-lazygit.png?raw=true)
+
+![iTerm home](https://github.com/jascha030/.dotfiles/blob/main/util/img/term-home-iterm.png?raw=true)
+
+### Alacritty
+
+![Alacritty home](https://github.com/jascha030/.dotfiles/blob/main/util/img/term-home-alacritty.png?raw=true)
 
