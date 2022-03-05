@@ -30,17 +30,23 @@ local scheme = {
     '#1d1f21',
     '#ea1479',
     '#b5bd68',
+    --'#b5bd68',
     '#ffcc00',
-    '#81a2be',
+    '#81a2be', -- green
     '#b294bb',
-    '#8abeb7',
+    -- '#8abeb7',
+    '#a395cf',
     '#c5c8c6'
   },
 
   brights = {
     '#666666',
-    '#d54e53',
-    '#b9ca4a',
+    '#F47CB4',
+    -- '#FF4454',
+    -- '#F0569E',
+    --'#d54e53',
+    --'#b9ca4a',
+    '#9deb6f',
     '#e7c547',
     '#7aa6da',
     '#c397d8',
@@ -54,15 +60,15 @@ return {
 
   window_decorations = "NONE | RESIZE",
   window_padding = {
-    left = 4,
-    right = 4,
-    top = 8,
+    left = 6,
+    right = 6,
+    top = 4,
     bottom = 0
   },
   enable_tab_bar = false,
 
-  initial_rows = 45,
-  initial_cols = 175,
+  --initial_rows = 45,
+  --initial_cols = 175,
 
   colors = scheme,
 
