@@ -58,6 +58,12 @@ require'nvim-tree'.setup {
             custom_only = false,
             list = {}
         }
+    },
+    filters = {
+      exclude = {
+        ".php-cs-fixer.cache",
+        ".phpunit.result.cache",
+      }
     }
 }
 
