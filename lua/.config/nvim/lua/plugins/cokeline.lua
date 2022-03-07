@@ -12,7 +12,6 @@ local diagnostics =  {
       or (buffer.diagnostics.warnings ~= 0 and '  ' .. buffer.diagnostics.warnings)
       or ''
   end,
-
   hl = {
     fg = function(buffer)
       return
@@ -24,6 +23,21 @@ local diagnostics =  {
   truncation = { priority = 1 },
 }
 
+local default_hl = {
+  fg = function(buffer)
+    return
+      buffer.is_focussed
+      and utils.get_hex('Normal', 'fg')
+      or utils.get_hex('Comment', 'fg')
+  end,
+  bg = function(buffer)
+    return
+      buffer.is_focussed
+      and utils.get_hex('Normal', 'bg')
+      or utils.get_hex('ColorColumn', 'bg')
+  end,
+}
+
 require'cokeline'.setup({
   show_if_buffers_are_at_least = 2,
 
@@ -31,17 +45,10 @@ require'cokeline'.setup({
     new_buffers_position = 'next',
   },
 
-  default_hl = {
-    focused = {
-      fg = utils.get_hex('Normal', 'fg'),
-      bg = utils.get_hex('Normal', 'bg')
-    },
-    unfocused = {
-      fg = utils.get_hex('Comment', 'fg'),
-      bg = utils.get_hex('ColorColumn', 'bg'),
-    },
-  },
+  default_hl = default_hl,
 
-  diagnostics = diagnostics
+  components = {
+    diagnostics = diagnostics
+  },
 })
 
