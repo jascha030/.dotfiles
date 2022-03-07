@@ -1,13 +1,13 @@
-# Jetbrains on open once w Intellij Bcuz 2 RT'ded too figure sum shell syntax.
-/.idea/
+# Jetbrains project files
+.idea
 
-# Mac
+# macOS
 *.DS_Store
 **.cache
 
-
-nvim/.config/nvim1
-nvim/.idea
+# VSCode
 vscode/.vscode/extensions/
-hammerspoon/.hammerspoon/lib/
+
+# Hammerspoon
+lua/.hammerspoon/Spoons/EmmyLua.spoon/annotations
 
