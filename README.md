@@ -10,21 +10,26 @@ Backup of my .dotfiles (zsh, bash, git, npm)
 
 "One freshly squeezed Mac install, coming up!"
 
-### Install Stow
+### Prerequisites
+
+**Install RCM**
 
 ```shell
-brew install stow
+brew install rcm
 ```
 
-### Clone Repo
+### Installation
+
+**Clone the repo**
 
 ```shell
 git clone git@github.com:jascha030/.dotfiles.git
 ```
 
+**Navigate and run the `rcup` script**
+
 ```shell
-cd .dotfiles/home/
-stow */
+cd $HOME/.dotfiles/ && ./rcup
 ```
 
 ## Epic backstory
@@ -34,6 +39,10 @@ I originally created this repo because _early-2020-R-tarded-me_ was "Annoyed by 
 A _slightly-less-R-tarded-early-2021-not-using-finder-anymore-me_ created a new dotfiles repo which was a good repo, but cluttered and upon installing my new mac in late 2021 I found that the "easy-setup aspect" was not working as good as I hoped.
 
 After a colleague made a remark about now using stow in [his dotfiles repo](https://github.com/V1RE/dotfiles), it still took about three weeks for my _genius-but-often-still-R-tarded-brain_ to go _1+1=2_ and connect the **DOTS**... 
+
+**Update March 2022**
+
+And now we replaced stow with rcup, because I like the clean directory structure.
 
 ## More img
 
