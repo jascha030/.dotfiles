@@ -1,9 +1,8 @@
 local termUtils = require 'term'
 local doubleTap = require 'doubleTap'
 local settings  = require 'settings'
-local emmyLua   = require 'EmmyLua'
 
-emmyLua:init()
+hs.spoons.use('EmmyLua')
 
 -- Load settings
 settings:setup({})

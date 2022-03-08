@@ -10,12 +10,12 @@ return {
         path = runtime_path,
       },
       diagnostics = {
-        globals = {'vim'},
+        globals = {'hs', 'vim'},
       },
       workspace = {
         library = {
           vim.api.nvim_get_runtime_file("", true),
-          ["/Users/jaschavanaalst/.hammerspoon/Spoons/EmmyLua.spoon/annotations"] = true,
+          '/Users/jaschavanaalst/.hammerspoon/Spoons/EmmyLua.spoon/annotations',
         },
       },
       telemetry = {
