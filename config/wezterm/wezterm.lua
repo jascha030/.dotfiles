@@ -69,6 +69,7 @@ return {
 
   --initial_rows = 45,
   --initial_cols = 175,
+  default_cursor_style = "BlinkingBlock",
 
   colors = scheme,
 
