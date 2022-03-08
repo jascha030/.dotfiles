@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "Installing dots..."
+
+rcup \
+	-U bin \
+	-U util \
+	-x README.md \
+	-x rcup \
+	-x .git \
+	-x .gitsecret \
+	-v
+
+
