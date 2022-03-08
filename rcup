@@ -10,6 +10,7 @@ rcup \
 	-x README.md \
 	-x rcup \
 	-x .git \
+	-x .luarc.json \
 	-x .gitsecret \
   -x zsh \
 	-v
