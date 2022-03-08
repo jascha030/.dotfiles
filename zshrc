@@ -37,15 +37,16 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 fi
 #----------------------------------------------- Sources & Paths -----------------------------------------------------#
 
+source $HOME/.p10k.zsh
+
 ZSH_FILES=(
     ".path.zsh"
     ".aliases.zsh"
-    ".p10k.zsh"
     ".fzf.zsh"
 )
 
 for DOT in $ZSH_FILES; do
-	[ -f $HOME/.zsh/$DOT ] && source $HOME/.zsh/$DOT
+	[ -f $HOME/.dotfiles/zsh/$DOT ] && source $HOME/.dotfiles/zsh/$DOT
 done
 
 #----------------------------------------------- Auto-ls settings ----------------------------------------------------#

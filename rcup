@@ -11,6 +11,7 @@ rcup \
 	-x rcup \
 	-x .git \
 	-x .gitsecret \
+  -x zsh \
 	-v
 
 
