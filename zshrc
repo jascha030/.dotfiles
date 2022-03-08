@@ -38,14 +38,14 @@ fi
 #----------------------------------------------- Sources & Paths -----------------------------------------------------#
 
 ZSH_FILES=(
-  ".path.zsh"
-	".aliases.zsh"
-	".p10k.zsh"
-	".fzf.zsh"
+    ".path.zsh"
+    ".aliases.zsh"
+    ".p10k.zsh"
+    ".fzf.zsh"
 )
 
 for DOT in $ZSH_FILES; do
-	[ -f $HOME/$DOT ] && source $HOME/$DOT
+	[ -f $HOME/.zsh/$DOT ] && source $HOME/.zsh/$DOT
 done
 
 #----------------------------------------------- Auto-ls settings ----------------------------------------------------#
@@ -65,7 +65,7 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(fnm env)"
 
-# tabtab
+# tab-tab
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
 # iTerm
