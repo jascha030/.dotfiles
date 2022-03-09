@@ -71,6 +71,10 @@ return {
   --initial_cols = 175,
   default_cursor_style = "BlinkingBlock",
 
+  cursor_blink_rate = 250,
+  cursor_blink_ease_in = "Ease",
+  cursor_blink_ease_out = "Ease",
+
   colors = scheme,
 
   font = fonts.normal,
