@@ -112,3 +112,7 @@ alias luamake=/Users/jaschavanaalst/tools/lua-language-server/3rd/luamake/luamak
 
 alias dfile:.gitignore="echo $'.idea\n\n.vscode\n\nvendor\n\n**.cache\n.DS_Store\n' > .gitignore"
 
+# Logging with bat
+
+alias batlog="bat --paging=never -l log"
+
