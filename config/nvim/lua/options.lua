@@ -16,7 +16,7 @@ local options_global = {
     number = true,
     cursorline = true,
     modifiable = true,
-    updatetime = 400
+    updatetime = 400,
 }
 
 local options_buffer = {
@@ -33,7 +33,8 @@ local options_vim_global = {
     material_italic_variables = false,
     material_contrast = true,
     material_borders = true,
-    material_style = 'palenight'
+    material_style = 'palenight',
+    node_host_prog = os.getenv 'HOME' .. '/.fnm/node-versions/v17.7.1/installation/bin/neovim-node-host'
 }
 
 
