@@ -7,8 +7,8 @@ classic: false
 # Possible values: permission, user, group, size, size_value, date, name, inode
 blocks:
   # - user
-  - permission
-  #  - group
+  # - permission
+  # - group
   - date
   - size
   - name
@@ -25,7 +25,7 @@ color:
 # When "classic" is set, this is set to "date".
 # Possible values: date, relative, '+<date_format>' 
 # `date_format` will be a `strftime` formatted value. e.g. `date: '+%d %b %y %X'` will give you a date like this: 17 Jun 21 20:14:55
-date: '+%d-%m-%Y' 
+date: '+%d-%m-%y' 
 
 # == Dereference ==
 # Whether to dereference symbolic links.
@@ -56,7 +56,7 @@ ignore-globs:
 # == Indicators ==
 # Whether to add indicator characters to certain listed files.
 # Possible values: false, true
-indicators: false
+indicators: true
 
 # == Layout ==
 # Which layout to use. "oneline" might be a bit confusing here and should be
@@ -103,5 +103,5 @@ total-size: false
 
 # == Symlink arrow ==
 # Specifies how the symlink arrow display, chars in both ascii and utf8
-symlink-arrow: ⇒
+symlink-arrow: 
 
