@@ -14,10 +14,44 @@ local fonts = {
 
 local colors = {
   background = "#212431",
+  background_dark = '#1a1423', -- Xiketic (Dark)
+
   foreground = "#a6accd",
 
   yellow = '#ffcc00',
   red = '#ea1479'
+}
+
+-- ANSI
+-- black
+-- red
+-- green
+-- yellow
+-- blue
+-- magenta
+-- cyan
+-- white
+
+local ansi_one = {
+    '#1d1f21', -- Eerie black
+    '#ea1479', -- Red purple/razzmatazz
+    '#b5bd68', -- Middle green yellow
+    '#ffcc00', -- Sunglow
+    '#81a2be', -- Green
+    '#b294bb', -- Glossy grape
+    '#a395cf', -- Blue bell
+    '#c5c8c6'  -- Silver sand
+}
+
+local nitepal = {
+    '#1a1423', -- Xiketic (Dark)
+    colors.red,
+    '#b5bd68', -- Middle green yellow
+    colors.yellow,
+    '#526fff', -- Neon blue
+    '#6f42c1', -- Plump purple
+    '#a395cf', -- Blue bell
+    '#c5c8c6'  -- Languid lavendaer
 }
 
 local scheme = {
@@ -26,18 +60,7 @@ local scheme = {
   cursor_bg = colors.yellow,
   cursor_fg = colors.background,
 
-  ansi = {
-    '#1d1f21',
-    '#ea1479',
-    '#b5bd68',
-    --'#b5bd68',
-    '#ffcc00',
-    '#81a2be', -- green
-    '#b294bb',
-    -- '#8abeb7',
-    '#a395cf',
-    '#c5c8c6'
-  },
+  ansi = nitepal,
 
   brights = {
     '#666666',
