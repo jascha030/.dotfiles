@@ -46,9 +46,11 @@ local ansi_one = {
 local nitepal = {
     '#1a1423', -- Xiketic (Dark)
     colors.red,
-    '#b5bd68', -- Middle green yellow
+    --'#b5bd68', -- Middle green yellow
+    '#61d33f',
     colors.yellow,
-    '#526fff', -- Neon blue
+    '#0083f7', -- blue
+    --'#526fff', -- Neon blue
     '#6f42c1', -- Plump purple
     '#a395cf', -- Blue bell
     '#c5c8c6'  -- Languid lavendaer
@@ -67,12 +69,13 @@ local scheme = {
     '#F47CB4',
     -- '#FF4454',
     -- '#F0569E',
-    --'#d54e53',
-    --'#b9ca4a',
+    -- '#d54e53',
+    -- '#b9ca4a',
     '#9deb6f',
     '#e7c547',
     '#7aa6da',
     '#c397d8',
+    -- '#000000',
     '#70c0b1',
     '#eaeaea'
   }

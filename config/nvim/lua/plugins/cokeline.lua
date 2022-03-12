@@ -5,6 +5,7 @@ local colors = {
   warnings = { fg = utils.get_hex('DiagnosticWarn', 'fg') },
 }
 
+
 local diagnostics =  {
   text = function(buffer)
     return
@@ -22,6 +23,7 @@ local diagnostics =  {
   },
   truncation = { priority = 1 },
 }
+
 
 local default_hl = {
   fg = function(buffer)
