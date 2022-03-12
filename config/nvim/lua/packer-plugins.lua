@@ -1,6 +1,6 @@
-return require('packer').startup(function()
+return require('packer').startup(function(use)
 	use { 'wbthomason/packer.nvim' }
-  use {'lewis6991/impatient.nvim', config = [[require('impatient')]]}
+  use { 'lewis6991/impatient.nvim', config = [[require('impatient')]]}
 	use {
 		'neovim/nvim-lspconfig',
     'williamboman/nvim-lsp-installer',
@@ -47,12 +47,10 @@ return require('packer').startup(function()
   use { 'voldikss/vim-floaterm' }
   use { 'petertriho/nvim-scrollbar' }
   -- use { 'terryma/vim-multiple-cursors' }
+  use { 'p00f/nvim-ts-rainbow' }
   use { 'nvim-treesitter/nvim-treesitter-textobjects' }
   use({
     'noib3/nvim-cokeline',
-    requires = 'kyazdani42/nvim-web-devicons', -- If you want devicons
---    config = function()
---      require('cokeline').setup()
---    end
+    requires = 'kyazdani42/nvim-web-devicons',
   })
 end)
