@@ -49,8 +49,9 @@ return require('packer').startup(function(use)
   -- use { 'terryma/vim-multiple-cursors' }
   use { 'p00f/nvim-ts-rainbow' }
   use { 'nvim-treesitter/nvim-treesitter-textobjects' }
-  use({
+  use {
     'noib3/nvim-cokeline',
     requires = 'kyazdani42/nvim-web-devicons',
-  })
+  }
+  use { 'norcalli/nvim-colorizer.lua' }
 end)
