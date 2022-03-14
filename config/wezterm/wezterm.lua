@@ -75,7 +75,7 @@ local scheme = {
   brights = {
     '#666666',
     '#F47CB4',
-    '#9deb6f',
+    '#cdffb0',
     '#e7c547',
     '#c397d8',
     '#7fefef',
