@@ -1,6 +1,10 @@
+local null_ls = require("null-ls")
+
+local fmt = null_ls.builtins.formatting
+
 require("null-ls").setup({
 	sources = {
-		require("null-ls").builtins.formatting.stylua,
+		fmt.stylua,
 		require("null-ls").builtins.diagnostics.eslint,
 		require("null-ls").builtins.completion.spell,
 	},
