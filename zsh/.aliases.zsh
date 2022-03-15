@@ -1,17 +1,19 @@
 # Ali(J)asses
 
+# Terminal / general
+alias x="exit"
+alias c="clear"
+
+# Dotfiles related
+alias rr="source $HOME/.zshrc"
+alias dfr="sh ${DOTFILES}/rcup"
+
 # Edit shortcuts
 alias edit="${EDITOR} $1"
 alias zshconfig="edit $DOTFILES/zsh/.zshrc"
 alias e:zshrc="zshconfig"
 alias e:aliases="edit ${HOME}/.aliases.zsh"
 alias e:path="edit ${HOME}/.path.zsh"
-
-# Terminal / general
-alias rr="source $HOME/.zshrc"
-alias x="exit"
-alias c="clear"
-
 
 # Navigation
 alias ll="lsd -Ahl --color --group-dirs=first"
