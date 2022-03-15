@@ -54,4 +54,5 @@ return require('packer').startup(function(use)
     requires = 'kyazdani42/nvim-web-devicons',
   }
   use { 'norcalli/nvim-colorizer.lua' }
+  use { 'jose-elias-alvarez/null-ls.nvim' }
 end)
