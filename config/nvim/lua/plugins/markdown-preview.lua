@@ -1,5 +1,5 @@
 vim.api.nvim_exec(
-	[=[
+    [=[
     let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
 let g:mkdp_refresh_slow = 0
@@ -28,5 +28,5 @@ let g:mkdp_port = ''
 let g:mkdp_page_title = '「${name}」'
 let g:mkdp_filetypes = ['markdown']
 ]=],
-	true
+    true
 )

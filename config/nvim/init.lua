@@ -15,33 +15,33 @@
 -- Shortcuts
 local cmd = vim.cmd
 local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
+local install_path = fn.stdpath('data') .. '/site/pack/packer/opt/packer.nvim'
 local execute = vim.api.nvim_command
 
 -- vim option scopes
 local scopes = {
-	g = vim.g,
-	o = vim.o,
-	b = vim.bo,
-	w = vim.wo,
-	opt = vim.opt,
+    g = vim.g,
+    o = vim.o,
+    b = vim.bo,
+    w = vim.wo,
+    opt = vim.opt,
 }
 
 --[[Functions]]
 -- Set options per scope in a loop
 local set_options_per_scope = function(option_scopes, options)
-	for option_scope, option_list in pairs(options) do
-		for option_key, option_value in pairs(option_list) do
-			option_scopes[option_scope][option_key] = option_value
-		end
-	end
+    for option_scope, option_list in pairs(options) do
+        for option_key, option_value in pairs(option_list) do
+            option_scopes[option_scope][option_key] = option_value
+        end
+    end
 end
 
 --[[Execute init logic]]
 -- Install Packer if not available
 if fn.empty(fn.glob(install_path)) > 0 then
-	fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
-	execute("packadd packer.nvim")
+    fn.system({ 'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path })
+    execute('packadd packer.nvim')
 end
 
 -- Auto commands
@@ -51,13 +51,13 @@ cmd([[autocmd BufWritePost packer.lua PackerCompile]])
 cmd([[packadd packer.nvim]], false)
 
 -- Set listed options from options module per scope
-set_options_per_scope(scopes, require("options"))
+set_options_per_scope(scopes, require('options'))
 
 -- Set colorscheme
 cmd([[colorscheme tokyonight]])
 
 -- [[require modules]]
-require("packer-plugins") -- Packer startup logic & installed plugins list
-require("plugins") -- Plugin module containing plugin configurations
-require("lsp")
-require("keymap")
+require('packer-plugins') -- Packer startup logic & installed plugins list
+require('plugins') -- Plugin module containing plugin configurations
+require('lsp')
+require('keymap')
