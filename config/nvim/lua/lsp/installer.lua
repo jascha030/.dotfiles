@@ -5,7 +5,7 @@ if not status_ok then
 end
 
 lsp_installer.on_server_ready(function(server)
-	local opts = {
+  local opts = {
 		on_attach = require("lsp.handlers").on_attach,
 		capabilities = require("lsp.handlers").capabilities,
 	}
@@ -16,6 +16,10 @@ lsp_installer.on_server_ready(function(server)
 
 	if server.name == "sumneko_lua" then
 		opts = vim.tbl_deep_extend("force", require("lsp.settings.sumneko_lua"), opts)
+	end
+
+	if server.name == "rust_analyzer" then
+		opts = vim.tbl_deep_extend("force", require("lsp.settings.rust_analyzer"), opts)
 	end
 
 	server:setup(opts)
