@@ -25,3 +25,6 @@ export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 # Add rustup completions to $fpath
 fpath+=$HOME/.zfunc
 
+# Zoxide 
+# eval "$(zoxide init zsh)"
+
