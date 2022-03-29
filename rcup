@@ -2,8 +2,6 @@
 
 set -e
 
-echo "Installing dots..."
-
 rcup \
 	-U bin \
 	-U util \
@@ -12,7 +10,5 @@ rcup \
 	-x .git \
 	-x .luarc.json \
 	-x .gitsecret \
-  -x zsh \
-	-v
-
+  -x zsh
 
