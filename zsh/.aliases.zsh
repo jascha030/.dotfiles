@@ -59,7 +59,7 @@ alias valetr="valetrm && valet restart" # Make a symbolic link in current dir.
 alias "php7.4"="valet use php@7.4 && composer global update"
 alias "php8.0"="valet use php@8.0 && composer global update"
 alias "php8.1"="valet use php && composer global update"
-alias php7="valet use php@7.4 && composer global update"
+alias php74="valet use php@7.4 && composer global update"
 alias php8="valet use php@8.0 && composer global update"
 alias php81="valet use php && composer global update"
 
@@ -93,17 +93,19 @@ alias -s php=pstorm
 alias -s {.zshrc,zsh,sh,json,yaml,.env,cs,ts,html}=nvim
 
 # Templates
-alias glbgitig="cat $DOTFILES/.gitignore | pbcopy"
 alias copyssh="pbcopy < $HOME/.ssh/id_rsa.pub"
 alias cpssh="copyssh"
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
 alias ccdir="echo `echo $PWD` | pbcopy"
 
+alias c:wpindex="echo \"<?php\n//silence is golden\" >index.php"
+alias dfile:.gitignore="echo $'.idea\n\n.vscode\n\nvendor\n\n**.cache\n.DS_Store\n' > .gitignore"
+alias sbcrepo='echo "{\"type\": \"composer\", \"url\": \"https://composer.sbdev.nl/\"}" | pp_json | pbcopy'
+
 # Wordpress related aliases
 alias clone:sb-starter="git clone git@bitbucket.org:socialbrothers/wordpress-starter-theme.git"
 alias clone:wp="git clone git@github.com:wordpress/wordpress"
 
-alias c:wpindex="echo \"<?php\n//silence is golden\" >index.php"
 alias vim="nvim"
 alias composerreset="rm -rf vendor/ composer.lock && composer clear-cache && composer install"
 alias checkitalics="echo -e '\e[3mitalic\e[23m'"
@@ -112,9 +114,6 @@ alias sbcrepo='echo "{\"type\": \"composer\", \"url\": \"https://composer.sbdev.
 
 alias luamake=/Users/jaschavanaalst/tools/lua-language-server/3rd/luamake/luamake
 
-alias dfile:.gitignore="echo $'.idea\n\n.vscode\n\nvendor\n\n**.cache\n.DS_Store\n' > .gitignore"
-
 # Logging with bat
-
-alias batlog="bat --paging=never -l log"
+alias batlog="echo 'TODA BATLOG PUDULULULULUDUDULU'; bat --paging=never -l log"
 

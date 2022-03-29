@@ -29,7 +29,6 @@ export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 # Lua language server
 export PATH="$HOME/tools/lua-language-server/bin/macOS:$PATH"
 
-
 # Lolcat
 LOLCAT=$(which lolcat)
 export PATH="${LOLCAT}:${PATH}"
