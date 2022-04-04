@@ -9,6 +9,27 @@ local fonts = {
     }),
 }
 
+local font_rules = {
+    {
+        italic = false,
+        intensity = 'Normal',
+        font = wezterm.font('MesloLGS Nerd Font', {
+            italic = false,
+            weight = 600,
+        }),
+    },
+    {
+        italic = true,
+        intensity = 'Bold',
+        font = fonts.normal,
+    },
+    {
+        italic = true,
+        intensity = 'Normal',
+        font = fonts.italic,
+    },
+}
+
 local colors = {
     background = '#212431',
     background_dark = '#1a1423', -- Xiketic (Dark)
@@ -81,14 +102,16 @@ local scheme = {
 
 return {
     default_prog = { '/usr/local/bin/zsh', '--login' },
+
     window_decorations = 'NONE | RESIZE',
     window_padding = {
-        left = 6,
-        right = 6,
+        left = 4,
+        right = 4,
         top = 4,
         bottom = 0,
     },
     enable_tab_bar = false,
+
     default_cursor_style = 'BlinkingBlock',
     cursor_blink_rate = 250,
     cursor_blink_ease_in = 'Ease',
@@ -97,26 +120,6 @@ return {
     colors = scheme,
 
     font = fonts.normal,
-
-    font_rules = {
-        {
-            italic = false,
-            intensity = 'Normal',
-            font = wezterm.font('MesloLGS Nerd Font', {
-                italic = false,
-                weight = 600,
-            }),
-        },
-        {
-            italic = true,
-            intensity = 'Bold',
-            font = fonts.normal,
-        },
-        {
-            italic = true,
-            intensity = 'Normal',
-            font = fonts.italic,
-        },
-    },
+    font_rules = font_rules,
     font_size = fonts.size,
 }
