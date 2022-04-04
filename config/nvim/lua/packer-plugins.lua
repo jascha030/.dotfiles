@@ -44,7 +44,13 @@ return require('packer').startup(function(use)
     use({ 'simrat39/rust-tools.nvim' })
     use({ 'mfussenegger/nvim-dap' })
     use({ 'karb94/neoscroll.nvim' })
-    use({ 'iamcco/markdown-preview.nvim' })
+    use({
+      'iamcco/markdown-preview.nvim',
+      config = function ()
+        require('plugins.markdown-preview')
+      end,
+      run = "cd app && pnpm i"
+    })
     use({ 'ojroques/vim-oscyank' })
     use({ 'folke/tokyonight.nvim' })
     use({ 'ncm2/ncm2' })
