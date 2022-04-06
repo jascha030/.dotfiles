@@ -1,6 +1,6 @@
 local M = {}
 
-local spaces = require('hs._asm.undocumented.spaces')
+local spaces = require('hs.spaces')
 
 M.move = function(application, space, mainScreen, builtInScreen)
     local win = nil
@@ -16,6 +16,7 @@ M.move = function(application, space, mainScreen, builtInScreen)
 
     local widthFactor = 2
 
+    -- If mainScreen is built-in, make window wider by default.
     if builtInScreen ~= nil then
         if mainScreen:name() == builtInScreen then
             widthFactor = 3
@@ -37,7 +38,7 @@ M.move = function(application, space, mainScreen, builtInScreen)
     end
 
     win:setFrame(winFrame, 0)
-    win:spacesMoveTo(space)
+    spaces.moveWindowToSpace(win, space)
 
     if fullScreen then
         hs.eventtap.keyStroke('cmd', 'return', 0, application)
