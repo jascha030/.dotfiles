@@ -1,4 +1,4 @@
-local spaces = require('hs._asm.undocumented.spaces')
+local spaces = require('hs.spaces')
 local utils = require('utils')
 
 local toggle = function(appName, screen)
@@ -7,8 +7,9 @@ local toggle = function(appName, screen)
     if instance ~= nil and instance:isFrontmost() then
         instance:hide()
     else
-        local space = spaces.activeSpace()
-        local mainScreen = hs.screen.find(spaces.mainScreenUUID())
+        --local mainScreen = hs.screen.find(spaces.mainScreenUUID())
+        local mainScreen = hs.screen.mainScreen()
+        local space = hs.spaces.activeSpaceOnScreen(mainScreen)
 
         if instance == nil and hs.application.launchOrFocus(appName) then
             local appWatcher = nil

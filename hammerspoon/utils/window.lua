@@ -1,5 +1,4 @@
 local M = {}
-
 local spaces = require('hs.spaces')
 
 M.move = function(application, space, mainScreen, builtInScreen)
@@ -9,8 +8,13 @@ M.move = function(application, space, mainScreen, builtInScreen)
         win = application:mainWindow()
     end
 
-    local fullScreen = not win:isStandard()
+    local windowSpaces = spaces.windowSpaces(win)
 
+    if windowSpaces[0] ~= space then
+        spaces.moveWindowToSpace(win, space)
+    end
+
+    local fullScreen = not win:isStandard()
     local winFrame = win:frame()
     local scrFrame = mainScreen:fullFrame()
 
@@ -18,6 +22,7 @@ M.move = function(application, space, mainScreen, builtInScreen)
 
     -- If mainScreen is built-in, make window wider by default.
     if builtInScreen ~= nil then
+        -- Todo: checkout what messed up builtInScreen config.
         if mainScreen:name() == builtInScreen then
             widthFactor = 3
         end
@@ -35,10 +40,9 @@ M.move = function(application, space, mainScreen, builtInScreen)
 
         winFrame.y = (scrFrame.y2 / 2) - (winFrame.h / 2)
         winFrame.x = (scrFrame.x2 / 2) - (winFrame.w / 2)
-    end
 
-    win:setFrame(winFrame, 0)
-    spaces.moveWindowToSpace(win, space)
+        win:setFrameInScreenBounds(winFrame, 0)
+    end
 
     if fullScreen then
         hs.eventtap.keyStroke('cmd', 'return', 0, application)
