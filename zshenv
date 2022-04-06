@@ -26,5 +26,5 @@ export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 fpath+=$HOME/.zfunc
 
 # Zoxide 
-# eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh)"
 
