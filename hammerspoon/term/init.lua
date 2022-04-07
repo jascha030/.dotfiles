@@ -1,13 +1,11 @@
-local spaces = require('hs.spaces')
-local utils = require('utils')
+local windowManager = require('utils.window').manager(4, 2)
 
-local toggle = function(appName, screen)
+local toggle = function(appName, builtinScreen)
     local instance = hs.application.get(appName)
 
     if instance ~= nil and instance:isFrontmost() then
         instance:hide()
     else
-        --local mainScreen = hs.screen.find(spaces.mainScreenUUID())
         local mainScreen = hs.screen.mainScreen()
         local space = hs.spaces.activeSpaceOnScreen(mainScreen)
 
@@ -18,7 +16,7 @@ local toggle = function(appName, screen)
                 if event == hs.application.watcher.launched and name == appName then
                     app:hide()
 
-                    utils.window.move(app, space, mainScreen, screen)
+                    windowManager:move(app, space, builtinScreen)
                     appWatcher:stop()
                 end
             end)
@@ -27,7 +25,7 @@ local toggle = function(appName, screen)
         end
 
         if instance ~= nil then
-            utils.window.move(instance, space, mainScreen, screen)
+            windowManager:move(instance, space, builtinScreen)
         end
     end
 end

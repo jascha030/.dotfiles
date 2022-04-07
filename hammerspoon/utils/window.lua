@@ -1,7 +1,39 @@
-local M = {}
 local spaces = require('hs.spaces')
+local screen = require('hs.screen')
 
-M.move = function(application, space, mainScreen, builtInScreen)
+local M = {}
+
+local WindowManager = {
+    defaultScreenWidthDivision = 0,
+    defaultScreenWidthFactor = 0,
+}
+
+function WindowManager:new(m, division, factor)
+    m = m or {}
+    setmetatable(m, self)
+
+    self.__index = self
+    self.defaultScreenWidthDivision = division or 4
+    self.defaultScreenWidthFactor = factor or 2
+
+    return m
+end
+
+-- How many times we multiply the defaultScreenWidthDivision when calculating the frame width for unsnapped windows.
+-- If mainScreen is built-in, make window wider by default.
+function WindowManager:getWidthFactor(selectedScreen, builtinScreen)
+    local widthFactor = self.defaultScreenWidthFactor
+
+    if builtinScreen ~= nil then
+        if selectedScreen:name() == builtinScreen then
+            widthFactor = 3
+        end
+    end
+
+    return widthFactor
+end
+
+function WindowManager:move(application, space, builtinScreen)
     local win = nil
 
     while win == nil do
@@ -16,16 +48,8 @@ M.move = function(application, space, mainScreen, builtInScreen)
 
     local fullScreen = not win:isStandard()
     local winFrame = win:frame()
-    local scrFrame = mainScreen:fullFrame()
-
-    local widthFactor = 2
-
-    -- If mainScreen is built-in, make window wider by default.
-    if builtInScreen ~= nil then
-        if mainScreen:name() == builtInScreen then
-            widthFactor = 3
-        end
-    end
+    local spaceScreen = screen.find(spaces.spaceDisplay(space))
+    local scrFrame = spaceScreen:fullFrame()
 
     -- Center window if not snapped left or right
     if
@@ -35,12 +59,12 @@ M.move = function(application, space, mainScreen, builtInScreen)
         and scrFrame.y2 ~= winFrame.y2
     then
         winFrame.h = (scrFrame.h / 3) * 2
-        winFrame.w = (scrFrame.w / 4) * widthFactor
+        winFrame.w = (scrFrame.w / 4) * self:getWidthFactor(spaceScreen, builtinScreen)
 
         winFrame.y = (scrFrame.y2 / 2) - (winFrame.h / 2)
         winFrame.x = (scrFrame.x2 / 2) - (winFrame.w / 2)
 
-        win:setFrameInScreenBounds(winFrame, 0)
+        --win:setFrameInScreenBounds(winFrame, 0)
     end
 
     if fullScreen then
@@ -48,6 +72,10 @@ M.move = function(application, space, mainScreen, builtInScreen)
     end
 
     win:focus()
+end
+
+M.manager = function(division, factor)
+    return WindowManager:new(nil, division or 4, factor or 2)
 end
 
 return M
