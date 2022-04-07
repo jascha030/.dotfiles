@@ -11,7 +11,7 @@ settings:setup({})
 local termApp = settings:get('termApp')
 
 -- Default screen
-local builtinScreen = settings:get('builtInScreen')
+local builtinScreen = settings:get('builtinScreen')
 
 -- DoubleTap
 --    key = cmd,

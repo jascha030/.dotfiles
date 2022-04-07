@@ -22,7 +22,6 @@ M.move = function(application, space, mainScreen, builtInScreen)
 
     -- If mainScreen is built-in, make window wider by default.
     if builtInScreen ~= nil then
-        -- Todo: checkout what messed up builtInScreen config.
         if mainScreen:name() == builtInScreen then
             widthFactor = 3
         end

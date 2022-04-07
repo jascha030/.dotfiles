@@ -32,6 +32,7 @@ local noFlags = function(ev)
             break
         end
     end
+
     return result
 end
 

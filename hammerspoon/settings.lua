@@ -31,8 +31,6 @@ function M:setup(config)
     end
 
     if self.config.iniPath ~= nil and file_exists(self.config.iniPath) then
-        local iniData = ini.parse_file(self.config.iniPath)
-
         self.data = utils.tableMerge(self.data, ini.parse_file(self.config.iniPath))
     end
 end
