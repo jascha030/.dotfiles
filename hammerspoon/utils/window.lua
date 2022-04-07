@@ -1,13 +1,12 @@
 local spaces = require('hs.spaces')
 local screen = require('hs.screen')
 
-local M = {}
-
 local WindowManager = {
     defaultScreenWidthDivision = 0,
     defaultScreenWidthFactor = 0,
 }
 
+-- Constructor, (tnx cpt. obvious).
 function WindowManager:new(m, division, factor)
     m = m or {}
     setmetatable(m, self)
@@ -40,15 +39,15 @@ function WindowManager:move(application, space, builtinScreen)
         win = application:mainWindow()
     end
 
+    local spaceScreen = screen.find(spaces.spaceDisplay(space))
     local windowSpaces = spaces.windowSpaces(win)
 
     if windowSpaces[0] ~= space then
-        spaces.moveWindowToSpace(win, space)
+        win:moveToScreen(spaceScreen)
+        spaces.moveWindowToSpace(win:id(), space)
     end
 
-    local fullScreen = not win:isStandard()
     local winFrame = win:frame()
-    local spaceScreen = screen.find(spaces.spaceDisplay(space))
     local scrFrame = spaceScreen:fullFrame()
 
     -- Center window if not snapped left or right
@@ -61,18 +60,16 @@ function WindowManager:move(application, space, builtinScreen)
         winFrame.h = (scrFrame.h / 3) * 2
         winFrame.w = (scrFrame.w / 4) * self:getWidthFactor(spaceScreen, builtinScreen)
 
-        winFrame.y = (scrFrame.y2 / 2) - (winFrame.h / 2)
-        winFrame.x = (scrFrame.x2 / 2) - (winFrame.w / 2)
+        winFrame.y = scrFrame.y + ((scrFrame.h / 2) - (winFrame.h / 2))
+        winFrame.x = scrFrame.x + ((scrFrame.w / 2) - (winFrame.w / 2))
 
-        --win:setFrameInScreenBounds(winFrame, 0)
-    end
-
-    if fullScreen then
-        hs.eventtap.keyStroke('cmd', 'return', 0, application)
+        win:setFrame(winFrame, 0)
     end
 
     win:focus()
 end
+
+local M = {}
 
 M.manager = function(division, factor)
     return WindowManager:new(nil, division or 4, factor or 2)
