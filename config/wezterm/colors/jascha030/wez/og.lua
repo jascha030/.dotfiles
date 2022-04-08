@@ -21,7 +21,7 @@ local colors = {
     bright_white = '#fefefe',
 }
 
-return {
+local scheme = {
     background = colors.background,
     foreground = colors.foreground,
 
@@ -49,4 +49,9 @@ return {
         colors.bright_cyan,
         colors.bright_white,
     },
+}
+
+return {
+  colors = colors,
+  scheme = scheme
 }

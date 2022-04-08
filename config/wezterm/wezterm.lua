@@ -47,7 +47,7 @@ return {
     cursor_blink_ease_in = 'Ease',
     cursor_blink_ease_out = 'Ease',
 
-    colors = require('colors.jascha030.wez.og'),
+    colors = require('colors.jascha030.wez.og').scheme,
 
     font = fonts.normal,
     font_rules = font_rules,
