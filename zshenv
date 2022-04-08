@@ -19,6 +19,8 @@ export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 
+export LUA_PATH="${HOME}/.config/wezterm/?/?.lua;;"
+
 # Rust
 [[ -r "$HOME"/.cargo/env ]] && source "$HOME"/.cargo/env
 

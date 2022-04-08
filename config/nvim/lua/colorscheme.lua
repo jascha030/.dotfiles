@@ -1,51 +1,21 @@
-local schemes = {
-    dark = {
-        scheme = 'tokyonight',
-        options = {
-            tokyonight_style = 'night',
-            tokyonight_italic_functions = true,
-        },
-        option_scope = vim.g,
-    },
-    light = {
-        scheme = 'tokyonight',
-        options = {
-            tokyonight_style = 'day',
-            tokyonight_italic_functions = true,
-        },
-        option_scope = vim.g,
-    },
+local colors = dofile(os.getenv('HOME') .. '/.config/wezterm/colors/jascha030/wez/og.lua').colors
+
+vim.g.tokyonight_italic_functions = true
+vim.g.tokyonight_italic_comments = true
+vim.g.tokyonight_sidebars = { 'terminal', 'packer' }
+
+vim.g.tokyonight_colors = {
+    -- bg = colors.background,
+    bg_dark = colors.background,
+    yellow = colors.yellow,
+    red = colors.red,
+    cyan = colors.cyan,
+    magenta = '#bb9af7',
+    magenta2 = '#ff007c',
+    purple = '#9d7cd8',
+    orange = '#ff9e64',
+    green = colors.green,
+    green1 = colors.cyan,
 }
 
-if vim.g['nvim_color_scheme_toggle_current'] == nil then
-    vim.g.nvim_color_scheme_toggle_current = {
-        default = 'dark',
-        set = nil,
-        schemes = schemes,
-    }
-
-    if pcall(vim.cmd, 'colorscheme ' .. schemes.dark.scheme) then
-        vim.g.nvim_color_scheme_toggle_current.set = 'dark'
-    end
-end
-
-local toggle = function()
-    local toggle_to = 'light'
-
-    if vim.g.nvim_color_scheme_toggle_current.set == 'dark' then
-        toggle_to = 'light'
-    else
-        toggle_to = 'dark'
-    end
-
-    vim.cmd('colorscheme ' .. vim.g.nvim_color_scheme_toggle_current.schemes[toggle_to].scheme)
-    vim.g.nvim_color_scheme_toggle_current.set = toggle_to
-
-    for option, value in pairs(vim.g.nvim_color_scheme_toggle_current.schemes[toggle_to].options) do
-        vim.g[option] = value
-    end
-end
-
-return {
-    toggle = toggle,
-}
+vim.cmd([[colorscheme tokyonight]])

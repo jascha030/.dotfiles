@@ -53,10 +53,8 @@ cmd([[packadd packer.nvim]], false)
 -- Set listed options from options module per scope
 set_options_per_scope(scopes, require('options'))
 
--- Set colorscheme
-cmd([[colorscheme tokyonight]])
-
 -- [[require modules]]
+require('colorscheme')
 require('packer-plugins') -- Packer startup logic & installed plugins list
 require('plugins') -- Plugin module containing plugin configurations
 require('lsp')
