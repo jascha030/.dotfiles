@@ -75,6 +75,9 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(fnm env)"
 
+# Teleport-dir (Rust)
+eval "$(teleport-dir init)"
+
 # tab-tab
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
