@@ -31,6 +31,8 @@ alias df:util="cd ${DOTFILES}/util"
 alias df:zsh="cd ${DOTFILES}/zsh"
 alias df:alacritty="cd ${DOTFILES}/alacritty/.config/alacritty"
 
+alias web:sbcomposer="open https://composer.sbdev.nl/"
+
 # Utils
 
 # Copy Broodje Ben to clipboard.
