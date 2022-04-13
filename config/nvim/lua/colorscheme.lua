@@ -13,7 +13,8 @@ vim.g.tokyonight_colors = {
     magenta = '#bb9af7',
     magenta2 = '#ff007c',
     purple = '#9d7cd8',
-    orange = '#ff9e64',
+    -- orange = '#ff9e64',
+    orange = colors.red,
     green = colors.green,
     green1 = colors.cyan,
 }

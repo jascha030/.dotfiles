@@ -1,6 +1,8 @@
 local colors = {
-    background = '#212431',
-    foreground = '#a6accd',
+    --background = '#212431',
+    -- foreground = '#a6accd',
+    background = '#1f2335',
+    foreground = '#c0caf5',
 
     black = '#1a1423',
     red = '#ea1479',
@@ -52,6 +54,6 @@ local scheme = {
 }
 
 return {
-  colors = colors,
-  scheme = scheme
+    colors = colors,
+    scheme = scheme,
 }

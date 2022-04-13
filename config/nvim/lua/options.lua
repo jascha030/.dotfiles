@@ -1,7 +1,6 @@
 local options_global = {
     mouse = 'a',
     termguicolors = true,
-    -- guifont = 'Dank Mono',
     incsearch = true,
     colorcolumn = '120',
     backspace = 'indent,eol,start',
