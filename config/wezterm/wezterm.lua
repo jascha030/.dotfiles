@@ -1,7 +1,7 @@
 local wezterm = require('wezterm')
 
 local fonts = {
-    size = 17.0,
+    size = 17.5,
     normal = wezterm.font('MesloLGS Nerd Font'),
     italic = wezterm.font('Dank Mono', {
         italic = true,
