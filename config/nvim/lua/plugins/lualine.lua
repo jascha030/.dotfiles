@@ -1,7 +1,6 @@
 require('lualine').setup({
     options = {
         icons_enabled = true,
-        --theme = 'palenight',
         theme = 'tokyonight',
         component_separators = {
             left = '',
@@ -11,7 +10,9 @@ require('lualine').setup({
             left = '',
             right = '',
         },
-        disabled_filetypes = {},
+        disabled_filetypes = {
+          "NvimTree"
+        },
     },
     sections = {
         lualine_a = { 'mode' },
