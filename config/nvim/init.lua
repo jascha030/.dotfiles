@@ -13,7 +13,6 @@
 
 require('options')
 require('colorscheme')
-require('packer-plugins') -- Packer startup logic & installed plugins list
-require('plugins') -- Plugin module containing plugin configurations
+require('plugins')
 require('lsp')
 require('keymap')
