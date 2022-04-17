@@ -89,13 +89,26 @@ if [[ $TERMINAL_EMULATOR == "JetBrains-JediTerm" ]] then
 fi
 
 #------------------- Display Hackerman-ness for people who don't understand terminals when done ----------------------#
-
 _RANDOM_LC_NUM=$(( ( RANDOM % 10 )  + 1 ))
 [[ $_RANDOM_LC_NUM > 5 ]] && RANDOM_LC=$(which lolcat) || RANDOM_LC=$(which lolcrab) 
 
+typeset -A fonts
+fonts=(
+  [1]="larry3d"
+  [2]="speed"
+  [3]="smisome1"
+  [4]="doom"
+  [5]="cosmic"
+  [6]="isometric1"
+  [7]="isometric3"
+  [8]="trek"
+  [9]="smkeyboard"
+  [10]="roman"
+)
 
+#LOLCAT_MSG_FONT="speed"
+LOLCAT_MSG_FONT=$fonts[$_RANDOM_LC_NUM]
 [[ $VIM_TERM_MODE_ACTIVE == false ]] && LOLCAT_MSG_TEXT="Hackerman Mode 030" || LOLCAT_MSG_TEXT="NEOVIM 030"
-[[ $VIM_TERM_MODE_ACTIVE == false ]] && LOLCAT_MSG_FONT="speed" || LOLCAT_MSG_FONT="larry3d"
 [[ $VIM_TERM_MODE_ACTIVE == false ]] && COLS_W$(tmux display -p '#{pane_width}-#{pane_height}') || COLS_W=$(tput cols)
 
 clear
