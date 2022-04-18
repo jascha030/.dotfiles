@@ -112,7 +112,7 @@ local cmp_config = function()
             end,
         },
         sources = cmp.config.sources({
-            { name = 'cm_lsp' },
+            { name = 'nvim_lsp' },
             { name = 'luasnip' },
             { name = 'path' },
             { name = 'buffer' },
