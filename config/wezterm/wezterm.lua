@@ -13,9 +13,9 @@ local font_rules = {
     {
         italic = false,
         intensity = 'Normal',
-        font = wezterm.font('MesloLGS Nerd Font', {
-            italic = false,
-            weight = 600,
+        font = wezterm.font_with_fallback({
+            'nonicons',
+            { family = 'MesloLGS Nerd Font', italic = false, weight = 600 },
         }),
     },
     {
@@ -50,6 +50,7 @@ return {
     colors = require('colors.jascha030.wez.og').scheme,
 
     font = fonts.normal,
+    font_with_fallback = fonts.with_fallback,
     font_rules = font_rules,
     font_size = fonts.size,
 }
