@@ -16,7 +16,10 @@ require('packer').startup({
 
         -- Impatient should be first plugin after packer.
         use({ 'lewis6991/impatient.nvim', config = [[require('impatient')]] })
-        use({ 'kyazdani42/nvim-web-devicons' })
+        use({
+            'yamatsum/nvim-nonicons',
+            requires = { 'kyazdani42/nvim-web-devicons' },
+        })
         use({ 'goolord/alpha-nvim', config = config.utils.alpha })
 
         -- Language/syntax
