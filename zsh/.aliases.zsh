@@ -31,6 +31,11 @@ alias df:util="cd ${DOTFILES}/util"
 alias df:zsh="cd ${DOTFILES}/zsh"
 alias df:alacritty="cd ${DOTFILES}/alacritty/.config/alacritty"
 
+# Navigate to git root
+alias root=$(git rev-parse --show-toplevel)
+alias g:root=root
+alias grr=root
+
 alias web:sbcomposer="open https://composer.sbdev.nl/"
 
 # Utils
