@@ -1,0 +1,98 @@
+local temp_colors = {
+    --background = '#212431',
+    -- foreground = '#a6accd',
+    --background = '#1f2335',
+    --foreground = '#c0caf5',
+    --background = '#e1e2e7',
+    --background = '#e9e9ec',
+    none = 'NONE',
+    bg_dark = '#1f2335',
+    bg = '#24283b',
+    bg_highlight = '#292e42',
+    terminal_black = '#414868',
+    fg = '#c0caf5',
+    fg_dark = '#a9b1d6',
+    fg_gutter = '#3b4261',
+    dark3 = '#545c7e',
+    comment = '#565f89',
+    dark5 = '#737aa2',
+    blue0 = '#3d59a1',
+    blue = '#7aa2f7',
+    cyan = '#7dcfff',
+    blue1 = '#2ac3de',
+    blue2 = '#0db9d7',
+    blue5 = '#89ddff',
+    blue6 = '#B4F9F8',
+    blue7 = '#394b70',
+    magenta = '#bb9af7',
+    magenta2 = '#ff007c',
+    purple = '#9d7cd8',
+    orange = '#ff9e64',
+    yellow = '#e0af68',
+    green = '#9ece6a',
+    green1 = '#73daca',
+    green2 = '#41a6b5',
+    teal = '#1abc9c',
+    red = '#f7768e',
+    red1 = '#db4b4b',
+    git = { change = '#6183bb', add = '#449dab', delete = '#914c54', conflict = '#bb7a61' },
+    gitSigns = { add = '#164846', change = '#394b70', delete = '#823c41' },
+}
+
+local colors = {
+    background = '#e9e9ec',
+    foreground = '#1f2335',
+
+    black = '#3b4261',
+    red = '#ea1479',
+    green = '#1abc9c',
+    yellow = '#ffcc00',
+    blue = '#0083f7',
+    magenta = '#6f42c1',
+    cyan = '#8494FF',
+    white = '#545c7e',
+
+    bright_black = '#3b4261',
+    bright_red = '#f47cb4',
+    bright_green = '#9ece6a',
+    bright_yellow = '#e7c547',
+    bright_blue = '#6183bb',
+    bright_magenta = '#bb9af7',
+    bright_cyan = '#a395cf',
+    bright_white = '#737aa2',
+}
+
+local scheme = {
+    background = colors.background,
+    foreground = colors.foreground,
+
+    cursor_bg = colors.yellow,
+    cursor_fg = colors.background,
+
+    ansi = {
+        colors.black,
+        colors.red,
+        colors.green,
+        colors.yellow,
+        colors.blue,
+        colors.magenta,
+        colors.cyan,
+        colors.white,
+    },
+
+    brights = {
+        colors.bright_black,
+        colors.bright_red,
+        colors.bright_green,
+        colors.bright_yellow,
+        colors.bright_blue,
+        colors.bright_magenta,
+        colors.bright_cyan,
+        colors.bright_white,
+    },
+}
+
+return {
+    colors = colors,
+    scheme = scheme,
+}
