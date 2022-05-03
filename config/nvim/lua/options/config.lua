@@ -16,6 +16,7 @@ local options_global = {
     cursorline = true,
     modifiable = true,
     updatetime = 400,
+    background = 'light',
 }
 
 local options_buffer = {}
