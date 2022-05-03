@@ -64,7 +64,7 @@ require('packer').startup({
 
         -- Theme
         use({ 'tjdevries/colorbuddy.nvim' })
-        use({ 'norcalli/nvim-colorizer.lua' })
+        use({ 'norcalli/nvim-colorizer.lua', config = config.ui.colorizer })
         use({ 'marko-cerovac/material.nvim' })
         use({ 'folke/tokyonight.nvim' })
 
