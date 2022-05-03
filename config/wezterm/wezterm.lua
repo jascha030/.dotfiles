@@ -1,5 +1,21 @@
 local wezterm = require('wezterm')
 
+local is_night_time = function()
+    if tonumber(os.date('%H')) >= 20 then
+        return true
+    else
+        return false
+    end
+end
+
+local get_colors = function()
+    if is_night_time() then
+        return require('colors.jascha030.wez.og').scheme
+    else
+        return require('colors.jascha030.wez.og_light').scheme
+    end
+end
+
 local fonts = {
     size = 17.5,
     normal = wezterm.font('MesloLGS Nerd Font'),
@@ -47,7 +63,7 @@ return {
     cursor_blink_ease_in = 'Ease',
     cursor_blink_ease_out = 'Ease',
 
-    colors = require('colors.jascha030.wez.og').scheme,
+    colors = get_colors(),
 
     font = fonts.normal,
     font_with_fallback = fonts.with_fallback,
