@@ -34,3 +34,6 @@ map('t', '<C-v><Esc>', '<Esc>', opts)
 -- Hop hop, keymappie erop
 map('n', '<Tab><Tab>', ':HopWord<CR>', opts)
 map('n', 'sR', ':source $MYVIMRC<CR>', { noremap = true, silent = true })
+
+-- Switch between light/dark mode.
+map('n', 'CS', ':lua require("colorscheme").switcher()<CR>', opts)
