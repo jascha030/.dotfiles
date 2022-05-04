@@ -136,14 +136,14 @@ local tree = function()
 
         ignore_ft_on_setup = {},
 
-        update_to_buf_dir = {
-            enable = true,
-            auto_open = true,
-        },
+        -- update_to_buf_dir = {
+        --   enable = true,
+        --   auto_open = true,
+        -- },
 
         diagnostics = {
             enable = false,
-            icons = icons,
+            -- icons = icons,
         },
 
         git = { ignore = false },
@@ -164,7 +164,7 @@ local tree = function()
             width = 40,
             height = 30,
             side = 'right',
-            auto_resize = false,
+            -- auto_resize = false,
             mappings = {
                 custom_only = false,
                 list = {
