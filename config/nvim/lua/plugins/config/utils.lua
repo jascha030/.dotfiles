@@ -52,9 +52,6 @@ local treesitter = function()
             enable = true,
             extended_mode = true,
             max_file_lines = nil,
-            -- disable = { "jsx", "cpp" },
-            -- colors = {},
-            -- termcolors = {}
         },
     })
 end
