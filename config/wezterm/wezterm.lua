@@ -1,7 +1,7 @@
 local wezterm = require('wezterm')
 
 local is_night_time = function()
-    if tonumber(os.date('%H')) >= 20 then
+    if tonumber(os.date('%H')) >= 19 then
         return true
     else
         return false
