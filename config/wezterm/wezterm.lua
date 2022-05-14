@@ -1,15 +1,21 @@
 local wezterm = require('wezterm')
 
-local is_night_time = function()
-    if tonumber(os.date('%H')) >= 19 then
-        return true
+local is_night_time = function(reverse)
+    reverse = reverse or false
+
+    local hour = tonumber(os.date('%H'))
+
+    if hour >= 19 or hour <= 10 then
+        return reverse and false or true
     else
-        return false
+        return reverse and true or false
     end
 end
 
-local get_colors = function()
-    if is_night_time() then
+local get_colors = function(reverse)
+    reverse = reverse or false
+
+    if is_night_time(reverse) then
         return require('colors.jascha030.wez.og').scheme
     else
         return require('colors.jascha030.wez.og_light').scheme
@@ -63,7 +69,7 @@ return {
     cursor_blink_ease_in = 'Ease',
     cursor_blink_ease_out = 'Ease',
 
-    colors = get_colors(),
+    colors = get_colors(false),
 
     font = fonts.normal,
     font_with_fallback = fonts.with_fallback,

@@ -18,7 +18,13 @@ local color_overrides = {
 }
 
 local set_background_timed = function()
-    vim.o.background = tonumber(os.date('%H')) >= 19 and 'dark' or 'light'
+    local hour = tonumber(os.date('%H'))
+
+    if hour >= 19 or hour <= 10 then
+        vim.o.background = 'dark'
+    else
+        vim.o.background = 'light'
+    end
 end
 
 local is_light = function()
