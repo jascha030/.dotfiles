@@ -3,6 +3,7 @@ local doubleTap = require('doubleTap')
 local settings = require('settings')
 
 -- Globals and init.
+hs.ipc.cliInstall()
 hs.spoons.use('EmmyLua')
 
 hs.window.animationDuration = 0
