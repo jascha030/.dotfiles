@@ -1,27 +1,5 @@
 local wezterm = require('wezterm')
 
-local is_night_time = function(reverse)
-    reverse = reverse or false
-
-    local hour = tonumber(os.date('%H'))
-
-    if hour >= 19 or hour <= 10 then
-        return reverse and false or true
-    else
-        return reverse and true or false
-    end
-end
-
-local get_colors = function(reverse)
-    reverse = reverse or false
-
-    if is_night_time(reverse) then
-        return require('colors.jascha030.wez.og').scheme
-    else
-        return require('colors.jascha030.wez.og_light').scheme
-    end
-end
-
 local fonts = {
     size = 17.5,
     normal = wezterm.font('MesloLGS Nerd Font'),
@@ -52,6 +30,27 @@ local font_rules = {
     },
 }
 
+local get_scheme = function(scheme)
+    if scheme == 'Dark' then
+        return require('colors.jascha030.wez.og').scheme
+    else
+        return require('colors.jascha030.wez.og_light').scheme
+    end
+end
+
+wezterm.on('window-config-reloaded', function(window, pane)
+    local overrides = window:get_config_overrides() or {}
+    local appearance = window:get_appearance()
+    local scheme = get_scheme(appearance)
+
+    wezterm.log_info(appearance)
+
+    if overrides.colors ~= scheme then
+        overrides.colors = scheme
+        window:set_config_overrides(overrides)
+    end
+end)
+
 return {
     default_prog = { '/usr/local/bin/zsh', '--login' },
 
@@ -69,7 +68,7 @@ return {
     cursor_blink_ease_in = 'Ease',
     cursor_blink_ease_out = 'Ease',
 
-    colors = get_colors(false),
+    colors = get_scheme('Dark'),
 
     font = fonts.normal,
     font_with_fallback = fonts.with_fallback,
