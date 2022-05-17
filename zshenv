@@ -30,3 +30,5 @@ fpath+=$HOME/.zfunc
 # Zoxide 
 eval "$(zoxide init zsh)"
 
+export MACOS_CURRENT_COLOR_SCHEME=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark || echo light)
+
