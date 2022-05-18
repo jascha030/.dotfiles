@@ -33,12 +33,12 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 
 	  # Workaround because of macOS' outdated ncurses.
 	  # Figured out using: https://gist.github.com/bbqtd/a4ac060d6f6b9ea6fe3aabe735aa9d95
-	  if [[ $TERM == "tmux-256color" ]]; then
-      	export TERM=screen-256color
-	  fi
+	  #if [[ $TERM == "tmux-256color" ]]; then
+    #  	export TERM=screen-256color
+	  #fi
 
 	  if which tmux 2>&1 >/dev/null; then
-   	  if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
+   	  if [ $TERM != "tmux-256color" ] && [  $TERM != "screen" ]; then
 			  tmux attach -t main || tmux new -s main; exit
    	  fi
 	  fi
