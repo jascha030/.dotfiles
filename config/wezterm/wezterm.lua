@@ -1,7 +1,7 @@
 local wezterm = require('wezterm')
 
 local fonts = {
-    size = 18,
+    size = 19,
     normal = wezterm.font('MesloLGS Nerd Font'),
     italic = wezterm.font('Dank Mono', {
         italic = true,
@@ -61,6 +61,7 @@ return {
         top = 4,
         bottom = 0,
     },
+
     enable_tab_bar = false,
 
     default_cursor_style = 'BlinkingBlock',
