@@ -17,28 +17,22 @@ local color_overrides = {
     light = {},
 }
 
-local set_background_timed = function()
-    local hour = tonumber(os.date('%H'))
-
-    if hour >= 19 or hour <= 10 then
-        vim.o.background = 'dark'
-    else
-        vim.o.background = 'light'
-    end
+local os_is_dark = function()
+    return (vim.call('system', [[echo $(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 'dark' || echo 'light')]])):find('dark') ~= nil
 end
 
-local is_light = function()
-    return vim.o.background == 'light'
+local is_dark = function()
+    return vim.o.background == 'dark'
 end
 
-local set_scheme_for_style = function()
+local set_scheme_for_style = function(dark)
     vim.g = vim.tbl_deep_extend('force', vim.g, {
         tokyonight_colors = vim.tbl_deep_extend(
             'force',
             theme_colors,
-            is_light() and color_overrides.light or color_overrides.dark
+            dark and color_overrides.dark or color_overrides.light
         ),
-        tokyonight_style = is_light() and 'day' or 'storm',
+        tokyonight_style = dark and 'storm' or 'day',
         tokyonight_italic_functions = true,
         tokyonight_italic_comments = true,
         tokyonight_sidebars = { 'terminal', 'packer' },
@@ -47,24 +41,24 @@ local set_scheme_for_style = function()
     vim.cmd([[colorscheme tokyonight]])
 end
 
-local init = function(time_based)
-    time_based = time_based or false
-
-    if time_based == true then
-        set_background_timed()
-    end
-
-    set_scheme_for_style()
-end
-
-local toggle = function()
-    if is_light() then
+local init = function()
+    if os_is_dark() then
         vim.o.background = 'dark'
     else
         vim.o.background = 'light'
     end
 
-    init()
+    set_scheme_for_style(os_is_dark())
+end
+
+local toggle = function()
+    if is_dark() then
+        vim.o.background = 'light'
+    else
+        vim.o.background = 'dark'
+    end
+
+    set_scheme_for_style(is_dark())
 end
 
 return {
