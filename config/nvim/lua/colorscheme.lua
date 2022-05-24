@@ -18,7 +18,10 @@ local color_overrides = {
 }
 
 local os_is_dark = function()
-    return (vim.call('system', [[echo $(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 'dark' || echo 'light')]])):find('dark') ~= nil
+    return (vim.call(
+        'system',
+        [[echo $(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 'dark' || echo 'light')]]
+    )):find('dark') ~= nil
 end
 
 local is_dark = function()
@@ -41,7 +44,7 @@ local set_scheme_for_style = function(dark)
     vim.cmd([[colorscheme tokyonight]])
 end
 
-local init = function()
+local set_from_os = function()
     if os_is_dark() then
         vim.o.background = 'dark'
     else
@@ -49,6 +52,17 @@ local init = function()
     end
 
     set_scheme_for_style(os_is_dark())
+end
+
+local init = function()
+    set_from_os()
+
+    vim.api.nvim_create_autocmd('Signal', {
+        pattern = '*',
+        callback = function()
+            set_from_os()
+        end,
+    })
 end
 
 local toggle = function()
