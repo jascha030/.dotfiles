@@ -56,8 +56,8 @@ return {
 
     window_decorations = 'NONE | RESIZE',
     window_padding = {
-        left = 4,
-        right = 4,
+        left = 2,
+        right = 2,
         top = 4,
         bottom = 0,
     },
