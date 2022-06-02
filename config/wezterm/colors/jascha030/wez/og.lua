@@ -1,8 +1,12 @@
 local colors = {
-    --background = '#212431',
+    -- background = '#212431',
     -- foreground = '#a6accd',
-    background = '#1f2335',
-    foreground = '#c0caf5',
+    -- background = '#1f2335',
+    -- foreground = '#c0caf5',
+    -- bright_blue = '#c397d8',
+
+    background = '#1e2030',
+    foreground = '#c8d3f5',
 
     black = '#1a1423',
     red = '#ea1479',
@@ -13,11 +17,12 @@ local colors = {
     cyan = '#8494FF',
     white = '#c5c8c6',
 
-    bright_black = '#666666',
+    bright_black = '#444a73',
     bright_red = '#F47CB4',
     bright_green = '#cdffb0',
     bright_yellow = '#e7c547',
-    bright_blue = '#c397d8',
+    -- bright_blue = '#c397d8',
+    bright_blue = '#c099ff',
     bright_magenta = '#7fefef',
     bright_cyan = '#a395cf',
     bright_white = '#fefefe',
