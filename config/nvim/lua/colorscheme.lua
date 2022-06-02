@@ -38,6 +38,8 @@ local set_scheme_for_style = function(dark)
         tokyonight_style = dark and 'storm' or 'day',
         tokyonight_italic_functions = true,
         tokyonight_italic_comments = true,
+        -- tokyonight_dark_sidebar = true,
+        tokyonight_transparent_sidebar = true,
         tokyonight_sidebars = { 'terminal', 'packer' },
     })
 
