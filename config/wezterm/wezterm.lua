@@ -1,33 +1,24 @@
 local wezterm = require('wezterm')
 
+local font_with_fallback = function(name, args)
+    local names = {
+        'nonicons',
+        name,
+    }
+
+    return wezterm.font_with_fallback(names, args)
+end
+
 local fonts = {
     size = 19,
-    normal = wezterm.font('MesloLGS Nerd Font'),
-    italic = wezterm.font('Dank Mono', {
-        italic = true,
-        weight = 500,
-    }),
+    normal = font_with_fallback({ family = 'MesloLGS Nerd Font', italic = false, weight = 600 }),
+    italic = wezterm.font('Dank Mono', { italic = true, weight = 500 }),
 }
 
 local font_rules = {
-    {
-        italic = false,
-        intensity = 'Normal',
-        font = wezterm.font_with_fallback({
-            'nonicons',
-            { family = 'MesloLGS Nerd Font', italic = false, weight = 600 },
-        }),
-    },
-    {
-        italic = true,
-        intensity = 'Bold',
-        font = fonts.normal,
-    },
-    {
-        italic = true,
-        intensity = 'Normal',
-        font = fonts.italic,
-    },
+    { italic = false, intensity = 'Normal', font = fonts.normal },
+    { italic = true, intensity = 'Bold', font = fonts.normal },
+    { italic = true, intensity = 'Normal', font = fonts.italic },
 }
 
 local get_scheme = function(scheme)
@@ -55,15 +46,15 @@ return {
     default_prog = { '/usr/local/bin/zsh', '--login' },
 
     set_environment_variables = {
-        TERM = "xterm-256color"
+        --TERM = "xterm-256color"
     },
 
     window_decorations = 'NONE | RESIZE',
     window_padding = {
-        left = 2,
-        right = 2,
-        top = 4,
-        bottom = 0,
+        left = 6,
+        right = 6,
+        top = 6,
+        bottom = 4,
     },
 
     enable_tab_bar = false,
@@ -75,8 +66,7 @@ return {
 
     colors = get_scheme('Dark'),
 
-    font = fonts.normal,
-    font_with_fallback = fonts.with_fallback,
+    font = wezterm.font('MesloLGS Nerd Font'),
     font_rules = font_rules,
     font_size = fonts.size,
 }
