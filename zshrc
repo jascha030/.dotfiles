@@ -24,6 +24,8 @@ eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-ins
 
 #------------------------------------------------------ Tmux -------------------------------------------------------- #
 
+alias tmux="TERM=xterm-256color tmux"
+
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 
   [[ -v VIM && -v VIMRUNTIME && -v MYVIMRC  ]] && VIM_TERM_MODE_ACTIVE=true || VIM_TERM_MODE_ACTIVE=false
@@ -109,7 +111,7 @@ fonts=(
 #LOLCAT_MSG_FONT="speed"
 LOLCAT_MSG_FONT=$fonts[$_RANDOM_LC_NUM]
 [[ $VIM_TERM_MODE_ACTIVE == false ]] && LOLCAT_MSG_TEXT="Hackerman Mode 030" || LOLCAT_MSG_TEXT="NEOVIM 030"
-[[ $VIM_TERM_MODE_ACTIVE == false ]] && COLS_W$(tmux display -p '#{pane_width}-#{pane_height}') || COLS_W=$(tput cols)
+[[ $VIM_TERM_MODE_ACTIVE == false ]] && COLS_W=$(tmux display -p '#{pane_width}-#{pane_height}') || COLS_W=$(tput cols)
 
 clear
 
