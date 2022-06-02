@@ -54,6 +54,10 @@ end)
 return {
     default_prog = { '/usr/local/bin/zsh', '--login' },
 
+    set_environment_variables = {
+        TERM = "xterm-256color"
+    },
+
     window_decorations = 'NONE | RESIZE',
     window_padding = {
         left = 2,
