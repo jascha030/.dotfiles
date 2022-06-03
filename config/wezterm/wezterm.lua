@@ -1,10 +1,8 @@
 local wezterm = require('wezterm')
+local theme = require('colors')
 
 local font_with_fallback = function(name, args)
-    local names = {
-        'nonicons',
-        name,
-    }
+    local names = { 'nonicons', name }
 
     return wezterm.font_with_fallback(names, args)
 end
@@ -23,9 +21,9 @@ local font_rules = {
 
 local get_scheme = function(scheme)
     if scheme == 'Dark' then
-        return require('colors.jascha030.wez.og').scheme
+        return theme.scheme('colors.jascha030.wez.og')
     else
-        return require('colors.jascha030.wez.og_light').scheme
+        return theme.scheme('colors.jascha030.wez.og_light')
     end
 end
 
@@ -45,16 +43,12 @@ end)
 return {
     default_prog = { '/usr/local/bin/zsh', '--login' },
 
-    set_environment_variables = {
-        --TERM = "xterm-256color"
-    },
-
     window_decorations = 'NONE | RESIZE',
     window_padding = {
         left = 6,
         right = 6,
         top = 6,
-        bottom = 4,
+        bottom = 6,
     },
 
     enable_tab_bar = false,

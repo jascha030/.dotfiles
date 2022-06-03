@@ -1,5 +1,5 @@
 local default_scheme = os.getenv('HOME') .. '/.config/wezterm/colors/jascha030/wez/og.lua'
-local colors = dofile(default_scheme).colors
+local colors = dofile(default_scheme)
 
 local theme_colors = {
     yellow = colors.yellow,
@@ -13,7 +13,7 @@ local theme_colors = {
 }
 
 local color_overrides = {
-    dark = { bg_dark = colors.background },
+    dark = { bg_dark = '#' },
     light = {},
 }
 
@@ -38,8 +38,8 @@ local set_scheme_for_style = function(dark)
         tokyonight_style = dark and 'storm' or 'day',
         tokyonight_italic_functions = true,
         tokyonight_italic_comments = true,
-        -- tokyonight_dark_sidebar = true,
-        tokyonight_transparent_sidebar = true,
+        tokyonight_dark_sidebar = true,
+        -- tokyonight_transparent_sidebar = true,
         tokyonight_sidebars = { 'terminal', 'packer' },
     })
 

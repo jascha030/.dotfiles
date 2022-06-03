@@ -1,10 +1,4 @@
-local colors = {
-    -- background = '#212431',
-    -- foreground = '#a6accd',
-    -- background = '#1f2335',
-    -- foreground = '#c0caf5',
-    -- bright_blue = '#c397d8',
-
+return {
     background = '#1e2030',
     foreground = '#c8d3f5',
 
@@ -21,44 +15,8 @@ local colors = {
     bright_red = '#F47CB4',
     bright_green = '#cdffb0',
     bright_yellow = '#e7c547',
-    -- bright_blue = '#c397d8',
     bright_blue = '#c099ff',
     bright_magenta = '#7fefef',
     bright_cyan = '#a395cf',
     bright_white = '#fefefe',
-}
-
-local scheme = {
-    background = colors.background,
-    foreground = colors.foreground,
-
-    cursor_bg = colors.yellow,
-    cursor_fg = colors.background,
-
-    ansi = {
-        colors.black,
-        colors.red,
-        colors.green,
-        colors.yellow,
-        colors.blue,
-        colors.magenta,
-        colors.cyan,
-        colors.white,
-    },
-
-    brights = {
-        colors.bright_black,
-        colors.bright_red,
-        colors.bright_green,
-        colors.bright_yellow,
-        colors.bright_blue,
-        colors.bright_magenta,
-        colors.bright_cyan,
-        colors.bright_white,
-    },
-}
-
-return {
-    colors = colors,
-    scheme = scheme,
 }
