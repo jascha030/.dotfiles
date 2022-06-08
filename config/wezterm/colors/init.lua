@@ -1,4 +1,7 @@
-local M = {}
+local default = {
+    dark = 'colors.jascha030.wez.og',
+    light = 'colors.jascha030.wez.og_light',
+}
 
 local scheme_from_colors = function(colors)
     return {
@@ -32,9 +35,7 @@ local scheme_from_colors = function(colors)
     }
 end
 
-M.scheme_from_colors = scheme_from_colors
-
-M.scheme = function(module, color_overrides)
+local function scheme_from_module(module, color_overrides)
     color_overrides = color_overrides or nil
 
     local ok, _ = pcall(require, module)
@@ -53,4 +54,16 @@ M.scheme = function(module, color_overrides)
     return scheme_from_colors(scheme_colors)
 end
 
-return M
+local function is_dark(scheme)
+    return scheme == 'Dark'
+end
+
+local function get_scheme(scheme)
+    return scheme_from_module(is_dark(scheme) and default.dark or default.light)
+end
+
+return {
+    scheme_from_colors = scheme_from_colors,
+    scheme = scheme_from_module,
+    get_scheme = get_scheme,
+}
