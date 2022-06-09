@@ -72,7 +72,9 @@ eval "$(fnm env)"
 # Teleport-dir (Rust)
 eval "$(teleport-dir init)"
 
+#-------------------------------------------- ✨ 🚀 Init SpaceShip 🚀 ✨ ---------------------------------------------#
 
+eval "$(starship init zsh)"
 
 #------------------- Display Hackerman-ness for people who don't understand terminals when done ----------------------#
 
