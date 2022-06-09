@@ -17,22 +17,17 @@ eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-ins
   disown &>/dev/null
 }
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
+
 #------------------------------------------------------ Tmux -------------------------------------------------------- #
 
 alias tmux="TERM=xterm-256color tmux"
 
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-
   [[ -v VIM && -v VIMRUNTIME && -v MYVIMRC  ]] && VIM_TERM_MODE_ACTIVE=true || VIM_TERM_MODE_ACTIVE=false
-
+ 
   if [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" && $VIM_TERM_MODE_ACTIVE != true ]]; then
 	  ZSH_TMUX_AUTOSTART=true
-
-	  # Workaround because of macOS' outdated ncurses.
-	  # Figured out using: https://gist.github.com/bbqtd/a4ac060d6f6b9ea6fe3aabe735aa9d95
-	  #if [[ $TERM == "tmux-256color" ]]; then
-    #  	export TERM=screen-256color
-	  #fi
 
 	  if which tmux 2>&1 >/dev/null; then
    	  if [ $TERM != "tmux-256color" ] && [  $TERM != "screen" ]; then
@@ -62,26 +57,25 @@ auto-ls-lsd () {
 
 AUTO_LS_COMMANDS=(lsd git-status)
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
-
 #----------------------------------------- Other Init & Added by installs --------------------------------------------#
 
-# PyEnv
+# tab-tab
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
+
+# Python PyEnv
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
+
+# NodeJS version management
 eval "$(fnm env)"
 
 # Teleport-dir (Rust)
 eval "$(teleport-dir init)"
 
-# tab-tab
-[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
-
-# iTerm
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 
 #------------------- Display Hackerman-ness for people who don't understand terminals when done ----------------------#
+
 _RANDOM_LC_NUM=$(( ( RANDOM % 10 )  + 1 ))
 [[ $_RANDOM_LC_NUM > 5 ]] && RANDOM_LC=$(which lolcat) || RANDOM_LC=$(which lolcrab) 
 
@@ -101,6 +95,7 @@ fonts=(
 
 #LOLCAT_MSG_FONT="speed"
 LOLCAT_MSG_FONT=$fonts[$_RANDOM_LC_NUM]
+
 [[ $VIM_TERM_MODE_ACTIVE == false ]] && LOLCAT_MSG_TEXT="Hackerman Mode 030" || LOLCAT_MSG_TEXT="NEOVIM 030"
 [[ $VIM_TERM_MODE_ACTIVE == false ]] && COLS_W=$(tmux display -p '#{pane_width}-#{pane_height}') || COLS_W=$(tput cols)
 
