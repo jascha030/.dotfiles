@@ -69,6 +69,31 @@ function WindowManager:move(application, space, builtinScreen)
     win:focus()
 end
 
+function WindowManager:center(builtinScreen)
+    local win = hs.window.frontmostWindow()
+    local mainScreen = hs.screen.mainScreen()
+    local space = hs.spaces.activeSpaceOnScreen(mainScreen)
+
+    local spaceScreen = screen.find(spaces.spaceDisplay(space))
+    local windowSpaces = spaces.windowSpaces(win)
+
+    if windowSpaces[0] ~= space then
+        win:moveToScreen(spaceScreen)
+        spaces.moveWindowToSpace(win:id(), space)
+    end
+
+    local winFrame = win:frame()
+    local scrFrame = spaceScreen:fullFrame()
+
+    winFrame.h = (scrFrame.h / 3) * 2
+    winFrame.w = (scrFrame.w / 4) * self:getWidthFactor(spaceScreen, builtinScreen)
+
+    winFrame.y = scrFrame.y + ((scrFrame.h / 2) - (winFrame.h / 2))
+    winFrame.x = scrFrame.x + ((scrFrame.w / 2) - (winFrame.w / 2))
+
+    win:setFrame(winFrame, 0)
+end
+
 local M = {}
 
 M.manager = function(division, factor)
