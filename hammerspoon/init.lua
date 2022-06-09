@@ -1,19 +1,34 @@
 require('hs.ipc')
 
 hs.ipc.cliInstall()
-
--- Globals and init.
 hs.spoons.use('EmmyLua')
 
--- Global values
 hs.window.setShadows(false)
 hs.window.animationDuration = 0
+
+hs.loadSpoon('SpoonInstall')
+spoon.SpoonInstall:andUse('RoundedCorners', { start = true, config = { radius = 8 } })
+
+local utils = require('utils')
+local settings = require('settings')
+local quake = require('quake')
+
+-- Load settings
+settings:setup({})
+
+-- Terminal Emulator App (default: 'Alacritty.app')
+-- Default screen
+local app = settings:get('termApp')
+local screen = settings:get('builtinScreen')
+local windowManager = utils.window.manager(4, 2)
 
 -- Enables quake terminal.
 --
 -- Term app: Wezterm
 -- Trigger: Double tap cmd
-require('quake')
+quake.set(app, screen)
 
-hs.loadSpoon("SpoonInstall")
-
+-- Hotkeys
+hs.hotkey.bind({ 'ctrl', 'alt' }, 'l', function()
+    windowManager:center()
+end)
