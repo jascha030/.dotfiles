@@ -1,8 +1,3 @@
-# Powerlevel10k insta-prompt, Init Code that may require input go above this block;
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Clean up annoying history files .etc (place them in $HOME/.config/datafiles
 [ -f $HOME/.dotfiles/zsh/.data.zsh ] && source $HOME/.dotfiles/zsh/.data.zsh
 
@@ -46,9 +41,8 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 	  fi
   fi
 fi
-#----------------------------------------------- Sources & Paths -----------------------------------------------------#
 
-source $HOME/.p10k.zsh
+#----------------------------------------------- Sources & Paths -----------------------------------------------------#
 
 ZSH_FILES=(
     ".path.zsh"
@@ -86,9 +80,6 @@ eval "$(teleport-dir init)"
 # iTerm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-if [[ $TERMINAL_EMULATOR == "JetBrains-JediTerm" ]] then
-	unset ITERM_SHELL_INTEGRATION_INSTALLED && p10k reload
-fi
 
 #------------------- Display Hackerman-ness for people who don't understand terminals when done ----------------------#
 _RANDOM_LC_NUM=$(( ( RANDOM % 10 )  + 1 ))
