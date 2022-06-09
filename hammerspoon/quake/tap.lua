@@ -76,3 +76,4 @@ module.eventWatcher = eventtap.new({ events.flagsChanged, events.keyDown }, func
 end):start()
 
 return module
+

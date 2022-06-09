@@ -1,6 +1,6 @@
 local windowManager = require('utils.window').manager(4, 2)
 
-local toggle = function(appName, builtinScreen)
+local function toggle(appName, builtinScreen)
     local instance = hs.application.get(appName)
 
     if instance ~= nil and instance:isFrontmost() then
@@ -32,5 +32,5 @@ end
 
 return {
     toggle = toggle,
-    alacritty = require('term.alacritty'),
 }
+
