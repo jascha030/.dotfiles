@@ -60,6 +60,7 @@ require('packer').startup({
         use({ 'petertriho/nvim-scrollbar', config = config.ui.scrollbar })
         use({ 'noib3/nvim-cokeline', config = config.ui.cokeline })
         use({ 'hoob3rt/lualine.nvim', config = config.ui.lualine })
+        use({ 'is0n/fm-nvim' })
         -- requires = { 'kyazdani42/nvim-web-devicons', opt = true },
 
         -- Theme
