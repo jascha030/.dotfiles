@@ -34,7 +34,6 @@ end
 
 function WindowManager:move(application, space, builtinScreen)
     local win = nil
-
     while win == nil do
         win = application:mainWindow()
     end
@@ -59,7 +58,6 @@ function WindowManager:move(application, space, builtinScreen)
     then
         winFrame.h = (scrFrame.h / 3) * 2
         winFrame.w = (scrFrame.w / 4) * self:getWidthFactor(spaceScreen, builtinScreen)
-
         winFrame.y = scrFrame.y + ((scrFrame.h / 2) - (winFrame.h / 2))
         winFrame.x = scrFrame.x + ((scrFrame.w / 2) - (winFrame.w / 2))
 
@@ -71,9 +69,7 @@ end
 
 function WindowManager:center(builtinScreen)
     local win = hs.window.frontmostWindow()
-    local mainScreen = hs.screen.mainScreen()
-    local space = hs.spaces.activeSpaceOnScreen(mainScreen)
-
+    local space = hs.spaces.activeSpaceOnScreen(hs.screen.mainScreen())
     local spaceScreen = screen.find(spaces.spaceDisplay(space))
     local windowSpaces = spaces.windowSpaces(win)
 
@@ -87,17 +83,10 @@ function WindowManager:center(builtinScreen)
 
     winFrame.h = (scrFrame.h / 3) * 2
     winFrame.w = (scrFrame.w / 4) * self:getWidthFactor(spaceScreen, builtinScreen)
-
     winFrame.y = scrFrame.y + ((scrFrame.h / 2) - (winFrame.h / 2))
     winFrame.x = scrFrame.x + ((scrFrame.w / 2) - (winFrame.w / 2))
 
     win:setFrame(winFrame, 0)
 end
 
-local M = {}
-
-M.manager = function(division, factor)
-    return WindowManager:new(nil, division or 4, factor or 2)
-end
-
-return M
+return WindowManager

@@ -3,29 +3,11 @@ local timer = require('hs.timer')
 local eventtap = require('hs.eventtap')
 
 local events = eventtap.event.types
-local module = {}
-
--- Default config
--- timeFrame:
---    Max interval time between keypresses (in seconds).
---    type: int
---    default: 1
-module.timeFrame = 1
-
--- action:
---    The callback function executed on doubleTap.
---    type: function
---    default: Displays message as alert
-module.action = function()
-    alert('You double tapped cmd!')
-end
-
--- doubleTap Function
 local timeFirstControl, firstDown, secondDown = 0, false, false
 
--- verify that no keyboard flags are being pressed
-local noFlags = function(ev)
+local function no_flags(ev)
     local result = true
+
     for k, v in pairs(ev:getFlags()) do
         if v then
             result = false
@@ -36,36 +18,46 @@ local noFlags = function(ev)
     return result
 end
 
--- verify that *only* the cmd key flag is being pressed
-local onlyCtrl = function(ev)
+local function only_cmd(ev)
     local result = ev:getFlags().cmd
+
     for k, v in pairs(ev:getFlags()) do
         if k ~= 'cmd' and v then
             result = false
             break
         end
     end
+
     return result
 end
 
-module.eventWatcher = eventtap.new({ events.flagsChanged, events.keyDown }, function(ev)
+local function default_callback()
+    alert('You double tapped cmd!')
+end
+
+local M = {
+    timeFrame = 1,
+    action = default_callback
+}
+
+M.eventWatcher = eventtap.new({ events.flagsChanged, events.keyDown }, function(ev)
     -- if it's been too long; previous state doesn't matter
-    if (timer.secondsSinceEpoch() - timeFirstControl) > module.timeFrame then
+    if (timer.secondsSinceEpoch() - timeFirstControl) > M.timeFrame then
         timeFirstControl, firstDown, secondDown = 0, false, false
     end
 
     if ev:getType() == events.flagsChanged then
-        if noFlags(ev) and firstDown and secondDown then
-            if module.action then
-                module.action()
+        if no_flags(ev) and firstDown and secondDown then
+            if M.action then
+                M.action()
             end
             timeFirstControl, firstDown, secondDown = 0, false, false
-        elseif onlyCtrl(ev) and not firstDown then
+        elseif only_cmd(ev) and not firstDown then
             firstDown = true
             timeFirstControl = timer.secondsSinceEpoch()
-        elseif onlyCtrl(ev) and firstDown then
+        elseif only_cmd(ev) and firstDown then
             secondDown = true
-        elseif not noFlags(ev) then
+        elseif not no_flags(ev) then
             timeFirstControl, firstDown, secondDown = 0, false, false
         end
     else
@@ -75,5 +67,4 @@ module.eventWatcher = eventtap.new({ events.flagsChanged, events.keyDown }, func
     return false
 end):start()
 
-return module
-
+return M

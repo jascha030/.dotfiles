@@ -1,4 +1,4 @@
-local windowManager = require('utils.window').manager(4, 2)
+local windowManager = require('jascha030.window').manager
 
 local function toggle(appName, builtinScreen)
     local instance = hs.application.get(appName)
