@@ -21,7 +21,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
 
 #------------------------------------------------------ Tmux -------------------------------------------------------- #
 
-alias tmux="TERM=xterm-256color tmux"
+alias tmux="TERM=screen-256color tmux"
 
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
   [[ -v VIM && -v VIMRUNTIME && -v MYVIMRC  ]] && VIM_TERM_MODE_ACTIVE=true || VIM_TERM_MODE_ACTIVE=false
