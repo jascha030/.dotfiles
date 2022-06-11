@@ -1,4 +1,5 @@
-local function table_merge(t1, t2)
+local table_merge
+table_merge = function(t1, t2)
     for k, v in pairs(t2) do
         if type(v) == 'table' then
             if type(t1[k] or false) == 'table' then
