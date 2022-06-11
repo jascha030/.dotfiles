@@ -5,10 +5,10 @@ local eventtap = require('hs.eventtap')
 local events = eventtap.event.types
 local timeFirstControl, firstDown, secondDown = 0, false, false
 
-local function no_flags(ev)
+local function no_flags(event)
     local result = true
 
-    for k, v in pairs(ev:getFlags()) do
+    for k, v in pairs(event:getFlags()) do
         if v then
             result = false
             break
@@ -18,10 +18,10 @@ local function no_flags(ev)
     return result
 end
 
-local function only_cmd(ev)
-    local result = ev:getFlags().cmd
+local function only_cmd(event)
+    local result = event:getFlags().cmd
 
-    for k, v in pairs(ev:getFlags()) do
+    for k, v in pairs(event:getFlags()) do
         if k ~= 'cmd' and v then
             result = false
             break
@@ -40,24 +40,24 @@ local M = {
     action = default_callback
 }
 
-M.eventWatcher = eventtap.new({ events.flagsChanged, events.keyDown }, function(ev)
+M.eventWatcher = eventtap.new({ events.flagsChanged, events.keyDown }, function(event)
     -- if it's been too long; previous state doesn't matter
     if (timer.secondsSinceEpoch() - timeFirstControl) > M.timeFrame then
         timeFirstControl, firstDown, secondDown = 0, false, false
     end
 
-    if ev:getType() == events.flagsChanged then
-        if no_flags(ev) and firstDown and secondDown then
+    if event:getType() == events.flagsChanged then
+        if no_flags(event) and firstDown and secondDown then
             if M.action then
                 M.action()
             end
             timeFirstControl, firstDown, secondDown = 0, false, false
-        elseif only_cmd(ev) and not firstDown then
+        elseif only_cmd(event) and not firstDown then
             firstDown = true
             timeFirstControl = timer.secondsSinceEpoch()
-        elseif only_cmd(ev) and firstDown then
+        elseif only_cmd(event) and firstDown then
             secondDown = true
-        elseif not no_flags(ev) then
+        elseif not no_flags(event) then
             timeFirstControl, firstDown, secondDown = 0, false, false
         end
     else
