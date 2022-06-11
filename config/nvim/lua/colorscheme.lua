@@ -1,4 +1,4 @@
-local default_scheme = os.getenv('HOME') .. '/.config/wezterm/colors/jascha030/wez/og.lua'
+local default_scheme = os.getenv('HOME') .. '/.config/wezterm/theme/jascha030/wez/og.lua'
 local colors = dofile(default_scheme)
 
 local theme_colors = {

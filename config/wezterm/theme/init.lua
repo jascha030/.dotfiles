@@ -1,6 +1,6 @@
 local default = {
-    dark = 'colors.jascha030.wez.og',
-    light = 'colors.jascha030.wez.og_light',
+    dark = 'theme.jascha030.wez.og',
+    light = 'theme.jascha030.wez.og_light',
 }
 
 local scheme_from_colors = function(colors)

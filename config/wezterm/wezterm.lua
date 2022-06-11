@@ -1,10 +1,10 @@
 local wezterm = require('wezterm')
-local theme = require('colors')
+local theme = require('theme')
 local fonts = require('fonts')
 
 wezterm.on('window-config-reloaded', function(window, pane)
     local overrides = window:get_config_overrides() or {}
-    local scheme = get_scheme(window:get_appearance())
+    local scheme = theme.get_scheme(window:get_appearance())
 
     if overrides.colors ~= scheme then
         overrides.colors = scheme
