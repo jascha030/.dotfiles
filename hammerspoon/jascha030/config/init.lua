@@ -2,7 +2,6 @@ local status_ok, ini = pcall(require, 'jascha030.config.ini')
 if not status_ok then
     error('ini.lua is required')
 end
-
 local utils = require('jascha030.utils')
 
 local function file_exists(name)
@@ -16,8 +15,14 @@ local function file_exists(name)
 end
 
 local M = {
-    config = { iniPath = os.getenv('HOME') .. '/.hotkey.ini' },
-    data = { builtinScreen = nil, termApp = 'Alacritty', tapKey = 'cmd' },
+    config = {
+        iniPath = os.getenv('HOME') .. '/.hotkey.ini',
+    },
+    data = {
+        builtinScreen = nil,
+        termApp = 'Alacritty',
+        tapKey = 'cmd',
+    },
 }
 
 function M:get(key)
