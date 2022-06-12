@@ -1,33 +1,19 @@
-# Oh-my-zsh!
 antigen use oh-my-zsh
-
-# Bundles so we don't drop a bundle
-antigen bundle git
-antigen bundle command-not-found
-antigen bundle z
-antigen bundle tmux
-antigen bundle pip
-antigen bundle fzf
-antigen bundle jsontools
-antigen bundle copybuffer
-
-# Fzf, See what all the "Fuzz" is about...
-antigen bundle leophys/zsh-plugin-fzf-finder
-antigen bundle Aloxaf/fzf-tab
-
-# Color the whole Schwip Schwap accordingly
-antigen bundle chrissicool/zsh-256color
-
-antigen bundle lukechilds/zsh-nvm
-antigen bundle desyncr/auto-ls
-
-#THEME=romkatv/powerlevel10k
-#antigen list | grep $THEME; if [ $? -ne 0 ]; then antigen theme $THEME; fi
-
-# ZSHeuuuuujjjjj
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle git
+antigen bundle tmux
+antigen bundle copybuffer
+antigen bundle command-not-found
+antigen bundle z
+antigen bundle pip
+antigen bundle jsontools
+antigen bundle fzf
+antigen bundle Aloxaf/fzf-tab
+antigen bundle leophys/zsh-plugin-fzf-finder
+antigen bundle chrissicool/zsh-256color
+antigen bundle desyncr/auto-ls
 
 # Apply gently on burning area.
 antigen apply
