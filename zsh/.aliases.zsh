@@ -46,6 +46,7 @@ alias cp:broodje="echo \"38. Witte Italiaanse Bol met Gerookte Kip, Avocado mayo
 alias cp:sbcrepo='echo "{\"type\": \"composer\", \"url\": \"https://composer.sbdev.nl/\"}" | pp_json | pbcopy'
 
 # Utils
+alias list:path=echo "$PATH" | tr ':' '\n'
 alias scrsvr="open -a ScreenSaverEngine"
 alias brewup="brew update && brew outdated; brew upgrade && brew cleanup; brew doctor"
 alias tm-auto="sudo tmutil startbackup --auto; tmutil status"
