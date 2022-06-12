@@ -1,11 +1,11 @@
 format = """
 $username\
-[](bg:#ea1479 fg:#9A348E)\
+[](bg:#3B4261 fg:#3B4261)\
 $directory\
-[](fg:#ea1479 bg:#FFCC00)\
+[](fg:#3B4261 bg:#444A73)\
 $git_branch\
 $git_status\
-[](fg:#FFCC00 bg:#86BBD8)\
+[](fg:#444A73 bg:#86BBD8)\
 $c\
 $golang\
 $java\
@@ -13,8 +13,8 @@ $nodejs\
 $rust\
 [](fg:#86BBD8 bg:#06969A)\
 $docker_context\
-[](fg:#06969A bg:#33658A)\
-[ ](fg:#33658A)\
+[](fg:#06969A bg:#1E2030)\
+[ ](fg:#1E2030)\
 """
 
 # Disable the blank line at the start of the prompt
@@ -22,15 +22,15 @@ add_newline = true
 
 [username]
 show_always = true
-style_user = "bg:#9A348E"
-style_root = "bg:#9A348E"
-format = '[  ]($style)'
+style_user = "bg:#3B4261"
+style_root = "bg:#3B4261"
+format = '[  ]($style)'
 
 [directory]
-style = "bg:#ea1479"
+style = "bg:#3B4261"
 format = "[ $path ]($style)"
 truncation_length = 3
-truncation_symbol = ""
+truncation_symbol = ""
 
 # Here is how you can shorten some long paths by text replacement
 # similar to mapped_locations in Oh My Posh:
@@ -39,11 +39,6 @@ truncation_symbol = ""
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
-# Keep in mind that the order matters. For example:
-# "Important Documents" = "  "
-# will not be replaced, because "Documents" was already substituted before.
-# So either put "Important Documents" before "Documents" or use the substituted version:
-# "Important  " = "  "
 
 [c]
 symbol = " "
@@ -60,19 +55,14 @@ symbol = " "
 style = "bg:#86BBD8"
 format = '[[ $symbol ](bg:#86BBD8)]($style)'
 
-[elm]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[[ $symbol ](bg:#86BBD8)]($style)'
-
 [git_branch]
 symbol = ""
-style = "bg:#FFCC00"
-format = '[[ $symbol $branch ](bg:#FFCC00)]($style)'
+style = "bg:#444A73"
+format = '[[ $symbol $branch ](bg:#444A73)]($style)'
 
 [git_status]
-style = "bg:#FFCC00"
-format = '[[($all_status$ahead_behind )](bg:#FFCC00)]($style)'
+style = "bg:#444A73"
+format = '[[($all_status$ahead_behind )](bg:#444A73)]($style)'
 
 [golang]
 symbol = " "
@@ -86,11 +76,6 @@ format = '[[ $symbol ](bg:#86BBD8)]($style)'
 
 [java]
 symbol = " "
-style = "bg:#86BBD8"
-format = '[[ $symbol ](bg:#86BBD8)]($style)'
-
-[julia]
-symbol = " "
 style = "bg:#86BBD8"
 format = '[[ $symbol ](bg:#86BBD8)]($style)'
 
@@ -112,5 +97,5 @@ format = '[[ $symbol ](bg:#86BBD8)]($style)'
 [time]
 disabled = false
 time_format = "%R"                           # Hour:Minute Format
-style = "bg:#33658A"
-format = '[[ ♥ $time ](bg:#33658A)]($style)'
+style = "bg:#1E2030"
+format = '[[ $time ](bg:#1E2030)]($style)'
