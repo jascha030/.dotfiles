@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+function df_is_vimterm {
+  if [[ -v VIM && -v VIMRUNTIME && -v MYVIMRC  ]]; then 
+    true
+  else
+    false
+  fi
+}
+
