@@ -2,7 +2,8 @@
 alias x="exit"
 alias c="clear"
 alias checkitalics="echo -e '\e[3mitalic\e[23m'"
-alias rr="source $HOME/.zshrc"
+#alias rr="exec zsh"
+alias rr="source ${HOME}/.zshrc"
 alias dfr="sh ${DOTFILES}/rcup"
 
 # Navigation
