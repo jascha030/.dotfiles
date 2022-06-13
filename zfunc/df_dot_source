@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+# Source file from "$DOTFILES/zsh/" dir.
+function df_dot_source {
+  local d
+
+  for d in "$@" ; do
+    [[ -f "${DOTFILES}/zsh/${d}" ]] && source "${DOTFILES}/zsh/${d}"
+  done
+}
+
+
