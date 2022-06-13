@@ -1,0 +1,36 @@
+#!/usr/bin/env zsh
+
+function df_lol_msg {
+  local _VIM_TERM_MODE_ACTIVE="$1"
+  
+  typeset -A lol_fonts  
+  local lol_fonts=(
+    [1]="larry3d"
+    [2]="speed"
+    [3]="smisome1"
+    [4]="doom"
+    [5]="roman"
+    [6]="isometric1"
+    [7]="isometric3"
+    [8]="roman"
+    [9]="smkeyboard"
+    [10]="roman"
+  ) 
+
+  local _RANDOM_LC_NUM=$(( ( RANDOM % 10 )  + 1 ))
+  local RANDOM_LC
+
+  if [[ $_RANDOM_LC_NUM > 5 ]]; then 
+    RANDOM_LC=$(which lolcat) 
+  else 
+    RANDOM_LC=$(which lolcrab)
+  fi
+
+  LOLCAT_MSG_FONT=$lol_fonts[$_RANDOM_LC_NUM]
+  [[ $_VIM_TERM_MODE_ACTIVE == false ]] && LOLCAT_MSG_TEXT="Hackerman Mode 030" || LOLCAT_MSG_TEXT="NEOVIM 030"
+  [[ $_VIM_TERM_MODE_ACTIVE == false ]] && COLS_W=$(tmux display -p '#{pane_width}-#{pane_height}') || COLS_W=$(tput cols)
+
+  clear 
+  figlet -Lcw $COLS_W -f $LOLCAT_MSG_FONT $LOLCAT_MSG_TEXT | $RANDOM_LC
+}
+
