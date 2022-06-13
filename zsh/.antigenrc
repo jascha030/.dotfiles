@@ -1,9 +1,10 @@
 # Oh-my-zsh!
 antigen use oh-my-zsh
+
 antigen bundle git
 antigen bundle command-not-found
 antigen bundle z
-antigen bundle tmux
+
 antigen bundle pip
 antigen bundle fzf
 antigen bundle jsontools
