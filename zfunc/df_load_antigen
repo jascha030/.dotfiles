@@ -1,14 +1,16 @@
 #!/usr/bin/env zsh
 
-# Initialize Antigen
 function df_load_antigen {
-  local antigen_path=$(brew --prefix)/share/antigen/antigen.zsh
+  local antigen_path="${HOME}/antigen.zsh"
+  local antigrc_path="${HOME}/.antigenrc"
   
-  [[ ! -f "$antigen_path" ]] && brew install antigen 
+  if [[ ! -f "$antigen_path" ]]; then 
+      curl -L git.io/antigen > antigen.zsh
+  fi
+  
+  source "$antigen_path"
 
-  source "${antigen_path}"
-  
-  local rc_path=$HOME/.antigenrc
-  
-  [[ -f "$rc_path" ]] && antigen init $rc_path
+  if [[ -f "$antigrc_path" ]]; then 
+    antigen init "$antigrc_path"
+  fi
 }
