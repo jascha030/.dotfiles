@@ -9,38 +9,6 @@ ZSH_TMUX_AUTOSTART=true
 auto-ls-lsd () { lsd -Ahl --color --group-dirs=first }
 AUTO_LS_COMMANDS=(lsd git-status)
 
-#-------------------------------------------------- Assure apps ------------------------------------------------------#
-
-declare -A crates; declare -A formulae; declare -A casks
-
-# Rust Crates
-local crates=(
-  [zoxide]="zoxide init zsh" 
-  [fnm]="fnm env" 
-  [teleport-dir]="teleport-dir init"
-)
-
-# Homebrew Formulae
-local formulae=(
-  [fasd]="fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install"
-  [fzf]=false
-  [pyenv]="pyenv init --path && pyenv init -"
-)
-
-# Homebrew Casks.
-local casks=()
-
-declare -A cargo;     cargo=([install]="cargo install" [apps]=$crates)
-declare -A brew;      brew=([install]="brew install"  [apps]=$formulae)
-declare -A brew_cask; brew_cask=([install]="brew install --cask" [apps]=$casks)
-
-declare -A pckg_managers
-pckg_managers=(
-  ["Cargo"]=$cargo 
-  ["Homebrew"]=$brew
-  ["Hombrew --cask"]=$brew_cask
-)
-
 #---------------------------------------------- Assure dirs/files ----------------------------------------------------#
 
 # Dirs used by `df_assert_dir`
