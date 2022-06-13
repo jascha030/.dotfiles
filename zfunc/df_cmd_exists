@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh 
 
 function df_cmd_exists {
-    which $1 &>/dev/null
+  type "$1" &> /dev/null;
 }
 
