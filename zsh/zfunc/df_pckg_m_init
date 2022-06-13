@@ -1,0 +1,41 @@
+#!/usr/bin/env zsh
+
+declare -A managers
+
+function _cmd_exists {
+  type "$1" &> /dev/null;
+}
+
+function _df_install_for_manager {
+  local installer_name="$1"
+  
+  declare -A manager; manager=("${(@kv)2}")
+  declare -A apps; 
+
+  local install_cmd; local manager;
+  for key value in ${(kv)manager} ; do
+      [[ $key = "install" ]] && install_cmd="$value"
+      [[ $key = "apps" ]] && apps="$value"
+  done
+  
+  for name init in ${(kv)apps} ; do
+    # Install if needed.
+    if ! _cmd_exists $name ; then
+      echo "Installing ${name} with ${installer_name}...\n"
+      #eval "${install} ${name}"
+    fi
+
+    # Initialize
+    if [[ $init != false ]]; then
+      echo "Evaluating ${name} from ${installer_name}"
+      #eval $("${init}")
+    fi
+  done
+}
+
+local managers=("${(kv)@}")
+
+for name data in ${(kv)managers} ; do 
+  _df_install_for_manager "$name" "$data"
+done
+
