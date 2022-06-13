@@ -1,111 +1,153 @@
-setopt extended_glob; 
+zmodload zsh/zprof
+#---------------------------------------------- Custom configurations ------------------------------------------------#
 
-# Some options
-ZSH_FILES=(
+setopt extended_glob;
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
+ZSH_TMUX_AUTOSTART=true
+
+auto-ls-lsd () { lsd -Ahl --color --group-dirs=first }
+AUTO_LS_COMMANDS=(lsd git-status)
+
+#-------------------------------------------------- Assure apps ------------------------------------------------------#
+
+declare -A crates; declare -A formulae; declare -A casks
+
+# Rust Crates
+local crates=(
+  [zoxide]="zoxide init zsh" 
+  [fnm]="fnm env" 
+  [teleport-dir]="teleport-dir init"
+)
+
+# Homebrew Formulae
+local formulae=(
+  [fasd]="fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install"
+  [fzf]=false
+  [pyenv]="pyenv init --path && pyenv init -"
+)
+
+# Homebrew Casks.
+local casks=()
+
+declare -A cargo;     cargo=([install]="cargo install" [apps]=$crates)
+declare -A brew;      brew=([install]="brew install"  [apps]=$formulae)
+declare -A brew_cask; brew_cask=([install]="brew install --cask" [apps]=$casks)
+
+declare -A pckg_managers
+pckg_managers=(
+  ["Cargo"]=$cargo 
+  ["Homebrew"]=$brew
+  ["Hombrew --cask"]=$brew_cask
+)
+
+#---------------------------------------------- Assure dirs/files ----------------------------------------------------#
+
+# Dirs used by `df_assert_dir`
+local required_dirs=(
+  $DATA_FILES_DIR
+)
+
+# Files used by `df_assert_file`
+local required_files=(
+  $DATA_FILES_DIR/.zsh_history 
+  $DATA_FILES_DIR/.mysql_history
+)
+
+# Files to be sourced 
+local sources=(
+  $DOTFILES/zsh/.path.zsh
+  $HOME/.cargo/env
+)
+
+# Zsh scripts required by .zshrc
+local zsh_files=(
   ".aliases.zsh"
 )
 
 # Autoload functions.
-fpath=($DOTFILES/zfunc $fpath)
-autoload -Uz $DOTFILES/zfunc/*(.:t)
+fpath=(
+  $DOTFILES/zsh/zfunc
+  ${fpath[@]}
+)
 
-# Create dirs and files if necessary.
-df_assert_dir $DATA_FILES_DIR
+typeset -A lol_fonts; local lol_fonts=(
+  [1]="larry3d"
+  [2]="speed"
+  [3]="smisome1"
+  [4]="doom"
+  [5]="roman"
+  [6]="isometric1"
+  [7]="isometric3"
+  [8]="roman"
+  [9]="smkeyboard"
+  [10]="roman"
+)
 
-df_assert_file \
-    $DATA_FILES_DIR/.zsh_history \
-    $DATA_FILES_DIR/.mysql_history
+autoload -Uz $DOTFILES/zsh/zfunc/*(.:t)
 
-# Safe-Source (if they exist) files.
-df_source \
-    $DOTFILES/zsh/.path.zsh \
-    $HOME/.cargo/env
-    
-eval "$(zoxide init zsh)"  
+#------------------------------------------------- Local Functions ---------------------------------------------------#
 
-# Antigen
-df_source $HOME/antigen.zsh    
-if [[ -f "${HOME}/.antigenrc" ]]; then
-  antigen init "${HOME}/.antigenrc"
-fi
-
-eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
-
-# Silently start job to update dotfiles w/ RCM.
-() {
+# Silently start job to update dotfiles w/ RCM, calls `./rcup`
+function df_start_rcup {
   setopt LOCAL_OPTIONS NO_NOTIFY NO_MONITOR   
-  sh "${DOTFILES}/rcup" &
+
+  sh $DOTFILES/rcup &
+
   disown &>/dev/null
 }
+
+#---------------------------------------------------------------------------------------------------------------------#
+
+# Create dirs if necessary.
+df_assert_dir "${required_dirs[@]}"
+
+# Create files if necessary.
+df_assert_file "${required_files[@]}"
+
+# Safe-Source (if they exist) files.
+df_source "${sources[@]}"
+
+eval "$(zoxide init zsh)"  
+eval "$(fnm env)"
+eval "$(teleport-dir init)"
+
+df_load_antigen
+
+df_start_rcup && unset -f df_start_rcup
+
+eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+
+#----------------------------------------------------- Oewen T'moks --------------------------------------------------#
 
 alias tmux="TERM=xterm-256color tmux"
 
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-  [[ -v VIM && -v VIMRUNTIME && -v MYVIMRC  ]] && VIM_TERM_MODE_ACTIVE=true || VIM_TERM_MODE_ACTIVE=false
- 
-  if [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" && $VIM_TERM_MODE_ACTIVE != true ]]; then
-	  ZSH_TMUX_AUTOSTART=true
+   [[ -v VIM && -v VIMRUNTIME && -v MYVIMRC  ]] && VIM_TERM_MODE_ACTIVE=true || VIM_TERM_MODE_ACTIVE=false
 
-	  if which tmux 2>&1 >/dev/null; then
-   	  if [ $TERM != "tmux-256color" ] && [  $TERM != "screen" ]; then
-			  tmux attach -t main || tmux new -s main; exit
-   	  fi
-	  fi
+   if [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" && $VIM_TERM_MODE_ACTIVE != true ]]; then
+ 	  ZSH_TMUX_AUTOSTART=true
+
+ 	  if which tmux 2>&1 >/dev/null; then
+    	if [ $TERM != "tmux-256color" ] && [  $TERM != "screen" ]; then
+ 			  tmux attach -t main || tmux new -s main; exit
+     	fi
+ 	  fi
   fi
 fi
 
-for DOT in $ZSH_FILES; do
-    df_source "${DOTFILES}/zsh/${DOT}"
-done
-
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
-
-# Auto-ls
-auto-ls-lsd () {
-	lsd -Ahl --color --group-dirs=first
-}
-
 # Load other zsh dotfiles.
-AUTO_LS_COMMANDS=(lsd git-status)
+df_dot_source "${zsh_files[@]}"
 
-
-# TabTab
+# Tab-tab
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
-eval "$(fnm env)"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(teleport-dir init)"
+# Finally init prompt
 eval "$(starship init zsh)"
 
 #------------------- Display Hackerman-ness for people who don't understand terminals when done ----------------------#
 
-() {
-  _RANDOM_LC_NUM=$(( ( RANDOM % 10 )  + 1 ))
-  [[ $_RANDOM_LC_NUM > 5 ]] && RANDOM_LC=$(which lolcat) || RANDOM_LC=$(which lolcrab) 
-
-  typeset -A fonts
-  
-  fonts=(
-    [1]="larry3d"
-    [2]="speed"
-    [3]="smisome1"
-    [4]="doom"
-    [5]="roman"
-    [6]="isometric1"
-    [7]="isometric3"
-    [8]="roman"
-    [9]="smkeyboard"
-    [10]="roman"
-  )
-
-  LOLCAT_MSG_FONT=$fonts[$_RANDOM_LC_NUM]
- 
-  [[ $VIM_TERM_MODE_ACTIVE == false ]] && LOLCAT_MSG_TEXT="Hackerman Mode 030" || LOLCAT_MSG_TEXT="NEOVIM 030"
-  [[ $VIM_TERM_MODE_ACTIVE == false ]] && COLS_W=$(tmux display -p '#{pane_width}-#{pane_height}') || COLS_W=$(tput cols)
-
-  clear
-  
-  figlet -Lcw $COLS_W -f $LOLCAT_MSG_FONT $LOLCAT_MSG_TEXT | $RANDOM_LC
-}
+df_lol_msg "${VIM_TERM_MODE_ACTIVE}"
 
