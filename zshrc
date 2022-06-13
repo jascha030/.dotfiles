@@ -71,19 +71,6 @@ fpath=(
   ${fpath[@]}
 )
 
-typeset -A lol_fonts; local lol_fonts=(
-  [1]="larry3d"
-  [2]="speed"
-  [3]="smisome1"
-  [4]="doom"
-  [5]="roman"
-  [6]="isometric1"
-  [7]="isometric3"
-  [8]="roman"
-  [9]="smkeyboard"
-  [10]="roman"
-)
-
 autoload -Uz $DOTFILES/zsh/zfunc/*(.:t)
 
 #------------------------------------------------- Local Functions ---------------------------------------------------#
