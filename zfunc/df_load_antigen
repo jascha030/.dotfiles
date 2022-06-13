@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+# Initialize Antigen
+function df_load_antigen {
+  local antigen_path=$(brew --prefix)/share/antigen/antigen.zsh
+  
+  [[ ! -f "$antigen_path" ]] && brew install antigen 
+
+  source "${antigen_path}"
+  
+  local rc_path=$HOME/.antigenrc
+  
+  [[ -f "$rc_path" ]] && antigen init $rc_path
+}
