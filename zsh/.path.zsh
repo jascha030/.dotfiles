@@ -14,6 +14,3 @@ export PATH="/usr/local/opt/openjdk/bin:${PATH}"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH="$HOME/tools/lua-language-server/bin/macOS:$PATH"
 
-LOLCAT=$(which lolcat)
-export PATH="${LOLCAT}:${PATH}"
-

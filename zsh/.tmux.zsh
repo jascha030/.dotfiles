@@ -14,3 +14,5 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
   fi
 fi
 
+export VIM_TERM_MODE_ACTIVE="${VIM_TERM_MODE_ACTIVE}"
+
