@@ -1,89 +1,81 @@
-export DOTFILES="${HOME}/.dotfiles"
-export DOTHOME="${DOTFILES}/home"
+setopt extended_glob; 
 
-export PSTORM='phpstorm'
-export NVIM='nvim'
-export EDITOR=$NVIM
-export VISUAL=$NVIM
+# Some options
+ZSH_FILES=(
+  ".tmux.zsh"
+  ".aliases.zsh"
+  ".fzf.zsh"
+)
 
-export NPM_CHECK_INSTALLER="pnpm npm-check -u"
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
-export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
-export TOOLCHAINS=swift
-export MACOS_CURRENT_COLOR_SCHEME=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark || echo light)
+# Autoload functions.
+fpath=($DOTFILES/zfunc $fpath)
+autoload -Uz $DOTFILES/zfunc/*(.:t)
 
-export DATA_FILES_DIR=$HOME/.config/datafiles
-export HISTFILE=$DATA_FILES_DIR/.zsh_history 
-export MYSQL_HISTFILE=$DATA_FILES_DIR/.mysql_history
+# Create dirs and files if necessary.
+df_assert_dir $DATA_FILES_DIR
 
-[[ ! -d $DATA_FILES_DIR ]] && mkdir -p $DATA_FILES_DIR
-[[ ! -f $DATA_FILES_DIR/.zsh_history ]] && touch $DATA_FILES_DIR/.zsh_history
-[[ ! -f $DATA_FILES_DIR/.mysql_history ]] && touch $DATA_FILES_DIR/.mysql_history
+df_assert_file \
+    $DATA_FILES_DIR/.zsh_history \
+    $DATA_FILES_DIR/.mysql_history
 
-[[ -f "$DOTFILES"/zsh/.path.zsh ]] && source "$DOTFILES"/zsh/.path.zsh
-[[ -r "$HOME"/.cargo/env ]] && source "$HOME"/.cargo/env
-[[ -f "$HOME/.zfunc" ]] && fpath+=$HOME/.zfunc
+# Safe-Source (if they exist) files.
+df_source \
+    $DOTFILES/zsh/.path.zsh \
+    $HOME/.cargo/env
+    
+eval "$(zoxide init zsh)"  
 
-ANTIGEN_CACHE=false
-
-[[ -f $HOME/antigen.zsh ]] && source $HOME/antigen.zsh
-[[ -f $HOME/.antigenrc ]] && source $HOME/.antigenrc
-
-eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
+# Antigen
+df_source $HOME/antigen.zsh    
+if [[ -f "${HOME}/.antigenrc" ]]; then
+  antigen init "${HOME}/.antigenrc"
+fi
 
 # Silently start job to update dotfiles w/ RCM.
 () {
-  setopt LOCAL_OPTIONS NO_NOTIFY NO_MONITOR  
- 
+  setopt LOCAL_OPTIONS NO_NOTIFY NO_MONITOR   
   sh "${DOTFILES}/rcup" &
   disown &>/dev/null
 }
 
+alias tmux="TERM=screen-256color tmux"
+
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
+  [[ -v VIM && -v VIMRUNTIME && -v MYVIMRC  ]] && VIM_TERM_MODE_ACTIVE=true || VIM_TERM_MODE_ACTIVE=false
+ 
+  if [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" && $VIM_TERM_MODE_ACTIVE != true ]]; then
+	  ZSH_TMUX_AUTOSTART=true
+
+	  if which tmux 2>&1 >/dev/null; then
+   	  if [ $TERM != "tmux-256color" ] && [  $TERM != "screen" ]; then
+			  tmux attach -t main || tmux new -s main; exit
+   	  fi
+	  fi
+  fi
+fi
+
+eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
+
+# Auto-ls
 auto-ls-lsd () {
 	lsd -Ahl --color --group-dirs=first
 }
-
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
+# Load other zsh dotfiles.
 AUTO_LS_COMMANDS=(lsd git-status)
 
-ZSH_FILES=(
-  ".tmux.zsh",
-  ".aliases.zsh"
-)
-
 for DOT in $ZSH_FILES; do
-	[ -f $HOME/.dotfiles/zsh/$DOT ] && source $HOME/.dotfiles/zsh/$DOT
+    df_source "${DOTFILES}/zsh/${DOT}"
 done
 
+# TabTab
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
-
-export PSTORM='phpstorm'
-export NVIM='nvim'
-export EDITOR=$NVIM
-export VISUAL=$NVIM
-
-export NPM_CHECK_INSTALLER="pnpm npm-check -u"
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
-export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
-export TOOLCHAINS=swift
-export MACOS_CURRENT_COLOR_SCHEME=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark || echo light)
-
-export DATA_FILES_DIR=$HOME/.config/datafiles
-export HISTFILE=$DATA_FILES_DIR/.zsh_history 
-export MYSQL_HISTFILE=$DATA_FILES_DIR/.mysql_history
-
-[[ ! -d $DATA_FILES_DIR ]] && mkdir -p $DATA_FILES_DIR
-[[ ! -f $DATA_FILES_DIR/.zsh_history ]] && touch $DATA_FILES_DIR/.zsh_history
-[[ ! -f $DATA_FILES_DIR/.mysql_history ]] && touch $DATA_FILES_DIR/.mysql_history
 
 eval "$(fnm env)"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
-
-# eval "$(teleport-dir init)"
-# eval "$(zoxide init zsh)"
+eval "$(teleport-dir init)"
 eval "$(starship init zsh)"
 
 #------------------- Display Hackerman-ness for people who don't understand terminals when done ----------------------#
@@ -93,6 +85,7 @@ eval "$(starship init zsh)"
   [[ $_RANDOM_LC_NUM > 5 ]] && RANDOM_LC=$(which lolcat) || RANDOM_LC=$(which lolcrab) 
 
   typeset -A fonts
+  
   fonts=(
     [1]="larry3d"
     [2]="speed"
@@ -107,6 +100,7 @@ eval "$(starship init zsh)"
   )
 
   LOLCAT_MSG_FONT=$fonts[$_RANDOM_LC_NUM]
+ 
   [[ $VIM_TERM_MODE_ACTIVE == false ]] && LOLCAT_MSG_TEXT="Hackerman Mode 030" || LOLCAT_MSG_TEXT="NEOVIM 030"
   [[ $VIM_TERM_MODE_ACTIVE == false ]] && COLS_W=$(tmux display -p '#{pane_width}-#{pane_height}') || COLS_W=$(tput cols)
 
