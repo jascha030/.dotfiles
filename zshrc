@@ -2,9 +2,7 @@ setopt extended_glob;
 
 # Some options
 ZSH_FILES=(
-  ".tmux.zsh"
   ".aliases.zsh"
-  ".fzf.zsh"
 )
 
 # Autoload functions.
@@ -31,6 +29,8 @@ if [[ -f "${HOME}/.antigenrc" ]]; then
   antigen init "${HOME}/.antigenrc"
 fi
 
+eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
+
 # Silently start job to update dotfiles w/ RCM.
 () {
   setopt LOCAL_OPTIONS NO_NOTIFY NO_MONITOR   
@@ -38,7 +38,7 @@ fi
   disown &>/dev/null
 }
 
-alias tmux="TERM=screen-256color tmux"
+alias tmux="TERM=xterm-256color tmux"
 
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
   [[ -v VIM && -v VIMRUNTIME && -v MYVIMRC  ]] && VIM_TERM_MODE_ACTIVE=true || VIM_TERM_MODE_ACTIVE=false
@@ -54,7 +54,9 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
   fi
 fi
 
-eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
+for DOT in $ZSH_FILES; do
+    df_source "${DOTFILES}/zsh/${DOT}"
+done
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
 
@@ -62,12 +64,10 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
 auto-ls-lsd () {
 	lsd -Ahl --color --group-dirs=first
 }
+
 # Load other zsh dotfiles.
 AUTO_LS_COMMANDS=(lsd git-status)
 
-for DOT in $ZSH_FILES; do
-    df_source "${DOTFILES}/zsh/${DOT}"
-done
 
 # TabTab
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
