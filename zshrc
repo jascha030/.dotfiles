@@ -1,21 +1,35 @@
-#----------------- Clean up annoying history files .etc (place them in $HOME/.config/datafiles------------------------#
-export DATA_FILES_DIR=$HOME/.config/datafiles
-[ ! -d $DATA_FILES_DIR ] && mkdir -p $DATA_FILES_DIR
+export DOTFILES="${HOME}/.dotfiles"
+export DOTHOME="${DOTFILES}/home"
 
-# Zsh history
-[ ! -f $DATA_FILES_DIR/.zsh_history ] && touch $DATA_FILES_DIR/.zsh_history
+export PSTORM='phpstorm'
+export NVIM='nvim'
+export EDITOR=$NVIM
+export VISUAL=$NVIM
+
+export NPM_CHECK_INSTALLER="pnpm npm-check -u"
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+export TOOLCHAINS=swift
+export MACOS_CURRENT_COLOR_SCHEME=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark || echo light)
+
+export DATA_FILES_DIR=$HOME/.config/datafiles
 export HISTFILE=$DATA_FILES_DIR/.zsh_history 
-# Mysql history
-[ ! -f $DATA_FILES_DIR/.mysql_history ] && touch $DATA_FILES_DIR/.mysql_history
 export MYSQL_HISTFILE=$DATA_FILES_DIR/.mysql_history
 
-#------------------------------------------------ Initializations ----------------------------------------------------#
+[[ ! -d $DATA_FILES_DIR ]] && mkdir -p $DATA_FILES_DIR
+[[ ! -f $DATA_FILES_DIR/.zsh_history ]] && touch $DATA_FILES_DIR/.zsh_history
+[[ ! -f $DATA_FILES_DIR/.mysql_history ]] && touch $DATA_FILES_DIR/.mysql_history
 
-# Antigen
-[ -f $HOME/antigen.zsh ] && source $HOME/antigen.zsh
-[ -f $HOME/.antigenrc ] && source $HOME/.antigenrc
+[[ -f "$DOTFILES"/zsh/.path.zsh ]] && source "$DOTFILES"/zsh/.path.zsh
+[[ -r "$HOME"/.cargo/env ]] && source "$HOME"/.cargo/env
+[[ -f "$HOME/.zfunc" ]] && fpath+=$HOME/.zfunc
 
-# fasd
+ANTIGEN_CACHE=false
+
+[[ -f $HOME/antigen.zsh ]] && source $HOME/antigen.zsh
+[[ -f $HOME/.antigenrc ]] && source $HOME/.antigenrc
+
 eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 
 # Silently start job to update dotfiles w/ RCM.
@@ -26,32 +40,16 @@ eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-ins
   disown &>/dev/null
 }
 
+auto-ls-lsd () {
+	lsd -Ahl --color --group-dirs=first
+}
+
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
-
-#------------------------------------------------------ Tmux -------------------------------------------------------- #
-
-alias tmux="TERM=screen-256color tmux"
-
-if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-  [[ -v VIM && -v VIMRUNTIME && -v MYVIMRC  ]] && VIM_TERM_MODE_ACTIVE=true || VIM_TERM_MODE_ACTIVE=false
- 
-  if [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" && $VIM_TERM_MODE_ACTIVE != true ]]; then
-	  ZSH_TMUX_AUTOSTART=true
-
-	  if which tmux 2>&1 >/dev/null; then
-   	  if [ $TERM != "tmux-256color" ] && [  $TERM != "screen" ]; then
-			  tmux attach -t main || tmux new -s main; exit
-   	  fi
-	  fi
-  fi
-fi
-
-#----------------------------------------------- Sources & Paths -----------------------------------------------------#
+AUTO_LS_COMMANDS=(lsd git-status)
 
 ZSH_FILES=(
-    ".path.zsh"
-    ".aliases.zsh"
-    ".fzf.zsh"
+  ".tmux.zsh",
+  ".aliases.zsh"
 )
 
 for DOT in $ZSH_FILES; do
@@ -60,23 +58,32 @@ done
 
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
-#----------------------------------------------- Auto-ls settings ----------------------------------------------------#
+export PSTORM='phpstorm'
+export NVIM='nvim'
+export EDITOR=$NVIM
+export VISUAL=$NVIM
 
-auto-ls-lsd () {
-	lsd -Ahl --color --group-dirs=first
-}
+export NPM_CHECK_INSTALLER="pnpm npm-check -u"
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+export TOOLCHAINS=swift
+export MACOS_CURRENT_COLOR_SCHEME=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark || echo light)
 
-AUTO_LS_COMMANDS=(lsd git-status)
+export DATA_FILES_DIR=$HOME/.config/datafiles
+export HISTFILE=$DATA_FILES_DIR/.zsh_history 
+export MYSQL_HISTFILE=$DATA_FILES_DIR/.mysql_history
 
-#----------------------------------------- Other Init & Added by installs --------------------------------------------#
+[[ ! -d $DATA_FILES_DIR ]] && mkdir -p $DATA_FILES_DIR
+[[ ! -f $DATA_FILES_DIR/.zsh_history ]] && touch $DATA_FILES_DIR/.zsh_history
+[[ ! -f $DATA_FILES_DIR/.mysql_history ]] && touch $DATA_FILES_DIR/.mysql_history
 
+eval "$(fnm env)"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
-eval "$(fnm env)"
-eval "$(teleport-dir init)"
 
-#-------------------------------------------- ✨ 🚀 Init SpaceShip 🚀 ✨ ---------------------------------------------#
-
+# eval "$(teleport-dir init)"
+# eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
 #------------------- Display Hackerman-ness for people who don't understand terminals when done ----------------------#
