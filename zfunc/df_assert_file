@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+function df_assert_file {
+  local f
+
+  for f in "$@" ; do 
+    [[ ! -f "$f" ]] && touch "$f"
+  done
+}
+

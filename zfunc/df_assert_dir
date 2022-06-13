@@ -1,0 +1,12 @@
+
+#!/usr/bin/env zsh
+
+function df_source {
+  local p 
+  
+  for p in "$@" ; do 
+    [[ -f "$p" ]] && source "$p"
+  done
+}
+
+
