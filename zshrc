@@ -1,4 +1,6 @@
-zmodload zsh/zprof
+
+# zmodload zsh/zprof
+
 #---------------------------------------------- Custom configurations ------------------------------------------------#
 
 setopt extended_glob;
@@ -51,17 +53,12 @@ df_assert_file "${required_files[@]}"
 # Safe-Source (if they exist) files.
 df_source "${sources[@]}"
 
-eval "$(zoxide init zsh)"  
-eval "$(fnm env)"
-eval "$(teleport-dir init)"
+typeset -aU path
 
 df_load_antigen
 
-df_start_rcup && unset -f df_start_rcup
-
+eval "$(zoxide init zsh)" 
 eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
 
 #----------------------------------------------------- Oewen T'moks --------------------------------------------------#
 
@@ -85,8 +82,12 @@ df_dot_source "${zsh_files[@]}"
 # Tab-tab
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
-# Finally init prompt
 eval "$(starship init zsh)"
+
+eval "$(teleport-dir init)"
+eval "$(fnm env)"
+eval "$(pyenv init --path && pyenv init -)"
+eval "$(zoxide init zsh)"
 
 #------------------- Display Hackerman-ness for people who don't understand terminals when done ----------------------#
 
