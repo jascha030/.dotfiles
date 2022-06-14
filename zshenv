@@ -20,3 +20,9 @@ export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 export TOOLCHAINS=swift
 export NPM_CHECK_INSTALLER="pnpm npm-check -u"
 
+if [[ -v VIM && -v VIMRUNTIME && -v MYVIMRC  ]]; then 
+  export VIM_TERM_MODE_ACTIVE=true 
+else
+  export VIM_TERM_MODE_ACTIVE=false
+fi
+
