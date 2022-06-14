@@ -41,17 +41,6 @@ fpath=(
 
 autoload -Uz $DOTFILES/zsh/zfunc/*(.:t)
 
-#------------------------------------------------- Local Functions ---------------------------------------------------#
-
-# Silently start job to update dotfiles w/ RCM, calls `./rcup`
-function df_start_rcup {
-  setopt LOCAL_OPTIONS NO_NOTIFY NO_MONITOR   
-
-  sh $DOTFILES/rcup &
-
-  disown &>/dev/null
-}
-
 #---------------------------------------------------------------------------------------------------------------------#
 
 # Create dirs if necessary.
