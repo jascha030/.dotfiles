@@ -1,7 +1,11 @@
+#!/usr/bin/env sh
+
 # Terminal / Dotfiles
 alias x="exit"
 alias c="clear"
 alias checkitalics="echo -e '\e[3mitalic\e[23m'"
+
+alias rrsel="exec env _select_shell=1 zsh"
 #alias rr="exec zsh"
 alias rr="source ${HOME}/.zshrc"
 alias dfr="sh ${DOTFILES}/rcup"
