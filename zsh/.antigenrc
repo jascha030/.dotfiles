@@ -2,17 +2,11 @@
 antigen use oh-my-zsh
 
 antigen bundle git
-antigen bundle command-not-found
-antigen bundle z
-
-antigen bundle pip
 antigen bundle fzf
-antigen bundle jsontools
-antigen bundle copybuffer
+
 antigen bundle leophys/zsh-plugin-fzf-finder
 antigen bundle Aloxaf/fzf-tab
 antigen bundle chrissicool/zsh-256color
-antigen bundle lukechilds/zsh-nvm
 antigen bundle desyncr/auto-ls
 
 antigen bundle zsh-users/zsh-completions
