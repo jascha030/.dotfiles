@@ -5,7 +5,6 @@ setopt extended_glob;
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
 ZSH_TMUX_AUTOSTART=true
-
 auto-ls-lsd () { lsd -Ahl --color --group-dirs=first }
 AUTO_LS_COMMANDS=(lsd git-status)
 
@@ -24,13 +23,13 @@ local required_files=(
 
 # Files to be sourced 
 local sources=(
-  $DOTFILES/zsh/.path.zsh
+  $DOTFILES/zsh/path.zsh
   $HOME/.cargo/env
 )
 
 # Zsh scripts required by .zshrc
 local zsh_files=(
-  ".aliases.zsh"
+  aliases.zsh
 )
 
 # Autoload functions.

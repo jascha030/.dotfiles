@@ -19,22 +19,17 @@ alias edit="${EDITOR} $1"
 alias pstorm="phpstorm ."
 alias wstorm="webstorm ."
 alias idea="idea ."
-alias e:zshrc="edit $DOTFILES/zshrc"
-alias e:zshrc="zshconfig"
-alias e:aliases="edit ${HOME}/.aliases.zsh"
-alias e:path="edit ${HOME}/.path.zsh"
-alias create:wpindex="echo \"<?php\n//silence is golden\" >index.php"
+
 alias create:gitignore="echo $'.idea\n\n.vscode\n\nvendor\n\n**.cache\n.DS_Store\n' > .gitignore"
 
 # Directory Shortcuts
 alias dev="cd ${HOME}/.development/Projects"
-alias library="cd $HOME/Library"
-alias dotfiles="cd ${DOTFILES}"
 alias df="cd ${DOTFILES}"
+
 alias web:sbcomposer="open https://composer.sbdev.nl/"
 
 # Git Shortcuts
-alias root=$(git rev-parse --show-toplevel)
+alias root='$(git rev-parse --show-toplevel)'
 alias kraken='$(open gitkraken://repo/$PWD)' # Note: Don't change to double quotes, as it auto-triggers.
 alias clone:sb-starter="git clone git@bitbucket.org:socialbrothers/wordpress-starter-theme.git"
 alias clone:wp="git clone git@github.com:wordpress/wordpress"
@@ -47,7 +42,7 @@ alias cp:broodje="echo \"38. Witte Italiaanse Bol met Gerookte Kip, Avocado mayo
 alias cp:sbcrepo='echo "{\"type\": \"composer\", \"url\": \"https://composer.sbdev.nl/\"}" | pp_json | pbcopy'
 
 # Utils
-alias list:path=echo "$PATH" | tr ':' '\n'
+alias listpath="echo \"$PATH\" | tr ':' '\n'"
 alias scrsvr="open -a ScreenSaverEngine"
 alias brewup="brew update && brew outdated; brew upgrade && brew cleanup; brew doctor"
 alias tm-auto="sudo tmutil startbackup --auto; tmutil status"
