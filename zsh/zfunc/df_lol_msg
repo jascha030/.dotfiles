@@ -1,36 +1,37 @@
 #!/usr/bin/env zsh
 
 function df_lol_msg {
-  local _VIM_TERM_MODE_ACTIVE="$1"
+  local msg; local column_width; local row_height
   
-  typeset -A lol_fonts  
-  local lol_fonts=(
-    [1]="larry3d"
-    [2]="speed"
-    [3]="smisome1"
-    [4]="doom"
-    [5]="roman"
-    [6]="isometric1"
-    [7]="isometric3"
-    [8]="roman"
-    [9]="smkeyboard"
-    [10]="roman"
-  ) 
+  local lol_animal="lolcrab"
+  local random_int=$(( ( RANDOM % 10 )  + 1 ))
+  
+  local is_vimterm="$1"
+  local def_msg="$2"
+  local alt_msg="$3"
 
-  local _RANDOM_LC_NUM=$(( ( RANDOM % 10 )  + 1 ))
-  local RANDOM_LC
+  if [[ $random_int > 5 ]]; then 
+    lol_animal="lolcat"
+  fi 
 
-  if [[ $_RANDOM_LC_NUM > 5 ]]; then 
-    RANDOM_LC=$(which lolcat) 
+  if [[ $is_vimterm == false ]]; then 
+    local msg="${def_msg}"
+
+    column_width=$(tmux display -p '#{pane_width}') 
+    row_height=$(( $(tmux display -p '#{pane_height}') )) 
   else 
-    RANDOM_LC=$(which lolcrab)
+    local msg="${alt_msg}"
+    
+    column_width=$(tput cols)
+    row_height=$(( $(tput lines)+0 ))
   fi
+  
+  clear
+  
+  #for i in {1..$(( ( $row_height / 2 ) - 9 ))}; do
+    echo '\n\n\n\n';
+  #done
 
-  LOLCAT_MSG_FONT=$lol_fonts[$_RANDOM_LC_NUM]
-  [[ $_VIM_TERM_MODE_ACTIVE == false ]] && LOLCAT_MSG_TEXT="Hackerman Mode 030" || LOLCAT_MSG_TEXT="NEOVIM 030"
-  [[ $_VIM_TERM_MODE_ACTIVE == false ]] && COLS_W=$(tmux display -p '#{pane_width}-#{pane_height}') || COLS_W=$(tput cols)
-
-  clear 
-  figlet -Lcw $COLS_W -f $LOLCAT_MSG_FONT $LOLCAT_MSG_TEXT | $RANDOM_LC
+  figlet -Lcw $column_width -f "roman" $msg | $lol_animal
 }
 
