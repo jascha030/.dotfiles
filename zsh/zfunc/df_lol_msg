@@ -16,14 +16,8 @@ function df_lol_msg {
 
   if [[ $is_vimterm == false ]]; then 
     local msg="${def_msg}"
-
-    column_width=$(tmux display -p '#{pane_width}') 
-    row_height=$(( $(tmux display -p '#{pane_height}') )) 
   else 
     local msg="${alt_msg}"
-    
-    column_width=$(tput cols)
-    row_height=$(( $(tput lines)+0 ))
   fi
   
   clear
@@ -31,7 +25,8 @@ function df_lol_msg {
   #for i in {1..$(( ( $row_height / 2 ) - 9 ))}; do
     echo '\n\n\n\n';
   #done
+    
 
-  figlet -Lcw $column_width -f "roman" $msg | $lol_animal
+  figlet -Lcw $(tput cols) -f roman "$msg" | $lol_animal
 }
 
