@@ -97,7 +97,7 @@ eval "$(teleport-dir init)"
 eval "$(fnm env)"
 
 # Python
-eval "$(pyenv init --path && pyenv init -)"
+# eval "$(pyenv init --path && pyenv init -)"
 
 # Zoxide
 eval "$(zoxide init zsh)"
