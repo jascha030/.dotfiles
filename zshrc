@@ -54,23 +54,6 @@ typeset -aU path
 
 df_load_antigen
 
-#--------------------------------------------------- Oewen T'moks ----------------------------------------------------#
-
-
-alias tmux="TERM=xterm-256color tmux"
-
-if [[ ${TERM_PROGRAM} != "WarpTerminal" ]]; then
-    if [[ ${TERMINAL_EMULATOR} != "JetBrains-JediTerm" && ${VIM_TERM_MODE_ACTIVE} != true ]]; then
- 	      ZSH_TMUX_AUTOSTART=true
-
- 	      if which tmux 2>&1 >/dev/null; then
-    	      if [ ${TERM} != "tmux-256color" ] && [  ${TERM} != "screen" ]; then
-# 			        tmux attach -t main || tmux new -s main; exit
-     	      fi
- 	      fi
-    fi
-fi
-
 #----------------------------------------------- Initializations -----------------------------------------------------# 
 
 df_dot_source "${shell_files[@]}"
