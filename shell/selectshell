@@ -1,8 +1,0 @@
-#/usr/bin/env sh 
-
-echo "Shell: "
-
-read shell 
-
-eval "exec -l ${shell}"
-

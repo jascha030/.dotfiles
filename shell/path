@@ -1,5 +1,3 @@
-#!/usr/bin/env sh
-
 export PYENV_ROOT=${HOME}/.pyenv
 export PATH=/usr/local/sbin:${PATH}
 export PATH=${HOME}/.composer/vendor/bin:${PATH}

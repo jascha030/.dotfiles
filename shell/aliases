@@ -1,5 +1,3 @@
-#!/usr/bin/env sh
-
 # Terminal / Dotfiles
 alias x="exit"
 alias c="clear"
