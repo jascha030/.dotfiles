@@ -42,27 +42,24 @@ autoload -Uz ${DOTFILES}/zsh/zfunc/*(.:t)
 #----------------------------------------------------- ZSH -----------------------------------------------------------#
 
 # Create dirs if necessary.
-df_assert_dir "${required_dirs[@]}"
+assert_dirs "${required_dirs[@]}"
 
 # Create files if necessary.
-df_assert_file "${required_files[@]}"
+assert_files "${required_files[@]}"
 
 # Safe-Source (if they exist) files.
-df_source "${sources[@]}"
+safe_source "${sources[@]}"
 
 typeset -aU path
 
-df_load_antigen
+load_antigen
 
 #----------------------------------------------- Initializations -----------------------------------------------------# 
-
-df_dot_source "${shell_files[@]}"
 
 eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 
 # Tab-tab
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
-
 
 # FASD
 eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
@@ -85,8 +82,9 @@ eval "$(fnm env)"
 # Zoxide
 eval "$(zoxide init zsh)"
 
+source_zsh_dotfiles "aliases"
+
 #------------------- Display Hackerman-ness for people who don't understand terminals when done ----------------------#
 
-df_lol_msg "${VIM_TERM_MODE_ACTIVE}" "Hackerman Mode 030" "NVIM 030"
-  
-#zprof
+lolmsg "${VIM_TERM_MODE_ACTIVE}" "Hackerman Mode 030" "NVIM 030"
+

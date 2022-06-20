@@ -1,10 +1,11 @@
 #!/usr/bin/env zsh
 
-function df_source {
+function assert_dirs {
   local p 
   
   for p in "$@" ; do 
-    [[ -f "$p" ]] && source "$p"
+    [[ -d "$p" ]] || mkdir "$p"
   done
 }
+
 

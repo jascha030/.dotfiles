@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-function df_load_antigen {
+function load_antigen {
   local antigen_path="${HOME}/antigen.zsh"
   local antigrc_path="${HOME}/.antigenrc"
   

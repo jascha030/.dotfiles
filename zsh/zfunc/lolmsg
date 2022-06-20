@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-function df_lol_msg {
+function lolmsg {
   local msg; local column_width; local row_height
   
   local lol_animal="lolcrab"
