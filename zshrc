@@ -1,4 +1,10 @@
-#zmodload zsh/zprof ---------------------------------------------- Custom configurations ------------------------------------------------#
+#---------------------------------- Profile zshrc when enabled with $PROFILE_ZSH -------------------------------------#
+
+if (( ${+PROFILE_ZSHRC} )); then 
+    zmodload zsh/zprof 
+fi
+
+#---------------------------------------------- Custom configurations ------------------------------------------------#
 
 setopt extended_glob;
 
@@ -88,3 +94,8 @@ source_zsh_dotfiles "aliases"
 
 lolmsg "${VIM_TERM_MODE_ACTIVE}" "Hackerman Mode 030" "NVIM 030"
 
+#----------------------------- Display Profile output when enabled with $PROFILE_ZSH ---------------------------------#
+
+if (( ${+PROFILE_ZSHRC} )) then   
+  zprof
+fi
