@@ -70,20 +70,14 @@ eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-ins
 # FASD
 eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 
-#------------------------------------------------- 🚀 Prompt 🚀 ------------------------------------------------------#
-
+# Prompt
 eval "$(starship init zsh)"
-
-#----------------------------------------------- Lower Prio stuff ----------------------------------------------------# 
 
 # Load slow or not immediately necessary schmipschmap
 eval "$(teleport-dir init)"
 
 # Node
 eval "$(fnm env)"
-
-# Python
-# eval "$(pyenv init --path && pyenv init -)"
 
 # Zoxide
 eval "$(zoxide init zsh)"
