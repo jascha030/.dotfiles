@@ -1,19 +1,19 @@
+#!/usr/bin/env zsh
+
 # Terminal / Dotfiles
 alias x="exit"
 alias c="clear"
-alias checkitalics="echo -e '\e[3mitalic\e[23m'"
-
-alias rrsel="exec env _select_shell=1 zsh"
-#alias rr="exec zsh"
 alias rr="source ${HOME}/.zshrc"
-alias dfr="sh ${DOTFILES}/rcup"
+alias rre='exec zsh'
+
+alias dfup="sh ${DOTFILES}/rcup"
+alias zprofrr='env PROFILE_ZSH=1 exec zsh'
+alias checkitalics="echo -e '\e[3mitalic\e[23m'"
 
 # Navigation
 alias ll="lsd -Ahl --color --group-dirs=first"
 alias lc="ll | lolcat"
-alias colorls="ll"
 alias llb="ll | bat"
-alias lr="colorls --tree=5"
 
 # Editor Shortcuts 
 alias vim="nvim"
@@ -27,8 +27,6 @@ alias create:gitignore="echo $'.idea\n\n.vscode\n\nvendor\n\n**.cache\n.DS_Store
 # Directory Shortcuts
 alias dev="cd ${HOME}/.development/Projects"
 alias df="cd ${DOTFILES}"
-
-alias web:sbcomposer="open https://composer.sbdev.nl/"
 
 # Git Shortcuts
 alias root='$(git rev-parse --show-toplevel)'
@@ -69,4 +67,6 @@ alias valetr="valetrm && valet restart"
 # Suffix Aliases
 alias -s php=pstorm
 alias -s {.zshrc,zsh,sh,json,yaml,.env,cs,ts,html}=nvim
+
+
 
