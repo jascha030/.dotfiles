@@ -1,4 +1,6 @@
 export DOTFILES=${HOME}/.dotfiles
+export DOT_ZSH=${DOTFILES}/zsh
+
 export DATA_FILES_DIR=${HOME}/.config/datafiles
 export HISTFILE=${DATA_FILES_DIR}/.zsh_history 
 export MYSQL_HISTFILE=${DATA_FILES_DIR}/.mysql_history

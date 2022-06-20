@@ -28,7 +28,7 @@ local required_files=(
 
 # Files to be sourced 
 local sources=(
-  ${DOTFILES}/shell/path
+  ${DOT_ZSH}/path
   ${HOME}/.cargo/env
 )
 
@@ -39,11 +39,11 @@ local shell_files=(
 
 # Autoload functions.
 fpath=(
-  ${DOTFILES}/zsh/zfunc
+  ${DOT_ZSH}/zfunc
   ${fpath[@]}
 )
 
-autoload -Uz ${DOTFILES}/zsh/zfunc/*(.:t)
+autoload -Uz ${DOT_ZSH}/zfunc/*(.:t)
 
 #----------------------------------------------------- ZSH -----------------------------------------------------------#
 
