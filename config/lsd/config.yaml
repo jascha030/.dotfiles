@@ -34,6 +34,15 @@ ignore-globs:
   - .yarnrc 
   - hushlogin
   - .hushlogin
+  - .rnd 
+  - .fasd 
+  - .viminfo
+  - .Xauthority
+  - .z
+  - .zcompdump
+  - mysqladmin 
+  - .CFUserTextEncoding
+  - .angular-config.json
 
 indicators: true
 layout: grid
