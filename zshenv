@@ -1,3 +1,5 @@
+export XDG_CONFIG=${HOME}/.config
+
 export DOTFILES=${HOME}/.dotfiles
 export DOT_ZSH=${DOTFILES}/zsh
 
@@ -5,10 +7,8 @@ export DATA_FILES_DIR=${HOME}/.config/datafiles
 export HISTFILE=${DATA_FILES_DIR}/.zsh_history 
 export MYSQL_HISTFILE=${DATA_FILES_DIR}/.mysql_history
 
-export PSTORM=phpstorm
-export NVIM=nvim
-export EDITOR=${NVIM}
-export VISUAL=${NVIM}
+export EDITOR=vim
+export VISUAL=vim
 
 export LDFLAGS=-L/usr/local/opt/openssl@1.1/lib
 export CPPFLAGS=-I/usr/local/opt/openssl@1.1/include

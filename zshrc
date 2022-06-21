@@ -9,6 +9,7 @@ fi
 setopt extended_glob;
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
+
 ZSH_TMUX_AUTOSTART=true
 auto-ls-lsd () { lsd -Ahl --color --group-dirs=first }
 AUTO_LS_COMMANDS=(lsd git-status)
@@ -32,13 +33,13 @@ local sources=(
   ${HOME}/.cargo/env
 )
 
-# Autoload functions.
 fpath=(
-  ${DOT_ZSH}/zfunc
+  ${DOT_ZSH}/functions
   ${fpath[@]}
 )
 
-autoload -Uz ${DOT_ZSH}/zfunc/*(.:t)
+autoload -Uz ${DOT_ZSH}/functions/*(.:t)
+
 
 #----------------------------------------------------- ZSH -----------------------------------------------------------#
 
@@ -81,7 +82,9 @@ source_zsh_dotfiles "aliases"
 
 #------------------- Display Hackerman-ness for people who don't understand terminals when done ----------------------#
 
-lolmsg "${VIM_TERM_MODE_ACTIVE}" "Hackerman Mode 030" "NVIM 030"
+lolmsg "${VIM_TERM_MODE_ACTIVE}" \
+    "Hackerman Mode 030" \
+    "NVIM 030"
 
 #----------------------------- Display Profile output when enabled with $PROFILE_ZSH ---------------------------------#
 

@@ -10,22 +10,15 @@ function lolmsg {
   local def_msg="$2"
   local alt_msg="$3"
 
-  if [[ $random_int > 5 ]]; then 
+  if [[ $random_int > 5 ]]; then
     lol_animal="lolcat"
   fi 
 
-  if [[ $is_vimterm == false ]]; then 
-    local msg="${def_msg}"
-  else 
-    local msg="${alt_msg}"
-  fi
+  [[ $is_vimterm == false ]] && msg="${def_msg}" || msg="${alt_msg}"
   
   clear
   
-  #for i in {1..$(( ( $row_height / 2 ) - 9 ))}; do
-    echo '\n\n\n\n';
-  #done
-    
+  echo '\n\n\n\n';
 
   figlet -Lcw $(tput cols) -f roman "$msg" | $lol_animal
 }

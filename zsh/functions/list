@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+# List helpers
+local list_helpers=(["lc"]='cat' ["lf"]='fzf')
+
