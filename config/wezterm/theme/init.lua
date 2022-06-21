@@ -1,9 +1,10 @@
+-- Todo: make dynamic
 local default = {
     dark = 'theme.jascha030.wez.og',
     light = 'theme.jascha030.wez.og_light',
 }
 
-local scheme_from_colors = function(colors)
+local function scheme_from_colors(colors)
     return {
         background = colors.background,
         foreground = colors.foreground,
