@@ -2,7 +2,7 @@
 
 function load_antigen {
   local antigen_path="${HOME}/antigen.zsh"
-  local antigrc_path="${HOME}/.antigenrc"
+  local antigrc_path="${DOT_ZSH}/.antigenrc"
   
   if [[ ! -f "$antigen_path" ]]; then 
       curl -L git.io/antigen > antigen.zsh
