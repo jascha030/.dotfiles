@@ -24,6 +24,7 @@ export CAT_OVERRIDE='bat'
 export LAZYGIT_CONFIG=${XDG_CONFIG}/lazygit/config.yml 
 
 # Added for apps
+export COMPOSER_DEFAULT_VENDOR="jascha030" 
 export NPM_CHECK_INSTALLER="pnpm npm-check -u"
 export LDFLAGS=-L/usr/local/opt/openssl@1.1/lib
 export CPPFLAGS=-I/usr/local/opt/openssl@1.1/include
