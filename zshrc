@@ -32,11 +32,6 @@ local sources=(
   ${HOME}/.cargo/env
 )
 
-# Zsh scripts required by .zshrc
-local shell_files=(
-  aliases
-)
-
 # Autoload functions.
 fpath=(
   ${DOT_ZSH}/zfunc
