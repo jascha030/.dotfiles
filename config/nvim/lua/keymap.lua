@@ -1,39 +1,50 @@
-local api = vim.api
-local map = api.nvim_set_keymap
+local kmap = require('util').kmap
+local default_opts = { noremap = true }
 
-local opts = { noremap = true }
+local function map(keymap, action, opts)
+    kmap(keymap, action, 'n', opts or default_opts)
+end
+local function vmap(keymap, action, opts)
+    kmap(keymap, action, 'v', opts or default_opts)
+end
+local function tmap(keymap, action, opts)
+    kmap(keymap, action, 't', opts or default_opts)
+end
 
 -- Cokeline
-map('n', '<S-Tab>', '<Plug>(cokeline-focus-next)', { silent = true })
-map('n', '<C-w>', ':close<CR>', opts)
+map('<S-Tab>', '<Plug>(cokeline-focus-next)', { silent = true })
+map('<C-w>', ':close<CR>')
 
 -- Nvim Tree
-map('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true })
-map('n', '<leader>f', ':lua require("plugins.telescope").project_files()<CR>', { noremap = true, silent = true })
-map('n', 'N', ':NvimTreeFocus<CR>', { noremap = true })
+map('<C-n>', ':NvimTreeToggle<CR>', { noremap = true })
+map('<leader>f', ':lua require("plugins.telescope").project_files()<CR>', { noremap = true, silent = true })
+map('N', ':NvimTreeFocus<CR>', { noremap = true })
 
 --  Telescope
-map('n', 'ss', ':Telescope<CR>', opts)
-map('n', 'ff', ':lua require("telescope.builtin").find_files()<CR>', opts)
-map('n', 'FF', ':lua require("telescope.builtin").file_browser()<CR>', opts)
-map('n', 'fg', ':lua require("telescope.builtin").live_grep()<CR>', opts)
+map('ss', ':Telescope<CR>')
+map('ff', ':lua require("telescope.builtin").find_files()<CR>')
+map('FF', ':lua require("telescope.builtin").file_browser()<CR>')
+map('fg', ':lua require("telescope.builtin").live_grep()<CR>')
 
 -- Lsp
-map('n', '<C-l>', ':lua vim.lsp.buf.formatting()<CR>', opts)
+map('<C-l>', ':lua vim.lsp.buf.formatting()<CR>')
 
 -- Other
-map('v', '<C-c>', ':OSCYank<CR>', opts)
+vmap('<C-c>', ':OSCYank<CR>')
 
 -- Terminal
--- map('n', '<C-t>', ':terminal<CR>i', opts)
-map('n', '<C-t>', ':FloatermToggle[!]<CR>', opts)
-map('t', '<C-t>', '<C-\\><C-n> :FloatermToggle[!]<CR>', opts)
-map('t', '<M-[>', '<Esc>', opts)
-map('t', '<C-v><Esc>', '<Esc>', opts)
+map('<C-t>', ':FloatermToggle[!]<CR>')
+
+tmap('<C-t>', '<C-\\><C-n> :FloatermToggle[!]<CR>')
+tmap('<M-[>', '<Esc>')
+tmap('<C-v><Esc>', '<Esc>')
 
 -- Hop hop, keymappie erop
-map('n', '<Tab><Tab>', ':HopWord<CR>', opts)
-map('n', 'sR', ':source $MYVIMRC<CR>', { noremap = true, silent = true })
+map('<Tab><Tab>', ':HopWord<CR>')
+map('sR', ':source $MYVIMRC<CR>', { noremap = true, silent = true })
 
 -- Switch between light/dark mode.
-map('n', 'CS', ':lua require("colorscheme").toggle()<CR>', opts)
+map('CS', ':lua require("colorscheme").toggle()<CR>')
+
+-- Other
+vmap('<C-c>', ':OSCYank<CR>')
