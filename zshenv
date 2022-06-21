@@ -12,8 +12,7 @@ export MYSQL_HISTFILE=${DATA_FILES_DIR}/.mysql_history
 
 (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )) && export VIM_TERM_MODE_ACTIVE=true || export VIM_TERM_MODE_ACTIVE=false
 
-(( ${+commands[nvim]} )) && export EDITOR=nvim || export EDITOR=vim
-
+export EDITOR=nvim
 export VISUAL=${EDITOR}
 
 #---------------------------------------------------- Applications ---------------------------------------------------#
