@@ -27,7 +27,11 @@ ignore-globs:
   - .DS_Store
   - .php-cs-fixer.cache
   - .phpunit.result.cache
-  - .*.zwc 
+  - .wakatime*
+  - .*history 
+  - .*hst*
+  - .*.zwc
+  - .yarnrc 
   - hushlogin
   - .hushlogin
 
