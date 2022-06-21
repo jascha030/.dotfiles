@@ -1,0 +1,35 @@
+!#/usr/bin/env zsh
+
+if (( ${+CHPWD_LS_PROGRAM} )); then 
+    export CHPWD_LS_PROGRAM="builtin ls"
+fi
+
+if (( ${+CHPWD_LS_ARGS} )); then
+    export CHPWD_LS_ARGS="-Ahl --color"
+fi
+
+if (( ${+CHPWD_AUTO_CMDS} )); then
+  export CHPWD_AUTO_CMDS=()
+fi
+
+function _chpwd_list_get_cmd {
+    eval "$CHPWD_LS_PROGRAM "
+}
+
+function _chpwd_list {
+    emulate -L zsh
+  
+    eval "$CHPWD_LS_PROGRAM $CHPWD_LS_ARGS"
+}
+
+function _chpwd_git_status {
+}
+
+if (( ${+CHPWD_AUTO_CMDS} )); then
+  export CHPWD_AUTO_CMDS=(
+    _chpwd_list
+  )
+fi
+
+
+
