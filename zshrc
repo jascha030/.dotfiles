@@ -28,63 +28,55 @@ local required_files=(
 )
 
 # Files to be sourced 
-local sources=(
-  ${DOT_ZSH}/path
-  ${HOME}/.cargo/env
-)
+local sources=( ${DOT_ZSH}/path ${HOME}/.cargo/env )
 
-fpath=(
-  ${DOT_ZSH}/functions
-  ${fpath[@]}
-)
+function _merge_arrays {
+    return ( "${1[@]}" "${2[@]}" )
+}
 
-autoload -Uz ${DOT_ZSH}/functions/*(.:t)
+function _load_dot_functions {
+    local AUTOLOAD_DIRS=( ${DOT_ZSH}/functions ) 
+    local COMP_DIRS=( ${DOT_ZSH}/completions ) 
+    local PLUGIN_DIRS=( ${DOT_ZSH}/plugins )
+    
+    (( ${+DOT_AUTOLOAD_DIRS} )) && $AUTOLOAD_DIRS=_merge_arrays "$DOT_AUTOLOAD_DIRS" "$AUTOLOAD_DIRS"
+    (( ${+DOT_COMP_DIRS} ))     && $COMP_DIRS=_merge_arrays "$DOT_COMP_DIRS" "$COMP_DIRS"
+    (( ${+DOT_PLUGIN_DIRS} ))   && $PLUGIN_DIRS=_merge_arrays "$DOT_PLUGIN_DIRS" "$PLUGIN_DIRS"
+    
+    export fpath=( "${AUTOLOAD_DIRS[@]}" "${COMP_DIRS[@]}" "${PLUGIN_DIRS[@]}" "${fpath[@]}" )
+    
+    # Autoload functions.
+    local autoload_f
+    for autoload_f in ${AUTOLOAD_DIRS[@]}; do autoload -Uz ${autoload_f}/*(.:t); done
+}
 
+_load_dot_functions
 
 #----------------------------------------------------- ZSH -----------------------------------------------------------#
 
-# Create dirs if necessary.
 assert_dirs "${required_dirs[@]}"
-
-# Create files if necessary.
 assert_files "${required_files[@]}"
-
-# Safe-Source (if they exist) files.
 safe_source "${sources[@]}"
 
 typeset -aU path
 
 load_antigen
 
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
+
 #----------------------------------------------- Initializations -----------------------------------------------------# 
 
 eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
-
-# Tab-tab
-[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
-
-# FASD
-eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
-
-# Prompt
 eval "$(starship init zsh)"
-
-# Load slow or not immediately necessary schmipschmap
 eval "$(teleport-dir init)"
-
-# Node
 eval "$(fnm env)"
-
-# Zoxide
 eval "$(zoxide init zsh)"
 
 source_zsh_dotfiles "aliases"
 
 #------------------- Display Hackerman-ness for people who don't understand terminals when done ----------------------#
 
-lolmsg "${VIM_TERM_MODE_ACTIVE}" \
-    "Hackerman Mode 030" \
-    "NVIM 030"
+lolmsg "${VIM_TERM_MODE_ACTIVE}" "Hackerman Mode 030" "NVIM 030"
 
 #----------------------------- Display Profile output when enabled with $PROFILE_ZSH ---------------------------------#
 
