@@ -1,72 +1,119 @@
 #!/usr/bin/env zsh
 
-# Terminal / Dotfiles
-alias x="exit"
-alias c="clear"
-alias rr="source ${HOME}/.zshrc"
-alias rre='exec zsh'
+#------------------------------------------------ Terminal / Dotfiles ------------------------------------------------#
 
-alias dfup="sh ${DOTFILES}/rcup"
-alias zprofrr='env PROFILE_ZSH=1 exec zsh'
+# Shell 
+alias rr='exec zsh --login'
+alias rrs="source ${HOME}/.zshrc"
+alias rrp="exec env PROFILE_ZSHRC=1 zsh --login"
 alias checkitalics="echo -e '\e[3mitalic\e[23m'"
 
-# Navigation
-alias ll="lsd -Ahl --color --group-dirs=first"
-alias lc="ll | lolcat"
-alias llb="ll | bat"
+# Controls
+alias x='exit'
+alias c='clear'
+alias e='echo'
+alias rd='rmdir'
+alias edit="vim $1"
 
-# Editor Shortcuts 
-alias vim="nvim"
-alias edit="${EDITOR} $1"
-alias pstorm="phpstorm ."
-alias wstorm="webstorm ."
-alias idea="idea ."
+#--------------------------------------------------- App overrides ---------------------------------------------------#
 
-alias create:gitignore="echo $'.idea\n\n.vscode\n\nvendor\n\n**.cache\n.DS_Store\n' > .gitignore"
+if (( ${+LS_OVERRIDE} )); then
+    alias ls=${LS_OVERRIDE}
+fi
 
-# Directory Shortcuts
-alias dev="cd ${HOME}/.development/Projects"
-alias df="cd ${DOTFILES}"
+if (( ${+CAT_OVERRIDE} )); then 
+    alias cat=${CAT_OVERRIDE}
+fi
 
-# Git Shortcuts
-alias root='$(git rev-parse --show-toplevel)'
+if (( ${+EDITOR} )); then 
+    alias vim=${EDITOR}
+fi 
+
+if (( ${+LAZYGIT_CONFIG} )); then 
+    alias lazygit="lazygit -ucf ${LAZYGIT_CONFIG}"
+fi 
+
+if (( ${+commands[idea]} )); then 
+    alias idea="idea ."
+fi
+
+if (( ${+commands[phpstorm]} )); then
+    alias pstorm="phpstorm ."
+fi
+
+if (( ${+commands[webstorm]} )); then 
+    alias wstorm="webstorm ."
+fi
+
+if (( ${+commands[egrep]} )); then
+    alias egrep='egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+fi 
+
+if (( ${+commands[fgrep]} )); then 
+    alias fgrep='fgrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+fi 
+
+#--------------------------------------------------- App shortcuts ---------------------------------------------------#
+
+alias dfup="sh ${DOTFILES}/rcup"
+alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
+
+alias scrsvr='open -a ScreenSaverEngine'
+alias tm-auto='sudo tmutil startbackup --auto; tmutil status'
 alias kraken='$(open gitkraken://repo/$PWD)' # Note: Don't change to double quotes, as it auto-triggers.
-alias clone:sb-starter="git clone git@bitbucket.org:socialbrothers/wordpress-starter-theme.git"
-alias clone:wp="git clone git@github.com:wordpress/wordpress"
+alias fpc="fzf --preview 'cat --color=always --style=numbers --line-range=:500 {}'"
+alias luamake="${HOME}/tools/lua-language-server/3rd/luamake/luamake"
 
-# Clipboard shortcuts
-alias cp:dir="echo `echo $PWD` | pbcopy"
-alias cp:ssh="pbcopy < $HOME/.ssh/id_rsa.pub"
-alias cp:shrug="echo '¯\_(ツ)_/¯' | pbcopy"
-alias cp:broodje="echo \"38. Witte Italiaanse Bol met Gerookte Kip, Avocado mayonaise met extra avocado en een blikkie cola. - €9,00\" | pbcopy"
-alias cp:sbcrepo='echo "{\"type\": \"composer\", \"url\": \"https://composer.sbdev.nl/\"}" | pp_json | pbcopy'
-
-# Utils
-alias listpath="echo \"$PATH\" | tr ':' '\n'"
-alias scrsvr="open -a ScreenSaverEngine"
-alias brewup="brew update && brew outdated; brew upgrade && brew cleanup; brew doctor"
-alias tm-auto="sudo tmutil startbackup --auto; tmutil status"
-alias cat="bat"
-alias fpb="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
-alias readme="bat ${PWD}/README.md"
-alias luamake=/Users/jaschavanaalst/tools/lua-language-server/3rd/luamake/luamake
-
-# PHP and Composer
-alias "php7.4"="valet use php@7.4 && composer global update"
-alias "php8.0"="valet use php@8.0 && composer global update"
-alias "php8.1"="valet use php && composer global update"
-alias php74="valet use php@7.4 && composer global update"
-alias php8="valet use php@8.0 && composer global update"
-alias php81="valet use php && composer global update"
-alias c:pu="composer run phpunit"
-alias c:pcs="composer run format"
-alias c:reset="rm -rf vendor/ composer.lock && composer clear-cache && composer install"
 alias valetrm="rm $HOME/.config/valet/valet.sock"
 alias valetr="valetrm && valet restart"
 
-# Suffix Aliases
+alias php74='valet use php@7.4 && composer global update'
+alias php8='valet use php@8.0 && composer global update'
+alias php81='valet use php && composer global update'
+
+alias ll='ls -Ahl --color'
+alias lsa='ls -lah'
+alias lsc='ls | cat'
+alias llc='ll | cat'
+alias lll='ll | lolcat'
+alias lllc='ll | lolcrab'
+
+#---------------------------------------------------- Navigation -----------------------------------------------------#  
+
+alias ".."='cd ../'
+alias "..."='cd ../..'
+alias "...."='cd ../../..'
+alias "....."='cd ../../../..'
+alias "......"='cd ../../../../..'
+
+alias root='cd $(git rev-parse --show-toplevel)'
+alias config="cd ${XDG_CONFIG}"
+alias dev="cd ${HOME}/.development/Projects"
+alias df="cd ${DOTFILES}"
+
+#----------------------------------------------------- Utilities -----------------------------------------------------#  
+
+alias c:ssh="cat ${HOME}/.ssh/id_rsa.pub"
+alias c:readme='cat $(root)/README.md'
+
+alias l:path="echo \"$PATH\" | tr ':' '\n'"
+alias lc:path='l:path | cat'
+alias lf:path='l:path | fzf'
+alias l:brew='brew list'
+alias lc:brew='l:brew | cat'
+alias lf:brew='brew list | fzf'
+
+alias cp:dir="e ${PWD} | pbcopy"
+alias cp:shrug='e "¯\_(ツ)_/¯" | pbcopy'
+alias cp:sbcrepo='e "{\"type\": \"composer\", \"url\": \"https://composer.sbdev.nl/\"}" | pp_json | pbcopy'
+alias cp:broodje='e "38. Witte Ital. Bol Gerookte Kip, avocado mayo met extra avocado + blik cola - €9,00" | pbcopy'
+alias cp:ssh="sssh | pbcopy"
+
+alias clone:sb-starter="git clone git@bitbucket.org:socialbrothers/wordpress-starter-theme.git"
+alias clone:wp="git clone git@github.com:wordpress/wordpress"
+
+#-------------------------------------------------- Suffix Aliases ---------------------------------------------------#
+
 alias -s php=pstorm
 alias -s {.zshrc,zsh,sh,json,yaml,.env,cs,ts,html}=nvim
-
-
 
