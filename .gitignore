@@ -5,9 +5,6 @@
 *.DS_Store
 **.cache
 
-# VSCode
-vscode/.vscode/extensions/
-
 # Hammerspoon
 lua/.hammerspoon/Spoons/EmmyLua.spoon/annotations
 
