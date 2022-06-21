@@ -1,9 +1,3 @@
-# Oh-my-zsh!
-antigen use oh-my-zsh
-
-antigen bundle git
-antigen bundle fzf
-
 antigen bundle leophys/zsh-plugin-fzf-finder
 antigen bundle Aloxaf/fzf-tab
 antigen bundle chrissicool/zsh-256color
