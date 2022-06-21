@@ -1,7 +1,0 @@
-#HOSTNAME=""
-#UNDOTTED="texmf"
-#COPY_ALWAYS=""
-DOTFILES_DIRS="/Users/jaschavanaalst/.dotfiles"
-SYMLINK_DIRS="*"
-EXCLUDES="*:.git *:.gitsecret *:.gitignore *:.luarc.json *:*.md *:util"
-
