@@ -1,4 +1,4 @@
-local cokeline = function()
+local function cokeline()
     local utils = require('cokeline.utils')
 
     local colors = {
@@ -22,7 +22,6 @@ local cokeline = function()
 
     local components = {
         space = { text = ' ' },
-
         diagnostics = {
             text = function(buffer)
                 return (buffer.diagnostics.errors ~= 0 and '  ' .. buffer.diagnostics.errors)
@@ -59,7 +58,7 @@ local cokeline = function()
     })
 end
 
-local lualine = function()
+local function lualine()
     require('lualine').setup({
         options = {
             icons_enabled = true,
@@ -89,7 +88,7 @@ local lualine = function()
     })
 end
 
-local scrollbar = function()
+local function scrollbar()
     local colors = require('tokyonight.colors').setup()
 
     require('scrollbar').setup({
@@ -105,26 +104,12 @@ local scrollbar = function()
     })
 end
 
-local colorizer = function()
+local function colorizer()
     require('colorizer').setup()
 end
 
-local tree = function()
+local function tree()
     vim.cmd([[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]])
-
-    local git = { unstaged = '', staged = '✓', unmerged = '', renamed = '➜', untracked = '' }
-    local folder = { default = '', open = '', empty = '', empty_open = '', symlink = '' }
-
-    local icons = {
-        hint = '',
-        info = '',
-        warning = '',
-        error = '',
-        default = '',
-        symlink = '',
-        git = git,
-        folder = folder,
-    }
 
     require('nvim-tree').setup({
         disable_netrw = true,
@@ -133,38 +118,19 @@ local tree = function()
         open_on_setup = false,
         open_on_tab = false,
         update_cwd = false,
-
-        ignore_ft_on_setup = {},
-
-        -- update_to_buf_dir = {
-        --   enable = true,
-        --   auto_open = true,
-        -- },
-
-        diagnostics = {
-            enable = false,
-            -- icons = icons,
-        },
-
+        diagnostics = { enable = true },
         git = { ignore = false },
-
         update_focused_file = {
             enable = false,
             update_cwd = false,
             ignore_list = {},
         },
-
-        system_open = {
-            cmd = nil,
-            args = {},
-        },
-
         view = {
             hide_root_folder = true,
             width = 40,
             height = 30,
             side = 'right',
-            -- auto_resize = false,
+
             mappings = {
                 custom_only = false,
                 list = {
@@ -174,7 +140,12 @@ local tree = function()
             },
         },
 
-        filters = { exclude = { '.php-cs-fixer.cache', '.phpunit.result.cache' } },
+        filters = {
+            exclude = {
+                '.php-cs-fixer.cache',
+                '.phpunit.result.cache',
+            },
+        },
     })
 
     vim.cmd([[set termguicolors]])
