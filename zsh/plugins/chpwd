@@ -1,35 +1,26 @@
-!#/usr/bin/env zsh
+#!/usr/bin/env zsh
 
-if (( ${+CHPWD_LS_PROGRAM} )); then 
-    export CHPWD_LS_PROGRAM="builtin ls"
-fi
+! (( ${+CHPWD_LS_PROGRAM} )) && export CHPWD_LS_PROGRAM="builtin ls"
 
-if (( ${+CHPWD_LS_ARGS} )); then
-    export CHPWD_LS_ARGS="-Ahl --color"
-fi
+! (( ${+CHPWD_LS_ARGS} )) && export CHPWD_LS_ARGS="-Ahl --color"
 
-if (( ${+CHPWD_AUTO_CMDS} )); then
-  export CHPWD_AUTO_CMDS=()
-fi
+! (( ${+CHPWD_AUTO_LS} )) && export CHPWD_AUTO_LS=true
 
-function _chpwd_list_get_cmd {
-    eval "$CHPWD_LS_PROGRAM "
-}
+! (( ${+CHPWD_AUTO_GIT_STATUS} )) && export CHPWD_AUTO_GIT_STATUS=true
 
-function _chpwd_list {
-    emulate -L zsh
+function __chpwd_list {
+  eval $CHPWD_LS_PROGRAM "$CHPWD_LS_ARGS"
   
-    eval "$CHPWD_LS_PROGRAM $CHPWD_LS_ARGS"
+  [[ $CHPWD_NEWLINE != false ]] && echo ""
 }
 
-function _chpwd_git_status {
+function __chpwd_git_status {
+  [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == true ]] && git status
 }
 
-if (( ${+CHPWD_AUTO_CMDS} )); then
-  export CHPWD_AUTO_CMDS=(
-    _chpwd_list
-  )
+local _CHPWD_AUTO_CMDS=( __chpwd_git_status )
+
+if (( ${+CHPWD_USER_COMMANDS} )); then
+  export _CHPWD_AUTO_CMDS=( _chpwd_list )
 fi
-
-
 
