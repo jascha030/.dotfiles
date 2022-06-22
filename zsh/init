@@ -46,6 +46,15 @@ fi
 
 
 
+# functions for internal usage.
+function __autoload_dirs {
+    local a
+    
+    for a in "$@"; do
+        autoload -Uz ${a}/*(.:t)
+    done
+}
+
 # Load antigen plugins.
 function __df_load_antigen {
     # Todo: check
@@ -60,6 +69,19 @@ function __df_load_antigen {
     fi
 }
 
+# Autoloads required and defined functions.
+function df_load {
+    # Bootstrap required dirs and files
+    if (( ${+DOT_REQUIRED_DIRS} )); then 
+        assert_dirs "${DOT_REQUIRED_DIRS[@]}"
+    fi
+
+    if (( ${+DOT_REQUIRED_FILES} )); then
+        assert_files "${DOT_REQUIRED_FILES[@]}"
+    fi
+
+
+    # Merge defaults with user defined.
     (( ${+DOT_AUTOLOAD_DIRS} )) && $AUTOLOAD_DIRS=merge_arrays "$DOT_AUTOLOAD_DIRS" "$AUTOLOAD_DIRS"
 
     (( ${+DOT_COMP_DIRS} )) && $COMP_DIRS=merge_arrays "$DOT_COMP_DIRS" "$COMP_DIRS"
@@ -73,5 +95,17 @@ function __df_load_antigen {
       "${fpath[@]}"
     )
     
+    # Load stuff that needs to be loaded before Antigen
+    __autoload_dirs "${AUTOLOAD_DIRS[@]}"
+
+    # Source path
+    safe_source "${_SOURCES}"
+
+    # Source other zsh dotfiles
+    if (( ${+DOT_SOURCES} )); then 
+        safe_source "${DOT_SOURCES[@]}"
+    fi
+
+    __df_load_antigen
 }
 
