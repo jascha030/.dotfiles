@@ -45,6 +45,25 @@ fi
 # All functions reside in the default functions dir.
 
 
+# Checks if directories or creates them using `mkdir -p`.
+function assert_dirs {
+    # undefined 
+    builtin autoload -X
+}
+
+
+# Checks if files exist or creates them using `touch`.
+function assert_files {
+    # undefined 
+    builtin autoload -X
+}
+
+# Utility function, to merge arrays...
+function merge_arrays {
+    # undefined 
+    builtin autoload -X
+}
+
 
 # functions for internal usage.
 function __autoload_dirs {
