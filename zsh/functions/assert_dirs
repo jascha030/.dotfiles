@@ -4,7 +4,7 @@ function assert_dirs {
   local p 
   
   for p in "$@" ; do 
-    [[ -d "$p" ]] || mkdir "$p"
+    [[ -d "$p" ]] || mkdir -p "$p"
   done
 }
 
