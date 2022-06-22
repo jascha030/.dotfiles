@@ -66,7 +66,6 @@ load_antigen
 
 #----------------------------------------------- Initializations -----------------------------------------------------# 
 
-eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 eval "$(starship init zsh)"
 eval "$(teleport-dir init)"
 eval "$(fnm env)"
