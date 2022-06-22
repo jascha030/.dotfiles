@@ -1,8 +1,0 @@
-# Don't F me NVIM heading comment thingy plx.
-config/nvim/init.lua
-
-# HammerSpoon
-hammerspoon/Spoons/
-hammerspoon/hs/
-hammerspoon/lib/
-
