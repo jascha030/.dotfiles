@@ -5,18 +5,45 @@
 #######################################################################################################################
 
 
+# Default directory for functions.
+# 
+# Add by exporting (array) `DOT_AUTOLOAD_DIRS`.
 local AUTOLOAD_DIRS=( ${DOT_ZSH}/functions ) 
+
+# Default directory for completions.
+# 
+# Add by exporting (array) `DOT_COMP_DIRS`.
 local COMP_DIRS=( ${DOT_ZSH}/completions )
+
+
+# Default sources.
+#
+# Files to be sourced before the ones added in `.zshrc`.
 local _SOURCES=( ${DOT_ZSH}/path )
+
+
+# ENV variables defaults, can be overwritten in .zshrc or any earlier config.
+
+
+# Default antigen.zsh path.
+# 
 # Based on a normal install, overwrite if installed through brew.
 if ! (( ${+DOT_ANTIGEN_PATH} )); then 
     export DOT_ANTIGEN_PATH="${HOME}/antigen.zsh"
 fi
+
+# Default antigenrc path.
+#
 # Prob. no reason to overwrite, 
 # Antigen starts acting weird when rc not located @ $HOME.
 if ! (( ${+DOT_ANTIGEN_RC_PATH} )); then 
     export DOT_ANTIGEN_RC_PATH="${HOME}/.antigenrc"
 fi
+
+
+# Lazy load functions that are only used conditionally.
+# All functions reside in the default functions dir.
+
 
 
 # Load antigen plugins.
