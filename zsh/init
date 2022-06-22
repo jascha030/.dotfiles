@@ -64,8 +64,21 @@ function merge_arrays {
     builtin autoload -X
 }
 
+# Loads files in default $DOT_ZSH_DIR.
+# Define by exporting (array) $DOT_ZSH_SOURCES.
+function source_zsh_dotfiles {
+  local d
+
+  for d in "$@" ; do
+    [[ -f "${DOT_ZSH}/${d}" ]] && source "${DOT_ZSH}/${d}"
+  done
+}
+
 
 # functions for internal usage.
+
+
+# Autoload all files in dir.
 function __autoload_dirs {
     local a
     
@@ -88,8 +101,23 @@ function __df_load_antigen {
     fi
 }
 
-# Autoloads required and defined functions.
-function df_load {
+# Executes eval on provided statements.
+function __df_do_evaluations {
+    local e 
+    
+    for e in "$@"; do 
+        eval $e
+    done
+}
+
+
+# Function that executes all initialization logic.
+# 
+# * Asserts required dirs and files.
+# * Adds autoload and completion dirs.
+# * Loads antigen with `.antigenrc`.
+#
+function __df_load {
     # Bootstrap required dirs and files
     if (( ${+DOT_REQUIRED_DIRS} )); then 
         assert_dirs "${DOT_REQUIRED_DIRS[@]}"
@@ -116,15 +144,30 @@ function df_load {
     
     # Load stuff that needs to be loaded before Antigen
     __autoload_dirs "${AUTOLOAD_DIRS[@]}"
-
-    # Source path
+    
+    # Completions
+    __autoload_dirs "${COMP_DIRS[@]}"
+    
+    # Source path file.
     safe_source "${_SOURCES}"
-
+    typeset -aU path
+    
     # Source other zsh dotfiles
     if (( ${+DOT_SOURCES} )); then 
         safe_source "${DOT_SOURCES[@]}"
     fi
 
     __df_load_antigen
+
+    
+    if (( ${+DOT_EVALUATIONS} )); then 
+        __df_do_evaluations "${DOT_EVALUATIONS[@]}"
+    fi
+
+    
 }
+
+
+# Execute bootstrap logic.
+__df_load
 
