@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+# Source a file located in $DOT_ZSH directory.
 function source_zsh_dotfiles {
   local d
 
