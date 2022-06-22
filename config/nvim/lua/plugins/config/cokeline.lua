@@ -1,4 +1,4 @@
-function()
+return function()
     local utils = require('cokeline.utils')
 
     local colors = {

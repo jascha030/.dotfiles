@@ -133,5 +133,5 @@ local cmp_config = function()
 end
 
 return {
-  cmp = cmp_config
+    cmp = cmp_config,
 }

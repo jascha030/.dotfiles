@@ -19,5 +19,3 @@ end
 
 -- Set listed options from options module per scope
 set_options_per_scope(scopes, require('options.config'))
-
-

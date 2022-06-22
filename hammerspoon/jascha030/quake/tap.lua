@@ -37,7 +37,7 @@ end
 
 local M = {
     timeFrame = 1,
-    action = default_callback
+    action = default_callback,
 }
 
 M.eventWatcher = eventtap.new({ events.flagsChanged, events.keyDown }, function(event)
