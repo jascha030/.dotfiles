@@ -3,6 +3,7 @@
 export DOTFILES=${HOME}/.dotfiles
 export DOT_ZSH=${DOTFILES}/zsh
 export XDG_CONFIG=${HOME}/.config
+export DOT_RC=${HOME}/.zshrc
 
 export DATA_FILES_DIR=${HOME}/.config/datafiles
 export HISTFILE=${DATA_FILES_DIR}/.zsh_history 
