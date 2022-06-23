@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+# Utility function, to merge arrays...
+function merge_arrays {
+  local final_arr=()  
+  local next
+
+  for next in "$@"; do
+      $final_arr+=( ${next[@]} )
+  done
+  
+  return $final_arr
+}
+

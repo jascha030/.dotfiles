@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+
+function lolmsg {
+  local lol_animal msg column_width row_height
+  local random_int=$(( ( RANDOM % 10 )  + 1 ))
+  
+  [[ $random_int > 5 ]] && lol_animal="lolcat" || lol_animal="lolcrab"
+
+  # Resolve msg to display
+  [[ "$1" == false ]] && msg="$2" || msg="$3"
+  
+  clear
+
+  echo '\n\n\n\n';
+
+  figlet -Lcw $(tput cols) -f roman "$msg" | lol_animal
+}
+

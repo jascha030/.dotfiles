@@ -1,7 +1,0 @@
-#!/usr/bin/env zsh
-
-# Utility function, to merge arrays...
-function merge_arrays {
-    return ( "${1[@]}" "${2[@]}" )
-}
-

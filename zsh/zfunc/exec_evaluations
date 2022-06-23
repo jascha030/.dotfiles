@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+# Executes eval on provided statements.
+function exec_evaluations {
+    local e 
+    
+    for e in "$@"; do 
+      eval "$($e)"
+    done
+}
+
