@@ -1,7 +1,17 @@
 local wezterm = require('wezterm')
 
-
 return {
+    {
+        key = 'F',
+        mods = 'LEADER|SHIFT',
+        action = wezterm.action({
+            SpawnCommandInNewTab = {
+                args = { '/usr/local/bin/fish', '--login' },
+                cwd = os.getenv('HOME'),
+            },
+        }),
+    },
+
     { key = 'n', mods = 'SHIFT|CTRL', action = 'ToggleFullScreen' },
     { key = 'v', mods = 'CMD', action = 'Paste' },
     { key = 'c', mods = 'CMD', action = 'Copy' },
