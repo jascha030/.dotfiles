@@ -19,7 +19,9 @@ export VISUAL=${EDITOR}
 #---------------------------------------------------- Applications ---------------------------------------------------#
 
 # For use inside .dotfiles
-export LS_OVERRIDE='lsd'
+# export LS_OVERRIDE='lsd'
+export LS_OVERRIDE='exa'
+export LS_DEFAULT_ARGS="-aUhl --icons --no-time --no-permissions --octal-permissions --no-user --group-directories-first"
 export CAT_OVERRIDE='bat'
 
 export LAZYGIT_CONFIG=${XDG_CONFIG}/lazygit/config.yml 
