@@ -23,7 +23,7 @@ return {
     enable_tab_bar = false,
 
     window_decorations = 'NONE | RESIZE',
-    window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
+    window_padding = { left = 8, right = 8, top = 6, bottom = 2 },
 
     default_cursor_style = 'BlinkingBlock',
 
@@ -43,5 +43,5 @@ return {
         hue = 1,
     },
 
-    window_background_opacity = 0.99
+    window_background_opacity = 0.98
 }
