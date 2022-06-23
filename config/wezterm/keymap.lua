@@ -1,5 +1,6 @@
 local wezterm = require('wezterm')
 
+
 return {
     { key = 'n', mods = 'SHIFT|CTRL', action = 'ToggleFullScreen' },
     { key = 'v', mods = 'CMD', action = 'Paste' },
@@ -8,8 +9,14 @@ return {
     { key = 's', mods = 'LEADER', action = wezterm.action({ SplitVertical = { domain = 'CurrentPaneDomain' } }) },
     { key = 'v', mods = 'LEADER', action = wezterm.action({ SplitHorizontal = { domain = 'CurrentPaneDomain' } }) },
 
-    { key = 'c', mods = 'LEADER', action = wezterm.action({ SpawnTab = 'CurrentPaneDomain' }) },
+    { key = 'LeftArrow', mods = 'ALT', action = wezterm.action({ ActivatePaneDirection = 'Left' }) },
+    { key = 'RightArrow', mods = 'ALT', action = wezterm.action({ ActivatePaneDirection = 'Right' }) },
+    { key = 'UpArrow', mods = 'ALT', action = wezterm.action({ ActivatePaneDirection = 'Up' }) },
+    { key = 'DownArrow', mods = 'ALT', action = wezterm.action({ ActivatePaneDirection = 'Down' }) },
+
     { key = 'l', mods = 'LEADER', action = 'ActivateLastTab' },
+
+    { key = 'c', mods = 'LEADER', action = wezterm.action({ SpawnTab = 'CurrentPaneDomain' }) },
     { key = '&', mods = 'LEADER|SHIFT', action = wezterm.action({ CloseCurrentTab = { confirm = true } }) },
     { key = 'x', mods = 'LEADER', action = wezterm.action({ CloseCurrentPane = { confirm = true } }) },
 
