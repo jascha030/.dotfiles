@@ -39,7 +39,7 @@ export DOT_NEOVIM_LOL_MSG="NVIM 030"
 
 #------------------------------------------------- Initialization ----------------------------------------------------#
 
-source "${DOT_ZSH}/init.zsh"
+[[ -f ${DOT_ZSH}/init ]] && source ${DOT_ZSH}/init
 
 #----------------------------- Display Profile output when enabled with $PROFILE_ZSH ---------------------------------#
 

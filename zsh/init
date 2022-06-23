@@ -1,7 +1,13 @@
+#!/usr/bin/env zsh
+
 #######################################################################################################################
 #                                               Dotfiles Initialization                                               #
 # By Jascha030                                                                  https://github.io/jascha030/.dotfiles #
 #######################################################################################################################
+
+
+# Dotfiles zsh function root dir.
+export DOT_ZFUNC="${DOT_ZSH}/zfunc"
 
 # Default antigen.zsh path.
 # Based on a normal install, overwrite if installed through brew.
@@ -14,19 +20,17 @@ if ! (( ${+DOT_ANTIGEN_RC_PATH} )); then
     export DOT_ANTIGEN_RC_PATH="${HOME}/.antigenrc"
 fi
 
+
+# Internally used functions.
+
 # Autoload all files in dir.
 function __autoload_dirs {
     local a
-    
+   
     for a in "$@"; do
-        if [[ -f "$a" ]]; then 
-            echo $a
-            autoload -Uz "$a"
-        fi 
+        [[ -f "$a" ]] && autoload -Uz "$a"
 
-        if [[ -d "$a" ]]; then 
-            autoload -Uz ${a}/*(.:t)
-        fi
+        [[ -d "$a" ]] && autoload -Uz ${a}/*(.:t)
     done
 }
 
@@ -45,41 +49,30 @@ function __df_load_antigen {
 }
 
 
-# Dotfiles zsh function root dir.
-export DOT_ZFUNC="${DOT_ZSH}/zfunc"
-
-
+# Source files and autoload functions that are required early.
 # Default directory for functions.
 # Add by exporting (array) `DOT_AUTOLOAD_DIRS`.
 local AUTOLOAD_DIRS=( "${DOT_ZFUNC}" )
-
-# Merge defaults with user defined.
-if (( ${+DOT_AUTOLOAD_DIRS} )); then 
-    $AUTOLOAD_DIRS+=( ${DOT_AUTOLOAD_DIRS[@]} )
-fi 
+(( ${+DOT_AUTOLOAD_DIRS} )) && $AUTOLOAD_DIRS=( "${AUTOLOAD_DIRS}" "${DOT_AUTOLOAD_DIRS[@]}" )
 
 # Default directory for completions.
 # Add by exporting (array) `DOT_COMP_DIRS`.
 local COMP_DIRS=( "${DOT_ZFUNC}/completions" )
+(( ${+DOT_COMP_DIRS} )) && COMP_DIRS=( "${DOT_COMP_DIRS[@]}" "${DOT_COMP_DIRS[@]}" )
 
-# Files to be sourced before the ones added in `.zshrc`.
-local _SOURCES=( "${DOT_ZSH}/path" )
 
-# Add lazyload dirs to fpath.
-fpath=("${fpath[@]}" "${AUTOLOAD_DIRS[@]}")
+fpath=( "${fpath[@]}" "${AUTOLOAD_DIRS[@]}" "${COMP_DIRS[@]}" )
+__autoload_dirs "${AUTOLOAD_DIRS[@]}"
 
-# Pre autoload (defined lazily velow).
-__autoload_dirs "${AUTOLOAD_DIRS}"
-
-# Source path file.
-safe_source "${_SOURCES[@]}"
-
+# Path
+safe_source "${DOT_ZSH}/path"
 typeset -aU path
 
-# Source other zsh dotfiles
+# Source files that are required early.
 if (( ${+DOT_SOURCES} )); then 
     safe_source "${DOT_SOURCES[@]}"
 fi
+
 
 # Lazy load functions that are only used conditionally.
 # All functions reside in the default functions dir.
@@ -96,15 +89,15 @@ function assert_files {
     builtin autoload -X
 }
 
-# Utility function, to merge arrays...
-function merge_arrays {
-    # undefined 
-    builtin autoload -X
-}
-
 # Display msg after load.
 function lolmsg {
     # undefined
+    builtin autoload -X
+}
+
+# Utility function, to merge arrays...
+function merge_arrays {
+    # undefined 
     builtin autoload -X
 }
 
@@ -115,46 +108,44 @@ function source_zsh_dotfiles {
     builtin autoload -X
 }
 
-# Executes eval on provided statements.
-function exec_evaluations {
-    # undefined 
+# Run and time zsh initialization 10 times.
+function z_speedtest {
+    # undefined
     builtin autoload -X
 }
 
 
-# Bootstrap required dirs and files
-if (( ${+DOT_REQUIRED_DIRS} )); then 
-    assert_dirs "${DOT_REQUIRED_DIRS[@]}"
-fi
 
-if (( ${+DOT_REQUIRED_FILES} )); then
-    assert_files "${DOT_REQUIRED_FILES[@]}"
-fi
+# Assure required dirs exist.
+(( ${+DOT_REQUIRED_DIRS} )) && assert_dirs "${DOT_REQUIRED_DIRS[@]}"  
 
-# Source other zsh dotfiles
-if (( ${+DOT_SOURCES} )); then 
-    safe_source "${DOT_SOURCES[@]}"
-fi
+# Assure required files exist.
+(( ${+DOT_REQUIRED_FILES} )) && assert_files "${DOT_REQUIRED_FILES[@]}"
 
-if (( ${+DOT_COMP_DIRS} )); then 
-    COMP_DIRS+=( "${DOT_COMP_DIRS[@]}" )
-fi
-
-# Set $fpath
-export fpath=( "${fpath[@]}" "${COMP_DIRS[@]}" )
-
-# Load completions.
+# Load completions
 __autoload_dirs "${COMP_DIRS[@]}"
-    
+
+
 # Load antigen plugins.
 __df_load_antigen
 
+
+# Source zsh plugin files if necessary
+if (( ${+DOT_PLUGINS} )); then 
+  fpath=( "${fpath[@]}" "${DOT_PLUGINS[@]}" )
+  
+  __autoload_dirs "${DOT_PLUGINS[@]}"
+fi 
+
+
+# Todo: figure out how to make this more dynamic.
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(teleport-dir init)"
 eval "$(fnm env)"
-    
-# Source other zsh dotfiles
+
+
+# Source other zsh dotfiles like aliases etc.
 if (( ${+DOT_ZSH_SOURCES} )); then 
     source_zsh_dotfiles "${DOT_ZSH_SOURCES[@]}"
 fi
@@ -163,5 +154,9 @@ fi
 # Allow to turn off lolmsg when debugging.
 if ! (( ${+DOT_DISABLE_MSG} )); then 
     lolmsg "${VIM_TERM_MODE_ACTIVE}" "${DOT_DEFAULT_LOL_MSG}" "${DOT_NEOVIM_LOL_MSG}"
+else 
+  unset DOT_DISABLE_MSG
 fi
+
+export fpath
 
