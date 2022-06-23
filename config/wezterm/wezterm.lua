@@ -36,4 +36,12 @@ return {
     font_rules = fonts.rules,
 
     colors = theme.get_scheme('Dark'),
+
+    inactive_pane_hsb = {
+        saturation = 0.8,
+        brightness = 1,
+        hue = 1,
+    },
+
+    window_background_opacity = 0.99
 }
