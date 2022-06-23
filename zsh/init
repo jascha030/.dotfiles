@@ -146,8 +146,8 @@ eval "$(fnm env)"
 
 
 # Source other zsh dotfiles like aliases etc.
-if (( ${+DOT_ZSH_SOURCES} )); then 
-    source_zsh_dotfiles "${DOT_ZSH_SOURCES[@]}"
+if (( ${+DOT_AFTER_INIT_SOURCES} )); then 
+    safe_source "${DOT_AFTER_INIT_SOURCES[@]}"
 fi
 
 

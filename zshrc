@@ -31,7 +31,10 @@ export DOT_SOURCES=(
 # export DOT_PLUGINS=( )
 
 # Final ZSH files to load, files should reside in $DOT_ZSH dir.
-export DOT_ZSH_SOURCES=( "aliases" )
+export DOT_AFTER_INIT_SOURCES=( 
+    ${DOTFILES}/aliases
+    ${DOT_ZSH}/aliases
+)
 
 # Normal msg displayed with figlet in funky colors.
 export DOT_DEFAULT_LOL_MSG="Hackerman Mode 030"   
