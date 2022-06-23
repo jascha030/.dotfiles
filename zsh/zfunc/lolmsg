@@ -9,8 +9,10 @@ function lolmsg {
   # Resolve msg to display
   [[ "$1" == false ]] && msg="$2" || msg="$3"
   
+  # Save current output in case of warnings/errors
+  tput smcup
+  
   clear
-
   echo '\n\n\n\n';
 
   figlet -Lcw $(tput cols) -f roman "$msg" | "$lol_animal"
