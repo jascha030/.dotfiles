@@ -13,6 +13,6 @@ function lolmsg {
 
   echo '\n\n\n\n';
 
-  figlet -Lcw $(tput cols) -f roman "$msg" | lol_animal
+  figlet -Lcw $(tput cols) -f roman "$msg" | "$lol_animal"
 }
 
