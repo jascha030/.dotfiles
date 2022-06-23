@@ -1,3 +1,7 @@
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+#                                 ><^o *blub blup boop* o^><
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+
 set -g DOTFILES $HOME/.dotfiles
 set -g DOT_ZSH $DOTFILES/zsh
 set -g XDG_CONFIG $HOME/.config
@@ -23,7 +27,7 @@ if status is-interactive
     set -U EDITOR nvim
     set -U LAZYGIT_CONFIG $XDG_CONFIG/lazygit/config.yml 
 
-    alias idea "idea ."
-
     source $DOTFILES/aliases
+    
+    starship init fish | source
 end
