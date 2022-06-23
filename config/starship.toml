@@ -1,23 +1,21 @@
 format = """
-$username\
-[](bg:#3B4261 fg:#3B4261)\
-$directory\
-[](fg:#3B4261 bg:#444A73)\
-$git_branch\
-$git_status\
-[](fg:#444A73 bg:#86BBD8)\
+[┌─────────────────────────────────────────────────](bold bright-black)
+[│](bold bright-black)\ 
+$directory
+[└──](bold bright-black) """
+
+
+right_format = """
 $golang\
 $java\
 $nodejs\
 $rust\
-[](fg:#86BBD8 bg:#06969A)\
-$docker_context\
-[](fg:#06969A bg:#1E2030)\
-[ ](fg:#1E2030)\
 """
 
 # Disable the blank line at the start of the prompt
 add_newline = true
+
+continuation_prompt ="[∙](bright-black) "
 
 [username]
 show_always = true
@@ -26,7 +24,7 @@ style_root = "bg:#3B4261"
 format = '[  ]($style)'
 
 [directory]
-style = "bg:#3B4261"
+#style = "bg:#3B4261"
 format = "[ $path ]($style)"
 
 # Here is how you can shorten some long paths by text replacement
@@ -37,20 +35,18 @@ format = "[ $path ]($style)"
 "Music" = " "
 "Pictures" = " "
 
-[c]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[[ $symbol ](bg:#86BBD8)]($style)'
+[shell]
+zsh_indicator = " "
+fish_indicator = " "
+unknown_indicator = " _"
+powershell_indicator = " 🔥💩"
+style = "cyan bold"
+disabled = false
 
-[docker_context]
-symbol = " "
-style = "bg:#06969A"
-format = '[[ $symbol $context ](bg:#06969A)]($style) $path'
-
-[elixir]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[[ $symbol ](bg:#86BBD8)]($style)'
+#[docker_context]
+#symbol = " "
+#style = "bg:#06969A"
+#format = '[[ $symbol $context ](bg:#06969A)]($style) $path'
 
 [git_branch]
 symbol = ""
