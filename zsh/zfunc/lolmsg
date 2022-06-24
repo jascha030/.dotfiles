@@ -13,7 +13,8 @@ function lolmsg {
   tput smcup
   
   clear
-  echo '\n\n\n\n';
+
+  printf '\n%.0s' {1..8}
 
   figlet -Lcw $(tput cols) -f roman "$msg" | "$lol_animal"
 }

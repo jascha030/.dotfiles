@@ -17,3 +17,5 @@ dot_sources=(
 
 dot_init=()
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
