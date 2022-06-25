@@ -101,13 +101,6 @@ function merge_arrays {
     builtin autoload -X
 }
 
-# Loads files in default $DOT_ZSH_DIR.
-# Define by exporting (array) $DOT_ZSH_SOURCES.
-function source_zsh_dotfiles {
-    # undefined 
-    builtin autoload -X
-}
-
 # Run and time zsh initialization 10 times.
 function z_speedtest {
     # undefined
