@@ -1,7 +1,11 @@
 format = """
+$battery$shell
 [┌─────────────────────────────────────────────────](bold bright-black)
 [│](bold bright-black)\ 
-$directory
+$user\
+$directory\
+$git_branch\
+$git_status
 [└──](bold bright-black) """
 
 
@@ -10,6 +14,8 @@ $golang\
 $java\
 $nodejs\
 $rust\
+$php\
+[──┘](bold bright-black)
 """
 
 # Disable the blank line at the start of the prompt
@@ -24,7 +30,7 @@ style_root = "bg:#3B4261"
 format = '[  ]($style)'
 
 [directory]
-#style = "bg:#3B4261"
+style = "bg:#3B4261"
 format = "[ $path ]($style)"
 
 # Here is how you can shorten some long paths by text replacement
@@ -35,8 +41,11 @@ format = "[ $path ]($style)"
 "Music" = " "
 "Pictures" = " "
 
+[php]
+#symbol = " "
+
 [shell]
-zsh_indicator = " "
+zsh_indicator = " Zshell"
 fish_indicator = " "
 unknown_indicator = " _"
 powershell_indicator = " 🔥💩"
