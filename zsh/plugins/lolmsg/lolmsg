@@ -1,26 +1,50 @@
 #!/usr/bin/env zsh
 
 function lolmsg {
-  local lol_animal msg column_width row_height
   local random_int=$(( ( RANDOM % 10 )  + 1 ))
   
-  [[ $random_int > 5 ]] && lol_animal="lolcat" || lol_animal="lolcrab"
+  [[ $random_int > 5 ]] && local lol_animal="lolcat" || local lol_animal="lolcrab"
+  [[ "$1" == false ]] && local msg="$2" || local msg="$3"
+ 
+  # In the font a character is 7 lines high.
+  # In multirow output the space between rows is 3 (actual) lines.
+  # Each character spans ~ 11 cols.
+  local character_height=7 \
+        line_margin=3 \
+        character_width=11
 
-  # Resolve msg to display
-  [[ "$1" == false ]] && msg="$2" || msg="$3"
+  # Terminal cols/lines
+  local t_cols=$(tput cols) 
+  local t_lines=$(tput lines)
   
-  # Save current output in case of warnings/errors
+  # Calculate the amount of rows that will be output by figlet.
+  local required_width=$(( ${character_width} * ${#msg} )) 
+  local required_lines=$(( ${required_width} / ${t_cols} + ( ( ${required_width} % ${t_cols} ) > 0 ) ))
+  
+  if (( ${required_lines} > 1 )); then
+    (( ${+LOL_MSG_PROMPT_HEIGHT} )) && local ph=${LOL_MSG_PROMPT_HEIGHT} || local ph=6
+    
+    local output_lines=$(( (${character_height}+( (${character_height} + ${line_margin}) * (${required_lines} - 1) ) ) - ${ph} ))
+  else 
+    local output_lines=${character_height}
+  fi
+  
+  #echo $required_lines $output_lines $(( ( ${t_lines} / 2 ) - ${output_lines} ))
+
+
+  # Save current output in case of warnings/errors.
+  # Todo: fix that tcup rmscr is called automatically when errors are output before lolmsg.
   tput smcup
-  
   clear
-
-  printf '\n%.0s' {1..8}
-
-  figlet -Lcw $(tput cols) -f roman "$msg" | "$lol_animal"
+  
+  # Output empty lines to center Figlet output.
+  printf '\n%.0s' {1..$(( ( ${t_lines} / 2 ) - ${output_lines} ))}
+  
+  # Output text.
+  figlet -Lcw "$t_cols" -f roman "$msg" | "$lol_animal"
   
   # This means that on the first call to clear the saved output is deleted.
   # This because, the chance that I want to see the output directly after loading is 99%.
-  # Todo: fix that tcup rmscr is called automatically when errors are output before lolmsg.
   alias clear="tput rmcup; clear; unalias clear;"
 }
 
