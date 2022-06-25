@@ -35,7 +35,8 @@ local function set_scheme_for_style(dark)
         tokyonight_style = dark and 'storm' or 'day',
         tokyonight_italic_functions = true,
         tokyonight_italic_comments = true,
-        tokyonight_dark_sidebar = true,
+        tokyonight_transparent_sidebar = true,
+        tokyonight_transparent = true,
     })
 
     vim.cmd([[colorscheme tokyonight]])
