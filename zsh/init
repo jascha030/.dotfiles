@@ -26,7 +26,7 @@ fi
 # Autoload all files in dir.
 function __autoload_dirs {
     local a
-   
+ 
     for a in "$@"; do
         [[ -f "$a" ]] && autoload -Uz "$a"
 
@@ -57,8 +57,8 @@ local AUTOLOAD_DIRS=( "${DOT_ZFUNC}" )
 
 # Default directory for completions.
 # Add by exporting (array) `DOT_COMP_DIRS`.
-local COMP_DIRS=( "${DOT_ZFUNC}/completions" )
-(( ${+DOT_COMP_DIRS} )) && COMP_DIRS=( "${DOT_COMP_DIRS[@]}" "${DOT_COMP_DIRS[@]}" )
+local COMP_DIRS=( "${DOT_ZSH}/completions" )
+(( ${+DOT_COMP_DIRS} )) && COMP_DIRS=( "${COMP_DIRS[@]}" "${DOT_COMP_DIRS[@]}" )
 
 
 fpath=( "${fpath[@]}" "${AUTOLOAD_DIRS[@]}" "${COMP_DIRS[@]}" )
@@ -107,7 +107,10 @@ function z_speedtest {
     builtin autoload -X
 }
 
-
+function source_dirs {
+    # undefined 
+    builtin autoload -X
+}
 
 # Assure required dirs exist.
 (( ${+DOT_REQUIRED_DIRS} )) && assert_dirs "${DOT_REQUIRED_DIRS[@]}"  
@@ -115,21 +118,8 @@ function z_speedtest {
 # Assure required files exist.
 (( ${+DOT_REQUIRED_FILES} )) && assert_files "${DOT_REQUIRED_FILES[@]}"
 
-# Load completions
-__autoload_dirs "${COMP_DIRS[@]}"
-
-
 # Load antigen plugins.
 __df_load_antigen
-
-
-# Source zsh plugin files if necessary
-if (( ${+DOT_PLUGINS} )); then 
-  fpath=( "${fpath[@]}" "${DOT_PLUGINS[@]}" )
-  
-  __autoload_dirs "${DOT_PLUGINS[@]}"
-fi 
-
 
 # Todo: figure out how to make this more dynamic.
 eval "$(starship init zsh)"
@@ -150,6 +140,4 @@ if ! (( ${+DOT_DISABLE_MSG} )); then
 else 
   unset DOT_DISABLE_MSG
 fi
-
-export fpath
 

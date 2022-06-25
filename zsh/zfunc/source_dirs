@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+
+autoload -Uz ${DOT_ZSH}/zfunc/safe_source
+
+function source_dirs {
+    local pattern="$1"
+    shift
+
+    local d file
+    for d in "$@"; do
+        for file in ${d}/$pattern*; do 
+            safe_source $file
+        done
+    done
+}
+
+source_dirs "$@"
