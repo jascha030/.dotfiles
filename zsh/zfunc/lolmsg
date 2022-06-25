@@ -17,5 +17,6 @@ function lolmsg {
   printf '\n%.0s' {1..8}
 
   figlet -Lcw $(tput cols) -f roman "$msg" | "$lol_animal"
+  alias clear="tput rmcup; clear; unalias clear;"
 }
 
