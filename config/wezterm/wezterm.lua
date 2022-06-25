@@ -38,11 +38,10 @@ return {
     colors = theme.get_scheme('Dark'),
 
     inactive_pane_hsb = {
-        saturation = 0.8,
-        brightness = 1,
-        hue = 1,
+        saturation = 0.7,
+        brightness = 0.85,
     },
-  
+
     scrollback_lines = 3500,
-    window_background_opacity = 0.99
+    window_background_opacity = 0.985,
 }
