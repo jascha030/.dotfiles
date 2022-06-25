@@ -61,7 +61,6 @@ require('packer').startup({
         use({ 'noib3/nvim-cokeline', config = config.ui.cokeline })
         use({ 'hoob3rt/lualine.nvim', config = config.ui.lualine })
         use({ 'is0n/fm-nvim' })
-        -- requires = { 'kyazdani42/nvim-web-devicons', opt = true },
 
         -- Theme
         use({ 'tjdevries/colorbuddy.nvim' })
@@ -75,7 +74,6 @@ require('packer').startup({
         use({ 'ojroques/vim-oscyank' })
         use({ 'phaazon/hop.nvim', branch = 'v1', config = config.utils.hop })
         use({ 'wakatime/vim-wakatime' })
-        -- use { 'terryma/vim-multiple-cursors' }
     end,
     config = {
         display = {
