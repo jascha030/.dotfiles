@@ -23,6 +23,7 @@ export DOT_REQUIRED_FILES=(
 export DOT_SOURCES=( 
     ${DOT_ZSH}/plugins/auto-ls
     ${HOME}/.cargo/env 
+    ${DOT_ZSH}/plugins/lolmsg/lolmsg.plugin.zsh
     ${HOME}/.config/tabtab/zsh/__tabtab.zsh 
 )
 
@@ -32,12 +33,6 @@ export DOT_AFTER_INIT_SOURCES=(
     ${DOT_ZSH}/aliases
     ${HOME}/.fzf.zsh
 )
-
-# Normal msg displayed with figlet in funky colors.
-export DOT_DEFAULT_LOL_MSG="Hackerman Mode 030"   
-
-# Alt msg displayed when in Neovim term.
-export DOT_NEOVIM_LOL_MSG="NVIM 030"
 
 #------------------------------------------------- Initialization ----------------------------------------------------#
 

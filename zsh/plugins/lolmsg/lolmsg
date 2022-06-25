@@ -17,6 +17,10 @@ function lolmsg {
   printf '\n%.0s' {1..8}
 
   figlet -Lcw $(tput cols) -f roman "$msg" | "$lol_animal"
+  
+  # This means that on the first call to clear the saved output is deleted.
+  # This because, the chance that I want to see the output directly after loading is 99%.
+  # Todo: fix that tcup rmscr is called automatically when errors are output before lolmsg.
   alias clear="tput rmcup; clear; unalias clear;"
 }
 
