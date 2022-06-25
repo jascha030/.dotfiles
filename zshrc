@@ -30,7 +30,7 @@ export DOT_SOURCES=(
 export DOT_AFTER_INIT_SOURCES=( 
     ${DOTFILES}/aliases
     ${DOT_ZSH}/aliases
-    source ${HOME}/.fzf.zsh
+    ${HOME}/.fzf.zsh
 )
 
 # Normal msg displayed with figlet in funky colors.
