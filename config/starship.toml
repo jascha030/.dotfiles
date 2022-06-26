@@ -1,5 +1,5 @@
 format = """
-$battery$shell
+ $shell$env_var
 [┌─────────────────────────────────────────────────](bold bright-black)
 [│](bold bright-black)\ 
 $user\
@@ -10,18 +10,25 @@ $git_status
 
 
 right_format = """
-$golang\
-$java\
-$nodejs\
-$rust\
-$php\
-[──┘](bold bright-black)
-"""
+$golang$java$nodejs$rust$php
+[├─$battery──┘](bold bright-black) """
 
 # Disable the blank line at the start of the prompt
 add_newline = true
 
 continuation_prompt ="[∙](bright-black) "
+
+[env_var.TERM_PROGRAM]
+variable = "TERM_PROGRAM"
+default = ""
+style = "bold blue"
+format = "[│ $env_value]($style) "
+
+[env_var.TERM]
+variable = "TERM"
+default = ""
+format = " [$env_value]($style) "
+style = "bold bright-black"
 
 [username]
 show_always = true
@@ -42,20 +49,35 @@ format = "[ $path ]($style)"
 "Pictures" = " "
 
 [php]
-#symbol = " "
+
 
 [shell]
-zsh_indicator = " Zshell"
+zsh_indicator = " Zsh"
 fish_indicator = " "
 unknown_indicator = " _"
 powershell_indicator = " 🔥💩"
-style = "cyan bold"
+style = "blue bold"
 disabled = false
 
-#[docker_context]
-#symbol = " "
-#style = "bg:#06969A"
-#format = '[[ $symbol $context ](bg:#06969A)]($style) $path'
+[battery]
+disabled = false
+format = '[[ $symbol $percentage ](bg:#444A73)]($style)'
+
+[[battery.display]]
+threshold = 100
+style = "bold white"
+
+[[battery.display]]
+threshold = 99
+style = "bold green"
+
+[[battery.display]]
+threshold = 50
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 15
+style = "bold red"
 
 [git_branch]
 symbol = ""
