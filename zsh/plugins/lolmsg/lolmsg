@@ -1,26 +1,24 @@
 #!/usr/bin/env zsh
 
 function lolmsg {
-  local random_int=$(( ( RANDOM % 10 )  + 1 ))
-  
-  [[ $random_int > 5 ]] && local lol_animal="lolcat" || local lol_animal="lolcrab"
+  # Decide which msg to display.
   [[ "$1" == false ]] && local msg="$2" || local msg="$3"
  
+  # Terminal cols/lines
+  local t_cols=$(tput cols) 
+  local t_lines=$(tput lines)
+  
   # In the font a character is 7 lines high.
   # In multirow output the space between rows is 3 (actual) lines.
   # Each character spans ~ 11 cols.
   local character_height=7 \
         line_margin=3 \
         character_width=11
-
-  # Terminal cols/lines
-  local t_cols=$(tput cols) 
-  local t_lines=$(tput lines)
   
   # Calculate the amount of rows that will be output by figlet.
   local required_width=$(( ${character_width} * ${#msg} )) 
   local required_lines=$(( ${required_width} / ${t_cols} + ( ( ${required_width} % ${t_cols} ) > 0 ) ))
-  
+
   if (( ${required_lines} > 1 )); then
     (( ${+LOL_MSG_PROMPT_HEIGHT} )) && local ph=${LOL_MSG_PROMPT_HEIGHT} || local ph=6
     
@@ -28,20 +26,29 @@ function lolmsg {
   else 
     local output_lines=${character_height}
   fi
-  
-  #echo $required_lines $output_lines $(( ( ${t_lines} / 2 ) - ${output_lines} ))
-
 
   # Save current output in case of warnings/errors.
   # Todo: fix that tcup rmscr is called automatically when errors are output before lolmsg.
   tput smcup
   clear
-  
-  # Output empty lines to center Figlet output.
-  printf '\n%.0s' {1..$(( ( ${t_lines} / 2 ) - ${output_lines} ))}
-  
-  # Output text.
-  figlet -Lcw "$t_cols" -f roman "$msg" | "$lol_animal"
+ 
+  # Output text, here we expect that the main terminal supports blinking text.
+  if [[ "$1" == false ]]; then 
+      local output=$(printf '%s%s%s' "$(tput blink)" "$(figlet -Lcw $t_cols -f roman $msg)" "$(tput sgr0)") 
+      
+      # Output empty lines to center Figlet output.
+      printf '\n%.0s' {1..$(( ( ${t_lines} / 2 ) - ${output_lines} ))}
+      
+      # Output text.
+      # Lolcat removes esc sequences applied, lolcrab doesn't.
+      echo "$output" | lolcrab
+  else 
+      local random_int=$(( ( RANDOM % 10 )  + 1 ))
+      [[ $random_int > 5 ]] && local lol_animal="lolcat" || local lol_animal="lolcrab"
+
+      # For NVIM term mode, we play it safe.
+      figlet -Lcw "$t_cols" -f roman "$msg" | "$lol_animal"
+  fi
   
   # This means that on the first call to clear the saved output is deleted.
   # This because, the chance that I want to see the output directly after loading is 99%.
