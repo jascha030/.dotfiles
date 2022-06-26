@@ -36,12 +36,22 @@ function lolmsg {
   if [[ "$1" == false ]]; then 
       local output=$(printf '%s%s%s' "$(tput blink)" "$(figlet -Lcw $t_cols -f roman $msg)" "$(tput sgr0)") 
       
+      # Calculate where to place the figlet output.
+      local pos=$(( ( ${t_lines} / 2 ) - ${output_lines} )) 
+
+      # Calculate how many lines to pad until prompt is at the bottom of terminal.
+      local rest=$(( ( ${t_lines} - ( ${pos} + ( ${output_lines} + ( ( $(( $ph )) * ${required_lines} ) + 1 ) ) ) ) ))
+
       # Output empty lines to center Figlet output.
-      printf '\n%.0s' {1..$(( ( ${t_lines} / 2 ) - ${output_lines} ))}
+      printf '\n%.0s' {1..${pos}}
       
       # Output text.
       # Lolcat removes esc sequences applied, lolcrab doesn't.
       echo "$output" | lolcrab
+
+
+      printf '\n%.0s' {1..$(( ( ${rest} - ${output_lines} ) ))}
+
   else 
       local random_int=$(( ( RANDOM % 10 )  + 1 ))
       [[ $random_int > 5 ]] && local lol_animal="lolcat" || local lol_animal="lolcrab"
