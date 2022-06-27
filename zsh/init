@@ -1,10 +1,8 @@
 #!/usr/bin/env zsh
 
 #######################################################################################################################
-#                                               Dotfiles Initialization                                               #
-# By Jascha030                                                                  https://github.io/jascha030/.dotfiles #
+# By Jascha030                                  Dotfiles Initialization         https://github.io/jascha030/.dotfiles #
 #######################################################################################################################
-
 
 # Dotfiles zsh function root dir.
 export DOT_ZFUNC="${DOT_ZSH}/zfunc"
@@ -20,16 +18,14 @@ if ! (( ${+DOT_ANTIGEN_RC_PATH} )); then
     export DOT_ANTIGEN_RC_PATH="${HOME}/.antigenrc"
 fi
 
-
-# Internally used functions.
+#--------------------------------------------- Internally used functions ---------------------------------------------#
 
 # Autoload all files in dir.
 function __autoload_dirs {
     local a
- 
+
     for a in "$@"; do
         [[ -f "$a" ]] && autoload -Uz "$a"
-
         [[ -d "$a" ]] && autoload -Uz ${a}/*(.:t)
     done
 }
@@ -40,7 +36,7 @@ function __df_load_antigen {
     if [[ ! -f "$DOT_ANTIGEN_PATH" ]]; then 
         curl -L git.io/antigen > $DOT_ANTIGEN_PATH
     fi
-  
+
     source "$DOT_ANTIGEN_PATH"
 
     if [[ -f "$DOT_ANTIGEN_RC_PATH" ]]; then 
@@ -128,12 +124,10 @@ eval "$(zoxide init zsh)"
 eval "$(teleport-dir init)"
 eval "$(fnm env)"
 
-
 # Source other zsh dotfiles like aliases etc.
 if (( ${+DOT_AFTER_INIT_SOURCES} )); then 
     safe_source "${DOT_AFTER_INIT_SOURCES[@]}"
 fi
-
 
 # Allow to turn off lolmsg when debugging.
 if ! (( ${+DOT_DISABLE_MSG} )); then 
