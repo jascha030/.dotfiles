@@ -130,9 +130,4 @@ if (( ${+DOT_AFTER_INIT_SOURCES} )); then
 fi
 
 # Allow to turn off lolmsg when debugging.
-if ! (( ${+DOT_DISABLE_MSG} )); then 
-    lolmsg "${VIM_TERM_MODE_ACTIVE}" 
-else 
-  unset DOT_DISABLE_MSG
-fi
-
+(( ${+DOT_DISABLE_MSG} )) && unset DOT_DISABLE_MSG || lolmsg 

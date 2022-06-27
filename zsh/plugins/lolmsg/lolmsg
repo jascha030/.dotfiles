@@ -48,8 +48,7 @@ function __output_fig {
 }
 
 
-# Get data we extract from arguments.
-local is_vimterm="$1"
+local is_vimterm="$_IS_VIMTERM"
 
 # Decide which msg to display.
 if [[ "$is_vimterm" == false ]]; then 
@@ -58,6 +57,7 @@ else
     local msg="${DOT_NEOVIM_LOL_MSG}"
 fi
 
+#local t_cols=$COLUMNS
 local t_cols=$(tput cols)
 local t_lines=$(tput lines)
 local tl_center=$(( ${t_lines} / 2 )) 

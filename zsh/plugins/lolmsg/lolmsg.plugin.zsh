@@ -1,3 +1,9 @@
+if (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )); then 
+  export _IS_VIMTERM=true 
+else 
+  export _IS_VIMTERM=false
+fi 
+
 # Reset blink effect in case it wasn't ended in previous session.
 if ! (( ${+DOT_DEFAULT_LOL_MSG} )); then 
     # Normal msg displayed with figlet in funky colors.
