@@ -18,7 +18,6 @@ alias e='echo'
 alias rd='rmdir'
 alias edit="vim $1"
 
-alias dfup="sh $DOTFILES/rcup"
 alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
 
 alias scrsvr='open -a ScreenSaverEngine'
