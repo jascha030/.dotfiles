@@ -12,7 +12,7 @@ export MYSQL_HISTFILE=${DATA_FILES_DIR}/.mysql_history
 #-------------------------------------------------- Applications -----------------------------------------------------#
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
-export _DOT_ZSH_PROMPT_HEIGHT=5
+export _DOT_ZSH_PROMPT_HEIGHT=4
 
 export EDITOR=nvim
 export VISUAL=${EDITOR}

@@ -8,6 +8,6 @@ export fpath=( ${fpath[@]} ${DOT_ZSH}/plugins/prompt )
 autoload -Uz ${DOT_ZSH}/plugins/prompt/__clear_prev_prompt
 autoload -Uz add-zsh-hook
 
-Add to preexec hook
+#Add to preexec hook
 add-zsh-hook preexec __clear_prev_prompt
 
