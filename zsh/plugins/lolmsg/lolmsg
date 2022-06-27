@@ -13,14 +13,17 @@ characterset_cols=(
 )
 
 local msg="${DOT_DEFAULT_LOL_MSG}" \
+      lol_anmial="lcat"            \
       t_cols=0                     \
       t_lines=0                    \
+      t_center=0                   \
       char_height=7                \
       line_margin=2                \
       ph=6                         \
       msg_cols=0                   \
-      tl_center=0                  \
-      row_height=0                 
+      tl_center=0
+
+local row_height=$((${char_height}+${line_margin}))
 
 if (( ${+LOL_MSG_PROMPT_HEIGHT} )); then 
     ph=$(( ${LOL_MSG_PROMPT_HEIGHT} ))
@@ -30,19 +33,33 @@ fi
 if [[ "$_IS_VIMTERM" == true ]]; then 
     msg="${DOT_NEOVIM_LOL_MSG}"
 fi
-
+		
 #---------------------------------------------------------------------------------------------------------------------#
+
+function __get_dimmensions {
+    if [[ "$DOT_PREFER_TPUT_OVER_ENV" == true ]]; then
+        t_cols=$(echoti cols)
+		    t_lines=$(echoti lines)
+		else 
+        t_cols=${COLUMNS}
+        t_lines=${LINES}
+    fi 
+    
+    tl_center=$((${t_lines}/2))
+}
 
 # Calc. output msg width.
 function __get_msg_cols {
-    local _str_cols=0 _msg="$1" c
+    local _str_cols=0 i c
 
-    for (( i=0; i<${#_msg}; i++ )); do
-        _str_cols=$(( ${_str_cols} + ${characterset_cols[${_msg:$i:1}]} ))
+    for (( i=0; i<${#msg}; i++ )); do
+        _str_cols=$(( ${_str_cols} + ${characterset_cols[${msg:$i:1}]} ))
     done
 
     msg_cols=${_str_cols}
 }
+
+
 
 function __pad_lines {
     printf '\n%.0s' {1.."$1"}
@@ -50,33 +67,31 @@ function __pad_lines {
 
 # Print figlet, style depends on term being normal/vim-term.
 function __output_fig {
-    local _o=$(figlet -Lcw $t_cols -f roman $1)
+    local _output=$(figlet -Lcw $t_cols -f roman $1)
 
     if [[ "$_IS_VIMTERM" == false ]]; then
         echoti blink
-        print "$_o" | lolcrab
-    else 
+        
+        print "$_output" | lolcrab
+    else
+        # For NVIM term mode, we play it safe.
         local random_int=$(( ( RANDOM % 10 ) + 1 ))
-        local lol_anmial="lolcat"
-    
+        
         if [[ $random_int > 5 ]]; then 
             lol_animal="lolcrab"
         fi
     
         # For NVIM term mode, we play it safe.
-        printf '%s' "$_o" | "$lol_animal"
+        print "$_output" | "$lol_animal"
     fi
 }
 
 
-# Print full output
+# Print padding + figlet output.
 function __lolmsg_output {
-    echoti clear
-
     __pad_lines  "$1"
     __output_fig "$2"
-   
-    echoti cup $(( (${t_lines}-${ph}) + 1 )) 0
+    __pad_lines  "$3"
 }
 
 
@@ -86,77 +101,123 @@ function __print_lolmsg_output {
           ol_center=0        \
           start_output_at=0  \
           occupied_lines=0   \
-          restant_space=0    \
-          pad_after_output=0 \
 
-    # Calculate width of figlet output in cols.
-    __get_msg_cols "$msg"
-		
-    t_cols=$(echoti cols)
-		t_lines=$(echoti lines)
-		    
-		row_height=$((${char_height}+${line_margin}))
-		tl_center=$((${t_lines}/2)) 
+    # Calc. term dimmensions & figlet output width in cols.
+    __get_dimmensions
+    __get_msg_cols "$msg"	
 		
     # Calc. #times term width fits in output width, tells us the amt. of rows that figlet outputs.
 		required_rows=$(( (${msg_cols}/${t_cols})+( (${msg_cols}%${t_cols}) > 0 ) ))
-    
+
     # Calc. output + center in lines, tells us where to start figlet output.
 		required_lines=$((${required_rows}*${row_height}))
 		ol_center=$((${required_lines}/2))
 		start_output_at=$((${tl_center}-${ol_center}))
+    
+    __lolmsg_output ${start_output_at} ${msg} 2
 
-		# Save current output in case of warnings/errors.
-		#tput smcup
+    if [[ $# == 1 ]]; then 
+        local extra_text_pos
+
+        # Get position after figlet output.
+        occupied_lines=$((${start_output_at}+${required_lines}))
+        extra_text_pos=$((${occupied_lines}+3))
+        
+        echoti cup $extra_text_pos $(( (${t_cols}/2) - ( ${#1} / 2) ))
+        print "$1"
+    fi
+}
+
+
+# (Experimental/W.I.P.) NCurses version.
+function __open_curses_intro {
+    zmodload zsh/curses && { 
+        local i 
+
+        zcurses init
+				zcurses refresh 
+				
+        echoti civis
+				
+				zcurses clear stdscr redraw
+				zcurses refresh stdscr
+				
+				zcurses addwin intro ${t_lines} ${t_cols} 0 0
+				zcurses scroll intro off
+				zcurses attr intro blink
+
+        zcurses string intro $(__print_lolmsg_output)
+				zcurses refresh intro stdscr
+	      
+        zcurses timeout intro 0
+
+        until [[ $i == [\ ] ]]; do 
+            zcurses input intro i
+	      done
+    } always {
+		    zcurses delwin intro
 		
-    __lolmsg_output ${start_output_at} ${msg} ${pad_after_output}
+		    echoti cnorm
+		    zcurses end
+    }
+}
+
+
+# "press any key" variant.
+function __with_i_msg {
+    __print_lolmsg_output $'[ Press any key ]'
+}
+
+
+function __exit_intro {
+    echoti rmcup
+    echoti cup $(( (${t_lines}-${ph}) + 1 )) 0
+    echoti cnorm
+}
+
+
+function __open_intro_screen {
+    echoti civis 
+    echoti smcup
+    
+    __with_i_msg
+    
+    builtin trap __with_i_msg WINCH
+    
+    read -k1 -s 
+    
+    __exit_intro; builtin trap - WINCH
+}
+
+
+function __output_only {
+    echoti civis 
+    echoti cup $(( (${t_lines}-${ph}) + 1 )) 0
+    
+    __print_lolmsg_output
+
+    echoti cnorm
 }
 
 #---------------------------------------------------------------------------------------------------------------------#
 
-function create_subscr { 
-    zmodload zsh/curses && {
-		    zcurses init
-		    # delete windows 
-		    local i
-		    t_cols=${COLUMNS} t_lines=${LINES}
-		
-		    if [[ "$DOT_PREFER_TPUT_OVER_ENV" == true ]]; then 
-		        t_cols=$(tput cols)
-		        t_lines=$(tput lines)
-		    fi
-		    
-		    row_height=$((${char_height}+${line_margin}))
-		    tl_center=$((${t_lines}/2)) 
-		
-		    local output=$(__print_lolmsg_output)
-		
-		    zcurses refresh 
-		    echoti civis
-		    
-		    zcurses clear stdscr redraw
-		    zcurses refresh stdscr
-		    
-		    zcurses addwin intro ${t_lines} ${t_cols} 0 0
-		    zcurses scroll intro off
-		    zcurses attr intro 
 
-        zcurses attr intro blink
-		    zcurses string intro ${output}
-		    zcurses refresh intro stdscr
-		    
-		    until [[ $i == [\ ] ]]; do 
-		       
-          zcurses input intro i
-		    done 
-		
-		    # zcurses delwin intro
-		} always {
-		    zcurses delwin intro
-		    
-		    echoti cnorm
-		    zcurses end
-		}
+# Run the output.
+function __run {
+    local curses
+    
+    [[ $# == 0 ]] && curses=0 || curses="$1"
+
+    if [[ $curses == 1 ]]; then 
+        __open_curses_intro
+    else 
+        if (( ${+DOT_LOL_OUTPUT_ONLY} )); then 
+            __output_only
+        else
+            __open_intro_screen
+        fi
+    fi
 }
 
-__print_lolmsg_output
+__run "$@"
+
