@@ -4,14 +4,6 @@ if (( ${+PROFILE_ZSHRC} )); then zmodload zsh/zprof ;fi
 
 #------------------------------------------------ ZSH Configurations -------------------------------------------------#
 
-# Remove previous (visible) prompt before new output.
-function __remove_prompt_from_prev_output {
-    repeat 4 { tput cuu1 && tput dl1 }
-}
-
-typeset -a preexec_functions
-preexec_functions+=(__remove_prompt_from_prev_output)
-
 # Zsh opts.
 setopt extended_glob;
 
@@ -26,6 +18,7 @@ export DOT_REQUIRED_FILES=(
 
 # Files to be sourced.
 export DOT_SOURCES=( 
+    ${DOT_ZSH}/plugins/prompt/prompt.plugin.zsh
     ${DOT_ZSH}/plugins/auto-ls
     ${HOME}/.cargo/env 
     ${DOT_ZSH}/plugins/lolmsg/lolmsg.plugin.zsh
