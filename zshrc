@@ -15,9 +15,6 @@ preexec_functions+=(__remove_prompt_from_prev_output)
 # Zsh opts.
 setopt extended_glob;
 
-# Highlight style.
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
-
 # Required dirs.
 export DOT_REQUIRED_DIRS=( ${DATA_FILES_DIR} )
  
