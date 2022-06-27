@@ -20,6 +20,8 @@ alias edit="vim $1"
 
 alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
 
+alias chromeapp="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --process-per-site"
+
 alias scrsvr='open -a ScreenSaverEngine'
 alias tm-auto='sudo tmutil startbackup --auto; tmutil status'
 alias fpc="fzf --preview 'cat --color=always --style=numbers --line-range=:500 {}'"
