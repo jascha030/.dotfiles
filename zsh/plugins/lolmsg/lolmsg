@@ -1,67 +1,117 @@
 #!/usr/bin/env zsh
 
-function lolmsg {
-  # Decide which msg to display.
-  [[ "$1" == false ]] && local msg="$2" || local msg="$3"
- 
-  # Terminal cols/lines
-  local t_cols=$(tput cols) 
-  local t_lines=$(tput lines)
-  
-  # In the font a character is 7 lines high.
-  # In multirow output the space between rows is 3 (actual) lines.
-  # Each character spans ~ 11 cols.
-  local character_height=7 \
-        line_margin=3 \
-        character_width=11
-  
-  # Calculate the amount of rows that will be output by figlet.
-  local required_width=$(( ${character_width} * ${#msg} )) 
-  local required_lines=$(( ${required_width} / ${t_cols} + ( ( ${required_width} % ${t_cols} ) > 0 ) ))
+# This is a map of all character widths for the "roman" figlet font.
+typeset -A characterset_cols
+local characterset_cols=(
+ ["a"]=9 ["A"]=15 ["b"]=10 ["B"]=12 ["c"]=9 ["C"]=11 ["d"]=10 ["D"]=13 ["e"]=9 ["E"]=12 ["f"]=8 ["F"]=12 ["g"]=10 ["G"]=13 ["h"]=11 ["H"]=13 ["i"]=5 ["I"]=5 ["j"]=8 ["J"]=7 ["k"]=11 ["K"]=12 ["l"]=5 ["L"]=12 ["m"]=17 ["M"]=16 ["n"]=11 ["N"]=14 ["o"]=9 ["O"]=12 ["p"]=10 ["P"]=12 ["q"]=10 ["Q"]=15 ["r"]=8 ["R"]=12 ["s"]=8 ["S"]=11 ["t"]=7 ["T"]=13 ["u"]=11 ["U"]=13 ["v"]=11 ["V"]=15 ["w"]=16 ["W"]=24 ["x"]=11 ["X"]=14 ["y"]=11 ["Y"]=13 ["z"]=10 ["Z"]=13 ["1"]=5 ["2"]=10 ["3"]=10 ["4"]=10 ["5"]=10 ["6"]=10 ["7"]=10 ["8"]=10 ["9"]=10 ["0"]=10 [" "]=3)
 
-  if (( ${required_lines} > 1 )); then
-    (( ${+LOL_MSG_PROMPT_HEIGHT} )) && local ph=${LOL_MSG_PROMPT_HEIGHT} || local ph=6
-    
-    local output_lines=$(( (${character_height}+( (${character_height} + ${line_margin}) * (${required_lines} - 1) ) ) - ${ph} ))
-  else 
-    local output_lines=${character_height}
-  fi
+local char_height=7
+local line_margin=2
+local row_height=$(( ${char_height}+${line_margin} ))
 
-  # Save current output in case of warnings/errors.
-  # Todo: fix that tcup rmscr is called automatically when errors are output before lolmsg.
-  tput smcup
-  clear
- 
-  # Output text, here we expect that the main terminal supports blinking text.
-  if [[ "$1" == false ]]; then 
-      local output=$(printf '%s%s%s' "$(tput blink)" "$(figlet -Lcw $t_cols -f roman $msg)" "$(tput sgr0)") 
-      
-      # Calculate where to place the figlet output.
-      local pos=$(( ( ${t_lines} / 2 ) - ${output_lines} )) 
+if (( ${+LOL_MSG_PROMPT_HEIGHT} )); then 
+    local ph=$(( ${LOL_MSG_PROMPT_HEIGHT} ))
+else
+    local ph=$(( 6 ))
+fi
 
-      # Calculate how many lines to pad until prompt is at the bottom of terminal.
-      local rest=$(( ( ${t_lines} - ( ${pos} + ( ${output_lines} + ( ( $(( $ph )) * ${required_lines} ) + 1 ) ) ) ) ))
+#---------------------------------------------------------------------------------------------------------------------#
 
-      # Output empty lines to center Figlet output.
-      printf '\n%.0s' {1..${pos}}
-      
-      # Output text.
-      # Lolcat removes esc sequences applied, lolcrab doesn't.
-      echo "$output" | lolcrab
+#---------------------------------------------------------------------------------------------------------------------#
 
-
-      printf '\n%.0s' {1..$(( ( ${rest} - ${output_lines} ) ))}
-
-  else 
-      local random_int=$(( ( RANDOM % 10 )  + 1 ))
-      [[ $random_int > 5 ]] && local lol_animal="lolcat" || local lol_animal="lolcrab"
-
-      # For NVIM term mode, we play it safe.
-      figlet -Lcw "$t_cols" -f roman "$msg" | "$lol_animal"
-  fi
-  
-  # This means that on the first call to clear the saved output is deleted.
-  # This because, the chance that I want to see the output directly after loading is 99%.
-  alias clear="tput rmcup; clear; unalias clear;"
+function __pad_lines {
+    printf '\n%.0s' {1.."$1"}
 }
+
+function __output_fig {
+    local _o=$(figlet -Lcw $t_cols -f roman $2)
+
+    if [[ "$1" == false ]]; then
+        printf '%s%s%s' "$(tput blink)" "$_o" "$(tput sgr0)" | lolcrab
+    else 
+        local random_int=$(( ( RANDOM % 10 )  + 1 ))
+
+        if [[ $random_int > 5 ]]; then 
+            local lol_animal="lolcat"
+        else 
+            local lol_animal="lolcrab"
+        fi 
+
+        # For NVIM term mode, we play it safe.
+        printf '%s' "$_o" | "$lol_animal"
+    fi
+}
+
+
+# Get data we extract from arguments.
+local is_vimterm="$1"
+
+# Decide which msg to display.
+if [[ "$is_vimterm" == false ]]; then 
+    local msg="${DOT_DEFAULT_LOL_MSG}"
+else
+    local msg="${DOT_NEOVIM_LOL_MSG}"
+fi
+
+local t_cols=$(tput cols)
+local t_lines=$(tput lines)
+local tl_center=$(( ${t_lines} / 2 )) 
+
+# Setup variables to calculate.
+local msg_cols
+local msg_height
+local msg_lines
+local required_lines
+local start_output_at
+
+function __get_msg_cols {
+    local _str_cols=0 _msg="$1" c
+
+    for (( i=0; i<${#_msg}; i++ )); do
+      _str_cols=$(( ${_str_cols} + ${characterset_cols[${_msg:$i:1}]} ))
+    done
+
+    msg_cols=${_str_cols}
+}
+
+
+# Calculate width of figlet output in cols.
+__get_msg_cols "$msg"
+# calculate amount of times t_cols fits in output width, +1 if there is restant.
+required_rows=$(( ${msg_cols} / ${t_cols} + ( ( ${msg_cols} % ${t_cols} ) > 0 ) ))
+# Get the height of the stacked rows in lines.
+required_lines=$(( ${required_rows}*${row_height} ))
+# Get half of the output height.
+ol_center=$(( ${required_lines}/2 ))
+
+
+# Get the position to start figlet output.
+start_output_at=$(( ${tl_center}-${ol_center} ))
+# Get position after figlet output.
+occupied_lines=$(( ${start_output_at}+${required_lines} ))
+# Empty lines  left after output.
+restant_space=$(( ${t_lines}-${occupied_lines} ))
+# Subtract prompt height to get amount to pad.
+if (( $required_rows == 1 )); then
+    lines_to_pad_after_output=$(( ( ${restant_space}-${ph} ) + 1 ))
+else
+    lines_to_pad_after_output=$(( ${restant_space}-${ph} ))
+fi
+
+# Save current output in case of warnings/errors.
+# Todo: fix that tcup rmscr is called automatically when errors are output before lolmsg.
+# tput smcup
+clear
+
+# Start output by padding term with empty lines.
+__pad_lines "$start_output_at"
+# Output figlet text in center.
+__output_fig "$is_vimterm" "$msg"
+# Pad lines left to bottom of output.
+__pad_lines "${lines_to_pad_after_output}"
+
+
+# This means that on the first call to clear the saved output is deleted.
+# This because, the chance that I want to see the output directly after loading is 99%.
+# alias clear="tput rmcup; clear; tput cup $(tput lines) 0; unalias clear; alias clear='clear && tput cup $(tput lines) 0';"
 

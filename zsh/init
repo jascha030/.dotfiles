@@ -136,7 +136,7 @@ fi
 
 # Allow to turn off lolmsg when debugging.
 if ! (( ${+DOT_DISABLE_MSG} )); then 
-    lolmsg "${VIM_TERM_MODE_ACTIVE}" "${DOT_DEFAULT_LOL_MSG}" "${DOT_NEOVIM_LOL_MSG}"
+    lolmsg "${VIM_TERM_MODE_ACTIVE}" 
 else 
   unset DOT_DISABLE_MSG
 fi
