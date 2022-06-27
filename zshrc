@@ -38,5 +38,5 @@ export DOT_AFTER_INIT_SOURCES=(
 
 #----------------------------- Display Profile output when enabled with $PROFILE_ZSH ---------------------------------#
 
-if (( ${+PROFILE_ZSHRC} )); then unset PROFILE_ZSHRC; zprof; fi
+if (( ${+PROFILE_ZSHRC} )); then clear; tput rmcup; zprof; unset PROFILE_ZSHRC; fi
 
