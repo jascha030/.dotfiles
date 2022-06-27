@@ -114,5 +114,49 @@ function __print_lolmsg_output {
 
 #---------------------------------------------------------------------------------------------------------------------#
 
+function create_subscr { 
+    zmodload zsh/curses && {
+		    zcurses init
+		    # delete windows 
+		    local i
+		    t_cols=${COLUMNS} t_lines=${LINES}
+		
+		    if [[ "$DOT_PREFER_TPUT_OVER_ENV" == true ]]; then 
+		        t_cols=$(tput cols)
+		        t_lines=$(tput lines)
+		    fi
+		    
+		    row_height=$((${char_height}+${line_margin}))
+		    tl_center=$((${t_lines}/2)) 
+		
+		    local output=$(__print_lolmsg_output)
+		
+		    zcurses refresh 
+		    echoti civis
+		    
+		    zcurses clear stdscr redraw
+		    zcurses refresh stdscr
+		    
+		    zcurses addwin intro ${t_lines} ${t_cols} 0 0
+		    zcurses scroll intro off
+		    zcurses attr intro 
+
+        zcurses attr intro blink
+		    zcurses string intro ${output}
+		    zcurses refresh intro stdscr
+		    
+		    until [[ $i == [\ ] ]]; do 
+		       
+          zcurses input intro i
+		    done 
+		
+		    # zcurses delwin intro
+		} always {
+		    zcurses delwin intro
+		    
+		    echoti cnorm
+		    zcurses end
+		}
+}
 
 __print_lolmsg_output
