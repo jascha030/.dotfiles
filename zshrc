@@ -4,17 +4,10 @@ if (( ${+PROFILE_ZSHRC} )); then zmodload zsh/zprof ;fi
 
 #------------------------------------------------ ZSH Configurations -------------------------------------------------#
 
-# todo update dynamically on SIGWINCH
-local lines=$(tput lines)
-
 # Remove previous (visible) prompt before new output.
 function __remove_prompt_from_prev_output {
-    tput sc
     repeat 4 { tput cuu1 && tput dl1 }
-    tput rc
 }
-
-#alias clear="clear && tput cup $lines 0"
 
 typeset -a preexec_functions
 preexec_functions+=(__remove_prompt_from_prev_output)

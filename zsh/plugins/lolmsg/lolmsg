@@ -3,7 +3,12 @@
 # This is a map of all character widths for the "roman" figlet font.
 typeset -A characterset_cols
 local characterset_cols=(
- ["a"]=9 ["A"]=15 ["b"]=10 ["B"]=12 ["c"]=9 ["C"]=11 ["d"]=10 ["D"]=13 ["e"]=9 ["E"]=12 ["f"]=8 ["F"]=12 ["g"]=10 ["G"]=13 ["h"]=11 ["H"]=13 ["i"]=5 ["I"]=5 ["j"]=8 ["J"]=7 ["k"]=11 ["K"]=12 ["l"]=5 ["L"]=12 ["m"]=17 ["M"]=16 ["n"]=11 ["N"]=14 ["o"]=9 ["O"]=12 ["p"]=10 ["P"]=12 ["q"]=10 ["Q"]=15 ["r"]=8 ["R"]=12 ["s"]=8 ["S"]=11 ["t"]=7 ["T"]=13 ["u"]=11 ["U"]=13 ["v"]=11 ["V"]=15 ["w"]=16 ["W"]=24 ["x"]=11 ["X"]=14 ["y"]=11 ["Y"]=13 ["z"]=10 ["Z"]=13 ["1"]=5 ["2"]=10 ["3"]=10 ["4"]=10 ["5"]=10 ["6"]=10 ["7"]=10 ["8"]=10 ["9"]=10 ["0"]=10 [" "]=3)
+    ["a"]=9 ["A"]=15 ["b"]=10 ["B"]=12 ["c"]=9 ["C"]=11 ["d"]=10 ["D"]=13 ["e"]=9 ["E"]=12 ["f"]=8 ["F"]=12 ["g"]=10 
+    ["G"]=13 ["h"]=11 ["H"]=13 ["i"]=5 ["I"]=5 ["j"]=8 ["J"]=7 ["k"]=11 ["K"]=12 ["l"]=5 ["L"]=12 ["m"]=17 ["M"]=16 
+    ["n"]=11 ["N"]=14 ["o"]=9 ["O"]=12 ["p"]=10 ["P"]=12 ["q"]=10 ["Q"]=15 ["r"]=8 ["R"]=12 ["s"]=8 ["S"]=11 ["t"]=7 
+    ["T"]=13 ["u"]=11 ["U"]=13 ["v"]=11 ["V"]=15 ["w"]=16 ["W"]=24 ["x"]=11 ["X"]=14 ["y"]=11 ["Y"]=13 ["z"]=10 
+    ["Z"]=13 ["1"]=5 ["2"]=10 ["3"]=10 ["4"]=10 ["5"]=10 ["6"]=10 ["7"]=10 ["8"]=10 ["9"]=10 ["0"]=10 [" "]=3
+)
 
 local char_height=7
 local line_margin=2
@@ -64,6 +69,7 @@ local msg_lines
 local required_lines
 local start_output_at
 
+
 function __get_msg_cols {
     local _str_cols=0 _msg="$1" c
 
@@ -98,9 +104,10 @@ else
     lines_to_pad_after_output=$(( ${restant_space}-${ph} ))
 fi
 
+
 # Save current output in case of warnings/errors.
 # Todo: fix that tcup rmscr is called automatically when errors are output before lolmsg.
-# tput smcup
+tput smcup
 clear
 
 # Start output by padding term with empty lines.
@@ -113,5 +120,5 @@ __pad_lines "${lines_to_pad_after_output}"
 
 # This means that on the first call to clear the saved output is deleted.
 # This because, the chance that I want to see the output directly after loading is 99%.
-# alias clear="tput rmcup; clear; tput cup $(tput lines) 0; unalias clear; alias clear='clear && tput cup $(tput lines) 0';"
+alias clear="tput rmcup; clear; tput cup $(tput lines) 0; unalias clear; alias clear='clear && tput cup $(tput lines) 0';"
 

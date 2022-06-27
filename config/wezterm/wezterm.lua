@@ -43,5 +43,5 @@ return {
     },
 
     scrollback_lines = 3500,
-    window_background_opacity = 0.985,
+    window_background_opacity = 0.97,
 }

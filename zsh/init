@@ -112,6 +112,7 @@ function source_dirs {
     builtin autoload -X
 }
 
+
 # Assure required dirs exist.
 (( ${+DOT_REQUIRED_DIRS} )) && assert_dirs "${DOT_REQUIRED_DIRS[@]}"  
 
