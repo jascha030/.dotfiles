@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+repeat 10 { 
+    /usr/bin/time ${DOT_ZSH}/plugins/speedtest/functions/z_test 
+}
+

@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh 
+
+exec "env __SPDT=1 zsh -i -c exit";
+
