@@ -1,8 +1,10 @@
 #!/usr/bin/env zsh
 
+emulate -L zsh
+
 # This is a map of all character widths for the "roman" figlet font.
 typeset -A characterset_cols
-local characterset_cols=(
+characterset_cols=(
     ["a"]=9 ["A"]=15 ["b"]=10 ["B"]=12 ["c"]=9 ["C"]=11 ["d"]=10 ["D"]=13 ["e"]=9 ["E"]=12 ["f"]=8 ["F"]=12 ["g"]=10 
     ["G"]=13 ["h"]=11 ["H"]=13 ["i"]=5 ["I"]=5 ["j"]=8 ["J"]=7 ["k"]=11 ["K"]=12 ["l"]=5 ["L"]=12 ["m"]=17 ["M"]=16 
     ["n"]=11 ["N"]=14 ["o"]=9 ["O"]=12 ["p"]=10 ["P"]=12 ["q"]=10 ["Q"]=15 ["r"]=8 ["R"]=12 ["s"]=8 ["S"]=11 ["t"]=7 
@@ -10,115 +12,107 @@ local characterset_cols=(
     ["Z"]=13 ["1"]=5 ["2"]=10 ["3"]=10 ["4"]=10 ["5"]=10 ["6"]=10 ["7"]=10 ["8"]=10 ["9"]=10 ["0"]=10 [" "]=3
 )
 
-local char_height=7
-local line_margin=2
-local row_height=$(( ${char_height}+${line_margin} ))
+local msg="${DOT_DEFAULT_LOL_MSG}" \
+      t_cols=0                     \
+      t_lines=0                    \
+      char_height=7                \
+      line_margin=2                \
+      ph=6                         \
+      msg_cols=0                   \
+      tl_center=0                  \
+      row_height=0                 
 
 if (( ${+LOL_MSG_PROMPT_HEIGHT} )); then 
-    local ph=$(( ${LOL_MSG_PROMPT_HEIGHT} ))
-else
-    local ph=$(( 6 ))
+    ph=$(( ${LOL_MSG_PROMPT_HEIGHT} ))
+fi
+
+# Decide which msg to display.
+if [[ "$_IS_VIMTERM" == true ]]; then 
+    msg="${DOT_NEOVIM_LOL_MSG}"
 fi
 
 #---------------------------------------------------------------------------------------------------------------------#
 
-#---------------------------------------------------------------------------------------------------------------------#
+# Calc. output msg width.
+function __get_msg_cols {
+    local _str_cols=0 _msg="$1" c
+
+    for (( i=0; i<${#_msg}; i++ )); do
+        _str_cols=$(( ${_str_cols} + ${characterset_cols[${_msg:$i:1}]} ))
+    done
+
+    msg_cols=${_str_cols}
+}
 
 function __pad_lines {
     printf '\n%.0s' {1.."$1"}
 }
 
+# Print figlet, style depends on term being normal/vim-term.
 function __output_fig {
-    local _o=$(figlet -Lcw $t_cols -f roman $2)
+    local _o=$(figlet -Lcw $t_cols -f roman $1)
 
-    if [[ "$1" == false ]]; then
-        printf '%s%s%s' "$(tput blink)" "$_o" "$(tput sgr0)" | lolcrab
+    if [[ "$_IS_VIMTERM" == false ]]; then
+        echoti blink
+        print "$_o" | lolcrab
     else 
-        local random_int=$(( ( RANDOM % 10 )  + 1 ))
-
+        local random_int=$(( ( RANDOM % 10 ) + 1 ))
+        local lol_anmial="lolcat"
+    
         if [[ $random_int > 5 ]]; then 
-            local lol_animal="lolcat"
-        else 
-            local lol_animal="lolcrab"
-        fi 
-
+            lol_animal="lolcrab"
+        fi
+    
         # For NVIM term mode, we play it safe.
         printf '%s' "$_o" | "$lol_animal"
     fi
 }
 
 
-local is_vimterm="$_IS_VIMTERM"
+# Print full output
+function __lolmsg_output {
+    echoti clear
 
-# Decide which msg to display.
-if [[ "$is_vimterm" == false ]]; then 
-    local msg="${DOT_DEFAULT_LOL_MSG}"
-else
-    local msg="${DOT_NEOVIM_LOL_MSG}"
-fi
-
-#local t_cols=$COLUMNS
-local t_cols=$(tput cols)
-local t_lines=$(tput lines)
-local tl_center=$(( ${t_lines} / 2 )) 
-
-# Setup variables to calculate.
-local msg_cols
-local msg_height
-local msg_lines
-local required_lines
-local start_output_at
-
-
-function __get_msg_cols {
-    local _str_cols=0 _msg="$1" c
-
-    for (( i=0; i<${#_msg}; i++ )); do
-      _str_cols=$(( ${_str_cols} + ${characterset_cols[${_msg:$i:1}]} ))
-    done
-
-    msg_cols=${_str_cols}
+    __pad_lines  "$1"
+    __output_fig "$2"
+   
+    echoti cup $(( (${t_lines}-${ph}) + 1 )) 0
 }
 
 
-# Calculate width of figlet output in cols.
-__get_msg_cols "$msg"
-# calculate amount of times t_cols fits in output width, +1 if there is restant.
-required_rows=$(( ${msg_cols} / ${t_cols} + ( ( ${msg_cols} % ${t_cols} ) > 0 ) ))
-# Get the height of the stacked rows in lines.
-required_lines=$(( ${required_rows}*${row_height} ))
-# Get half of the output height.
-ol_center=$(( ${required_lines}/2 ))
+function __print_lolmsg_output {	
+		local required_rows=0    \
+          required_lines=0   \
+          ol_center=0        \
+          start_output_at=0  \
+          occupied_lines=0   \
+          restant_space=0    \
+          pad_after_output=0 \
+
+    # Calculate width of figlet output in cols.
+    __get_msg_cols "$msg"
+		
+    t_cols=$(echoti cols)
+		t_lines=$(echoti lines)
+		    
+		row_height=$((${char_height}+${line_margin}))
+		tl_center=$((${t_lines}/2)) 
+		
+    # Calc. #times term width fits in output width, tells us the amt. of rows that figlet outputs.
+		required_rows=$(( (${msg_cols}/${t_cols})+( (${msg_cols}%${t_cols}) > 0 ) ))
+    
+    # Calc. output + center in lines, tells us where to start figlet output.
+		required_lines=$((${required_rows}*${row_height}))
+		ol_center=$((${required_lines}/2))
+		start_output_at=$((${tl_center}-${ol_center}))
+
+		# Save current output in case of warnings/errors.
+		#tput smcup
+		
+    __lolmsg_output ${start_output_at} ${msg} ${pad_after_output}
+}
+
+#---------------------------------------------------------------------------------------------------------------------#
 
 
-# Get the position to start figlet output.
-start_output_at=$(( ${tl_center}-${ol_center} ))
-# Get position after figlet output.
-occupied_lines=$(( ${start_output_at}+${required_lines} ))
-# Empty lines  left after output.
-restant_space=$(( ${t_lines}-${occupied_lines} ))
-# Subtract prompt height to get amount to pad.
-if (( $required_rows == 1 )); then
-    lines_to_pad_after_output=$(( ( ${restant_space}-${ph} ) + 1 ))
-else
-    lines_to_pad_after_output=$(( ${restant_space}-${ph} ))
-fi
-
-
-# Save current output in case of warnings/errors.
-# Todo: fix that tcup rmscr is called automatically when errors are output before lolmsg.
-tput smcup
-clear
-
-# Start output by padding term with empty lines.
-__pad_lines "$start_output_at"
-# Output figlet text in center.
-__output_fig "$is_vimterm" "$msg"
-# Pad lines left to bottom of output.
-__pad_lines "${lines_to_pad_after_output}"
-
-
-# This means that on the first call to clear the saved output is deleted.
-# This because, the chance that I want to see the output directly after loading is 99%.
-alias clear="tput rmcup; clear; tput cup $(tput lines) 0; unalias clear; alias clear='clear && tput cup $(tput lines) 0';"
-
+__print_lolmsg_output

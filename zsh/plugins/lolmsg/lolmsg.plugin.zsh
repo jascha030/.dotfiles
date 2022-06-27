@@ -15,6 +15,10 @@ if ! (( ${+DOT_NEOVIM_LOL_MSG} )); then
     export DOT_NEOVIM_LOL_MSG="NVIM 030"
 fi
 
+if ! (( ${+DOT_PREFER_TPUT_OVER_ENV} )); then 
+    export DOT_PREFER_TPUT_OVER_ENV=false
+fi
+
 export fpath=( ${fpath[@]} ${DOT_ZSH}/plugins/lolmsg )
 
 autoload -Uz ${DOT_ZSH}/plugins/lolmsg/lolmsg
