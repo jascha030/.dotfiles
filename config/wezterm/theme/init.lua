@@ -33,6 +33,8 @@ local function scheme_from_colors(colors)
             colors.bright_cyan,
             colors.bright_white,
         },
+
+        split = colors.foreground,
     }
 end
 
