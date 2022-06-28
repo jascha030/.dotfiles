@@ -2,6 +2,9 @@
 
 emulate -L zsh
 
+# TODO: Options 
+# TODO: Curses 
+
 # This is a map of all character widths for the "roman" figlet font.
 typeset -A characterset_cols
 characterset_cols=(
