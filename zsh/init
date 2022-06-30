@@ -4,25 +4,32 @@
 # By Jascha030                                  Dotfiles Initialization         https://github.io/jascha030/.dotfiles #
 #######################################################################################################################
 
-# Dotfiles zsh function root dir.
-export DOT_ZFUNC="${DOT_ZSH}/zfunc"
-
-# Default antigen.zsh path.
-# Based on a normal install, overwrite if installed through brew.
-if ! (( ${+DOT_ANTIGEN_PATH} )); then 
-    export DOT_ANTIGEN_PATH="${HOME}/antigen.zsh"
+if ! (( ${+XDG_CONFIG} )); then 
+    export XDG_CONFIG=${HOME}/.config
 fi
 
-# Left rc path open to edit, allthough Antigen acts weird when rc not @ $HOME.
+# antigen.zsh path. based on simple install, overwrite if installed through brew.
+if ! (( ${+DOT_ANTIGEN_PATH} )); then 
+    export DOT_ANTIGEN_PATH=${HOME}/antigen.zsh
+fi
+
+# .antigenrc path.
 if ! (( ${+DOT_ANTIGEN_RC_PATH} )); then 
-    export DOT_ANTIGEN_RC_PATH="${HOME}/.antigenrc"
+    export DOT_ANTIGEN_RC_PATH=${HOME}/.antigenrc
+fi
+
+# Alternative dir for histfiles
+if ! (( ${+DOT_DATA_DIR} )); then 
+    export DOT_DATA_DIR=${XDG_CONFIG}/datafiles
+fi
+
+# Prompt height in lines
+if ! (( ${DOT_PROMPT_HEIGHT} )); then 
+    export DOT_PROMPT_HEIGHT=2
 fi
 
 #--------------------------------------------- Internally used functions ---------------------------------------------#
 
-# Autoload all files in dir.
-function __autoload_dirs {
-    local a
 
     for a in "$@"; do
         [[ -f "$a" ]] && autoload -Uz "$a"
