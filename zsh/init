@@ -66,27 +66,6 @@ if (( ${+DOT_SOURCES} )); then
 fi
 
 
-# Lazy load functions that are only used conditionally.
-# All functions reside in the default functions dir.
-
-# Checks if directories or creates them using `mkdir -p`.
-function assert_dirs {
-    # undefined 
-    builtin autoload -X
-}
-
-# Checks if files exist or creates them using `touch`.
-function assert_files {
-    # undefined 
-    builtin autoload -X
-}
-
-# Display msg after load.
-function lolmsg {
-    # undefined
-    builtin autoload -X
-}
-
 # Utility function, to merge arrays...
 function merge_arrays {
     # undefined 
@@ -94,15 +73,11 @@ function merge_arrays {
 }
 
 # Run and time zsh initialization 10 times.
-function z_speedtest {
+function speedtest {
     # undefined
     builtin autoload -X
 }
 
-function source_dirs {
-    # undefined 
-    builtin autoload -X
-}
 
 
 # Assure required dirs exist.
