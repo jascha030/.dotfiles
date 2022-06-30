@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-source ${DOTFILES}/aliases
-
 alias rr="exec $SHELL --login"
 
 if (( ${+LS_OVERRIDE} )); then
@@ -43,4 +41,6 @@ fi
 alias kraken='$(open gitkraken://repo/$PWD)' # Note: Don't change to double quotes, as it auto-triggers.
 alias root='cd $(git rev-parse --show-toplevel)'
 alias c:readme='cat $(root)/README.md'
+
+source ${DOTFILES}/aliases
 
