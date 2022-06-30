@@ -23,7 +23,7 @@ local function os_is_dark()
     return (vim.call('system', cmd)):find('dark') ~= nil
 end
 
-local is_dark = function()
+local function is_dark()
     return vim.o.background == 'dark'
 end
 
@@ -42,34 +42,26 @@ local function set_scheme_for_style(dark)
     vim.cmd([[colorscheme tokyonight]])
 end
 
-local set_from_os = function()
+local function set_from_os()
     vim.o.background = os_is_dark() and 'dark' or 'light'
 
     set_scheme_for_style(os_is_dark())
 end
 
-local init = function()
-    set_from_os()
-
-    vim.api.nvim_create_autocmd('Signal', {
-        pattern = '*',
-        callback = function()
-            set_from_os()
-        end,
-    })
-end
-
-local toggle = function()
-    if is_dark() then
-        vim.o.background = 'light'
-    else
-        vim.o.background = 'dark'
-    end
+local function toggle()
+    vim.o.background = is_dark() and 'light' or 'dark'
 
     set_scheme_for_style(is_dark())
 end
 
 return {
     toggle = toggle,
-    init = init,
+    init = function()
+        set_from_os()
+
+        vim.api.nvim_create_autocmd('Signal', {
+            pattern = '*',
+            callback = set_from_os,
+        })
+    end,
 }
