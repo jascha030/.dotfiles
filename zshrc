@@ -12,21 +12,12 @@ if (( ${LINES} == 24 )); then
   until (( ${LINES} > 24)); do exec zsh -l; done
 fi
 
-# Required dirs.
-export DOT_REQUIRED_DIRS=( ${DATA_FILES_DIR} )
- 
-# Required files.
-export DOT_REQUIRED_FILES=(
-    ${DATA_FILES_DIR}/.zsh_history 
-    ${DATA_FILES_DIR}/.mysql_history
 )
 
 # Files to be sourced.
 export DOT_SOURCES=( 
-    ${DOT_ZSH}/plugins/prompt/prompt.plugin.zsh
     ${DOT_ZSH}/plugins/auto-ls
     ${HOME}/.cargo/env 
-    ${DOT_ZSH}/plugins/lolmsg/lolmsg.plugin.zsh
     ${HOME}/.config/tabtab/zsh/__tabtab.zsh 
 )
 
