@@ -1,9 +1,0 @@
-#!/usr/bin/env zsh
-
-# Remove previous (visible) prompt before new output.
-function __clear_prev_prompt {
-    emulate -L zsh
-    
-    repeat ${_DOT_ZSH_PROMPT_HEIGHT} { tput cuu1 && tput dl1 }
-}
-
