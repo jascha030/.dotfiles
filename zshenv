@@ -2,17 +2,14 @@
 
 export DOTFILES=${HOME}/.dotfiles
 export DOT_ZSH=${DOTFILES}/zsh
-export XDG_CONFIG=${HOME}/.config
 export DOT_RC=${HOME}/.zshrc
 
-export DATA_FILES_DIR=${HOME}/.config/datafiles
-export HISTFILE=${DATA_FILES_DIR}/.zsh_history 
-export MYSQL_HISTFILE=${DATA_FILES_DIR}/.mysql_history
+export XDG_CONFIG=${HOME}/.config
 
 #-------------------------------------------------- Applications -----------------------------------------------------#
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
-export _DOT_ZSH_PROMPT_HEIGHT=4
+export DOT_PROMPT_HEIGHT=4
 
 export EDITOR=nvim
 export VISUAL=${EDITOR}
