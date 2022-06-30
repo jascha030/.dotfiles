@@ -117,5 +117,9 @@ fi
 if (( ${+DOT_DISABLE_MSG} )); then 
     unset DOT_DISABLE_MSG 
 else 
-    lolmsg 
+    (( ${+PROFILE_ZSHRC} )) && export DOT_LOL_OUTPUT_ONLY=1
+
+    lolmsg
+    
+    (( ${+PROFILE_ZSHRC} )) && unset DOT_LOL_OUTPUT_ONLY;
 fi
