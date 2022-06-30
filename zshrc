@@ -4,16 +4,13 @@ if (( ${+PROFILE_ZSHRC} )); then zmodload zsh/zprof ;fi
 
 #------------------------------------------------ ZSH Configurations -------------------------------------------------#
 
+setopt extended_glob;
+
 # Hacky fix when first window of wezterm messes up lolmsg placement.
 # Related to Hammerspoon handling of application on quake.
 if (( ${LINES} == 24 )); then 
-  until (( ${LINES} > 24)); do 
-      exec zsh -l
-  done;
+  until (( ${LINES} > 24)); do exec zsh -l; done
 fi
-
-# Zsh opts.
-setopt extended_glob;
 
 # Required dirs.
 export DOT_REQUIRED_DIRS=( ${DATA_FILES_DIR} )
