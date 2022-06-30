@@ -53,24 +53,12 @@ function __df_load_antigen {
 
 #--------------------------------------------------------- Init ------------------------------------------------------#
 
-# Source files and autoload functions that are required early.
-# Default directory for functions.
-# Add by exporting (array) `DOT_AUTOLOAD_DIRS`.
-local AUTOLOAD_DIRS=( "${DOT_ZFUNC}" )
-(( ${+DOT_AUTOLOAD_DIRS} )) && $AUTOLOAD_DIRS=( "${AUTOLOAD_DIRS}" "${DOT_AUTOLOAD_DIRS[@]}" )
+if (( ${+DOT_COMP_DIRS} )); then 
+    __fpath_add "${DOT_COMP_DIRS[@]}"
+fi 
 
-# Default directory for completions.
-# Add by exporting (array) `DOT_COMP_DIRS`.
-local COMP_DIRS=( "${DOT_ZSH}/completions" )
-(( ${+DOT_COMP_DIRS} )) && COMP_DIRS=( "${COMP_DIRS[@]}" "${DOT_COMP_DIRS[@]}" )
-
-
-fpath=( "${fpath[@]}" "${AUTOLOAD_DIRS[@]}" "${COMP_DIRS[@]}" )
-__autoload_dirs "${AUTOLOAD_DIRS[@]}"
-
-# Path
-safe_source "${DOT_ZSH}/path"
-typeset -aU path
+__fpath_add "${DOT_ZSH}/zfunc" "${DOT_ZSH}/completions"  
+__autoload "${DOT_ZSH}/zfunc"
 
 # Source files that are required early.
 if (( ${+DOT_SOURCES} )); then 
