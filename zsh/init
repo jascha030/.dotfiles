@@ -96,10 +96,13 @@ fi
 __df_load_antigen "${DOT_ANTIGEN_PATH}" "${DOT_ANTIGEN_RC_PATH}"
 
 
+function __clear_prompt {
+    repeat ${DOT_PROMPT_HEIGHT} { echoti cuu1 && echoti dl1 }
+}
+
 # Add preexec hook.
 autoload -Uz add-zsh-hook
-add-zsh-hook preexec clear_prompt
-
+add-zsh-hook preexec __clear_prompt 
 
 # Todo: figure out how to make this more dynamic.
 eval "$(starship init zsh)"
