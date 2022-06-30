@@ -79,15 +79,27 @@ function speedtest {
 }
 
 
+# Assure required dirs and files exist.
+assert_dirs "${DOT_DATA_DIR}"
+assert_files "${DOT_DATA_DIR}/.zsh_history" "${DOT_DATA_DIR}/.mysql_history"
 
-# Assure required dirs exist.
-(( ${+DOT_REQUIRED_DIRS} )) && assert_dirs "${DOT_REQUIRED_DIRS[@]}"  
+if (( ${+DOT_REQUIRED_DIRS} )); then 
+    assert_dirs "${DOT_REQUIRED_DIRS[@]}"  
+fi
 
-# Assure required files exist.
-(( ${+DOT_REQUIRED_FILES} )) && assert_files "${DOT_REQUIRED_FILES[@]}"
+if (( ${+DOT_REQUIRED_FILES} )); then 
+    assert_files "${DOT_REQUIRED_FILES[@]}"
+fi
+
 
 # Load antigen plugins.
-__df_load_antigen
+__df_load_antigen "${DOT_ANTIGEN_PATH}" "${DOT_ANTIGEN_RC_PATH}"
+
+
+# Add preexec hook.
+autoload -Uz add-zsh-hook
+add-zsh-hook preexec clear_prompt
+
 
 # Todo: figure out how to make this more dynamic.
 eval "$(starship init zsh)"
@@ -95,10 +107,15 @@ eval "$(zoxide init zsh)"
 eval "$(teleport-dir init)"
 eval "$(fnm env)"
 
-# Source other zsh dotfiles like aliases etc.
+
+# Source late files like aliases etc.
 if (( ${+DOT_AFTER_INIT_SOURCES} )); then 
     safe_source "${DOT_AFTER_INIT_SOURCES[@]}"
 fi
 
-# Allow to turn off lolmsg when debugging.
-(( ${+DOT_DISABLE_MSG} )) && unset DOT_DISABLE_MSG || lolmsg 
+# Allow to turn off intro-msg for debugging.
+if (( ${+DOT_DISABLE_MSG} )); then 
+    unset DOT_DISABLE_MSG 
+else 
+    lolmsg 
+fi

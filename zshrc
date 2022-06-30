@@ -33,6 +33,7 @@ export DOT_SOURCES=(
     ${DOT_ZSH}/plugins/auto-ls
     ${HOME}/.cargo/env 
     ${HOME}/.config/tabtab/zsh/__tabtab.zsh 
+    ${DOT_ZSH}/plugins/lolmsg/lolmsg.plugin.zsh
 )
 
 # Final ZSH files to load, files should reside in $DOT_ZSH dir.
