@@ -12,7 +12,21 @@ if (( ${LINES} == 24 )); then
   until (( ${LINES} > 24)); do exec zsh -l; done
 fi
 
+# Path
+path=(
+  /usr/local/sbin
+  /usr/local/opt/openjdk/bin
+  /usr/local/opt/openssl@1.1/bin
+  node_modules/.bin
+  ${HOME}/bin
+  ${HOME}/.composer/vendor/bin
+  ${HOME}/.yarn/bin 
+  ${HOME}/.gem/ruby/2.6.0/bin
+  ${HOME}/tools/lua-language-server/bin/macOS
+  ${path[@]}
 )
+
+typeset -aU path
 
 # Files to be sourced.
 export DOT_SOURCES=( 
