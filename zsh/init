@@ -30,27 +30,28 @@ fi
 
 #--------------------------------------------- Internally used functions ---------------------------------------------#
 
+function __fpath_add {
+    fpath=( "$@" ${fpath[@]} )
+}
 
+
+function __autoload {
+    local a
     for a in "$@"; do
-        [[ -f "$a" ]] && autoload -Uz "$a"
         [[ -d "$a" ]] && autoload -Uz ${a}/*(.:t)
     done
 }
 
-# Load antigen plugins.
 function __df_load_antigen {
-    # Todo: check
-    if [[ ! -f "$DOT_ANTIGEN_PATH" ]]; then 
-        curl -L git.io/antigen > $DOT_ANTIGEN_PATH
-    fi
-
-    source "$DOT_ANTIGEN_PATH"
-
-    if [[ -f "$DOT_ANTIGEN_RC_PATH" ]]; then 
-        antigen init "$DOT_ANTIGEN_RC_PATH"
-    fi
+    # Load or install antigen
+    [[ ! -f "$1" ]] && curl -L git.io/antigen > "$1"
+    # Sourze antigen.zsh 
+    source "$1"
+    # Load rc
+    [[ -f "$2" ]] && antigen init "$2"
 }
 
+#--------------------------------------------------------- Init ------------------------------------------------------#
 
 # Source files and autoload functions that are required early.
 # Default directory for functions.
