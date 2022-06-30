@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+source ${DOTFILES}/aliases
+
 alias rr="exec $SHELL --login"
 
 if (( ${+LS_OVERRIDE} )); then
@@ -10,9 +12,9 @@ if (( ${+CAT_OVERRIDE} )); then
     alias cat=${CAT_OVERRIDE}
 fi
 
-if (( ${+EDITOR} )); then 
-    alias vim=${EDITOR}
-fi 
+if (( ${+commands[nvim]} )); then 
+    alias vim=nvim
+fi
 
 if (( ${+LAZYGIT_CONFIG} )); then 
     alias lazygit="lazygit -ucf ${LAZYGIT_CONFIG}"

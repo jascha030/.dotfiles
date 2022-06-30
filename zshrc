@@ -23,7 +23,6 @@ export DOT_SOURCES=(
 
 # Final ZSH files to load, files should reside in $DOT_ZSH dir.
 export DOT_AFTER_INIT_SOURCES=( 
-    ${DOTFILES}/aliases
     ${DOT_ZSH}/aliases
     ${HOME}/.fzf.zsh
 )
