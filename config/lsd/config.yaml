@@ -2,12 +2,12 @@ classic: false
 
 blocks:
   # - user
-  # - permission
   # - group
-  # - size_value 
+  # size_value 
   # - inode
-  - date
+  - permission
   - size
+  - date
   - name
 
 color:
@@ -46,7 +46,6 @@ ignore-globs:
 
 indicators: true
 layout: grid
-# layout: grid
 # layout: tree 
 # layout: oneline
 
@@ -56,6 +55,8 @@ recursion:
 
 # Possible values: default, short, bytes
 size: short
+
+# permission: octal
 
 # column:       
 #   extension, name, time, size, version
@@ -72,3 +73,4 @@ no-symlink: false
 total-size: false 
 symlink-arrow: 
 
+# header: true
