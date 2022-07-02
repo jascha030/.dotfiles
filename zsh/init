@@ -108,7 +108,7 @@ add-zsh-hook preexec __clear_prompt
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(teleport-dir init)"
-eval "$(fnm env)"
+eval "$(fnm env --use-on-cd)"
 
 
 # Source late files like aliases etc.
