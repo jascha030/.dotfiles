@@ -38,7 +38,7 @@ return {
     colors = theme.get_scheme('Dark'),
 
     inactive_pane_hsb = {
-        saturation = 0.7,
+        saturation = 0.95,
         brightness = 0.85,
     },
 
