@@ -23,8 +23,9 @@ map('N', ':NvimTreeFocus<CR>', { noremap = true })
 --  Telescope
 map('ss', ':Telescope<CR>')
 map('ff', ':lua require("telescope.builtin").find_files()<CR>')
-map('FF', ':lua require("telescope.builtin").file_browser()<CR>')
+map('FF', ':lua require("telescope").extensions.file_browser.file_browser()<CR>')
 map('fg', ':lua require("telescope.builtin").live_grep()<CR>')
+map('<C-f>', ':lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>')
 
 -- Lsp
 map('<C-l>', ':lua vim.lsp.buf.formatting()<CR>')

@@ -10,7 +10,15 @@ local alpha = function()
 end
 
 local telescope = function()
-    require('telescope').setup({
+    local telescope = require('telescope')
+    local actions = require('telescope.actions')
+    local themes = require('telescope.themes')
+    local fb_actions = require('telescope').extensions.file_browser.actions
+
+    telescope.setup({
+        ['ui-select'] = {
+            themes.get_dropdown(),
+        },
         defaults = {
             prompt_prefix = ' > ',
             color_devicons = true,
@@ -27,7 +35,15 @@ local telescope = function()
                 override_generic_sorter = false,
                 override_file_sorter = true,
             },
-            file_browser = {},
+            file_browser = {
+                mappings = {
+                    ['n'] = {
+                        ['q'] = actions.close,
+                        ['x'] = actions.delete_buffer,
+                        ['d'] = fb_actions.remove,
+                    },
+                },
+            },
         },
     })
 

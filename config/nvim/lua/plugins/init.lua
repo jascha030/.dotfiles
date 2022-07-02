@@ -38,8 +38,6 @@ require('packer').startup({
 
         -- Visual/UI components
         -- Telescope
-        use({ 'nvim-telescope/telescope-file-browser.nvim' })
-        use({ 'nvim-telescope/telescope-fzy-native.nvim' })
         use({
             'nvim-telescope/telescope.nvim',
             requires = {
@@ -48,6 +46,8 @@ require('packer').startup({
             },
             config = config.utils.telescope,
         })
+        use({ 'nvim-telescope/telescope-file-browser.nvim' })
+        use({ 'nvim-telescope/telescope-fzy-native.nvim' })
 
         -- Treesitter
         use({ 'nvim-treesitter/nvim-treesitter-textobjects' })
