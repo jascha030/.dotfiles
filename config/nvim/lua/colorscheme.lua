@@ -1,21 +1,5 @@
 local default_scheme = os.getenv('HOME') .. '/.config/wezterm/theme/jascha030/wez/og.lua'
-local colors = dofile(default_scheme)
-
-local theme_colors = {
-    yellow = colors.yellow,
-    red = colors.red,
-    cyan = colors.cyan,
-    magenta = '#bb9af7',
-    purple = '#9d7cd8',
-    orange = colors.red,
-    green = colors.green,
-    green1 = colors.cyan,
-}
-
-local color_overrides = {
-    dark = { bg_dark = colors.background },
-    light = {},
-}
+local light_scheme = os.getenv('HOME') .. '/.config/wezterm/theme/jascha030/wez/og_light.lua'
 
 local function os_is_dark()
     local cmd = [[echo $(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 'dark' || echo 'light')]]
@@ -26,6 +10,34 @@ end
 local function is_dark()
     return vim.o.background == 'dark'
 end
+
+local function colors()
+    return dofile(is_dark() and default_scheme or light_scheme)
+end
+
+local theme_colors = {
+    yellow = colors().yellow,
+    red = colors().red,
+    cyan = colors().cyan,
+    magenta = '#bb9af7',
+    purple = '#9d7cd8',
+    orange = colors().red,
+    green = colors().green,
+    green1 = colors().cyan,
+}
+
+local color_overrides = {
+    dark = {
+        bg_dark = colors().background,
+    },
+    light = {
+        blue = colors().blue,
+        yellow = colors().red,
+        purple = colors().bright_red,
+        green1 = colors().cyan,
+        green = colors().green,
+    },
+}
 
 local function set_scheme_for_style(dark)
     local overrides = dark and color_overrides.dark or color_overrides.light

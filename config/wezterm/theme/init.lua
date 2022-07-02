@@ -65,8 +65,13 @@ local function get_scheme(scheme)
     return scheme_from_module(is_dark(scheme) and default.dark or default.light)
 end
 
+local function get_opacity(scheme)
+    return is_dark(scheme) and 0.99 or 0.965
+end
+
 return {
     scheme_from_colors = scheme_from_colors,
     scheme = scheme_from_module,
     get_scheme = get_scheme,
+    get_opacity = get_opacity,
 }
