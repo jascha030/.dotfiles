@@ -24,3 +24,18 @@ js.quake.set(js.config:get('termApp'), js.config:get('builtinScreen'))
 hs.hotkey.bind({ 'ctrl', 'alt' }, 'l', function()
     js.window.manager:center()
 end)
+
+hs.hotkey.bind({ 'cmd', 'alt', 'ctrl' }, 'R', function()
+    hs.reload()
+end)
+
+-- Toggle dark mode.
+hs.hotkey.bind({ 'cmd', 'alt', 'ctrl' }, 'D', function()
+    hs.osascript.applescript([[
+      tell application "System Events"
+		    tell appearance preferences
+			    set dark mode to not dark mode
+				end tell
+			end tell
+	  ]])
+end)
