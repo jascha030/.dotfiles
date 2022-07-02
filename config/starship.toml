@@ -9,7 +9,7 @@ $git_status
 [└──](bold bright-black) """
 
 
-right_format = """$golang$java$nodejs$rust$php \
+right_format = """$golang$java$nodejs$rust$php$lua \
 [├─$battery──┘](bold bright-black)"""
 
 # Disable the blank line at the start of the prompt
