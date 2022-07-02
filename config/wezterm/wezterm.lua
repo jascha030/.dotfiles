@@ -4,11 +4,14 @@ local fonts = require('fonts')
 local keys = require('keymap')
 
 wezterm.on('window-config-reloaded', function(window, pane)
+    local current = window:get_appearance()
     local overrides = window:get_config_overrides() or {}
-    local scheme = theme.get_scheme(window:get_appearance())
+    local scheme = theme.get_scheme(current)
 
     if overrides.colors ~= scheme then
         overrides.colors = scheme
+        overrides.window_background_opacity = theme.get_opacity(current)
+
         window:set_config_overrides(overrides)
     end
 end)
@@ -26,7 +29,6 @@ return {
     window_padding = { left = 10, right = 10, top = 6, bottom = 2 },
 
     default_cursor_style = 'BlinkingBlock',
-
     cursor_blink_rate = 250,
     cursor_blink_ease_in = 'Ease',
     cursor_blink_ease_out = 'Ease',
@@ -43,5 +45,5 @@ return {
     },
 
     scrollback_lines = 3500,
-    window_background_opacity = 0.97,
+    window_background_opacity = theme.get_opacity('Dark'),
 }
