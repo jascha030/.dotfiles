@@ -17,20 +17,20 @@ spoon.SpoonInstall:andUse('RoundedCorners', {
 local js = require('jascha030')
 js.config:setup({})
 
--- Quake terminal
-js.quake.set(js.config:get('termApp'), js.config:get('builtinScreen'))
+local mods = {
+    open = { 'shift', 'alt' },
+    control = { 'ctrl', 'alt' },
+    system = { 'ctrl', 'alt', 'cmd' },
+}
 
--- Hotkeys
-hs.hotkey.bind({ 'ctrl', 'alt' }, 'l', function()
-    js.window.manager:center()
-end)
-
-hs.hotkey.bind({ 'cmd', 'alt', 'ctrl' }, 'R', function()
+-- System Hotkeys
+-- Reload hs config manually.
+hs.hotkey.bind(mods.system, 'r', function()
     hs.reload()
 end)
 
 -- Toggle dark mode.
-hs.hotkey.bind({ 'cmd', 'alt', 'ctrl' }, 'D', function()
+hs.hotkey.bind(mods.system, 'd', function()
     hs.osascript.applescript([[
       tell application "System Events"
 		    tell appearance preferences
@@ -38,4 +38,33 @@ hs.hotkey.bind({ 'cmd', 'alt', 'ctrl' }, 'D', function()
 				end tell
 			end tell
 	  ]])
+end)
+
+-- Control Hotkeys
+
+-- Quake terminal
+js.quake.set(js.config:get('termApp'), js.config:get('builtinScreen'))
+-- Center quake window in screen
+hs.hotkey.bind(mods.control, 'l', function()
+    js.window.manager:center()
+end)
+
+-- Itunes
+-- Play/Pause
+hs.hotkey.bind(mods.control, 'p', function()
+    hs.itunes.playpause()
+end)
+
+-- Next song
+hs.hotkey.bind(mods.control, ']', function()
+    hs.itunes.next()
+
+    hs.alert(hs.itunes.displayCurrentTrack)
+end)
+
+-- Previous song
+hs.hotkey.bind(mods.control, '[', function()
+    hs.itunes.previous()
+
+    hs.alert(hs.itunes.displayCurrentTrack)
 end)
