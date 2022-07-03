@@ -45,6 +45,10 @@ end)
 
 -- Control Hotkeys
 
+hs.hotkey.bind(mods.control, 'h', function()
+    hs.toggleConsole()
+end)
+
 -- Quake terminal
 js.quake.set(js.config:get('termApp'), js.config:get('builtinScreen'))
 -- Center quake window in screen
