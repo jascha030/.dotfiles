@@ -48,6 +48,7 @@ require('packer').startup({
         })
         use({ 'nvim-telescope/telescope-file-browser.nvim' })
         use({ 'nvim-telescope/telescope-fzy-native.nvim' })
+        use({ 'nvim-telescope/telescope-ui-select.nvim' })
 
         -- Treesitter
         use({ 'nvim-treesitter/nvim-treesitter-textobjects' })
