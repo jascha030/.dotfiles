@@ -59,7 +59,7 @@ local function is_dark(scheme)
 end
 
 local function get_scheme(scheme)
-    return scheme_from_module(is_dark(scheme) and default.dark or default.light)
+    return scheme_from_colors(is_dark(scheme) and default.dark or default.light)
 end
 
 local function get_opacity(scheme)
