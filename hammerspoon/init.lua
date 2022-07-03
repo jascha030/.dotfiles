@@ -7,6 +7,9 @@ hs.window.animationDuration = 0
 -- Spoons
 hs.loadSpoon('EmmyLua')
 hs.loadSpoon('SpoonInstall')
+hs.loadSpoon('ReloadConfiguration')
+
+spoon.ReloadConfiguration:start()
 
 spoon.SpoonInstall:andUse('RoundedCorners', {
     start = true,
