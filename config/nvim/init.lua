@@ -12,7 +12,7 @@
 --[[==========================Configuration===========================]]
 
 require('options')
-require('colors').init()
+require('theme').init()
 require('plugins')
 require('lsp')
 require('keymap')

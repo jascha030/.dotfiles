@@ -45,7 +45,7 @@ map('<Tab><Tab>', ':HopWord<CR>')
 map('sR', ':source $MYVIMRC<CR>', { noremap = true, silent = true })
 
 -- Switch between light/dark mode.
-map('CS', ':lua require("colorscheme").toggle()<CR>')
+map('CS', ':lua require("theme").toggle()<CR>')
 
 -- Other
 vmap('<C-c>', ':OSCYank<CR>')

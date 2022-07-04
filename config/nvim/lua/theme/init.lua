@@ -1,20 +1,12 @@
-local scheme = require('colors.jassie030')
+require('theme.utils')
 
-local function os_is_dark()
-    local cmd = [[echo $(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 'dark' || echo 'light')]]
-
-    return (vim.call('system', cmd)):find('dark') ~= nil
-end
-
-local function is_dark()
-    return vim.o.background == 'dark'
-end
+local scheme = require('theme.colors.jassie030')
 
 local function colors()
-    return is_dark() and scheme.dark or scheme.light
+    return DarkmodeEnabled() and scheme.dark or scheme.light
 end
 
-local theme_colors = {
+DOT_CUSTOM_COLORS = {
     yellow = colors().yellow,
     red = colors().red,
     cyan = colors().cyan,
@@ -25,7 +17,7 @@ local theme_colors = {
     green1 = colors().cyan,
 }
 
-local color_overrides = {
+DOT_CUSTOM_COLOR_OVERRIDES = {
     dark = {
         bg_dark = colors().background,
     },
@@ -38,11 +30,19 @@ local color_overrides = {
     },
 }
 
-local function set_scheme_for_style(dark)
-    local overrides = dark and color_overrides.dark or color_overrides.light
+local tokyonight_colors = require('tokyonight').colors
 
+local function merge_colors()
+    return vim.tbl_deep_extend(
+        'force',
+        DOT_CUSTOM_COLORS,
+        DarkmodeEnabled() and DOT_CUSTOM_COLOR_OVERRIDES.dark or DOT_CUSTOM_COLOR_OVERRIDES.light
+    )
+end
+
+local function set_scheme_for_style(dark)
     vim.g = vim.tbl_deep_extend('force', vim.g, {
-        tokyonight_colors = vim.tbl_deep_extend('force', theme_colors, overrides),
+        tokyonight_colors = merge_colors(),
         tokyonight_style = dark and 'storm' or 'day',
         tokyonight_italic_functions = true,
         tokyonight_italic_comments = true,
@@ -54,15 +54,15 @@ local function set_scheme_for_style(dark)
 end
 
 local function set_from_os()
-    vim.o.background = os_is_dark() and 'dark' or 'light'
+    vim.o.background = OSDarkmodeEnabled() and 'dark' or 'light'
 
-    set_scheme_for_style(os_is_dark())
+    set_scheme_for_style(OSDarkmodeEnabled())
 end
 
 local function toggle()
-    vim.o.background = is_dark() and 'light' or 'dark'
+    vim.o.background = DarkmodeEnabled() and 'light' or 'dark'
 
-    set_scheme_for_style(is_dark())
+    set_scheme_for_style(DarkmodeEnabled())
 end
 
 local function init()
