@@ -8,3 +8,5 @@
 # Hammerspoon
 hammerspoon/Spoons/EmmyLua.spoon/annotations
 
+
+config/nvim/plugin/packer_compiled.lua
