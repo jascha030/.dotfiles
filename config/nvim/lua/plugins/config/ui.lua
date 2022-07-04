@@ -1,6 +1,6 @@
-local function cokeline()
-    --local utils = require('cokeline.utils')
+require('theme.utils')
 
+local function cokeline()
     require('cokeline').setup({
         show_if_buffers_are_at_least = 2,
         buffers = {
@@ -61,7 +61,7 @@ local function colorizer()
 end
 
 local function tree()
-    -- vim.cmd([[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]])
+    vim.cmd([[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]])
 
     require('nvim-tree').setup({
         disable_netrw = true,
