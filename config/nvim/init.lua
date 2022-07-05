@@ -11,8 +11,27 @@
 --                                                                      --
 --[[==========================Configuration===========================]]
 
+
 require('options')
 require('plugins')
-require('theme').init()
 require('lsp')
 require('keymap')
+
+ActiveUserColorscheme = require('scheme').setup({
+    overrides = {
+        dark = {
+            bg_dark = 'background',
+        },
+        light = {
+            blue = 'blue',
+            yellow = 'red',
+            purple = 'bright_red',
+            green1 = 'cyan',
+            green = 'green',
+        },
+    },
+})
+
+local kmap = require('util').kmap
+
+kmap('CS', ':lua ActiveUserColorscheme:toggle()<CR>', 'n', { noremap = true })
