@@ -17,11 +17,6 @@ function UserScheme.create(scheme, styles, overrides)
     styles = styles or UserSchemeStyles.create()
     overrides = overrides or UserSchemeOverRides.create()
 
-    local default_colors = {
-        magenta = '#bb9af7',
-        purple = '#9d7cd8',
-    }
-
     local self = {
         _styles = styles,
         _dark = {},
@@ -34,7 +29,10 @@ function UserScheme.create(scheme, styles, overrides)
             italic_comments = true,
             transparent_sidebar = true,
             transparent = true,
-            colors = default_colors,
+            colors = {
+                magenta = '#bb9af7',
+                purple = '#9d7cd8',
+            },
             style = styles[style],
         })
 
