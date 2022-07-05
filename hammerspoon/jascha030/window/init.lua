@@ -5,6 +5,7 @@ local function create_manager(division, factor)
 end
 
 return {
-    manager = WindowManager,
+    _manager = WindowManager,
+    manager = create_manager(),
     create_manager = create_manager,
 }
