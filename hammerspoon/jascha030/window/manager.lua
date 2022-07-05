@@ -1,21 +1,27 @@
 local spaces = require('hs.spaces')
 local screen = require('hs.screen')
 
-local WindowManager = {
-    defaultScreenWidthDivision = 0,
-    defaultScreenWidthFactor = 0,
-}
+-- TODO: abstraction and extraction.
+
+local function window_frame_eq_screen(w)
+    local f = w:frame()
+    local s = w:screen()
+    local max = s:frame()
+
+    return f.h == max.h and f.w == max.w and f.x == max.x and f.y == max.y
+end
+
+local WindowManager = {}
+WindowManager.__index = WindowManager
 
 -- Constructor, (tnx cpt. obvious).
-function WindowManager:new(m, division, factor)
-    m = m or {}
-    setmetatable(m, self)
+function WindowManager.create(division, factor)
+    local self = {
+        defaultScreenWidthDivision = division or 4,
+        defaultScreenWidthFactor = factor or 2,
+    }
 
-    self.__index = self
-    self.defaultScreenWidthDivision = division or 4
-    self.defaultScreenWidthFactor = factor or 2
-
-    return m
+    return setmetatable(self, WindowManager)
 end
 
 -- How many times we multiply the defaultScreenWidthDivision when calculating the frame width for unsnapped windows.
@@ -34,16 +40,20 @@ end
 
 function WindowManager:move(application, space, builtinScreen)
     local win = nil
+    local spaceScreen = screen.find(spaces.spaceDisplay(space))
+
     while win == nil do
         win = application:mainWindow()
     end
 
-    local spaceScreen = screen.find(spaces.spaceDisplay(space))
     local windowSpaces = spaces.windowSpaces(win)
+    local currentWindowSpace = windowSpaces[0]
 
-    if windowSpaces[0] ~= space then
-        win:moveToScreen(spaceScreen)
-        spaces.moveWindowToSpace(win:id(), space)
+    if currentWindowSpace ~= space then
+        if true ~= window_frame_eq_screen(win) then
+            win:moveToScreen(spaceScreen)
+            spaces.moveWindowToSpace(win:id(), space)
+        end
     end
 
     local winFrame = win:frame()
