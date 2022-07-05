@@ -1,6 +1,6 @@
 require('scheme.utils')
 
-local utils = require('util')
+local util = require('util')
 local UserSchemeStyles = require('scheme.styles')
 local UserSchemeOverRides = require('scheme.overrides')
 
@@ -22,27 +22,21 @@ function UserScheme.create(scheme, styles, overrides)
         purple = '#9d7cd8',
     }
 
-    local default_opts = {
-        italic_functions = true,
-        italic_comments = true,
-        transparent_sidebar = true,
-        transparent = true,
-    }
-
     local self = {
-        _opts = default_opts,
         _styles = styles,
         _dark = {},
         _light = {},
     }
 
     for style in pairs({ dark = overrides.dark, light = overrides.light }) do
-        --print(vim.inspect(style))
-
-        self['_' .. style] = require('tokyonight.colors').setup(utils.tbl_merge(default_opts, {
+        self['_' .. style] = require('tokyonight.colors').setup({
+            italic_functions = true,
+            italic_comments = true,
+            transparent_sidebar = true,
+            transparent = true,
             colors = default_colors,
             style = styles[style],
-        }))
+        })
 
         for t_name, u_name in pairs(overrides[style]) do
             if not self['_' .. style][t_name] then
@@ -63,16 +57,15 @@ end
 function UserScheme:update(dark)
     vim.o.background = dark and 'dark' or 'light'
 
-    local full_opts = {
+    vim.g = vim.tbl_deep_extend('force', vim.g, {
         tokyonight_style = dark and self._styles.dark or self._styles.light,
         tokyonight_colors = dark and self._dark or self._light,
-    }
+        tokyonight_italic_functions = true,
+        tokyonight_italic_comments = true,
+        tokyonight_transparent_sidebar = true,
+        tokyonight_transparent = true,
+    })
 
-    for key, val in pairs(self._opts) do
-        full_opts['tokyonight_' .. key] = val
-    end
-
-    vim.g = vim.tbl_deep_extend('force', vim.g, full_opts)
     vim.cmd([[colorscheme tokyonight]])
 end
 
@@ -88,7 +81,11 @@ function UserScheme:init()
 end
 
 function UserScheme:toggle()
-    self:update(DarkmodeEnabled() and false or true)
+    if vim.o.background == 'dark' then
+        self:update(false)
+    else
+        self:update(true)
+    end
 end
 
 function UserScheme.isDark()
