@@ -1,4 +1,3 @@
-local cmd = vim.cmd
 local config = {
     utils = require('plugins.config.utils'),
     lsp = require('plugins.config.lsp'),
@@ -6,16 +5,15 @@ local config = {
 }
 
 -- Auto commands
-cmd([[autocmd BufWritePost packer.lua PackerCompile]])
-cmd([[packadd packer.nvim]], false)
+vim.cmd([[autocmd BufWritePost plugins/init.lua PackerCompile]])
+vim.cmd([[packadd packer.nvim]], false)
 
 require('packer').startup({
     function(use)
         -- Packer
         use({ 'wbthomason/packer.nvim' })
-
         -- Impatient should be first plugin after packer.
-        use({ 'lewis6991/impatient.nvim', config = [[require('impatient')]] })
+        --use({ 'lewis6991/impatient.nvim', config = [[require('impatient')]] })
         use({
             'yamatsum/nvim-nonicons',
             requires = { 'kyazdani42/nvim-web-devicons' },
