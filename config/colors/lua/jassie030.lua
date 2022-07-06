@@ -7,6 +7,7 @@ return {
         --'#555b86'
         --'#626793' 45 fg
         --'#545c7e',
+        --'#1e2030',
 
         background = '#e9e9ec',
         foreground = '#444a73',
@@ -34,7 +35,7 @@ return {
         background = '#1e2030',
         foreground = '#c8d3f5',
 
-        black = '#000',
+        black = '#1a1423',
         red = '#ea1479',
         green = '#d4eb70',
         yellow = '#ffcc00',
