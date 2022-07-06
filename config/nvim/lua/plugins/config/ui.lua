@@ -1,4 +1,4 @@
-require('theme.utils')
+require('scheme.utils')
 
 local function cokeline()
     require('cokeline').setup({
@@ -41,10 +41,13 @@ local function lualine()
 end
 
 local function scrollbar()
-    local colors = require('tokyonight.colors').setup()
+    local user_colors = ActiveUserColorscheme:getUserColors()
+    local colors = require('tokyonight.colors').setup({})
 
     require('scrollbar').setup({
-        handle = { color = colors.bg_highlight },
+        handle = {
+            color = DarkmodeEnabled() and user_colors.bright_black or user_colors().bright_white,
+        },
         marks = {
             Search = { color = colors.orange },
             Error = { color = colors.error },
@@ -152,10 +155,11 @@ local function tree()
             interval = 100,
             debounce_delay = 50,
         },
-        remove_file = {
-            close_window = true,
+        actions = {
+            --remove_file = {
+            --close_window = true,
+            --},
         },
-
         diagnostics = {
             enable = false,
             show_on_dirs = false,
