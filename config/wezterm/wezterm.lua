@@ -3,7 +3,7 @@ local theme = require('theme')
 local fonts = require('fonts')
 local keys = require('keymap')
 
-wezterm.on('window-config-reloaded', function(window, pane)
+wezterm.on('window-config-reloaded', function(window)
     local current = window:get_appearance()
     local overrides = window:get_config_overrides() or {}
     local scheme = theme.get_scheme(current)
