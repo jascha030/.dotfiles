@@ -41,12 +41,13 @@ local function lualine()
 end
 
 local function scrollbar()
-    local user_colors = ActiveUserColorscheme:getUserColors()
     local colors = require('tokyonight.colors').setup({})
+    local user_colors = require('scheme.colors.jassie030')
+
 
     require('scrollbar').setup({
         handle = {
-            color = DarkmodeEnabled() and user_colors.bright_black or user_colors().bright_white,
+            --color = user_colors[DarkmodeEnabled() and 'dark' or 'light'],
         },
         marks = {
             Search = { color = colors.orange },
@@ -154,11 +155,6 @@ local function tree()
             enable = false,
             interval = 100,
             debounce_delay = 50,
-        },
-        actions = {
-            --remove_file = {
-            --close_window = true,
-            --},
         },
         diagnostics = {
             enable = false,
