@@ -31,12 +31,12 @@ style = "bold bright-black"
 
 [username]
 show_always = true
-style_user = "bg:#3B4261"
-style_root = "bg:#3B4261"
+style_user = "bg:(bright-black)"
+style_root = "bg:(bright-black)"
 format = '[  ]($style)'
 
 [directory]
-style = "bg:#3B4261"
+style = "bg: bright-black"
 format = "[ $path ]($style)"
 
 # Here is how you can shorten some long paths by text replacement
@@ -60,7 +60,7 @@ disabled = false
 
 [battery]
 disabled = false
-format = '[[ $symbol $percentage ](bg:#444A73)]($style)'
+format = '[[ $symbol $percentage ](bg:bright-black fg: bright-white)]($style)'
 
 [[battery.display]]
 threshold = 100
@@ -80,12 +80,12 @@ style = "bold red"
 
 [git_branch]
 symbol = ""
-style = "bg:#444A73"
-format = '[[ $symbol $branch ](bg:#444A73)]($style)'
+style = "bg:bright-black fg: bright-white"
+format = '[[ $symbol $branch ](bg:bright-black fg: bright-white)]($style)'
 
 [git_status]
-style = "bg:#444A73"
-format = '[[($all_status$ahead_behind )](bg:#444A73)]($style)'
+style = "bg:bright-black fg: bright-white"
+format = '[[($all_status$ahead_behind )](bg:bright-black fg: bright-white)]($style)'
 
 [golang]
 symbol = " "
