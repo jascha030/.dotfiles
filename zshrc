@@ -42,6 +42,8 @@ export DOT_AFTER_INIT_SOURCES=(
     ${HOME}/.fzf.zsh
 )
 
+export FZF_DEFAULT_OPTS="--height=50% --layout=reverse --keep-right --info=inline --border --margin=1 --padding=1"
+
 #------------------------------------------------- Initialization ----------------------------------------------------#
 
 [[ -f ${DOT_ZSH}/init ]] && source ${DOT_ZSH}/init
