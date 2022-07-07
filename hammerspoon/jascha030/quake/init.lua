@@ -36,4 +36,5 @@ return {
             toggle(app, screen)
         end
     end,
+    toggle = toggle
 }
