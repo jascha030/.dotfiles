@@ -1,5 +1,22 @@
-local table_merge
-table_merge = function(t1, t2)
+local M = {}
+
+function M.alert(callback, args)
+    args = args or nil
+
+    hs.alert.closeAll()
+
+    local ok, res = pcall(callback, args)
+
+    if not ok then
+        hs.alert('The alert callback caused an unexpected error.')
+    end
+
+    if res ~= nil then
+        return res
+    end
+end
+
+local function table_merge(t1, t2)
     for k, v in pairs(t2) do
         if type(v) == 'table' then
             if type(t1[k] or false) == 'table' then
@@ -15,4 +32,6 @@ table_merge = function(t1, t2)
     return t1
 end
 
-return { table_merge = table_merge }
+M.table_merge = table_merge
+
+return M
