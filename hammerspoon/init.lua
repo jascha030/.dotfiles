@@ -16,62 +16,50 @@ spoon.SpoonInstall:andUse('RoundedCorners', {
     config = { radius = 8 },
 })
 
--- Custom modules
-local js = require('jascha030')
-js.config:setup({})
+local JSpoon = require('jascha030')
 
-local mods = {
-    open = { 'shift', 'alt' },
-    control = { 'ctrl', 'alt' },
-    system = { 'ctrl', 'alt', 'cmd' },
-}
-
--- System Hotkeys
--- Reload hs config manually.
-hs.hotkey.bind(mods.system, 'r', function()
-    hs.reload()
-end)
-
--- Toggle dark mode.
-hs.hotkey.bind(mods.system, 'd', function()
-    hs.osascript.applescript([[
-      tell application "System Events"
-		    tell appearance preferences
-			    set dark mode to not dark mode
-				end tell
-			end tell
-	  ]])
-end)
-
--- Control Hotkeys
-
-hs.hotkey.bind(mods.control, 'h', function()
-    hs.toggleConsole()
-end)
+JSpoon.config:setup({})
 
 -- Quake terminal
-js.quake.set(js.config:get('termApp'), js.config:get('builtinScreen'))
+JSpoon.quake.set(JSpoon.config:get('termApp'), JSpoon.config:get('mainScreen'))
+
 -- Center quake window in screen
-hs.hotkey.bind(mods.control, 'l', function()
-    js.window.manager:center()
+hs.hotkey.bind({ 'ctrl', 'alt' }, 'l', function()
+    JSpoon.window.manager:center()
 end)
 
--- Itunes
--- Play/Pause
-hs.hotkey.bind(mods.control, 'p', function()
-    hs.itunes.playpause()
-end)
-
--- Next song
-hs.hotkey.bind(mods.control, ']', function()
-    hs.itunes.next()
-
-    hs.alert(hs.itunes.displayCurrentTrack)
-end)
-
--- Previous song
-hs.hotkey.bind(mods.control, '[', function()
-    hs.itunes.previous()
-
-    hs.alert(hs.itunes.displayCurrentTrack)
-end)
+JSpoon.setup({
+    system = {
+        -- Reload hs config manually.
+        r = hs.reload,
+        -- toggle dark mode
+        d = function()
+            hs.osascript.applescript([[
+                    tell application "System Events"
+								        tell appearance preferences
+									            set dark mode to not dark mode
+										    end tell
+								    end tell
+                ]])
+        end,
+    },
+    control = {
+        -- Hammerspoon
+        h = hs.toggleConsole,
+        -- iTunes
+        p = JSpoon.music.play,
+        [']'] = JSpoon.music.next,
+        ['['] = JSpoon.music.previous,
+    },
+    apps = {
+        i = 'Music',
+        s = 'Spotify',
+        p = 'PhpStorm',
+        l = 'Ableton Live 11 Suite',
+        c = 'Chrome',
+        k = 'GitKraken',
+        n = 'Notes',
+        w = 'Chromium',
+        a = 'Safari',
+    },
+})
