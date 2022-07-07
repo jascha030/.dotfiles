@@ -13,10 +13,10 @@ end
 
 M.setup = function()
     local signs = {
-        { name = 'DiagnosticSignError', text = ' ' },
-        { name = 'DiagnosticSignWarn', text = ' ' },
-        { name = 'DiagnosticSignHint', text = ' ' },
-        { name = 'DiagnosticSignInfo', text = ' ' },
+        { name = 'DiagnosticSignError', text = '  ' },
+        { name = 'DiagnosticSignWarn', text = '  ' },
+        { name = 'DiagnosticSignHint', text = '  ' },
+        { name = 'DiagnosticSignInfo', text = '  ' },
     }
 
     for _, sign in ipairs(signs) do
@@ -103,6 +103,7 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local status_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
+
 if not status_ok then
     return
 end
