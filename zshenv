@@ -14,6 +14,8 @@ export DOT_PROMPT_HEIGHT=4
 export EDITOR=nvim
 export VISUAL=${EDITOR}
 
+export BUN_INSTALL=${HOME}/.bun
+
 #---------------------------------------------------------------------------------------------------------------------#
 
 export LS_OVERRIDE='lsd'

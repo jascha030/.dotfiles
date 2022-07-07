@@ -20,6 +20,7 @@ path=(
   node_modules/.bin
   ${HOME}/bin
   ${HOME}/.composer/vendor/bin
+  ${HOME}/.bun/bin
   ${HOME}/.yarn/bin 
   ${HOME}/.gem/ruby/2.6.0/bin
   ${HOME}/tools/lua-language-server/bin/macOS
@@ -27,6 +28,10 @@ path=(
 )
 
 typeset -aU path
+
+export DOT_COMP_DIRS=(
+    ${HOME}/.bun/_bun
+)
 
 # Files to be sourced.
 export DOT_SOURCES=( 
