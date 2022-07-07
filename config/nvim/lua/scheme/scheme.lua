@@ -18,17 +18,15 @@ function UserScheme.create(scheme, styles, overrides)
     overrides = overrides or UserSchemeOverRides.create()
 
     local self = {
+        _userscheme = _scheme,
         _styles = styles,
+        _overrides = overrides,
         _dark = {},
         _light = {},
     }
 
     for style in pairs({ dark = overrides.dark, light = overrides.light }) do
         self['_' .. style] = require('tokyonight.colors').setup({
-            italic_functions = true,
-            italic_comments = true,
-            transparent_sidebar = true,
-            transparent = true,
             colors = {
                 magenta = '#bb9af7',
                 purple = '#9d7cd8',
@@ -58,6 +56,7 @@ function UserScheme:update(dark)
     vim.g = vim.tbl_deep_extend('force', vim.g, {
         tokyonight_style = dark and self._styles.dark or self._styles.light,
         tokyonight_colors = dark and self._dark or self._light,
+        tokyonight_dark_sidebar = false,
         tokyonight_italic_functions = true,
         tokyonight_italic_comments = true,
         tokyonight_transparent_sidebar = true,
@@ -76,14 +75,12 @@ function UserScheme:init()
             self:update(OSDarkmodeEnabled())
         end,
     })
+
+    vim.api.nvim_create_autocmd('Signal', { pattern = 'SIGUSR1', command = 'PackerCompile' })
 end
 
 function UserScheme:toggle()
-    if vim.o.background == 'dark' then
-        self:update(false)
-    else
-        self:update(true)
-    end
+    self:update(vim.o.background ~= 'dark')
 end
 
 function UserScheme.isDark()
@@ -92,6 +89,10 @@ end
 
 function UserScheme:getColors()
     return DarkmodeEnabled() and self._dark or self._light
+end
+
+function UserScheme:getUserColors()
+    return DarkmodeEnabled() and self._userscheme.dark or self._userscheme.light
 end
 
 return UserScheme
