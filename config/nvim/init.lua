@@ -23,6 +23,7 @@ ActiveUserColorscheme = require('scheme').setup({
         },
         light = {
             bg = 'background',
+            bg_dark = 'background',
             blue = 'cyan',
             yellow = 'red',
             purple = 'bright_red',
