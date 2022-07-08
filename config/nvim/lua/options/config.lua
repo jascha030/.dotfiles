@@ -16,7 +16,7 @@ local options_global = {
     cursorline = true,
     modifiable = true,
     updatetime = 400,
-    background = 'light',
+    --background = 'light',
 }
 
 local options_buffer = {}
@@ -29,8 +29,8 @@ local options_vim_global = {
     material_italic_keywords = true,
     material_italic_functions = true,
     material_italic_variables = false,
-    material_contrast = true,
-    material_borders = true,
+    material_contrast = false,
+    material_borders = false,
     material_style = 'palenight',
     node_host_prog = os.getenv('HOME') .. '/.fnm/node-versions/v17.7.1/installation/bin/neovim-node-host',
 }
