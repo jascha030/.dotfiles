@@ -34,7 +34,7 @@ return {
     cursor_blink_ease_out = 'Ease',
 
     font_size = fonts.size,
-    font = fonts.default,
+    --font = fonts.default,
     font_rules = fonts.rules,
 
     colors = theme.get_scheme('Dark'),
