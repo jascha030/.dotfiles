@@ -1,6 +1,5 @@
 require('scheme.utils')
 
-local util = require('util')
 local UserSchemeStyles = require('scheme.styles')
 local UserSchemeOverRides = require('scheme.overrides')
 
@@ -52,16 +51,14 @@ end
 
 function UserScheme:update(dark)
     vim.o.background = dark and 'dark' or 'light'
+    vim.g.tokyonight_italic_functions = true
+    vim.g.tokyonight_italic_comments = true
+    vim.g.tokyonight_transparent = true
+    vim.g.tokyonight_transparent_sidebar = true
+    vim.g.tokyonight_sidebars = { 'terminal', 'packer' }
 
-    vim.g = vim.tbl_deep_extend('force', vim.g, {
-        tokyonight_style = dark and self._styles.dark or self._styles.light,
-        tokyonight_colors = dark and self._dark or self._light,
-        tokyonight_dark_sidebar = false,
-        tokyonight_italic_functions = true,
-        tokyonight_italic_comments = true,
-        tokyonight_transparent_sidebar = true,
-        tokyonight_transparent = true,
-    })
+    vim.g.tokyonight_style = dark and 'storm' or 'day'
+    vim.g.tokyonight_colors = dark and self._dark or self._light
 
     vim.cmd([[colorscheme tokyonight]])
 end
