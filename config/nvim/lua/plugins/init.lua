@@ -64,6 +64,11 @@ require('packer').startup({
         use({ 'noib3/nvim-cokeline', config = config.ui.cokeline })
         use({ 'hoob3rt/lualine.nvim', config = config.ui.lualine })
         use({ 'is0n/fm-nvim' })
+        use({
+            'folke/trouble.nvim',
+            requires = 'kyazdani42/nvim-web-devicons',
+            config = config.lsp.trouble,
+        })
 
         -- Theme
         use({ 'tjdevries/colorbuddy.nvim' })
