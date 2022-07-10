@@ -26,7 +26,8 @@ return {
     enable_tab_bar = false,
 
     window_decorations = 'NONE | RESIZE',
-    window_padding = { left = 10, right = 10, top = 6, bottom = 2 },
+    --window_padding = { left = 10, right = 10, top = 6, bottom = 2 },
+    window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
 
     default_cursor_style = 'BlinkingBlock',
     cursor_blink_rate = 250,
