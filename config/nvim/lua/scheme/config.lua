@@ -6,7 +6,6 @@ return {
     },
     overrides = {
         dark = {},
-        light = {}
+        light = {},
     },
 }
-
