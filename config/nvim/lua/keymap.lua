@@ -29,6 +29,7 @@ map('<C-f>', ':lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>'
 
 -- Lsp
 map('<C-l>', ':lua vim.lsp.buf.formatting()<CR>')
+map('TT', ':TroubleToggle<CR>')
 
 -- Other
 vmap('<C-c>', ':OSCYank<CR>')
@@ -44,5 +45,3 @@ tmap('<C-v><Esc>', '<Esc>')
 map('<Tab><Tab>', ':HopWord<CR>')
 map('sR', ':source $MYVIMRC<CR>', { noremap = true, silent = true })
 
--- Other
-vmap('<C-c>', ':OSCYank<CR>')
