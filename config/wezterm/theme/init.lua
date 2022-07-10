@@ -63,7 +63,7 @@ local function get_scheme(scheme)
 end
 
 local function get_opacity(scheme)
-    return is_dark(scheme) and 0.99 or 0.985
+    return is_dark(scheme) and 0.97 or 0.985
 end
 
 return {

@@ -41,10 +41,9 @@ return {
     colors = theme.get_scheme('Dark'),
 
     inactive_pane_hsb = {
-        saturation = 0.95,
-        brightness = 0.85,
+        saturation = 0.98,
+        brightness = 0.9,
     },
 
-    scrollback_lines = 3500,
     window_background_opacity = theme.get_opacity('Dark'),
 }
