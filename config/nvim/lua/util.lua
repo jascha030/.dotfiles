@@ -22,13 +22,13 @@ local function safe_load(m)
 end
 
 function M.check_deps(list)
-    for k, v in ipairs(list) do
+    for _, v in ipairs(list) do
         if not safe_load(v) then
             return false, v
         end
     end
 
-    return true, nil
+    return true, list
 end
 
 return M
