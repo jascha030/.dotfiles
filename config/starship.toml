@@ -1,16 +1,16 @@
 format = """
- $shell$env_var
-[┌─────────────────────────────────────────────────](bold bright-black)
-[│](bold bright-black)\ 
+   $shell$env_var
+[  ╔═════════════════════════════════════════════════](bold bright-black)
+[  ║](bold bright-black)\ 
 $user\
 $directory\
 $git_branch\
 $git_status
-[└──](bold bright-black) """
+[  ╚══](bold bright-black) """
 
 
 right_format = """$golang$java$nodejs$rust$php$lua \
-[├─$battery──┘](bold bright-black)"""
+[╞═$battery══╛  ](bold bright-black)"""
 
 # Disable the blank line at the start of the prompt
 add_newline = true
@@ -21,7 +21,7 @@ continuation_prompt ="[∙](bright-black) "
 variable = "TERM_PROGRAM"
 default = ""
 style = "bold blue"
-format = "[│ $env_value]($style) "
+format = "[| $env_value |]($style) "
 
 [env_var.TERM]
 variable = "TERM"
