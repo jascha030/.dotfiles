@@ -1,3 +1,5 @@
+-- TODO: Move (partially to init.lua).
+
 local options_global = {
     mouse = 'a',
     termguicolors = true,
@@ -16,12 +18,7 @@ local options_global = {
     cursorline = true,
     modifiable = true,
     updatetime = 400,
-    --background = 'light',
 }
-
-local options_buffer = {}
-
-local options_window = {}
 
 local options_vim_global = {
     mapleader = '<space>',
@@ -34,6 +31,9 @@ local options_vim_global = {
     material_style = 'palenight',
     node_host_prog = os.getenv('HOME') .. '/.fnm/node-versions/v17.7.1/installation/bin/neovim-node-host',
 }
+
+local options_buffer = {}
+local options_window = {}
 
 return {
     g = options_vim_global,
