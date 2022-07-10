@@ -68,7 +68,7 @@ local function colorizer()
 end
 
 return {
-    devicons = devicons,
+    devicons = require('plugins.config.ui.devicons'),
     cokeline = cokeline,
     colorizer = colorizer,
     lualine = lualine,

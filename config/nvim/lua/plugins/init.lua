@@ -14,10 +14,13 @@ require('packer').startup({
         use({ 'wbthomason/packer.nvim' })
         -- Impatient should be first plugin after packer.
         --use({ 'lewis6991/impatient.nvim', config = [[require('impatient')]] })
+
+        use({ 'kyazdani42/nvim-web-devicons', config = config.ui.devicons })
         use({
             'yamatsum/nvim-nonicons',
             requires = { 'kyazdani42/nvim-web-devicons' },
         })
+
         use({ 'goolord/alpha-nvim', config = config.utils.alpha })
 
         -- Language/syntax
@@ -47,6 +50,7 @@ require('packer').startup({
         use({ 'nvim-telescope/telescope-file-browser.nvim' })
         use({ 'nvim-telescope/telescope-fzy-native.nvim' })
         use({ 'nvim-telescope/telescope-ui-select.nvim' })
+        use({ 'ziontee113/color-picker.nvim', config = config.ui.color_picker })
 
         -- Treesitter
         use({ 'nvim-treesitter/nvim-treesitter-textobjects' })
