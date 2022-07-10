@@ -1,5 +1,6 @@
-local status_ok, _ = pcall(require, 'lspconfig')
-if not status_ok then
+local ok, name = require('util').check_deps({ 'lspconfig', 'nvim-lsp-installer', 'null-ls' })
+if not ok then
+    error('Missing dependency' .. name)
     return
 end
 
