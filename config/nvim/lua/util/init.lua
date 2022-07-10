@@ -15,4 +15,20 @@ function M.kmap(keymap, action, mode, opts)
     vim.api.nvim_set_keymap(mode, keymap, action, opts)
 end
 
+local function safe_load(m)
+    local ok, _ = pcall(require, m)
+
+    return ok
+end
+
+function M.check_deps(list)
+    for k, v in ipairs(list) do
+        if not safe_load(v) then
+            return false, v
+        end
+    end
+
+    return true, nil
+end
+
 return M
