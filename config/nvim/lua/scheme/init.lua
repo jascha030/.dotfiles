@@ -112,7 +112,6 @@ function UserScheme:init()
 
     self:update(OSDarkmodeEnabled())
     self:initAutocommand()
-    vim.api.nvim_create_autocmd('Signal', { pattern = 'SIGUSR1', command = 'PackerCompile' })
 
     return self
 end
@@ -180,6 +179,10 @@ return {
 
         loaded_scheme = UserScheme.create(merge_userconfig(opts))
         loaded_scheme:init()
+
+        vim.api.nvim_create_autocmd('Signal', { pattern = 'SIGUSR1', command = 'PackerCompile' })
+        util.kmap('CS', '<cmd>lua require("scheme").toggle()<CR>', 'n', { noremap = true })
+
         loaded = true
 
         return loaded_scheme
