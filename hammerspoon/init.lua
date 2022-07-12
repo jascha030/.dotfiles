@@ -9,57 +9,42 @@ hs.loadSpoon('EmmyLua')
 hs.loadSpoon('SpoonInstall')
 hs.loadSpoon('ReloadConfiguration')
 
-spoon.ReloadConfiguration:start()
+-- TODO: remove
+print(hs.inspect(hs.midi.devices()))
 
+spoon.ReloadConfiguration:start()
 spoon.SpoonInstall:andUse('RoundedCorners', {
     start = true,
     config = { radius = 8 },
 })
 
 local JSpoon = require('jascha030')
-
 local term_app, main_screen = JSpoon.getConfig('termApp'), JSpoon.getConfig('mainScreen')
-
 -- Quake terminal
 JSpoon.quake.set(term_app, main_screen)
 
--- Center quake window in screen
-hs.hotkey.bind({ 'ctrl', 'alt' }, 'l', function()
-    JSpoon.window.manager:center()
-end)
-
-JSpoon.setup({
+JSpoon.hotkey.setup({
     system = {
-        -- Reload hs config manually.
-        r = hs.reload,
-        -- toggle dark mode
-        d = function()
-            hs.osascript.applescript([[
-                    tell application "System Events"
-								        tell appearance preferences
-									            set dark mode to not dark mode
-										    end tell
-								    end tell
-                ]])
-        end,
+        ['d'] = JSpoon.system.toggleDark,
     },
     control = {
-        -- Hammerspoon
-        h = hs.toggleConsole,
-        -- iTunes
-        p = JSpoon.music.play,
+        ['l'] = function()
+            JSpoon.window.manager:center()
+        end,
+        ['h'] = hs.toggleConsole,
+        ['p'] = hs.itunes.playpause,
         [']'] = JSpoon.music.next,
         ['['] = JSpoon.music.previous,
     },
     apps = {
-        i = 'Music',
-        s = 'Spotify',
-        p = 'PhpStorm',
-        l = 'Ableton Live 11 Suite',
-        c = 'Chrome',
-        k = 'GitKraken',
-        n = 'Notes',
-        w = 'Chromium',
-        a = 'Safari',
+        ['i'] = 'Music',
+        ['s'] = 'Spotify',
+        ['p'] = 'PhpStorm',
+        ['l'] = 'Ableton Live 11 Suite',
+        ['c'] = 'Chrome',
+        ['k'] = 'GitKraken',
+        ['n'] = 'Notes',
+        ['w'] = 'Chromium',
+        ['a'] = 'Safari',
     },
 })
