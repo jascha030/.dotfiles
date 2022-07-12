@@ -1,21 +1,11 @@
 local wezterm = require('wezterm')
+local fish_args = { args = { '/usr/local/bin/fish', '--login' }, cwd = os.getenv('HOME') }
 
 return {
-    {
-        key = 'F',
-        mods = 'LEADER|SHIFT',
-        action = wezterm.action({
-            SpawnCommandInNewTab = {
-                args = { '/usr/local/bin/fish', '--login' },
-                cwd = os.getenv('HOME'),
-            },
-        }),
-    },
-
+    { key = 'F', mods = 'LEADER|SHIFT', action = wezterm.action({ SpawnCommandInNewTab = fish_args }) },
     { key = 'n', mods = 'SHIFT|CTRL', action = 'ToggleFullScreen' },
     { key = 'v', mods = 'CMD', action = 'Paste' },
     { key = 'c', mods = 'CMD', action = 'Copy' },
-
     { key = 's', mods = 'LEADER', action = wezterm.action({ SplitVertical = { domain = 'CurrentPaneDomain' } }) },
     { key = 'v', mods = 'LEADER', action = wezterm.action({ SplitHorizontal = { domain = 'CurrentPaneDomain' } }) },
 
@@ -25,7 +15,6 @@ return {
     { key = 'DownArrow', mods = 'ALT', action = wezterm.action({ ActivatePaneDirection = 'Down' }) },
 
     { key = 'l', mods = 'LEADER', action = 'ActivateLastTab' },
-
     { key = 'c', mods = 'LEADER', action = wezterm.action({ SpawnTab = 'CurrentPaneDomain' }) },
     { key = '&', mods = 'LEADER|SHIFT', action = wezterm.action({ CloseCurrentTab = { confirm = true } }) },
     { key = 'x', mods = 'LEADER', action = wezterm.action({ CloseCurrentPane = { confirm = true } }) },
