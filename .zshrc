@@ -4,7 +4,9 @@ if (( ${+PROFILE_ZSHRC} )); then zmodload zsh/zprof ;fi
 
 #------------------------------------------------ ZSH Configurations -------------------------------------------------#
 
-setopt extended_glob;
+setopt extended_glob
+
+unsetopt BEEP
 
 # Hacky fix when first window of wezterm messes up lolmsg placement.
 # Related to Hammerspoon handling of application on quake.
