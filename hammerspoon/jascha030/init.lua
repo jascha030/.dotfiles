@@ -6,7 +6,7 @@ local utils = require('jascha030.utils')
 local window = require('jascha030.window')
 local counter = require('jascha030.counter')
 local music = require('jascha030.music')
-
+local krk = require('jascha030.krk')
 
 config:setup({})
 
@@ -73,6 +73,7 @@ M.utils = utils
 M.window = window
 M.counter = counter
 M.music = music
+M.krk = krk
 
 function M.setup(bindings)
     local ok, res = nil, nil
