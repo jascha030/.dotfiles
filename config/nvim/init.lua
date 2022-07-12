@@ -31,6 +31,7 @@ require('options').setup({
         cursorline = true,
         modifiable = true,
         updatetime = 400,
+        signcolumn = 'yes',
     },
     global = {
         mapleader = '<space>',
