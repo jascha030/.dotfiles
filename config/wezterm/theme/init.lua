@@ -1,14 +1,19 @@
+local M = {}
+
 -- Todo: make dynamic
 local default = require('theme.colors.jassie030')
+local color_scheme = nil
 
-local function scheme_from_colors(colors)
+local function is_dark(scheme)
+    return scheme == 'Dark'
+end
+
+function M.scheme_from_colors(colors)
     return {
         background = colors.background,
         foreground = colors.foreground,
-
         cursor_bg = colors.yellow,
         cursor_fg = colors.background,
-
         ansi = {
             colors.black,
             colors.red,
@@ -19,7 +24,6 @@ local function scheme_from_colors(colors)
             colors.cyan,
             colors.white,
         },
-
         brights = {
             colors.bright_black,
             colors.bright_red,
@@ -30,20 +34,17 @@ local function scheme_from_colors(colors)
             colors.bright_cyan,
             colors.bright_white,
         },
-
         split = colors.foreground,
     }
 end
 
-local function scheme_from_module(module, color_overrides)
+function M.scheme_from_module(module, color_overrides)
     color_overrides = color_overrides or nil
 
-    local ok, _ = pcall(require, module)
+    local ok, scheme_colors = pcall(require, module)
     if not ok then
         return
     end
-
-    local scheme_colors = require(module)
 
     if color_overrides ~= nil then
         for k, v in pairs(color_overrides) do
@@ -51,24 +52,27 @@ local function scheme_from_module(module, color_overrides)
         end
     end
 
-    return scheme_from_colors(scheme_colors)
+    return M.scheme_from_colors(scheme_colors)
 end
 
-local function is_dark(scheme)
-    return scheme == 'Dark'
+function M.get_scheme(scheme)
+    if color_scheme == nil then
+        color_scheme = default
+    end
+
+    return M.scheme_from_colors(is_dark(scheme) and color_scheme.dark or color_scheme.light)
 end
 
-local function get_scheme(scheme)
-    return scheme_from_colors(is_dark(scheme) and default.dark or default.light)
-end
-
-local function get_opacity(scheme)
+function M.get_opacity(scheme)
     return is_dark(scheme) and 0.97 or 0.985
 end
 
-return {
-    scheme_from_colors = scheme_from_colors,
-    scheme = scheme_from_module,
-    get_scheme = get_scheme,
-    get_opacity = get_opacity,
-}
+function M.setup(config)
+    config = config or {}
+
+    if config.scheme == nil then
+        color_scheme = M.scheme_from_module(config.scheme, config.overrides or nil)
+    end
+end
+
+return M
