@@ -10,7 +10,7 @@ wezterm.on('window-config-reloaded', function(window)
 
     if overrides.colors ~= scheme then
         overrides.colors = scheme
-        overrides.window_background_opacity = theme.get_opacity(current)
+        --overrides.window_background_opacity = theme.get_opacity(current)
 
         window:set_config_overrides(overrides)
     end
@@ -45,5 +45,6 @@ return {
         brightness = 0.9,
     },
 
-    window_background_opacity = theme.get_opacity('Dark'),
+    window_background_opacity = 1,
+    -- window_background_opacity = theme.get_opacity('Dark'),
 }
