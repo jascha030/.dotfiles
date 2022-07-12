@@ -18,10 +18,10 @@ spoon.SpoonInstall:andUse('RoundedCorners', {
 
 local JSpoon = require('jascha030')
 
-JSpoon.config:setup({})
+local term_app, main_screen = JSpoon.getConfig('termApp'), JSpoon.getConfig('mainScreen')
 
 -- Quake terminal
-JSpoon.quake.set(JSpoon.config:get('termApp'), JSpoon.config:get('mainScreen'))
+JSpoon.quake.set(term_app, main_screen)
 
 -- Center quake window in screen
 hs.hotkey.bind({ 'ctrl', 'alt' }, 'l', function()

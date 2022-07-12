@@ -12,12 +12,23 @@ M.krk = require('jascha030.krk')
 M.utils = require('jascha030.utils')
 M.system = require('jascha030.system')
 
+-- Default config
+local conf = nil
 
+function M.setConfigFile(path)
+    if not M.utils.file_exists(path) then
+        error('Could not find config file: "' .. path .. '".')
     end
 
+    conf = config.create(path)
 end
 
+function M.getConfig(name)
+    if not conf then
+        conf = config.create()
     end
+
+    return conf:get(name)
 end
 
 return M
