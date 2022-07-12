@@ -1,42 +1,31 @@
-local status_ok, ini = pcall(require, 'jascha030.config.ini')
-if not status_ok then
-    error('ini.lua is required')
-end
+local ini = require('jascha030.config.ini')
 local utils = require('jascha030.utils')
+local iniPath = os.getenv('HOME') .. '/.hotkey.ini'
 
-local function file_exists(name)
-    local f = io.open(name, 'r')
-    if f ~= nil then
-        io.close(f)
-        return true
-    else
-        return false
-    end
-end
-
-local M = {
-    config = {
-        iniPath = os.getenv('HOME') .. '/.hotkey.ini',
-    },
-    data = {
+local UserConfig = {
+    _data = {
         builtinScreen = nil,
         termApp = 'Alacritty',
         tapKey = 'cmd',
     },
 }
 
-function M:get(key)
-    return self.data[key]
-end
+UserConfig.__index = UserConfig
 
-function M:setup(config)
-    if config ~= nil then
-        self.config = utils.table_merge(self.config, config)
+function UserConfig.create(path)
+    local o = setmetatable({}, UserConfig)
+
+    path = path or iniPath
+
+    if utils.file_exists(path) then
+        o._data = utils.table_merge(o._data, ini.parse_file(path))
     end
 
-    if self.config.iniPath ~= nil and file_exists(self.config.iniPath) then
-        self.data = utils.table_merge(self.data, ini.parse_file(self.config.iniPath))
-    end
+    return o
 end
 
-return M
+function UserConfig:get(key)
+    return self._data[key]
+end
+
+return UserConfig
