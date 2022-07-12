@@ -2,10 +2,6 @@ local M = {}
 
 local config = require('jascha030.config')
 
-config:setup({})
-
-local main_screen = config:get('builtinScreen')
-
 M.hotkey = require('jascha030.hotkey')
 M.quake = require('jascha030.quake')
 M.utils = require('jascha030.utils')
