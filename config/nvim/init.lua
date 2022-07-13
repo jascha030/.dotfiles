@@ -24,7 +24,7 @@ require('options').setup({
         scrolloff = 5,
         showtabline = 2,
         tabstop = 4,
-        shiftwidth = 2,
+        shiftwidth = 4,
         expandtab = true,
         smartindent = true,
         number = true,
@@ -70,4 +70,35 @@ require('scheme').setup({
 
 require('plugins')
 require('lsp')
-require('keymap')
+require('keymap').setup({
+    maps = {
+        ['n'] = {
+            ['<S-Tab>'] = { '<Plug>(cokeline-focus-next)', { silent = true } },
+            ['<C-w>'] = { ':close<CR>' },
+            ['<C-n>'] = { ':NvimTreeToggle<CR>' },
+            ['<leader>f'] = {
+                ':lua require("plugins.telescope").project_files()<CR>',
+                { noremap = true, silent = true },
+            },
+            ['N'] = { ':NvimTreeFocus<CR>' },
+            ['ss'] = { ':Telescope<CR>' },
+            ['ff'] = { ':lua require("telescope.builtin").find_files()<CR>' },
+            ['FF'] = { ':lua require("telescope").extensions.file_browser.file_browser()<CR>' },
+            ['fg'] = { ':lua require("telescope.builtin").live_grep()<CR>' },
+            ['<C-f>'] = { ':lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>' },
+            ['<C-l>'] = { ':lua vim.lsp.buf.formatting()<CR>' },
+            ['TT'] = { ':TroubleToggle<CR>' },
+            ['<Tab><Tab>'] = { ':HopWord<CR>' },
+            ['sR'] = { ':source $MYVIMRC<CR>', { noremap = true, silent = true } },
+            ['<C-t>'] = { ':FloatermToggle[!]<CR>' },
+        },
+        ['v'] = {
+            ['<C-c>'] = { ':OSCYank<CR>' },
+        },
+        ['t'] = {
+            ['<C-t>'] = { '<C-\\><C-n> :FloatermToggle[!]<CR>' },
+            ['<M-[>'] = { '<Esc>' },
+            ['<C-v><Esc>'] = { '<Esc>' },
+        },
+    },
+})
