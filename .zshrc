@@ -30,6 +30,7 @@ path=(
 typeset -aU path
 
 export DOT_PROMPT_HEIGHT=4
+export DOT_BASH_COMPLETIONS_DIR=${HOME}/.bash.d
 
 export DOT_COMP_DIRS=(
     ${HOME}/.bun/_bun
