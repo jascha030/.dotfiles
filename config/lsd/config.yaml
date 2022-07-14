@@ -21,7 +21,7 @@ display: almost-all
 icons:
   when: always
   theme: fancy
-  separator: '  '
+  separator: '   '
 
 ignore-globs:
   - .DS_Store
