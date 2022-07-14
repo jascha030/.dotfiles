@@ -17,7 +17,8 @@ export LS_OVERRIDE='lsd'
 export CAT_OVERRIDE='bat'
 export COMPOSER_DEFAULT_VENDOR="jascha030" 
 export NPM_CHECK_INSTALLER="pnpm npm-check -u"
-export FZF_DEFAULT_OPTS="--info=inline --border --padding=1"
+
+export FZF_DEFAULT_OPTS="--info=inline --border --padding=1 --margin=2"
 
 export TOOLCHAINS=swift
 export LDFLAGS=-L/usr/local/opt/openssl@1.1/lib
