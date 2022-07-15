@@ -30,7 +30,9 @@ path=(
 typeset -aU path
 
 export DOT_PROMPT_HEIGHT=4
-export DOT_BASH_COMPLETIONS_DIR=${HOME}/.bash.d
+export DOT_BASH_COMPLETIONS_DIRS=(
+    ${HOME}/.bash.d
+)
 
 export DOT_COMP_DIRS=(
     ${HOME}/.bun/_bun
@@ -43,8 +45,10 @@ export DOT_SOURCES=(
     ${DOT_ZSH}/plugins/lolmsg/lolmsg.plugin.zsh
 )
 
-export DOT_AFTER_INIT_SOURCES=( ${DOT_ZSH}/aliases ${HOME}/.fzf.zsh )
-
+export DOT_AFTER_INIT_SOURCES=( 
+	${DOT_ZSH}/aliases 
+	${HOME}/.fzf.zsh 
+)
 
 #------------------------------------------------- Initialization ----------------------------------------------------#
 
@@ -55,4 +59,5 @@ export DOT_AFTER_INIT_SOURCES=( ${DOT_ZSH}/aliases ${HOME}/.fzf.zsh )
 if (( ${+PROFILE_ZSHRC} )); then 
   echoti rmcup; echoti clear; echoti sgr0; zprof unset PROFILE_ZSHRC
 fi
+
 
