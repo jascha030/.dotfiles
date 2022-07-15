@@ -64,7 +64,7 @@ function M.get_scheme(scheme)
 end
 
 function M.get_opacity(scheme)
-    return is_dark(scheme) and 0.97 or 0.985
+    return is_dark(scheme) and 0.985 or 0.99
 end
 
 function M.setup(config)
