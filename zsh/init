@@ -66,7 +66,7 @@ if (( ${+DOT_SOURCES} )); then
 fi
 
 if (( ${+DOT_BASH_COMPLETIONS_DIR} )); then 
-    __fpath_add "${DOT_BASH_COMPLETIONS_DIR}"
+    __fpath_add "${DOT_BASH_COMPLETIONS_DIRS[@]}"
     autoload -U +X bashcompinit && bashcompinit
     # safe_source ${DOT_BASH_COMPLETIONS_DIR}/*.sh
 fi
@@ -98,7 +98,6 @@ fi
 
 # Load antigen plugins.
 __df_load_antigen "${DOT_ANTIGEN_PATH}" "${DOT_ANTIGEN_RC_PATH}"
-
 
 function __clear_prompt {
     repeat ${DOT_PROMPT_HEIGHT} { echoti cuu1 && echoti dl1 }

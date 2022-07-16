@@ -29,9 +29,11 @@ path=(
 
 typeset -aU path
 
+
 export DOT_PROMPT_HEIGHT=4
 export DOT_BASH_COMPLETIONS_DIRS=(
     ${HOME}/.bash.d
+    /usr/local/Cellar/wp-cli-completion/2.6.0/etc
 )
 
 export DOT_COMP_DIRS=(
