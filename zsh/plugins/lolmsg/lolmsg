@@ -7,6 +7,7 @@ emulate -L zsh
 
 # This is a map of all character widths for the "roman" figlet font.
 typeset -A characterset_cols
+
 characterset_cols=(
     ["a"]=9 ["A"]=15 ["b"]=10 ["B"]=12 ["c"]=9 ["C"]=11 ["d"]=10 ["D"]=13 ["e"]=9 ["E"]=12 ["f"]=8 ["F"]=12 ["g"]=10 
     ["G"]=13 ["h"]=11 ["H"]=13 ["i"]=5 ["I"]=5 ["j"]=8 ["J"]=7 ["k"]=11 ["K"]=12 ["l"]=5 ["L"]=12 ["m"]=17 ["M"]=16 
@@ -42,8 +43,8 @@ fi
 function __get_dimmensions {
     if [[ "$DOT_PREFER_TPUT_OVER_ENV" == true ]]; then
         t_cols=$(echoti cols)
-		    t_lines=$(echoti lines)
-		else 
+		t_lines=$(echoti lines)
+	else 
         t_cols=${COLUMNS}
         t_lines=${LINES}
     fi 
@@ -63,30 +64,26 @@ function __get_msg_cols {
 }
 
 
-
 function __pad_lines {
     printf '\n%.0s' {1.."$1"}
 }
 
 # Print figlet, style depends on term being normal/vim-term.
 function __output_fig {
-    local _output=$(figlet -Lcw $t_cols -f roman $1)
-
-    if [[ "$_IS_VIMTERM" == false ]]; then
-        echoti blink
-        
-        print "$_output" | lolcrab
-    else
-        # For NVIM term mode, we play it safe.
-        local random_int=$(( ( RANDOM % 10 ) + 1 ))
-        
-        if [[ $random_int > 5 ]]; then 
-            lol_animal="lolcrab"
-        fi
+    local curses
     
-        # For NVIM term mode, we play it safe.
-        print "$_output" | "$lol_animal"
+    [[ $# == 1 ]] && curses=0 || curses=1
+
+    local _output=$(figlet -Lcw $t_cols -f roman $1)
+    local _current_scheme=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 'dark' || echo 'light')
+    
+    [[ "$_current_scheme" == "light" ]] && local _grad="warm" || local _grad="rainbow"
+
+    if [[ "$_IS_VIMTERM" == false && ${curses} == 0 ]]; then 
+        echoti blink
     fi
+
+    print "$_output" | lolcrab -g "$_grad"
 }
 
 
@@ -100,14 +97,14 @@ function __lolmsg_output {
 
 function __print_lolmsg_output {	
 		local required_rows=0    \
-          required_lines=0   \
-          ol_center=0        \
-          start_output_at=0  \
-          occupied_lines=0   \
-
+	          required_lines=0   \
+	          ol_center=0        \
+	          start_output_at=0  \
+	          occupied_lines=0   \
+	
     # Calc. term dimmensions & figlet output width in cols.
     __get_dimmensions
-    __get_msg_cols "$msg"	
+    __get_msg_cols "$msg"
 		
     # Calc. #times term width fits in output width, tells us the amt. of rows that figlet outputs.
 		required_rows=$(( (${msg_cols}/${t_cols})+( (${msg_cols}%${t_cols}) > 0 ) ))
@@ -138,19 +135,19 @@ function __open_curses_intro {
         local i 
 
         zcurses init
-				zcurses refresh 
+		zcurses refresh 
 				
         echoti civis
 				
-				zcurses clear stdscr redraw
-				zcurses refresh stdscr
+		zcurses clear stdscr redraw
+		zcurses refresh stdscr
 				
-				zcurses addwin intro ${t_lines} ${t_cols} 0 0
-				zcurses scroll intro off
-				zcurses attr intro blink
+	    zcurses addwin intro ${t_lines} ${t_cols} 0 0
+		zcurses scroll intro off
+		zcurses attr intro blink
 
-        zcurses string intro $(__print_lolmsg_output)
-				zcurses refresh intro stdscr
+        zcurses string intro "$(__print_lolmsg_output $'[ Press any key ]')"
+		zcurses refresh intro stdscr
 	      
         zcurses timeout intro 0
 
@@ -159,7 +156,6 @@ function __open_curses_intro {
 	      done
     } always {
 		    zcurses delwin intro
-		
 		    echoti cnorm
 		    zcurses end
     }
@@ -211,7 +207,7 @@ function __run {
     
     [[ $# == 0 ]] && curses=0 || curses="$1"
 
-    if [[ $curses == 1 ]]; then 
+    if [[ "$curses" == "curses" ]]; then
         __open_curses_intro
     else 
         if (( ${+DOT_LOL_OUTPUT_ONLY} )); then 
