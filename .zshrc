@@ -45,6 +45,7 @@ export DOT_SOURCES=(
     ${DOT_ZSH}/plugins/auto-ls
     ${HOME}/.cargo/env
     ${DOT_ZSH}/plugins/lolmsg/lolmsg.plugin.zsh
+    ${HOME}/LS_COLORS/lscolors.sh
 )
 
 export DOT_AFTER_INIT_SOURCES=( 
@@ -62,4 +63,5 @@ if (( ${+PROFILE_ZSHRC} )); then
   echoti rmcup; echoti clear; echoti sgr0; zprof unset PROFILE_ZSHRC
 fi
 
+#export MACOS_CURRENT_COLOR_SCHEME=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 'dark' || echo 'light')
 
