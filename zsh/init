@@ -113,6 +113,7 @@ eval "$(zoxide init zsh)"
 eval "$(teleport-dir init)"
 eval "$(fnm env --use-on-cd)"
 
+export LS_COLORS="$(vivid generate jassie030)"
 
 # Source late files like aliases etc.
 if (( ${+DOT_AFTER_INIT_SOURCES} )); then 
