@@ -20,10 +20,10 @@ runtime_path = util.tbl_merge(runtime_path, hs_path)
 
 -- Merge Neovim runtime with other libraries
 local library = vim.api.nvim_get_runtime_file('', true)
+
 library = util.tbl_merge(library, {
     vim.fn.expand('$WEZTERM_CONFIG_DIR'),
     vim.fn.expand('$VIMRUNTIME/lua'),
-    vim.fn.expand('$VIMRUNTIME/lua/vim/lsp'),
     vim.fn.expand('/Applications/Hammerspoon.app/Contents/Resources/extensions/hs/'),
     vim.fn.expand('$HOME/.hammerspoon/Spoons/EmmyLua.spoon/annotations'),
 })
@@ -43,6 +43,7 @@ return {
             },
             workspace = {
                 library = library,
+                checkThirdParty = false,
             },
             telemetry = {
                 enable = false,
