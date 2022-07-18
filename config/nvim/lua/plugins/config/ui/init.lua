@@ -46,7 +46,7 @@ end
 
 local function scrollbar()
     local colors = require('tokyonight.colors').setup({})
-    local user_colors = require('scheme.colors.jassie030')
+    --local user_colors = require('scheme.colors.jassie030')
 
     require('scrollbar').setup({
         handle = {
