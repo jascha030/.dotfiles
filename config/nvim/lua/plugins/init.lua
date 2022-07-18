@@ -50,7 +50,17 @@ require('packer').startup({
         use({ 'nvim-telescope/telescope-file-browser.nvim' })
         use({ 'nvim-telescope/telescope-fzy-native.nvim' })
         use({ 'nvim-telescope/telescope-ui-select.nvim' })
-        use({ 'ziontee113/color-picker.nvim', config = config.ui.color_picker })
+        use({
+            'ziontee113/color-picker.nvim',
+            config = function()
+                local opts = { noremap = true, silent = true }
+
+                vim.keymap.set('n', '<C-p><C-p>', '<cmd>PickColor<cr>', opts)
+                vim.keymap.set('i', '<C-p><C-p>', '<cmd>PickColorInsert<cr>', opts)
+
+                require('color-picker').setup({})
+            end,
+        })
 
         -- Treesitter
         use({ 'nvim-treesitter/nvim-treesitter-textobjects' })

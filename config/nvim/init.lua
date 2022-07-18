@@ -76,10 +76,6 @@ require('keymap').setup({
             ['<S-Tab>'] = { '<Plug>(cokeline-focus-next)', { silent = true } },
             ['<C-w>'] = { ':close<CR>' },
             ['<C-n>'] = { ':NvimTreeToggle<CR>' },
-            ['<leader>f'] = {
-                ':lua require("plugins.telescope").project_files()<CR>',
-                { noremap = true, silent = true },
-            },
             ['N'] = { ':NvimTreeFocus<CR>' },
             ['ss'] = { ':Telescope<CR>' },
             ['ff'] = { ':lua require("telescope.builtin").find_files()<CR>' },
@@ -91,7 +87,6 @@ require('keymap').setup({
             ['<Tab><Tab>'] = { ':HopWord<CR>' },
             ['sR'] = { ':source $MYVIMRC<CR>', { noremap = true, silent = true } },
             ['<C-t>'] = { ':FloatermToggle[!]<CR>' },
-            ['CP'] = { '<cmd>PickColor<CR>', { noremap = true, silent = true } },
         },
         ['v'] = {
             ['<C-c>'] = { ':OSCYank<CR>' },
@@ -101,8 +96,6 @@ require('keymap').setup({
             ['<M-[>'] = { '<Esc>' },
             ['<C-v><Esc>'] = { '<Esc>' },
         },
-        ['i'] = {
-            ['<C-p>'] = { '<cmd>PickColorInsert<CR>', { noremap = true, silent = true } }
-        }
+        ['i'] = {},
     },
 })
