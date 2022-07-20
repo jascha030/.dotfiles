@@ -10,10 +10,6 @@ local function cokeline()
     })
 end
 
-local function devicons()
-    require('nvim-web-devicons').setup({})
-end
-
 local function lualine()
     require('lualine').setup({
         options = {

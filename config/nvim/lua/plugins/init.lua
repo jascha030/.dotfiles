@@ -4,23 +4,19 @@ local config = {
     ui = require('plugins.config.ui'),
 }
 
+local devicons = { 'kyazdani42/nvim-web-devicons' }
+
 -- Auto commands
 vim.cmd([[autocmd BufWritePost plugins/init.lua PackerCompile]])
 vim.cmd([[packadd packer.nvim]], false)
 
 require('packer').startup({
     function(use)
-        -- Packer
         use({ 'wbthomason/packer.nvim' })
-        -- Impatient should be first plugin after packer.
         --use({ 'lewis6991/impatient.nvim', config = [[require('impatient')]] })
 
         use({ 'kyazdani42/nvim-web-devicons', config = config.ui.devicons })
-        use({
-            'yamatsum/nvim-nonicons',
-            requires = { 'kyazdani42/nvim-web-devicons' },
-        })
-
+        use({ 'yamatsum/nvim-nonicons', require = devicons })
         use({ 'goolord/alpha-nvim', config = config.utils.alpha })
 
         -- Language/syntax
@@ -61,13 +57,17 @@ require('packer').startup({
                 require('color-picker').setup({})
             end,
         })
+        use({
+            'filipdutescu/renamer.nvim',
+            branch = 'master',
+            requires = { { 'nvim-lua/plenary.nvim' } },
+        })
 
         -- Treesitter
         use({ 'nvim-treesitter/nvim-treesitter-textobjects' })
         use({ 'nvim-treesitter/playground' })
         use({ 'p00f/nvim-ts-rainbow' })
         use({ 'nvim-treesitter/nvim-treesitter', irun = ':TSUpdate', config = config.utils.treesitter })
-
         use({ 'voldikss/vim-floaterm' })
         use({ 'kyazdani42/nvim-tree.lua', config = config.ui.tree })
         use({ 'petertriho/nvim-scrollbar', config = config.ui.scrollbar })
