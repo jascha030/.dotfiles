@@ -53,6 +53,9 @@ alias df="cd $DOTFILES"
 
 alias c:ssh="cat $HOME/.ssh/id_rsa.pub"
 
+alias list:cargo="cargo install --list"
+alias list:brew="brew list"
+
 alias l:path="echo \"$PATH\" | tr ':' '\n'"
 alias lc:path='l:path | cat'
 alias lf:path='l:path | fzf'

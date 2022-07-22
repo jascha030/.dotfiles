@@ -38,6 +38,8 @@ if (( ${+commands[fgrep]} )); then
     alias fgrep='fgrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 fi 
 
+alias viewlog="bat -l log $1"
+
 alias kraken='$(open gitkraken://repo/$PWD)' # Note: Don't change to double quotes, as it auto-triggers.
 alias root='cd $(git rev-parse --show-toplevel)'
 alias c:readme='cat $(root)/README.md'
