@@ -8,8 +8,8 @@ local function is_dark(scheme)
     return scheme == 'Dark'
 end
 
-function M.scheme_from_colors(colors)
-    return {
+function M.scheme_from_colors(colors, tab_bar)
+    local scheme = {
         background = colors.background,
         foreground = colors.foreground,
         cursor_bg = colors.yellow,
@@ -22,7 +22,7 @@ function M.scheme_from_colors(colors)
             colors.blue,
             colors.magenta,
             colors.cyan,
-            colors.white,
+    colors.white,
         },
         brights = {
             colors.bright_black,
@@ -36,6 +36,18 @@ function M.scheme_from_colors(colors)
         },
         split = colors.foreground,
     }
+
+    if tab_bar ~= false then
+        scheme.tab_bar = {
+            background = colors.background,
+            active_tab = {
+                bg_color = colors.foreground,
+                fg_color = colors.background,
+            }
+        }
+    end
+
+    return scheme
 end
 
 function M.scheme_from_module(module, color_overrides)
@@ -55,12 +67,12 @@ function M.scheme_from_module(module, color_overrides)
     return M.scheme_from_colors(scheme_colors)
 end
 
-function M.get_scheme(scheme)
+function M.get_scheme(scheme, enable_tab_bar)
     if color_scheme == nil then
         color_scheme = default
     end
 
-    return M.scheme_from_colors(is_dark(scheme) and color_scheme.dark or color_scheme.light)
+    return M.scheme_from_colors(is_dark(scheme) and color_scheme.dark or color_scheme.light, enable_tab_bar)
 end
 
 function M.get_opacity(scheme)
