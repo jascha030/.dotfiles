@@ -13,6 +13,12 @@ fi
 setopt extended_glob
 unsetopt BEEP
 
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=10,underline'
+ZSH_HIGHLIGHT_STYLES[arg0]='fg=10'
+ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=10,underline'
+ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=10,bold'
+
 # Path
 path=(
   /usr/local/sbin
