@@ -42,7 +42,8 @@ return function()
                     git = true,
                 },
                 glyphs = {
-                    default = '',
+                    --default = '',
+                    default = '',
                     symlink = '',
                     folder = {
                         arrow_closed = '',
