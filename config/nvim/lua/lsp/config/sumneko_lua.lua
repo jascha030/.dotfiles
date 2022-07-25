@@ -2,8 +2,6 @@ local util = require('util')
 
 -- Language server paths
 local binary_path = vim.fn.exepath('lua-language-server')
-local root_path = vim.fn.fnamemodify(binary_path, ':h:h:h')
-
 -- Loaded runtime package paths
 local runtime_path = vim.split(package.path, ';')
 
