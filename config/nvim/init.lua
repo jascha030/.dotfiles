@@ -55,6 +55,7 @@ require('scheme').setup({
             red = 'red',
             yellow = 'yellow',
             green1 = 'bright_blue',
+            teal = 'red'
         },
         light = {
             bg = 'background',
