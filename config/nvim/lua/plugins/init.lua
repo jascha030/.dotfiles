@@ -81,6 +81,12 @@ require('packer').startup({
             requires = 'kyazdani42/nvim-web-devicons',
             config = config.lsp.trouble,
         })
+        use({
+            'j-hui/fidget.nvim',
+            config = function()
+                require('fidget').setup({})
+            end,
+        })
 
         -- Theme
         use({ 'tjdevries/colorbuddy.nvim' })
