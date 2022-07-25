@@ -42,7 +42,6 @@ return function()
                     git = true,
                 },
                 glyphs = {
-                    --default = '',
                     default = '',
                     symlink = '',
                     folder = {
@@ -87,7 +86,7 @@ return function()
         },
         filesystem_watchers = {
             enable = false,
-            interval = 100,
+--            interval = 100,
             debounce_delay = 50,
         },
         diagnostics = {

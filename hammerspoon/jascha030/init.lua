@@ -7,7 +7,6 @@ M.quake = require('jascha030.quake')
 M.utils = require('jascha030.utils')
 M.window = require('jascha030.window')
 M.music = require('jascha030.music')
---M.krk = require('jascha030.krk')
 M.utils = require('jascha030.utils')
 M.system = require('jascha030.system')
 
