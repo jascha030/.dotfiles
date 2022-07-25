@@ -1,3 +1,5 @@
+require('plugins.config')
+
 local config = {
     utils = require('plugins.config.utils'),
     lsp = require('plugins.config.lsp'),

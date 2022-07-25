@@ -5,11 +5,40 @@ local screen = require('hs.screen')
 
 local function window_frame_eq_screen(w)
     local f = w:frame()
-    local s = w:screen()
-    local max = s:frame()
+    local max = w:screen():frame()
 
     return f.h == max.h and f.w == max.w and f.x == max.x and f.y == max.y
 end
+
+local function winframe_eq_borders(w)
+    local f, sf = w:frame(), w:screen():frame()
+    local eq, c = { h = false, w = false }
+
+    for k in 'h', 'w' do
+        if f[k] == sf[k] then
+            c = c + 1
+            eq[k] = true
+        end
+    end
+
+    return eq, c
+end
+
+local function winframe_touching(w)
+    local f, sf = w:frame(), w:screen():frame()
+    local eq, c = { x = false, y = false, x2 = false, y2 = false }, 0
+
+    for k in 'x', 'y', 'x2', 'y2' do
+        if f[k] == sf[k] then
+            c = c + 1
+            eq[k] = true
+        end
+    end
+
+    return eq, c
+end
+
+
 
 local WindowManager = {}
 WindowManager.__index = WindowManager
