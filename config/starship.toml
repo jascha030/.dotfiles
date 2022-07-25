@@ -11,22 +11,22 @@
 
 format = """
    $shell$env_var
-[  ╔═════════════════════════════════════════════════](bold bright-black)
-[  ║](bold bright-black)\ 
+[  ╔═════════════════════════════════════════════════](bold foreground)
+[  ║](bold foreground)\ 
 $user\
 $directory\
 $git_branch\
 $git_status
-[  ╚══](bold bright-black) """
+[  ╚══](bold foreground) """
 
 
 right_format = """$golang$java$nodejs$rust$php$lua \
-[╞═$battery══╛  ](bold bright-black)"""
+[╞═$battery══╛  ](bold foreground)"""
 
 # Disable the blank line at the start of the prompt
 add_newline = true
 
-continuation_prompt ="[∙](bright-black) "
+continuation_prompt ="[∙](foreground) "
 
 [env_var.TERM_PROGRAM]
 variable = "TERM_PROGRAM"
@@ -38,16 +38,16 @@ format = "[| $env_value |]($style) "
 variable = "TERM"
 default = ""
 format = " [$env_value]($style) "
-style = "bold bright-black"
+style = "bold foreground"
 
 [username]
 show_always = true
-style_user = "bg:(bright-black)"
-style_root = "bg:(bright-black)"
+style_user = "bg:(foreground)"
+style_root = "bg:(foreground)"
 format = '[  ]($style)'
 
 [directory]
-style = "bg: bright-black"
+style = "bg: foreground"
 format = "[ $path ]($style)"
 
 # Here is how you can shorten some long paths by text replacement
@@ -71,11 +71,11 @@ disabled = false
 
 [battery]
 disabled = false
-format = '[[ $symbol $percentage ](bg:bright-black fg: bright-white)]($style)'
+format = '[[ $symbol $percentage ](bg:7 fg: foreground)]($style)'
 
 [[battery.display]]
 threshold = 100
-style = "bold white"
+style = "bold foreground"
 
 [[battery.display]]
 threshold = 99
@@ -91,12 +91,12 @@ style = "bold red"
 
 [git_branch]
 symbol = ""
-style = "bg:bright-black fg: bright-white"
-format = '[[ $symbol $branch ](bg:bright-black fg: bright-white)]($style)'
+style = "bg:7 fg: foreground"
+format = '[[ $symbol $branch ](bg:7 fg: foreground)]($style)'
 
 [git_status]
-style = "bg:bright-black fg: bright-white"
-format = '[[($all_status$ahead_behind )](bg:bright-black fg: bright-white)]($style)'
+style = "bg:7 fg: foreground"
+format = '[[($all_status$ahead_behind )](bg:7 fg: foreground)]($style)'
 
 [golang]
 symbol = " "
