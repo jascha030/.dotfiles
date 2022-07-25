@@ -14,7 +14,7 @@
 -- Options
 require('options').setup({
     options = {
-        mouse = 'a',
+        mouse = 'nvi',
         termguicolors = true,
         incsearch = true,
         colorcolumn = '120',
@@ -51,9 +51,10 @@ require('scheme').setup({
     overrides = {
         dark = {
             bg_dark = 'background',
-            green = 'green',
+            green = 'bright_green',
             red = 'red',
             yellow = 'yellow',
+            green1 = 'bright_blue',
         },
         light = {
             bg = 'background',
@@ -61,9 +62,9 @@ require('scheme').setup({
             blue = 'cyan',
             yellow = 'red',
             purple = 'bright_red',
-            green1 = 'cyan',
+            green1 = 'bright_blue',
             teal = 'red',
-            green = 'green',
+            green = 'bright_green',
         },
     },
 })

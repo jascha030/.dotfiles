@@ -30,25 +30,22 @@ local old_colors = {
 }
 
 local colors = {
+    black = '#32466e',
     red = '#ea1479',
     green = '#2da44e',
     yellow = '#ffcc00',
     blue = '#3d59a1',
     magenta = '#6f42c1',
     cyan = '#0a6e81',
+    white = '#969ac9',
 
+    bright_black = '#465a82',
     bright_red = '#f47cb4',
     bright_green = '#9ece6a',
     bright_yellow = '#ffae31',
     bright_blue = '#8494FF',
     bright_magenta = '#bb9af7',
     bright_cyan = '#1abc9c',
-    
-    black = '#32466e',
-    bright_black = '#465a82',
-
-
-    white = '#a9b1d6',
     bright_white = '#fffcfc',
 }
 
@@ -158,7 +155,8 @@ local colors_l = {
 -- '#1e2030',
 -- '#c8d3f5',
 -- '#444a73',
+-- '#646e8c',
+-- '#c8d3f5',
 -- '#fffcfc',
-
 
 return merge_colors(variants, colors)
