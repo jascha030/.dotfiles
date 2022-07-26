@@ -47,11 +47,22 @@ local colors = {
     bright_magenta = '#bb9af7',
     bright_cyan = '#1abc9c',
     bright_white = '#fffcfc',
+
+    alt_black = '#32466e',
+    alt_red = '#ff007c',
+    alt_green = '#8fd742',
+    alt_yellow = '#ff8000',
+    alt_blue = '#0083f7',
+    alt_magenta = '#5f5fec',
+    alt_white = '#6183bb',
+
+    none = 'NONE'
+    --background = '#c9c9e9',
 }
 
 local variants = {
     light = {
-        background = '#e9e9ec',
+        background = '#e7e9ef',
         foreground = '#444a73',
     },
     dark = {
