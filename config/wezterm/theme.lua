@@ -22,7 +22,7 @@ function M.scheme_from_colors(colors, tab_bar)
             colors.blue,
             colors.magenta,
             colors.cyan,
-    colors.white,
+            colors.white,
         },
         brights = {
             colors.bright_black,
@@ -43,7 +43,15 @@ function M.scheme_from_colors(colors, tab_bar)
             active_tab = {
                 bg_color = colors.foreground,
                 fg_color = colors.background,
-            }
+            },
+            new_tab = {
+                bg_color = colors.background,
+                fg_color = colors.foreground,
+            },
+            new_tab_hover = {
+                fg_color = colors.red,
+                bg_color = colors.background,
+            },
         }
     end
 
