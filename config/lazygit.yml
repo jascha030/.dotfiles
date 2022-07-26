@@ -1,0 +1,56 @@
+gui:
+  scrollHeight: 2
+  scrollPastBottom: true
+  sidePanelWidth: 0.3333
+  expandFocusedSidePanel: false
+  mainPanelSplitMode: 'vertical'
+  language: 'en'
+  timeFormat: '02 Jan 06 15:04 MST'
+  theme:
+    lightTheme: false
+    activeBorderColor:
+      - green
+      - bold
+    inactiveBorderColor:
+      - white
+    optionsTextColor:
+      - blue
+    selectedLineBgColor:
+      - bright-blue
+    selectedRangeBgColor:
+      - blue
+    cherryPickedCommitBgColor:
+      - cyan
+    cherryPickedCommitFgColor:
+      - blue
+    unstagedChangesColor:
+      - red
+  commitLength:
+    show: true
+  mouseEvents: true
+  skipUnstageLineWarning: false
+  skipStashWarning: false
+  showFileTree: true
+  showListFooter: true
+  showRandomTip: true
+  showBottomLine: true
+  showCommandLog: true
+  showIcons: true
+  splitDiff: 'auto'
+os:
+  editCommand: 'nvim'
+  editCommandTemplate: ''
+  openCommand: ''
+refresher:
+  refreshInterval: 10
+  fetchInterval: 60
+update:
+  method: prompt
+  days: 14
+reporting: 'undetermined'
+confirmOnQuit: false
+
+quitOnTopLevelReturn: false
+disableStartupPopups: false
+notARepository: 'prompt'
+promptToReturnFromSubprocess: true
