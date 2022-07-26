@@ -55,17 +55,20 @@ require('scheme').setup({
             red = 'red',
             yellow = 'yellow',
             green1 = 'bright_blue',
-            teal = 'red'
+            teal = 'red',
+            cyan = 'bright_blue',
         },
         light = {
             bg = 'background',
             bg_dark = 'background',
-            blue = 'cyan',
             yellow = 'red',
             purple = 'bright_red',
-            green1 = 'bright_blue',
-            teal = 'red',
+            magenta = 'bright_magenta',
             green = 'bright_green',
+            green1 = 'bright_blue',
+            blue = 'bright_blue',
+            teal = 'bright_red',
+            bg_sidebar = 'none'
         },
     },
 })
