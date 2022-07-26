@@ -38,11 +38,77 @@ if (( ${+commands[fgrep]} )); then
     alias fgrep='fgrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 fi 
 
-alias viewlog="bat -l log $1"
-
 alias kraken='$(open gitkraken://repo/$PWD)' # Note: Don't change to double quotes, as it auto-triggers.
 alias root='cd $(git rev-parse --show-toplevel)'
-alias c:readme='cat $(root)/README.md'
 
-source ${DOTFILES}/aliases
+#------------------------------------------------ Terminal / Dotfiles ------------------------------------------------#
+
+# Debugging
+alias rscr='tput rmcup'
+alias rrscr='rr && rscr'
+alias rrp="exec env PROFILE_ZSHRC=1 zsh --login"
+alias rrdm="exec env DOT_DISABLE_MSG=1 zsh --login"
+
+alias checkitalics="echo -e '\e[3mitalic\e[23m'"
+alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
+
+# Controls
+alias x='exit'
+alias c='clear'
+alias e='echo'
+alias rd='rmdir'
+alias edit="vim $1"
+
+#---------------------------------------------------- Navigation -----------------------------------------------------#  
+
+alias config="cd $XDG_CONFIG"
+alias dev="cd $HOME/.development/Projects"
+alias df="cd $DOTFILES"
+
+alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
+alias tm-auto='sudo tmutil startbackup --auto; tmutil status'
+alias fzpreview="fzf --preview 'cat --color=always --style=numbers --line-range=:500 {}'"
+alias luamake="$HOME/tools/lua-language-server/3rd/luamake/luamake"
+alias scrsvr='open -a ScreenSaverEngine'
+
+alias valetrm="rm $HOME/.config/valet/valet.sock"
+alias valetr="valetrm && valet restart"
+
+alias php74='valet use php@7.4 && composer global update'
+alias php8='valet use php@8.0 && composer global update'
+alias php81='valet use php && composer global update'
+
+alias ll="ls $LS_DEFAULT_ARGS"
+alias lsa='ls -lah'
+alias lsc='ls | cat'
+alias llc='ll | cat'
+alias lll='ll | lolcat'
+alias llll='ll | lolcrab'
+
+#----------------------------------------------------- Utilities -----------------------------------------------------#  
+
+alias list:cargo="cargo install --list"
+alias list:brew="brew list"
+
+alias l:path="echo \"$PATH\" | tr ':' '\n'"
+alias lc:path='l:path | cat'
+alias lf:path='l:path | fzf'
+alias l:brew='brew list'
+alias lc:brew='l:brew | cat'
+alias lf:brew='brew list | fzf'
+
+alias cp:dir="e $PWD | pbcopy"
+alias cp:ssh="cat $HOME/.ssh/id_rsa.pub"
+alias cp:shrug='e "¯\_(ツ)_/¯" | pbcopy'
+alias cp:sbcrepo='e "{\"type\": \"composer\", \"url\": \"https://composer.sbdev.nl/\"}" | pp_json | pbcopy'
+alias cp:broodje='e "38. Witte Ital. Bol Gerookte Kip, avocado mayo met extra avocado + blik cola - €9,00" | pbcopy'
+alias cp:ssh="sssh | pbcopy"
+
+alias clone:sb-starter="git clone git@bitbucket.org:socialbrothers/wordpress-starter-theme.git"
+alias clone:wp="git clone git@github.com:wordpress/wordpress"
+
+#-------------------------------------------------- Suffix Aliases ---------------------------------------------------#
+
+alias -s php=pstorm
+alias -s {.zshrc,zsh,sh,json,yaml,.env,cs,ts,html}=nvim
 
