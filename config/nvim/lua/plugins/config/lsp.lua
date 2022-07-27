@@ -1,4 +1,6 @@
-local cmp_config = function()
+local M = {}
+
+function M.cmp()
     local cmp_status_ok, cmp = pcall(require, 'cmp')
     if not cmp_status_ok then
         return
@@ -132,7 +134,7 @@ local cmp_config = function()
     })
 end
 
-local function trouble()
+function M.trouble()
     return {
         position = 'bottom', -- position of the list can be: bottom, top, left, right
         height = 10, -- height of the trouble list when position is top or bottom
@@ -181,7 +183,4 @@ local function trouble()
     }
 end
 
-return {
-    cmp = cmp_config,
-    trouble = trouble,
-}
+return M

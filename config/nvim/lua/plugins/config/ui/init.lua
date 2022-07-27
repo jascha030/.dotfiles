@@ -1,6 +1,8 @@
 require('scheme.utils')
 
-local function cokeline()
+local M = {}
+
+function M.cokeline()
     require('cokeline').setup({
         show_if_buffers_are_at_least = 2,
         buffers = {
@@ -10,7 +12,7 @@ local function cokeline()
     })
 end
 
-local function lualine()
+function M.lualine()
     require('lualine').setup({
         options = {
             icons_enabled = true,
@@ -40,7 +42,7 @@ local function lualine()
     })
 end
 
-local function scrollbar()
+function M.scrollbar()
     local colors = require('tokyonight.colors').setup({})
     --local user_colors = require('scheme.colors.jassie030')
 
@@ -59,15 +61,11 @@ local function scrollbar()
     })
 end
 
-local function colorizer()
+function M.colorizer()
     require('colorizer').setup()
 end
 
-return {
-    devicons = require('plugins.config.ui.devicons'),
-    cokeline = cokeline,
-    colorizer = colorizer,
-    lualine = lualine,
-    scrollbar = scrollbar,
-    tree = require('plugins.config.ui.tree'),
-}
+M.devicons = require('plugins.config.ui.devicons')
+M.tree = require('plugins.config.ui.tree')
+
+return M

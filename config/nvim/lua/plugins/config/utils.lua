@@ -1,15 +1,21 @@
-local hop = function()
+local M = {}
+
+function M.hop()
     require('hop').setup({
         keys = 'etovxqpdygfblzhckisuran',
         jump_on_sole_occurrence = false,
     })
 end
 
-local alpha = function()
+function M.alpha()
     require('alpha').setup(require('alpha.themes.startify').opts)
 end
 
-local telescope = function()
+function M.fidget()
+    require('fidget').setup({})
+end
+
+function M.telescope()
     local telescope = require('telescope')
     local actions = require('telescope.actions')
     local themes = require('telescope.themes')
@@ -51,7 +57,7 @@ local telescope = function()
     require('telescope').load_extension('file_browser')
 end
 
-local function color_picker()
+function M.color_picker()
     local opts = { noremap = true, silent = true }
 
     vim.keymap.set('n', '<C-p><C-p>', '<cmd>PickColor<cr>', opts)
@@ -60,7 +66,7 @@ local function color_picker()
     require('color-picker').setup({})
 end
 
-local treesitter = function()
+function M.treesitter()
     require('nvim-treesitter.configs').setup({
         ensure_installed = {
             'typescript',
@@ -81,10 +87,4 @@ local treesitter = function()
     })
 end
 
-return {
-    alpha = alpha,
-    telescope = telescope,
-    color_picker = color_picker,
-    treesitter = treesitter,
-    hop = hop,
-}
+return M
