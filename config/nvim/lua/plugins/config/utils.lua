@@ -51,6 +51,15 @@ local telescope = function()
     require('telescope').load_extension('file_browser')
 end
 
+local function color_picker()
+    local opts = { noremap = true, silent = true }
+
+    vim.keymap.set('n', '<C-p><C-p>', '<cmd>PickColor<cr>', opts)
+    vim.keymap.set('i', '<C-p><C-p>', '<cmd>PickColorInsert<cr>', opts)
+
+    require('color-picker').setup({})
+end
+
 local treesitter = function()
     require('nvim-treesitter.configs').setup({
         ensure_installed = {
@@ -75,6 +84,7 @@ end
 return {
     alpha = alpha,
     telescope = telescope,
+    color_picker = color_picker,
     treesitter = treesitter,
     hop = hop,
 }
