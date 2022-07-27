@@ -45,24 +45,31 @@ local proc_icons = {
 
 local style = {}
 
-function style.bg_style(c, invert)
-    return { Foreground = { Color = invert == true and c.background or c.foreground } }
-end
-
-function style.fg_style(c, invert)
-    return { Background = { Color = invert == true and c.foreground or c.background } }
-end
-
 function style.icon(process_name)
     return proc_icons[process_name] and proc_icons[process_name] .. ' ' or proc_icons['default']
 end
 
 wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
-    local title_icon = style.icon(proc_icons[tab.active_pane.title])
+    local title_icon = style.icon(tab.active_pane.title)
     local title = ' ' .. tab.tab_index + 1 .. ': ' .. title_icon .. tab.active_pane.title .. ' '
 
     local last = tbl_count(tabs) == tab.tab_index + 1
     local first = tab.tab_index == 0
+
+    if not tab.is_active then
+        title = not first and '║' .. title or ' ' .. title
+    end
+
+    local c = {
+        fg = tab.is_active and colors.foreground or colors.background,
+        bg = tab.is_active and colors.background or colors.foreground,
+    }
+
+    return {
+        { Foreground = { Color = c.fg } },
+        { Background = { Color = c.bg } },
+        { Text = title },
+    }
 end)
 
 return {
