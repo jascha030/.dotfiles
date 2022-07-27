@@ -1,17 +1,23 @@
-local config = {
-    utils = require('plugins.config.utils'),
-    lsp = require('plugins.config.lsp'),
-    ui = require('plugins.config.ui'),
-}
-
 local function get_config_file(module)
-    local ok, res = pcall('require', 'plugins.config.' .. module)
+    module = 'plugins.config.' .. module
+
+    local ok, res = pcall(require, module)
 
     if not ok then
         error('Could not load plugin module: "' .. module .. '".')
     end
 
     return res
+end
+
+local function try_property(module, plugin)
+    module = get_config_file(module)
+
+    if not module[plugin] then
+        error('Could not load plugin config: "' .. plugin .. '".')
+    end
+
+    return module[plugin]
 end
 
 function PluginConfig(module, plugin)
@@ -21,13 +27,13 @@ function PluginConfig(module, plugin)
         return get_config_file(module)
     end
 
-    local ok, res = pcall('require', 'plugins.config.' .. module .. '.' .. plugin)
+    local full_mod = 'plugins.config.' .. module .. '.' .. plugin
+
+    local ok, res = pcall(require, full_mod)
 
     if not ok then
-        error('Could not load plugin config: "' .. plugin .. '".')
+        return try_property(module, plugin)
     end
 
     return res
 end
-
-return config
