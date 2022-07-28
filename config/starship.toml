@@ -12,7 +12,7 @@
 format = """
    $shell$env_var
 [  ╔═════════════════════════════════════════════════](bold foreground)
-[  ║](bold foreground)\ 
+[  ╟─](bold foreground)\ 
 $user\
 $directory\
 $git_branch\
