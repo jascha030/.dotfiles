@@ -56,20 +56,25 @@ wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_wid
     local last = tbl_count(tabs) == tab.tab_index + 1
     local first = tab.tab_index == 0
 
-    if not tab.is_active then
-        title = not first and '║' .. title or ' ' .. title
-    end
-
     local c = {
         fg = tab.is_active and colors.foreground or colors.background,
         bg = tab.is_active and colors.background or colors.foreground,
     }
 
-    return {
-        { Foreground = { Color = c.fg } },
-        { Background = { Color = c.bg } },
-        { Text = title },
-    }
+    return not first
+            and {
+                { Foreground = { Color = colors.background } },
+                { Background = { Color = colors.foreground } },
+                { Text = '┇' },
+                { Foreground = { Color = c.fg } },
+                { Background = { Color = c.bg } },
+                { Text = title },
+            }
+        or {
+            { Foreground = { Color = c.fg } },
+            { Background = { Color = c.bg } },
+            { Text = title },
+        }
 end)
 
 return {
