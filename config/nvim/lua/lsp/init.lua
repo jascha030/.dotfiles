@@ -2,14 +2,14 @@ if not require('util').validate({ 'lspconfig', 'nvim-lsp-installer', 'null-ls' }
     return
 end
 
+require('nvim-lsp-installer').setup({})
+
 local lspconfig = require('lspconfig')
 local null_ls = require('null-ls')
 local handlers = require('lsp.handlers')
 
-require('nvim-lsp-installer').setup({})
-
 for _, servername in ipairs(lspconfig.available_servers()) do
-    local server_config = handlers.get_server_config(handlers.defaults, servername)
+    local server_config = handlers.get_server_config(servername)
     
     lspconfig[servername].setup(server_config)
 end
