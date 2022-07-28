@@ -68,7 +68,7 @@ require('scheme').setup({
             green1 = 'bright_blue',
             blue = 'bright_blue',
             teal = 'bright_red',
-            bg_sidebar = 'none'
+            bg_sidebar = 'none',
         },
     },
 })
