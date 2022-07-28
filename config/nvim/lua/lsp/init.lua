@@ -1,28 +1,27 @@
-local ok, name = require('util').check_deps({ 'lspconfig', 'nvim-lsp-installer', 'null-ls' })
-if not ok then
-    error('Missing dependency' .. name)
+if not require('util').validate({ 'lspconfig', 'nvim-lsp-installer', 'null-ls' }) then
     return
 end
 
-local installer = require('lsp.installer')
+local lspconfig = require('lspconfig')
+local null_ls = require('null-ls')
 local handlers = require('lsp.handlers')
 
-local null_ls = require('null-ls')
-local fmt = null_ls.builtins.formatting
+require('nvim-lsp-installer').setup({})
 
-local config = {
-    handlers = { on_attach = handlers.on_attach, capabilities = handlers.capabilities },
-    null_ls = {
-        sources = {
-            fmt.stylua.with({
-                extra_args = { '--config-path', os.getenv('HOME') .. '/.config/stylua.toml' },
-            }),
-            null_ls.builtins.diagnostics.eslint,
-            null_ls.builtins.completion.spell,
-        },
-    },
-}
+for _, servername in ipairs(lspconfig.available_servers()) do
+    local server_config = handlers.get_server_config(handlers.defaults, servername)
+    
+    lspconfig[servername].setup(server_config)
+end
 
-installer.setup(config.handlers)
 handlers.setup()
-null_ls.setup(config.null_ls)
+
+null_ls.setup({
+    sources = {
+        null_ls.builtins.formatting.stylua.with({
+            extra_args = { '--config-path', os.getenv('HOME') .. '/.config/stylua.toml' },
+        }),
+        null_ls.builtins.diagnostics.eslint,
+        null_ls.builtins.completion.spell,
+    },
+})
