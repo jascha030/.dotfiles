@@ -1,12 +1,11 @@
-local M = {}
-
-local ok, cmp_lsp = pcall(require, 'cmp_nvim_lsp')
-if not ok then
+if not require('util').validate({ 'cmp_nvim_lsp' }) then
     return
 end
 
-local keymap = vim.api.nvim_buf_set_keymap
+local M = {}
 
+local cmp_lsp = require('cmp_nvim_lsp')
+local keymap = vim.api.nvim_buf_set_keymap
 local signs = {
     { name = 'DiagnosticSignError', text = '' },
     { name = 'DiagnosticSignWarn', text = '' },
@@ -38,6 +37,27 @@ local config = {
     },
 }
 
+-- Set keymaps conditional on server_capabilities
+local function keymaps(bufnr)
+    local opts = { noremap = true, silent = true }
+
+    -- TODO: vim.keymap.set('mode', 'map', vim.lsp.buf.{method}, {noremap=true, silent=true, buffer=bufnr})
+
+    keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    keymap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
+    keymap(bufnr, 'n', 'gl', '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)
+    keymap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
+    keymap(bufnr, 'n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+
+    vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
+end
+
 -- Set auto commands conditional on server_capabilities
 local function highlight_document(client)
     if client.resolved_capabilities.document_highlight then
@@ -55,25 +75,6 @@ local function highlight_document(client)
             false
         )
     end
-end
-
--- Set keymaps conditional on server_capabilities
-local function keymaps(bufnr)
-    local opts = { noremap = true, silent = true }
-
-    keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-    keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    keymap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-    keymap(bufnr, 'n', 'gl', '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)
-    keymap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-    keymap(bufnr, 'n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-
-    vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 end
 
 function M.show_line_diagnostics()
@@ -98,5 +99,22 @@ function M.on_attach(client, bufnr)
 end
 
 M.capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+M.defaults = {
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
+    flags = { debounce_text = 150 },
+}
+
+function M.get_server_config(server_name, opts)
+    opts = opts or M.defaults
+    local ok, settings = pcall(require, 'lsp.config.' .. server_name)
+
+    if ok then
+        opts.settings = settings
+    end
+
+    return opts
+end
 
 return M
