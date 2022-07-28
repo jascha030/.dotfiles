@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-alias rr="exec $SHELL --login"
+alias rr="exec $SHELL -l"
 
 if (( ${+LS_OVERRIDE} )); then
     alias ls=${LS_OVERRIDE}
