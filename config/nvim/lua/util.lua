@@ -67,4 +67,14 @@ function M.check_deps(list)
     return true, list
 end
 
+function M.validate(list, where)
+    local ok, v = M.check_deps(list)
+
+    if not ok then
+        error('Error initializing ' .. where .. ': missing dependency: "' .. v .. '.')
+    end
+
+    return ok
+end
+
 return M
