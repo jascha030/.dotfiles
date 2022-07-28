@@ -100,16 +100,13 @@ end
 
 M.capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-M.defaults = {
-    on_attach = M.on_attach,
-    capabilities = M.capabilities,
-    flags = { debounce_text = 150 },
-}
 
 function M.get_server_config(server_name, opts)
-    opts = opts or M.defaults
-    local ok, settings = pcall(require, 'lsp.config.' .. server_name)
+    local defaults = { on_attach = M.on_attach, capabilities = M.capabilities, flags = { debounce_text = 150 } }
 
+    opts = opts or defaults
+
+    local ok, settings = pcall(require, 'lsp.config.' .. server_name)
     if ok then
         opts.settings = settings
     end
