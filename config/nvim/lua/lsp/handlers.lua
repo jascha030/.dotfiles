@@ -108,7 +108,7 @@ function M.get_server_config(server_name, opts)
 
     local ok, settings = pcall(require, 'lsp.config.' .. server_name)
     if ok then
-        opts.settings = settings
+        opts = vim.tbl_deep_extend('force', opts, settings)
     end
 
     return opts
