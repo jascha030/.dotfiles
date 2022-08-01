@@ -6,6 +6,7 @@ local M = {}
 
 local cmp_lsp = require('cmp_nvim_lsp')
 local keymap = vim.api.nvim_buf_set_keymap
+
 local signs = {
     { name = 'DiagnosticSignError', text = '' },
     { name = 'DiagnosticSignWarn', text = '' },
@@ -100,14 +101,17 @@ end
 
 M.capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-
 function M.get_server_config(server_name, opts)
-    local defaults = { on_attach = M.on_attach, capabilities = M.capabilities, flags = { debounce_text = 150 } }
+    local default = {
+        on_attach = M.on_attach,
+        capabilities = M.capabilities,
+        flags = { debounce_text = 150 },
+    }
 
-    opts = opts or defaults
-
+    opts = opts or default
     local ok, settings = pcall(require, 'lsp.config.' .. server_name)
-    if ok then
+
+    if ok and type(settings) == 'table' then
         opts = vim.tbl_deep_extend('force', opts, settings)
     end
 

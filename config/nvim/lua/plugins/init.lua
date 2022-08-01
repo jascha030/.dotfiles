@@ -12,7 +12,11 @@ require('packer').startup({
         use({ 'yamatsum/nvim-nonicons', requires = 'kyazdani42/nvim-web-devicons' })
         use({ 'goolord/alpha-nvim', config = PluginConfig('utils', 'alpha') })
         -- Language/syntax
-        use({ 'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer' })
+        use({
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
+            'neovim/nvim-lspconfig',
+        })
         use({ 'onsails/lspkind-nvim' })
         use({ 'jose-elias-alvarez/null-ls.nvim' })
         use({ 'hrsh7th/nvim-cmp', config = PluginConfig('lsp', 'cmp') })
