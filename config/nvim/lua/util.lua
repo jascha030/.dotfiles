@@ -77,4 +77,9 @@ function M.validate(list, where)
     return ok
 end
 
+
+function M.cwd_in(where)
+    return string.find(vim.fn.getcwd(), where) ~= nil
+end
+
 return M
