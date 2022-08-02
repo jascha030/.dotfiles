@@ -14,6 +14,7 @@ setopt extended_glob
 unsetopt BEEP
 
 typeset -A ZSH_HIGHLIGHT_STYLES
+
 ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=10,underline'
 ZSH_HIGHLIGHT_STYLES[arg0]='fg=10'
 ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=10,underline'
@@ -68,6 +69,4 @@ export DOT_AFTER_INIT_SOURCES=(
 if (( ${+PROFILE_ZSHRC} )); then 
   echoti rmcup; echoti clear; echoti sgr0; zprof unset PROFILE_ZSHRC
 fi
-
-#export MACOS_CURRENT_COLOR_SCHEME=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 'dark' || echo 'light')
 
