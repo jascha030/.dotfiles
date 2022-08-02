@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+
 BATT_STAT_FULL=$(pmset -g batt | grep -Eo '\d{1,3}%')
 BATT_STAT=${BATT_STAT_FULL[1,((${#BATT_STAT_FULL} - 1))]}
 
