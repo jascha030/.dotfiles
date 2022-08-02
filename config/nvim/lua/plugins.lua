@@ -1,16 +1,20 @@
 require('plugins.config')
 
+local M = {}
+
 -- Auto commands
-vim.cmd([[autocmd BufWritePost plugins/init.lua PackerCompile]])
+vim.cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
 vim.cmd([[packadd packer.nvim]], false)
 
 require('packer').startup({
     function(use)
         use({ 'wbthomason/packer.nvim' })
+
         --use({ 'lewis6991/impatient.nvim', config = [[require('impatient')]] })
         use({ 'kyazdani42/nvim-web-devicons', config = require('plugins.config.ui.devicons') })
         use({ 'yamatsum/nvim-nonicons', requires = 'kyazdani42/nvim-web-devicons' })
         use({ 'goolord/alpha-nvim', config = PluginConfig('utils', 'alpha') })
+
         -- Language/syntax
         use({
             'williamboman/mason.nvim',
@@ -28,6 +32,7 @@ require('packer').startup({
         use({ 'saadparwaiz1/cmp_luasnip' })
         use({ 'simrat39/rust-tools.nvim' })
         use({ 'ncm2/ncm2' })
+
         -- Visual/UI components
         -- Telescope
         use({
@@ -56,15 +61,18 @@ require('packer').startup({
             requires = 'kyazdani42/nvim-web-devicons',
             config = PluginConfig('lsp', 'trouble'),
         })
+
         use({
             'j-hui/fidget.nvim',
             config = PluginConfig('utils', 'fidget'),
         })
+
         -- Theme
         use({ 'tjdevries/colorbuddy.nvim' })
         use({ 'norcalli/nvim-colorizer.lua', config = PluginConfig('ui', 'colorizer') })
         use({ 'marko-cerovac/material.nvim' })
         use({ 'folke/tokyonight.nvim' })
+
         -- Other
         use({ 'karb94/neoscroll.nvim' })
         use({ 'mfussenegger/nvim-dap' })
