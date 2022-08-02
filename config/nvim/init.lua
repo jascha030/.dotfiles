@@ -93,6 +93,7 @@ require('keymaps').setup({
             ['<Tab><Tab>'] = { ':HopWord<CR>' },
             ['sR'] = { ':source $MYVIMRC<CR>', { noremap = true, silent = true } },
             ['<C-t>'] = { ':FloatermToggle[!]<CR>' },
+            ['m'] = { ':Mason<CR>' },
         },
         ['v'] = {
             ['<C-c>'] = { ':OSCYank<CR>' },
