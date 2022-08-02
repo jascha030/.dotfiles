@@ -44,6 +44,7 @@ require('packer').startup({
             requires = 'kyazdani42/nvim-web-devicons',
             config = PluginConfig('lsp', 'trouble'),
         })
+        use({ 'folke/which-key.nvim' })
 
         -- Visual/UI components
         -- Telescope
