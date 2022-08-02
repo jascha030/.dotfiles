@@ -1,6 +1,6 @@
 local M = {}
 
-local util = require('util')
+local util = require('utils')
 local kmap = util.kmap
 
 local default_opts = { noremap = true }
