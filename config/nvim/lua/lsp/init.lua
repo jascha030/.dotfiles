@@ -2,39 +2,39 @@ if not require('util').validate({ 'lspconfig', 'mason', 'mason-lspconfig', 'null
     return
 end
 
+local loaded = false
+local handlers = require('lsp.handlers')
+local config = require('lsp.config')
+
 local lspconfig = require('lspconfig')
 local mason = require('mason')
 local mason_lsp = require('mason-lspconfig')
 local null_ls = require('null-ls')
-local handlers = require('lsp.handlers')
 
+local M = {}
 
-mason.setup({})
+M.lsp_handler = function(servername)
+    lspconfig[servername].setup(handlers.get_server_config(servername))
+end
 
-mason_lsp.setup({
-    ensure_installed = {
-        'bashls',
-        'html',
-        'intelephense',
-        'rust_analyzer',
-        'sumneko_lua',
-    },
-})
+function M.setup(opts)
+    if loaded then
+        return
+    end
 
-handlers.setup()
+    opts = opts or config
 
-mason_lsp.setup_handlers({
-    function(servername)
-        lspconfig[servername].setup(handlers.get_server_config(servername))
-    end,
-})
+    handlers.setup()
+    mason.setup(opts['mason'] or config['mason'])
+    mason_lsp.setup(opts['mason-lspconfig'] or config['mason-lspconfig'])
 
-null_ls.setup({
-    sources = {
-        null_ls.builtins.formatting.stylua.with({
-            extra_args = { '--config-path', os.getenv('XDG_CONFIG') .. '/stylua.toml' },
-        }),
-        null_ls.builtins.diagnostics.eslint,
-        null_ls.builtins.completion.spell,
-    },
-})
+    mason_lsp.setup_handlers({
+        M.lsp_handler
+    })
+
+    null_ls.setup(opts['null-ls'])
+
+    loaded = true
+end
+
+return M
