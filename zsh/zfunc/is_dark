@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+function is_dark {
+    local _apple_interface_style=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 1 || echo 0)
+
+    return _apple_interface_style
+}
+
