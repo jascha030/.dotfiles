@@ -76,7 +76,7 @@ require('scheme').setup({
 require('plugins')
 require('lsp').setup()
 
-require('keymap').setup({
+require('keymaps').setup({
     maps = {
         ['n'] = {
             ['<S-Tab>'] = { '<Plug>(cokeline-focus-next)', { silent = true } },
