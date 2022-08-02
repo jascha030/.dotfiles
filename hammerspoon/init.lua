@@ -20,6 +20,7 @@ spoon.SpoonInstall:andUse('RoundedCorners', {
 
 local JSpoon = require('jascha030')
 local term_app, main_screen = JSpoon.getConfig('termApp'), JSpoon.getConfig('mainScreen')
+
 -- Quake terminal
 JSpoon.quake.set(term_app, main_screen)
 

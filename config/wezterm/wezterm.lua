@@ -8,17 +8,16 @@ wezterm.on('window-config-reloaded', function(window)
     local overrides = window:get_config_overrides() or {}
 
     colors = theme.get_scheme(current, true)
-    local scheme = colors
 
-    if overrides.colors ~= scheme then
-        overrides.colors = scheme
+    if overrides.colors ~= colors then
+        overrides.colors = colors
         overrides.window_background_opacity = theme.get_opacity(current)
         window:set_config_overrides(overrides)
     end
 end)
 
 local function is_table(value)
-    return type(table) == 'table'
+    return type(value) == 'table'
 end
 
 local function assert_table(value, error)
@@ -49,11 +48,9 @@ function style.icon(process_name)
     return proc_icons[process_name] and proc_icons[process_name] .. ' ' or proc_icons['default']
 end
 
-wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
+wezterm.on('format-tab-title', function(tab)
     local title_icon = style.icon(tab.active_pane.title)
     local title = ' ' .. tab.tab_index + 1 .. ': ' .. title_icon .. tab.active_pane.title .. ' '
-
-    local last = tbl_count(tabs) == tab.tab_index + 1
     local first = tab.tab_index == 0
 
     local c = {
