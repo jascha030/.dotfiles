@@ -1,7 +1,7 @@
 require('scheme.utils')
 
 local config = require('scheme.config')
-local util = require('util')
+local util = require('utils')
 
 local loaded, loaded_scheme, user_config = false, nil, nil
 

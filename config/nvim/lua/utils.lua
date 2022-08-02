@@ -11,13 +11,13 @@ local function value_index(table)
 end
 
 local function count(table)
-    local count = 0
+    local _count = 0
 
     for _, _ in ipairs(table) do
-        count = count + 1
+        _count = _count + 1
     end
 
-    return count
+    return _count
 end
 
 function M.tbl_contains(t, v)
@@ -76,7 +76,6 @@ function M.validate(list, where)
 
     return ok
 end
-
 
 function M.cwd_in(where)
     return string.find(vim.fn.getcwd(), where) ~= nil

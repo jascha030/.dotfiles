@@ -1,4 +1,4 @@
-if not require('util').validate({ 'cmp_nvim_lsp' }) then
+if not require('utils').validate({ 'cmp_nvim_lsp' }) then
     return
 end
 

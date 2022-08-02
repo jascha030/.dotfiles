@@ -1,4 +1,6 @@
-local function merge_colors(types, shared)
+local M = {}
+
+function M.merge_colors(types, shared)
     local scheme = {}
 
     for type, values in pairs(types) do
@@ -11,25 +13,7 @@ local function merge_colors(types, shared)
     return scheme
 end
 
-local old_colors = {
-    red = '#ea1479',
-    green = '#9ece6a',
-    yellow = '#ffcc00',
-    blue = '#0083f7',
-    magenta = '#6f42c1',
-    cyan = '#8494FF',
-    white = '#737aa2',
-
-    bright_black = '#969ac9',
-    bright_red = '#f47cb4',
-    bright_green = '#d4eb70',
-    bright_yellow = '#e7c547',
-    bright_blue = '#6183bb',
-    bright_cyan = '#1abc9c',
-    bright_magenta = '#bb9af7',
-}
-
-local colors = {
+M.colors = {
     black = '#32466e',
     red = '#ea1479',
     green = '#2da44e',
@@ -56,11 +40,11 @@ local colors = {
     alt_magenta = '#5f5fec',
     alt_white = '#6183bb',
 
-    none = 'NONE'
-    --background = '#c9c9e9',
+    none = 'NONE',
 }
 
-local variants = {
+M.variants = {
+    --background = '#c9c9e9',
     light = {
         background = '#e7e9ef',
         foreground = '#444a73',
@@ -71,4 +55,4 @@ local variants = {
     },
 }
 
-return merge_colors(variants, colors)
+return M.merge_colors(M.variants, M.colors), M

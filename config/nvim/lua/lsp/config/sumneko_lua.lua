@@ -1,5 +1,4 @@
-local util = require('util')
-local path = require('lua.plenary.path')
+local util = require('utils')
 
 local root = os.getenv('HOME') .. '/tools/lua-language-server'
 local binary = root .. '/bin/lua-language-server'
@@ -79,10 +78,6 @@ end
 
 function M.version()
     local ret = { 'LuaJIT' }
-
-    if WS.in_hammerspoon() then
-        --table.insert(ret, vim.fn.system('hs -c _VERSION'):gsub('[\n\r]', ''))
-    end
 
     if util.tbl_length(ret) == 1 then
         return 'LuaJIT'

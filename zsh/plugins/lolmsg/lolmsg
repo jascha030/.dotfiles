@@ -75,9 +75,9 @@ function __output_fig {
     [[ $# == 1 ]] && curses=0 || curses=1
 
     local _output=$(figlet -Lcw $t_cols -f roman $1)
-    local _current_scheme=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 'dark' || echo 'light')
-    
-    [[ "$_current_scheme" == "light" ]] && local _grad="warm" || local _grad="rainbow"
+    local _current_scheme="$(is_dark)"
+
+    [[ "$_current_scheme" == 0 ]] && local _grad="warm" || local _grad="rainbow"
 
     if [[ "$_IS_VIMTERM" == false && ${curses} == 0 ]]; then 
         echoti blink

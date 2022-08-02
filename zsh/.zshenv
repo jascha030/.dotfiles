@@ -5,7 +5,7 @@ export DOT_ZSH=${DOTFILES}/zsh
 export DOT_RC=${HOME}/.zshrc
 export XDG_CONFIG=${HOME}/.config
 export BUN_INSTALL=${HOME}/.bun
-export LAZYGIT_CONFIG=${XDG_CONFIG}/lazygit.yml
+export LAZYGIT_CONFIG=${XDG_CONFIG}/lazygit
 
 #-------------------------------------------------- Applications -----------------------------------------------------#
 

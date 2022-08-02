@@ -1,4 +1,4 @@
-if not require('util').validate({ 'lspconfig', 'mason', 'mason-lspconfig', 'null-ls' }) then
+if not require('utils').validate({ 'lspconfig', 'mason', 'mason-lspconfig', 'null-ls' }) then
     return
 end
 
