@@ -46,6 +46,10 @@ And now we replaced stow with rcup, because I like the clean directory structure
 
 ## More img
 
+### Neovim
+
+![wezterm nvim light](https://github.com/jascha030/.dotfiles/blob/main/util/img/neovim-wezterm-light.png?raw=true)
+
 ### Iterm
 
 ![terminal in action](https://github.com/jascha030/.dotfiles/blob/main/util/img/nvim-tmux-lazygit-iterm.png?raw=true)
