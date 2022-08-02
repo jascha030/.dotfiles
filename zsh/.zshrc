@@ -71,6 +71,3 @@ fi
 
 #export MACOS_CURRENT_COLOR_SCHEME=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 'dark' || echo 'light')
 
-
-# bun completions
-[ -s "/Users/jaschavanaalst/.bun/_bun" ] && source "/Users/jaschavanaalst/.bun/_bun"
