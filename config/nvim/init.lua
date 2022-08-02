@@ -74,7 +74,7 @@ require('scheme').setup({
 })
 
 require('plugins')
-require('lsp')
+require('lsp').setup()
 
 require('keymap').setup({
     maps = {
