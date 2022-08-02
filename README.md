@@ -1,8 +1,8 @@
 # Jascha030's dotfiles
 
-**Current screenshot on WezTerm**
+**Screenshot on WezTerm (of both light/dark mode).**
 
-![WezTerm home](https://github.com/jascha030/.dotfiles/blob/main/util/img/term-home-wezterm.png?raw=true)
+![WezTerm home](https://github.com/jascha030/.dotfiles/blob/main/util/img/intro.png?raw=true)
 
 Backup of my .dotfiles (zsh, bash, git, npm)
 
