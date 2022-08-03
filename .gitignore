@@ -13,3 +13,5 @@ config/nvim/plugin/packer_compiled.lua
 
 config/colors/lua/jassie030new.lua
 zsh/.zsh_history
+
+zsh/.zcompcache
