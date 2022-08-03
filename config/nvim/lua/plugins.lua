@@ -1,7 +1,9 @@
-require('plugins.config')
-
 -- TODO: bigi refactro loco.
 -- local M = {}
+
+local ui = require('plugins.ui')
+local utils = require('plugins.utils')
+local lsp = require('plugins.lsp')
 
 -- Auto commands
 vim.cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
@@ -12,9 +14,9 @@ require('packer').startup({
         use({ 'wbthomason/packer.nvim' })
 
         --use({ 'lewis6991/impatient.nvim', config = [[require('impatient')]] })
-        use({ 'kyazdani42/nvim-web-devicons', config = require('plugins.config.ui.devicons') })
+        use({ 'kyazdani42/nvim-web-devicons', config = require('plugins.devicons') })
         use({ 'yamatsum/nvim-nonicons', requires = 'kyazdani42/nvim-web-devicons' })
-        use({ 'goolord/alpha-nvim', config = PluginConfig('utils', 'alpha') })
+        use({ 'goolord/alpha-nvim', config = utils.alpha })
 
         -- Language/syntax/LSP
         use({
@@ -24,7 +26,7 @@ require('packer').startup({
         })
         use({ 'onsails/lspkind-nvim' })
         use({ 'jose-elias-alvarez/null-ls.nvim' })
-        use({ 'hrsh7th/nvim-cmp', config = PluginConfig('lsp', 'cmp') })
+        use({ 'hrsh7th/nvim-cmp', config = lsp.cmp })
         use({ 'hrsh7th/cmp-nvim-lsp' })
         use({ 'hrsh7th/cmp-path' })
         use({ 'hrsh7th/cmp-buffer' })
@@ -33,16 +35,13 @@ require('packer').startup({
         use({ 'saadparwaiz1/cmp_luasnip' })
         use({ 'simrat39/rust-tools.nvim' })
         use({ 'ncm2/ncm2' })
-        use({
-            'j-hui/fidget.nvim',
-            config = PluginConfig('utils', 'fidget'),
-        })
+        use({ 'j-hui/fidget.nvim', config = utils.fidget })
 
         use({ 'mfussenegger/nvim-dap' })
         use({
             'folke/trouble.nvim',
             requires = 'kyazdani42/nvim-web-devicons',
-            config = PluginConfig('lsp', 'trouble'),
+            config = lsp.trouble
         })
         use({ 'folke/which-key.nvim' })
 
@@ -51,36 +50,40 @@ require('packer').startup({
         use({
             'nvim-telescope/telescope.nvim',
             requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } },
-            config = PluginConfig('utils', 'telescope'),
+            config = utils.telescope,
         })
         use({ 'nvim-telescope/telescope-file-browser.nvim' })
         use({ 'nvim-telescope/telescope-fzy-native.nvim' })
         use({ 'nvim-telescope/telescope-ui-select.nvim' })
-        use({ 'ziontee113/color-picker.nvim', config = PluginConfig('utils', 'color_picker') })
+        use({ 'ziontee113/color-picker.nvim', config = utils.color_picker })
         use({ 'filipdutescu/renamer.nvim', branch = 'master', requires = { { 'nvim-lua/plenary.nvim' } } })
 
         -- Treesitter
         use({ 'nvim-treesitter/nvim-treesitter-textobjects' })
         use({ 'nvim-treesitter/playground' })
         use({ 'p00f/nvim-ts-rainbow' })
-        use({ 'nvim-treesitter/nvim-treesitter', irun = ':TSUpdate', config = PluginConfig('utils', 'treesitter') })
+        use({ 'nvim-treesitter/nvim-treesitter', irun = ':TSUpdate', config = require('plugins.treesitter') })
         use({ 'voldikss/vim-floaterm' })
-        use({ 'kyazdani42/nvim-tree.lua', config = PluginConfig('ui', 'tree') })
-        use({ 'petertriho/nvim-scrollbar', config = PluginConfig('ui', 'scrollbar') })
-        use({ 'noib3/nvim-cokeline', config = PluginConfig('ui', 'cokeline') })
-        use({ 'hoob3rt/lualine.nvim', config = PluginConfig('ui', 'lualine') })
+        use({ 'kyazdani42/nvim-tree.lua', config = ui.tree })
+        use({ 'petertriho/nvim-scrollbar', config = ui.scrollbar })
+        use({ 'noib3/nvim-cokeline', config = ui.cokeline })
+        use({ 'hoob3rt/lualine.nvim', config = ui.lualine })
         use({ 'is0n/fm-nvim' })
 
         -- Theme
         use({ 'tjdevries/colorbuddy.nvim' })
-        use({ 'norcalli/nvim-colorizer.lua', config = PluginConfig('ui', 'colorizer') })
+        use({ 'norcalli/nvim-colorizer.lua', config = ui.colorizer })
         use({ 'marko-cerovac/material.nvim' })
         use({ 'folke/tokyonight.nvim' })
 
         -- Other
         use({ 'karb94/neoscroll.nvim' })
         use({ 'ojroques/vim-oscyank' })
-        use({ 'phaazon/hop.nvim', branch = 'v1', config = PluginConfig('utils', 'hop') })
+        use({
+            'phaazon/hop.nvim',
+            branch = 'v1',
+            config = utils.hop,
+        })
         use({ 'wakatime/vim-wakatime' })
     end,
     config = {

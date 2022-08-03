@@ -65,7 +65,4 @@ function M.colorizer()
     require('colorizer').setup()
 end
 
-M.devicons = require('plugins.config.ui.devicons')
-M.tree = require('plugins.config.ui.tree')
-
 return M
