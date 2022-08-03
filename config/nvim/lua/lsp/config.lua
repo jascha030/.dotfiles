@@ -10,10 +10,8 @@ local default_servers = {
     'sumneko_lua',
 }
 
-local stylua_args = {
-    '--config-path',
-    os.getenv('XDG_CONFIG') .. '/stylua.toml',
-}
+local stylua_path = os.getenv('XDG_CONFIG') .. '/stylua.toml'
+local stylua_args = { '--config-path', stylua_path }
 
 return {
     ['mason'] = {},

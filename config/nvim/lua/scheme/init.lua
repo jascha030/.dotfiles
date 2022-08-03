@@ -1,9 +1,10 @@
 require('scheme.utils')
-
 local config = require('scheme.config')
 local util = require('utils')
 
 local loaded, loaded_scheme, user_config = false, nil, nil
+
+local M = {}
 
 local _default_overrides = {
     yellow = 'yellow',
@@ -125,11 +126,9 @@ function UserScheme:getStyle(dark)
 end
 
 function UserScheme:getColors(dark)
-    if dark == nil then
-        dark = DarkmodeEnabled()
-    end
+    dark = dark or DarkmodeEnabled()
 
-    return dark and self._dark or self._light
+    return self[dark and '_dark' or '_light']
 end
 
 function UserScheme:getUserColors(dark)
@@ -164,31 +163,34 @@ local function merge_userconfig(opts)
     return user_config
 end
 
-return {
-    config = function(default)
-        if default == true or user_config == nil or loaded == false then
-            return default_config()
-        end
+function M.config(default)
+    if default == true or user_config == nil or loaded == false then
+        return default_config()
+    end
 
-        return user_config
-    end,
-    setup = function(opts)
-        if loaded then
-            return loaded_scheme
-        end
+    return user_config
+end
 
-        loaded_scheme = UserScheme.create(merge_userconfig(opts))
-        loaded_scheme:init()
-
-        vim.api.nvim_create_autocmd('Signal', { pattern = 'SIGUSR1', command = 'PackerCompile' })
-        util.kmap('CS', '<cmd>lua require("scheme").toggle()<CR>', 'n', { noremap = true })
-
-        loaded = true
-
+function M.setup(opts)
+    if loaded then
         return loaded_scheme
-    end,
-    toggle = function()
-        loaded_scheme:update(vim.o.background ~= 'dark')
-    end,
-    utils = util,
-}
+    end
+
+    loaded_scheme = UserScheme.create(merge_userconfig(opts))
+    loaded_scheme:init()
+
+    vim.api.nvim_create_autocmd('Signal', { pattern = 'SIGUSR1', command = 'PackerCompile' })
+    util.kmap('CS', '<cmd>lua require("scheme").toggle()<CR>', 'n', { noremap = true })
+
+    loaded = true
+
+    return loaded_scheme
+end
+
+function M.toggle()
+    loaded_scheme:update(vim.o.background ~= 'dark')
+end
+
+M.utils = util
+
+return M
