@@ -12,7 +12,6 @@ vim.cmd([[packadd packer.nvim]], false)
 require('packer').startup({
     function(use)
         use({ 'wbthomason/packer.nvim' })
-
         --use({ 'lewis6991/impatient.nvim', config = [[require('impatient')]] })
         use({ 'kyazdani42/nvim-web-devicons', config = require('plugins.devicons') })
         use({ 'yamatsum/nvim-nonicons', requires = 'kyazdani42/nvim-web-devicons' })
@@ -24,6 +23,7 @@ require('packer').startup({
             'williamboman/mason-lspconfig.nvim',
             'neovim/nvim-lspconfig',
         })
+
         use({ 'onsails/lspkind-nvim' })
         use({ 'jose-elias-alvarez/null-ls.nvim' })
         use({ 'hrsh7th/nvim-cmp', config = lsp.cmp })
@@ -41,15 +41,23 @@ require('packer').startup({
         use({
             'folke/trouble.nvim',
             requires = 'kyazdani42/nvim-web-devicons',
-            config = lsp.trouble
+            config = lsp.trouble,
         })
-        use({ 'folke/which-key.nvim' })
+        use({
+            'folke/which-key.nvim',
+            config = function()
+                require('which-key').setup({})
+            end,
+        })
 
         -- Visual/UI components
         -- Telescope
         use({
             'nvim-telescope/telescope.nvim',
-            requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } },
+            requires = {
+                { 'nvim-lua/popup.nvim' },
+                { 'nvim-lua/plenary.nvim' },
+            },
             config = utils.telescope,
         })
         use({ 'nvim-telescope/telescope-file-browser.nvim' })
@@ -62,9 +70,9 @@ require('packer').startup({
         use({ 'nvim-treesitter/nvim-treesitter-textobjects' })
         use({ 'nvim-treesitter/playground' })
         use({ 'p00f/nvim-ts-rainbow' })
-        use({ 'nvim-treesitter/nvim-treesitter', irun = ':TSUpdate', config = require('plugins.treesitter') })
+        use({ 'nvim-treesitter/nvim-treesitter', irun = ':TSUpdate', config = utils.treesitter })
         use({ 'voldikss/vim-floaterm' })
-        use({ 'kyazdani42/nvim-tree.lua', config = ui.tree })
+        use({ 'kyazdani42/nvim-tree.lua', config = require('plugins.tree') })
         use({ 'petertriho/nvim-scrollbar', config = ui.scrollbar })
         use({ 'noib3/nvim-cokeline', config = ui.cokeline })
         use({ 'hoob3rt/lualine.nvim', config = ui.lualine })
@@ -79,11 +87,7 @@ require('packer').startup({
         -- Other
         use({ 'karb94/neoscroll.nvim' })
         use({ 'ojroques/vim-oscyank' })
-        use({
-            'phaazon/hop.nvim',
-            branch = 'v1',
-            config = utils.hop,
-        })
+        use({ 'phaazon/hop.nvim', branch = 'v1', config = utils.hop })
         use({ 'wakatime/vim-wakatime' })
     end,
     config = {
