@@ -23,10 +23,11 @@ end
 
 function M.telescope()
     local telescope = require('telescope')
-    local extension = telescope.load_extension
     local actions = require('telescope.actions')
     local themes = require('telescope.themes')
-    local fb_actions = require('telescope').extensions.file_browser.actions
+
+    local extension = telescope.load_extension
+    local fb_actions = telescope.extensions.file_browser.actions
 
     telescope.setup({
         ['ui-select'] = { themes.get_dropdown },
@@ -74,7 +75,13 @@ function M.alpha()
 end
 
 function M.fidget()
-    require('fidget').setup({})
+    require('fidget').setup({
+        window = {
+            relative = 'win',
+            blend = 100,
+            zindex = nil,
+        },
+    })
 end
 
 function M.color_picker()
