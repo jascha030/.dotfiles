@@ -4,6 +4,7 @@ export DOTFILES=${HOME}/.dotfiles
 export DOT_ZSH=${DOTFILES}/zsh
 export DOT_RC=${HOME}/.zshrc
 export XDG_CONFIG=${HOME}/.config
+export XDG_CONFIG_HOME=${HOME}/.config
 export ZDOTDIR=${HOME}/zsh
 
 if [[ ! -d $ZDOTDIR ]]; then
