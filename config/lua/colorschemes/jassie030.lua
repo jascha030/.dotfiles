@@ -55,4 +55,8 @@ M.variants = {
     },
 }
 
-return M.merge_colors(M.variants, M.colors), M
+function M.get_scheme()
+    return M.merge_colors(M.variants, M.colors)
+end
+
+return M

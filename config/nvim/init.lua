@@ -11,6 +11,8 @@
 --                                                                      --
 --[[==========================Configuration===========================]]
 
+vim.o.runtimepath = vim.o.runtimepath .. ',' .. os.getenv('XDG_CONFIG_HOME')
+
 local options_config = {
     options = {
         mouse = 'nvi',

@@ -49,10 +49,12 @@ function UserSchemeOverRides.create(dark, light)
 end
 
 function UserScheme.create(c)
-    local user_scheme_loaded, _scheme = pcall(require, 'scheme.colors.' .. c.scheme)
+    local user_scheme_loaded, _scheme = pcall(require, 'colorschemes.' .. c.scheme)
     if not user_scheme_loaded then
         error('Could not find colorscheme: "' .. c.scheme .. '".')
     end
+
+    _scheme = _scheme.get_scheme()
 
     local self = {
         _config = c,
