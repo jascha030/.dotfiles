@@ -16,6 +16,12 @@ local _default_overrides = {
 }
 
 local default_tokyopts = {
+    material_italic_comments = true,
+    material_italic_keywords = true,
+    material_italic_functions = true,
+    material_italic_variables = false,
+    material_contrast = false,
+    material_borders = false,
     tokyonight_italic_functions = true,
     tokyonight_italic_comments = true,
     tokyonight_transparent = true,
@@ -85,12 +91,10 @@ end
 function UserScheme:update(dark)
     vim.o.background = dark and 'dark' or 'light'
 
-    vim.g.tokyonight_italic_comments = default_tokyopts.tokyonight_italic_comments
-    vim.g.tokyonight_italic_functions = default_tokyopts.tokyonight_italic_functions
-    vim.g.tokyonight_italic_comments = default_tokyopts.tokyonight_italic_comments
-    vim.g.tokyonight_transparent = default_tokyopts.tokyonight_transparent
-    vim.g.tokyonight_transparent_sidebar = default_tokyopts.tokyonight_transparent_sidebar
-    vim.g.tokyonight_sidebars = default_tokyopts.tokyonight_sidebars
+    for index, value in pairs(default_tokyopts) do
+        vim.g[index] = value
+    end
+
     vim.g.tokyonight_style = self:getStyle(dark)
     vim.g.tokyonight_colors = self:getColors(dark)
 

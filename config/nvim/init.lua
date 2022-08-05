@@ -34,12 +34,6 @@ local options_config = {
     },
     global = {
         mapleader = '<space>',
-        material_italic_comments = true,
-        material_italic_keywords = true,
-        material_italic_functions = true,
-        material_italic_variables = false,
-        material_contrast = false,
-        material_borders = false,
         material_style = 'tokyonight',
         node_host_prog = os.getenv('HOME') .. '/.fnm/node-versions/v17.7.1/installation/bin/neovim-node-host',
     },
