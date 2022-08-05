@@ -11,8 +11,7 @@
 --                                                                      --
 --[[==========================Configuration===========================]]
 
--- Options
-require('options').setup({
+local options_config = {
     options = {
         mouse = 'nvi',
         termguicolors = true,
@@ -44,10 +43,11 @@ require('options').setup({
         material_style = 'tokyonight',
         node_host_prog = os.getenv('HOME') .. '/.fnm/node-versions/v17.7.1/installation/bin/neovim-node-host',
     },
-})
+}
+
 
 -- Colorscheme overrides, uses color names as used by wezterm.
-require('scheme').setup({
+local colors_config = {
     overrides = {
         dark = {
             bg_dark = 'background',
@@ -71,12 +71,9 @@ require('scheme').setup({
             bg_sidebar = 'none',
         },
     },
-})
+}
 
-require('plugins')
-require('lsp').setup()
-
-require('keymaps').setup({
+local keymaps_config = {
     maps = {
         ['n'] = {
             ['<S-Tab>'] = { '<Plug>(cokeline-focus-next)', { silent = true } },
@@ -105,4 +102,11 @@ require('keymaps').setup({
         },
         ['i'] = {},
     },
-})
+}
+
+require('scheme').setup(colors_config)
+require('options').setup(options_config)
+require('keymaps').setup(keymaps_config)
+require('lsp').setup()
+require('plugins')
+require('lsp').setup()
