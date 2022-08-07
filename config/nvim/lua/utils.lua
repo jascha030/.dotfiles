@@ -81,4 +81,27 @@ function M.cwd_in(where)
     return string.find(vim.fn.getcwd(), where) ~= nil
 end
 
+function M.str_explode(delimiter, p)
+    local tbl, position  = {}, 0
+
+    if #p == 1 then
+        return { p }
+    end
+
+    while true do
+        local l = string.find(p, delimiter, position, true)
+
+        if l ~= nil then
+            table.insert(tbl, string.sub(p, position, l-1))
+            position = l + 1
+        else
+            table.insert(tbl, string.sub(p, position))
+
+            break
+        end
+    end
+
+   return tbl
+end
+
 return M
