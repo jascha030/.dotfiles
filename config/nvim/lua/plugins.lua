@@ -102,25 +102,29 @@ require('packer').startup({
         use({ 'nvim-treesitter/playground' })
         use({ 'p00f/nvim-ts-rainbow' })
         use({ 'nvim-treesitter/nvim-treesitter', irun = ':TSUpdate', config = require('plugins.treesitter') })
-        use({ 'voldikss/vim-floaterm' })
         use({ 'kyazdani42/nvim-tree.lua', config = require('plugins.tree') })
-        use({ 'petertriho/nvim-scrollbar', config = require('plugins.scrollbar') })
+        use({ 'petertriho/nvim-scrollbar', config = require('plugins.nvim-scrollbar') })
         use({ 'noib3/nvim-cokeline', config = require('plugins.cokeline') })
         use({ 'hoob3rt/lualine.nvim', config = require('plugins.lualine') })
         use({ 'is0n/fm-nvim' })
 
         -- Theme
         use({ 'tjdevries/colorbuddy.nvim' })
-        use({ 'norcalli/nvim-colorizer.lua', config = function ()
-            require('colorizer').setup({})
-        end })
+        use({
+            'norcalli/nvim-colorizer.lua',
+            config = function()
+                require('colorizer').setup({})
+            end,
+        })
         use({ 'marko-cerovac/material.nvim' })
         use({ 'folke/tokyonight.nvim' })
 
         -- Other
+        use({ 'voldikss/vim-floaterm' })
         use({ 'karb94/neoscroll.nvim' })
         use({ 'ojroques/vim-oscyank' })
         use({ 'phaazon/hop.nvim', branch = 'v1', config = require('plugins.hop') })
+        use({ 'terrortylor/nvim-comment' })
         use({ 'wakatime/vim-wakatime' })
     end,
     config = {
