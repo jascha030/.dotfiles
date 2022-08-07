@@ -3,10 +3,10 @@ local utils = require('utils')
 local M = {}
 
 function M.get_config(name, opts)
-    local parts = utils.str_explode("/", name)
+    local parts = utils.str_explode('/', name)
 
     name = parts[#parts]
-    name = name:gsub("%.nvim", "")
+    name = name:gsub('%.nvim', '')
 
     local m_ok, module = pcall(require, 'plugins.' .. name)
 
@@ -81,6 +81,7 @@ require('packer').startup({
                 require('which-key').setup({})
             end,
         })
+
         -- Telescope
         use({
             'nvim-telescope/telescope.nvim',
