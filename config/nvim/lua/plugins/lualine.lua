@@ -1,5 +1,7 @@
 return function()
-    require('lualine').setup({
+    local module_name = 'lualine'
+
+    require(module_name).setup({
         options = {
             icons_enabled = true,
             theme = 'tokyonight',

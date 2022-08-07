@@ -1,5 +1,7 @@
 return function()
-    require('hop').setup({
+    local module = 'hop'
+
+    require(module).setup({
         keys = 'etovxqpdygfblzhckisuran',
         jump_on_sole_occurrence = false,
     })

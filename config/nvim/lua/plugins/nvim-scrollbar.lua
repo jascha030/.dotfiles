@@ -1,7 +1,8 @@
 return function ()
+    local module = 'scrollbar'
     local colors = require('colors').get_colors()
 
-    require('scrollbar').setup({
+    require(module).setup({
         marks = {
             Search = { color = colors.orange },
             Error = { color = colors.error },
