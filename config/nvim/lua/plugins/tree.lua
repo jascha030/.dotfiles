@@ -81,26 +81,21 @@ return function()
             },
         },
         live_filter = {
-            prefix = '[Filter  ]: ',
             always_show_folders = true,
         },
         filesystem_watchers = {
             enable = false,
---            interval = 100,
             debounce_delay = 50,
         },
         diagnostics = {
             enable = true,
             show_on_dirs = false,
             icons = {
-                hint = '',
-                info = '',
-                warning = '',
-                error = '',
+                hint = '',
+                info = '',
+                warning = '',
+                error = '',
             },
         },
     })
-
-    -- vim.cmd([[set termguicolors]])
 end
-
