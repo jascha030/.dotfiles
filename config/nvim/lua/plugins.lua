@@ -124,7 +124,12 @@ require('packer').startup({
         use({ 'karb94/neoscroll.nvim' })
         use({ 'ojroques/vim-oscyank' })
         use({ 'phaazon/hop.nvim', branch = 'v1', config = require('plugins.hop') })
-        use({ 'terrortylor/nvim-comment' })
+        use({
+            'terrortylor/nvim-comment',
+            config = function()
+                require('nvim_comment').setup()
+            end,
+        })
         use({ 'wakatime/vim-wakatime' })
     end,
     config = {
