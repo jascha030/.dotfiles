@@ -1,5 +1,3 @@
-require('scheme.utils')
-
 local M = {}
 
 function M.cokeline()
