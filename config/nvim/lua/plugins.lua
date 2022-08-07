@@ -113,7 +113,7 @@ require('packer').startup({
         use({
             'norcalli/nvim-colorizer.lua',
             config = function()
-                require('colorizer').setup({})
+                require('colorizer').setup()
             end,
         })
         use({ 'marko-cerovac/material.nvim' })
