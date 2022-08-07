@@ -100,8 +100,9 @@ local keymaps_config = {
     },
 }
 
-require('scheme').setup(colors_config)
+--require('scheme').setup(colors_config)
 require('options').setup(options_config)
+require('colors').setup(colors_config)
 require('keymaps').setup(keymaps_config)
 require('lsp').setup()
 require('plugins')
