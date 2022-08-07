@@ -4,7 +4,7 @@ local M = {}
 M.cmd = [[echo $(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 'dark' || echo 'light')]]
 
 function M.enabled()
-    shell.shell_exec(M.cmd)
+    return (shell.shell_exec(M.cmd)):find('dark') ~= nil
 end
 
 return M
