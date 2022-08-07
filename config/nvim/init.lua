@@ -17,4 +17,5 @@ for module, options in pairs(require('config')) do
     require(module).setup(options)
 end
 
+require('lsp').setup()
 require('plugins')

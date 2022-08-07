@@ -1,27 +1,4 @@
-local M = {}
-
-function M.treesitter()
-    require('nvim-treesitter.configs').setup({
-        ensure_installed = {
-            'typescript',
-            'javascript',
-            'python',
-            'php',
-            'bash',
-            'lua',
-            'json',
-        },
-        indent = { enable = true },
-        highlight = { enable = true },
-        rainbow = {
-            enable = true,
-            extended_mode = true,
-            max_file_lines = nil,
-        },
-    })
-end
-
-function M.telescope()
+return function ()
     local telescope = require('telescope')
     local actions = require('telescope.actions')
     local themes = require('telescope.themes')
@@ -62,35 +39,3 @@ function M.telescope()
     extension('fzy_native')
     extension('file_browser')
 end
-
-function M.hop()
-    require('hop').setup({
-        keys = 'etovxqpdygfblzhckisuran',
-        jump_on_sole_occurrence = false,
-    })
-end
-
-function M.alpha()
-    require('alpha').setup(require('alpha.themes.startify').opts)
-end
-
-function M.fidget()
-    require('fidget').setup({
-        window = {
-            relative = 'win',
-            blend = 100,
-            zindex = nil,
-        },
-    })
-end
-
-function M.color_picker()
-    local opts = { noremap = true, silent = true }
-
-    vim.keymap.set('n', '<C-p><C-p>', '<cmd>PickColor<cr>', opts)
-    vim.keymap.set('i', '<C-p><C-p>', '<cmd>PickColorInsert<cr>', opts)
-
-    require('color-picker').setup({})
-end
-
-return M

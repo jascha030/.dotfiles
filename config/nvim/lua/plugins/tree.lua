@@ -101,6 +101,6 @@ return function()
         },
     })
 
-    vim.cmd([[set termguicolors]])
+    -- vim.cmd([[set termguicolors]])
 end
 
