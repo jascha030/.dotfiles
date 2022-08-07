@@ -2,9 +2,7 @@ if not require('utils').validate({ 'lspconfig', 'mason', 'mason-lspconfig', 'nul
     return
 end
 
-local config = require('lsp.config')
 local handlers = require('lsp.handlers')
-
 local lspconfig = require('lspconfig')
 local mason = require('mason')
 local mason_lsp = require('mason-lspconfig')
@@ -23,18 +21,15 @@ function M.setup(opts)
         return
     end
 
-    opts = opts or config
+    loaded = true
+
+    opts = vim.tbl_deep_extend('force', require('lsp.config'), opts or {})
 
     handlers.setup()
-
-    mason.setup(opts['mason'] or config['mason'])
-
-    mason_lsp.setup(opts['mason-lspconfig'] or config['mason-lspconfig'])
-    mason_lsp.setup_handlers({ M.lsp_handler })
-
+    mason.setup(opts['mason'])
+    mason_lsp.setup(opts['mason-lspconfig'])
     null_ls.setup(opts['null-ls'])
-
-    loaded = true
+    mason_lsp.setup_handlers({ M.lsp_handler })
 end
 
 return M
