@@ -1,12 +1,5 @@
 return function()
-    local ok, colorscheme = pcall(require, 'colorschemes.jassie030')
-    if not ok then
-        require('nvim-web-devicons').setup({})
-
-        return
-    end
-
-    local colors = colorscheme.get_scheme().dark
+    local colors = require('colors')
 
     local icons = {
         git = {
