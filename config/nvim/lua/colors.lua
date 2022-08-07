@@ -21,7 +21,7 @@ function M.update(mode)
         vim.g[index] = value
     end
 
-    vim.g.tokyonight_style  = user_config.styles[mode]
+    vim.g.tokyonight_style = user_config.styles[mode]
     vim.g.tokyonight_colors = user_config.colors[mode]
     vim.cmd([[colorscheme tokyonight]])
 end
@@ -50,18 +50,28 @@ local function auto_commands()
     })
 end
 
+function M.get_colors()
+    return user_config.colors[vim.o.background]
+end
+
 function M.init()
-    if loaded == true then return end
+    if loaded == true then
+        return
+    end
     loaded = true
 
     auto_commands()
-    vim.keymap.set('n', 'CS', function() M.toggle() end, { noremap = true })
+    vim.keymap.set('n', 'CS', function()
+        M.toggle()
+    end, { noremap = true })
 
     M.update(darkmode.enabled() and DARK or LIGHT)
 end
 
 function M.setup(conf)
-    if loaded == true then return end
+    if loaded == true then
+        return
+    end
 
     conf = conf or config.get_default()
     user_config = config.generate(merge_userconfig(conf))
