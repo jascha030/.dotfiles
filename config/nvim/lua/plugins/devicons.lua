@@ -19,11 +19,11 @@ return function()
         override = {
             --['gitignore_global'] = icons.git,
             ['.zshrc'] = icons.term,
-            ['zshrc'] = icons.term,
+            -- ['zshrc'] = icons.term,
             ['.zprofile'] = icons.term,
-            ['zprofile'] = icons.term,
+            -- ['zprofile'] = icons.term,
             ['.zshenv'] = icons.term,
-            ['zshenv'] = icons.term,
+            -- ['zshenv'] = icons.term,
             ['init'] = {
                 icon = '⏻',
                 color = colors.red,
