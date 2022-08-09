@@ -4,7 +4,7 @@ if (( ${+PROFILE_ZSHRC} )); then zmodload zsh/zprof ;fi
 
 # Hacky fix when first window of wezterm messes up lolmsg placement.
 # Related to Hammerspoon handling of application on quake.
-if (( ${LINES} == 24 )); then 
+if (( ${LINES} == 24 )); then
   until (( ${LINES} > 24)); do exec zsh -l; done
 fi
 
@@ -12,6 +12,9 @@ fi
 #
 setopt extended_glob
 unsetopt BEEP
+
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+#zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=10,underline'
@@ -53,7 +56,7 @@ path=(
   ${HOME}/bin
   ${HOME}/.composer/vendor/bin
   ${HOME}/.bun/bin
-  ${HOME}/.yarn/bin 
+  ${HOME}/.yarn/bin
   ${HOME}/.gem/ruby/2.6.0/bin
   ${HOME}/tools/lua-language-server/bin/macOS
   ${HOME}/.cargo/bin
@@ -74,16 +77,16 @@ export DOT_COMP_DIRS=(
     ${HOME}/.config/tabtab/zsh/__tabtab.zsh
 )
 
-export DOT_SOURCES=( 
+export DOT_SOURCES=(
     ${DOT_ZSH}/plugins/auto-ls
     ${HOME}/.cargo/env
     ${DOT_ZSH}/plugins/lolmsg/lolmsg.plugin.zsh
     ${HOME}/LS_COLORS/lscolors.sh
 )
 
-export DOT_AFTER_INIT_SOURCES=( 
+export DOT_AFTER_INIT_SOURCES=(
 	${DOT_ZSH}/aliases
-	${HOME}/.fzf.zsh 
+	${HOME}/.fzf.zsh
 )
 
 #------------------------------------------------- Initialization ----------------------------------------------------#
@@ -93,7 +96,7 @@ export DOT_AFTER_INIT_SOURCES=(
 
 #---------------------------------------------------------------------------------------------------------------------#
 
-if (( ${+PROFILE_ZSHRC} )); then 
+if (( ${+PROFILE_ZSHRC} )); then
   echoti rmcup; echoti clear; echoti sgr0; zprof unset PROFILE_ZSHRC
 fi
 
