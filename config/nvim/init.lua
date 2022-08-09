@@ -18,4 +18,4 @@ for module, options in pairs(require('config')) do
 end
 
 require('lsp').setup()
-require('plugins')
+require('plugins.start').setup()
