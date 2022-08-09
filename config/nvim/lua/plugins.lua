@@ -12,9 +12,15 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     install_packer()
 end
 
+function _G.packer_upgrade()
+    vim.fn.delete(install_path, 'rf')
+    install_packer()
+end
+
 -- Auto commands
 vim.cmd([[packadd packer.nvim]], false)
 vim.cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
+vim.cmd([[command! PackerUpgrade :call v:lua.packer_upgrade()]])
 
 function M.get_config(name, opts)
     local parts = utils.str_explode('/', name)
