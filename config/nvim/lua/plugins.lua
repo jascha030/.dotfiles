@@ -2,6 +2,20 @@ local utils = require('utils')
 
 local M = {}
 
+local install_path = ('%s/site/pack/packer-lib/opt/packer.nvim'):format(vim.fn.stdpath('data'))
+
+local function install_packer()
+    vim.fn.termopen(('git clone https://github.com/wbthomason/packer.nvim %q'):format(install_path))
+end
+
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    install_packer()
+end
+
+-- Auto commands
+vim.cmd([[packadd packer.nvim]], false)
+vim.cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
+
 function M.get_config(name, opts)
     local parts = utils.str_explode('/', name)
 
@@ -34,10 +48,6 @@ function M.get_config(name, opts)
         end
     end
 end
-
--- Auto commands
-vim.cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
-vim.cmd([[packadd packer.nvim]], false)
 
 require('packer').startup({
     function(use)
