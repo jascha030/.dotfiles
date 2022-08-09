@@ -12,18 +12,15 @@ return function()
             color = colors.green,
             cterm_color = '71',
         },
+
     }
 
     require('nvim-web-devicons').setup({
         default_icon = '',
         override = {
-            --['gitignore_global'] = icons.git,
             ['.zshrc'] = icons.term,
-            -- ['zshrc'] = icons.term,
             ['.zprofile'] = icons.term,
-            -- ['zprofile'] = icons.term,
             ['.zshenv'] = icons.term,
-            -- ['zshenv'] = icons.term,
             ['init'] = {
                 icon = '⏻',
                 color = colors.red,
