@@ -49,3 +49,7 @@ JSpoon.hotkey.setup({
         ['a'] = 'Safari',
     },
 })
+
+local timer = require('jascha030.timer')
+local reminder = timer.create()
+reminder:start()
