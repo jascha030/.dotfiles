@@ -3,10 +3,7 @@ if not require('utils').validate({ 'lspconfig', 'mason', 'mason-lspconfig', 'cmp
 end
 
 local lspconfig = require('lspconfig')
-local mason = require('mason')
-local mason_lsp = require('mason-lspconfig')
 local cmp_lsp = require('cmp_nvim_lsp')
-local null_ls = require('null-ls')
 
 local default = require('lsp.config')
 
@@ -42,20 +39,26 @@ function M.lsp_handler(servername)
 end
 
 function M.setup_lsp(config)
-    for _, sign in ipairs(config.diagnostic.signs) do
+    for _, sign in ipairs(config.diagnostic.signs.active) do
         vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = '' })
     end
 
     vim.diagnostic.config(config.diagnostic)
+
     vim.lsp.handlers['textDocument/hover'] = config.handlers.hover
     vim.lsp.handlers['textDocument/signatureHelp'] = config.handlers.signature_help
 end
 
 function M.setup_extensions(opts)
+    local mason = require('mason')
+    local mason_lsp = require('mason-lspconfig')
+    local null_ls = require('null-ls')
+
     mason.setup(opts['mason'])
     mason_lsp.setup(opts['mason-lspconfig'])
-    null_ls.setup(opts['null-ls'])
     mason_lsp.setup_handlers({ M.lsp_handler })
+
+    null_ls.setup(opts['null-ls'])
 end
 
 function M.setup(opts)
