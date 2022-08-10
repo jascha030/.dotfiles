@@ -1,28 +1,107 @@
-local ok, null_ls = pcall(require, 'null-ls')
-if not ok then
+if not require('utils').validate({ 'null-ls' }, 'lsp.config') then
     return
 end
 
-local default_servers = {
-    'bashls',
-    'intelephense',
-    'rust_analyzer',
-    'sumneko_lua',
-}
+local null_ls = require('null-ls')
 
 local stylua_path = os.getenv('XDG_CONFIG') .. '/stylua.toml'
 local stylua_args = { '--config-path', stylua_path }
 
-return {
-    ['mason'] = {},
-    ['mason-lspconfig'] = {
-        ensure_installed = default_servers,
+local function on_attach(client, bufnr)
+    local opts = { noremap = true, silent = true, buffer = bufnr }
+
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
+    vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
+    vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)
+    vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
+
+    -- vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
+
+    vim.api.nvim_create_autocmd('CursorHold', {
+        buffer = bufnr,
+        callback = function()
+            vim.diagnostic.open_float(nil, {
+                focusable = false,
+                close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' },
+                border = 'rounded',
+                source = 'always',
+                prefix = ' ',
+                scope = 'cursor',
+            })
+        end,
+    })
+
+    if client.resolved_capabilities.document_highlight then
+        vim.api.nvim_exec(
+            [[hi LspReferenceRead cterm=bold ctermbg=red guibg=Yellow
+            hi LspReferenceText cterm=bold ctermbg=red guibg=Yellow
+            hi LspReferenceWrite cterm=bold ctermbg=red guibg=Yellow]],
+            false
+        )
+    end
+end
+
+local M = {
+    lsp = {
+        diagnostic = {
+            signs = {
+                active = {
+                    { name = 'DiagnosticSignError', text = '' },
+                    { name = 'DiagnosticSignWarn', text = '' },
+                    { name = 'DiagnosticSignHint', text = '' },
+                    { name = 'DiagnosticSignInfo', text = '' },
+                },
+            },
+            float = {
+                focusable = false,
+                style = 'minimal',
+                border = 'rounded',
+                source = 'always',
+            },
+            virtual_text = true,
+            update_in_insert = true,
+            underline = true,
+            severity_sort = true,
+        },
+        handlers = {
+            options = { border = 'rounded' },
+            hover = {},
+            signature_help = {},
+        },
     },
-    ['null-ls'] = {
-        sources = {
-            null_ls.builtins.formatting.stylua.with({ extra_args = stylua_args }),
-            null_ls.builtins.diagnostics.eslint,
-            null_ls.builtins.completion.spell,
+    server = {
+        on_attach = on_attach,
+        capabilities = {},
+        flags = { debounce_text = 150 },
+    },
+    extensions = {
+        ['mason'] = {},
+        ['mason-lspconfig'] = {
+            ensure_installed = {
+                'bashls',
+                'intelephense',
+                'rust_analyzer',
+                'sumneko_lua',
+            },
+        },
+        ['null-ls'] = {
+            sources = {
+                null_ls.builtins.formatting.stylua.with({ extra_args = stylua_args }),
+                null_ls.builtins.diagnostics.eslint,
+                null_ls.builtins.completion.spell,
+            },
         },
     },
 }
+
+M.lsp.handlers.hover = vim.lsp.with(vim.lsp.handlers.hover, M.lsp.handlers.options)
+M.lsp.handlers.signature_help = vim.lsp.with(vim.lsp.handlers.signature_help, M.lsp.handlers.options)
+
+return M
