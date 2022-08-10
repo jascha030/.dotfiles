@@ -91,6 +91,7 @@ local M = {
                 'sumneko_lua',
             },
         },
+        -- todo: wrap in function so null_ls is not a hard dependency here.
         ['null-ls'] = {
             sources = {
                 null_ls.builtins.formatting.stylua.with({ extra_args = stylua_args }),
