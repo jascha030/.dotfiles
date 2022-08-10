@@ -61,7 +61,7 @@ return function(use)
     use({ 'noib3/nvim-cokeline', config = require('plugins.cokeline') })
     use({ 'hoob3rt/lualine.nvim', config = require('plugins.lualine') })
     use({ 'is0n/fm-nvim' })
-    use({ 'ziontee113/color-picker.nvim', config = require('plugins.color-picker') })
+    use({ 'ziontee113/color-picker.nvim', config = require('plugins.colorpicker') })
     use({ 'filipdutescu/renamer.nvim', branch = 'master', requires = { { 'nvim-lua/plenary.nvim' } } })
 
     use({
