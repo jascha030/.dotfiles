@@ -50,6 +50,6 @@ JSpoon.hotkey.setup({
     },
 })
 
-local timer = require('jascha030.timer')
-local reminder = timer.create()
-reminder:start()
+-- local timer = require('jascha030.timer')
+-- local reminder = timer.create()
+-- reminder:start()
