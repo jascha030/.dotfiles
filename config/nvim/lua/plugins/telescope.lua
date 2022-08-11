@@ -1,4 +1,4 @@
-return function ()
+return function()
     local telescope = require('telescope')
     local actions = require('telescope.actions')
     local themes = require('telescope.themes')
@@ -10,7 +10,7 @@ return function ()
         ['ui-select'] = { themes.get_dropdown },
         defaults = {
             set_env = { ['COLORTERM'] = 'truecolor' },
-            prompt_prefix = ' > ',
+            prompt_prefix = '  ',
             color_devicons = true,
             use_less = true,
             file_sorter = require('telescope.sorters').get_fzy_sorter,
