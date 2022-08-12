@@ -16,12 +16,11 @@ fi
 
 if (( ${+LAZYGIT_CONFIG} )); then 
     function __lazygit {
-        local _config
+        local _config=${LAZYGIT_CONFIG}/config_dark.yml
         local _dark=$(is_dark)
+        local _nvim=$(is_neovim)
         
-        if [[ "$_dark" == 1 ]]; then 
-            _config=${LAZYGIT_CONFIG}/config_dark.yml
-        else 
+        if [[ "$_dark" == 0 ]] && [[ "$is_neovim" == 0 ]]; then 
             _config=${LAZYGIT_CONFIG}/config_light.yml
         fi
 
@@ -30,7 +29,6 @@ if (( ${+LAZYGIT_CONFIG} )); then
 
     autoload -Uz __lazygit
     alias lazygit="__lazygit"
-    # alias lazygit="lazygit -ucf ${LAZYGIT_CONFIG}"
 fi 
 
 if (( ${+commands[idea]} )); then 
