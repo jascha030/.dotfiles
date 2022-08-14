@@ -1,7 +1,7 @@
 local stubs = {
---    'aerospike',
---    'amqp',
---    'apache',
+    'aerospike',
+    'amqp',
+    'apache',
     'apcu',
     'ast',
     'bcmath',
@@ -181,22 +181,7 @@ local stubs = {
 return {
     settings = {
         intelephense = {
-            stubs = {
-                'bcmath',
-                'bz2',
-                'calendar',
-                'Core',
-                'curl',
-                'zip',
-                'zlib',
-                'wordpress',
-                'woocommerce',
-                'acf-pro',
-                'wordpress-globals',
-                'wp-cli',
-                'genesis',
-                'polylang',
-            },
+            stubs = stubs,
             files = {
                 maxSize = 5000000,
             },
