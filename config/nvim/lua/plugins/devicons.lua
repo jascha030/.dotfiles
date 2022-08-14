@@ -1,33 +1,47 @@
-local devicons = require('nvim-web-devicons')
-local colors = require('colors').get_colors()
+return function()
+    local devicons = require('nvim-web-devicons')
+    local colors = require('colors').get_colors()
 
-local icons = {
-    git = {
-        icon = '',
-        color = colors.bright_blue,
-        cterm_color = '12',
-    },
-    term = {
-        icon = '',
-        color = colors.green,
-        cterm_color = '71',
-    },
-}
+    local icons = {
+        git = '',
+        term = '',
+        init = '⏻',
+    }
 
-require('nvim-web-devicons').setup({
-    default_icon = '',
-    override = {
-        ['init'] = {
-            icon = '⏻',
-            color = colors.red,
-            cterm_color = '1',
+    local function get(name)
+        if not icons[name] then
+            error('No icon defined for ' .. name)
+        end
+
+        return icons[name]
+    end
+
+    icons.get = get
+
+    require('nvim-web-devicons').setup({
+        default_icon = '',
+        override = {},
+    })
+
+    devicons.set_icon({
+        ['.zshrc'] = {
+            icon = get('term'),
+            color = colors.bright_magenta,
+            name = 'Zshrc',
         },
-    },
-})
-
-devicons.set_icon({
-    zsh = {
-        icons.term,
-        color = colors.magenta,
-    },
-})
+        ['.antigenrc'] = {
+            icon = get('term'),
+            color = colors.yellow,
+            name = 'Antigenrc',
+        },
+        ['.zshenv'] = {
+            icon = get('term'),
+            color = colors.magenta,
+            name = 'Zshenv',
+        },
+        ['init'] = {
+            icon = get('init'),
+            color = colors.red,
+        },
+    })
+end
