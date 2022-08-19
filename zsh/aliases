@@ -118,7 +118,7 @@ alias cp:dir="e $PWD | pbcopy"
 alias cp:ssh="cat $HOME/.ssh/id_rsa.pub"
 alias cp:shrug='e "¯\_(ツ)_/¯" | pbcopy'
 alias cp:sbcrepo='e "{\"type\": \"composer\", \"url\": \"https://composer.sbdev.nl/\"}" | pp_json | pbcopy'
-alias cp:broodje='e "38. Witte Ital. Bol Gerookte Kip, avocado mayo met extra avocado + blik cola - €9,00" | pbcopy'
+alias cp:broodje='e "38. Witte Ital. Bol Gerookte Kip, avocado mayo met extra avocado + blik cola - €9,50" | pbcopy'
 alias cp:ssh="sssh | pbcopy"
 
 alias clone:sb-starter="git clone git@bitbucket.org:socialbrothers/wordpress-starter-theme.git"
