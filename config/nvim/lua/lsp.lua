@@ -24,8 +24,6 @@ local function load_server_config(server_name)
 end
 
 local loaded = false
-
--- Module
 local M = {}
 
 function M.get_server_config(server_name, opts)
@@ -44,7 +42,6 @@ function M.setup_lsp(config)
     end
 
     vim.diagnostic.config(config.diagnostic)
-
     vim.lsp.handlers['textDocument/hover'] = config.handlers.hover
     vim.lsp.handlers['textDocument/signatureHelp'] = config.handlers.signature_help
 end
@@ -57,7 +54,6 @@ function M.setup_extensions(opts)
     mason.setup(opts['mason'])
     mason_lsp.setup(opts['mason-lspconfig'])
     mason_lsp.setup_handlers({ M.lsp_handler })
-
     null_ls.setup(opts['null-ls'])
 end
 
@@ -67,10 +63,8 @@ function M.setup(opts)
     end
 
     loaded = true
-
     opts = opts or default
     opts = vim.tbl_deep_extend('force', default, opts)
-
     M.setup_lsp(opts.lsp)
     M.setup_extensions(opts.extensions)
 end

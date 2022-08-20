@@ -2,7 +2,6 @@ local M = {}
 
 local function value_index(table)
     local set = {}
-
     for _, v in ipairs(table) do
         set[v] = true
     end
@@ -12,7 +11,6 @@ end
 
 local function count(table)
     local _count = 0
-
     for _, _ in ipairs(table) do
         _count = _count + 1
     end
@@ -28,7 +26,6 @@ end
 
 function M.tbl_length(t)
     assert(t == nil or type(t) == 'table', 'bad parameter #1: must be of type table or nil.')
-
     if t == nil then
         return 0
     end

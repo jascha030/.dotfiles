@@ -1,6 +1,5 @@
 local M = {}
 
--- Todo: make dynamic
 local default = require('colors.jassie030')
 local color_scheme = nil
 
