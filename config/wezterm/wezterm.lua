@@ -7,14 +7,17 @@ local proc_icons = {
 }
 
 local family = 'MesloLGS Nerd Font'
-local normal_font = wezterm.font_with_fallback({ 'nonicons', { family = family, italic = false, weight = 600 } })
+local normal_font = wezterm.font_with_fallback({
+    'nonicons',
+    { family = family, italic = false, weight = 600 },
+})
 
 local function icon(process_name)
     return proc_icons[process_name] and proc_icons[process_name] .. ' ' or proc_icons['default']
 end
 
 local font = {
-    size = 17,
+    size = 16.5,
     default = wezterm.font(family),
     rules = {
         { italic = false, intensity = 'Normal', font = normal_font },
