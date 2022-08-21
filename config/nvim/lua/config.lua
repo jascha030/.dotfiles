@@ -21,7 +21,7 @@ return {
             signcolumn = 'yes',
         },
         global = {
-            mapleader = '<space>',
+            mapleader = [[ ]],
             material_style = 'tokyonight',
             node_host_prog = os.getenv('HOME') .. '/.fnm/node-versions/v17.7.1/installation/bin/neovim-node-host',
         },

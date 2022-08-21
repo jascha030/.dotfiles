@@ -1,3 +1,6 @@
 return function()
-    require('alpha').setup(require('alpha.themes.startify').opts)
+    local opts = require('alpha.themes.startify').opts
+    -- require('alpha.themes.dashboard').opts
+
+    require('alpha').setup(opts)
 end
