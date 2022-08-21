@@ -78,11 +78,17 @@ alias config="cd $XDG_CONFIG"
 alias dev="cd $HOME/.development/Projects"
 alias df="cd $DOTFILES"
 
+alias ll="ls $LS_DEFAULT_ARGS"
+alias lll='ll | lolcrab'
+
+#----------------------------------------------------- Utilities -----------------------------------------------------#  
+
+alias scrsvr='open -a ScreenSaverEngine'
 alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
 alias tm-auto='sudo tmutil startbackup --auto; tmutil status'
-alias fzpreview="fzf --preview 'cat --color=always --style=numbers --line-range=:500 {}'"
+
+alias fzprev="fzf --preview 'cat --color=always --style=numbers --line-range=:500 {}'"
 alias luamake="$HOME/tools/lua-language-server/3rd/luamake/luamake"
-alias scrsvr='open -a ScreenSaverEngine'
 
 alias valetrm="rm $HOME/.config/valet/valet.sock"
 alias valetr="valetrm && valet restart"
@@ -92,17 +98,12 @@ alias php80='valet use php@8.0 && composer global update'
 alias php81='valet use php && composer global update'
 
 alias php8=php80
+alias php7=php74
 
 alias composer74="/usr/local/opt/php@7.4/bin/php $(which composer)"
 alias composer80="/usr/local/opt/php@8.0/bin/php $(which composer)"
 alias composer81="/usr/local/opt/php@8.1/bin/php $(which composer)"
 
-alias ll="ls $LS_DEFAULT_ARGS"
-alias lsa='ls -lah'
-alias lll='ll | lolcat'
-alias llll='ll | lolcrab'
-
-#----------------------------------------------------- Utilities -----------------------------------------------------#  
 
 alias list:cargo="cargo install --list"
 alias list:brew="brew list"
@@ -114,7 +115,7 @@ alias l:brew='brew list'
 alias lc:brew='l:brew | cat'
 alias lf:brew='brew list | fzf'
 
-alias cp:dir="e $PWD | pbcopy"
+alias pwd="echo $PWD | pbcopy"
 alias cp:ssh="cat $HOME/.ssh/id_rsa.pub"
 alias cp:shrug='e "¯\_(ツ)_/¯" | pbcopy'
 alias cp:sbcrepo='e "{\"type\": \"composer\", \"url\": \"https://composer.sbdev.nl/\"}" | pp_json | pbcopy'
