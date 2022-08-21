@@ -7,10 +7,9 @@ return function()
     local fb_actions = telescope.extensions.file_browser.actions
 
     telescope.setup({
-        ['ui-select'] = { themes.get_dropdown },
         defaults = {
             set_env = { ['COLORTERM'] = 'truecolor' },
-            prompt_prefix = '  ',
+            prompt_prefix = '   ',
             color_devicons = true,
             use_less = true,
             file_sorter = require('telescope.sorters').get_fzy_sorter,
@@ -20,6 +19,9 @@ return function()
             qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
         },
         extensions = {
+            ['ui-select'] = {
+                themes.get_dropdown,
+            },
             fzy_native = {
                 override_generic_sorter = false,
                 override_file_sorter = true,
@@ -36,6 +38,7 @@ return function()
         },
     })
 
+    extension('ui-select')
     extension('fzy_native')
     extension('file_browser')
 end
