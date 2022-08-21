@@ -3,8 +3,8 @@
 TODO.md
 
 # macOS
-*.DS_Store
-**.cache
+.DS_Store
+.cache/
 
 # Hammerspoon
 hammerspoon/Spoons/EmmyLua.spoon/annotations
@@ -16,3 +16,4 @@ zsh/.zsh_history
 
 zsh/.zcompcache
 config/lazygit/state.yml
+
