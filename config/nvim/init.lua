@@ -13,9 +13,19 @@
 
 vim.o.runtimepath = vim.o.runtimepath .. ',' .. os.getenv('XDG_CONFIG_HOME')
 
-for module, options in pairs(require('config')) do
-    require(module).setup(options)
+local configs = require('config')
+
+local function load_configurable(modules)
+    for mod, opts in pairs(modules) do
+        local ok, m = pcall(require, mod)
+
+        if ok then
+            m.setup(opts)
+        end
+    end
 end
+
+load_configurable(configs)
 
 require('lsp').setup()
 require('plugins.start').setup()
