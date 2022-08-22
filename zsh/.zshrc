@@ -21,7 +21,6 @@ export MANPAGER=/usr/local/bin/most
 export LS_OVERRIDE='lsd'
 export CAT_OVERRIDE='bat'
 export LAZYGIT_CONFIG=${XDG_CONFIG}/lazygit
-export FZF_DEFAULT_OPTS="--info=inline --border --padding=1 --margin=2"
 export FPM_LOG=${XDG_CONFIG}/valet/Log/php-fpm.log
 export BUN_INSTALL=${HOME}/.bun
 
@@ -48,37 +47,6 @@ path=(
 
 typeset -aU path
 
-#--------------------------------------------------------- FZF -------------------------------------------------------#
-
-_fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
-}
-
-_fzf_comprun() {
-  local command=$1
-  shift
-
-  case "$command" in
-    cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
-    export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
-    ssh)          fzf "$@" --preview 'dig {}' ;;
-    *)            fzf "$@" ;;
-  esac
-}
-
-
-export FZF_LIGHT=$FZF_DEFAULT_OPTS'
-  --color=fg:#444a73,bg:#e7e9ef,hl:#5f5fec
-  --color=fg+:#fffcfc,bg+:#c8d3f5,hl+:#0083f7
-  --color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00
-  --color=marker:#ea1479,spinner:#5f5fec,header:#0083f7'
-
-export FZF_DARK=$FZF_DEFAULT_OPTS'
-  --color=fg:#c8d3f5,bg:#1e2030,hl:#5f5fec
-  --color=fg+:#fffcfc,bg+:#32466e,hl+:#0083f7
-  --color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00
-  --color=marker:#ea1479,spinner:#5f5fec,header:#465182'
-
 #---------------------------------------------------- Init Exports ---------------------------------------------------#
 
 export DOT_PROMPT_HEIGHT=4
@@ -101,8 +69,9 @@ export DOT_SOURCES=(
 )
 
 export DOT_AFTER_INIT_SOURCES=(
-	${DOT_ZSH}/aliases
+	${ZDOTDIR}/aliases
 	${HOME}/.fzf.zsh
+  ${ZDOTDIR}/fzf
 )
 
 #------------------------------------------------- Initialization ----------------------------------------------------#

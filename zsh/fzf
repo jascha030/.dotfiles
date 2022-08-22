@@ -1,0 +1,49 @@
+#!/usr/bin/env zsh
+
+#--------------------------------------------------------- FZF -------------------------------------------------------#
+
+export FZF_DEFAULT_OPTS="--info=inline --border --padding=1 --margin=2"
+
+export FZF_LIGHT=$FZF_DEFAULT_OPTS'
+  --color=fg:#444a73,bg:#e7e9ef,hl:#5f5fec
+  --color=fg+:#fffcfc,bg+:#c8d3f5,hl+:#0083f7
+  --color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00
+  --color=marker:#ea1479,spinner:#5f5fec,header:#0083f7'
+
+export FZF_DARK=$FZF_DEFAULT_OPTS'
+  --color=fg:#c8d3f5,bg:#1e2030,hl:#5f5fec
+  --color=fg+:#fffcfc,bg+:#32466e,hl+:#0083f7
+  --color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00
+  --color=marker:#ea1479,spinner:#5f5fec,header:#465182'
+
+function __themed_fzf {
+    local _dark=$(is_dark)
+
+    if [[ "$_dark" == 1 ]]; then
+        export FZF_DEFAULT_OPTS=$FZF_DARK
+    else 
+        export FZF_DEFAULT_OPTS=$FZF_LIGHT
+    fi
+
+    fzf "$@"
+}
+    
+alias fzf=__themed_fzf
+
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
+    export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
+    ssh)          fzf "$@" --preview 'dig {}' ;;
+    *)            fzf "$@" ;;
+  esac
+}
+
+

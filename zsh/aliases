@@ -31,22 +31,6 @@ if (( ${+LAZYGIT_CONFIG} )); then
     alias lazygit="__lazygit"
 fi 
 
-if (( ${+FZF_DARK} )) && (( ${+FZF_LIGHT} )); then
-    function __themed_fzf {
-        local _dark=$(is_dark)
-    
-        if [[ "$_dark" == 1 ]]; then
-            export FZF_DEFAULT_OPTS=$FZF_DARK
-        else 
-            export FZF_DEFAULT_OPTS=$FZF_LIGHT
-        fi
-    
-        fzf "$@"
-    }
-    
-    alias fzf=__themed_fzf
-fi 
-
 if (( ${+commands[idea]} )); then 
     alias idea="idea ."
 fi
