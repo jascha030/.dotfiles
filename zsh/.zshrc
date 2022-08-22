@@ -9,18 +9,12 @@ if (( ${LINES} == 24 )); then
 fi
 
 #------------------------------------------------ ZSH Configurations -------------------------------------------------#
-#
+
 setopt extended_glob
 unsetopt BEEP
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-#zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-
-typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=10,underline'
-ZSH_HIGHLIGHT_STYLES[arg0]='fg=10'
-ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=10,underline'
-ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=10,bold'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
 export MANPAGER=/usr/local/bin/most
@@ -30,6 +24,31 @@ export LAZYGIT_CONFIG=${XDG_CONFIG}/lazygit
 export FZF_DEFAULT_OPTS="--info=inline --border --padding=1 --margin=2"
 export FPM_LOG=${XDG_CONFIG}/valet/Log/php-fpm.log
 export BUN_INSTALL=${HOME}/.bun
+
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=10,underline'
+ZSH_HIGHLIGHT_STYLES[arg0]='fg=10'
+ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=10,underline'
+ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=10,bold'
+
+# Path
+path=(
+  /usr/local/sbin
+  /usr/local/opt/openjdk/bin
+  /usr/local/opt/openssl@1.1/bin
+  ${HOME}/bin
+  ${HOME}/.composer/vendor/bin
+  ${HOME}/.bun/bin
+  ${HOME}/.yarn/bin
+  ${HOME}/.gem/ruby/2.6.0/bin
+  ${HOME}/tools/lua-language-server/bin/macOS
+  ${HOME}/.cargo/bin
+  ${path[@]}
+)
+
+typeset -aU path
+
+#--------------------------------------------------------- FZF -------------------------------------------------------#
 
 _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
@@ -48,22 +67,19 @@ _fzf_comprun() {
 }
 
 
-# Path
-path=(
-  /usr/local/sbin
-  /usr/local/opt/openjdk/bin
-  /usr/local/opt/openssl@1.1/bin
-  ${HOME}/bin
-  ${HOME}/.composer/vendor/bin
-  ${HOME}/.bun/bin
-  ${HOME}/.yarn/bin
-  ${HOME}/.gem/ruby/2.6.0/bin
-  ${HOME}/tools/lua-language-server/bin/macOS
-  ${HOME}/.cargo/bin
-  ${path[@]}
-)
+export FZF_LIGHT=$FZF_DEFAULT_OPTS'
+  --color=fg:#444a73,bg:#e7e9ef,hl:#5f5fec
+  --color=fg+:#fffcfc,bg+:#c8d3f5,hl+:#0083f7
+  --color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00
+  --color=marker:#ea1479,spinner:#5f5fec,header:#0083f7'
 
-typeset -aU path
+export FZF_DARK=$FZF_DEFAULT_OPTS'
+  --color=fg:#c8d3f5,bg:#1e2030,hl:#5f5fec
+  --color=fg+:#fffcfc,bg+:#32466e,hl+:#0083f7
+  --color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00
+  --color=marker:#ea1479,spinner:#5f5fec,header:#465182'
+
+#---------------------------------------------------- Init Exports ---------------------------------------------------#
 
 export DOT_PROMPT_HEIGHT=4
 
@@ -92,7 +108,6 @@ export DOT_AFTER_INIT_SOURCES=(
 #------------------------------------------------- Initialization ----------------------------------------------------#
 
 [[ -f ${DOT_ZSH}/init ]] && source ${DOT_ZSH}/init
-
 
 #---------------------------------------------------------------------------------------------------------------------#
 

@@ -115,6 +115,14 @@ eval "$(fnm env --use-on-cd)"
 
 export LS_COLORS="$(vivid generate jassie030)"
 
+local _dark=$(is_dark)
+
+if [[ "$is_dark" == 1 ]]; then
+    export FZF_DEFAULT_OPTS=$FZF_DARK
+else 
+    export FZF_DEFAULT_OPTS=$FZF_LIGHT
+fi
+
 # Source late files like aliases etc.
 if (( ${+DOT_AFTER_INIT_SOURCES} )); then 
     safe_source "${DOT_AFTER_INIT_SOURCES[@]}"
