@@ -16,34 +16,42 @@ export FZF_DARK=$FZF_DEFAULT_OPTS'
   --color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00
   --color=marker:#ea1479,spinner:#5f5fec,header:#465182'
 
-function __themed_fzf {
-    local _dark=$(is_dark)
-
-    if [[ "$_dark" == 1 ]]; then
+function __fzf_update_theme {
+    if [[ "$(is_dark)" == 1 ]]; then
         export FZF_DEFAULT_OPTS=$FZF_DARK
-    else 
+    else
         export FZF_DEFAULT_OPTS=$FZF_LIGHT
     fi
+}
 
+function __themed_fzf {
+    __fzf_update_theme
+    
     fzf "$@"
 }
+
+__fzf_update_theme
     
 alias fzf=__themed_fzf
 
 _fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
+    __fzf_update_theme
+
+    fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
 _fzf_comprun() {
-  local command=$1
-  shift
+    __fzf_update_theme
 
-  case "$command" in
-    cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
-    export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
-    ssh)          fzf "$@" --preview 'dig {}' ;;
-    *)            fzf "$@" ;;
-  esac
+    local command=$1
+    shift
+
+    case "$command" in
+        cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
+        export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
+        ssh)          fzf "$@" --preview 'dig {}' ;;
+        *)            fzf "$@" ;;
+    esac
 }
 
 
