@@ -81,6 +81,7 @@ return function(use)
     use({ 'folke/tokyonight.nvim' })
 
     -- Other
+    use({ 'ii14/neorepl.nvim' })
     use({ 'voldikss/vim-floaterm' })
     use({ 'karb94/neoscroll.nvim' })
     use({ 'ojroques/vim-oscyank' })
