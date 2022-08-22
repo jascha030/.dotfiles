@@ -6,6 +6,8 @@ return function()
         git = '',
         term = '',
         init = '⏻',
+        bookmark = '',
+        alias = '',
     }
 
     local function get(name)
@@ -42,6 +44,10 @@ return function()
         ['init'] = {
             icon = get('init'),
             color = colors.red,
+        },
+        ['aliases'] = {
+            icon = get('alias'),
+            color = colors.yellow,
         },
     })
 end
