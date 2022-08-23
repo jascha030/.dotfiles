@@ -1,13 +1,23 @@
-return function ()
-require('nvim-treesitter.configs').setup({
+return function()
+    local parsers = require('nvim-treesitter.parsers')
+
+    require('nvim-treesitter.configs').setup({
         ensure_installed = {
-            'typescript',
-            'javascript',
-            'python',
-            'php',
             'bash',
-            'lua',
+            'comment',
+            'css',
+            'javascript',
             'json',
+            'json5',
+            'lua',
+            'php',
+            'python',
+            'markdown',
+            'markdown_inline',
+            'toml',
+            'typescript',
+            'vim',
+            'yaml',
         },
         indent = { enable = true },
         highlight = { enable = true },
@@ -17,4 +27,11 @@ require('nvim-treesitter.configs').setup({
             max_file_lines = nil,
         },
     })
+
+    -- https://github.com/nvim-treesitter/nvim-treesitter/issues/655#issuecomment-1021160477
+    local ft_to_lang = parsers.ft_to_lang
+
+    parsers.ft_to_lang = function(ft)
+        return ft == 'zsh' and 'bash' or ft_to_lang(ft)
+    end
 end
