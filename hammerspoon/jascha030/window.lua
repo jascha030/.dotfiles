@@ -1,6 +1,8 @@
 local spaces = require('hs.spaces')
 local screen = require('hs.screen')
 
+local BUILTIN = 'Built-in Retina Display'
+
 -- TODO: abstraction and extraction.
 
 local function window_frame_eq_screen(w)
@@ -12,7 +14,7 @@ end
 
 local function winframe_eq_borders(w)
     local f, sf = w:frame(), w:screen():frame()
-    local eq, c = { h = false, w = false }
+    local eq, c = { h = false, w = false }, 0
 
     for k in 'h', 'w' do
         if f[k] == sf[k] then
@@ -38,36 +40,15 @@ local function winframe_touching(w)
     return eq, c
 end
 
-
-
-local WindowManager = {}
-WindowManager.__index = WindowManager
-
--- Constructor, (tnx cpt. obvious).
-function WindowManager.create(division, factor)
-    local self = {
-        defaultScreenWidthDivision = division or 4,
-        defaultScreenWidthFactor = factor or 2,
-    }
-
-    return setmetatable(self, WindowManager)
-end
+local M = {}
 
 -- How many times we multiply the defaultScreenWidthDivision when calculating the frame width for unsnapped windows.
 -- If mainScreen is built-in, make window wider by default.
-function WindowManager:getWidthFactor(selectedScreen, builtinScreen)
-    local widthFactor = self.defaultScreenWidthFactor
-
-    if builtinScreen ~= nil then
-        if selectedScreen:name() == builtinScreen then
-            widthFactor = 3
-        end
-    end
-
-    return widthFactor
+function M.getWidthFactor(selectedScreen)
+    return selectedScreen:name() == BUILTIN and 3 or 2
 end
 
-function WindowManager:move(application, space, builtinScreen)
+function M.move(application, space)
     local win = nil
     local spaceScreen = screen.find(spaces.spaceDisplay(space))
 
@@ -96,7 +77,7 @@ function WindowManager:move(application, space, builtinScreen)
         and scrFrame.y2 ~= winFrame.y2
     then
         winFrame.h = (scrFrame.h / 3) * 2
-        winFrame.w = (scrFrame.w / 4) * self:getWidthFactor(spaceScreen, builtinScreen)
+        winFrame.w = (scrFrame.w / 4) * M.getWidthFactor(spaceScreen)
         winFrame.y = scrFrame.y + ((scrFrame.h / 2) - (winFrame.h / 2))
         winFrame.x = scrFrame.x + ((scrFrame.w / 2) - (winFrame.w / 2))
 
@@ -106,7 +87,7 @@ function WindowManager:move(application, space, builtinScreen)
     win:focus()
 end
 
-function WindowManager:center(builtinScreen)
+function M.center()
     local win = hs.window.frontmostWindow()
     local space = hs.spaces.activeSpaceOnScreen(hs.screen.mainScreen())
     local spaceScreen = screen.find(spaces.spaceDisplay(space))
@@ -121,11 +102,11 @@ function WindowManager:center(builtinScreen)
     local scrFrame = spaceScreen:fullFrame()
 
     winFrame.h = (scrFrame.h / 3) * 2
-    winFrame.w = (scrFrame.w / 4) * self:getWidthFactor(spaceScreen, builtinScreen)
+    winFrame.w = (scrFrame.w / 4) * M.getWidthFactor(spaceScreen)
     winFrame.y = scrFrame.y + ((scrFrame.h / 2) - (winFrame.h / 2))
     winFrame.x = scrFrame.x + ((scrFrame.w / 2) - (winFrame.w / 2))
 
     win:setFrame(winFrame, 0)
 end
 
-return WindowManager
+return M
