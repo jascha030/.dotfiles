@@ -62,10 +62,10 @@ export DOT_COMP_DIRS=(
 )
 
 export DOT_SOURCES=(
-    ${DOT_ZSH}/plugins/auto-ls
+    ${ZDOTDIR}/auto-ls
     ${HOME}/.cargo/env
-    ${DOT_ZSH}/plugins/lolmsg/lolmsg.plugin.zsh
     ${HOME}/LS_COLORS/lscolors.sh
+    ${ZDOTDIR}/plugins/lolmsg/lolmsg.plugin.zsh
 )
 
 export DOT_AFTER_INIT_SOURCES=(
@@ -76,7 +76,7 @@ export DOT_AFTER_INIT_SOURCES=(
 
 #------------------------------------------------- Initialization ----------------------------------------------------#
 
-[[ -f ${DOT_ZSH}/init ]] && source ${DOT_ZSH}/init
+[[ -f ${ZDOTDIR}/init ]] && source ${ZDOTDIR}/init
 
 #---------------------------------------------------------------------------------------------------------------------#
 
