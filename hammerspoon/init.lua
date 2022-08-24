@@ -9,8 +9,7 @@ hs.loadSpoon('EmmyLua')
 hs.loadSpoon('SpoonInstall')
 hs.loadSpoon('ReloadConfiguration')
 
--- TODO: remove
-print(hs.inspect(hs.midi.devices()))
+local TERM_APP = 'WezTerm'
 
 spoon.ReloadConfiguration:start()
 spoon.SpoonInstall:andUse('RoundedCorners', {
@@ -19,23 +18,29 @@ spoon.SpoonInstall:andUse('RoundedCorners', {
 })
 
 local JSpoon = require('jascha030')
-local term_app, main_screen = JSpoon.getConfig('termApp'), JSpoon.getConfig('mainScreen')
+local music = require('jascha030.music')
 
 -- Quake terminal
-JSpoon.quake.set(term_app, main_screen)
+require('jascha030.quake').set(TERM_APP)
 
 JSpoon.hotkey.setup({
     system = {
         ['d'] = JSpoon.system.toggleDark,
     },
     control = {
-        ['l'] = function()
-            JSpoon.window.manager:center()
-        end,
         ['h'] = hs.toggleConsole,
-        ['p'] = hs.itunes.playpause,
-        [']'] = JSpoon.music.next,
-        ['['] = JSpoon.music.previous,
+        ['l'] = function()
+            require('jascha030.window').center()
+        end,
+        ['p'] = function()
+            hs.itunes.playpause()
+        end,
+        [']'] = function()
+            music.next()
+        end,
+        ['['] = function()
+            music.previous()
+        end,
     },
     apps = {
         ['i'] = 'Music',
@@ -49,7 +54,3 @@ JSpoon.hotkey.setup({
         ['a'] = 'Safari',
     },
 })
-
--- local timer = require('jascha030.timer')
--- local reminder = timer.create()
--- reminder:start()
