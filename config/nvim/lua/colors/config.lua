@@ -79,4 +79,14 @@ function M.generate(config)
     return config
 end
 
+function M.get_scheme(config)
+    local ok, scheme = pcall(require, 'colorschemes.' .. config.scheme)
+
+    if not ok then
+        error('Could not find colorscheme: "' .. config.scheme .. '".')
+    end
+
+    return scheme
+end
+
 return M
