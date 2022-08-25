@@ -54,6 +54,10 @@ function M.get_colors()
     return user_config.colors[vim.o.background]
 end
 
+function M.get_user_colors()
+    return config.get_scheme(user_config).colors or {}
+end
+
 function M.init()
     if loaded == true then
         return

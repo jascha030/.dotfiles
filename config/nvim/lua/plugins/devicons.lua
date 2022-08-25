@@ -1,6 +1,11 @@
 return function()
     local devicons = require('nvim-web-devicons')
     local colors = require('colors').get_colors()
+    -- local user_colors = require('colors').get_user_colors()
+
+    local user_colors = {
+        git_orange = '#f05033',
+    }
 
     local icons = {
         alias = '',
@@ -13,6 +18,7 @@ return function()
         documentation = '',
         editor = '',
         fileinfo = '',
+        git = '',
         git_sync = '',
         git_branch = '',
         git_merge = '',
@@ -53,8 +59,8 @@ return function()
     }
 
     local git_config = {
-        icon = get('git_branch'),
-        color = colors.yellow,
+        icon = get('git'),
+        color = user_colors.git_orange,
         name = 'GitConfig',
     }
 
@@ -121,7 +127,7 @@ return function()
         },
         ['README.md'] = {
             icon = get('documentation'),
-            color = colors.orange,
+            color = colors.red,
             name = 'README',
         },
         ['starship.toml'] = {
