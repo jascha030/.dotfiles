@@ -41,6 +41,10 @@ M.colors = {
     alt_white = '#6183bb',
 
     none = 'NONE',
+
+    additional = {
+        git_orange = '#f05033',
+    },
 }
 
 M.variants = {
