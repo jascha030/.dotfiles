@@ -25,6 +25,12 @@ return function(use)
     use({ 'simrat39/rust-tools.nvim' })
     use({ 'ncm2/ncm2' })
     use({ 'mfussenegger/nvim-dap' })
+    use({
+        'theHamsta/nvim-dap-virtual-text',
+        config = function()
+            require('nvim-dap-virtual-text').setup()
+        end,
+    })
     use({ 'j-hui/fidget.nvim', config = require('plugins.fidget') })
     use({ 'folke/trouble.nvim', requires = 'kyazdani42/nvim-web-devicons', config = require('plugins.trouble') })
     use({ 'folke/which-key.nvim', config = [[require('which-key').setup({})]] })
