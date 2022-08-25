@@ -69,7 +69,7 @@ end)
 return {
     default_prog = { '/usr/local/bin/zsh', '--login' },
     window_decorations = 'NONE | RESIZE',
-    window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
+    window_padding = { left = 2.5, right = 2.5, top = 0, bottom = 0 },
     window_frame = {
         button_fg = colors.foreground,
         button_bg = colors.background,
