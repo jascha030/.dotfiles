@@ -6,7 +6,6 @@ local lspconfig = require('lspconfig')
 local cmp_lsp = require('cmp_nvim_lsp')
 
 local default = require('lsp.config')
-
 local capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local function get_default_server_config()
@@ -50,10 +49,17 @@ function M.setup_extensions(opts)
     local mason = require('mason')
     local mason_lsp = require('mason-lspconfig')
     local null_ls = require('null-ls')
+    local rt = require('rust-tools')
 
     mason.setup(opts['mason'])
     mason_lsp.setup(opts['mason-lspconfig'])
-    mason_lsp.setup_handlers({ M.lsp_handler })
+    mason_lsp.setup_handlers({
+        M.lsp_handler,
+        -- Overrides
+        ['rust-analyzer'] = function()
+            rt.setup({ server = get_default_server_config() })
+        end,
+    })
     null_ls.setup(opts['null-ls'])
 end
 

@@ -46,6 +46,12 @@ local function on_attach(client, bufnr)
             false
         )
     end
+
+    if client == 'rust_analyzer' then
+        local rt = require('rust-tools')
+        vim.keymap.set('n', '<C-space>', rt.hover_actions.hover_actions, { buffer = bufnr })
+        vim.keymap.set('n', '<Leader>a', rt.code_action_group.code_action_group, { buffer = bufnr })
+    end
 end
 
 local M = {
