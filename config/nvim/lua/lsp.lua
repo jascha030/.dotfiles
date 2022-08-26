@@ -1,10 +1,11 @@
-if not require('utils').validate({ 'lspconfig', 'mason', 'mason-lspconfig', 'cmp_nvim_lsp', 'null-ls' }, 'lsp') then
+local utils = require('utils')
+
+if not utils.validate({ 'lspconfig', 'mason', 'mason-lspconfig', 'cmp_nvim_lsp', 'null-ls', 'rust-tools' }, 'lsp') then
     return
 end
 
-local lspconfig = require('lspconfig')
+local loaded = false
 local cmp_lsp = require('cmp_nvim_lsp')
-
 local default = require('lsp.config')
 local capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
@@ -22,18 +23,13 @@ local function load_server_config(server_name)
     return config
 end
 
-local loaded = false
-local M = {}
-
-function M.get_server_config(server_name, opts)
+local function get_server_config(server_name, opts)
     opts = opts or get_default_server_config()
 
     return vim.tbl_deep_extend('force', opts, load_server_config(server_name))
 end
 
-function M.lsp_handler(servername)
-    lspconfig[servername].setup(M.get_server_config(servername))
-end
+local M = {}
 
 function M.setup_lsp(config)
     for _, sign in ipairs(config.diagnostic.signs.active) do
@@ -46,21 +42,33 @@ function M.setup_lsp(config)
 end
 
 function M.setup_extensions(opts)
+    local lspconfig = require('lspconfig')
     local mason = require('mason')
     local mason_lsp = require('mason-lspconfig')
     local null_ls = require('null-ls')
     local rt = require('rust-tools')
 
-    mason.setup(opts['mason'])
+    mason.setup({})
     mason_lsp.setup(opts['mason-lspconfig'])
     mason_lsp.setup_handlers({
-        M.lsp_handler,
+        function(server)
+            lspconfig[server].setup(get_server_config(server))
+        end,
         -- Overrides
-        ['rust-analyzer'] = function()
+        ['rust_analyzer'] = function()
             rt.setup({ server = get_default_server_config() })
         end,
     })
-    null_ls.setup(opts['null-ls'])
+
+    local stylua_path = os.getenv('XDG_CONFIG') .. '/stylua.toml'
+
+    null_ls.setup({
+        sources = {
+            null_ls.builtins.formatting.stylua.with({ extra_args = { '--config-path', stylua_path } }),
+            null_ls.builtins.diagnostics.eslint,
+            null_ls.builtins.completion.spell,
+        },
+    })
 end
 
 function M.setup(opts)
@@ -71,6 +79,7 @@ function M.setup(opts)
     loaded = true
     opts = opts or default
     opts = vim.tbl_deep_extend('force', default, opts)
+
     M.setup_lsp(opts.lsp)
     M.setup_extensions(opts.extensions)
 end

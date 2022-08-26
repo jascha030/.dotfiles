@@ -2,11 +2,6 @@ if not require('utils').validate({ 'null-ls' }, 'lsp.config') then
     return
 end
 
-local null_ls = require('null-ls')
-
-local stylua_path = os.getenv('XDG_CONFIG') .. '/stylua.toml'
-local stylua_args = { '--config-path', stylua_path }
-
 local function on_attach(client, bufnr)
     local opts = { noremap = true, silent = true, buffer = bufnr }
 
@@ -88,21 +83,13 @@ local M = {
         flags = { debounce_text = 150 },
     },
     extensions = {
-        ['mason'] = {},
+        -- ['mason'] = {},
         ['mason-lspconfig'] = {
             ensure_installed = {
                 'bashls',
                 'intelephense',
                 'rust_analyzer',
                 'sumneko_lua',
-            },
-        },
-        -- todo: wrap in function so null_ls is not a hard dependency here.
-        ['null-ls'] = {
-            sources = {
-                null_ls.builtins.formatting.stylua.with({ extra_args = stylua_args }),
-                null_ls.builtins.diagnostics.eslint,
-                null_ls.builtins.completion.spell,
             },
         },
     },
