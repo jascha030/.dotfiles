@@ -79,7 +79,7 @@ function M.cwd_in(where)
 end
 
 function M.str_explode(delimiter, p)
-    local tbl, position  = {}, 0
+    local tbl, position = {}, 0
 
     if #p == 1 then
         return { p }
@@ -89,7 +89,7 @@ function M.str_explode(delimiter, p)
         local l = string.find(p, delimiter, position, true)
 
         if l ~= nil then
-            table.insert(tbl, string.sub(p, position, l-1))
+            table.insert(tbl, string.sub(p, position, l - 1))
             position = l + 1
         else
             table.insert(tbl, string.sub(p, position))
@@ -98,7 +98,11 @@ function M.str_explode(delimiter, p)
         end
     end
 
-   return tbl
+    return tbl
+end
+
+function M.data_dir()
+    return string.format('%s/site/', vim.fn.stdpath('data'))
 end
 
 return M
