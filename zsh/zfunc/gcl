@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+
+function gcl {
+    typeset -A shortcuts
+    shortcuts=(
+        ["sb-starter"]="git@bitbucket.org:socialbrothers/wordpress-starter-theme.git"
+        ["wp"]="git@github.com:wordpress/wordpress"
+    )
+
+    if (( ${+shortcuts[$1]} )); then
+        local repo="$shortcuts[$1]"
+    else
+        local repo="$1"
+    fi
+
+    shift
+
+    git clone "$repo" "$@"
+}
+
