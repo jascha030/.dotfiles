@@ -49,9 +49,9 @@ function M.kmap(keymap, action, mode, opts)
 end
 
 local function safe_load(m)
-    local ok, _ = pcall(require, m)
+    local ok, res = pcall(require, m)
 
-    return ok
+    return ok, res
 end
 
 function M.check_deps(list)
