@@ -1,4 +1,31 @@
-return {
+local M = {}
+
+M.config = {
+    colors = {
+        overrides = {
+            dark = {
+                bg_dark = 'background',
+                green = 'bright_green',
+                red = 'red',
+                yellow = 'yellow',
+                green1 = 'bright_blue',
+                teal = 'red',
+                cyan = 'bright_blue',
+            },
+            light = {
+                bg = 'background',
+                bg_dark = 'background',
+                yellow = 'red',
+                purple = 'bright_red',
+                magenta = 'bright_magenta',
+                green = 'bright_green',
+                green1 = 'bright_blue',
+                blue = 'bright_blue',
+                teal = 'bright_red',
+                bg_sidebar = 'none',
+            },
+        },
+    },
     options = {
         options = {
             mouse = 'nvi',
@@ -24,31 +51,6 @@ return {
             mapleader = [[ ]],
             material_style = 'tokyonight',
             node_host_prog = os.getenv('HOME') .. '/.fnm/node-versions/v17.7.1/installation/bin/neovim-node-host',
-        },
-    },
-    colors = {
-        overrides = {
-            dark = {
-                bg_dark = 'background',
-                green = 'bright_green',
-                red = 'red',
-                yellow = 'yellow',
-                green1 = 'bright_blue',
-                teal = 'red',
-                cyan = 'bright_blue',
-            },
-            light = {
-                bg = 'background',
-                bg_dark = 'background',
-                yellow = 'red',
-                purple = 'bright_red',
-                magenta = 'bright_magenta',
-                green = 'bright_green',
-                green1 = 'bright_blue',
-                blue = 'bright_blue',
-                teal = 'bright_red',
-                bg_sidebar = 'none',
-            },
         },
     },
     keymaps = {
@@ -83,3 +85,11 @@ return {
         },
     },
 }
+
+M.scheme = M.config.colors
+
+function M.get_config()
+    return pairs(M.config)
+end
+
+return M
