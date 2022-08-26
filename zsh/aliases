@@ -85,6 +85,10 @@ alias lll='ll | lolcrab'
 
 alias scrsvr='open -a ScreenSaverEngine'
 alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
+alias cargoup='cargo install-update --all'
+
+alias appup='brewup && cargoup'
+
 alias tm-auto='sudo tmutil startbackup --auto; tmutil status'
 
 alias fzprev="fzf --preview 'cat --color=always --style=numbers --line-range=:500 {}'"
