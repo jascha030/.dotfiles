@@ -4,6 +4,7 @@ end
 
 local darkmode = require('darkmode')
 local config = require('colors.config')
+local devicons = require('plugins.devicons')
 
 local M = {}
 local DARK = 'dark'
@@ -23,7 +24,13 @@ function M.update(mode)
 
     vim.g.tokyonight_style = user_config.styles[mode]
     vim.g.tokyonight_colors = user_config.colors[mode]
+
     vim.cmd([[colorscheme tokyonight]])
+
+    vim.cmd('hi FidgetTitle guifg=' .. M.get_colors().red)
+    vim.cmd('hi FidgetTask guibg=' .. M.get_colors().bg)
+
+    devicons()
 end
 
 function M.toggle()
@@ -79,8 +86,6 @@ function M.setup(conf)
 
     conf = conf or config.get_default()
     user_config = config.generate(merge_userconfig(conf))
-
-    M.init()
 end
 
 return M
