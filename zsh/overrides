@@ -1,0 +1,52 @@
+#!/usr/bin/env zsh
+
+if (( ${+LS_OVERRIDE} )); then
+    alias ls=${LS_OVERRIDE}
+fi
+
+if (( ${+CAT_OVERRIDE} )); then 
+    alias cat=${CAT_OVERRIDE}
+fi
+
+if (( ${+commands[nvim]} )); then 
+    alias vim=nvim
+fi
+
+if (( ${+LAZYGIT_CONFIG} )); then 
+    function __lazygit {
+        local _config=${LAZYGIT_CONFIG}/config_dark.yml
+        local _dark=$(is_dark)
+        local _nvim=$(is_neovim)
+        
+        if [[ "$_dark" == 0 ]] && [[ "$is_neovim" == 0 ]]; then 
+            _config=${LAZYGIT_CONFIG}/config_light.yml
+        fi
+
+        lazygit -ucf "$_config"
+    }
+
+    autoload -Uz __lazygit
+    alias lazygit="__lazygit"
+fi 
+
+if (( ${+commands[idea]} )); then 
+    alias idea="idea ."
+fi
+
+if (( ${+commands[phpstorm]} )); then
+    alias pstorm="phpstorm ."
+fi
+
+if (( ${+commands[webstorm]} )); then 
+    alias wstorm="webstorm ."
+fi
+
+if (( ${+commands[egrep]} )); then
+    alias egrep='egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+fi 
+
+if (( ${+commands[fgrep]} )); then 
+    alias fgrep='fgrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+fi 
+
+

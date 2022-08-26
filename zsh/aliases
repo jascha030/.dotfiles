@@ -1,56 +1,6 @@
 #!/usr/bin/env zsh
 
 alias rr="exec $SHELL -l"
-
-if (( ${+LS_OVERRIDE} )); then
-    alias ls=${LS_OVERRIDE}
-fi
-
-if (( ${+CAT_OVERRIDE} )); then 
-    alias cat=${CAT_OVERRIDE}
-fi
-
-if (( ${+commands[nvim]} )); then 
-    alias vim=nvim
-fi
-
-if (( ${+LAZYGIT_CONFIG} )); then 
-    function __lazygit {
-        local _config=${LAZYGIT_CONFIG}/config_dark.yml
-        local _dark=$(is_dark)
-        local _nvim=$(is_neovim)
-        
-        if [[ "$_dark" == 0 ]] && [[ "$is_neovim" == 0 ]]; then 
-            _config=${LAZYGIT_CONFIG}/config_light.yml
-        fi
-
-        lazygit -ucf "$_config"
-    }
-
-    autoload -Uz __lazygit
-    alias lazygit="__lazygit"
-fi 
-
-if (( ${+commands[idea]} )); then 
-    alias idea="idea ."
-fi
-
-if (( ${+commands[phpstorm]} )); then
-    alias pstorm="phpstorm ."
-fi
-
-if (( ${+commands[webstorm]} )); then 
-    alias wstorm="webstorm ."
-fi
-
-if (( ${+commands[egrep]} )); then
-    alias egrep='egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
-fi 
-
-if (( ${+commands[fgrep]} )); then 
-    alias fgrep='fgrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
-fi 
-
 alias kraken='$(open gitkraken://repo/$PWD)' # Note: Don't change to double quotes, as it auto-triggers.
 alias root='cd $(git rev-parse --show-toplevel)'
 
@@ -75,23 +25,21 @@ alias edit="vim $1"
 #---------------------------------------------------- Navigation -----------------------------------------------------#  
 
 alias config="cd $XDG_CONFIG"
-alias dev="cd $HOME/.development/Projects"
+alias cf="config"
+alias dev="cd $DEV"
 alias df="cd $DOTFILES"
-
 alias ll="ls $LS_DEFAULT_ARGS"
 alias lll='ll | lolcrab'
 
 #----------------------------------------------------- Utilities -----------------------------------------------------#  
 
-alias scrsvr='open -a ScreenSaverEngine'
 alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
 alias cargoup='cargo install-update --all'
-
 alias appup='brewup && cargoup'
+alias packersync="nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
 
 alias tm-auto='sudo tmutil startbackup --auto; tmutil status'
-
-alias fzprev="fzf --preview 'cat --color=always --style=numbers --line-range=:500 {}'"
+alias scrsvr='open -a ScreenSaverEngine'
 alias luamake="$HOME/tools/lua-language-server/3rd/luamake/luamake"
 
 alias valetrm="rm $HOME/.config/valet/valet.sock"
@@ -108,23 +56,21 @@ alias composer74="/usr/local/opt/php@7.4/bin/php $(which composer)"
 alias composer80="/usr/local/opt/php@8.0/bin/php $(which composer)"
 alias composer81="/usr/local/opt/php@8.1/bin/php $(which composer)"
 
+alias pwd='echo $PWD | pbcopy'
+alias fzprev="fzf --preview 'cat --color=always --style=numbers --line-range=:500 {}'"
 
-alias list:cargo="cargo install --list"
 alias list:brew="brew list"
+alias list:cargo="cargo install --list"
+alias list:path="echo \"$PATH\" | tr ':' '\n'"
 
-alias l:path="echo \"$PATH\" | tr ':' '\n'"
-alias lc:path='l:path | cat'
-alias lf:path='l:path | fzf'
-alias l:brew='brew list'
-alias lc:brew='l:brew | cat'
-alias lf:brew='brew list | fzf'
+alias lf:cargo='list:cargo | fzf'
+alias lf:brew='list:brew | fzf'
+alias lf:path='list:path | fzf'
 
-alias pwd="echo $PWD | pbcopy"
-alias cp:ssh="cat $HOME/.ssh/id_rsa.pub"
+alias cp:ssh="cat $HOME/.ssh/id_rsa.pub | pbcopy"
 alias cp:shrug='e "¯\_(ツ)_/¯" | pbcopy'
 alias cp:sbcrepo='e "{\"type\": \"composer\", \"url\": \"https://composer.sbdev.nl/\"}" | pp_json | pbcopy'
 alias cp:broodje='e "38. Witte Ital. Bol Gerookte Kip, avocado mayo met extra avocado + blik cola - €9,50" | pbcopy'
-alias cp:ssh="ssh | pbcopy"
 
 alias clone:sb-starter="git clone git@bitbucket.org:socialbrothers/wordpress-starter-theme.git"
 alias clone:wp="git clone git@github.com:wordpress/wordpress"
