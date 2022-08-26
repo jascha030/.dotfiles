@@ -1,6 +1,11 @@
-local M = {}
-
 local user_config = nil
+
+local config = {
+    options = {},
+    global = {},
+    buffer = {},
+    window = {},
+}
 
 local scopes = {
     g = vim.g,
@@ -10,13 +15,6 @@ local scopes = {
     opt = vim.opt,
 }
 
-local config = {
-    options = {},
-    global = {},
-    buffer = {},
-    window = {},
-}
-
 local function set_from_config(option_scopes, options)
     for option_scope, option_list in pairs(options) do
         for option_key, option_value in pairs(option_list) do
@@ -24,6 +22,8 @@ local function set_from_config(option_scopes, options)
         end
     end
 end
+
+local M = {}
 
 function M.setup(settings)
     settings = vim.tbl_deep_extend('force', config, settings or {})
