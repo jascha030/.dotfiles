@@ -1,11 +1,9 @@
 return function()
     local devicons = require('nvim-web-devicons')
-    local colors = require('colors').get_colors()
-    -- local user_colors = require('colors').get_user_colors()
 
-    local user_colors = {
-        git_orange = '#f05033',
-    }
+    local colors = require('colors').get_colors()
+
+    local user_colors = { git_orange = '#f05033' }
 
     local icons = {
         alias = '',
@@ -18,6 +16,7 @@ return function()
         documentation = '',
         editor = '',
         fileinfo = '',
+        finder = '',
         git = '',
         git_sync = '',
         git_branch = '',
@@ -94,6 +93,11 @@ return function()
             icon = get('init'),
             color = colors.magenta,
             name = 'InitLua',
+        },
+        ['.macos'] = {
+            icon = get('finder'),
+            colors = colors.magenta,
+            name = 'MacOs',
         },
         ['aliases'] = {
             icon = get('alias'),
