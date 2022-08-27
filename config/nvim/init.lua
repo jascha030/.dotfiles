@@ -13,3 +13,32 @@
 
 vim.o.runtimepath = vim.o.runtimepath .. ',' .. os.getenv('XDG_CONFIG_HOME')
 
+local utils = require('utils')
+
+vim.g.mapleader = [[ ]]
+
+local options = {
+    mouse = 'nvi',
+    termguicolors = true,
+    incsearch = true,
+    colorcolumn = '120',
+    backspace = 'indent,eol,start',
+    fileencoding = 'utf-8',
+    fillchars = 'eob: ,msgsep:‾',
+    scrolloff = 5,
+    showtabline = 2,
+    tabstop = 4,
+    shiftwidth = 4,
+    expandtab = true,
+    smartindent = true,
+    number = true,
+    cursorline = true,
+    modifiable = true,
+    updatetime = 400,
+    signcolumn = 'yes',
+}
+
+for k, v in pairs(options) do
+	utils.opt(k, v)
+end
+
