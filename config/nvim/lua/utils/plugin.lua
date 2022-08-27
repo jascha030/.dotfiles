@@ -1,20 +1,20 @@
-local M = {}
+local Plugin = {}
 
 local cmds_loaded = false
-local create_cmd = vim.api.nvim_create_user_command
 local data_dir = string.format("%s/site", vim.fn.stdpath("data"))
 local install_path = data_dir .. "pack/packer-lib/opt/packer.nvim"
 
-function M.packer_install()
-	vim.cmd([[packadd packer.nvim]])
+function Plugin.packer_install()
 	vim.fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+	vim.cmd([[packadd packer.nvim]])
 end
 
-function M.create_cmds()
+function Plugin.create_cmds()
 	if cmd_loaded == true then
 		return
 	end
 
+    local create_cmd = vim.api.nvim_create_user_command
 	cmd_loaded = true
 
 	create_cmd("PackerInstall", function()
@@ -43,4 +43,4 @@ function M.create_cmds()
 	end, {})
 end
 
-return M
+return Plugin
