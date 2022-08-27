@@ -22,7 +22,10 @@ function init()
 	packer.reset()
 
 	use({ "wbthomason/packer.nvim", opt = true })
+    use({ 'wakatime/vim-wakatime' })
+
 end
+
 local plugins = setmetatable({}, {
 	__index = function(_, key)
 		init()
