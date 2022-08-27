@@ -24,6 +24,11 @@ function init()
 	use({ "wbthomason/packer.nvim", opt = true })
     use({ 'wakatime/vim-wakatime' })
 
+    use({
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
+        'neovim/nvim-lspconfig',
+    })
 end
 
 local plugins = setmetatable({}, {
