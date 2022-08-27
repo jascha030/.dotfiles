@@ -11,10 +11,9 @@
 --                                                                      --
 --[[=================beep-beep-Config-2.0-beep-boop=====================]]
 
-vim.o.runtimepath = vim.o.runtimepath .. ',' .. os.getenv('XDG_CONFIG_HOME')
-
 local utils = require('utils')
 
+vim.o.runtimepath = vim.o.runtimepath .. ',' .. os.getenv('XDG_CONFIG_HOME')
 vim.g.mapleader = [[ ]]
 
 local options = {
@@ -37,6 +36,8 @@ local options = {
     updatetime = 400,
     signcolumn = 'yes',
 }
+
+utils.plugin.create_cmds()
 
 for k, v in pairs(options) do
 	utils.opt(k, v)
