@@ -1,25 +1,23 @@
 local util = require('utils')
-
 local root = os.getenv('HOME') .. '/tools/lua-language-server'
 local binary = root .. '/bin/lua-language-server'
 
--- workspace
 local WS = {}
 
 function WS.in_dotfiles()
-    return util.cwd_in(vim.fn.expand('$DOTFILES'))
+    return util.fs.cwd_in(vim.fn.expand('$DOTFILES'))
 end
 
 function WS.in_hammerspoon()
-    return (util.cwd_in(vim.fn.expand('$HOME/.hammerspoon')) or WS.in_dotfiles())
+    return (util.fs.cwd_in(vim.fn.expand('$HOME/.hammerspoon')) or WS.in_dotfiles())
 end
 
 function WS.in_neovim()
-    return (util.cwd_in(vim.fn.stdpath('config')) or WS.in_dotfiles())
+    return (util.fs.cwd_in(vim.fn.stdpath('config')) or WS.in_dotfiles())
 end
 
 function WS.in_wez()
-    return (util.cwd_in(vim.fn.expand('$HOME/.hammerspoon')) or WS.in_dotfiles())
+    return (util.fs.cwd_in(vim.fn.expand('$HOME/.hammerspoon')) or WS.in_dotfiles())
 end
 
 local M = {}
@@ -79,7 +77,7 @@ end
 function M.version()
     local ret = { 'LuaJIT' }
 
-    if util.tbl_length(ret) == 1 then
+    if util.tbl.tbl_length(ret) == 1 then
         return 'LuaJIT'
     end
 
