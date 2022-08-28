@@ -21,12 +21,16 @@ local function init()
             threshold = 1,
         },
     })
-
     local use = packer.use
     packer.reset()
 
     use({ 'wbthomason/packer.nvim', opt = true })
-    use({ 'yamatsum/nvim-nonicons', branch = 'feat/lua', requires = { 'kyazdani42/nvim-web-devicons' } })
+
+    use({
+        'yamatsum/nvim-nonicons',
+        requires = { 'kyazdani42/nvim-web-devicons' },
+        -- config = require('plugins.devicons'),
+    })
     use({
         {
             'kyazdani42/nvim-tree.lua',
@@ -54,6 +58,7 @@ local function init()
         },
         { 'hoob3rt/lualine.nvim', config = require('plugins.line') },
         { 'folke/which-key.nvim', config = [[require('which-key').setup({})]] },
+        { 'norcalli/nvim-colorizer.lua', config = [[require('colorizer').setup()]] },
     })
 
     -- Treesitter
@@ -123,6 +128,7 @@ local function init()
     })
 
     use({ 'wakatime/vim-wakatime' })
+
 end
 
 local plugins = setmetatable({}, {
