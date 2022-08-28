@@ -98,4 +98,5 @@ return function()
             },
         },
     })
+    require('nvim-tree').on_enter()
 end
