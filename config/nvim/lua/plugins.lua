@@ -129,6 +129,7 @@ local function init()
 
     use({ 'wakatime/vim-wakatime' })
 
+    use({ os.getenv('HOME') .. '/.development/Projects/lua/nitepal.nvim' })
 end
 
 local plugins = setmetatable({}, {
