@@ -1,25 +1,24 @@
 local Plugin = {}
-
 local cmds_loaded = false
-local install_path = ("%s/site/pack/packer-lib/opt/packer.nvim"):format(vim.fn.stdpath "data")
+local install_path = ("%s/site/pack/packer-lib/opt/packer.nvim"):format(vim.fn.stdpath("data"))
 
 function packer_install()
-    vim.fn.termopen(("git clone https://github.com/wbthomason/packer.nvim %q"):format(install_path))
+	vim.fn.termopen(("git clone https://github.com/wbthomason/packer.nvim %q"):format(install_path))
 end
 
 function Plugin.packer_init()
-    if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-        packer_install()
-    end
+	if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+		packer_install()
+	end
 
-    vim.cmd [[packadd packer.nvim]]
+	vim.cmd([[packadd packer.nvim]])
 
-    function _G.packer_upgrade()
-        vim.fn.delete(install_path, "rf")
-        packer_install()
-    end
+	function _G.packer_upgrade()
+		vim.fn.delete(install_path, "rf")
+		packer_install()
+	end
 
-    vim.cmd [[command! PackerUpgrade :call v:lua.packer_upgrade()]]
+	vim.cmd([[command! PackerUpgrade :call v:lua.packer_upgrade()]])
 end
 
 function Plugin.create_cmds()
@@ -27,7 +26,7 @@ function Plugin.create_cmds()
 		return
 	end
 
-    local create_cmd = vim.api.nvim_create_user_command
+	local create_cmd = vim.api.nvim_create_user_command
 	cmds_loaded = true
 
 	create_cmd("PackerInstall", function()
