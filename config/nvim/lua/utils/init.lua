@@ -1,35 +1,76 @@
 local Utils = {}
 
-Utils.data_path = function(subpath)
-    local args = { vim.fn.stdpath("data") }
+function Utils.wrap(fnc, ...)
+    local params = { ... }
 
-    if subpath ~= nil then
-	table.insert(args, subpath)
+    if type(fnc) ~= 'function' then
+        local prev = fnc
+
+        fnc = function(...)
+            return prev
+        end
     end
-    
-    return string.format(subpath ~= nil and "%s/site" or "%s/site/%s", table.unpack(args))
+
+    return function()
+        return fnc(unpack(params))
+    end
 end
 
-Utils.wrap = function(fnc, ...)
-	local params = { ... }
+local function safe_load(m)
+    local ok, res = pcall(require, m)
 
-	if type(fnc) ~= "function" then
-		local prev = fnc
-
-		fnc = function(...)
-			return prev
-		end
-	end
-
-	return function()
-		return fnc(unpack(params))
-	end
+    return ok, res
 end
 
-return setmetatable(Utils, {
-	__index = function(self, key)
-		local ok, submod = pcall(require, "utils." .. key)
+function Utils.check_deps(list)
+    for _, v in ipairs(list) do
+        if not safe_load(v) then
+            return false, v
+        end
+    end
 
-		return ok and submod or nil
-	end,
+    return true, list
+end
+
+function Utils.validate(list, where)
+    local ok, v = Utils.check_deps(list)
+
+    if not ok then
+        error('Error initializing ' .. where .. ': missing dependency: "' .. v .. '.')
+    end
+
+    return ok
+end
+
+function Utils.str_explode(delimiter, p)
+    local tbl, position = {}, 0
+
+    if #p == 1 then
+        return { p }
+    end
+
+    while true do
+        local l = string.find(p, delimiter, position, true)
+
+        if l ~= nil then
+            table.insert(tbl, string.sub(p, position, l - 1))
+            position = l + 1
+        else
+            table.insert(tbl, string.sub(p, position))
+
+            break
+        end
+    end
+
+    return tbl
+end
+
+Utils = setmetatable(Utils, {
+    __index = function(_, key)
+        local ok, submod = pcall(require, 'utils.' .. key)
+
+        return ok and submod or nil
+    end,
 })
+
+return Utils

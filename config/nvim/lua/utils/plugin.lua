@@ -1,12 +1,25 @@
 local Plugin = {}
 
 local cmds_loaded = false
-local data_dir = string.format("%s/site", vim.fn.stdpath("data"))
-local install_path = data_dir .. "pack/packer-lib/opt/packer.nvim"
+local install_path = ("%s/site/pack/packer-lib/opt/packer.nvim"):format(vim.fn.stdpath "data")
 
-function Plugin.packer_install()
-	vim.fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-	vim.cmd([[packadd packer.nvim]])
+function packer_install()
+    vim.fn.termopen(("git clone https://github.com/wbthomason/packer.nvim %q"):format(install_path))
+end
+
+function Plugin.packer_init()
+    if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+        packer_install()
+    end
+
+    vim.cmd [[packadd packer.nvim]]
+
+    function _G.packer_upgrade()
+        vim.fn.delete(install_path, "rf")
+        packer_install()
+    end
+
+    vim.cmd [[command! PackerUpgrade :call v:lua.packer_upgrade()]]
 end
 
 function Plugin.create_cmds()
