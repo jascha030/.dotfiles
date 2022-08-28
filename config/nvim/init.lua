@@ -11,10 +11,10 @@
 --                                                                      --
 --[[=================beep-beep-Config-2.0-beep-boop=====================]]
 
-local utils = require('utils')
-local map = vim.api.nvim_set_keymap
-
 vim.o.runtimepath = vim.o.runtimepath .. ',' .. os.getenv('XDG_CONFIG_HOME')
+
+local utils = require('utils')
+
 vim.g.mapleader = [[ ]]
 
 local options = {
@@ -37,6 +37,8 @@ local options = {
     updatetime = 400,
     signcolumn = 'yes',
 }
+
+local map = vim.api.nvim_set_keymap
 
 local maps = {
             ['n'] = {
@@ -77,9 +79,10 @@ for mtype, tmaps in pairs(maps) do
     end
 end
 
-utils.plugin.create_cmds()
-
 for k, v in pairs(options) do
 	utils.opt(k, v)
 end
+
+require('lsp').init()
+utils.plugin.create_cmds()
 
