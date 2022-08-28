@@ -11,6 +11,6 @@ return function(key, val, scope)
 	if not scope then
 		vim.opt[key] = val
 	else
-		scopes[scope][option_key] = val
+		scopes[scope][key] = val
 	end
 end

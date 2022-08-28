@@ -23,12 +23,12 @@ function Plugin.packer_init()
 end
 
 function Plugin.create_cmds()
-	if cmd_loaded == true then
+	if cmds_loaded == true then
 		return
 	end
 
     local create_cmd = vim.api.nvim_create_user_command
-	cmd_loaded = true
+	cmds_loaded = true
 
 	create_cmd("PackerInstall", function()
 		vim.cmd([[packadd packer.nvim]])

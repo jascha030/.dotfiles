@@ -1,6 +1,6 @@
 local packer = nil
 
--- require('utils').plugin.packer_init()
+require('utils').plugin.packer_init()
 
 local function init()
     if not packer then
@@ -9,7 +9,7 @@ local function init()
     end
 
     packer.init({
-        compile_path = require('utils').fs.data_dir .. '/lua/_compiled.lua',
+        -- compile_path = require('utils').fs.data_dir .. '/lua/_compiled.lua',
         disable_commands = true,
         display = {
             open_fn = function()

@@ -83,6 +83,7 @@ for k, v in pairs(options) do
 	utils.opt(k, v)
 end
 
-require('lsp').init()
 utils.plugin.create_cmds()
+
+require('lsp').init()
 
