@@ -2,6 +2,13 @@ local packer = nil
 
 require('utils').plugin.packer_init()
 
+vim.cmd([[
+    augroup packer_user_config
+        autocmd!
+        autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    augroup end
+]])
+
 local function init()
     if not packer then
         vim.cmd([[packadd packer.nvim]])
