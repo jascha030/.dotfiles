@@ -144,6 +144,9 @@ local function init()
 
     use({ 'wakatime/vim-wakatime' })
 
+    -- only included for the EmmyLua annotations.
+    use({ 'folke/lua-dev.nvim', opt = true })
+
     use({ os.getenv('HOME') .. '/.development/Projects/lua/nitepal.nvim' })
 end
 
