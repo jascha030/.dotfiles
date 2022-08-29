@@ -2,15 +2,20 @@ local Plugin = {}
 local cmds_loaded = false
 local install_path = ('%s/site/pack/packer-lib/opt/packer.nvim'):format(vim.fn.stdpath('data'))
 
+local function packer_install()
+    vim.fn.termopen(('git clone https://github.com/wbthomason/packer.nvim %q'):format(install_path))
+end
+
 function Plugin.packer_init()
     if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-        vim.fn.termopen(('git clone https://github.com/wbthomason/packer.nvim %q'):format(install_path))
+        packer_install()
     end
 
     vim.cmd([[packadd packer.nvim]])
 
     function _G.packer_upgrade()
         vim.fn.delete(install_path, 'rf')
+
         packer_install()
     end
 
