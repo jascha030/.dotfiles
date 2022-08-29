@@ -28,6 +28,7 @@ local function init()
             threshold = 1,
         },
     })
+
     local use = packer.use
     packer.reset()
 
@@ -64,7 +65,9 @@ local function init()
             end,
         },
         { 'hoob3rt/lualine.nvim', config = require('plugins.line') },
+        { 'noib3/nvim-cokeline', config = require('plugins.coke') },
         { 'folke/which-key.nvim', config = [[require('which-key').setup({})]] },
+        { 'ziontee113/color-picker.nvim', config = [[require('color-picker').setup({})]] },
         { 'norcalli/nvim-colorizer.lua', config = [[require('colorizer').setup()]] },
     })
 
