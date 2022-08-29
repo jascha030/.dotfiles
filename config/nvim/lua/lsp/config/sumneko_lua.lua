@@ -42,7 +42,6 @@ function M.path()
 end
 
 function M.library()
-    --local ret = vim.api.nvim_get_runtime_file('', true)
     local ret = {}
 
     local function add(lib, filter)
@@ -55,23 +54,17 @@ function M.library()
         end
     end
 
-    if WS.in_dotfiles() then
-        add('$VIMRUNTIME/lua')
-        add('/Applications/Hammerspoon.app/Contents/Resources/extensions/hs')
-        add('$HOME/.hammerspoon/Spoons/EmmyLua.spoon/annotations')
-        add('$WEZTERM_CONFIG_DIR')
-    end
-
-    if WS.in_neovim() then
+    if WS.in_neovim() or WS.in_dotfiles() then
+        add('$VIMRUNTIME')
         add('$VIMRUNTIME/lua')
     end
 
-    if WS.in_hammerspoon() then
+    if WS.in_hammerspoon() or WS.in_dotfiles() then
         add('/Applications/Hammerspoon.app/Contents/Resources/extensions/hs')
         add('$HOME/.hammerspoon/Spoons/EmmyLua.spoon/annotations')
     end
 
-    if WS.in_wez() then
+    if WS.in_wez() or WS.in_dotfiles() then
         add('$WEZTERM_CONFIG_DIR')
     end
 
