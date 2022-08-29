@@ -37,7 +37,12 @@ local function init()
     use({
         'yamatsum/nvim-nonicons',
         requires = { 'kyazdani42/nvim-web-devicons' },
-        config = require('plugins.devicons'),
+        config = function()
+            require('nvim-web-devicons').setup({
+                default_icon = require('utils').conf.devicons.default_icon,
+            })
+        end,
+        -- config = require('plugins.devicons'),
     })
     use({
         {
