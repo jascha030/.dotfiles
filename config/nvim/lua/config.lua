@@ -1,4 +1,5 @@
 return {
+    colorscheme = 'nitepal',
     options = {
         opt = {
             mouse = 'nvi',
@@ -43,6 +44,7 @@ return {
         },
         ['v'] = {
             ['<C-c>'] = { ':OSCYank<CR>' },
+            ['<C-_>'] = { '<cmd>CommentToggle<CR>' }
         },
         ['t'] = {
             ['<C-t>'] = { '<C-\\><C-n> :FloatermToggle[!]<CR>' },
