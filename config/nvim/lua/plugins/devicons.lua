@@ -1,6 +1,5 @@
 return function()
     local bg = vim.o.background
-
     local devicons = require('nvim-web-devicons')
     local colors = require('nitepal.colors').get_colors()[bg or 'dark']
 
