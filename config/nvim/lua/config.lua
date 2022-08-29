@@ -29,7 +29,7 @@ return {
             ['<C-f>'] = { ':lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>' },
             ['<C-l>'] = { ':lua vim.lsp.buf.formatting()<CR>' },
             ['<S-Tab>'] = { '<Plug>(cokeline-focus-next)', { silent = true } },
-            ['<C-w>'] = { '<cmd>close<CR>' },
+            ['<C-w><C-c>'] = { '<cmd>close<CR>' },
             ['<C-n>'] = { '<cmd>NvimTreeToggle<CR>' },
             ['N'] = { '<cmd>NvimTreeFocus<CR>' },
             ['ss'] = { '<cmd>Telescope<CR>' },
