@@ -14,5 +14,3 @@
 vim.o.runtimepath = vim.o.runtimepath .. ',' .. os.getenv('XDG_CONFIG_HOME')
 
 require('utils').conf.setup()
-
-vim.cmd([[colorscheme nitepal]])
