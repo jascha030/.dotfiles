@@ -48,7 +48,11 @@ local function _setup()
         end
     end
 
-    vim.cmd('colorscheme ' .. Conf.colorscheme)
+    if Conf.colorscheme == 'nitepal' then
+        require('utils').theme.init()
+    else
+        vim.cmd('colorscheme ' .. Conf.colorscheme)
+    end
 
     require('lsp').init()
 
