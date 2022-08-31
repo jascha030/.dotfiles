@@ -44,7 +44,7 @@ return {
         },
         ['v'] = {
             ['<C-c>'] = { ':OSCYank<CR>' },
-            ['<C-_>'] = { '<cmd>CommentToggle<CR>' }
+            ['<C-_>'] = { '<cmd>CommentToggle<CR>' },
         },
         ['t'] = {
             ['<C-t>'] = { '<C-\\><C-n> :FloatermToggle[!]<CR>' },
@@ -88,9 +88,22 @@ return {
             telescope = ' ',
             term = '',
             wrench = '',
+            lockfile = '',
+            bitbucket = '',
         },
-        colors = require('nitepal.colors').get_colors()[vim.o.background or 'dark'],
+        colors = require('nitepal.utils.palette').get_colors()[vim.o.background or 'dark'],
         overrides = {
+            ['Alias'] = {
+                icon = 'alias',
+                color = 'yellow',
+                filetypes = 'aliases',
+            },
+            ['Autols'] = {
+                icon = 'fileinfo',
+                color = 'cyan',
+                filetypes = 'auto-ls',
+            },
+
             ['Ignore'] = {
                 icon = 'ignore',
                 color = 'black',
@@ -102,7 +115,7 @@ return {
             },
             ['GitConfig'] = {
                 icon = 'git',
-                color = 'git_orange',
+                color = 'orange',
                 filetypes = {
                     ['Default'] = '.gitconfig',
                     ['Dotfile'] = 'gitconfig',
@@ -143,16 +156,6 @@ return {
                 color = 'magenta',
                 filetypes = '.macos',
             },
-            ['Alias'] = {
-                icon = 'alias',
-                color = 'yellow',
-                filetypes = 'aliases',
-            },
-            ['Autols'] = {
-                icon = 'fileinfo',
-                color = 'cyan',
-                filetypes = 'auto-ls',
-            },
             ['Fzf'] = {
                 icon = 'telescope',
                 color = 'red',
@@ -182,6 +185,16 @@ return {
                 icon = 'npm',
                 color = 'blue',
                 filetypes = '.nvmrc',
+            },
+            ['Lockfile'] = {
+                icon = 'lockfile',
+                color = 'white',
+                filetypes = '.lock',
+            },
+            ['BitbucketPipeline'] = {
+                icon = 'bitbucket',
+                color = 'bright_blue',
+                filetype = 'bitbucket-pipelines.yml',
             },
         },
     },
