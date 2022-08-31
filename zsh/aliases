@@ -18,7 +18,7 @@ alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe327
 # Controls
 alias x='exit'
 alias c='clear'
-alias e='echo'
+alias e='echo -n'
 alias rd='rmdir'
 alias edit="vim $1"
 
@@ -28,6 +28,8 @@ alias config="cd $XDG_CONFIG"
 alias cf="config"
 alias dev="cd $DEV"
 alias df="cd $DOTFILES"
+alias composerhome='cd $(composer -g config home)'
+
 alias ll="ls $LS_DEFAULT_ARGS"
 alias lll='ll | lolcrab'
 
@@ -56,7 +58,10 @@ alias composer74="/usr/local/opt/php@7.4/bin/php $(which composer)"
 alias composer80="/usr/local/opt/php@8.0/bin/php $(which composer)"
 alias composer81="/usr/local/opt/php@8.1/bin/php $(which composer)"
 
-alias pwd='echo $PWD | pbcopy'
+alias wpuser:create='wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
+
+
+alias pwd='e $PWD | pbcopy'
 alias fzprev="fzf --preview 'cat --color=always --style=numbers --line-range=:500 {}'"
 
 alias list:brew="brew list"
