@@ -1,17 +1,18 @@
-local darkmode = require('darkmode')
-
 local M = {}
 local DARK = 'dark'
 local LIGHT = 'light'
 
 local loaded = false
+local darkmode = nil
 
 function M.is_dark()
     return vim.o.background == DARK
 end
 
 function M.update(mode)
-    vim.o.background = mode
+    if vim.o.background ~= mode then
+        vim.o.background = mode
+    end
 
     vim.cmd([[colorscheme nitepal]])
 end
@@ -20,13 +21,12 @@ function M.toggle()
     M.update(M.is_dark() and LIGHT or DARK)
 end
 
-local function autocmds()
-    vim.api.nvim_create_autocmd('Signal', {
-        pattern = 'SIGUSR1',
-        callback = function()
-            M.update(darkmode.enabled() and DARK or LIGHT)
-        end,
-    })
+function M.set_from_os()
+    if not darkmode then
+        darkmode = require('darkmode')
+    end
+
+    M.update(darkmode.enabled() and DARK or LIGHT)
 end
 
 function M.init()
@@ -36,13 +36,11 @@ function M.init()
 
     loaded = true
 
-    autocmds()
-
     vim.keymap.set('n', 'CS', function()
         M.toggle()
     end, { noremap = true })
 
-    M.update(darkmode.enabled() and DARK or LIGHT)
+    M.set_from_os()
 end
 
 return M
