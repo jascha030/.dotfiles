@@ -33,7 +33,6 @@ local function init()
     packer.reset()
 
     use({ 'wbthomason/packer.nvim', opt = true })
-
     use({
         'yamatsum/nvim-nonicons',
         requires = { 'kyazdani42/nvim-web-devicons' },
@@ -74,6 +73,12 @@ local function init()
         { 'folke/which-key.nvim', config = [[require('which-key').setup({})]] },
         { 'ziontee113/color-picker.nvim', config = [[require('color-picker').setup({})]] },
         { 'norcalli/nvim-colorizer.lua', config = [[require('colorizer').setup()]] },
+        {
+            'windwp/nvim-autopairs',
+            config = function()
+                require('nvim-autopairs').setup({})
+            end,
+        },
     })
 
     -- Treesitter
@@ -142,11 +147,11 @@ local function init()
         },
     })
 
+    use('b0o/schemastore.nvim')
     use({ 'wakatime/vim-wakatime' })
 
     -- only included for the EmmyLua annotations.
     use({ 'folke/lua-dev.nvim', opt = true })
-
     use({ os.getenv('HOME') .. '/.development/Projects/lua/nitepal.nvim' })
 end
 
