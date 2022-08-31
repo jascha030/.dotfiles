@@ -26,6 +26,8 @@ local Conf = setmetatable({}, {
 })
 
 local function _setup()
+    vim.o.runtimepath = vim.o.runtimepath .. ',' .. os.getenv('XDG_CONFIG_HOME')
+
     local utils = require('utils')
     local map = vim.api.nvim_set_keymap
     local default_m_opts = { noremap = true }
@@ -49,7 +51,7 @@ local function _setup()
     end
 
     if Conf.colorscheme == 'nitepal' then
-        require('utils').theme.init()
+        require('utils.theme').init()
     else
         vim.cmd('colorscheme ' .. Conf.colorscheme)
     end
@@ -57,7 +59,6 @@ local function _setup()
     require('lsp').init()
 
     utils.plugin.create_cmds()
-    utils.icons.setup(Conf.devicons)
 end
 
 function Conf.setup()

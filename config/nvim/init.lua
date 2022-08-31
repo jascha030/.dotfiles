@@ -11,6 +11,4 @@
 --                                                                      --
 --[[=================beep-beep-Config-2.0-beep-boop=====================]]
 
-vim.o.runtimepath = vim.o.runtimepath .. ',' .. os.getenv('XDG_CONFIG_HOME')
-
-require('utils').conf.setup()
+require('utils.conf').setup()
