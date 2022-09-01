@@ -56,7 +56,7 @@ function M.library()
 
     if WS.in_neovim() or WS.in_dotfiles() then
         add('$VIMRUNTIME')
-        add('$VIMRUNTIME/lua')
+        add('$HOME/.local/share/nvim/site/pack/packer/opt/lua-dev.nvim/types')
     end
 
     if WS.in_hammerspoon() or WS.in_dotfiles() then
