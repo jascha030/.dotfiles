@@ -45,7 +45,7 @@ local function init()
     use({
 
         { 'kyazdani42/nvim-tree.lua', config = require('plugins.tree') },
-        'ojroques/vim-oscyank',
+        { 'ojroques/vim-oscyank' },
         { 'voldikss/vim-floaterm' },
         {
             'phaazon/hop.nvim',
@@ -61,8 +61,16 @@ local function init()
         { 'petertriho/nvim-scrollbar', config = [[require("scrollbar").setup({})]] },
         {
             'goolord/alpha-nvim',
+        {
+            'lukas-reineke/indent-blankline.nvim',
             config = function()
-                require('alpha').setup(require('alpha.themes.startify').opts)
+                require('indent_blankline').setup({ filetype_exclude = { 'dashboard' } })
+            end,
+        },
+        {
+            'gelguy/wilder.nvim',
+            config = function()
+                require('wilder').setup({ modes = { ':', '/', '?' } })
             end,
         },
         { 'noib3/nvim-cokeline', config = require('plugins.coke') },
@@ -121,6 +129,7 @@ local function init()
         { 'simrat39/rust-tools.nvim' },
         { 'mfussenegger/nvim-dap' },
         { 'theHamsta/nvim-dap-virtual-text', config = [[require('nvim-dap-virtual-text').setup()]] },
+        'b0o/schemastore.nvim',
         {
             'saecki/crates.nvim',
             event = { 'BufRead Cargo.toml' },
@@ -139,7 +148,6 @@ local function init()
         },
     })
 
-    use('b0o/schemastore.nvim')
     use({ 'wakatime/vim-wakatime' })
 
     -- only included for the EmmyLua annotations.
