@@ -52,7 +52,13 @@ function Plugin.create_cmds()
 
     create_cmd('PackerCompile', function()
         vim.cmd([[packadd packer.nvim]])
-        require('plugins').compile()
+        require('plugins').compile({ profile = true })
+    end, {})
+
+    create_cmd('PackerProfile', function()
+        vim.cmd([[packadd packer.nvim]])
+
+        require('plugins').profile_output()
     end, {})
 end
 

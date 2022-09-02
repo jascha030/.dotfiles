@@ -43,7 +43,6 @@ local function init()
         end,
     })
     use({
-
         { 'kyazdani42/nvim-tree.lua', config = require('plugins.tree') },
         { 'ojroques/vim-oscyank' },
         { 'voldikss/vim-floaterm' },
@@ -61,12 +60,11 @@ local function init()
         { 'petertriho/nvim-scrollbar', config = [[require("scrollbar").setup({})]] },
         {
             'goolord/alpha-nvim',
-        {
-            'lukas-reineke/indent-blankline.nvim',
             config = function()
-                require('indent_blankline').setup({ filetype_exclude = { 'dashboard' } })
+                require('alpha').setup(require('alpha.themes.startify').opts)
             end,
         },
+        { 'lukas-reineke/indent-blankline.nvim' },
         {
             'gelguy/wilder.nvim',
             config = function()
