@@ -20,6 +20,8 @@ return {
             modifiable = true,
             updatetime = 400,
             signcolumn = 'yes',
+            rnu = true,
+            shell = '/bin/zsh'
         },
     },
     keymaps = {
@@ -40,11 +42,14 @@ return {
             ['<C-t>'] = { '<cmd>FloatermToggle[!]<CR>' },
             ['m'] = { '<cmd>Mason<CR>' },
             ['<C-_>'] = { '<cmd>CommentToggle<CR>' },
-            ['<C-p><C-p>'] = { '<cmd>PickColor<CR>' },
+            ['<leader>CP'] = { '<cmd>PickColor<CR>' },
+            ['<leader>PC'] = { '<cmd>PackerCompile<CR>' },
+            ['<leader>PU'] = { '<cmd>PackerUpdate<CR>' },
+            ['<leader>PI'] = { '<cmd>PackerInstall<CR>' },
         },
         ['v'] = {
             ['<C-c>'] = { ':OSCYank<CR>' },
-            ['<C-_>'] = { '<cmd>CommentToggle<CR>' },
+            ['<C-_>'] = { ":'<,'>CommentToggle<CR>" },
         },
         ['t'] = {
             ['<C-t>'] = { '<C-\\><C-n> :FloatermToggle[!]<CR>' },

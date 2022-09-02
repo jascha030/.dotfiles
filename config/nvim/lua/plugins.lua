@@ -43,10 +43,10 @@ local function init()
         end,
     })
     use({
+
         { 'kyazdani42/nvim-tree.lua', config = require('plugins.tree') },
         'ojroques/vim-oscyank',
-        'voldikss/vim-floaterm',
-        'lukas-reineke/indent-blankline.nvim',
+        { 'voldikss/vim-floaterm' },
         {
             'phaazon/hop.nvim',
             branch = 'v2',
