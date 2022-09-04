@@ -43,9 +43,9 @@ local function init()
         end,
     })
     use({
+        'voldikss/vim-floaterm',
         { 'kyazdani42/nvim-tree.lua', config = require('plugins.tree') },
         { 'ojroques/vim-oscyank' },
-        { 'voldikss/vim-floaterm' },
         {
             'phaazon/hop.nvim',
             branch = 'v2',
@@ -64,7 +64,7 @@ local function init()
                 require('alpha').setup(require('alpha.themes.startify').opts)
             end,
         },
-        { 'lukas-reineke/indent-blankline.nvim' },
+        'lukas-reineke/indent-blankline.nvim',
         {
             'gelguy/wilder.nvim',
             config = function()
@@ -77,6 +77,7 @@ local function init()
         { 'ziontee113/color-picker.nvim', config = [[require('color-picker').setup({})]] },
         { 'norcalli/nvim-colorizer.lua', config = [[require('colorizer').setup()]] },
         { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup({})]] },
+        { 'sheerun/vim-polyglot' },
     })
 
     -- Treesitter
@@ -127,14 +128,14 @@ local function init()
         { 'simrat39/rust-tools.nvim' },
         { 'mfussenegger/nvim-dap' },
         { 'theHamsta/nvim-dap-virtual-text', config = [[require('nvim-dap-virtual-text').setup()]] },
-        'b0o/schemastore.nvim',
+        { 'b0o/schemastore.nvim' },
+        { 'folke/trouble.nvim' },
         {
             'saecki/crates.nvim',
             event = { 'BufRead Cargo.toml' },
             requires = { { 'nvim-lua/plenary.nvim' } },
             config = [[require('crates').setup()]],
         },
-        { 'folke/trouble.nvim' },
         {
             'j-hui/fidget.nvim',
             config = function()
