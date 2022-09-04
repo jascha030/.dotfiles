@@ -17,8 +17,6 @@ local function on_attach(client, bufnr)
 	vim.keymap.set("n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)
 	vim.keymap.set("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
 
-	-- vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
-
 	vim.api.nvim_create_autocmd("CursorHold", {
 		buffer = bufnr,
 		callback = function()
