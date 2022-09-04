@@ -34,7 +34,7 @@ alias ll="ls $LS_DEFAULT_ARGS"
 alias lll='ll | lolcrab'
 
 #----------------------------------------------------- Utilities -----------------------------------------------------#  
-
+alias pstorminspect="sh /Users/jaschavanaalst/Library/Application\ Support/JetBrains/Toolbox/apps/PhpStorm/ch-0/222.3739.61/PhpStorm.app/Contents/bin/inspect.sh"
 alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
 alias cargoup='cargo install-update --all'
 alias appup='brewup && cargoup'
@@ -47,9 +47,26 @@ alias luamake="$HOME/tools/lua-language-server/3rd/luamake/luamake"
 alias valetrm="rm $HOME/.config/valet/valet.sock"
 alias valetr="valetrm && valet restart"
 
-alias php74='valet use php@7.4 && composer global update'
-alias php80='valet use php@8.0 && composer global update'
-alias php81='valet use php && composer global update'
+function _phpv {
+    local version="$1"
+
+    if [[ "$version" == 8.1 ]]; then
+      version='php'
+    else 
+      local version="@$1"
+    fi
+    
+    valet use "php$version" && composer global update
+}
+
+
+alias php74='_phpv "7.4" > /dev/null &'
+alias php80='_phpv "8.0" > /dev/null &'
+alias php81='_phpv "8.1" > /dev/null &'
+
+alias php:74='valet use php@7.4 && composer global update'
+alias php:80='valet use php@8.0 && composer global update'
+alias php:81='valet use php@8.1 && composer global update'
 
 alias php8=php80
 alias php7=php74
