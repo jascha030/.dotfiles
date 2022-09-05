@@ -33,19 +33,20 @@ local function init()
     packer.reset()
 
     use({ 'wbthomason/packer.nvim', opt = true })
-    use({
-        'yamatsum/nvim-nonicons',
-        requires = { 'kyazdani42/nvim-web-devicons' },
-        config = function()
-            require('nvim-web-devicons').setup({
-                default_icon = require('utils').conf.devicons.default_icon,
-            })
-        end,
-    })
+    use('lewis6991/impatient.nvim')
     use({
         'voldikss/vim-floaterm',
+        'ojroques/vim-oscyank',
+        {
+            'yamatsum/nvim-nonicons',
+            requires = { 'kyazdani42/nvim-web-devicons' },
+            config = function()
+                require('nvim-web-devicons').setup({
+                    default_icon = require('utils').conf.devicons.default_icon,
+                })
+            end,
+        },
         { 'kyazdani42/nvim-tree.lua', config = require('plugins.tree') },
-        { 'ojroques/vim-oscyank' },
         {
             'phaazon/hop.nvim',
             branch = 'v2',
@@ -56,8 +57,6 @@ local function init()
                 })
             end,
         },
-        { 'terrortylor/nvim-comment', config = [[require('nvim_comment').setup()]] },
-        { 'petertriho/nvim-scrollbar', config = [[require("scrollbar").setup({})]] },
         {
             'goolord/alpha-nvim',
             config = function()
@@ -73,6 +72,8 @@ local function init()
         },
         { 'noib3/nvim-cokeline', config = require('plugins.coke') },
         { 'hoob3rt/lualine.nvim', config = require('plugins.line') },
+        { 'terrortylor/nvim-comment', config = [[require('nvim_comment').setup()]] },
+        { 'petertriho/nvim-scrollbar', config = [[require("scrollbar").setup({})]] },
         { 'folke/which-key.nvim', config = [[require('which-key').setup({})]] },
         { 'ziontee113/color-picker.nvim', config = [[require('color-picker').setup({})]] },
         { 'norcalli/nvim-colorizer.lua', config = [[require('colorizer').setup()]] },
@@ -127,7 +128,7 @@ local function init()
         { 'ncm2/ncm2' },
         { 'simrat39/rust-tools.nvim' },
         { 'mfussenegger/nvim-dap' },
-        { 'theHamsta/nvim-dap-virtual-text', config = [[require('nvim-dap-virtual-text').setup()]] },
+        -- { 'theHamsta/nvim-dap-virtual-text', config = [[require('nvim-dap-virtual-text').setup()]] },
         { 'b0o/schemastore.nvim' },
         { 'folke/trouble.nvim' },
         {
@@ -147,10 +148,9 @@ local function init()
         },
     })
 
-    use({ 'wakatime/vim-wakatime' })
-
     -- only included for the EmmyLua annotations.
     use({ 'folke/lua-dev.nvim', opt = true })
+    use({ 'wakatime/vim-wakatime' })
     use({ os.getenv('HOME') .. '/.development/Projects/lua/nitepal.nvim' })
 end
 
