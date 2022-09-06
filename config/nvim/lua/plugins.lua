@@ -35,18 +35,12 @@ local function init()
     use({ 'wbthomason/packer.nvim', opt = true })
     use('lewis6991/impatient.nvim')
     use({
+        { 'yamatsum/nvim-nonicons', requires = { 'kyazdani42/nvim-web-devicons' } },
         'voldikss/vim-floaterm',
         'ojroques/vim-oscyank',
-        {
-            'yamatsum/nvim-nonicons',
-            requires = { 'kyazdani42/nvim-web-devicons' },
-            config = function()
-                require('nvim-web-devicons').setup({
-                    default_icon = require('utils').conf.devicons.default_icon,
-                })
-            end,
-        },
-        { 'kyazdani42/nvim-tree.lua', config = require('plugins.tree') },
+        { 'noib3/nvim-cokeline' },
+        { 'hoob3rt/lualine.nvim' },
+        { 'kyazdani42/nvim-tree.lua' },
         {
             'phaazon/hop.nvim',
             branch = 'v2',
@@ -70,8 +64,7 @@ local function init()
                 require('wilder').setup({ modes = { ':', '/', '?' } })
             end,
         },
-        { 'noib3/nvim-cokeline', config = require('plugins.coke') },
-        { 'hoob3rt/lualine.nvim', config = require('plugins.line') },
+
         { 'terrortylor/nvim-comment', config = [[require('nvim_comment').setup()]] },
         { 'petertriho/nvim-scrollbar', config = [[require("scrollbar").setup({})]] },
         { 'folke/which-key.nvim', config = [[require('which-key').setup({})]] },

@@ -52,7 +52,7 @@ function Plugin.create_cmds()
 
     create_cmd('PackerCompile', function()
         vim.cmd([[packadd packer.nvim]])
-        require('plugins').compile({ profile = true })
+        require('plugins').compile('profile=true')
         -- require('plugins').compile()
         vim.cmd([[:LuaCacheClear]])
     end, {})

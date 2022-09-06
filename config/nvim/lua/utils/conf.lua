@@ -56,8 +56,6 @@ local function _setup()
         vim.cmd('colorscheme ' .. Conf.colorscheme)
     end
 
-    require('lsp').init()
-
     utils.plugin.create_cmds()
 end
 
