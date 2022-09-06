@@ -1,6 +1,4 @@
 return function()
-    local parsers = require('nvim-treesitter.parsers')
-
     require('nvim-treesitter.configs').setup({
         ensure_installed = {
             'bash',
@@ -23,8 +21,8 @@ return function()
         highlight = {
             enable = true,
             disable = {
-				"zsh"
-			},
+                'zsh',
+            },
         },
         rainbow = {
             enable = true,
@@ -33,10 +31,11 @@ return function()
         },
     })
 
+    -- local parsers = require('nvim-treesitter.parsers')
     -- https://github.com/nvim-treesitter/nvim-treesitter/issues/655#issuecomment-1021160477
     -- local ft_to_lang = parsers.ft_to_lang
 
     -- parsers.ft_to_lang = function(ft)
-        -- return ft == 'zsh' and 'bash' or ft_to_lang(ft)
+    -- return ft == 'zsh' and 'bash' or ft_to_lang(ft)
     -- end
 end
