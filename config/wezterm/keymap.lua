@@ -29,4 +29,6 @@ return {
     { key = '7', mods = 'LEADER', action = wezterm.action({ ActivateTab = 6 }) },
     { key = '8', mods = 'LEADER', action = wezterm.action({ ActivateTab = 7 }) },
     { key = '9', mods = 'LEADER', action = wezterm.action({ ActivateTab = 8 }) },
+    { key = ']', mods = 'CMD', action = wezterm.action.EmitEvent('opacity-up') },
+    { key = '[', mods = 'CMD', action = wezterm.action.EmitEvent('opacity-down') },
 }

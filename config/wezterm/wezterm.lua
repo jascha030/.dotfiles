@@ -26,21 +26,44 @@ local font = {
     },
 }
 
+local colors = theme.get_scheme('Dark', true)
+local opacity = 1
 
-wezterm.on("window-config-reloaded", function(window)
-	local current = window:get_appearance()
-	local overrides = window:get_config_overrides() or {}
+wezterm.on('window-config-reloaded', function(window)
+    local current = window:get_appearance()
+    local overrides = window:get_config_overrides() or {}
 
-	colors = theme.get_scheme(current, true)
-	if overrides.colors ~= colors then
-		overrides.colors = colors
-		overrides.window_background_opacity = theme.get_opacity(current)
-		window:set_config_overrides(overrides)
-	end
+    colors = theme.get_scheme(current, true)
+
+    if overrides.colors ~= colors then
+        overrides.colors = colors
+        window:set_config_overrides(overrides)
+    end
 end)
 
+wezterm.on('opacity-up', function(window, _)
+    local overrides = window:get_config_overrides() or {}
+    local current = overrides.window_background_opacity or opacity
 
+    if current >= 1 then
+        return
+    end
 
+    overrides.window_background_opacity = (current + 0.01)
+    window:set_config_overrides(overrides)
+end)
+
+wezterm.on('opacity-down', function(window, _)
+    local overrides = window:get_config_overrides() or {}
+    local current = overrides.window_background_opacity or opacity
+
+    if current <= 0 then
+        return
+    end
+
+    overrides.window_background_opacity = (current - 0.01)
+    window:set_config_overrides(overrides)
+end)
 
 wezterm.on('format-tab-title', function(tab)
     local title_icon = icon(tab.active_pane.title)
