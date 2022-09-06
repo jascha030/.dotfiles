@@ -120,8 +120,6 @@ local function init()
         { 'saadparwaiz1/cmp_luasnip' },
         { 'ncm2/ncm2' },
         { 'simrat39/rust-tools.nvim' },
-        { 'mfussenegger/nvim-dap' },
-        -- { 'theHamsta/nvim-dap-virtual-text', config = [[require('nvim-dap-virtual-text').setup()]] },
         { 'b0o/schemastore.nvim' },
         { 'folke/trouble.nvim' },
         {
@@ -139,6 +137,13 @@ local function init()
                 })
             end,
         },
+    })
+
+    use({
+        'mfussenegger/nvim-dap',
+        'rcarriga/nvim-dap-ui',
+        'theHamsta/nvim-dap-virtual-text',
+        'nvim-telescope/telescope-dap.nvim',
     })
 
     -- only included for the EmmyLua annotations.
