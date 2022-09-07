@@ -110,6 +110,8 @@ return {
     cursor_blink_rate = 250,
     cursor_blink_ease_in = 'Ease',
     cursor_blink_ease_out = 'Ease',
+
+    line_height = 1.1,
     font_size = font.size,
     font_rules = font.rules,
     colors = colors,
