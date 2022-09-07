@@ -46,6 +46,7 @@ return {
             ['<leader>PC'] = { '<cmd>PackerCompile<CR>' },
             ['<leader>PU'] = { '<cmd>PackerUpdate<CR>' },
             ['<leader>PI'] = { '<cmd>PackerInstall<CR>' },
+            ['<leader>tc'] = { '<cmd>TSHighlightCapturesUnderCursor<CR>' }
         },
         ['v'] = {
             ['<C-c>'] = { ':OSCYank<CR>' },
