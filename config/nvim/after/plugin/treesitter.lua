@@ -22,6 +22,7 @@ require('nvim-treesitter.configs').setup({
         disable = {
             'zsh',
         },
+        additional_vim_regex_highlighting = true,
     },
     rainbow = {
         enable = true,
