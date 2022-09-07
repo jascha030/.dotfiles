@@ -35,12 +35,16 @@ local function init()
     use({ 'wbthomason/packer.nvim', opt = true })
     use('lewis6991/impatient.nvim')
     use({
-        { 'yamatsum/nvim-nonicons', requires = { 'kyazdani42/nvim-web-devicons' } },
+        {
+            'yamatsum/nvim-nonicons',
+            requires = { 'kyazdani42/nvim-web-devicons' },
+        },
         'voldikss/vim-floaterm',
         'ojroques/vim-oscyank',
-        { 'noib3/nvim-cokeline' },
-        { 'hoob3rt/lualine.nvim' },
-        { 'kyazdani42/nvim-tree.lua' },
+        'noib3/nvim-cokeline',
+        'hoob3rt/lualine.nvim',
+        'kyazdani42/nvim-tree.lua',
+        'sheerun/vim-polyglot',
         {
             'phaazon/hop.nvim',
             branch = 'v2',
@@ -71,15 +75,14 @@ local function init()
         { 'ziontee113/color-picker.nvim', config = [[require('color-picker').setup({})]] },
         { 'norcalli/nvim-colorizer.lua', config = [[require('colorizer').setup()]] },
         { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup({})]] },
-        { 'sheerun/vim-polyglot' },
     })
 
     -- Treesitter
     use({
-        { 'nvim-treesitter/nvim-treesitter', irun = ':TSUpdate', config = require('plugins.treesitter') },
-        { 'nvim-treesitter/nvim-treesitter-textobjects' },
-        { 'nvim-treesitter/playground' },
-        { 'p00f/nvim-ts-rainbow' },
+        { 'nvim-treesitter/nvim-treesitter', irun = ':TSUpdate' },
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        'nvim-treesitter/playground',
+        'p00f/nvim-ts-rainbow',
     })
 
     use({
@@ -96,7 +99,6 @@ local function init()
                 'plenary.nvim',
                 'telescope-fzy-native.nvim',
             },
-            config = require('plugins.telescope-nvim'),
             cmd = 'Telescope',
             module = 'telescope',
         },
@@ -109,19 +111,19 @@ local function init()
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
         'neovim/nvim-lspconfig',
-        { 'onsails/lspkind-nvim' },
-        { 'jose-elias-alvarez/null-ls.nvim' },
+        'onsails/lspkind-nvim',
+        'jose-elias-alvarez/null-ls.nvim',
         { 'hrsh7th/nvim-cmp', config = require('plugins.nvim-cmp') },
-        { 'hrsh7th/cmp-nvim-lsp' },
-        { 'hrsh7th/cmp-path' },
-        { 'hrsh7th/cmp-buffer' },
-        { 'hrsh7th/cmp-vsnip' },
-        { 'L3MON4D3/LuaSnip' },
-        { 'saadparwaiz1/cmp_luasnip' },
-        { 'ncm2/ncm2' },
-        { 'simrat39/rust-tools.nvim' },
-        { 'b0o/schemastore.nvim' },
-        { 'folke/trouble.nvim' },
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-vsnip',
+        'L3MON4D3/LuaSnip',
+        'saadparwaiz1/cmp_luasnip',
+        'ncm2/ncm2',
+        'simrat39/rust-tools.nvim',
+        'b0o/schemastore.nvim',
+        'folke/trouble.nvim',
         {
             'saecki/crates.nvim',
             event = { 'BufRead Cargo.toml' },
