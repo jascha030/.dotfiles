@@ -21,7 +21,7 @@ return {
             updatetime = 400,
             signcolumn = 'yes',
             rnu = true,
-            shell = '/bin/zsh'
+            shell = '/bin/zsh',
         },
     },
     keymaps = {
@@ -69,6 +69,7 @@ return {
             bookmark = '',
             brush = '',
             calendar = '',
+            composer = '',
             computer = '',
             database = '',
             documentation = '',
@@ -201,6 +202,11 @@ return {
                 icon = 'bitbucket',
                 color = 'bright_blue',
                 filetype = 'bitbucket-pipelines.yml',
+            },
+            ['Composer'] = {
+                icon = 'composer',
+                color = 'yellow',
+                filetype = 'composer.json',
             },
         },
     },
