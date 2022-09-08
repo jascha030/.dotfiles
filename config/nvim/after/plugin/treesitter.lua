@@ -16,17 +16,18 @@ require('nvim-treesitter.configs').setup({
         'vim',
         'yaml',
     },
-    indent = { enable = true },
+    indent = {
+        enable = true,
+    },
     highlight = {
         enable = true,
-        disable = {
-            'zsh',
-        },
+        disable = { 'zsh' },
         additional_vim_regex_highlighting = true,
     },
     rainbow = {
         enable = true,
         extended_mode = true,
-        max_file_lines = nil,
+        max_file_lines = 1000,
     },
+    playground = {},
 })

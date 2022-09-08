@@ -43,10 +43,12 @@ return {
             ['m'] = { '<cmd>Mason<CR>' },
             ['<C-_>'] = { '<cmd>CommentToggle<CR>' },
             ['<leader>CP'] = { '<cmd>PickColor<CR>' },
-            ['<leader>PC'] = { '<cmd>PackerCompile<CR>' },
-            ['<leader>PU'] = { '<cmd>PackerUpdate<CR>' },
-            ['<leader>PI'] = { '<cmd>PackerInstall<CR>' },
-            ['<leader>tc'] = { '<cmd>TSHighlightCapturesUnderCursor<CR>' }
+            ['<leader>pc'] = { '<cmd>PackerCompile<CR>' },
+            ['<leader>pu'] = { '<cmd>PackerUpdate<CR>' },
+            ['<leader>pi'] = { '<cmd>PackerInstall<CR>' },
+            -- TreeSitter
+            ['<leader>tc'] = { '<cmd>TSHighlightCapturesUnderCursor<CR>' },
+            ['<leader>p'] = { '<cmd>TSPlaygroundToggle<CR>' },
         },
         ['v'] = {
             ['<C-c>'] = { ':OSCYank<CR>' },
