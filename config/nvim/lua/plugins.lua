@@ -82,6 +82,7 @@ local function init()
     use({
         { 'nvim-treesitter/nvim-treesitter', irun = ':TSUpdate' },
         'nvim-treesitter/nvim-treesitter-textobjects',
+        'nvim-treesitter/nvim-treesitter-context',
         'nvim-treesitter/playground',
         'p00f/nvim-ts-rainbow',
     })
