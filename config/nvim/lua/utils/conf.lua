@@ -56,7 +56,7 @@ local function _setup()
         vim.cmd('colorscheme ' .. Conf.colorscheme)
     end
 
-    utils.plugin.create_cmds()
+    utils.create_cmds()
 end
 
 function Conf.setup()

@@ -1,5 +1,7 @@
 local Utils = {}
 
+local cmds_loaded = false
+
 function Utils.wrap(fnc, ...)
     local params = { ... }
 
@@ -63,6 +65,67 @@ function Utils.str_explode(delimiter, p)
     end
 
     return tbl
+end
+
+local install_path = ('%s/site/pack/packer-lib/opt/packer.nvim'):format(vim.fn.stdpath('data'))
+
+local function packer_install()
+    vim.fn.termopen(('git clone https://github.com/wbthomason/packer.nvim %q'):format(install_path))
+end
+
+function Utils.assert_packer()
+    if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+        packer_install()
+    end
+end
+
+function _G.packer_upgrade()
+    vim.fn.delete(install_path, 'rf')
+    packer_install()
+end
+
+vim.cmd([[command! PackerUpgrade :call v:lua.packer_upgrade()]])
+
+function Utils.create_cmds()
+    if cmds_loaded == true then
+        return
+    end
+
+    local create_cmd = vim.api.nvim_create_user_command
+    cmds_loaded = true
+
+    create_cmd('PackerInstall', function()
+        vim.cmd([[packadd packer.nvim]])
+        require('plugins').install()
+    end, {})
+
+    create_cmd('PackerUpdate', function()
+        vim.cmd([[packadd packer.nvim]])
+        require('plugins').update()
+    end, {})
+
+    create_cmd('PackerSync', function()
+        vim.cmd([[packadd packer.nvim]])
+        require('plugins').sync()
+    end, {})
+
+    create_cmd('PackerClean', function()
+        vim.cmd([[packadd packer.nvim]])
+        require('plugins').clean()
+    end, {})
+
+    create_cmd('PackerCompile', function()
+        vim.cmd([[packadd packer.nvim]])
+        require('plugins').compile('profile=true')
+        -- require('plugins').compile()
+        vim.cmd([[:LuaCacheClear]])
+    end, {})
+
+    create_cmd('PackerProfile', function()
+        vim.cmd([[packadd packer.nvim]])
+
+        require('plugins').profile_output()
+    end, {})
 end
 
 Utils = setmetatable(Utils, {

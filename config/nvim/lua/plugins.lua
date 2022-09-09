@@ -1,7 +1,8 @@
+require('utils').assert_packer()
+
 local packer = nil
 
-require('utils').plugin.packer_init()
-
+vim.cmd([[packadd packer.nvim]])
 vim.cmd([[
     augroup packer_user_config
         autocmd!
