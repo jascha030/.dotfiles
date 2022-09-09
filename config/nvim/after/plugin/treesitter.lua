@@ -21,7 +21,7 @@ require('nvim-treesitter.configs').setup({
     },
     highlight = {
         enable = true,
-        disable = { 'zsh' },
+        -- disable = { 'zsh' },
         additional_vim_regex_highlighting = true,
     },
     rainbow = {
@@ -38,3 +38,10 @@ require('nvim-treesitter.highlight').set_custom_captures({
     ['scope.relative'] = 'TSScopeRelative',
     ['object.var'] = 'TSMemberObjectVar',
 })
+
+local parsers = require('nvim-treesitter.parsers')
+local ft_to_lang = parsers.ft_to_lang
+
+parsers.ft_to_lang = function(ft)
+    return ft == 'zsh' and 'bash' or ft_to_lang(ft)
+end
