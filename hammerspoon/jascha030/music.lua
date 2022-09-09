@@ -1,6 +1,6 @@
-local M = {}
-
 local utils = require('jascha030.utils')
+
+local M = {}
 
 local function next()
     hs.itunes.next()

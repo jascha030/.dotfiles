@@ -1,8 +1,12 @@
-local window = require('jascha030').window
-local tap = require('jascha030.tap')
+local window = nil
+local M = {}
 
-local function toggle(app_name)
+function M.toggle(app_name)
     local instance = hs.application.get(app_name)
+
+    if window == nil then
+        window = require('jascha030').window
+    end
 
     if instance ~= nil and instance:isFrontmost() then
         instance:hide()
@@ -31,11 +35,10 @@ local function toggle(app_name)
     end
 end
 
-return {
-    set = function(app)
-        tap.action = function()
-            toggle(app)
-        end
-    end,
-    toggle = toggle
-}
+function M.set(app)
+    require('jascha030.tap').action = function()
+        M.toggle(app)
+    end
+end
+
+return M

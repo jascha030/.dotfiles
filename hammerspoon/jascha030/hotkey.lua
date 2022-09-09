@@ -25,6 +25,7 @@ local types = {
 
 function M.visualize(mod, key)
     local key_msg = nil
+
     for m in mod do
         key_msg = not key_msg and m or key_msg .. ', ' .. m
     end

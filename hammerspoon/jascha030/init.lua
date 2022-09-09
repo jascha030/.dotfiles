@@ -1,10 +1,11 @@
-local M = {}
+return setmetatable({}, {
+    __index = function(_, key)
+        local ok, submodule = pcall(require, 'jascha030.' .. key)
 
-M.hotkey = require('jascha030.hotkey')
-M.utils = require('jascha030.utils')
-M.window = require('jascha030.window')
-M.music = require('jascha030.music')
-M.utils = require('jascha030.utils')
-M.system = require('jascha030.system')
+        if not ok then
+            error('Unknown module "' .. key .. '"')
+        end
 
-return M
+        return submodule
+    end,
+})
