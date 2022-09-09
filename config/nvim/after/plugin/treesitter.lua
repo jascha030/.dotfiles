@@ -37,6 +37,7 @@ require('nvim-treesitter.highlight').set_custom_captures({
     ['modifier.final'] = 'TSModifierFinal',
     ['scope.relative'] = 'TSScopeRelative',
     ['object.var'] = 'TSMemberObjectVar',
+    ['namespaceUse'] = 'TSNamespaceUse',
 })
 
 local parsers = require('nvim-treesitter.parsers')

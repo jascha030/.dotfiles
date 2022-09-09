@@ -18,3 +18,6 @@
   . [(name) (qualified_name)] @className
   (name) @constant)
    (set! "priority" 105))
+
+(namespace_use_declaration) @namespaceUse
+ ; (set! "priority" 105))
