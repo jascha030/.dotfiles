@@ -31,3 +31,10 @@ require('nvim-treesitter.configs').setup({
     },
     playground = {},
 })
+
+require('nvim-treesitter.highlight').set_custom_captures({
+    ['className'] = 'TSClassName',
+    ['modifier.final'] = 'TSModifierFinal',
+    ['scope.relative'] = 'TSScopeRelative',
+    ['object.var'] = 'TSMemberObjectVar',
+})
