@@ -45,7 +45,7 @@ function M.library()
     local ret = {}
 
     local function add(lib, filter)
-        for _, p in pairs(vim.fn.expand(lib, false, true)) do
+        for _, p in pairs(vim.fn.expand(lib .. '/lua', false, true)) do
             p = vim.loop.fs_realpath(p)
 
             if p and (not filter or filter[vim.fn.fnamemodify(p, ':h:t')]) then
@@ -54,17 +54,40 @@ function M.library()
         end
     end
 
-    if WS.in_neovim() or WS.in_dotfiles() then
-        add('$VIMRUNTIME')
-        add('$HOME/.local/share/nvim/site/pack/packer/opt/lua-dev.nvim/types')
+    local function add_plugins(plugins)
+        local filter = {}
+
+        for _, p in pairs(plugins) do
+            filter[p] = true
+        end
+
+        for _, site in pairs(vim.split(vim.o.packpath, ',')) do
+            add(site .. '/pack/*/opt/*', filter)
+            add(site .. '/pack/*/start/*', filter)
+        end
     end
 
-    if WS.in_hammerspoon() or WS.in_dotfiles() then
+    if WS.in_neovim() then
+        add('$VIMRUNTIME')
+        add('$HOME/.local/share/nvim/site/pack/packer/opt/lua-dev.nvim/types')
+
+        add_plugins({
+            'telescope.nvim',
+            'nvim-tree.lua',
+            'nvim-treesitter',
+            'nvim-treesitter-context',
+            'nvim-treesitter-textobjects',
+            'nvim-lspconfig',
+            'nvim-cokeline',
+        })
+    end
+
+    if WS.in_hammerspoon() then
         add('/Applications/Hammerspoon.app/Contents/Resources/extensions/hs')
         add('$HOME/.hammerspoon/Spoons/EmmyLua.spoon/annotations')
     end
 
-    if WS.in_wez() or WS.in_dotfiles() then
+    if WS.in_wez() then
         add('$WEZTERM_CONFIG_DIR')
     end
 
