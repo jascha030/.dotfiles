@@ -8,7 +8,7 @@ require('nvim-tree').setup({
     hijack_unnamed_buffer_when_opening = false,
     on_attach = 'disable', -- function(bufnr). If nil, will use the deprecated mapping strategy
     view = {
-        adaptive_size = false,
+        adaptive_size = true,
         centralize_selection = false,
         width = 40,
         height = 30,
@@ -29,6 +29,7 @@ require('nvim-tree').setup({
             enable = true,
             open_win_config = {
                 relative = 'editor',
+                -- anchor = 'NE',
                 border = 'rounded',
                 width = 40,
                 height = gheight - 4,
@@ -52,7 +53,6 @@ require('nvim-tree').setup({
                 none = ' ',
             },
         },
-        -- icons = { webdev_colors = true },
         special_files = { 'Cargo.toml', 'Makefile', 'README.md', 'readme.md' },
         symlink_destination = true,
     },
