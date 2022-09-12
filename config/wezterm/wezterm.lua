@@ -53,6 +53,29 @@ wezterm.on('opacity-down', function(window, _)
     window:set_config_overrides(overrides)
 end)
 
+wezterm.on('resize-font-up', function(window, _)
+    local overrides = window:get_config_overrides() or {}
+    local current = overrides.font_size or font.default_size
+
+    overrides.font_size = (current + 0.5)
+    window:set_config_overrides(overrides)
+end)
+
+wezterm.on('resize-font-down', function(window, _)
+    local overrides = window:get_config_overrides() or {}
+    local current = overrides.font_size or font.default_size
+
+    overrides.font_size = (current - 0.5)
+    window:set_config_overrides(overrides)
+end)
+
+wezterm.on('reset-font', function(window, _)
+    local overrides = window:get_config_overrides() or {}
+
+    overrides.font_size = font.default_size
+    window:set_config_overrides(overrides)
+end)
+
 wezterm.on('format-tab-title', function(tab)
     local title_icon = icon(tab.active_pane.title)
     local title = ' ' .. tab.tab_index + 1 .. ': ' .. title_icon .. tab.active_pane.title .. ' '

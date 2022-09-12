@@ -31,4 +31,7 @@ return {
     { key = '9', mods = 'LEADER', action = wezterm.action({ ActivateTab = 8 }) },
     { key = ']', mods = 'CMD', action = wezterm.action.EmitEvent('opacity-up') },
     { key = '[', mods = 'CMD', action = wezterm.action.EmitEvent('opacity-down') },
+    { key = '=', mods = 'CMD', action = wezterm.action.EmitEvent('resize-font-up') },
+    { key = '-', mods = 'CMD', action = wezterm.action.EmitEvent('resize-font-down') },
+    { key = '0', mods = 'CMD', action = wezterm.action.EmitEvent('reset-font') },
 }
