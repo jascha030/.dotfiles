@@ -115,7 +115,7 @@ local function init()
         'neovim/nvim-lspconfig',
         'onsails/lspkind-nvim',
         'jose-elias-alvarez/null-ls.nvim',
-        { 'hrsh7th/nvim-cmp', config = require('plugins.nvim-cmp') },
+        { 'hrsh7th/nvim-cmp', config = [[require('lsp.cmp')]] },
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-path',
         'hrsh7th/cmp-buffer',
