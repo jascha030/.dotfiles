@@ -16,7 +16,7 @@ function M.setup()
     require('null-ls').setup({
         sources = {
             formatting.stylua.with({ extra_args = { '--config-path', os.getenv('XDG_CONFIG_HOME') .. '/stylua.toml' } }),
-            formatting.phpcsfixer,
+            -- formatting.phpcsfixer,
             diagnostics.eslint,
             completion.spell,
         },
