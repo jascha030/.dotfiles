@@ -44,7 +44,7 @@ alias tm-auto='sudo tmutil startbackup --auto; tmutil status'
 alias scrsvr='open -a ScreenSaverEngine'
 alias luamake="$HOME/tools/lua-language-server/3rd/luamake/luamake"
 
-alias valetrm="rm $HOME/.config/valet/valet.sock"
+alias valetrm="rm $HOME/.config/valet/*.sock"
 alias valetr="valetrm && valet restart"
 
 function _phpv {
