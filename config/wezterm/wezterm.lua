@@ -1,5 +1,9 @@
 local wezterm = require('wezterm')
 local theme = require('theme')
+local font = require('fonts')
+
+local MESLO = 'MesloLGS Nerd Font'
+local DANK = 'Dank Mono'
 
 local proc_icons = {
     ['default'] = ' ',
@@ -8,30 +12,6 @@ local proc_icons = {
 
 local function icon(process_name)
     return proc_icons[process_name] and proc_icons[process_name] .. ' ' or proc_icons['default']
-end
-
-local MESLO = 'MesloLGS Nerd Font'
-local DANK = 'Dank Mono'
-
-local function fallback_font(main, alt)
-    return wezterm.font_with_fallback({
-        'nonicons',
-        { family = main, italic = false, weight = 600 },
-        { family = alt, italic = false, weight = 600 },
-        { family = 'Jetbrains Mono', italic = false, weight = 500 },
-    })
-end
-
-local function font(main, alt)
-    return {
-        size = 17.5,
-        default = wezterm.font(main),
-        rules = {
-            { italic = false, intensity = 'Normal', font = fallback_font(main, alt) },
-            { italic = true, intensity = 'Bold', font = fallback_font(main, alt) },
-            { italic = true, intensity = 'Normal', font = wezterm.font('Dank Mono', { italic = true, weight = 500 }) },
-        },
-    }
 end
 
 local colors = theme.get_scheme('Dark', true)
@@ -119,10 +99,9 @@ return {
     cursor_blink_ease_in = 'Ease',
     cursor_blink_ease_out = 'Ease',
 
-    -- line_height = 1.2,
     line_height = 1.2,
-    font_size = font(MESLO, DANK).size,
-    font_rules = font(MESLO, DANK).rules,
+    font_size = font.get(MESLO, DANK).size,
+    font_rules = font.get(MESLO, DANK).rules,
     colors = colors,
     inactive_pane_hsb = { saturation = 0.98, brightness = 0.9 },
     window_background_opacity = 1,
