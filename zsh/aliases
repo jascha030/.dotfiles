@@ -51,9 +51,9 @@ function _phpv {
     local version="$1"
 
     if [[ "$version" == 8.1 ]]; then
-      version='php'
+      version=''
     else 
-      local version="@$1"
+      version="@$1"
     fi
     
     valet use "php$version" && composer global update
