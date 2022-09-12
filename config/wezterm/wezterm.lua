@@ -17,7 +17,7 @@ local function fallback_font(main, alt)
     return wezterm.font_with_fallback({
         'nonicons',
         { family = main, italic = false, weight = 600 },
-        { family = 'alt', italic = false, weight = 600 },
+        { family = alt, italic = false, weight = 600 },
         { family = 'Jetbrains Mono', italic = false, weight = 500 },
     })
 end
