@@ -31,6 +31,9 @@ require('nvim-treesitter.highlight').set_custom_captures({
     ['scope.relative'] = 'TSScopeRelative',
     ['object.var'] = 'TSMemberObjectVar',
     ['namespaceUse'] = 'TSNamespaceUse',
+    ['selector.tag'] = 'TSConstant',
+    ['selector.id'] = 'TSSelector',
+    ['selector.class'] = 'TSClassName',
 })
 
 parsers.ft_to_lang = function(ft)
