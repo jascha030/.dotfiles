@@ -1,6 +1,4 @@
-local gheight = vim.api.nvim_list_uis()[1].height
-local gwidth = vim.api.nvim_list_uis()[1].width
-
+local utils = require('utils')
 require('nvim-tree').setup({
     auto_reload_on_write = true,
     disable_netrw = true,
@@ -17,7 +15,6 @@ require('nvim-tree').setup({
         preserve_window_proportions = false,
         number = false,
         relativenumber = false,
-        -- signcolumn = 'yes',
         -- @deprecated
         mappings = {
             custom_only = false,
@@ -29,12 +26,11 @@ require('nvim-tree').setup({
             enable = true,
             open_win_config = {
                 relative = 'editor',
-                -- anchor = 'NE',
                 border = 'rounded',
                 width = 40,
-                height = gheight - 4,
                 row = 0,
-                col = gwidth - 40,
+                height = utils.get_height() - 4,
+                col = utils.get_width() - 40,
             },
         },
     },

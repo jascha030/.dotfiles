@@ -42,6 +42,8 @@ function M.setup(conf)
 
     local devicons = require('nvim-web-devicons')
 
+    devicons.setup({ default_icon = require('utils').conf.devicons.default_icon })
+
     for name, devicon in pairs(conf.overrides) do
         M.add(devicon.icon, devicon.color, name, devicon.filetypes)
     end

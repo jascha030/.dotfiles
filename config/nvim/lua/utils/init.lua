@@ -86,7 +86,7 @@ end
 
 vim.cmd([[command! PackerUpgrade :call v:lua.packer_upgrade()]])
 
-function Utils.create_cmds()
+function Utils.create_packer_cmds()
     if cmds_loaded == true then
         return
     end
@@ -126,6 +126,14 @@ function Utils.create_cmds()
 
         require('plugins').profile_output()
     end, {})
+end
+
+function Utils.get_width()
+    return vim.api.nvim_list_uis()[1].width
+end
+
+function Utils.get_height()
+    return vim.api.nvim_list_uis()[1].height
 end
 
 Utils = setmetatable(Utils, {
