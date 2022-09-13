@@ -33,6 +33,9 @@ alias composerhome='cd $(composer -g config home)'
 alias ll="ls $LS_DEFAULT_ARGS"
 alias lll='ll | lolcrab'
 
+# Using two keyboards Fs up finger positioning, how much I type kk instead of ll is causing lots of rage.
+alias kk="ll" 
+
 #----------------------------------------------------- Utilities -----------------------------------------------------#  
 alias pstorminspect="sh /Users/jaschavanaalst/Library/Application\ Support/JetBrains/Toolbox/apps/PhpStorm/ch-0/222.3739.61/PhpStorm.app/Contents/bin/inspect.sh"
 alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
