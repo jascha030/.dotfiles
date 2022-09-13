@@ -1,7 +1,16 @@
 local utils = require('utils')
+local loader = require('config.loader')
 -- local config = utils.conf
 
--- Local setups
+-- TODO: autoload based on files in config dir.
+for _, plugin in pairs({
+    'nvim-tree',
+    'lualine',
+    'cokeline',
+}) do
+    loader.load(plugin)
+end
+
 require('lsp').setup()
 
 utils.create_packer_cmds()
