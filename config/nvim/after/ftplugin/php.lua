@@ -1,5 +1,7 @@
 local dap = require('dap')
 
+vim.g.gitblame_display_virtual_text = 1
+
 dap.adapters.php = {
     type = 'executable',
     command = 'node',
@@ -18,10 +20,7 @@ dap.configurations.php = {
     },
 }
 
-vim.g.gitblame_display_virtual_text = 1
-
 vim.api.nvim_exec([[au FileType dap-repl lua require('dap.ext.autocompl').attach()]], false)
-
 vim.keymap.set('n', '<leader>d', [[<cmd>:DapToggleRepl<CR>]], { silent = true })
 vim.keymap.set('n', 'DD', [[<cmd>:DapToggleBreakpoint<CR>]], { silent = true })
 
