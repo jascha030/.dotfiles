@@ -31,9 +31,6 @@ function M.setup(conf)
 
     mason_lsp.setup_handlers({
         function(server)
-            if server == 'angularls' then
-                vim.pretty_print(get_server_config(server))
-            end
             lspconfig[server].setup(get_server_config(server))
         end,
         -- Overrides
