@@ -2,6 +2,10 @@
    name: (name) @className)
  (set! "priority" 105))
 
+((trait_declaration 
+   name: (name) @className)
+ (set! "priority" 105))
+
 ((class_declaration 
    modifier: (final_modifier) @modifier.final)
  (set! "priority" 105))
