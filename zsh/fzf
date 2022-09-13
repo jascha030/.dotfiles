@@ -8,13 +8,13 @@ export FZF_LIGHT=$FZF_DEFAULT_OPTS'
   --color=fg:#444a73,bg:#e7e9ef,hl:#5f5fec
   --color=fg+:#fffcfc,bg+:#c8d3f5,hl+:#0083f7
   --color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00
-  --color=marker:#ea1479,spinner:#5f5fec,header:#0083f7'
+  --color=marker:#ea1479,spinner:#5f5fec,header:#0083f7,border:#444a73'
 
 export FZF_DARK=$FZF_DEFAULT_OPTS'
   --color=fg:#c8d3f5,bg:#1e2030,hl:#5f5fec
   --color=fg+:#fffcfc,bg+:#32466e,hl+:#0083f7
   --color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00
-  --color=marker:#ea1479,spinner:#5f5fec,header:#465182'
+  --color=marker:#ea1479,spinner:#5f5fec,header:#465182,border:#c8d3f5'
 
 function __fzf_update_theme {
     if [[ "$(is_dark)" == 1 ]]; then
