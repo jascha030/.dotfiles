@@ -103,7 +103,7 @@ return {
             lockfile = '',
             bitbucket = '',
         },
-        colors = require('nitepal.utils.palette').get_colors()[vim.o.background or 'dark'],
+        colors = require('nitepal.palette').get_colors()[vim.o.background or 'dark'],
         overrides = {
             ['Alias'] = {
                 icon = 'alias',
