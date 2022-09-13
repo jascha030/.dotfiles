@@ -46,6 +46,8 @@ local function init()
         'hoob3rt/lualine.nvim',
         'kyazdani42/nvim-tree.lua',
         'sheerun/vim-polyglot',
+        'lukas-reineke/indent-blankline.nvim',
+        'f-person/git-blame.nvim',
         {
             'phaazon/hop.nvim',
             branch = 'v2',
@@ -62,14 +64,12 @@ local function init()
                 require('alpha').setup(require('alpha.themes.startify').opts)
             end,
         },
-        'lukas-reineke/indent-blankline.nvim',
         {
             'gelguy/wilder.nvim',
             config = function()
                 require('wilder').setup({ modes = { ':', '/', '?' } })
             end,
         },
-
         { 'terrortylor/nvim-comment', config = [[require('nvim_comment').setup()]] },
         { 'petertriho/nvim-scrollbar', config = [[require("scrollbar").setup({})]] },
         { 'folke/which-key.nvim', config = [[require('which-key').setup({})]] },
