@@ -17,6 +17,11 @@ telescope.setup({
         grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
         qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
     },
+    pickers = {
+        file_sorter = {
+            theme = 'dropdown',
+        },
+    },
     extensions = {
         ['ui-select'] = {
             themes.get_dropdown,
