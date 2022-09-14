@@ -1,5 +1,4 @@
 local M = {}
-local setup = nil
 local loaded = false
 
 function M.fn(f, ...)
@@ -31,36 +30,32 @@ function M.toggle_darkmode()
 end
 
 function M.setup(config)
-    if setup == nil then
-        print('poke')
-        setup = function()
-            if loaded == true then
-                return
-            end
-
-            loaded = true
-
-            print('fawaka')
-            require('hs.ipc')
-            hs.ipc.cliInstall()
-            hs.window.setShadows(false)
-            hs.window.animationDuration = 0
-
-            for _, sp in pairs(config.spoons.load) do
-                hs.loadSpoon(sp)
-            end
-
-            spoon.SpoonInstall:andUse('RoundedCorners', {
-                start = true,
-                config = { radius = 8 },
-            })
-
-            spoon.ReloadConfiguration:start()
-        end
+    if loaded == true then
+        return
     end
 
+    loaded = true
+
+    require('hs.ipc')
+    hs.ipc.cliInstall()
+
+    hs.window.setShadows(false)
+    hs.window.animationDuration = 0
+
+    for _, sp in pairs(config.spoons.load) do
+        hs.loadSpoon(sp)
+    end
+
+    spoon.SpoonInstall:andUse('RoundedCorners', {
+        start = true,
+        config = { radius = 8 },
+    })
+
+    spoon.ReloadConfiguration:start()
+
     require('jascha030.quake').set(config.term_app)
-    require('jascha030.hotkey').setup(config.hotkeys, setup)
+    require('jascha030.hotkey').setup(config.hotkeys)
+    hs.alert.show('🔨🥄 load done.')
 end
 
 return setmetatable(M, {

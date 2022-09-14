@@ -5,7 +5,7 @@ JSpoon.setup({
     term_app = 'WezTerm',
     spoons = {
         load = {
-            'EmmyLua',
+            -- 'EmmyLua',
             'SpoonInstall',
             'ReloadConfiguration',
         },

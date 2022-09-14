@@ -54,20 +54,14 @@ local function default_handler(mod, key, arg)
     end)
 end
 
-function M.setup(bindings, setup_callback)
-    local f
+function M.setup(bindings)
     for t, values in pairs(bindings) do
         if types[t] ~= nil then
             local type = types[t]
             local method = type.handler or default_handler
 
             for key, action in pairs(values) do
-                f = function()
-                    setup_callback()
-                    pcall(action)
-                end
-
-                pcall(method, type.mods, key, f)
+                pcall(method, type.mods, key, action)
             end
         end
     end
