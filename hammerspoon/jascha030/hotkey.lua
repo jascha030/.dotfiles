@@ -26,7 +26,9 @@ local types = {
 function M.visualize(mod, key)
     local key_msg = nil
 
-    for m in mod do
+    print(hs.inspect(mod))
+
+    for _, m in pairs(mod) do
         key_msg = not key_msg and m or key_msg .. ', ' .. m
     end
 
@@ -52,14 +54,20 @@ local function default_handler(mod, key, arg)
     end)
 end
 
-function M.setup(bindings)
+function M.setup(bindings, setup_callback)
+    local f
     for t, values in pairs(bindings) do
         if types[t] ~= nil then
             local type = types[t]
             local method = type.handler or default_handler
 
             for key, action in pairs(values) do
-                pcall(method, type.mods, key, action)
+                f = function()
+                    setup_callback()
+                    pcall(action)
+                end
+
+                pcall(method, type.mods, key, f)
             end
         end
     end
