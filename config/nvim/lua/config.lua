@@ -24,8 +24,8 @@ return {
             shell = '/bin/zsh',
         },
         g = {
-            gitblame_display_virtual_text = 0 -- Disable virtual text
-        }
+            gitblame_display_virtual_text = 0, -- Disable virtual text
+        },
     },
     keymaps = {
         ['n'] = {
