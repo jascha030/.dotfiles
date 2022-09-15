@@ -7,6 +7,8 @@ for _, plugin in pairs({
     'nvim-tree',
     'lualine',
     'cokeline',
+    'alpha',
+    'indent_blankline',
 }) do
     loader.load(plugin)
 end

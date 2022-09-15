@@ -36,10 +36,7 @@ local function init()
     use({ 'wbthomason/packer.nvim', opt = true })
     use('lewis6991/impatient.nvim')
     use({
-        {
-            'yamatsum/nvim-nonicons',
-            requires = { 'kyazdani42/nvim-web-devicons' },
-        },
+        { 'yamatsum/nvim-nonicons', requires = { 'kyazdani42/nvim-web-devicons' } },
         'voldikss/vim-floaterm',
         'ojroques/vim-oscyank',
         'noib3/nvim-cokeline',
