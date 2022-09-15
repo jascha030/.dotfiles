@@ -14,7 +14,6 @@ function M.fn(f, ...)
 
     return function()
         local ok, res = pcall(f, v)
-
         return ok and res
     end
 end
@@ -53,8 +52,10 @@ function M.setup(config)
 
     spoon.ReloadConfiguration:start()
 
+    require('jascha030.window').setup()
     require('jascha030.quake').set(config.term_app)
     require('jascha030.hotkey').setup(config.hotkeys)
+
     hs.alert.show('🔨🥄 load done.')
 end
 

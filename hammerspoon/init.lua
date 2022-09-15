@@ -20,6 +20,9 @@ JSpoon.setup({
             ['p'] = fn(hs.itunes.playpause),
             [']'] = fn(JSpoon.music.next),
             ['['] = fn(JSpoon.music.previous),
+            ['left'] = fn(JSpoon.window.left),
+            ['right'] = fn(JSpoon.window.right),
+            ['return'] = fn(JSpoon.window.maximize),
         },
         apps = {
             ['i'] = 'Music',
