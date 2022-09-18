@@ -67,7 +67,8 @@ return {
         },
     },
     devicons = {
-        default_icon = '',
+        -- default_icon = '',
+        default_icon = '',
         icons = {
             alias = '',
             asterisk = '',
@@ -139,5 +140,6 @@ return {
         'cokeline',
         'alpha',
         'indent_blankline',
+        'nvim-web-devicons',
     },
 }

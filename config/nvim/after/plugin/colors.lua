@@ -7,6 +7,7 @@ else
     vim.cmd('colorscheme ' .. config.colorscheme)
 end
 
+
 vim.api.nvim_create_autocmd('Signal', {
     pattern = 'SIGUSR1',
     callback = function()
@@ -20,10 +21,6 @@ vim.api.nvim_create_autocmd('Signal', {
         for _, plugin in pairs(config.plugin_configs) do
             require('config.loader').load(plugin)
         end
-
-        require('nvim-web-devicons').set_up_highlights()
     end,
 })
 
--- Plugin setups
-utils.icons.setup(utils.conf.devicons)
