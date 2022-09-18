@@ -25,17 +25,6 @@ require('nvim-treesitter.configs').setup({
     playground = {},
 })
 
-require('nvim-treesitter.highlight').set_custom_captures({
-    ['className'] = 'TSClassName',
-    ['modifier.final'] = 'TSModifierFinal',
-    ['scope.relative'] = 'TSScopeRelative',
-    ['object.var'] = 'TSMemberObjectVar',
-    ['namespaceUse'] = 'TSNamespaceUse',
-    ['selector.tag'] = 'TSConstant',
-    ['selector.id'] = 'TSSelector',
-    ['selector.class'] = 'TSClassName',
-})
-
 parsers.ft_to_lang = function(ft)
     return ft == 'zsh' and 'bash' or ft_to_lang(ft)
 end
