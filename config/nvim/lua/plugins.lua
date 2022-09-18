@@ -37,9 +37,9 @@ local function init()
     use('lewis6991/impatient.nvim')
     use({
         { 'yamatsum/nvim-nonicons', requires = { 'kyazdani42/nvim-web-devicons' } },
+        { 'noib3/nvim-cokeline', require = 'kyazdani42/nvim-web-devicons' },
         'voldikss/vim-floaterm',
         'ojroques/vim-oscyank',
-        'noib3/nvim-cokeline',
         'hoob3rt/lualine.nvim',
         'kyazdani42/nvim-tree.lua',
         'sheerun/vim-polyglot',
@@ -67,6 +67,7 @@ local function init()
                 require('wilder').setup({ modes = { ':', '/', '?' } })
             end,
         },
+        { 'luukvbaal/stabilize.nvim', config = [[require("stabilize").setup()]] },
         { 'terrortylor/nvim-comment', config = [[require('nvim_comment').setup()]] },
         { 'petertriho/nvim-scrollbar', config = [[require("scrollbar").setup({})]] },
         { 'folke/which-key.nvim', config = [[require('which-key').setup({})]] },
