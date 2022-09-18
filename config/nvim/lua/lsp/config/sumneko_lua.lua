@@ -24,8 +24,6 @@ function WS.in_wez()
     return (util.fs.cwd_in(vim.fn.expand('$HOME/.hammerspoon')) or WS.in_dotfiles())
 end
 
-function WS.in_nvim_project() end
-
 local M = {}
 
 function M.path()
@@ -79,10 +77,13 @@ function M.library()
             'nvim-treesitter-textobjects',
             'nvim-lspconfig',
             'nvim-cokeline',
+            'nvim-web-devicons',
         })
     end
 
     if WS.in_hammerspoon() then
+        add('$HOME/.hammerspoon/hs')
+        add('$HOME/.hammerspoon/Spoons')
         add('/Applications/Hammerspoon.app/Contents/Resources/extensions/hs')
         add('$HOME/.hammerspoon/Spoons/EmmyLua.spoon/annotations')
     end
