@@ -1,6 +1,6 @@
 local telescope = require('telescope')
 local actions = require('telescope.actions')
-local themes = require('telescope.themes')
+-- local themes = require('telescope.themes')
 
 local extension = telescope.load_extension
 local fb_actions = telescope.extensions.file_browser.actions
@@ -17,15 +17,7 @@ telescope.setup({
         grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
         qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
     },
-    pickers = {
-        file_sorter = {
-            theme = 'dropdown',
-        },
-    },
     extensions = {
-        ['ui-select'] = {
-            themes.get_dropdown,
-        },
         fzy_native = {
             override_generic_sorter = false,
             override_file_sorter = true,
