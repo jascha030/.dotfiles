@@ -119,17 +119,4 @@ function M.setup()
     hs.window.animationDuration = 0
 end
 
--- function M.setup(config)
---     config = config or {
---         enablegrid = false,
---         grid = '2x2',
---         margins = '0,0',
---     }
---
---     hs.window.animationDuration = 0
---
---     hs.grid.setGrid(config.grid)
---     hs.grid.setMargins(config.margins)
--- end
-
 return M
