@@ -17,13 +17,7 @@ vim.api.nvim_create_autocmd('Signal', {
         utils.theme.set_from_os()
 
         -- TODO: autoload based on files in config dir.
-        for _, plugin in pairs({
-            'nvim-tree',
-            'lualine',
-            'cokeline',
-            'alpha',
-            'indent_blankline',
-        }) do
+        for _, plugin in pairs(config.plugin_configs) do
             require('config.loader').load(plugin)
         end
 

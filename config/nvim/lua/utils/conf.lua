@@ -1,5 +1,5 @@
-local config = nil
-local setup = false
+local utils = require('utils')
+
 local default = {
     colorscheme = false,
     options = {
@@ -8,9 +8,11 @@ local default = {
     },
     keymaps = {},
     devicons = require('utils').icons.defaults,
+    plugin_configs = {}
 }
 
-local utils = require('utils')
+local config = nil
+local setup = false
 
 local function init()
     if type(config) == 'table' then
@@ -19,6 +21,7 @@ local function init()
 
     config = vim.tbl_deep_extend('force', default, require('config'))
 end
+
 
 local Conf = setmetatable({}, {
     __index = function(_, key)

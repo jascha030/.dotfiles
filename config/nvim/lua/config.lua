@@ -133,4 +133,11 @@ return {
             ['Composer'] = { icon = 'composer', filetype = 'composer.json' },
         },
     },
+    plugin_configs = {
+        'nvim-tree',
+        'lualine',
+        'cokeline',
+        'alpha',
+        'indent_blankline',
+    },
 }
