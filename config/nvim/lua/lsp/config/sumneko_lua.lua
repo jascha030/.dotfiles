@@ -1,33 +1,11 @@
-local util = require('utils')
+local utils = require('utils')
 local root = os.getenv('HOME') .. '/tools/lua-language-server'
 local binary = root .. '/bin/lua-language-server'
-
-local WS = {}
-
-function WS.in_dotfiles()
-    return util.fs.cwd_in(vim.fn.expand('$DOTFILES'))
-end
-
-function WS.in_hammerspoon()
-    return (util.fs.cwd_in(vim.fn.expand('$HOME/.hammerspoon')) or WS.in_dotfiles())
-end
-
-function WS.in_neovim()
-    return (
-        util.fs.cwd_in(vim.fn.stdpath('config'))
-        or WS.in_dotfiles()
-        or util.fs.cwd_in(vim.fn.expand('$HOME/.development/Projects/lua/nitepal.nvim'))
-    )
-end
-
-function WS.in_wez()
-    return (util.fs.cwd_in(vim.fn.expand('$HOME/.hammerspoon')) or WS.in_dotfiles())
-end
 
 local M = {}
 
 function M.path()
-    local path = WS.in_neovim() and vim.split(package.path, ';') or {}
+    local path = utils.fs.in_neovim() and vim.split(package.path, ';') or {}
 
     for _, p in ipairs({
         'lua/?.lua',
@@ -65,7 +43,7 @@ function M.library()
         end
     end
 
-    if WS.in_neovim() then
+    if utils.fs.in_neovim() then
         add('$VIMRUNTIME')
         add('$HOME/.local/share/nvim/site/pack/packer/opt/lua-dev.nvim/types')
 
@@ -81,14 +59,14 @@ function M.library()
         })
     end
 
-    if WS.in_hammerspoon() then
+    if utils.fs.in_hammerspoon() then
         add('$HOME/.hammerspoon/hs')
         add('$HOME/.hammerspoon/Spoons')
         add('/Applications/Hammerspoon.app/Contents/Resources/extensions/hs')
         add('$HOME/.hammerspoon/Spoons/EmmyLua.spoon/annotations')
     end
 
-    if WS.in_wez() then
+    if utils.fs.in_wez() then
         add('$WEZTERM_CONFIG_DIR')
     end
 
@@ -98,7 +76,7 @@ end
 function M.version()
     local ret = { 'LuaJIT' }
 
-    if util.tbl.tbl_length(ret) == 1 then
+    if utils.tbl.tbl_length(ret) == 1 then
         return 'LuaJIT'
     end
 
@@ -109,8 +87,8 @@ function M.globals()
     local ret = {}
 
     local available_globals = {
-        ['vim'] = WS.in_neovim(),
-        ['hs'] = WS.in_hammerspoon(),
+        ['vim'] = utils.fs.in_neovim(),
+        ['hs'] = utils.fs.in_hammerspoon(),
     }
 
     for gv, f in pairs(available_globals) do
@@ -122,10 +100,12 @@ function M.globals()
     return ret
 end
 
---local hs_path = vim.split(vim.fn.system('hs -c package.path'):gsub('[\n\r]', ''), ';')
-
 local config = {
-    cmd = { binary, '-E', root .. '/main.lua' },
+    cmd = {
+        binary,
+        '-E',
+        root .. '/main.lua',
+    },
     settings = {
         Lua = {
             runtime = {
