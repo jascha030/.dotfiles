@@ -1,5 +1,6 @@
-local window = nil
 local M = {}
+
+local window = nil
 
 function M.toggle(app_name)
     local instance = hs.application.get(app_name)

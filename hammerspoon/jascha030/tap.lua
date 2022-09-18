@@ -1,6 +1,6 @@
-local alert = require('hs.alert')
-local timer = require('hs.timer')
-local eventtap = require('hs.eventtap')
+local alert = hs.alert
+local timer = hs.timer
+local eventtap = hs.eventtap
 
 local events = eventtap.event.types
 local timeFirstControl, firstDown, secondDown = 0, false, false
@@ -40,31 +40,33 @@ local M = {
     action = default_callback,
 }
 
-M.eventWatcher = eventtap.new({ events.flagsChanged, events.keyDown }, function(event)
-    -- if it's been too long; previous state doesn't matter
-    if (timer.secondsSinceEpoch() - timeFirstControl) > M.timeFrame then
-        timeFirstControl, firstDown, secondDown = 0, false, false
-    end
-
-    if event:getType() == events.flagsChanged then
-        if no_flags(event) and firstDown and secondDown then
-            if M.action then
-                M.action()
-            end
-            timeFirstControl, firstDown, secondDown = 0, false, false
-        elseif only_cmd(event) and not firstDown then
-            firstDown = true
-            timeFirstControl = timer.secondsSinceEpoch()
-        elseif only_cmd(event) and firstDown then
-            secondDown = true
-        elseif not no_flags(event) then
+M.eventWatcher = eventtap
+    .new({ events.flagsChanged, events.keyDown }, function(event)
+        -- if it's been too long; previous state doesn't matter
+        if (timer.secondsSinceEpoch() - timeFirstControl) > M.timeFrame then
             timeFirstControl, firstDown, secondDown = 0, false, false
         end
-    else
-        timeFirstControl, firstDown, secondDown = 0, false, false
-    end
 
-    return false
-end):start()
+        if event:getType() == events.flagsChanged then
+            if no_flags(event) and firstDown and secondDown then
+                if M.action then
+                    M.action()
+                end
+                timeFirstControl, firstDown, secondDown = 0, false, false
+            elseif only_cmd(event) and not firstDown then
+                firstDown = true
+                timeFirstControl = timer.secondsSinceEpoch()
+            elseif only_cmd(event) and firstDown then
+                secondDown = true
+            elseif not no_flags(event) then
+                timeFirstControl, firstDown, secondDown = 0, false, false
+            end
+        else
+            timeFirstControl, firstDown, secondDown = 0, false, false
+        end
+
+        return false
+    end)
+    :start()
 
 return M
