@@ -10,7 +10,13 @@ function M.is_dark()
 end
 
 function M.update(mode)
+    local cs = require('utils').conf.colorscheme
+
     if vim.o.background ~= mode then
+        if cs == 'nitepal' or cs == 'litepal' then
+            require('nitepal.config').options.style = mode
+        end
+
         vim.o.background = mode
     end
 
