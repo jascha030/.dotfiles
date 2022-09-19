@@ -11,6 +11,7 @@ fi
 #------------------------------------------------ ZSH Configurations -------------------------------------------------#
 
 setopt extended_glob
+setopt traps_async
 unsetopt BEEP
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
