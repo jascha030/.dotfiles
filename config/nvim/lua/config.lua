@@ -135,11 +135,11 @@ return {
         },
     },
     plugin_configs = {
+        'nvim-web-devicons',
         'nvim-tree',
         'lualine',
         'cokeline',
         'alpha',
         'indent_blankline',
-        'nvim-web-devicons',
     },
 }
