@@ -82,6 +82,11 @@ function speedtest {
     builtin autoload -X
 }
 
+function echoerr {
+    # undefined
+    builtin autoload -X
+}
+
 # Assure required dirs and files exist.
 assert_dirs "${DOT_DATA_DIR}"
 assert_files "${DOT_DATA_DIR}/.zsh_history" "${DOT_DATA_DIR}/.mysql_history"

@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+
+function xdbs {
+    if [[ "$1" == "start" ]]; then
+        export XDEBUG_MODE=debug XDEBUG_SESSION=1
+        
+        return true
+    fi
+
+    if [[ "$1" == "stop" ]]; then
+        unset XDEBUG_MODE
+        unset XDEBUG_SESSION
+
+        return true
+    fi
+
+    >&2 echo "\x1b[1;31m Invalid command: \"$@\""
+}
