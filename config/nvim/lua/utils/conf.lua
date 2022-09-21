@@ -1,14 +1,18 @@
-local utils = require('utils')
+local scopes = {
+    g = vim.g,
+    o = vim.o,
+    b = vim.bo,
+    bo = vim.bo,
+    w = vim.wo,
+    wo = vim.wo,
+}
 
 local default = {
     colorscheme = false,
-    options = {
-        g = { mapleader = [[ ]] },
-        opt = {},
-    },
     keymaps = {},
-    devicons = require('utils').icons.defaults,
-    plugin_configs = {}
+    plugin_configs = {},
+    options = { g = { mapleader = [[ ]] }, opt = {} },
+    devicons = { icons = {}, overrides = {} },
 }
 
 local config = nil
@@ -22,6 +26,13 @@ local function init()
     config = vim.tbl_deep_extend('force', default, require('config'))
 end
 
+local function opt(key, val, scope)
+    if not scope then
+        vim.opt[key] = val
+    else
+        scopes[scope][key] = val
+    end
+end
 
 local Conf = setmetatable({}, {
     __index = function(_, key)
@@ -39,9 +50,9 @@ local function _setup()
     for scope, opts in pairs(Conf.options) do
         for o, v in pairs(opts) do
             if scope == 'opt' then
-                utils.opt(o, v)
+                opt(o, v)
             else
-                utils.opt(o, v, scope)
+                opt(o, v, scope)
             end
         end
     end

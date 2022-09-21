@@ -2,23 +2,6 @@ local Utils = {}
 
 local cmds_loaded = false
 
-local scopes = {
-	g = vim.g,
-	o = vim.o,
-	b = vim.bo,
-	bo = vim.bo,
-	w = vim.wo,
-	wo = vim.wo,
-}
-
-function Utils.opt(key, val, scope)
-	if not scope then
-		vim.opt[key] = val
-	else
-		scopes[scope][key] = val
-	end
-end
-
 function Utils.wrap(fnc, ...)
     local params = { ... }
 
