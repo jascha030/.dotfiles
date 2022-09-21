@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+function echoerr {
+    >&2 echo "\x1b[1;31m $@"
+}
