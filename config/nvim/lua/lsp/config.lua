@@ -2,32 +2,33 @@ if not require('utils').validate({ 'null-ls' }, 'lsp.config') then
     return
 end
 
-local function bufmap(mapping, callback, bufnr, mode, opts)
-    mode = mode or 'n'
-    opts = opts or {}
-
-    vim.keymap.set(
-        mode,
-        mapping,
-        callback,
-        vim.tbl_deep_extend('force', { noremap = true, silent = true, buffer = bufnr }, opts)
-    )
-end
-
 local config = nil
 
 local function on_attach(client, bufnr)
-    bufmap('gD', 'vim.lsp.buf.declaration()<CR>', bufnr)
-    bufmap('gd', 'vim.lsp.buf.definition()<CR>', bufnr)
-    bufmap('K', 'vim.lsp.buf.hover()<CR>', bufnr)
-    bufmap('gi', 'vim.lsp.buf.implementation()<CR>', bufnr)
-    bufmap('<C-k>', 'vim.lsp.buf.signature_help()<CR>', bufnr)
-    bufmap('<leader>rn', 'vim.lsp.buf.rename()<CR>', bufnr)
-    bufmap('gr', 'vim.lsp.buf.references()<CR>', bufnr)
-    bufmap('<leader>q', '<cmd>vim.diagnostic.setloclist()<CR>', bufnr)
-    bufmap('[d', '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', bufnr)
-    bufmap('gl', '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', bufnr)
-    bufmap(']d', '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', bufnr)
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
+    local opts = { noremap = true, silent = true }
+
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+    vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+
+    vim.keymap.set('n', '<leader>wl', function()
+        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, bufopts)
+
+    vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+    vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
+    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+    vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
     vim.api.nvim_create_autocmd('CursorHold', {
         buffer = bufnr,
@@ -56,7 +57,6 @@ local function on_attach(client, bufnr)
 
     if client == 'rust_analyzer' then
         local rt = require('rust-tools')
-
         vim.keymap.set('n', '<C-space>', rt.hover_actions.hover_actions, { buffer = bufnr })
         vim.keymap.set('n', '<Leader>a', rt.code_action_group.code_action_group, { buffer = bufnr })
     end
@@ -112,22 +112,22 @@ local defaults = {
 
 local M = {}
 
-function M.get_defaults()
-    return defaults
+M.options = {}
+
+local function get(_, key)
+    return M.options[key] or nil
 end
 
-function M.setup(conf)
-    if config ~= nil then
-        return config
-    end
-
-    config = vim.tbl_deep_extend('force', defaults, conf or {})
-
-    return config
+function M.setup(options)
+    M.options = vim.tbl_deep_extend('force', {}, defaults, options or {})
 end
 
-return setmetatable(M, {
-    __index = function(_, key)
-        return config[key] or defaults[key] or nil
-    end,
-})
+function M.extend(options)
+    M.options = vim.tbl_deep_extend('force', {}, M.options or defaults, options or {})
+end
+
+M = setmetatable(M, { __index = get })
+
+M.setup()
+
+return M
