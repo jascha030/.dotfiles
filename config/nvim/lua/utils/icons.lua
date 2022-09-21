@@ -1,19 +1,25 @@
-local M = {
-    devicons = {},
-    defaults = {
-        icons = {},
-        overrides = {},
-    },
+--@class IconConfig
+--@field public default_icon string
+local defaults = {
+    icons = {},
+    overrides = {},
 }
 
-local config = nil
+--@class IconsModule
+--@field public options IconConfig
+local M = {
+    devicons = {},
+    options = {},
+}
+
+local devicons = nil
 
 function M.get_icon(name)
-    if not config.icons[name] then
+    if not M.options.icons[name] then
         error('No icon defined for ' .. name)
     end
 
-    return config.icons[name]
+    return M.options.icons[name]
 end
 
 function M.create(icon, name)
@@ -36,12 +42,15 @@ function M.add(icon, name, filetype)
 end
 
 function M.setup(conf)
-    config = vim.tbl_deep_extend('force', M.defaults, conf)
-    local devicons = require('nvim-web-devicons')
+    if devicons == nil then
+        devicons = require('nvim-web-devicons')
+    end
 
-    devicons.setup({ default_icon = require('utils').conf.devicons.default_icon })
+    M.options = vim.tbl_deep_extend('force', {}, defaults, conf)
 
-    for name, devicon in pairs(conf.overrides) do
+    devicons.setup({ default_icon = M.options.default_icon })
+
+    for name, devicon in pairs(M.options.overrides) do
         M.add(devicon.icon, name, devicon.filetypes)
     end
 
