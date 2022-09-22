@@ -1,15 +1,65 @@
-local BUILTIN = 'Built-in Retina Display'
+hs.window.animationDuration = 0
 
 local M = {}
 
-function M.get()
+local BUILTIN = 'Built-in Retina Display'
+
+local function current()
     return hs.window.focusedWindow()
 end
 
-local function get_frames()
-    local w = M.get()
+local function scr_frame()
+    return current():screen():fullFrame()
+end
 
-    return w, w:frame(), w:screen():frame()
+local function left_half(frame)
+    return {
+        x = frame.x,
+        y = frame.y,
+        w = frame.w / 2,
+        h = frame.h,
+    }
+end
+
+local function right_half(frame)
+    return {
+        x = frame.x + frame.w / 2,
+        y = frame.y,
+        w = frame.w / 2,
+        h = frame.h,
+    }
+end
+
+--@param win window
+local function move_left(win)
+    local frame = win:screen():fullFrame()
+    local state = win:frame()
+
+    win:setFrame(left_half(frame))
+    if not win:frame():equals(state) then
+        return
+    end
+
+    win:moveOneScreenWest()
+
+    frame = win:screen():fullFrame()
+    win:setFrame(right_half(frame))
+end
+
+--@param win window
+local function move_right(win)
+    local frame = win:screen():fullFrame()
+    local state = win:frame()
+
+    win:setFrame(right_half(frame))
+    if not win:frame():equals(state) then
+        return
+    end
+
+    win:moveOneScreenEast()
+
+    frame = win:screen():fullFrame()
+    win:setFrame(left_half(frame))
 end
 
 -- TODO: abstraction and extraction.
@@ -82,41 +132,20 @@ function M.center()
     win:setFrame(f)
 end
 
-function M.maximize()
-    local win, f, max = get_frames()
-
-    f.x = max.x
-    f.y = max.y
-    f.w = max.w
-    f.h = max.h
-
-    win:setFrame(f)
+function M.max()
+    current():maximize()
 end
 
 function M.left()
-    local win, f, max = get_frames()
-
-    f.x = max.x
-    f.y = max.y
-    f.w = max.w / 2
-    f.h = max.h
-
-    win:setFrame(f)
+    move_left(current())
 end
 
 function M.right()
-    local win, f, max = get_frames()
-
-    f.w = max.w / 2
-    f.h = max.h
-    f.x = max.x + (max.w / 2)
-    f.y = max.y
-
-    win:setFrame(f)
+    move_right(current())
 end
 
-function M.setup()
-    hs.window.animationDuration = 0
+function M.min()
+    current:minimize()
 end
 
 return M

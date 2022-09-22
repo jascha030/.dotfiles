@@ -16,13 +16,13 @@ JSpoon.setup({
         },
         control = {
             ['h'] = fn(hs.toggleConsole),
-            ['l'] = fn(JSpoon.window.center),
             ['p'] = fn(hs.itunes.playpause),
             [']'] = fn(JSpoon.music.next),
             ['['] = fn(JSpoon.music.previous),
+            ['l'] = fn(JSpoon.window.center),
             ['left'] = fn(JSpoon.window.left),
             ['right'] = fn(JSpoon.window.right),
-            ['return'] = fn(JSpoon.window.maximize),
+            ['return'] = fn(JSpoon.window.max),
         },
         apps = {
             ['i'] = 'Music',
