@@ -22,6 +22,7 @@ JSpoon.setup({
             ['l'] = fn(JSpoon.window.center),
             ['left'] = fn(JSpoon.window.left),
             ['right'] = fn(JSpoon.window.right),
+            ['down'] = fn(JSpoon.window.min),
             ['return'] = fn(JSpoon.window.max),
         },
         apps = {
