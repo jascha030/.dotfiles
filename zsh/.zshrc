@@ -12,6 +12,7 @@ fi
 
 setopt extended_glob
 setopt traps_async
+setopt nohup
 unsetopt BEEP
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
