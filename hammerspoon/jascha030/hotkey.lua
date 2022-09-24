@@ -3,7 +3,6 @@ local M = {}
 local types = {
     apps = {
         name = 'Apps',
-        description = 'Show, hide or open various apps.',
         mods = { 'shift', 'alt' },
         handler = function(mod, key, app)
             hs.hotkey.bind(mod, key, function()
@@ -18,7 +17,6 @@ local types = {
     },
     system = {
         name = 'System bindings',
-        description = 'Uncommon key-mod bindings for system opts or actions with potentially unwanted side-effects.',
         mods = { 'ctrl', 'alt', 'cmd' },
     },
 }
