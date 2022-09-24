@@ -122,7 +122,7 @@ return {
     cursor_blink_ease_in = 'Ease',
     cursor_blink_ease_out = 'Ease',
 
-    line_height = 1.2,
+    line_height = 1.25,
     font_size = font.get(MESLO, DANK).size,
     font_rules = font.get(MESLO, DANK).rules,
     colors = colors,
