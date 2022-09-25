@@ -34,10 +34,12 @@ local function init()
     packer.reset()
 
     use({ 'wbthomason/packer.nvim', opt = true })
-    use('lewis6991/impatient.nvim')
     use({
-        { 'yamatsum/nvim-nonicons', requires = { 'kyazdani42/nvim-web-devicons' } },
-        { 'noib3/nvim-cokeline', require = 'kyazdani42/nvim-web-devicons' },
+        'lewis6991/impatient.nvim',
+        'kyazdani42/nvim-web-devicons',
+        'yamatsum/nvim-nonicons',
+        'nvim-lua/plenary.nvim',
+        'noib3/nvim-cokeline',
         'voldikss/vim-floaterm',
         'ojroques/vim-oscyank',
         'hoob3rt/lualine.nvim',
@@ -45,6 +47,7 @@ local function init()
         'sheerun/vim-polyglot',
         'lukas-reineke/indent-blankline.nvim',
         'f-person/git-blame.nvim',
+        'wakatime/vim-wakatime',
         {
             'phaazon/hop.nvim',
             branch = 'v2',
@@ -150,7 +153,6 @@ local function init()
 
     -- only included for the EmmyLua annotations.
     use({ 'folke/lua-dev.nvim', opt = true })
-    use({ 'wakatime/vim-wakatime' })
     use({ os.getenv('HOME') .. '/.development/Projects/lua/nitepal.nvim' })
 end
 
