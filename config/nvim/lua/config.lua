@@ -143,4 +143,30 @@ return {
         'alpha',
         'indent_blankline',
     },
+    lsp = {
+        extensions = {
+            server_opts = {
+                sumneko_lua = {
+                    runtime = {
+                        plugins = {
+                            'nvim-web-devicons',
+                            'lualine',
+                            'cokeline',
+                            'alpha',
+                            'indent_blankline',
+                            'telescope.nvim',
+                            'nvim-tree.lua',
+                            'nvim-treesitter',
+                            'nvim-treesitter-context',
+                            'nvim-treesitter-textobjects',
+                            'nvim-lspconfig',
+                            'nvim-cokeline',
+                            'nvim-web-devicons',
+                            'plenary.nvim',
+                        },
+                    },
+                },
+            },
+        },
+    },
 }
