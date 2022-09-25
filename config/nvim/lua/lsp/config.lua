@@ -114,10 +114,6 @@ local M = {}
 
 M.options = {}
 
-local function get(_, key)
-    return M.options[key] or nil
-end
-
 function M.setup(options)
     M.options = vim.tbl_deep_extend('force', {}, defaults, options or {})
 end
@@ -125,8 +121,6 @@ end
 function M.extend(options)
     M.options = vim.tbl_deep_extend('force', {}, M.options or defaults, options or {})
 end
-
-M = setmetatable(M, { __index = get })
 
 M.setup()
 
