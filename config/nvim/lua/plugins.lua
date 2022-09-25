@@ -64,12 +64,7 @@ local function init()
                 require('alpha').setup(require('alpha.themes.startify').opts)
             end,
         },
-        {
-            'gelguy/wilder.nvim',
-            config = function()
-                require('wilder').setup({ modes = { ':', '/', '?' } })
-            end,
-        },
+        'gelguy/wilder.nvim',
         { 'luukvbaal/stabilize.nvim', config = [[require("stabilize").setup()]] },
         { 'terrortylor/nvim-comment', config = [[require('nvim_comment').setup()]] },
         { 'petertriho/nvim-scrollbar', config = [[require("scrollbar").setup({})]] },
