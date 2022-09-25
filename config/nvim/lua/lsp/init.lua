@@ -1,6 +1,7 @@
 local M = {}
 
 local loaded = false
+local default = nil
 
 local function setup_lsp(conf)
     for _, sign in ipairs(conf.diagnostic.signs.active) do
@@ -10,16 +11,26 @@ local function setup_lsp(conf)
     vim.diagnostic.config(conf.diagnostic)
     vim.lsp.handlers['textDocument/hover'] = conf.handlers.hover
     vim.lsp.handlers['textDocument/signatureHelp'] = conf.handlers.signature_help
+    default = require('lsp.config').options.server
 end
 
 local function get_server_config(server_name, opts)
     local ok, server_config = pcall(require, 'lsp.config.' .. server_name)
 
-    if not ok or type(server_config) ~= 'table' then
-        server_config = require('lsp.config').options.server
+    if not ok then
+        return vim.tbl_deep_extend('force', {}, default)
     end
 
-    return vim.tbl_deep_extend('force', {}, opts or {}, server_config)
+    if opts and type(server_config) == 'function' then
+        local conf_ok
+        conf_ok, server_config = pcall(server_config, opts)
+
+        if not conf_ok then
+            return vim.tbl_deep_extend('force', {}, default)
+        end
+    end
+
+    return vim.tbl_deep_extend('force', {}, default, server_config)
 end
 
 local function setup_mason(opts)
@@ -27,11 +38,13 @@ local function setup_mason(opts)
     require('mason-lspconfig').setup(opts['mason-lspconfig'] or {})
     require('mason-lspconfig').setup_handlers({
         function(server)
-            if server == 'rust_analyzer' then
-                require('rust-tools').setup({ server = get_server_config(server) })
-            end
+            local conf = get_server_config(server, opts.server_opts[server] or nil)
 
-            require('lspconfig')[server].setup(get_server_config(server))
+            if server == 'rust_analyzer' then
+                require('rust-tools').setup({ server = conf })
+            else
+                require('lspconfig')[server].setup(conf)
+            end
         end,
     })
 end

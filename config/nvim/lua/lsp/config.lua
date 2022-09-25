@@ -107,6 +107,7 @@ local defaults = {
                 'sumneko_lua',
             },
         },
+        server_opts = {},
     },
 }
 
