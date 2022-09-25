@@ -107,6 +107,7 @@ return {
         overrides = {
             ['Alias'] = { icon = 'alias', filetypes = 'aliases' },
             ['Autols'] = { icon = 'fileinfo', filetypes = 'auto-ls' },
+            ['ZshOverrides'] = { icon = 'alias', filetypes = 'overrides' },
             ['Ignore'] = {
                 icon = 'ignore',
                 filetypes = {
@@ -131,7 +132,7 @@ return {
             ['NvmRc'] = { icon = 'npm', filetypes = '.nvmrc' },
             ['Lockfile'] = { icon = 'lockfile', filetypes = '.lock' },
             ['BitbucketPipeline'] = { icon = 'bitbucket', filetype = 'bitbucket-pipelines.yml' },
-            ['Composer'] = { icon = 'composer', filetype = 'composer.json' },
+            ['Composer'] = { icon = 'composer', filetypes = 'composer.json' },
         },
     },
     plugin_configs = {
