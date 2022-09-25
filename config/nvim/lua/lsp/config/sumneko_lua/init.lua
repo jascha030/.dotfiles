@@ -1,10 +1,6 @@
 local utils = require('utils')
-local root = os.getenv('HOME') .. '/tools/lua-language-server'
-local binary = root .. '/bin/lua-language-server'
 
-local M = {}
-
-function M.path()
+local function path()
     local path = utils.fs.in_neovim() and vim.split(package.path, ';') or {}
 
     for _, p in ipairs({
@@ -17,7 +13,7 @@ function M.path()
     return path
 end
 
-function M.library()
+local function library(opts)
     local ret = {}
 
     local function add(lib, filter)
@@ -47,16 +43,7 @@ function M.library()
         add('$VIMRUNTIME')
         add('$HOME/.local/share/nvim/site/pack/packer/opt/lua-dev.nvim/types')
 
-        add_plugins({
-            'telescope.nvim',
-            'nvim-tree.lua',
-            'nvim-treesitter',
-            'nvim-treesitter-context',
-            'nvim-treesitter-textobjects',
-            'nvim-lspconfig',
-            'nvim-cokeline',
-            'nvim-web-devicons',
-        })
+        add_plugins(opts or {})
     end
 
     if utils.fs.in_hammerspoon() then
@@ -73,7 +60,7 @@ function M.library()
     return ret
 end
 
-function M.version()
+local function version()
     local ret = { 'LuaJIT' }
 
     if utils.tbl.tbl_length(ret) == 1 then
@@ -83,7 +70,7 @@ function M.version()
     return ret
 end
 
-function M.globals()
+local function globals()
     local ret = {}
 
     local available_globals = {
@@ -100,31 +87,31 @@ function M.globals()
     return ret
 end
 
-local config = {
-    cmd = {
-        binary,
-        '-E',
-        root .. '/main.lua',
-    },
-    settings = {
-        Lua = {
-            runtime = {
-                version = M.version(),
-                maxPreload = 1000,
-                preloadFileSize = 150,
-            },
-            diagnostics = {
-                globals = M.globals(),
-            },
-            workspace = {
-                library = M.library(),
-                checkThirdParty = false,
-            },
-            telemetry = {
-                enable = false,
+local config = require('lsp.config.sumneko_lua.config')
+
+return function(opts)
+    config.extend(opts or {})
+
+    return {
+        cmd = { config.options.binary, '-E', config.options.root .. '/main.lua' },
+        settings = {
+            Lua = {
+                runtime = {
+                    version = version(),
+                    maxPreload = 1000,
+                    preloadFileSize = 150,
+                },
+                diagnostics = {
+                    globals = globals(),
+                },
+                workspace = {
+                    library = library(config.options.runtime.plugins),
+                    checkThirdParty = false,
+                },
+                telemetry = {
+                    enable = false,
+                },
             },
         },
-    },
-}
-
-return config
+    }
+end
