@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd('Signal', {
 
         -- TODO: autoload based on files in config dir.
         for _, plugin in pairs(config.plugin_configs) do
-            require('config.loader').load(plugin)
+            require('config.loader').load_all()
         end
     end,
 })

@@ -1,12 +1,8 @@
-local utils = require('utils')
-local loader = require('config.loader')
-local config = utils.conf
+-- Load plugin configurations in "nvim/lua/config/".
+require('config.loader').load_all()
 
--- TODO: autoload based on files in config dir.
-for _, plugin in pairs(config.plugin_configs) do
-    loader.load(plugin)
-end
+-- Setup LSP settings.
+require('lsp').setup(require('utils').conf.lsp)
 
-require('lsp').setup()
-
-utils.create_packer_cmds()
+-- Create lazy Packer cmd replacements.
+require('utils').create_packer_cmds()

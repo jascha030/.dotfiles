@@ -135,14 +135,6 @@ return {
             ['Composer'] = { icon = 'composer', filetypes = 'composer.json' },
         },
     },
-    plugin_configs = {
-        'nvim-web-devicons',
-        'nvim-tree',
-        'lualine',
-        'cokeline',
-        'alpha',
-        'indent_blankline',
-    },
     lsp = {
         extensions = {
             server_opts = {

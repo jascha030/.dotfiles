@@ -45,4 +45,49 @@ function M.load(mod, config)
     error('Invalid config for: "' .. mod .. '".')
 end
 
+function M.load_all(opts)
+    opts = opts or { 'nvim-web-devicons' }
+
+    local contains = require('utils.tbl').tbl_contains
+
+    local dir = vim.fn.stdpath('config') .. '/lua/config/'
+    local exclude = { init = true, loader = true }
+
+    if dir and string.sub(dir, 1, 1) == '@' then
+        dir = string.sub(dir, 2)
+    end
+
+    local handle = vim.loop.fs_scandir(dir)
+
+    if not handle then
+        error('Could not load plugin config listing.')
+    end
+
+    local ret = {}
+    local name, typ, req, ext
+
+    while handle do
+        name, typ = vim.loop.fs_scandir_next(handle)
+
+        if not name then
+            break
+        end
+
+        ext = vim.fn.fnamemodify(name, ':e')
+        req = vim.fn.fnamemodify(name, ':r')
+
+        if ext == 'lua' and typ == 'file' and not exclude[req] then
+            if contains(opts, req) then
+                M.load(req)
+            else
+                table.insert(ret, req)
+            end
+        end
+    end
+
+    for _, m in pairs(ret) do
+        M.load(m)
+    end
+end
+
 return M
