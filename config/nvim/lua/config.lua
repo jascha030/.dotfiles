@@ -63,7 +63,7 @@ return {
             ['<C-v><Esc>'] = { '<Esc>' },
         },
         ['i'] = {
-            ['<C-p><C-p>'] = { '<cmd>PickColorInsert<CR>' },
+            -- ['<C-p><C-p>'] = { '<cmd>PickColorInsert<CR>' },
         },
     },
     devicons = {
@@ -155,6 +155,7 @@ return {
                             'nvim-cokeline',
                             'nvim-web-devicons',
                             'plenary.nvim',
+                            'wilder.nvim'
                         },
                     },
                 },
