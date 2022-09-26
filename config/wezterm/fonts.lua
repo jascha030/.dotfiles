@@ -2,7 +2,7 @@ local wezterm = require('wezterm')
 
 local M = {}
 
-M.default_size = 17.5
+M.default_size = 19
 
 function M.fallback_font(main, alt)
     return wezterm.font_with_fallback({
