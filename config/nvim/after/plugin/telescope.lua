@@ -1,6 +1,7 @@
 local telescope = require('telescope')
 local actions = require('telescope.actions')
 -- local themes = require('telescope.themes')
+local layout = require('telescope.actions.layout')
 
 local extension = telescope.load_extension
 local fb_actions = telescope.extensions.file_browser.actions
@@ -16,6 +17,20 @@ telescope.setup({
         file_previewer = require('telescope.previewers').vim_buffer_cat.new,
         grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
         qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
+        mappings = {
+            n = {
+                ['pp'] = layout.toggle_preview,
+            },
+            i = {
+                ['<C-p>'] = layout.toggle_preview,
+            },
+        },
+    },
+    pickers = {
+        find_files = {
+            theme = 'dropdown',
+            preview = { hide_on_startup = true },
+        },
     },
     extensions = {
         fzy_native = {
