@@ -48,6 +48,7 @@ local function init()
         'lukas-reineke/indent-blankline.nvim',
         'f-person/git-blame.nvim',
         'wakatime/vim-wakatime',
+        { 'akinsho/toggleterm.nvim', tag = '*' },
         {
             'phaazon/hop.nvim',
             branch = 'v2',
