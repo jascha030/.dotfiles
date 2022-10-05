@@ -9,8 +9,6 @@ end
 return function()
     unload()
 
-    local utils = require('utils')
-
     require('nvim-tree').setup({
         auto_reload_on_write = true,
         disable_netrw = true,
@@ -31,17 +29,6 @@ return function()
                 custom_only = false,
                 list = {
                     { key = '<C-v>', action = 'vsplit' },
-                },
-            },
-            float = {
-                enable = false,
-                open_win_config = {
-                    relative = 'editor',
-                    border = 'rounded',
-                    width = 40,
-                    row = 0,
-                    height = utils.get_height() - 4,
-                    col = utils.get_width() - 40,
                 },
             },
         },
