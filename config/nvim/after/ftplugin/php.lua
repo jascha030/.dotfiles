@@ -1,7 +1,5 @@
 local dap = require('dap')
 
-vim.g.gitblame_display_virtual_text = 1
-
 dap.adapters.php = {
     type = 'executable',
     command = 'node',
