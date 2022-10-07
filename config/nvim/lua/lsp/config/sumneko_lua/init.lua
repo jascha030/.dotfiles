@@ -99,6 +99,7 @@ return function(opts)
                 runtime = {
                     version = version(),
                     maxPreload = 1000,
+                    path = path(),
                     preloadFileSize = 150,
                 },
                 diagnostics = {

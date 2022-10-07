@@ -98,7 +98,11 @@ local defaults = {
         flags = { debounce_text = 150 },
     },
     extensions = {
-        mason = {},
+        mason = {
+            ui = {
+                border = 'rounded',
+            },
+        },
         ['mason-lspconfig'] = {
             ensure_installed = {
                 'bashls',
