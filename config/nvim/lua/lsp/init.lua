@@ -59,6 +59,7 @@ local function setup_null_ls()
         sources = {
             formatting.stylua.with({ extra_args = { '--config-path', os.getenv('XDG_CONFIG_HOME') .. '/stylua.toml' } }),
             diagnostics.eslint,
+            diagnostics.zsh,
             completion.spell,
         },
     })
@@ -78,6 +79,8 @@ function M.setup(opts)
     setup_lsp(config.options.lsp)
     setup_mason(config.options.extensions)
     setup_null_ls()
+
+    require('lsp_signature').setup()
 end
 
 return M

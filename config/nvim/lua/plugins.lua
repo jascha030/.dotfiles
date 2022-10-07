@@ -110,6 +110,7 @@ local function init()
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
         'neovim/nvim-lspconfig',
+        'ray-x/lsp_signature.nvim',
         'onsails/lspkind-nvim',
         'jose-elias-alvarez/null-ls.nvim',
         { 'hrsh7th/nvim-cmp', config = [[require('lsp.cmp')]] },
