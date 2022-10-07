@@ -16,6 +16,7 @@ end
 
 local colors = theme.get_scheme('Dark', true)
 local opacity = 1
+local line_height = 1.4
 
 wezterm.on('window-config-reloaded', function(window)
     local current = window:get_appearance()
@@ -73,6 +74,15 @@ wezterm.on('reset-font', function(window, _)
     local overrides = window:get_config_overrides() or {}
 
     overrides.font_size = font.default_size
+    overrides.line_height = line_height
+    window:set_config_overrides(overrides)
+end)
+
+wezterm.on('big-font', function(window, _)
+    local overrides = window:get_config_overrides() or {}
+
+    overrides.font_size = 19
+    overrides.line_height = 1.65
     window:set_config_overrides(overrides)
 end)
 
@@ -122,7 +132,7 @@ return {
     cursor_blink_ease_in = 'Ease',
     cursor_blink_ease_out = 'Ease',
 
-    line_height = 1.4,
+    line_height = line_height,
     font_size = font.get(MESLO, DANK).size,
     font_rules = font.get(MESLO, DANK).rules,
     colors = colors,
