@@ -91,7 +91,7 @@ return function()
             change_dir = {
                 enable = true,
                 global = false,
-                restrict_above_cwd = false,
+                restrict_above_cwd = true,
             },
             file_popup = {
                 open_win_config = {
