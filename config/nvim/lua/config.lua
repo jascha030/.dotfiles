@@ -33,7 +33,7 @@ return {
             ['FF'] = { ':lua require("telescope").extensions.file_browser.file_browser()<CR>' },
             ['fg'] = { ':lua require("telescope.builtin").live_grep()<CR>' },
             ['<C-f>'] = { ':lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>' },
-            ['<C-l>'] = { ':lua vim.lsp.buf.formatting()<CR>' },
+            ['<C-l>'] = { ':lua vim.lsp.buf.format()<CR>' },
             ['<S-Tab>'] = { '<Plug>(cokeline-focus-next)', { silent = true } },
             ['<C-w><C-c>'] = { '<cmd>close<CR>' },
             ['<C-n>'] = { '<cmd>NvimTreeToggle<CR>' },
