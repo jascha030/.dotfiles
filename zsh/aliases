@@ -79,7 +79,7 @@ alias composer80="/usr/local/opt/php@8.0/bin/php $(which composer)"
 alias composer81="/usr/local/opt/php@8.1/bin/php $(which composer)"
 
 alias wpuser:create='wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
-
+alias new:composer-template='cp -r /Users/jaschavanaalst/.development/Projects/Composer/jascha030/project-templates/composer-template $PWD/composer-template && rm -rf $PWD/composer-template/.git'
 
 alias pwd='e $PWD | pbcopy'
 alias fzprev="fzf --preview 'cat --color=always --style=numbers --line-range=:500 {}'"
