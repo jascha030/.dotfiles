@@ -14,6 +14,11 @@ vim.api.nvim_create_autocmd('FileType', {
     command = [[nnoremap <buffer><silent> q :close<CR>]],
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'dashboard' },
+    command = [[nnoremap <buffer><silent> q :q<CR>]],
+})
+
 -- Load plugin configurations in "nvim/lua/config/".
 require('config.loader').load_all()
 
