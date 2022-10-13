@@ -45,7 +45,14 @@ local function init()
         'hoob3rt/lualine.nvim',
         'kyazdani42/nvim-tree.lua',
         'sheerun/vim-polyglot',
-        'lukas-reineke/indent-blankline.nvim',
+        {
+            'lukas-reineke/indent-blankline.nvim',
+            config = function()
+                require('indent_blankline').setup({
+                    filetype_exclude = { 'dashboard' },
+                })
+            end,
+        },
         'f-person/git-blame.nvim',
         'wakatime/vim-wakatime',
         { 'akinsho/toggleterm.nvim', tag = '*' },
@@ -59,12 +66,14 @@ local function init()
                 })
             end,
         },
-        {
-            'goolord/alpha-nvim',
-            config = function()
-                require('alpha').setup(require('alpha.themes.startify').opts)
-            end,
-        },
+        -- {
+        --     'goolord/alpha-nvim',
+        --     config = function()
+        --         require('alpha').setup(require('alpha.themes.startify').opts)
+        --     end,
+        -- },
+        'glepnir/dashboard-nvim',
+        'ziontee113/icon-picker.nvim',
         'gelguy/wilder.nvim',
         { 'luukvbaal/stabilize.nvim', config = [[require("stabilize").setup()]] },
         { 'terrortylor/nvim-comment', config = [[require('nvim_comment').setup()]] },
@@ -82,7 +91,7 @@ local function init()
         'nvim-treesitter/nvim-treesitter-context',
         'nvim-treesitter/playground',
         'p00f/nvim-ts-rainbow',
-    })
+    }, { 'theHamsta/nvim-treesitter-commonlisp', after = 'nvim-treesitter' })
 
     use({
         {
