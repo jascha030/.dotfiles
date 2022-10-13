@@ -2,8 +2,13 @@ local wezterm = require('wezterm')
 local theme = require('theme')
 local font = require('fonts')
 
-local MESLO = 'MesloLGS Nerd Font'
-local DANK = 'Dank Mono'
+font.extend({
+    main = 'MesloLGS Nerd Font',
+    alt = 'Dank Mono',
+    italic = 'Dank Mono',
+})
+
+local line_height_large = 1.65
 
 local proc_icons = {
     ['default'] = ' ',
@@ -16,14 +21,11 @@ end
 
 local colors = theme.get_scheme('Dark', true)
 local opacity = 1
-local line_height = 1.4
 
 wezterm.on('window-config-reloaded', function(window)
     local current = window:get_appearance()
     local overrides = window:get_config_overrides() or {}
-
     colors = theme.get_scheme(current, true)
-
     if overrides.colors ~= colors then
         overrides.colors = colors
         window:set_config_overrides(overrides)
@@ -74,7 +76,7 @@ wezterm.on('reset-font', function(window, _)
     local overrides = window:get_config_overrides() or {}
 
     overrides.font_size = font.default_size
-    overrides.line_height = line_height
+    overrides.line_height = font.options.line_height
     window:set_config_overrides(overrides)
 end)
 
@@ -82,7 +84,7 @@ wezterm.on('big-font', function(window, _)
     local overrides = window:get_config_overrides() or {}
 
     overrides.font_size = 19
-    overrides.line_height = 1.65
+    overrides.line_height = line_height_large
     window:set_config_overrides(overrides)
 end)
 
@@ -113,9 +115,17 @@ wezterm.on('format-tab-title', function(tab)
 end)
 
 return {
-    default_prog = { '/usr/local/bin/zsh', '--login' },
+    default_prog = {
+        '/usr/local/bin/zsh',
+        '--login',
+    },
     window_decorations = 'NONE | RESIZE',
-    window_padding = { left = 2.5, right = 2.5, top = 0, bottom = 0 },
+    window_padding = {
+        left = 2.5,
+        right = 2.5,
+        top = 0,
+        bottom = 0,
+    },
     window_frame = {
         button_fg = colors.foreground,
         button_bg = colors.background,
@@ -125,20 +135,26 @@ return {
     enable_tab_bar = true,
     use_fancy_tab_bar = false,
     tab_bar_at_bottom = true,
-    show_tab_index_in_tab_bar = true,
+   show_tab_index_in_tab_bar = true,
     hide_tab_bar_if_only_one_tab = true,
     default_cursor_style = 'BlinkingBlock',
     cursor_blink_rate = 250,
     cursor_blink_ease_in = 'Ease',
     cursor_blink_ease_out = 'Ease',
 
-    line_height = line_height,
-    font_size = font.get(MESLO, DANK).size,
-    font_rules = font.get(MESLO, DANK).rules,
+    line_height = font.options.line_height,
+    font_size = font.options.size,
+    font_rules = font.get_rules(),
     colors = colors,
-    inactive_pane_hsb = { saturation = 0.98, brightness = 0.9 },
+    inactive_pane_hsb = {
+        saturation = 0.98,
+        brightness = 0.9,
+    },
     window_background_opacity = 1,
     keys = require('keymap'),
     disable_default_key_bindings = true,
-    leader = { key = 'd', mods = 'CTRL' },
+    leader = {
+        key = 'd',
+        mods = 'CTRL',
+    },
 }
