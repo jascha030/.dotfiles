@@ -144,7 +144,6 @@ return {
                             'nvim-web-devicons',
                             'lualine',
                             'cokeline',
-                            'alpha',
                             'indent_blankline',
                             'telescope.nvim',
                             'nvim-tree.lua',
@@ -155,7 +154,7 @@ return {
                             'nvim-cokeline',
                             'nvim-web-devicons',
                             'plenary.nvim',
-                            'wilder.nvim'
+                            'wilder.nvim',
                         },
                     },
                 },
