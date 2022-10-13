@@ -1,22 +1,19 @@
 # Projectfiles.
 .idea
+.vscode
 TODO.md
 
 # macOS
-.DS_Store
+*.DS_Store
 .cache/
 
 # Hammerspoon
+hammerspoon/Spoons
 hammerspoon/Spoons/EmmyLua.spoon/annotations
 config/nvim/plugin/packer_compiled.lua
 
-
-config/colors/lua/jassie030new.lua
 zsh/.zsh_history
-
 zsh/.zcompcache
-config/lazygit/state.yml
-
-
-hammerspoon/Spoons
 zsh/plugins
+
+config/lazygit/state.yml
