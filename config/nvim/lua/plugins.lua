@@ -66,13 +66,13 @@ local function init()
                 })
             end,
         },
-        -- {
-        --     'goolord/alpha-nvim',
-        --     config = function()
-        --         require('alpha').setup(require('alpha.themes.startify').opts)
-        --     end,
-        -- },
-        'glepnir/dashboard-nvim',
+        {
+            'goolord/alpha-nvim',
+            config = function()
+                require('alpha').setup(require('alpha.themes.startify').opts)
+            end,
+        },
+        -- 'glepnir/dashboard-nvim',
         'ziontee113/icon-picker.nvim',
         'gelguy/wilder.nvim',
         { 'luukvbaal/stabilize.nvim', config = [[require("stabilize").setup()]] },
@@ -160,7 +160,6 @@ local function init()
 
     -- only included for the EmmyLua annotations.
     use({ 'folke/lua-dev.nvim', opt = true })
-    use({ os.getenv('HOME') .. '/.development/Projects/lua/nitepal.nvim' })
 end
 
 local plugins = setmetatable({}, {
