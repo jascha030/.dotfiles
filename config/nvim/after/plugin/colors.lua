@@ -26,7 +26,6 @@ vim.api.nvim_create_autocmd('Signal', {
 
         utils.theme.set_from_os()
 
-        -- TODO: autoload based on files in config dir.
         require('config.loader').load_all()
     end,
 })
