@@ -84,6 +84,7 @@ local function init()
         { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup({})]] },
     })
 
+    use({ os.getenv('HOME') .. '/.development/Projects/Lua/nitepal.nvim' })
     -- Treesitter
     use({
         { 'nvim-treesitter/nvim-treesitter', irun = ':TSUpdate' },
