@@ -18,7 +18,7 @@ function M.in_neovim()
     return (
         M.cwd_in(vim.fn.stdpath('config'))
         or M.in_dotfiles()
-        or M.cwd_in(vim.fn.expand('$HOME/.development/Projects/lua/nitepal.nvim'))
+        or M.cwd_in(vim.fn.expand('$HOME/.development/Projects/Lua/nitepal.nvim'))
     )
 end
 
