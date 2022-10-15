@@ -35,4 +35,6 @@ return {
     { key = '-', mods = 'CMD', action = wezterm.action.EmitEvent('resize-font-down') },
     { key = '0', mods = 'CMD', action = wezterm.action.EmitEvent('reset-font') },
     { key = '9', mods = 'CMD', action = wezterm.action.EmitEvent('big-font') },
+    { key = '8', mods = 'CMD', action = wezterm.action.EmitEvent('set-font-alt') },
+    { key = '7', mods = 'CMD', action = wezterm.action.EmitEvent('set-font-default') },
 }

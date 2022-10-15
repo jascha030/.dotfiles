@@ -62,12 +62,9 @@ return {
             ['<M-[>'] = { '<Esc>' },
             ['<C-v><Esc>'] = { '<Esc>' },
         },
-        ['i'] = {
-            -- ['<C-p><C-p>'] = { '<cmd>PickColorInsert<CR>' },
-        },
+        ['i'] = {},
     },
     devicons = {
-        -- default_icon = '',
         default_icon = '',
         icons = {
             alias = '',

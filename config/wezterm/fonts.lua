@@ -42,34 +42,35 @@ function M.extend(options)
     M.options = table_merge(M.options or defaults, options or {})
 end
 
-function M.fallback_font()
+function M.fallback_font(main, alt)
+    main = main or M.options.main
+    alt = alt or M.options.alt
+
     return wezterm.font_with_fallback({
         'nonicons',
-        {
-            family = M.options.main,
-            italic = false,
-            weight = 600,
-        },
-        {
-            family = M.options.alt,
-            italic = false,
-            weight = 600,
-        },
+        { family = main, italic = false, weight = 600 },
+        { family = alt, italic = false, weight = 600 },
         M.options.fallback_font,
     })
 end
 
-function M.get_rules()
+function M.get_rules(alt)
+    local font = M.fallback_font()
+
+    if alt == true then
+        font = M.fallback_font('Dank Mono', 'Dank Mono')
+    end
+
     return {
         {
             italic = false,
             intensity = 'Normal',
-            font = M.fallback_font(),
+            font = font,
         },
         {
             italic = true,
             intensity = 'Bold',
-            font = M.fallback_font(),
+            font = font,
         },
         {
             italic = true,
