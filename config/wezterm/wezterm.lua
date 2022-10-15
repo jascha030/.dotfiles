@@ -8,7 +8,7 @@ font.extend({
     italic = 'Dank Mono',
 })
 
-local line_height_large = 1.65
+local line_height_large = 1.7
 
 local proc_icons = {
     ['default'] = ' ',
