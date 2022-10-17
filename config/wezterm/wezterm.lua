@@ -147,6 +147,7 @@ return {
     cursor_blink_rate = 250,
     cursor_blink_ease_in = 'Ease',
     cursor_blink_ease_out = 'Ease',
+    cursor_thickness = '150%',
     line_height = font.options.line_height,
     font_size = font.options.size,
     font_rules = font.get_rules(false),
