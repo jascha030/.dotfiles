@@ -19,7 +19,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
-export MANPAGER=/usr/local/bin/most
 export LS_OVERRIDE='lsd'
 export CAT_OVERRIDE='bat'
 export LAZYGIT_CONFIG=${XDG_CONFIG}/lazygit

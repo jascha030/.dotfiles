@@ -14,6 +14,8 @@ fi
 
 export EDITOR=nvim
 export VISUAL=${EDITOR}
+export MANPAGER=${EDITOR}" +Man!"
+# export MANPAGER=/usr/local/bin/most
 
 export COMPOSER_DEFAULT_VENDOR="jascha030"
 export NPM_CHECK_INSTALLER="pnpm npm-check -u"
