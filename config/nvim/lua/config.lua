@@ -138,6 +138,7 @@ return {
                 sumneko_lua = {
                     runtime = {
                         plugins = {
+                            'alpha',
                             'nvim-web-devicons',
                             'lualine',
                             'cokeline',

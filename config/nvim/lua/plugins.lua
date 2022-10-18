@@ -66,13 +66,7 @@ local function init()
                 })
             end,
         },
-        {
-            'goolord/alpha-nvim',
-            config = function()
-                require('alpha').setup(require('alpha.themes.startify').opts)
-            end,
-        },
-        -- 'glepnir/dashboard-nvim',
+        'goolord/alpha-nvim',
         'ziontee113/icon-picker.nvim',
         'gelguy/wilder.nvim',
         { 'luukvbaal/stabilize.nvim', config = [[require("stabilize").setup()]] },
