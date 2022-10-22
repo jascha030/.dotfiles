@@ -18,7 +18,6 @@ local proc_icons = {
 local function icon(process_name)
     return proc_icons[process_name] and proc_icons[process_name] .. ' ' or proc_icons['default']
 end
-
 function M.window_config_reloaded(window)
     local current = window:get_appearance()
     local overrides = window:get_config_overrides() or {}
@@ -106,6 +105,8 @@ function M.reset_font(window, _)
     overrides.font_rules = font.get_rules(false)
     overrides.fonts_size = font.options.size
     overrides.line_height = font.options.line_height
+
+    window:set_config_overrides(overrides)
 end
 
 function M.format_tab_title(tab)
