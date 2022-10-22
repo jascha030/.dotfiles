@@ -57,10 +57,17 @@ local function setup_null_ls()
 
     require('null-ls').setup({
         sources = {
-            formatting.stylua.with({ extra_args = { '--config-path', os.getenv('XDG_CONFIG_HOME') .. '/stylua.toml' } }),
+            formatting.stylua.with({
+                extra_args = {
+                    '--config-path',
+                    os.getenv('XDG_CONFIG_HOME') .. '/stylua.toml',
+                },
+            }),
             diagnostics.eslint,
             diagnostics.zsh,
             completion.spell,
+            diagnostics.twigcs,
+            formatting.phpcsfixer,
         },
     })
 end
@@ -69,11 +76,9 @@ function M.setup(opts)
     if loaded == true then
         return
     end
-
     loaded = true
 
     local config = require('lsp.config')
-
     config.extend(opts)
 
     setup_lsp(config.options.lsp)
