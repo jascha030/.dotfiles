@@ -153,6 +153,7 @@ return {
                             'nvim-web-devicons',
                             'plenary.nvim',
                             'wilder.nvim',
+                            'null-ls',
                         },
                     },
                 },

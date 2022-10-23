@@ -67,7 +67,15 @@ local function setup_null_ls()
             diagnostics.zsh,
             completion.spell,
             diagnostics.twigcs,
-            formatting.phpcsfixer,
+            formatting.phpcsfixer.with({
+                args = {
+                    '--no-interaction',
+                    '--quiet',
+                    '--config=' .. os.getenv('HOME') .. '/.config/.php-cs-fixer.php',
+                    'fix',
+                    '$FILENAME',
+                },
+            }),
         },
     })
 end
