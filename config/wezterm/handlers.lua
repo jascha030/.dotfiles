@@ -6,29 +6,12 @@ local font = require('fonts')
 
 M.options = {
     opacity = 1,
-    colors = theme.get_scheme('Dark', true),
+    colors = {},
     alt_font_active = false,
 }
 
-local proc_icons = {
-    ['default'] = ' ',
-    ['nvim'] = ' ',
-}
-
-local function icon(process_name)
-    return proc_icons[process_name] and proc_icons[process_name] .. ' ' or proc_icons['default']
-end
-
-function M.window_config_reloaded(window)
-    local current = window:get_appearance()
-    local overrides = window:get_config_overrides() or {}
-
-    M.options.colors = theme.get_scheme(current, true)
-
-    if overrides.colors ~= M.options.colors then
-        overrides.colors = M.options.colors
-        window:set_config_overrides(overrides)
-    end
+function M.set_colors(colors)
+    M.options.colors = colors
 end
 
 -- TODO: extract common code in opacity_* font_size_* and line_height_*
@@ -103,35 +86,8 @@ function M.reset_font(window, _)
     window:set_config_overrides({})
 end
 
-function M.format_tab_title(tab)
-    local title_icon = icon(tab.active_pane.title)
-    local title = ' ' .. tab.tab_index + 1 .. ': ' .. title_icon .. tab.active_pane.title .. ' '
-    local first = tab.tab_index == 0
-
-    local c = {
-        fg = tab.is_active and M.options.colors.foreground or M.options.colors.background,
-        bg = tab.is_active and M.colors.background or M.colors.foreground,
-    }
-
-    return not first
-            and {
-                { Foreground = { Color = M.options.colors.background } },
-                { Background = { Color = M.options.colors.foreground } },
-                { Text = '┇' },
-                { Foreground = { Color = c.fg } },
-                { Background = { Color = c.bg } },
-                { Text = title },
-            }
-        or {
-            { Foreground = { Color = c.fg } },
-            { Background = { Color = c.bg } },
-            { Text = title },
-        }
-end
-
 function M.setup()
     local events = {
-        ['window-config-reloaded'] = M.window_config_reloaded,
         ['opacity-up'] = M.opacity_up,
         ['opacity-down'] = M.opacity_down,
         ['font-size-up'] = M.font_size_up,
@@ -139,7 +95,6 @@ function M.setup()
         ['line-height-up'] = M.line_height_up,
         ['line-height-down'] = M.line_height_down,
         ['toggle-font'] = M.toggle_font,
-        ['format-tab-title'] = M.format_tab_title,
         ['reset-font'] = M.reset_font,
     }
 
