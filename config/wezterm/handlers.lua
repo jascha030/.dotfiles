@@ -18,6 +18,7 @@ local proc_icons = {
 local function icon(process_name)
     return proc_icons[process_name] and proc_icons[process_name] .. ' ' or proc_icons['default']
 end
+
 function M.window_config_reloaded(window)
     local current = window:get_appearance()
     local overrides = window:get_config_overrides() or {}
@@ -72,7 +73,7 @@ function M.line_height_up(window, _)
     local current = overrides.line_height or font.options.line_height
 
     if current < 2 then
-        overrides.line_height = (current + 0.01)
+        overrides.line_height = (current + 0.05)
         window:set_config_overrides(overrides)
     end
 end
@@ -82,7 +83,7 @@ function M.line_height_down(window, _)
     local current = overrides.line_height or font.options.line_height
 
     if current > 0 then
-        overrides.line_height = (current - 0.01)
+        overrides.line_height = (current - 0.05)
         window:set_config_overrides(overrides)
     end
 end
@@ -98,15 +99,8 @@ function M.toggle_font(window, _)
 end
 
 function M.reset_font(window, _)
-    local overrides = window:get_config_overrides() or {}
-
     M.options.alt_font_active = false
-
-    overrides.font_rules = font.get_rules(false)
-    overrides.fonts_size = font.options.size
-    overrides.line_height = font.options.line_height
-
-    window:set_config_overrides(overrides)
+    window:set_config_overrides({})
 end
 
 function M.format_tab_title(tab)
