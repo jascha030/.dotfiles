@@ -22,6 +22,8 @@ return {
             signcolumn = 'yes',
             rnu = true,
             shell = '/bin/zsh',
+            foldmethod = 'expr',
+            foldexpr = 'nvim_treesitter#foldexpr()',
         },
         g = {
             gitblame_display_virtual_text = 0, -- Disable virtual text
