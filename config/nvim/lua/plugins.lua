@@ -69,6 +69,7 @@ local function init()
         'goolord/alpha-nvim',
         'ziontee113/icon-picker.nvim',
         'gelguy/wilder.nvim',
+        'yamatsum/nvim-cursorline',
         { 'luukvbaal/stabilize.nvim', config = [[require("stabilize").setup()]] },
         { 'terrortylor/nvim-comment', config = [[require('nvim_comment').setup()]] },
         { 'petertriho/nvim-scrollbar', config = [[require("scrollbar").setup({})]] },
