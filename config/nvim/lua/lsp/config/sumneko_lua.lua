@@ -87,32 +87,26 @@ local function globals()
     return ret
 end
 
-local config = require('lsp.config.sumneko_lua.config')
+local root = os.getenv('HOME') .. '/tools/lua-language-server'
+local binary = root .. '/bin/lua-language-server'
+local plugins = require('config').lsp.sumneko_lua.plugins
 
-return function(opts)
-    config.extend(opts or {})
-
-    return {
-        cmd = { config.options.binary, '-E', config.options.root .. '/main.lua' },
-        settings = {
-            Lua = {
-                runtime = {
-                    version = version(),
-                    maxPreload = 1000,
-                    path = path(),
-                    preloadFileSize = 150,
-                },
-                diagnostics = {
-                    globals = globals(),
-                },
-                workspace = {
-                    library = library(config.options.runtime.plugins),
-                    checkThirdParty = false,
-                },
-                telemetry = {
-                    enable = false,
-                },
+return {
+    cmd = { binary, '-E', root .. '/main.lua' },
+    settings = {
+        Lua = {
+            runtime = {
+                version = version(),
+                maxPreload = 1000,
+                path = path(),
+                preloadFileSize = 150,
             },
+            diagnostics = { globals = globals() },
+            workspace = {
+                library = library(plugins),
+                checkThirdParty = false,
+            },
+            telemetry = { enable = false },
         },
-    }
-end
+    },
+}
