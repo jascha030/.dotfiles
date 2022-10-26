@@ -28,10 +28,12 @@ function M.create_keymaps(bufnr)
 end
 
 function M.on_attach(client, bufnr)
+    M.create_keymaps(bufnr)
+
     vim.api.nvim_create_autocmd('CursorHold', {
         buffer = bufnr,
         callback = function()
-            vim.diagnostic.open_float(nil, {
+            vim.diagnostic.open_float({}, {
                 focusable = false,
                 close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' },
                 border = 'rounded',
