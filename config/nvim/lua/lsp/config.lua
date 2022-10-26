@@ -1,7 +1,3 @@
-if not require('utils').validate({ 'null-ls' }, 'lsp.config') then
-    return
-end
-
 local config = nil
 
 local function on_attach(client, bufnr)
@@ -62,56 +58,11 @@ local function on_attach(client, bufnr)
     end
 end
 
-local handler_options = { border = 'rounded' }
-
 local defaults = {
-    lsp = {
-        diagnostic = {
-            signs = {
-                active = {
-                    { name = 'DiagnosticSignError', text = '' },
-                    { name = 'DiagnosticSignWarn', text = '' },
-                    { name = 'DiagnosticSignHint', text = '' },
-                    { name = 'DiagnosticSignInfo', text = '' },
-                },
-            },
-            float = {
-                focusable = false,
-                style = 'minimal',
-                border = 'rounded',
-                source = 'always',
-            },
-            virtual_text = true,
-            update_in_insert = true,
-            underline = true,
-            severity_sort = true,
-        },
-        handlers = {
-            options = handler_options,
-            hover = vim.lsp.with(vim.lsp.handlers.hover, handler_options),
-            signature_help = vim.lsp.with(vim.lsp.handlers.signature_help, handler_options),
-        },
-    },
     server = {
         on_attach = on_attach,
         capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
         flags = { debounce_text = 150 },
-    },
-    extensions = {
-        mason = {
-            ui = {
-                border = 'rounded',
-            },
-        },
-        ['mason-lspconfig'] = {
-            ensure_installed = {
-                'bashls',
-                'intelephense',
-                'rust_analyzer',
-                'sumneko_lua',
-            },
-        },
-        server_opts = {},
     },
 }
 

@@ -135,30 +135,24 @@ return {
         },
     },
     lsp = {
-        extensions = {
-            server_opts = {
-                sumneko_lua = {
-                    runtime = {
-                        plugins = {
-                            'alpha',
-                            'nvim-web-devicons',
-                            'lualine',
-                            'cokeline',
-                            'indent_blankline',
-                            'telescope.nvim',
-                            'nvim-tree.lua',
-                            'nvim-treesitter',
-                            'nvim-treesitter-context',
-                            'nvim-treesitter-textobjects',
-                            'nvim-lspconfig',
-                            'nvim-cokeline',
-                            'nvim-web-devicons',
-                            'plenary.nvim',
-                            'wilder.nvim',
-                            'null-ls',
-                        },
-                    },
-                },
+        sumneko_lua = {
+            plugins = {
+                'alpha',
+                'nvim-web-devicons',
+                'lualine',
+                'cokeline',
+                'indent_blankline',
+                'telescope.nvim',
+                'nvim-tree.lua',
+                'nvim-treesitter',
+                'nvim-treesitter-context',
+                'nvim-treesitter-textobjects',
+                'nvim-lspconfig',
+                'nvim-cokeline',
+                'nvim-web-devicons',
+                'plenary.nvim',
+                'wilder.nvim',
+                'null-ls',
             },
         },
     },
