@@ -2,7 +2,7 @@
 require('config.loader').load_all()
 
 -- Setup LSP settings.
-require('lsp').setup(require('utils').conf.lsp)
+require('lsp').setup()
 
 -- Create lazy Packer cmd replacements.
 require('utils').create_packer_cmds()

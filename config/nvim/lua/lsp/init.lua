@@ -106,7 +106,7 @@ local function setup_null_ls()
     })
 end
 
-function M.setup(opts)
+function M.setup()
     if loaded == true then
         return
     end
