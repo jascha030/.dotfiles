@@ -1,6 +1,6 @@
-local config = nil
+local M = {}
 
-local function on_attach(client, bufnr)
+function M.create_keymaps(bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     local opts = { noremap = true, silent = true }
 
@@ -25,7 +25,9 @@ local function on_attach(client, bufnr)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+end
 
+function M.on_attach(client, bufnr)
     vim.api.nvim_create_autocmd('CursorHold', {
         buffer = bufnr,
         callback = function()
@@ -57,27 +59,5 @@ local function on_attach(client, bufnr)
         vim.keymap.set('n', '<Leader>a', rt.code_action_group.code_action_group, { buffer = bufnr })
     end
 end
-
-local defaults = {
-    server = {
-        on_attach = on_attach,
-        capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-        flags = { debounce_text = 150 },
-    },
-}
-
-local M = {}
-
-M.options = {}
-
-function M.setup(options)
-    M.options = vim.tbl_deep_extend('force', {}, defaults, options or {})
-end
-
-function M.extend(options)
-    M.options = vim.tbl_deep_extend('force', {}, M.options or defaults, options or {})
-end
-
-M.setup()
 
 return M

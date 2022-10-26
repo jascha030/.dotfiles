@@ -34,7 +34,11 @@ local function setup_lsp()
     vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, BORDERS)
     vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, BORDERS)
 
-    default = require('lsp.config').options.server
+    default = {
+        on_attach = require('lsp.handlers').on_attach,
+        capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+        flags = { debounce_text = 150 },
+    }
 end
 
 local function get_server_config(server_name)
@@ -108,10 +112,7 @@ function M.setup(opts)
     end
     loaded = true
 
-    local config = require('lsp.config')
-    config.extend(opts)
-
-    setup_lsp(config.options.lsp)
+    setup_lsp()
     setup_mason()
     setup_null_ls()
 
