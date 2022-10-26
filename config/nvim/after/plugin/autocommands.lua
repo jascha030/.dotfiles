@@ -32,6 +32,7 @@ vim.cmd([[
     autocmd BufReadPost *.neon set ft=yaml
     autocmd BufReadPost *.ejs.t set ft=embedded_template
     autocmd BufReadPost *.styluaignore set ft=gitignore
+    autocmd BufReadPost *.cnf set ft=dosini
   augroup end
 ]])
 
