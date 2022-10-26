@@ -113,7 +113,7 @@ $rules = new ArrayIterator([
     ],
     'clean_namespace'                         => true,
     'doctrine_annotation_spaces'              => true,
-    'echo_tag_syntax'                         => true,
+    'echo_tag_syntax'                         => ['format' => 'short'],
     'empty_loop_body'                         => true,
     'empty_loop_condition'                    => true,
     'escape_implicit_backslashes'             => true,
