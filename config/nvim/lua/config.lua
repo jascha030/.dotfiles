@@ -60,7 +60,7 @@ return {
             ['<C-_>'] = { ":'<,'>CommentToggle<CR>" },
         },
         ['t'] = {
-            ['<C-t>'] = { '<C-\\><C-n> :FloatermToggle[!]<CR>' },
+            -- ['<C-t>'] = { '<C-\\><C-n> :FloatermToggle[!]<CR>' },
             ['<M-[>'] = { '<Esc>' },
             ['<C-v><Esc>'] = { '<Esc>' },
         },
