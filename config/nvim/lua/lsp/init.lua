@@ -116,6 +116,7 @@ function M.setup()
     setup_mason()
     setup_null_ls()
 
+    require('lspconfig.ui.windows').default_options.border = 'rounded'
     require('lsp_signature').setup()
 end
 
