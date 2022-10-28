@@ -70,10 +70,10 @@ export DOT_SOURCES=(
 )
 
 export DOT_AFTER_INIT_SOURCES=(
-  ${ZDOTDIR}/overrides
-	${ZDOTDIR}/aliases
-	${HOME}/.fzf.zsh
-  ${ZDOTDIR}/fzf
+    ${ZDOTDIR}/overrides
+    ${ZDOTDIR}/aliases
+    ${HOME}/.fzf.zsh
+    ${ZDOTDIR}/fzf
 )
 
 #------------------------------------------------- Initialization ----------------------------------------------------#
