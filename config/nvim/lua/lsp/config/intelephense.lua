@@ -115,7 +115,7 @@ local stubs = {
 	"regex",
 	"rpminfo",
 	"rrd",
-	"SaxonC",
+	-- "SaxonC",
 	"session",
 	"shmop",
 	"SimpleXML",
@@ -183,7 +183,7 @@ return {
 		intelephense = {
 			stubs = stubs,
 			files = {
-				maxSize = 5000000,
+				maxSize = 2500000,
 			},
 		},
 	},
