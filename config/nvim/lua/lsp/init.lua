@@ -17,7 +17,7 @@ local function setup_lsp()
     end
 
     vim.diagnostic.config({
-        -- virtual_text = true,
+        virtual_text = false,
         float = {
             focusable = false,
             style = 'minimal',
