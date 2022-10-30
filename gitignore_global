@@ -1,4 +1,6 @@
-.DS_Store
-browserslist
+.idea
+.cache/
 **.cache
-
+*.DS_Store
+.pm.toml
+TODO.md
