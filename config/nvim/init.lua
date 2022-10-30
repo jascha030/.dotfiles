@@ -24,4 +24,7 @@ _G.__luacache_config = {
 local impatient = require('impatient')
 impatient.enable_profile()
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 require('utils.conf').setup()
