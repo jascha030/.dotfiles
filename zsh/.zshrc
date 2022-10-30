@@ -19,12 +19,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
-export LS_OVERRIDE='lsd'
-export CAT_OVERRIDE='bat'
-export LAZYGIT_CONFIG=${XDG_CONFIG}/lazygit
-export FPM_LOG=${XDG_CONFIG}/valet/Log/php-fpm.log
-export BUN_INSTALL=${HOME}/.bun
-
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=10,underline'
 ZSH_HIGHLIGHT_STYLES[arg0]='fg=10'

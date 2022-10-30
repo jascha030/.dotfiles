@@ -4,10 +4,6 @@
 # By Jascha030                                  Dotfiles Initialization         https://github.io/jascha030/.dotfiles #
 #######################################################################################################################
 
-if ! (( ${+XDG_CONFIG} )); then 
-    export XDG_CONFIG=${HOME}/.config
-fi
-
 # antigen.zsh path. based on simple install, overwrite if installed through brew.
 if ! (( ${+DOT_ANTIGEN_PATH} )); then 
     export DOT_ANTIGEN_PATH=${HOME}/antigen.zsh
@@ -20,7 +16,7 @@ fi
 
 # Alternative dir for histfiles
 if ! (( ${+DOT_DATA_DIR} )); then 
-    export DOT_DATA_DIR=${XDG_CONFIG}/datafiles
+    export DOT_DATA_DIR=${XDG_CONFIG_HOME}/datafiles
 fi
 
 # Prompt height in lines
