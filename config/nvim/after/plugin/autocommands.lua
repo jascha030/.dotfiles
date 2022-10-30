@@ -16,9 +16,8 @@ local function nvim_create_augroups(definitions)
 end
 
 nvim_create_augroups({
-    open_folds = {
-        { 'BufReadPost,FileReadPost', '*', 'normal zR' },
-    },
+    open_folds = { { 'BufReadPost,FileReadPost', '*', 'normal zR' } },
+    -- _lsp = {},
 })
 
 vim.cmd([[
@@ -33,6 +32,8 @@ vim.cmd([[
     autocmd BufReadPost *.ejs.t set ft=embedded_template
     autocmd BufReadPost *.styluaignore set ft=gitignore
     autocmd BufReadPost *.cnf set ft=dosini
+    autocmd BufReadPost gitignore_global set ft=gitignore
+    autocmd BufReadPost *.antigenrc set ft=zsh
   augroup end
 ]])
 
@@ -42,6 +43,6 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = { 'dashboard' },
+    pattern = { 'dashboard', 'toggleterm' },
     command = [[nnoremap <buffer><silent> q :q<CR>]],
 })
