@@ -6,32 +6,6 @@
 
 Backup of my .dotfiles (zsh, bash, git, npm)
 
-## Getting started
-
-"One freshly squeezed Mac install, coming up!"
-
-### Prerequisites
-
-**Install RCM**
-
-```shell
-brew install rcm
-```
-
-### Installation
-
-**Clone the repo**
-
-```shell
-git clone git@github.com:jascha030/.dotfiles.git
-```
-
-**Navigate and run the `rcup` script**
-
-```shell
-cd $HOME/.dotfiles/ && ./rcup
-```
-
 ## Epic backstory
 
 I originally created this repo because _early-2020-R-tarded-me_ was "Annoyed by all that clutter in my finder with hidden files visibile...".
