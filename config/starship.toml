@@ -12,20 +12,13 @@
 format = """
    $shell$env_var
 [  ╔═$fill═╗  ](bold foreground)
-[  ╟ ](bold foreground) \
-$user \ 
-$directory \
-$git_branch \
-$git_statur
-[  ╚══](bold foreground) """
-
+[  ╚══$users$directory$git_branch$git_status ](bold foreground)"""
 
 right_format = """ $golang$java$nodejs$rust$php$lua \
-[╞═$battery══╝ ](bold foreground)"""
+[$battery══╝ ](bold foreground)"""
 
 # Disable the blank line at the start of the prompt
 add_newline = true
-
 continuation_prompt ="[∙](foreground) "
 
 [fill]
@@ -102,7 +95,7 @@ format = '[[ $symbol $branch ](bg:7 fg: foreground)]($style)'
 
 [git_status]
 style = "bg:7 fg: foreground"
-format = '[[($all_status$ahead_behind )](bg:7 fg: foreground)]($style)'
+format = '[[($all_status$ahead_behind)](bg:7 fg: foreground)]($style)'
 
 [golang]
 symbol = " "
