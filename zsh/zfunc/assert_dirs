@@ -8,4 +8,3 @@ function assert_dirs {
   done
 }
 
-
