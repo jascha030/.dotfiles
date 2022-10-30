@@ -1,5 +1,3 @@
-#------------------------------------ Profile zshrc when enabled with $PROFILE_ZSH -----------------------------------#
-
 if (( ${+PROFILE_ZSHRC} )); then zmodload zsh/zprof ;fi
 
 # Hacky fix when first window of wezterm messes up lolmsg placement.
@@ -24,25 +22,6 @@ ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=10,underline'
 ZSH_HIGHLIGHT_STYLES[arg0]='fg=10'
 ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=10,underline'
 ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=10,bold'
-
-# Path
-path=(
-  /usr/local/sbin
-  /usr/local/opt/openjdk/bin
-  /usr/local/opt/openssl@1.1/bin
-  ${HOME}/bin
-  ${HOME}/.composer/vendor/bin
-  ${HOME}/.bun/bin
-  ${HOME}/.yarn/bin
-  ${HOME}/.gem/ruby/2.6.0/bin
-  ${HOME}/tools/lua-language-server/bin/macOS
-  ${HOME}/.cargo/bin
-  ${path[@]}
-)
-
-typeset -aU path
-
-#---------------------------------------------------- Init Exports ---------------------------------------------------#
 
 export DOT_PROMPT_HEIGHT=4
 
@@ -70,13 +49,24 @@ export DOT_AFTER_INIT_SOURCES=(
     ${ZDOTDIR}/fzf
 )
 
+# Path
+path=(
+  /usr/local/sbin
+  /usr/local/opt/openjdk/bin
+  /usr/local/opt/openssl@1.1/bin
+  ${HOME}/bin
+  ${HOME}/.composer/vendor/bin
+  ${HOME}/.bun/bin
+  ${HOME}/.yarn/bin
+  ${HOME}/.gem/ruby/2.6.0/bin
+  ${HOME}/tools/lua-language-server/bin/macOS
+  ${HOME}/.cargo/bin
+  ${path[@]}
+)
+
+typeset -aU path
+
 #------------------------------------------------- Initialization ----------------------------------------------------#
 
 [[ -f ${ZDOTDIR}/init ]] && source ${ZDOTDIR}/init
-
-#---------------------------------------------------------------------------------------------------------------------#
-
-if (( ${+PROFILE_ZSHRC} )); then
-  echoti rmcup; echoti clear; echoti sgr0; zprof unset PROFILE_ZSHRC
-fi
-
+if (( ${+PROFILE_ZSHRC} )); then echoti rmcup; echoti clear; echoti sgr0; zprof unset PROFILE_ZSHRC; fi

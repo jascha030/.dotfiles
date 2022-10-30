@@ -11,6 +11,7 @@ alias rscr='tput rmcup'
 alias rrscr='rr && rscr'
 alias rrp="exec env PROFILE_ZSHRC=1 zsh --login"
 alias rrdm="exec env DOT_DISABLE_MSG=1 zsh --login"
+alias pwd='e $PWD | pbcopy'
 
 alias checkitalics="echo -e '\e[3mitalic\e[23m'"
 alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
@@ -37,7 +38,7 @@ alias lll='ll | lolcrab'
 alias kk="ll" 
 
 #----------------------------------------------------- Utilities -----------------------------------------------------#  
-alias pstorminspect="sh /Users/jaschavanaalst/Library/Application\ Support/JetBrains/Toolbox/apps/PhpStorm/ch-0/222.3739.61/PhpStorm.app/Contents/bin/inspect.sh"
+
 alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
 alias cargoup='cargo install-update --all'
 alias appup='brewup && cargoup'
@@ -50,19 +51,6 @@ alias luamake="$HOME/tools/lua-language-server/3rd/luamake/luamake"
 alias valetrm="rm $HOME/.config/valet/*.sock"
 alias valetr="valetrm && valet restart"
 
-function _phpv {
-    local version="$1"
-
-    if [[ "$version" == 8.1 ]]; then
-      version=''
-    else 
-      version="@$1"
-    fi
-    
-    valet use "php$version" && composer global update
-}
-
-
 alias php74='_phpv "7.4" > /dev/null &'
 alias php80='_phpv "8.0" > /dev/null &'
 alias php81='_phpv "8.1" > /dev/null &'
@@ -71,17 +59,16 @@ alias php:74='valet use php@7.4 && composer global update'
 alias php:80='valet use php@8.0 && composer global update'
 alias php:81='valet use php@8.1 && composer global update'
 
-alias php8=php80
-alias php7=php74
-
 alias composer74="/usr/local/opt/php@7.4/bin/php $(which composer)"
 alias composer80="/usr/local/opt/php@8.0/bin/php $(which composer)"
 alias composer81="/usr/local/opt/php@8.1/bin/php $(which composer)"
 
+alias php8=php80
+alias php7=php74
+
 alias wpuser:create='wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias new:composer-template='cp -r /Users/jaschavanaalst/.development/Projects/Composer/jascha030/project-templates/composer-template $PWD/composer-template && rm -rf $PWD/composer-template/.git'
 
-alias pwd='e $PWD | pbcopy'
 alias fzprev="fzf --preview 'cat --color=always --style=numbers --line-range=:500 {}'"
 
 alias list:brew="brew list"
