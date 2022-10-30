@@ -2,7 +2,7 @@
 
 **Screenshot on WezTerm (of both light/dark mode).**
 
-![WezTerm home](https://github.com/jascha030/.dotfiles/blob/main/util/img/intro.png?raw=true)
+![WezTerm home](https://github.com/jascha030/.dotfiles/blob/main/img/intro.png?raw=true)
 
 Backup of my .dotfiles (zsh, bash, git, npm)
 
@@ -48,15 +48,15 @@ And now we replaced stow with rcup, because I like the clean directory structure
 
 ### Neovim
 
-![wezterm nvim light](https://github.com/jascha030/.dotfiles/blob/main/util/img/neovim-wezterm-light.png?raw=true)
+![wezterm nvim light](https://github.com/jascha030/.dotfiles/blob/main/img/neovim-wezterm-light.png?raw=true)
 
 ### Iterm
 
-![terminal in action](https://github.com/jascha030/.dotfiles/blob/main/util/img/nvim-tmux-lazygit-iterm.png?raw=true)
+![terminal in action](https://github.com/jascha030/.dotfiles/blob/main/img/nvim-tmux-lazygit-iterm.png?raw=true)
 
-![iTerm home](https://github.com/jascha030/.dotfiles/blob/main/util/img/term-home-iterm.png?raw=true)
+![iTerm home](https://github.com/jascha030/.dotfiles/blob/main/img/term-home-iterm.png?raw=true)
 
 ### Alacritty
 
-![Alacritty home](https://github.com/jascha030/.dotfiles/blob/main/util/img/term-home-alacritty.png?raw=true)
+![Alacritty home](https://github.com/jascha030/.dotfiles/blob/main/img/term-home-alacritty.png?raw=true)
 
