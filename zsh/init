@@ -117,13 +117,27 @@ fi
 # Load antigen plugins.
 __df_load_antigen "${DOT_ANTIGEN_PATH}" "${DOT_ANTIGEN_RC_PATH}"
 
+function __position_prompt_bottom {
+    local t_lines="$(echoti lines)"
+    [[ $# == 0 ]] && margin=1 || margin=$((${1}))    
+    echoti cup $(( (${t_lines}-${DOT_PROMPT_HEIGHT}) + $((${margin})) )) 0
+}
+
 function __clear_prompt {
+    # echoti civis 
+    __position_prompt_bottom 2
     repeat ${DOT_PROMPT_HEIGHT} { echoti cuu1 && echoti dl1 }
+    # echoti cnorm
 }
 
 # Add preexec hook.
 autoload -Uz add-zsh-hook
 add-zsh-hook preexec __clear_prompt 
+
+clear-screen() { echoti clear; __position_prompt_bottom 2; }
+clear-screen-zle() { echoti clear; __position_prompt_bottom 2; zle redisplay; }
+
+zle -N clear-screen-zle
 
 # TODO: figure out how to make this more dynamic.
 eval "$(starship init zsh)"

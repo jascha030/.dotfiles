@@ -8,7 +8,7 @@ alias root='cd $(git rev-parse --show-toplevel)'
 
 # Controls
 alias x='exit'
-alias c='clear'
+alias c='clear-screen'
 alias e='echo -n'
 alias rd='rmdir'
 alias edit="vim $1"
