@@ -20,7 +20,12 @@ require('nvim-treesitter.configs').setup({
         'yaml',
     },
     indent = { enable = true },
-    highlight = { enable = true, additional_vim_regex_highlighting = true },
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = {
+            'zsh',
+        },
+    },
     rainbow = { enable = true, extended_mode = true, max_file_lines = 1000 },
     playground = {},
 })
