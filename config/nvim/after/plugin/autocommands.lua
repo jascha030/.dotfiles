@@ -30,9 +30,9 @@ vim.cmd([[
     autocmd FileType plist set ft=xml
     autocmd BufReadPost *.neon set ft=yaml
     autocmd BufReadPost *.ejs.t set ft=embedded_template
-    autocmd BufReadPost *.styluaignore set ft=gitignore
-    autocmd BufReadPost *.cnf set ft=dosini
+    autocmd BufReadPost *.*ignore set ft=gitignore
     autocmd BufReadPost gitignore_global set ft=gitignore
+    autocmd BufReadPost *.cnf set ft=dosini
     autocmd BufReadPost *.antigenrc set ft=zsh
   augroup end
 ]])
