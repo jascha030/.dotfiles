@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+zsh_add_plugin leophys/zsh-plugin-fzf-finder
+zsh_add_plugin Aloxaf/fzf-tab
+zsh_add_plugin chrissicool/zsh-256color
+zsh_add_plugin desyncr/auto-ls
+zsh_add_plugin zsh-users/zsh-completions
+zsh_add_plugin zsh-users/zsh-autosuggestions
+zsh_add_plugin zsh-users/zsh-syntax-highlighting
+zsh_add_plugin jascha030/lolmsg
+

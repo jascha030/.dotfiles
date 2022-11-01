@@ -14,6 +14,5 @@ config/nvim/plugin/packer_compiled.lua
 
 zsh/.zsh_history
 zsh/.zcompcache
-zsh/plugins
 
 config/lazygit/state.yml

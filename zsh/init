@@ -52,13 +52,27 @@ if (( ${+DOT_COMP_DIRS} )); then
     __fpath_add "${DOT_COMP_DIRS[@]}"
 fi 
 
-__fpath_add "${DOT_ZSH}/zfunc" "${DOT_ZSH}/completions"  
-__autoload "${DOT_ZSH}/zfunc"
+__fpath_add "${DOTFILES}/zsh/zfunc" "${DOTFILES}/zsh/completions"  
+__autoload "${DOTFILES}/zsh/zfunc"
 
 # Source files that are required early.
 if (( ${+DOT_SOURCES} )); then 
     safe_source "${DOT_SOURCES[@]}"
 fi
+
+function zsh_add_plugin {
+    PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
+
+    if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then 
+        _PLUGIN_DIR="$ZDOTDIR/plugins/$PLUGIN_NAME" 
+        [ -f "$_PLUGIN_DIR/$PLUGIN_NAME.plugin.zsh" ] && source "$_PLUGIN_DIR/$PLUGIN_NAME.plugin.zsh"
+        [ -f "$_PLUGIN_DIR/$PLUGIN_NAME.zsh" ] && source "$_PLUGIN_DIR/$PLUGIN_NAME.zsh"
+    else
+        git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
+    fi
+}
+
+safe_source "${ZDOTDIR}/plugin-spec"
 
 if (( ${+DOT_BASH_COMPLETIONS_DIR} )); then 
     __fpath_add "${DOT_BASH_COMPLETIONS_DIRS[@]}"
@@ -100,7 +114,6 @@ if (( ${+DOT_REQUIRED_FILES} )); then
     assert_files "${DOT_REQUIRED_FILES[@]}"
 fi
 
-
 # Load antigen plugins.
 __df_load_antigen "${DOT_ANTIGEN_PATH}" "${DOT_ANTIGEN_RC_PATH}"
 
@@ -112,7 +125,7 @@ function __clear_prompt {
 autoload -Uz add-zsh-hook
 add-zsh-hook preexec __clear_prompt 
 
-# Todo: figure out how to make this more dynamic.
+# TODO: figure out how to make this more dynamic.
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(teleport-dir init)"
