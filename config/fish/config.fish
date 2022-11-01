@@ -3,7 +3,6 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 
 set -g DOTFILES $HOME/.dotfiles
-set -g DOT_ZSH $DOTFILES/zsh
 set -g XDG_CONFIG $HOME/.config
 set -g DOT_RC $XDG_CONFIG/fish/config.fish  
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-# This file is used by auto-ls, which is installed as antigen bundle.
+# This file is used by auto-ls, which is installed as zsh plugin.
 
 # Default opts for ls
 if ! (( ${+LS_DEFAULT_ARGS} )); then 

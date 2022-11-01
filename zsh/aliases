@@ -6,16 +6,6 @@ alias root='cd $(git rev-parse --show-toplevel)'
 
 #------------------------------------------------ Terminal / Dotfiles ------------------------------------------------#
 
-# Debugging
-alias rscr='tput rmcup'
-alias rrscr='rr && rscr'
-alias rrp="exec env PROFILE_ZSHRC=1 zsh --login"
-alias rrdm="exec env DOT_DISABLE_MSG=1 zsh --login"
-alias pwd='e $PWD | pbcopy'
-
-alias checkitalics="echo -e '\e[3mitalic\e[23m'"
-alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
-
 # Controls
 alias x='exit'
 alias c='clear'
@@ -29,6 +19,9 @@ alias config="cd $XDG_CONFIG"
 alias cf="config"
 alias dev="cd $DEV"
 alias df="cd $DOTFILES"
+alias zp="cd $ZDOTDIR/plugins/"
+
+
 alias composerhome='cd $(composer -g config home)'
 
 alias ll="ls $LS_DEFAULT_ARGS"
@@ -39,17 +32,34 @@ alias kk="ll"
 
 #----------------------------------------------------- Utilities -----------------------------------------------------#  
 
+alias scrsvr='open -a ScreenSaverEngine'
+
 alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
 alias cargoup='cargo install-update --all'
 alias appup='brewup && cargoup'
 alias packersync="nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
 
 alias tm-auto='sudo tmutil startbackup --auto; tmutil status'
-alias scrsvr='open -a ScreenSaverEngine'
 alias luamake="$HOME/tools/lua-language-server/3rd/luamake/luamake"
 
-alias valetrm="rm $HOME/.config/valet/*.sock"
-alias valetr="valetrm && valet restart"
+alias fzprev="fzf --preview 'cat --color=always --style=numbers --line-range=:500 {}'"
+
+alias list:brew="brew list"
+alias list:cargo="cargo install --list"
+alias list:path="echo \"$PATH\" | tr ':' '\n'"
+
+alias cp:ssh="cat $HOME/.ssh/id_rsa.pub | pbcopy"
+alias cp:shrug='e "¯\_(ツ)_/¯" | pbcopy'
+alias cp:sbcrepo='e "{\"type\": \"composer\", \"url\": \"https://composer.sbdev.nl/\"}" | pp_json | pbcopy'
+alias cp:broodje='e "38. Witte Ital. Bol Gerookte Kip, avocado mayo met extra avocado + blik cola - €9,50" | pbcopy'
+
+alias cl="gcl"
+alias clone:sb-starter="git clone git@bitbucket.org:socialbrothers/wordpress-starter-theme.git"
+alias clone:wp="git clone git@github.com:wordpress/wordpress"
+
+alias new:composer-template='cp -r /Users/jaschavanaalst/.development/Projects/Composer/jascha030/project-templates/composer-template $PWD/composer-template && rm -rf $PWD/composer-template/.git'
+alias wpuser:create='wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
+alias wpuser:update='wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
 
 alias php74='_phpv "7.4" > /dev/null &'
 alias php80='_phpv "8.0" > /dev/null &'
@@ -66,27 +76,18 @@ alias composer81="/usr/local/opt/php@8.1/bin/php $(which composer)"
 alias php8=php80
 alias php7=php74
 
-alias wpuser:create='wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
-alias new:composer-template='cp -r /Users/jaschavanaalst/.development/Projects/Composer/jascha030/project-templates/composer-template $PWD/composer-template && rm -rf $PWD/composer-template/.git'
+alias valetrm="rm $HOME/.config/valet/*.sock"
+alias valetr="valetrm && valet restart"
 
-alias fzprev="fzf --preview 'cat --color=always --style=numbers --line-range=:500 {}'"
+# Debugging
+alias rscr='tput rmcup'
+alias rrscr='rr && rscr'
+alias rrp="exec env PROFILE_ZSHRC=1 zsh --login"
+alias rrdm="exec env DOT_DISABLE_MSG=1 zsh --login"
+alias pwd='e $PWD | pbcopy'
 
-alias list:brew="brew list"
-alias list:cargo="cargo install --list"
-alias list:path="echo \"$PATH\" | tr ':' '\n'"
-
-alias lf:cargo='list:cargo | fzf'
-alias lf:brew='list:brew | fzf'
-alias lf:path='list:path | fzf'
-
-alias cp:ssh="cat $HOME/.ssh/id_rsa.pub | pbcopy"
-alias cp:shrug='e "¯\_(ツ)_/¯" | pbcopy'
-alias cp:sbcrepo='e "{\"type\": \"composer\", \"url\": \"https://composer.sbdev.nl/\"}" | pp_json | pbcopy'
-alias cp:broodje='e "38. Witte Ital. Bol Gerookte Kip, avocado mayo met extra avocado + blik cola - €9,50" | pbcopy'
-
-alias cl="gcl"
-alias clone:sb-starter="git clone git@bitbucket.org:socialbrothers/wordpress-starter-theme.git"
-alias clone:wp="git clone git@github.com:wordpress/wordpress"
+alias checkitalics="echo -e '\e[3mitalic\e[23m'"
+alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
 
 #-------------------------------------------------- Suffix Aliases ---------------------------------------------------#
 

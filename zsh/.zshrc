@@ -8,9 +8,9 @@ fi
 
 #------------------------------------------------ ZSH Configurations -------------------------------------------------#
 
-setopt extended_glob
+setopt autocd extendedglob nomatch menucomplete
 setopt traps_async
-setopt nohup
+
 unsetopt BEEP
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -23,7 +23,8 @@ ZSH_HIGHLIGHT_STYLES[arg0]='fg=10'
 ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=10,underline'
 ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=10,bold'
 
-export DOT_PROMPT_HEIGHT=4
+
+export DOT_PROMPT_HEIGHT=3
 
 export DOT_BASH_COMPLETIONS_DIRS=(
     ${HOME}/.bash.d
@@ -39,7 +40,6 @@ export DOT_SOURCES=(
     ${ZDOTDIR}/auto-ls
     ${HOME}/.cargo/env
     ${HOME}/LS_COLORS/lscolors.sh
-    ${ZDOTDIR}/plugins/lolmsg/lolmsg.plugin.zsh
 )
 
 export DOT_AFTER_INIT_SOURCES=(
@@ -47,6 +47,7 @@ export DOT_AFTER_INIT_SOURCES=(
     ${ZDOTDIR}/aliases
     ${HOME}/.fzf.zsh
     ${ZDOTDIR}/fzf
+    ${ZDOTDIR}/plugins
 )
 
 # Path
