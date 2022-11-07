@@ -34,6 +34,7 @@ vim.cmd([[
     autocmd BufReadPost gitignore_global set ft=gitignore
     autocmd BufReadPost *.cnf set ft=dosini
     autocmd BufReadPost *.antigenrc set ft=zsh
+    autocmd BufReadPost Deployfile set ft=json
   augroup end
 ]])
 
