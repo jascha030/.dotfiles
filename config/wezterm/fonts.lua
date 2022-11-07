@@ -75,7 +75,7 @@ function M.get_rules(alt)
         {
             italic = true,
             intensity = 'Normal',
-            font = wezterm.font(M.options.italic, { italic = true, weight = 500 }),
+            font = wezterm.font(M.options.italic, { italic = true }),
         },
     }
 end
