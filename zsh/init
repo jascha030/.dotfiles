@@ -72,8 +72,6 @@ function zsh_add_plugin {
     fi
 }
 
-safe_source "${ZDOTDIR}/plugin-spec"
-
 if (( ${+DOT_BASH_COMPLETIONS_DIR} )); then 
     __fpath_add "${DOT_BASH_COMPLETIONS_DIRS[@]}"
     autoload -U +X bashcompinit && bashcompinit
@@ -114,31 +112,6 @@ if (( ${+DOT_REQUIRED_FILES} )); then
     assert_files "${DOT_REQUIRED_FILES[@]}"
 fi
 
-# Load antigen plugins.
-__df_load_antigen "${DOT_ANTIGEN_PATH}" "${DOT_ANTIGEN_RC_PATH}"
-
-function __position_prompt_bottom {
-    local t_lines="$(echoti lines)"
-    [[ $# == 0 ]] && margin=1 || margin=$((${1}))    
-    echoti cup $(( (${t_lines}-${DOT_PROMPT_HEIGHT}) + $((${margin})) )) 0
-}
-
-function __clear_prompt {
-    # echoti civis 
-    __position_prompt_bottom 2
-    repeat ${DOT_PROMPT_HEIGHT} { echoti cuu1 && echoti dl1 }
-    # echoti cnorm
-}
-
-# Add preexec hook.
-autoload -Uz add-zsh-hook
-add-zsh-hook preexec __clear_prompt 
-
-clear-screen() { echoti clear; __position_prompt_bottom 2; }
-clear-screen-zle() { echoti clear; __position_prompt_bottom 2; zle redisplay; }
-
-zle -N clear-screen-zle
-
 # TODO: figure out how to make this more dynamic.
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
@@ -151,6 +124,8 @@ export LS_COLORS="$(vivid generate jassie030)"
 if (( ${+DOT_AFTER_INIT_SOURCES} )); then 
     safe_source "${DOT_AFTER_INIT_SOURCES[@]}"
 fi
+
+safe_source "${ZDOTDIR}/plugin-spec"
 
 # Allow to turn off intro-msg for debugging.
 if (( ${+DOT_DISABLE_MSG} )); then 
