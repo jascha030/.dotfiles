@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Place in a file (e.g. rmtlog) in your $PATH, chmod +x ./rmtlog
+# usage: `rmtlog "user@host" "/path/to/log/on/server/log.log"`
+
+function __remotelog {
+    ssh -n $1 tail -f $2 >> output.log & CHILD_PROC=$!
+    tail -f output.log | bat --paging=never -l log
+}
+
+trap 'kill $(jobs -p); rm ./output.log' EXIT
+
+__remotelog "$@"
