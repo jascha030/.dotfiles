@@ -93,6 +93,7 @@ local function setup_null_ls()
             diagnostics.zsh,
             completion.spell,
             diagnostics.twigcs,
+            formatting.beautysh,
             formatting.phpcsfixer.with({
                 args = {
                     '--no-interaction',
