@@ -4,16 +4,6 @@
 # By Jascha030                                  Dotfiles Initialization         https://github.io/jascha030/.dotfiles #
 #######################################################################################################################
 
-# antigen.zsh path. based on simple install, overwrite if installed through brew.
-if ! (( ${+DOT_ANTIGEN_PATH} )); then 
-    export DOT_ANTIGEN_PATH=${HOME}/antigen.zsh
-fi
-
-# .antigenrc path.
-if ! (( ${+DOT_ANTIGEN_RC_PATH} )); then 
-    export DOT_ANTIGEN_RC_PATH=${HOME}/.antigenrc
-fi
-
 # Alternative dir for histfiles
 if ! (( ${+DOT_DATA_DIR} )); then 
     export DOT_DATA_DIR=${XDG_CONFIG_HOME}/datafiles
@@ -37,13 +27,16 @@ function __autoload {
     done
 }
 
-function __df_load_antigen {
-    # Load or install antigen
-    [[ ! -f "$1" ]] && curl -L git.io/antigen > "$1"
-    # Sourze antigen.zsh 
-    source "$1"
-    # Load rc
-    [[ -f "$2" ]] && antigen init "$2"
+function zsh_add_plugin {
+    PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
+
+    if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then 
+        _PLUGIN_DIR="$ZDOTDIR/plugins/$PLUGIN_NAME" 
+        [ -f "$_PLUGIN_DIR/$PLUGIN_NAME.plugin.zsh" ] && source "$_PLUGIN_DIR/$PLUGIN_NAME.plugin.zsh" \
+        || source "$_PLUGIN_DIR/$PLUGIN_NAME.zsh"
+    else
+        git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
+    fi
 }
 
 #--------------------------------------------------------- Init ------------------------------------------------------#
@@ -60,23 +53,11 @@ if (( ${+DOT_SOURCES} )); then
     safe_source "${DOT_SOURCES[@]}"
 fi
 
-function zsh_add_plugin {
-    PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
-
-    if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then 
-        _PLUGIN_DIR="$ZDOTDIR/plugins/$PLUGIN_NAME" 
-        [ -f "$_PLUGIN_DIR/$PLUGIN_NAME.plugin.zsh" ] && source "$_PLUGIN_DIR/$PLUGIN_NAME.plugin.zsh"
-        [ -f "$_PLUGIN_DIR/$PLUGIN_NAME.zsh" ] && source "$_PLUGIN_DIR/$PLUGIN_NAME.zsh"
-    else
-        git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
-    fi
-}
-
-if (( ${+DOT_BASH_COMPLETIONS_DIR} )); then 
-    __fpath_add "${DOT_BASH_COMPLETIONS_DIRS[@]}"
-    autoload -U +X bashcompinit && bashcompinit
+# if (( ${+DOT_BASH_COMPLETIONS_DIR} )); then 
+    # __fpath_add "${DOT_BASH_COMPLETIONS_DIRS[@]}"
+    # autoload -U +X bashcompinit && bashcompinit
     # safe_source ${DOT_BASH_COMPLETIONS_DIR}/*.sh
-fi
+# fi
 
 # Utility function, to merge arrays...
 function merge_arrays {
@@ -112,6 +93,7 @@ if (( ${+DOT_REQUIRED_FILES} )); then
     assert_files "${DOT_REQUIRED_FILES[@]}"
 fi
 
+
 # TODO: figure out how to make this more dynamic.
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
@@ -120,20 +102,15 @@ eval "$(fnm env --use-on-cd)"
 
 export LS_COLORS="$(vivid generate jassie030)"
 
+safe_source "${ZDOTDIR}/plugin-spec"
+
 # Source late files like aliases etc.
 if (( ${+DOT_AFTER_INIT_SOURCES} )); then 
     safe_source "${DOT_AFTER_INIT_SOURCES[@]}"
 fi
 
-safe_source "${ZDOTDIR}/plugin-spec"
+# (( ${+PROFILE_ZSHRC} )) && export DOT_LOL_OUTPUT_ONLY=1
 
-# Allow to turn off intro-msg for debugging.
-if (( ${+DOT_DISABLE_MSG} )); then 
-    unset DOT_DISABLE_MSG 
-else 
-    (( ${+PROFILE_ZSHRC} )) && export DOT_LOL_OUTPUT_ONLY=1
+# lolmsg
 
-    lolmsg
-    
-    (( ${+PROFILE_ZSHRC} )) && unset DOT_LOL_OUTPUT_ONLY;
-fi
+# (( ${+PROFILE_ZSHRC} )) && unset DOT_LOL_OUTPUT_ONLY;
