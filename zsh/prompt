@@ -15,7 +15,15 @@ function __clear_prompt {
 autoload -Uz add-zsh-hook
 add-zsh-hook preexec __clear_prompt 
 
-clear-screen() { echoti clear; __position_prompt_bottom 2; }
-clear-screen-zle() { echoti clear; __position_prompt_bottom 2; zle redisplay; }
+clear-screen() { 
+    echoti clear
+    __position_prompt_bottom 2
+}
+
+clear-screen-zle() { 
+    echoti clear
+    __position_prompt_bottom 2
+    zle redisplay
+}
 
 zle -N clear-screen-zle

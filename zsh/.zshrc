@@ -1,16 +1,15 @@
-if (( ${+PROFILE_ZSHRC} )); then zmodload zsh/zprof ;fi
+# if (( ${+PROFILE_ZSHRC} )); then zmodload zsh/zprof; fi
 
 # Hacky fix when first window of wezterm messes up lolmsg placement.
 # Related to Hammerspoon handling of application on quake.
 if (( ${LINES} == 24 )); then
-  until (( ${LINES} > 24)); do exec zsh -l; done
+    until (( ${LINES} > 24)); do exec zsh -l; done
 fi
 
 #------------------------------------------------ ZSH Configurations -------------------------------------------------#
 
 setopt autocd extendedglob nomatch menucomplete
 setopt traps_async
-
 unsetopt BEEP
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -40,29 +39,29 @@ export DOT_SOURCES=(
     ${ZDOTDIR}/auto-ls
     ${HOME}/.cargo/env
     ${HOME}/LS_COLORS/lscolors.sh
+    ${HOME}/.fzf.zsh
+    ${ZDOTDIR}/fzf
 )
 
 export DOT_AFTER_INIT_SOURCES=(
     ${ZDOTDIR}/prompt
     ${ZDOTDIR}/overrides
     ${ZDOTDIR}/aliases
-    ${HOME}/.fzf.zsh
-    ${ZDOTDIR}/fzf
 )
 
 # Path
 path=(
-  /usr/local/sbin
-  /usr/local/opt/openjdk/bin
-  /usr/local/opt/openssl@1.1/bin
-  ${HOME}/bin
-  ${HOME}/.composer/vendor/bin
-  ${HOME}/.bun/bin
-  ${HOME}/.yarn/bin
-  ${HOME}/.gem/ruby/2.6.0/bin
-  ${HOME}/tools/lua-language-server/bin/macOS
-  ${HOME}/.cargo/bin
-  ${path[@]}
+    /usr/local/sbin
+    /usr/local/opt/openjdk/bin
+    /usr/local/opt/openssl@1.1/bin
+    ${HOME}/bin
+    ${HOME}/.composer/vendor/bin
+    ${HOME}/.bun/bin
+    ${HOME}/.yarn/bin
+    ${HOME}/.gem/ruby/2.6.0/bin
+    ${HOME}/tools/lua-language-server/bin/macOS
+    ${HOME}/.cargo/bin
+    ${path[@]}
 )
 
 typeset -aU path
@@ -70,4 +69,5 @@ typeset -aU path
 #------------------------------------------------- Initialization ----------------------------------------------------#
 
 [[ -f ${ZDOTDIR}/init ]] && source ${ZDOTDIR}/init
-if (( ${+PROFILE_ZSHRC} )); then echoti rmcup; echoti clear; echoti sgr0; zprof unset PROFILE_ZSHRC; fi
+
+# if (( ${+PROFILE_ZSHRC} )); then echoti rmcup; echoti clear; echoti sgr0; zprof; unset PROFILE_ZSHRC; # fi

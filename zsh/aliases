@@ -13,7 +13,7 @@ alias e='echo -n'
 alias rd='rmdir'
 alias edit="vim $1"
 
-#---------------------------------------------------- Navigation -----------------------------------------------------#  
+#---------------------------------------------------- Navigation -----------------------------------------------------#
 
 alias config="cd $XDG_CONFIG"
 alias cf="config"
@@ -28,9 +28,9 @@ alias ll="ls $LS_DEFAULT_ARGS"
 alias lll='ll | lolcrab'
 
 # Using two keyboards Fs up finger positioning, how much I type kk instead of ll is causing lots of rage.
-alias kk="ll" 
+alias kk="ll"
 
-#----------------------------------------------------- Utilities -----------------------------------------------------#  
+#----------------------------------------------------- Utilities -----------------------------------------------------#
 
 alias scrsvr='open -a ScreenSaverEngine'
 
@@ -93,4 +93,3 @@ alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe327
 
 alias -s php=pstorm
 alias -s {.zshrc,zsh,sh,json,yaml,.env,cs,ts,html}=nvim
-
