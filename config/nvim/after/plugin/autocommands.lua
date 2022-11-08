@@ -15,14 +15,15 @@ local function nvim_create_augroups(definitions)
     end
 end
 
-nvim_create_augroups({
-    open_folds = { { 'BufReadPost,FileReadPost', '*', 'normal zR' } },
-    -- _lsp = {},
-})
+nvim_create_augroups({ open_folds = { { 'BufReadPost,FileReadPost', '*', 'normal zR' } } })
 
-vim.cmd([[
-  autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
-]])
+vim.api.nvim_create_autocmd('BufRead', {
+    group = vim.api.nvim_create_augroup('CmpSourceCargo', { clear = true }),
+    pattern = 'Cargo.toml',
+    callback = function()
+        require('cmp').setup.buffer({ sources = { { name = 'crates' } } })
+    end,
+})
 
 vim.cmd([[
   augroup _lsp
