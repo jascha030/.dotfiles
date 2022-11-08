@@ -10,14 +10,20 @@ if ! (( ${+DOT_DATA_DIR} )); then
 fi
 
 # Prompt height in lines
-if ! (( ${DOT_PROMPT_HEIGHT} )); then 
-    export DOT_PROMPT_HEIGHT=2
-fi
+! (( ${DOT_PROMPT_HEIGHT} )) && export DOT_PROMPT_HEIGHT=2
+
+# Decide which msg to display.
+(( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )) && export _IS_VIMTERM=true || export _IS_VIMTERM=false
+[[ "$_IS_VIMTERM" == true ]] && LOL_MSG="${DOT_NEOVIM_LOL_MSG}" || LOL_MSG="${DOT_DEFAULT_LOL_MSG}"
 
 #--------------------------------------------- Internally used functions ---------------------------------------------#
 
 function __fpath_add {
     fpath=( "$@" ${fpath[@]} )
+}
+
+function __path_add {
+    path=( "$@" ${path[@]} )
 }
 
 function __autoload {
@@ -53,12 +59,6 @@ if (( ${+DOT_SOURCES} )); then
     safe_source "${DOT_SOURCES[@]}"
 fi
 
-# if (( ${+DOT_BASH_COMPLETIONS_DIR} )); then 
-    # __fpath_add "${DOT_BASH_COMPLETIONS_DIRS[@]}"
-    # autoload -U +X bashcompinit && bashcompinit
-    # safe_source ${DOT_BASH_COMPLETIONS_DIR}/*.sh
-# fi
-
 # Utility function, to merge arrays...
 function merge_arrays {
     # undefined 
@@ -93,6 +93,7 @@ if (( ${+DOT_REQUIRED_FILES} )); then
     assert_files "${DOT_REQUIRED_FILES[@]}"
 fi
 
+safe_source "${ZDOTDIR}/plugin-spec"
 
 # TODO: figure out how to make this more dynamic.
 eval "$(starship init zsh)"
@@ -102,15 +103,7 @@ eval "$(fnm env --use-on-cd)"
 
 export LS_COLORS="$(vivid generate jassie030)"
 
-safe_source "${ZDOTDIR}/plugin-spec"
-
 # Source late files like aliases etc.
 if (( ${+DOT_AFTER_INIT_SOURCES} )); then 
     safe_source "${DOT_AFTER_INIT_SOURCES[@]}"
 fi
-
-# (( ${+PROFILE_ZSHRC} )) && export DOT_LOL_OUTPUT_ONLY=1
-
-# lolmsg
-
-# (( ${+PROFILE_ZSHRC} )) && unset DOT_LOL_OUTPUT_ONLY;

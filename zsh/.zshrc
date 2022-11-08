@@ -6,22 +6,23 @@ if (( ${LINES} == 24 )); then
     until (( ${LINES} > 24)); do exec zsh -l; done
 fi
 
-#------------------------------------------------ ZSH Configurations -------------------------------------------------#
+autoload -Uz compinit
 
 setopt autocd extendedglob nomatch menucomplete
 setopt traps_async
+
 unsetopt BEEP
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
+
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=10,underline'
 ZSH_HIGHLIGHT_STYLES[arg0]='fg=10'
 ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=10,underline'
 ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=10,bold'
-
 
 export DOT_PROMPT_HEIGHT=3
 
@@ -39,11 +40,11 @@ export DOT_SOURCES=(
     ${ZDOTDIR}/auto-ls
     ${HOME}/.cargo/env
     ${HOME}/LS_COLORS/lscolors.sh
-    ${HOME}/.fzf.zsh
-    ${ZDOTDIR}/fzf
 )
 
 export DOT_AFTER_INIT_SOURCES=(
+    ${HOME}/.fzf.zsh
+    ${ZDOTDIR}/fzf
     ${ZDOTDIR}/prompt
     ${ZDOTDIR}/overrides
     ${ZDOTDIR}/aliases
@@ -69,5 +70,9 @@ typeset -aU path
 #------------------------------------------------- Initialization ----------------------------------------------------#
 
 [[ -f ${ZDOTDIR}/init ]] && source ${ZDOTDIR}/init
+
+compinit
+
+lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
 
 # if (( ${+PROFILE_ZSHRC} )); then echoti rmcup; echoti clear; echoti sgr0; zprof; unset PROFILE_ZSHRC; # fi

@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+fpath+=( ${ZDOTDIR}/plugins/** )
+path+=( ${ZDOTDIR}/plugins/** )
+
 source /Users/jaschavanaalst/.config/zsh/plugins/zsh-plugin-fzf-finder/fzf-finder.plugin.zsh
 # zsh_add_plugin leophys/zsh-plugin-fzf-finder
 zsh_add_plugin Aloxaf/fzf-tab
