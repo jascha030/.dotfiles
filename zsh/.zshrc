@@ -24,8 +24,6 @@ ZSH_HIGHLIGHT_STYLES[arg0]='fg=10'
 ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=10,underline'
 ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=10,bold'
 
-export DOT_PROMPT_HEIGHT=3
-
 export DOT_BASH_COMPLETIONS_DIRS=(
     ${HOME}/.bash.d
     /usr/local/Cellar/wp-cli-completion/2.6.0/etc
@@ -45,7 +43,7 @@ export DOT_SOURCES=(
 export DOT_AFTER_INIT_SOURCES=(
     ${HOME}/.fzf.zsh
     ${ZDOTDIR}/fzf
-    ${ZDOTDIR}/prompt
+    ${ZDOTDIR}/prompt-new
     ${ZDOTDIR}/overrides
     ${ZDOTDIR}/aliases
 )
