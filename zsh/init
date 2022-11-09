@@ -96,7 +96,7 @@ fi
 safe_source "${ZDOTDIR}/plugin-spec"
 
 # TODO: figure out how to make this more dynamic.
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(teleport-dir init)"
 eval "$(fnm env --use-on-cd)"
