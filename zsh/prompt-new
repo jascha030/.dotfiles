@@ -20,10 +20,10 @@ function _fill_line() {
 
 function _prompt_length() {
     emulate -L zsh
-    
+
     local COLUMNS=${2:-$COLUMNS}
     local -i x y=$#1 m
-    
+
     if (( y )); then
         while (( ${${(%):-$1%$y(l.1.0)}[-1]} )); do
             x=y
@@ -59,7 +59,7 @@ function set-prompt {
     local mfill_l mfill_r bpad_l bpad_r mid_fill top_left
 
     mfill_r=' ╔═'; mfill_l='═╗ '; bpad_r=' ╚══'; bpad_l='══╝ '
-    
+
     mid_fill="$(_fill_line "$mfill_r" "$mfill_l")"
     top_left='%F{012}   ${${SHELL/#\/bin\//}:u} | $TERM_PROGRAM | $TERM %f '
 
@@ -74,8 +74,9 @@ add-zsh-hook preexec __clear_prompt
 zle -N clear-screen-zle
 
 function TRAPWINCH () {
-  # clear
-  set-prompt
-  zle && zle reset-prompt
-}
+    clear-screen-zle
+    set-prompt
+    zle && zle reset-prompt
 
+    clear-screen-zle
+}
