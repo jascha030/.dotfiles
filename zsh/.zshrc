@@ -43,7 +43,7 @@ export DOT_SOURCES=(
 export DOT_AFTER_INIT_SOURCES=(
     ${HOME}/.fzf.zsh
     ${ZDOTDIR}/fzf
-    ${ZDOTDIR}/prompt-new
+    ${ZDOTDIR}/prompt
     ${ZDOTDIR}/overrides
     ${ZDOTDIR}/aliases
 )

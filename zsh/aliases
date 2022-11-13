@@ -1,5 +1,4 @@
 #!/usr/bin/env zsh
-
 alias rr="exec $SHELL -l"
 alias kraken='$(open gitkraken://repo/$PWD)' # Note: Don't change to double quotes, as it auto-triggers.
 alias root='cd $(git rev-parse --show-toplevel)'
