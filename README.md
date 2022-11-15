@@ -2,7 +2,7 @@
 
 **Screenshot on WezTerm (of both light/dark mode).**
 
-![WezTerm home](https://github.com/jascha030/.dotfiles/blob/main/img/intro.png?raw=true)
+![WezTerm home](https://github.com/jascha030/.dotfiles/blob/main/img/termintro.gif?raw=true)
 
 Backup of my .dotfiles (zsh, bash, git, npm)
 

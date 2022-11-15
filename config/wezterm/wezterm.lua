@@ -62,14 +62,16 @@ wezterm.on('format-tab-title', function(tab)
         }
 end)
 
-local function eq_pad(size)
-    return { left = size, right = size, top = size, bottom = size }
+local function eq_pad(size, alt)
+    alt = alt or size
+
+    return { top = size, right = alt, bottom = size, left = alt }
 end
 
 return {
     default_prog = { '/usr/local/bin/zsh', '--login' },
     window_decorations = 'NONE | RESIZE',
-    window_padding = eq_pad(7.5),
+    window_padding = eq_pad(5, 10),
     window_frame = {
         button_fg = colors.foreground,
         button_bg = colors.background,
@@ -89,6 +91,7 @@ return {
     line_height = font.options.line_height,
     font_size = font.options.size,
     font_rules = font.get_rules(false),
+    font_antialias = "Subpixel",
     colors = theme.get_scheme('Dark', true),
     inactive_pane_hsb = { saturation = 0.98, brightness = 0.9 },
     window_background_opacity = 1,
