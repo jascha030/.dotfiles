@@ -60,6 +60,7 @@ path=(
     ${HOME}/.gem/ruby/2.6.0/bin
     ${HOME}/tools/lua-language-server/bin/macOS
     ${HOME}/.cargo/bin
+    ${HOME}/go/bin
     ${path[@]}
 )
 
