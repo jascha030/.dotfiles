@@ -59,15 +59,16 @@ local toggle_lazygit = function()
 end
 
 function _G.set_terminal_keymaps()
-    local opts = { buffer = 0 }
+    local opts = { noremap = true, buffer = 0 }
 
-    map('t', '<esc>', [[<C-\><C-n>]], opts)
-    -- map('n', '<esc>', toggle_terminal, opts)
+    map('t', '<esc><esc>', [[<C-\><C-n>]], opts)
+    map('t', '<C-w>', [[:close<CR>]], opts)
+    map('n', 'q', [[:close<CR>]], opts)
 end
 
 vim.cmd([[autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()]])
 
 map('n', '<leader>t', toggle_terminal, MAP_OPTS)
-map('n', '<C-t>', toggle_terminal, MAP_OPTS)
+-- map('n', '<C-t>', toggle_terminal, MAP_OPTS)
 map('n', '<leader>l', toggle_fpmlog, MAP_OPTS)
 map('n', '<leader>g', toggle_lazygit, MAP_OPTS)
