@@ -11,7 +11,8 @@ local proc_icons = {
 local colors = theme.get_scheme('Dark', true)
 
 font.extend({
-    main = 'MesloLGS Nerd Font',
+    -- main = 'MesloLGS Nerd Font',
+    main = 'Hack Nerd Font Mono',
     alt = 'Dank Mono',
     italic = 'Dank Mono',
 })
