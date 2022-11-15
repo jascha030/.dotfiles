@@ -61,10 +61,14 @@ wezterm.on('format-tab-title', function(tab)
         }
 end)
 
+local function eq_pad(size)
+    return { left = size, right = size, top = size, bottom = size }
+end
+
 return {
     default_prog = { '/usr/local/bin/zsh', '--login' },
     window_decorations = 'NONE | RESIZE',
-    window_padding = { left = 2.5, right = 2.5, top = 0, bottom = 0 },
+    window_padding = eq_pad(7.5),
     window_frame = {
         button_fg = colors.foreground,
         button_bg = colors.background,
