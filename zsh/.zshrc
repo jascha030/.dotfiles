@@ -7,10 +7,8 @@ if (( ${LINES} == 24 )); then
 fi
 
 autoload -Uz compinit
-
 setopt autocd extendedglob nomatch menucomplete
 setopt traps_async
-
 unsetopt BEEP
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -43,7 +41,6 @@ export DOT_SOURCES=(
 export DOT_AFTER_INIT_SOURCES=(
     ${HOME}/.fzf.zsh
     ${ZDOTDIR}/fzf
-    ${ZDOTDIR}/prompt
     ${ZDOTDIR}/overrides
     ${ZDOTDIR}/aliases
 )
@@ -71,6 +68,8 @@ typeset -aU path
 [[ -f ${ZDOTDIR}/init ]] && source ${ZDOTDIR}/init
 
 compinit
+
+safe_source ${ZDOTDIR}/prompt
 
 lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
 
