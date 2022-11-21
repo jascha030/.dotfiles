@@ -12,9 +12,11 @@ local colors = theme.get_scheme('Dark', true)
 
 font.extend({
     -- main = 'MesloLGS Nerd Font',
-    main = 'Hack Nerd Font Mono',
+    -- main = 'Hack Nerd Font Mono',
+    -- italic = 'Dank Mono',
+    main = 'Cascadia Code',
     alt = 'Dank Mono',
-    italic = 'Dank Mono',
+    italic = 'Cascadia Code',
 })
 
 handlers.setup()
@@ -91,7 +93,7 @@ return {
     line_height = font.options.line_height,
     font_size = font.options.size,
     font_rules = font.get_rules(false),
-    font_antialias = "Subpixel",
+    font_antialias = 'Subpixel',
     colors = theme.get_scheme('Dark', true),
     inactive_pane_hsb = { saturation = 0.98, brightness = 0.9 },
     window_background_opacity = 1,
