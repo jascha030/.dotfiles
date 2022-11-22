@@ -69,8 +69,8 @@ typeset -aU path
 
 compinit
 
-safe_source ${ZDOTDIR}/prompt
-
 lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
+
+safe_source ${ZDOTDIR}/prompt/prompt
 
 # if (( ${+PROFILE_ZSHRC} )); then echoti rmcup; echoti clear; echoti sgr0; zprof; unset PROFILE_ZSHRC; # fi
