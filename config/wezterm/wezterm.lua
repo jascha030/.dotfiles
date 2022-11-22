@@ -52,12 +52,19 @@ wezterm.on('format-tab-title', function(tab)
             and {
                 { Foreground = { Color = colors.background } },
                 { Background = { Color = colors.foreground } },
-                { Text = '┇' },
+                { Text = ' ' },
+                { Foreground = { Color = colors.background } },
+                { Background = { Color = colors.foreground } },
+                -- { Text = '' },
+                { Text = ' ' },
                 { Foreground = { Color = c.fg } },
                 { Background = { Color = c.bg } },
                 { Text = title },
             }
         or {
+            { Foreground = { Color = c.fg } },
+            { Background = { Color = c.bg } },
+            { Text = ' ' },
             { Foreground = { Color = c.fg } },
             { Background = { Color = c.bg } },
             { Text = title },
@@ -67,13 +74,13 @@ end)
 local function eq_pad(size, alt)
     alt = alt or size
 
-    return { top = size, right = alt, bottom = size, left = alt }
+    return { top = size .. 'cell', right = alt .. 'cell', bottom = size .. 'cell', left = alt .. 'cell' }
 end
 
 return {
     default_prog = { '/usr/local/bin/zsh', '--login' },
     window_decorations = 'NONE | RESIZE',
-    window_padding = eq_pad(5, 10),
+    window_padding = eq_pad(0.25, 1),
     window_frame = {
         button_fg = colors.foreground,
         button_bg = colors.background,
