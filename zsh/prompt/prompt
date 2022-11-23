@@ -1,0 +1,87 @@
+#!/usr/bin/env zsh
+
+# export DOT_PROMPT_HEIGHT=3
+
+safe_source ${DOTFILES}/zsh/prompt/helpers.zsh
+
+function term-variable {
+    emulate -L zsh
+
+    local colored_output="$(echo -n ${TERM} | lolcrab)"
+
+    typeset -g TERM_DISPLAY=$colored_output
+}
+
+function php-ver {
+    emulate -L zsh
+
+    local w="%F{013}  ${$($(which php) -r 'echo PHP_VERSION;')[1,3]}%f"
+    typeset -g php_wgt=$w
+}
+
+# Discard line buffer when empty.
+# Prevents unnecessary movement on enter or tab.
+function magic-enter {
+    if [[ -z ${BUFFER//[[:space:]]} ]]; then
+        return
+    fi
+
+    zle accept-line
+}
+
+function mid-prompt {
+    emulate -L zsh
+
+    local REPLY; fill-line $PS1_TL $PS1_TR
+
+    typeset -g mid=$REPLY
+}
+
+function top-prompt {
+    emulate -L zsh
+    
+    #  
+    local info_left="%F{012}    ${${SHELL/#\/bin\//}:u} |   ${TERM_PROGRAM} | ${TERM}%f"
+    local info_right='%F{011}   %w %b |   %T   %f'
+
+    local REPLY; fill-line $info_left $info_right ' '
+
+    typeset -g top=$REPLY
+}
+
+function set-prompt {
+    emulate -L zsh
+
+    # local TERM_DISPLAY; term-variable
+    # Render functional elements
+    local php_wgt; php-ver
+
+    local mid; mid-prompt
+    local top; top-prompt
+
+    # Render layout elements
+    local bot_left="${PS1_BL} %F{08}${PWD/#$HOME/ }%f "
+    local bot_right=" ${php_wgt} ${PS1_BR}"
+
+    PS1=$'\n'${top}$'\n'${mid}$'\n'${bot_left}
+    RPROMPT=$bot_right
+}
+
+function TRAPWINCH () {
+    clean-prompt-output
+    set-prompt
+    zle && zle reset-prompt
+    zle && clear-screen-zle
+}
+
+autoload -Uz add-zsh-hook
+
+add-zsh-hook preexec clean-prompt-output
+add-zsh-hook precmd set-prompt
+
+zle -N clear-screen-zle clear-screen
+zle -N magic-enter
+
+bindkey "^M" magic-enter
+
+print ${(pl:$LINES::\n:):-}
