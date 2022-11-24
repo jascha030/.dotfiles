@@ -68,20 +68,22 @@ function set-prompt {
 }
 
 function TRAPWINCH () {
-    clean-prompt-output
     set-prompt
-    zle && zle reset-prompt
-    zle && clear-screen-zle
+    zle .reset-prompt
+    clear-screen-zle
 }
 
-autoload -Uz add-zsh-hook
+() {
+    emulate -L zsh
 
-add-zsh-hook preexec clean-prompt-output
-add-zsh-hook precmd set-prompt
+    add-zsh-hook preexec position-prompt-bottom
+    add-zsh-hook precmd set-prompt
 
-zle -N clear-screen-zle clear-screen
-zle -N magic-enter
+    zle -N zle-line-init
+    zle -N magic-enter
 
-bindkey "^M" magic-enter
+    bindkey "^M" magic-enter
 
-print ${(pl:$LINES::\n:):-}
+    set-prompt
+    clear-screen
+}

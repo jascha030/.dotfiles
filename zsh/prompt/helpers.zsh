@@ -11,7 +11,7 @@ export PS1_B_TOP_R='╗'
 export PS1_B_BOT_R='╝'
 export PS1_B_BOT_L='╚'
 
-# Fill 
+# Fill
 # PS1_F(ill)C(haracter)
 export PS1_FC="${PS1_B_X}"
 
@@ -27,12 +27,14 @@ export PS1_TR=${PS1_B_TOP_R}' '
 export PS1_BL=' '${PS1_B_BOT_L}''${PS1_LR_MARG}
 export PS1_BR=${PS1_LR_MARG}''${PS1_B_BOT_R}' '
 
+export PROMPT_FUNCTIONS_PATH="${DOTFILES}/zsh/prompt/functions"
 
 function prompt-length() {
     emulate -L zsh
 
     local -i COLUMNS=${2:-COLUMNS}
     local -i x y=${#1} m
+
     if (( y )); then
         while (( ${${(%):-$1%$y(l.1.0)}[-1]} )); do
             x=y
@@ -67,31 +69,16 @@ function fill-line {
     fi
 }
 
-function position-prompt-bottom {
-    local -i t_lines=${LINES}
-
-    echoti cup $(( (${t_lines} - ${DOT_PROMPT_HEIGHT}) + $(( ${1:-2} )) )) 0
-}
-
-function clean-prompt-output {
-    position-prompt-bottom
-
-    repeat ${DOT_PROMPT_HEIGHT} { echoti cuu1 && echoti dl1 }
-}
-
-function clear-screen {
+function term-variable {
     emulate -L zsh
 
-    echoti clear
-    position-prompt-bottom
+    local colored_output="$(echo -n ${TERM} | lolcrab)"
+    typeset -g TERM_DISPLAY=$colored_output
 }
 
-function clear-screen-zle {
+function php-ver {
     emulate -L zsh
 
-    echoti clear
-    clear-screen
-    zle && zle redisplay
+    local w="%F{013}  ${$($(which php) -r 'echo PHP_VERSION;')[1,3]}%f"
+    typeset -g php_wgt=$w
 }
-
-

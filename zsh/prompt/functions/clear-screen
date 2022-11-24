@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+function clear-screen {
+    emulate -L zsh
+    echoti clear
+    position-prompt-bottom
+}
+
+function clear-screen-zle {
+    emulate -L zsh
+    clear-screen
+    zle && zle redisplay
+}
+
+clear-screen-zle "$@"
