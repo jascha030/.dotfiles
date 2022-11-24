@@ -51,9 +51,11 @@ M.variants = {
 	--background = '#c9c9e9',
 	light = {
 		background = "#e7e9ef",
-		foreground = "#444a73",
+		-- foreground = "#444a73",
+		foreground = "#40456D",
 	},
 	dark = {
+		-- background = "#1e2030",
 		background = "#1e2030",
 		foreground = "#c8d3f5",
 	},
