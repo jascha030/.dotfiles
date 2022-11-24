@@ -37,8 +37,9 @@ function set-prompt {
     local mid; mid-prompt
     local top; top-prompt
 
+    local prompt_dir='%(5~|%-1~/…/%3~|%4~)'
     # Render layout elements
-    local bot_left="${PS1_BL} %F{08}${PWD/#$HOME/ }%f "
+    local bot_left="${PS1_BL} %F{08} ${prompt_dir}%f "
     local bot_right=" ${php_wgt} ${PS1_BR}"
 
     PROMPT=$'\n'${top}$'\n'${mid}$'\n'${bot_left}
@@ -47,8 +48,11 @@ function set-prompt {
 
 function set-compact-prompt {
     emulate -L zsh
+    
+    local REPLY
+    fill-line "  ╔" ""
 
-    PROMPT='%# '
+    PROMPT="%F{00}${REPLY}"$'\n'"  ╚   %f"
     RPROMPT=''
 }
 
