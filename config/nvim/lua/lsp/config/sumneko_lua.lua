@@ -34,8 +34,8 @@ local function library(opts)
         end
 
         for _, site in pairs(vim.split(vim.o.packpath, ',')) do
-            add(site .. '/pack/*/opt/*', filter)
-            add(site .. '/pack/*/start/*', filter)
+            add(site .. '/pack/*/opt/*', {})
+            add(site .. '/pack/*/start/*', {})
         end
     end
 

@@ -5,7 +5,7 @@
 #######################################################################################################################
 
 # Alternative dir for histfiles
-if ! (( ${+DOT_DATA_DIR} )); then 
+if ! (( ${+DOT_DATA_DIR} )); then
     export DOT_DATA_DIR=${XDG_CONFIG_HOME}/datafiles
 fi
 
@@ -36,10 +36,10 @@ function __autoload {
 function zsh_add_plugin {
     PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
 
-    if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then 
-        _PLUGIN_DIR="$ZDOTDIR/plugins/$PLUGIN_NAME" 
+    if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then
+        _PLUGIN_DIR="$ZDOTDIR/plugins/$PLUGIN_NAME"
         [ -f "$_PLUGIN_DIR/$PLUGIN_NAME.plugin.zsh" ] && source "$_PLUGIN_DIR/$PLUGIN_NAME.plugin.zsh" \
-        || source "$_PLUGIN_DIR/$PLUGIN_NAME.zsh"
+            || source "$_PLUGIN_DIR/$PLUGIN_NAME.zsh"
     else
         git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
     fi
@@ -47,21 +47,21 @@ function zsh_add_plugin {
 
 #--------------------------------------------------------- Init ------------------------------------------------------#
 
-if (( ${+DOT_COMP_DIRS} )); then 
+if (( ${+DOT_COMP_DIRS} )); then
     __fpath_add "${DOT_COMP_DIRS[@]}"
-fi 
+fi
 
-__fpath_add "${DOTFILES}/zsh/zfunc" "${DOTFILES}/zsh/completions"  
+__fpath_add "${DOTFILES}/zsh/zfunc" "${DOTFILES}/zsh/completions"
 __autoload "${DOTFILES}/zsh/zfunc"
 
 # Source files that are required early.
-if (( ${+DOT_SOURCES} )); then 
+if (( ${+DOT_SOURCES} )); then
     safe_source "${DOT_SOURCES[@]}"
 fi
 
 # Utility function, to merge arrays...
 function merge_arrays {
-    # undefined 
+    # undefined
     builtin autoload -X
 }
 
@@ -85,11 +85,11 @@ function sb2init {
 assert_dirs "${DOT_DATA_DIR}"
 assert_files "${DOT_DATA_DIR}/.zsh_history" "${DOT_DATA_DIR}/.mysql_history"
 
-if (( ${+DOT_REQUIRED_DIRS} )); then 
-    assert_dirs "${DOT_REQUIRED_DIRS[@]}"  
+if (( ${+DOT_REQUIRED_DIRS} )); then
+    assert_dirs "${DOT_REQUIRED_DIRS[@]}"
 fi
 
-if (( ${+DOT_REQUIRED_FILES} )); then 
+if (( ${+DOT_REQUIRED_FILES} )); then
     assert_files "${DOT_REQUIRED_FILES[@]}"
 fi
 
@@ -97,6 +97,7 @@ safe_source "${ZDOTDIR}/plugin-spec"
 
 # TODO: figure out how to make this more dynamic.
 # eval "$(starship init zsh)"
+
 eval "$(zoxide init zsh)"
 eval "$(teleport-dir init)"
 eval "$(fnm env --use-on-cd)"
@@ -104,6 +105,6 @@ eval "$(fnm env --use-on-cd)"
 export LS_COLORS="$(vivid generate jassie030)"
 
 # Source late files like aliases etc.
-if (( ${+DOT_AFTER_INIT_SOURCES} )); then 
+if (( ${+DOT_AFTER_INIT_SOURCES} )); then
     safe_source "${DOT_AFTER_INIT_SOURCES[@]}"
 fi

@@ -1,4 +1,5 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env sh
+
 alias rr="exec $SHELL -l"
 alias kraken='$(open gitkraken://repo/$PWD)' # Note: Don't change to double quotes, as it auto-triggers.
 alias root='cd $(git rev-parse --show-toplevel)'
@@ -76,6 +77,8 @@ alias rrscr='rr && rscr'
 alias rrp="exec env PROFILE_ZSHRC=1 zsh --login"
 alias rrdm="exec env DOT_DISABLE_MSG=1 zsh --login"
 alias pwd='e $PWD | pbcopy'
+
+alias cp:defaults='cp $DEV/Projects/Composer/jascha030/defaults/defaults/.{editorconfig,gitignore,phpunit.xml,php-cs-fixer.php,phpstan.neon}'
 
 alias checkitalics="echo -e '\e[3mitalic\e[23m'"
 alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"

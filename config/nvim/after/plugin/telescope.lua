@@ -1,6 +1,5 @@
 local telescope = require('telescope')
 local actions = require('telescope.actions')
--- local themes = require('telescope.themes')
 local layout = require('telescope.actions.layout')
 
 local extension = telescope.load_extension
