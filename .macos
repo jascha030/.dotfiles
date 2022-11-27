@@ -8,6 +8,38 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 defaults write com.apple.finder CreateDesktop -bool false
 
+sudo chflags nohidden /Volumes # make the /Volumes directory visible
+chflags nohidden ~/Library # make ~/Library directory visible
+
+defaults write com.apple.finder AnimateWindowZoom -bool false # Disable animation when opening folders
+defaults write com.apple.finder AppleShowAllFiles YES # show invisible files
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf" # Search the current directory by default when searching
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false # Disable warning when changing extension
+defaults write com.apple.finder FXPreferredViewStyle Nlsv # always list view
+defaults write com.apple.finder FinderSpawnTab -bool true # Open folders in tabs instead of new windows
+defaults write com.apple.finder NewWindowTarget -string "PfHm" # open home folder by default in new window
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/" # open home folder by default in new window
+defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true # Automatically open a new window if there is a mounted disk
+defaults write com.apple.finder QLEnableTextSelection -bool true # Make text selectable in quick look
+defaults write com.apple.finder QuitMenuItem -bool true # add an item to quit Finder
+defaults write com.apple.finder ShowPathbar -bool true # show the passbar
+defaults write com.apple.finder ShowStatusBar -bool true # display the status bar
+defaults write com.apple.finder ShowTabView -bool true # show tab bar
+defaults write com.apple.finder ShowRecentTags -bool false #Recent Tags
+defaults write com.apple.finder WarnOnEmptyTrash -bool false # disable warning before emptying trash
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true # Show full path in Finder title bar
+defaults write com.apple.finder _FXSortFoldersFirst -bool true # put directories before when sort by name is selected
+
+defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+defaults write -g NSAutomaticWindowAnimationsEnabled -bool false # Disable animation when opening files
+defaults write -g AppleShowAllExtensions -bool true # show files with all extensions
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+defaults write com.apple.screencapture name "screenshot" # rename
+defaults write com.apple.screencapture disable-shadow -bool true # Eliminate shadows in screen captures
+defaults write com.apple.screencapture type -string "png" # Set screenshot save format to PNG
+
 defaults write com.apple.dock tilesize -int 55
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock autohide-delay -float 0
@@ -70,15 +102,14 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
 
 for app in "Activity Monitor" \
-	"cfprefsd" \
-	"Dock" \
-	"Finder" \
-	"Messages" \
-	"Photos" \
-	"Safari" \
-	"SystemUIServer" \
-	"Terminal";
+    "cfprefsd" \
+    "Dock" \
+    "Finder" \
+    "Messages" \
+    "Photos" \
+    "Safari" \
+    "SystemUIServer" \
+    "Terminal";
 do
-  killall "${app}" &> /dev/null
+    killall "${app}" &> /dev/null
 done
-
