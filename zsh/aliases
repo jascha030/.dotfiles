@@ -44,7 +44,8 @@ alias list:path="echo \"$PATH\" | tr ':' '\n'"
 
 alias cp:ssh="cat $HOME/.ssh/id_rsa.pub | pbcopy"
 alias cp:shrug='e "¯\_(ツ)_/¯" | pbcopy'
-alias cp:broodje='e "38. Witte Ital. Bol Gerookte Kip, avocado mayo met extra avocado + blik cola - €9,50" | pbcopy'
+# alias cp:broodje='e "38. Witte Ital. Bol Gerookte Kip, avocado mayo met extra avocado + blik cola - €9,50" | pbcopy'
+alias cp:broodje='e "52. HUMMES-AVOCADO - witte italiaanse bol - € 6,00" | pbcopy'
 
 alias cl="gcl"
 alias clone:sb-starter="git clone git@bitbucket.org:socialbrothers/wordpress-starter-theme.git"
@@ -54,20 +55,21 @@ alias new:composer-template='cp -r /Users/jaschavanaalst/.development/Projects/C
 alias wpuser:create='wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpuser:update='wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
 
-alias php74='_phpv "7.4" > /dev/null &'
-alias php80='_phpv "8.0" > /dev/null &'
-alias php81='_phpv "8.1" > /dev/null &'
 
-alias php:74='valet use php@7.4 && composer global update'
-alias php:80='valet use php@8.0 && composer global update'
-alias php:81='valet use php@8.1 && composer global update'
-alias php8=php80
-alias php7=php74
+alias p74="/usr/local/opt/php@7.4/bin/php"
+alias p80="/usr/local/opt/php@8.0/bin/php"
+alias p81="/usr/local/opt/php@8.1/bin/php"
+alias p82="/usr/local/opt/php@8.2/bin/php"
+
+alias php74='valet use php@7.4 && composer global update'
+alias php80='valet use php@8.0 && composer global update'
+alias php81='valet use php@8.1 && composer global update'
+alias php82='valet use php@8.2 && composer global update'
 
 alias composer74="/usr/local/opt/php@7.4/bin/php $(which composer)"
 alias composer80="/usr/local/opt/php@8.0/bin/php $(which composer)"
 alias composer81="/usr/local/opt/php@8.1/bin/php $(which composer)"
-
+alias composer82="/usr/local/opt/php@8.2/bin/php $(which composer)"
 alias valetrm="rm $HOME/.config/valet/*.sock"
 alias valetr="valetrm && valet restart"
 
@@ -78,7 +80,7 @@ alias rrp="exec env PROFILE_ZSHRC=1 zsh --login"
 alias rrdm="exec env DOT_DISABLE_MSG=1 zsh --login"
 alias pwd='e $PWD | pbcopy'
 
-alias cp:defaults='cp $DEV/Projects/Composer/jascha030/defaults/defaults/.{editorconfig,gitignore,phpunit.xml,php-cs-fixer.php,phpstan.neon}'
+alias cp:defaults='cp $HOME/.composer/vendor/jascha030/defaults/templates/{.*,phpunit.xml,phpstan.neon} $PWD/'
 
 alias checkitalics="echo -e '\e[3mitalic\e[23m'"
 alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
