@@ -58,6 +58,7 @@ path=(
     ${HOME}/tools/lua-language-server/bin/macOS
     ${HOME}/.cargo/bin
     ${HOME}/go/bin
+    ${HOME}/tools
     ${path[@]}
 )
 
