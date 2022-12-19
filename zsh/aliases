@@ -29,6 +29,7 @@ alias composerhome='cd $(composer -g config home)'
 
 #----------------------------------------------------- Utilities -----------------------------------------------------#
 
+alias localenv="nvim $HOME/env.local"
 alias scrsvr='open -a ScreenSaverEngine'
 alias tm-auto='sudo tmutil startbackup --auto; tmutil status'
 alias luamake="$HOME/tools/lua-language-server/3rd/luamake/luamake"
@@ -80,7 +81,7 @@ alias rrp="exec env PROFILE_ZSHRC=1 zsh --login"
 alias rrdm="exec env DOT_DISABLE_MSG=1 zsh --login"
 alias pwd='e $PWD | pbcopy'
 
-alias cp:defaults='cp $HOME/.composer/vendor/jascha030/defaults/templates/{.*,phpunit.xml,phpstan.neon} $PWD/'
+alias cp:defaults='cp -r $HOME/.composer/vendor/jascha030/defaults/templates/{.*,phpunit.xml,phpstan.neon} $PWD/'
 
 alias checkitalics="echo -e '\e[3mitalic\e[23m'"
 alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
