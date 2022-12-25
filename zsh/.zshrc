@@ -70,7 +70,7 @@ typeset -aU path
 
 compinit
 
-lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
+# lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
 
 safe_source ${ZDOTDIR}/prompt/prompt
 
