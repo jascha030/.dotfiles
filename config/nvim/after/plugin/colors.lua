@@ -1,3 +1,5 @@
+vim.o.runtimepath = vim.o.runtimepath .. ',' .. os.getenv('XDG_CONFIG_HOME')
+
 local utils = require('utils')
 local config = utils.conf
 
