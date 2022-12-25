@@ -42,7 +42,7 @@ local Conf = setmetatable({}, {
 })
 
 local function _setup()
-    vim.o.runtimepath = vim.o.runtimepath .. ',' .. os.getenv('XDG_CONFIG_HOME')
+    -- vim.o.runtimepath = vim.o.runtimepath .. ',' .. os.getenv('XDG_CONFIG_HOME')
 
     local map = vim.api.nvim_set_keymap
     local default_m_opts = { noremap = true }
