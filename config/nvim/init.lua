@@ -27,4 +27,4 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 require('utils.conf').setup()
-require('lazy').setup(require('plugins'), {})
+require('lazy').setup("plugins", {})

@@ -155,47 +155,5 @@ return {
     { 'nvim-telescope/telescope-file-browser.nvim' },
     { 'nvim-telescope/telescope-fzy-native.nvim' },
     { 'nvim-telescope/telescope-ui-select.nvim' },
-    'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
-    'neovim/nvim-lspconfig',
-    'ray-x/lsp_signature.nvim',
-    'onsails/lspkind-nvim',
-    'jose-elias-alvarez/null-ls.nvim',
-    {
-        'hrsh7th/nvim-cmp',
-        config = function()
-            require('lsp.cmp')
-        end,
-    },
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-vsnip',
-    'L3MON4D3/LuaSnip',
-    'saadparwaiz1/cmp_luasnip',
-    'ncm2/ncm2',
-    'simrat39/rust-tools.nvim',
-    'b0o/schemastore.nvim',
-    'folke/trouble.nvim',
-    {
-        'saecki/crates.nvim',
-        event = { 'BufRead Cargo.toml' },
-        dependencies = { { 'nvim-lua/plenary.nvim' } },
-        config = true,
-    },
-    {
-        'j-hui/fidget.nvim',
-        config = function()
-            require('fidget').setup({
-                text = { spinner = 'dots' },
-                window = { relative = 'editor', blend = 0, zindex = nil },
-            })
-        end,
-    },
-    'mfussenegger/nvim-dap',
-    'rcarriga/nvim-dap-ui',
-    'theHamsta/nvim-dap-virtual-text',
-    'nvim-telescope/telescope-dap.nvim',
-    -- only included for the EmmyLua annotations.
-    { 'folke/lua-dev.nvim', lazy = true },
+    
 }
