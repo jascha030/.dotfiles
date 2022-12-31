@@ -1,16 +1,3 @@
-local BORDERS = { border = 'rounded' }
-local default = nil
-
-local function get_server_config(server_name)
-    local ok, server_config = pcall(require, 'lsp.config.' .. server_name)
-
-    if not ok then
-        return vim.tbl_deep_extend('force', {}, default)
-    end
-
-    return vim.tbl_deep_extend('force', {}, default, server_config)
-end
-
 return {
     {
         'williamboman/mason.nvim',
@@ -19,11 +6,22 @@ return {
         end,
     },
     {
-        'neovim/nvim-lspconfig',
-        dependencies = {
-            { 'williamboman/mason-lspconfig.nvim' },
-        },
+        'williamboman/mason-lspconfig.nvim',
+        dependencies = { 'neovim/nvim-lspconfig' },
         config = function()
+            local BORDERS = { border = 'rounded' }
+            local default = nil
+
+            local function get_server_config(server_name)
+                local ok, server_config = pcall(require, 'lsp.config.' .. server_name)
+
+                if not ok then
+                    return vim.tbl_deep_extend('force', {}, default)
+                end
+
+                return vim.tbl_deep_extend('force', {}, default, server_config)
+            end
+
             local signs = {
                 { name = 'DiagnosticSignError', text = '' },
                 { name = 'DiagnosticSignWarn', text = '' },
@@ -81,7 +79,6 @@ return {
             require('lsp_signature').setup()
         end,
     },
-
     {
         'saecki/crates.nvim',
         event = { 'BufRead Cargo.toml' },
@@ -97,13 +94,6 @@ return {
             })
         end,
     },
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-vsnip',
-    'L3MON4D3/LuaSnip',
-    'saadparwaiz1/cmp_luasnip',
-    'ncm2/ncm2',
     'simrat39/rust-tools.nvim',
     'b0o/schemastore.nvim',
     'folke/trouble.nvim',

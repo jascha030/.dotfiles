@@ -1,9 +1,9 @@
 return {
     'akinsho/toggleterm.nvim',
+    lazy = false,
+    priority = 100,
     version = '*',
     config = function()
-        local M = {}
-
         local MAP_OPTS = { noremap = true, silent = true }
 
         local map = vim.keymap.set
@@ -11,9 +11,9 @@ return {
         local Terminal = require('toggleterm.terminal').Terminal
         local fpmlog, terminal, lazygit = nil, nil, nil
 
-        function M.create(cmd, dir, direction)
-            dir = dir or 'git_dir'
+        local function create(cmd, direction, dir)
             direction = direction or 'float'
+            dir = dir or 'git_dir'
 
             local opts = {
                 cmd = cmd,
@@ -21,6 +21,7 @@ return {
                 direction = direction,
                 hidden = true,
             }
+
             if direction == 'float' then
                 opts.float_opts = BORDER
             end
@@ -28,37 +29,25 @@ return {
             return Terminal:new(opts)
         end
 
-        function M.get_terminal()
+        function _G.tterm_terminal()
             if terminal == nil then
-                terminal = Terminal:new({
-                    cmd = '/usr/local/bin/zsh --login',
-                    dir = 'git_dir',
-                    hidden = true,
-                    direction = 'float',
-                    float_opts = BORDER,
-                })
+                terminal = create('/usr/local/bin/zsh --login')
             end
 
             terminal:toggle()
         end
 
-        function M.get_lazygit()
+        function _G.tterm_lazygit()
             if lazygit == nil then
-                lazygit = Terminal:new({
-                    cmd = 'lazygit',
-                    dir = 'git_dir',
-                    hidden = true,
-                    direction = 'float',
-                    float_opts = BORDER,
-                })
+                lazygit = create('lazygit')
             end
 
             lazygit:toggle()
         end
 
-        function M.tterm_fpmlog()
+        function _G.tterm_fpmlog()
             if fpmlog == nil then
-                fpmlog = Terminal:new({ cmd = 'fpmlog', direction = 'horizontal' })
+                fpmlog = create('fpmlog', 'horizontal')
             end
 
             fpmlog:toggle()
