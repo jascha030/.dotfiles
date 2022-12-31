@@ -19,36 +19,6 @@ return {
         end,
     },
     {
-        'jose-elias-alvarez/null-ls.nvim',
-        config = function()
-            local builtins = require('null-ls').builtins
-            local formatting = builtins.formatting
-            local diagnostics = builtins.diagnostics
-
-            require('null-ls').setup({
-                sources = {
-                    formatting.stylua.with({
-                        extra_args = { '--config-path', os.getenv('XDG_CONFIG_HOME') .. '/stylua.toml' },
-                    }),
-                    diagnostics.eslint,
-                    diagnostics.zsh,
-                    builtins.completion.spell,
-                    diagnostics.twigcs,
-                    formatting.beautysh,
-                    formatting.phpcsfixer.with({
-                        args = {
-                            '--no-interaction',
-                            '--quiet',
-                            '--config=' .. os.getenv('HOME') .. '/.config/.php-cs-fixer.php',
-                            'fix',
-                            '$FILENAME',
-                        },
-                    }),
-                },
-            })
-        end,
-    },
-    {
         'neovim/nvim-lspconfig',
         dependencies = {
             { 'williamboman/mason-lspconfig.nvim' },
@@ -125,12 +95,6 @@ return {
                 text = { spinner = 'dots' },
                 window = { relative = 'editor', blend = 0, zindex = nil },
             })
-        end,
-    },
-    {
-        'hrsh7th/nvim-cmp',
-        config = function()
-            require('lsp.cmp')
         end,
     },
     'hrsh7th/cmp-nvim-lsp',
