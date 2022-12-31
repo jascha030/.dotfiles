@@ -22,7 +22,6 @@ return {
         'jose-elias-alvarez/null-ls.nvim',
         config = function()
             local builtins = require('null-ls').builtins
-
             local formatting = builtins.formatting
             local diagnostics = builtins.diagnostics
 
@@ -85,7 +84,7 @@ return {
             vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, BORDERS)
 
             default = {
-                on_attach = require('lsp.handlers').on_attach,
+                on_attach = require('lsp.on_attach'),
                 capabilities = require('cmp_nvim_lsp').default_capabilities(
                     vim.lsp.protocol.make_client_capabilities()
                 ),
@@ -146,11 +145,9 @@ return {
     'folke/trouble.nvim',
     'ray-x/lsp_signature.nvim',
     'onsails/lspkind-nvim',
-
     'mfussenegger/nvim-dap',
     'rcarriga/nvim-dap-ui',
     'theHamsta/nvim-dap-virtual-text',
     'nvim-telescope/telescope-dap.nvim',
-    -- only included for the EmmyLua annotations.
     { 'folke/lua-dev.nvim', lazy = true },
 }
