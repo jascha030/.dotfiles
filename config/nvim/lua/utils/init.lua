@@ -1,13 +1,9 @@
 local Utils = {}
 
-local cmds_loaded = false
-
 function Utils.wrap(fnc, ...)
     local params = { ... }
-
     if type(fnc) ~= 'function' then
         local prev = fnc
-
         fnc = function(...)
             return prev
         end
@@ -36,7 +32,6 @@ end
 
 function Utils.validate(list, where)
     local ok, v = Utils.check_deps(list)
-
     if not ok then
         error('Error initializing ' .. where .. ': missing dependency: "' .. v .. '.')
     end
@@ -46,28 +41,23 @@ end
 
 function Utils.str_explode(delimiter, p)
     local tbl, position = {}, 0
-
     if #p == 1 then
         return { p }
     end
 
     while true do
         local l = string.find(p, delimiter, position, true)
-
         if l ~= nil then
             table.insert(tbl, string.sub(p, position, l - 1))
             position = l + 1
         else
             table.insert(tbl, string.sub(p, position))
-
             break
         end
     end
 
     return tbl
 end
-
--- local install_path = ('%s/site/pack/packer-lib/opt/packer.nvim'):format(vim.fn.stdpath('data'))
 
 function Utils.get_width()
     return vim.api.nvim_list_uis()[1].width
@@ -80,7 +70,6 @@ end
 Utils = setmetatable(Utils, {
     __index = function(_, key)
         local ok, submod = pcall(require, 'utils.' .. key)
-
         return ok and submod or nil
     end,
 })

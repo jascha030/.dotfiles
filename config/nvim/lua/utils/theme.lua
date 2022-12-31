@@ -1,7 +1,6 @@
 local M = {}
 local DARK = 'dark'
 local LIGHT = 'light'
-
 local loaded = false
 local darkmode = nil
 
@@ -16,7 +15,6 @@ function M.update(mode)
         if cs == 'nitepal' or cs == 'litepal' then
             require('nitepal.config').options.style = mode
         end
-
         vim.o.background = mode
     end
 
@@ -39,9 +37,7 @@ function M.init()
     if loaded == true then
         return
     end
-
     loaded = true
-
     vim.keymap.set('n', 'CS', function()
         M.toggle()
     end, { noremap = true })
