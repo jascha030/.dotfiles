@@ -33,6 +33,7 @@ vim.cmd([[
     autocmd BufReadPost *.ejs.t set ft=embedded_template
     autocmd BufReadPost *.*ignore set ft=gitignore
     autocmd BufReadPost gitignore_global set ft=gitignore
+    autocmd BufReadPost *.gitconfig set ft=gitconfig
     autocmd BufReadPost env.local set ft=bash
     autocmd BufReadPost *.cnf set ft=dosini
     autocmd BufReadPost *.antigenrc set ft=zsh
