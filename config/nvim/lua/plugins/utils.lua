@@ -1,4 +1,5 @@
 return {
+    'github/copilot.vim',
     'nvim-lua/plenary.nvim',
     'wakatime/vim-wakatime',
     'ojroques/vim-oscyank',
