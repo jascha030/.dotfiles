@@ -1,8 +1,15 @@
+local opts = { noremap = true, buffer = 0 }
+
 return {
     'akinsho/toggleterm.nvim',
     lazy = false,
     priority = 100,
     version = '*',
+    keys = {
+        { 't', '<esc><esc>', [[<C-\><C-n>]], opts },
+        { 't', '<C-w>', [[:close<CR>]], opts },
+        { 'n', 'q', [[:close<CR>]], opts },
+    },
     config = function()
         local MAP_OPTS = { noremap = true, silent = true }
 
@@ -64,9 +71,9 @@ return {
 
         vim.cmd([[autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()]])
 
-        map('n', '<leader>t', [[:lua M.get_terminal():toggle()]], MAP_OPTS)
-        map('n', '<C-t>', [[:lua M.get_terminal():toggle]], MAP_OPTS)
-        map('n', '<leader>fl', [[:lua M.get_fpmlog():toggle()]], MAP_OPTS)
-        map('n', '<leader>g', [[:lua M.get_lazygit():toggle()]], MAP_OPTS)
+        map('n', '<leader>t', [[<cmd>lua tterm_terminal()<CR>]], MAP_OPTS)
+        map('n', '<C-t>', [[<cmd>lua tterm_terminal()<CR>]], MAP_OPTS)
+        map('n', '<leader>fl', [[<cmd>lua tterm_fpmlog()<CR>]], MAP_OPTS)
+        map('n', '<leader>g', [[<cmd>lua tterm_lazygit()<CR>]], MAP_OPTS)
     end,
 }
