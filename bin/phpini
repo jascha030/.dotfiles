@@ -1,0 +1,6 @@
+#!/bin/sh
+
+DIR=/usr/local/etc/php/"$(gum choose --height=15 "7.4" "8.0" "8.1" "8.2")"
+
+echo "$DIR" | pbcopy
+
