@@ -12,8 +12,8 @@ return {
                 }),
                 diagnostics.eslint,
                 diagnostics.zsh,
-                builtins.completion.spell,
                 diagnostics.twigcs,
+                formatting.blade_formatter,
                 formatting.beautysh,
                 formatting.phpcsfixer.with({
                     args = {
@@ -24,6 +24,7 @@ return {
                         '$FILENAME',
                     },
                 }),
+                builtins.completion.spell,
             },
         })
     end,
