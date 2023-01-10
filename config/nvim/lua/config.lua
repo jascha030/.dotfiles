@@ -70,7 +70,7 @@ return {
     },
     devicons = {
         default_icon = '',
-        icons = require('icons'),
+        icons = require('core.icons'),
         overrides = {
             ['Alias'] = { icon = 'alias', filetypes = 'aliases' },
             ['Autols'] = { icon = 'fileinfo', filetypes = 'auto-ls' },
