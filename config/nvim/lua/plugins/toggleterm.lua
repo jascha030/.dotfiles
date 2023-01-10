@@ -22,7 +22,7 @@ return {
             direction = direction or 'float'
             dir = dir or 'git_dir'
 
-            local opts = {
+            local term_opts = {
                 cmd = cmd,
                 dir = dir,
                 direction = direction,
@@ -30,10 +30,10 @@ return {
             }
 
             if direction == 'float' then
-                opts.float_opts = BORDER
+                term_opts.float_opts = BORDERS
             end
 
-            return Terminal:new(opts)
+            return Terminal:new(term_opts)
         end
 
         function _G.tterm_terminal()
@@ -63,7 +63,6 @@ return {
         toggleterm.setup({})
 
         function _G.set_terminal_keymaps()
-            local opts = { noremap = true, buffer = 0 }
             map('t', '<esc><esc>', [[<C-\><C-n>]], opts)
             map('t', '<C-w>', [[:close<CR>]], opts)
             map('n', 'q', [[:close<CR>]], opts)
