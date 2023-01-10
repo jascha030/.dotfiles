@@ -19,6 +19,7 @@ else
     vim.cmd('colorscheme ' .. config.colorscheme)
 end
 
+-- Auto change colorscheme on MacOS Light/Darkmode change.
 vim.api.nvim_create_autocmd('Signal', {
     pattern = 'SIGUSR1',
     callback = function()
