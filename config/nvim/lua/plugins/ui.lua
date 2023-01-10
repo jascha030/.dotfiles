@@ -21,7 +21,21 @@ return {
     },
     'kyazdani42/nvim-tree.lua',
     'sheerun/vim-polyglot',
-    'yamatsum/nvim-cursorline',
+    {
+        'yamatsum/nvim-cursorline',
+        config = {
+            cursorline = {
+                enable = true,
+                timeout = 1000,
+                number = false,
+            },
+            cursorword = {
+                enable = true,
+                min_length = 3,
+                hl = { underline = true },
+            },
+        },
+    },
     {
         'yamatsum/nvim-nonicons',
         dependencies = { 'kyazdani42/nvim-web-devicons' },
