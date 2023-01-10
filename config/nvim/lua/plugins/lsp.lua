@@ -1,15 +1,12 @@
 return {
     {
-        'williamboman/mason.nvim',
+        'neovim/nvim-lspconfig',
+        dependencies = {
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
+            'j-hui/fidget.nvim',
+        },
         config = function()
-            require('mason').setup({ ui = BORDERS })
-        end,
-    },
-    {
-        'williamboman/mason-lspconfig.nvim',
-        dependencies = { 'neovim/nvim-lspconfig' },
-        config = function()
-            local BORDERS = { border = 'rounded' }
             local default = nil
 
             local function get_server_config(server_name)
@@ -34,7 +31,7 @@ return {
             end
 
             vim.diagnostic.config({
-                virtual_text = false,
+                virtual_text = vim.bo.filetype == 'php' and true or false,
                 float = {
                     focusable = false,
                     style = 'minimal',
@@ -53,14 +50,23 @@ return {
 
             default = {
                 on_attach = require('lsp.on_attach'),
+
                 capabilities = require('cmp_nvim_lsp').default_capabilities(
+
+                    -- cmp_nvim_lsp.default_capabilities
                     vim.lsp.protocol.make_client_capabilities()
                 ),
                 flags = { debounce_text = 150 },
             }
 
+            require('mason').setup({ ui = BORDERS })
             require('mason-lspconfig').setup({
-                ensure_installed = { 'bashls', 'intelephense', 'rust_analyzer', 'sumneko_lua' },
+                ensure_installed = {
+                    'bashls',
+                    'intelephense',
+                    'rust_analyzer',
+                    'sumneko_lua',
+                },
             })
 
             require('mason-lspconfig').setup_handlers({
@@ -77,6 +83,10 @@ return {
 
             require('lspconfig.ui.windows').default_options.border = 'rounded'
             require('lsp_signature').setup()
+            require('fidget').setup({
+                text = { spinner = 'dots' },
+                window = { relative = 'editor', blend = 0, zindex = nil },
+            })
         end,
     },
     {
@@ -86,12 +96,21 @@ return {
         config = true,
     },
     {
-        'j-hui/fidget.nvim',
+        'lewis6991/hover.nvim',
         config = function()
-            require('fidget').setup({
-                text = { spinner = 'dots' },
-                window = { relative = 'editor', blend = 0, zindex = nil },
+            require('hover').setup({
+                init = function()
+                    require('hover.providers.lsp')
+                    require('hover.providers.man')
+                end,
+                preview_opts = { border = nil },
+                preview_window = false,
+                title = true,
             })
+
+            -- Setup keymaps
+            vim.keymap.set('n', 'K', require('hover').hover, { desc = 'hover.nvim' })
+            vim.keymap.set('n', 'gK', require('hover').hover_select, { desc = 'hover.nvim (select)' })
         end,
     },
     'simrat39/rust-tools.nvim',
@@ -99,9 +118,5 @@ return {
     'folke/trouble.nvim',
     'ray-x/lsp_signature.nvim',
     'onsails/lspkind-nvim',
-    'mfussenegger/nvim-dap',
-    'rcarriga/nvim-dap-ui',
-    'theHamsta/nvim-dap-virtual-text',
-    'nvim-telescope/telescope-dap.nvim',
     { 'folke/lua-dev.nvim', lazy = true },
 }
