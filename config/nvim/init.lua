@@ -8,16 +8,6 @@
 --      \/_/\/_/`\/__/  \/_____/ \/_/ \/_/    \/___/   \/_____/\/_/\/_/ --
 --[[================ beep-beep-Config-2.0-beep-boop ====================]]
 
-BORDER = { border = 'rounded' }
-
-local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
-local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({ 'git', 'clone', '--filter=blob:none', '--single-branch', lazyrepo, lazypath })
-end
-
-vim.opt.runtimepath:prepend(lazypath)
-
+BORDERS = { border = 'rounded' }
 require('utils.conf').setup()
-require('lazy').setup('plugins', {})
+require('core.lazy')
