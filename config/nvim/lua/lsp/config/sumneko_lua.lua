@@ -1,6 +1,6 @@
 local utils = require('utils')
 
-local function path()
+local function paths()
     local path = utils.fs.in_neovim() and vim.split(package.path, ';') or {}
 
     for _, p in ipairs({
@@ -11,53 +11,6 @@ local function path()
     end
 
     return path
-end
-
-local function library(opts)
-    local ret = {}
-
-    local function add(lib, filter)
-        for _, p in pairs(vim.fn.expand(lib .. '/lua', false, true)) do
-            p = vim.loop.fs_realpath(p)
-
-            if p and (not filter or filter[vim.fn.fnamemodify(p, ':h:t')]) then
-                table.insert(ret, p)
-            end
-        end
-    end
-
-    local function add_plugins(plugins)
-        local filter = {}
-
-        for _, p in pairs(plugins) do
-            filter[p] = true
-        end
-
-        for _, site in pairs(vim.split(vim.o.packpath, ',')) do
-            add(site .. '/pack/*/opt/*', {})
-            add(site .. '/pack/*/start/*', {})
-        end
-    end
-
-    if utils.fs.in_neovim() then
-        add('$VIMRUNTIME')
-        add('$HOME/.local/share/nvim/site/pack/packer/opt/lua-dev.nvim/types')
-
-        add_plugins(opts or {})
-    end
-
-    if utils.fs.in_hammerspoon() then
-        add('$HOME/.hammerspoon/hs')
-        add('$HOME/.hammerspoon/Spoons')
-        add('/Applications/Hammerspoon.app/Contents/Resources/extensions/hs')
-        add('$HOME/.hammerspoon/Spoons/EmmyLua.spoon/annotations')
-    end
-
-    if utils.fs.in_wez() then
-        add('$WEZTERM_CONFIG_DIR')
-    end
-
-    return ret
 end
 
 local function version()
@@ -89,7 +42,6 @@ end
 
 local root = os.getenv('HOME') .. '/tools/lua-language-server'
 local binary = root .. '/bin/lua-language-server'
-local plugins = require('config').lsp.sumneko_lua.plugins
 
 return {
     cmd = { binary, '-E', root .. '/main.lua' },
@@ -98,14 +50,11 @@ return {
             runtime = {
                 version = version(),
                 maxPreload = 1000,
-                path = path(),
+                path = paths(),
                 preloadFileSize = 150,
             },
             diagnostics = { globals = globals() },
-            workspace = {
-                library = library(plugins),
-                checkThirdParty = false,
-            },
+            workspace = { checkThirdParty = false },
             telemetry = { enable = false },
         },
     },
