@@ -1,5 +1,14 @@
 return {
-    'github/copilot.vim',
+    -- 'github/copilot.vim',
+    {
+        'zbirenbaum/copilot.lua',
+        cmd = 'Copilot',
+        dependencies = { 'nvim-lspconfig' },
+        event = { 'VimEnter' },
+        config = function()
+            require('copilot').setup()
+        end,
+    },
     'nvim-lua/plenary.nvim',
     'wakatime/vim-wakatime',
     'ojroques/vim-oscyank',
