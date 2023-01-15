@@ -1,77 +1,49 @@
 return {
     {
         'neovim/nvim-lspconfig',
+        event = 'BufReadPre',
         dependencies = {
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
-            'j-hui/fidget.nvim',
+            {
+                'j-hui/fidget.nvim',
+                name = 'fidget',
+                config = {
+                    text = { spinner = 'dots' },
+                    window = { relative = 'editor', blend = 0, zindex = nil },
+                },
+            },
         },
-        config = function()
-            local default = nil
-
-            local function get_server_config(server_name)
-                local ok, server_config = pcall(require, 'lsp.config.' .. server_name)
-
-                if not ok then
-                    return vim.tbl_deep_extend('force', {}, default)
-                end
-
-                return vim.tbl_deep_extend('force', {}, default, server_config)
-            end
-
-            local signs = {
-                { name = 'DiagnosticSignError', text = '' },
-                { name = 'DiagnosticSignWarn', text = '' },
-                { name = 'DiagnosticSignHint', text = '' },
-                { name = 'DiagnosticSignInfo', text = '' },
-            }
-
-            for _, sign in ipairs(signs) do
-                vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = '' })
-            end
-
-            vim.diagnostic.config({
-                virtual_text = vim.bo.filetype == 'php' and true or false,
-                float = {
-                    focusable = false,
-                    style = 'minimal',
-                    border = 'rounded',
-                    source = 'always',
-                    header = '',
-                    prefix = '',
-                },
-                update_in_insert = true,
+        ---@class PluginLspOpts
+        opts = {
+            diagnostics = {
                 underline = true,
+                update_in_insert = false,
+                virtual_text = { spacing = 4, prefix = '●' },
                 severity_sort = true,
-            })
+            },
+            format = {
+                formatting_options = nil,
+                timeout_ms = nil,
+            },
+        },
+        config = function(plugin, opts)
+            require('core.utils').on_attach(function(client, buffer)
+                require('lsp.keymaps').on_attach(client, buffer)
+            end)
 
-            vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, BORDERS)
-            vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, BORDERS)
+            -- diagnostics
+            for name, icon in pairs(require('core.icons').diagnostics) do
+                vim.fn.sign_define(name, { text = icon, texthl = name, numhl = '' })
+            end
 
-            default = {
-                on_attach = require('lsp.on_attach'),
+            vim.diagnostic.config(opts.diagnostics)
 
-                capabilities = require('cmp_nvim_lsp').default_capabilities(
-
-                    -- cmp_nvim_lsp.default_capabilities
-                    vim.lsp.protocol.make_client_capabilities()
-                ),
-                flags = { debounce_text = 150 },
-            }
-
-            require('mason').setup({ ui = BORDERS })
-            require('mason-lspconfig').setup({
-                ensure_installed = {
-                    'bashls',
-                    'intelephense',
-                    'rust_analyzer',
-                    'sumneko_lua',
-                },
-            })
-
+            local servers = opts.servers
+            require('mason-lspconfig').setup({})
             require('mason-lspconfig').setup_handlers({
                 function(server)
-                    local conf = get_server_config(server)
+                    local conf = require('core.utils').get_server_config(server)
 
                     if server == 'rust_analyzer' then
                         require('rust-tools').setup({ server = conf })
@@ -79,13 +51,6 @@ return {
                         require('lspconfig')[server].setup(conf)
                     end
                 end,
-            })
-
-            require('lspconfig.ui.windows').default_options.border = 'rounded'
-            require('lsp_signature').setup()
-            require('fidget').setup({
-                text = { spinner = 'dots' },
-                window = { relative = 'editor', blend = 0, zindex = nil },
             })
         end,
     },
@@ -96,23 +61,48 @@ return {
         config = true,
     },
     {
-        'lewis6991/hover.nvim',
-        config = function()
-            require('hover').setup({
-                init = function()
-                    require('hover.providers.lsp')
-                    require('hover.providers.man')
-                end,
-                preview_opts = { border = nil },
-                preview_window = false,
-                title = true,
-            })
+        'williamboman/mason.nvim',
+        cmd = 'Mason',
+        keys = { { '<leader>cm', '<cmd>Mason<cr>', desc = 'Mason' } },
+        opts = {
+            ensure_installed = {
+                'stylua',
+                'shellcheck',
+                'shfmt',
+                'flake8',
+            },
+        },
+        config = function(plugin, opts)
+            require('mason').setup(opts)
 
-            -- Setup keymaps
-            vim.keymap.set('n', 'K', require('hover').hover, { desc = 'hover.nvim' })
-            vim.keymap.set('n', 'gK', require('hover').hover_select, { desc = 'hover.nvim (select)' })
+            local mr = require('mason-registry')
+
+            for _, tool in ipairs(opts.ensure_installed) do
+                local p = mr.get_package(tool)
+                if not p:is_installed() then
+                    p:install()
+                end
+            end
         end,
     },
+    -- {
+    --     'lewis6991/hover.nvim',
+    --     config = function()
+    --         require('hover').setup({
+    --             init = function()
+    --                 require('hover.providers.lsp')
+    --                 require('hover.providers.man')
+    --             end,
+    --             preview_opts = { border = nil },
+    --             preview_window = false,
+    --             title = true,
+    --         })
+    --
+    --         -- Setup keymaps
+    --         vim.keymap.set('n', 'K', require('hover').hover, { desc = 'hover.nvim' })
+    --         vim.keymap.set('n', 'gK', require('hover').hover_select, { desc = 'hover.nvim (select)' })
+    --     end,
+    -- },
     'simrat39/rust-tools.nvim',
     'b0o/schemastore.nvim',
     'folke/trouble.nvim',
