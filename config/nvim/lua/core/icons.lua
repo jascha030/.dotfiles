@@ -1,4 +1,6 @@
-return {
+local M = {}
+
+local icons = {
     alias = '',
     asterisk = '',
     bookmark = '',
@@ -59,4 +61,29 @@ return {
         Operator = '',
         TypeParameter = '',
     },
+    diagnostics = {
+        DiagnosticSignError = '',
+        DiagnosticSignWarn = '',
+        DiagnosticSignHint = '',
+        DiagnosticSignInfo = '',
+    },
 }
+
+function M.get_diagnostic_signs()
+    local signs = {}
+
+    for k, v in icons.diagnostics do
+        table.insert(signs, { name = k, text = v})
+    end
+
+    return signs
+end
+
+M = setmetatable(M, {
+    __index = function(_, key)
+        return icons[key] or nil
+    end,
+})
+
+return M
+
