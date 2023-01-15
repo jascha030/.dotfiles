@@ -11,9 +11,7 @@ fi
 
 # Prompt height in lines
 ! (( ${DOT_PROMPT_HEIGHT} )) && export DOT_PROMPT_HEIGHT=2
-
-# Decide which msg to display.
-(( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )) && export _IS_VIMTERM=true || export _IS_VIMTERM=false
+# Decide which msg to display. (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )) && export _IS_VIMTERM=true || export _IS_VIMTERM=false
 [[ "$_IS_VIMTERM" == true ]] && LOL_MSG="${DOT_NEOVIM_LOL_MSG}" || LOL_MSG="${DOT_DEFAULT_LOL_MSG}"
 
 #--------------------------------------------- Internally used functions ---------------------------------------------#

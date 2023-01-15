@@ -70,8 +70,11 @@ typeset -aU path
 
 compinit
 
-lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
+eval "$(op completion zsh)"; compdef _op op
+# lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
 
 safe_source ${ZDOTDIR}/prompt/prompt
 
 # if (( ${+PROFILE_ZSHRC} )); then echoti rmcup; echoti clear; echoti sgr0; zprof; unset PROFILE_ZSHRC; # fi
+
+# pnpm end
