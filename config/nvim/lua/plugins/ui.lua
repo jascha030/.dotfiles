@@ -4,36 +4,34 @@ return {
         dependencies = { 'hoob3rt/lualine.nvim' },
     },
     'goolord/alpha-nvim',
-    {
-        'gelguy/wilder.nvim',
-        config = function()
-            local wilder = require('wilder')
-
-            wilder.setup({ modes = { ':', '?' } })
-            wilder.set_option(
-                'renderer',
-                wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
-                    highlights = { border = 'Normal' },
-                    border = 'rounded',
-                }))
-            )
-        end,
-    },
     'kyazdani42/nvim-tree.lua',
     'sheerun/vim-polyglot',
     {
+        'rcarriga/nvim-notify',
+        keys = {
+            {
+                '<leader>un',
+                function()
+                    require('notify').dismiss({ silent = true, pending = true })
+                end,
+                desc = 'Delete all Notifications',
+            },
+        },
+        opts = {
+            timeout = 3000,
+            max_height = function()
+                return math.floor(vim.o.lines * 0.75)
+            end,
+            max_width = function()
+                return math.floor(vim.o.columns * 0.75)
+            end,
+        },
+    },
+    {
         'yamatsum/nvim-cursorline',
         config = {
-            cursorline = {
-                enable = true,
-                timeout = 1000,
-                number = false,
-            },
-            cursorword = {
-                enable = true,
-                min_length = 3,
-                hl = { underline = true },
-            },
+            cursorline = { enable = true, timeout = 1000, number = false },
+            cursorword = { enable = true, min_length = 3, hl = { underline = true } },
         },
     },
     {
@@ -51,4 +49,19 @@ return {
         },
     },
     { 'norcalli/nvim-colorizer.lua', name = 'colorizer', config = true },
+    {
+        'stevearc/dressing.nvim',
+        init = function()
+            ---@diagnostic disable-next-line: duplicate-set-field
+            vim.ui.select = function(...)
+                require('lazy').load({ plugins = { 'dressing.nvim' } })
+                return vim.ui.select(...)
+            end
+            ---@diagnostic disable-next-line: duplicate-set-field
+            vim.ui.input = function(...)
+                require('lazy').load({ plugins = { 'dressing.nvim' } })
+                return vim.ui.input(...)
+            end
+        end,
+    },
 }
