@@ -1,6 +1,6 @@
 local M = {}
 
-local icons = {
+M.icons = {
     alias = '',
     asterisk = '',
     bookmark = '',
@@ -78,12 +78,6 @@ function M.get_diagnostic_signs()
 
     return signs
 end
-
-M = setmetatable(M, {
-    __index = function(_, key)
-        return icons[key] or nil
-    end,
-})
 
 return M
 
