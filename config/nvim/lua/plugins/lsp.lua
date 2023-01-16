@@ -33,7 +33,7 @@ return {
             end)
 
             -- diagnostics
-            for name, icon in pairs(require('core.icons').diagnostics) do
+            for name, icon in pairs(require('core.icons').icons.diagnostics) do
                 vim.fn.sign_define(name, { text = icon, texthl = name, numhl = '' })
             end
 
@@ -85,28 +85,27 @@ return {
             end
         end,
     },
-    -- {
-    --     'lewis6991/hover.nvim',
-    --     config = function()
-    --         require('hover').setup({
-    --             init = function()
-    --                 require('hover.providers.lsp')
-    --                 require('hover.providers.man')
-    --             end,
-    --             preview_opts = { border = nil },
-    --             preview_window = false,
-    --             title = true,
-    --         })
-    --
-    --         -- Setup keymaps
-    --         vim.keymap.set('n', 'K', require('hover').hover, { desc = 'hover.nvim' })
-    --         vim.keymap.set('n', 'gK', require('hover').hover_select, { desc = 'hover.nvim (select)' })
-    --     end,
-    -- },
     'simrat39/rust-tools.nvim',
     'b0o/schemastore.nvim',
     'folke/trouble.nvim',
     'ray-x/lsp_signature.nvim',
     'onsails/lspkind-nvim',
     { 'folke/lua-dev.nvim', lazy = true },
+    {
+        'gbprod/phpactor.nvim',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'neovim/nvim-lspconfig',
+        },
+        config = function()
+            require('phpactor').setup({
+                lspconfig = {
+                    enabled = true,
+                    options = {
+                        cmd = { 'phpactor', 'language-server' },
+                    },
+                },
+            })
+        end,
+    },
 }

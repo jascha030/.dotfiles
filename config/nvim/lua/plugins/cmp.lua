@@ -26,7 +26,7 @@ return {
                 return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
             end
 
-            local kind_icons = require('core.icons').cmp_icons
+            local kind_icons = require('core.icons').icons.cmp_icons
 
             local mapping = {
                 ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),

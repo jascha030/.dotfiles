@@ -23,6 +23,7 @@ function M.on_attach(client, buffer)
     self:map(']w', M.diagnostic_goto(true, 'WARNING'), { desc = 'Next Warning' })
     self:map('[w', M.diagnostic_goto(false, 'WARNING'), { desc = 'Prev Warning' })
     self:map('<leader>ca', vim.lsp.buf.code_action, { desc = 'Code Action', mode = { 'n', 'v' }, has = 'codeAction' })
+    self:map('<C-a>', vim.lsp.buf.code_action, { desc = 'Code Action', mode = { 'n', 'v' }, has = 'codeAction' })
 
     local format = require('lsp.format').format
     self:map('<C-f>', format, { desc = 'Format Document', has = 'documentFormatting' })
