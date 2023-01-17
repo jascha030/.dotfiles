@@ -42,6 +42,8 @@ vim.cmd([[
   augroup end
 ]])
 
+vim.cmd([[autocmd FileType php setlocal omnifunc=phpactor#Complete]])
+
 vim.api.nvim_create_autocmd('FileType', {
     pattern = { 'help', 'lspinfo' },
     command = [[nnoremap <buffer><silent> q :close<CR>]],
