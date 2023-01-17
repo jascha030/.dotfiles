@@ -1,3 +1,11 @@
+local function get_background()
+    if require('utils.theme').is_dark() then
+        return '#1e2030'
+    else
+        return '#e7e9ef'
+    end
+end
+
 return {
     {
         dir = '~/.development/Projects/Lua/nitepal.nvim',
@@ -18,6 +26,7 @@ return {
             },
         },
         opts = {
+            background_color = get_background(),
             timeout = 3000,
             max_height = function()
                 return math.floor(vim.o.lines * 0.75)
