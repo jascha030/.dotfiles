@@ -1,0 +1,12 @@
+{
+    "php": {
+        "version": "8.1"
+    },
+    "language_server_phpstan": {
+        "enabled": true,
+        "bin": "%project_root%/tools/phpstan"
+    },
+    "phpunit": {
+        "enabled": true
+    }
+}
