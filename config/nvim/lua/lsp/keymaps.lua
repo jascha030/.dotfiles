@@ -44,12 +44,12 @@ function M:map(lhs, rhs, opts)
     if opts.has and not self:has(opts.has) then
         return
     end
-    vim.keymap.set(
-        opts.mode or 'n',
-        lhs,
-        type(rhs) == 'string' and ('<cmd>%s<cr>'):format(rhs) or rhs,
-        { silent = true, buffer = self.buffer, expr = opts.expr, desc = opts.desc }
-    )
+    vim.keymap.set(opts.mode or 'n', lhs, type(rhs) == 'string' and ('<cmd>%s<cr>'):format(rhs) or rhs, {
+        silent = true,
+        buffer = self.buffer,
+        expr = opts.expr,
+        desc = opts.desc,
+    })
 end
 
 function M.rename()
