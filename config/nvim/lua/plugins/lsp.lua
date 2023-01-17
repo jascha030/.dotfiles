@@ -6,6 +6,10 @@ return {
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
             {
+                'gbprod/phpactor.nvim',
+                dependencies = { 'nvim-lua/plenary.nvim' },
+            },
+            {
                 'j-hui/fidget.nvim',
                 name = 'fidget',
                 config = {
@@ -45,6 +49,19 @@ return {
                 function(server)
                     local conf = require('core.utils').get_server_config(server)
 
+                    if server == 'phpactor' then
+                        require('phpactor').setup({
+                            install = {
+                                bin = '/usr/local/bin/phpactor'
+                            },
+                            lspconfig = {
+                                enabled = true,
+                                options = {
+                                    cmd = { 'phpactor', 'language-server' },
+                                },
+                            },
+                        })
+                    end
                     if server == 'rust_analyzer' then
                         require('rust-tools').setup({ server = conf })
                     else
@@ -70,6 +87,7 @@ return {
                 'shellcheck',
                 'shfmt',
                 'flake8',
+                'phpactor',
             },
         },
         config = function(plugin, opts)
@@ -79,6 +97,7 @@ return {
 
             for _, tool in ipairs(opts.ensure_installed) do
                 local p = mr.get_package(tool)
+
                 if not p:is_installed() then
                     p:install()
                 end
@@ -91,21 +110,4 @@ return {
     'ray-x/lsp_signature.nvim',
     'onsails/lspkind-nvim',
     { 'folke/lua-dev.nvim', lazy = true },
-    {
-        'gbprod/phpactor.nvim',
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-            'neovim/nvim-lspconfig',
-        },
-        config = function()
-            require('phpactor').setup({
-                lspconfig = {
-                    enabled = true,
-                    options = {
-                        cmd = { 'phpactor', 'language-server' },
-                    },
-                },
-            })
-        end,
-    },
 }
