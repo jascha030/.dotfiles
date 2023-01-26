@@ -74,6 +74,7 @@ alias composer81="/usr/local/opt/php@8.1/bin/php $(which composer)"
 alias composer82="/usr/local/opt/php@8.2/bin/php $(which composer)"
 alias valetrm="rm $HOME/.config/valet/*.sock"
 alias valetr="valetrm && valet restart"
+alias fpmlog:open="$EDITOR $FPM_LOG_DIR/php-fpm.log"
 
 # Debugging
 alias rscr='tput rmcup'

@@ -6,6 +6,8 @@ if (( LINES == 24 )); then
     until (( ${LINES} > 24)); do exec zsh -l; done
 fi
 
+export FPM_LOG_DIR="${HOME}/.config/valet/Log"
+
 autoload -Uz compinit
 setopt autocd extendedglob nomatch menucomplete
 setopt traps_async

@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-FPM_LOG_DIR="${HOME}/.config/valet/Log"
+# FPM_LOG_DIR="${HOME}/.config/valet/Log"
 
 [ -f "${FPM_LOG_DIR}/php-fpm.log" ] && tail -f -36 "${FPM_LOG_DIR}/php-fpm.log" | bat --paging=never -l log
 
