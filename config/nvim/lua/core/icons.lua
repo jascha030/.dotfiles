@@ -26,6 +26,7 @@ M.icons = {
     mac = '',
     mute = '',
     npm = '',
+    nmode = '',
     pin = '',
     rocket = '',
     scholar = '',
