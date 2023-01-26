@@ -40,7 +40,6 @@ return {
     { 'ziontee113/icon-picker.nvim', config = {} },
     { 'ziontee113/color-picker.nvim', config = {} },
     { 'terrortylor/nvim-comment', name = 'nvim_comment', config = true },
-    { 'folke/which-key.nvim', config = {} },
     { 'windwp/nvim-autopairs', config = {} },
     { 'petertriho/nvim-scrollbar', config = true },
     { 'luukvbaal/stabilize.nvim', config = true },

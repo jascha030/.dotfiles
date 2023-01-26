@@ -96,10 +96,11 @@ return {
             ['Starship'] = { icon = 'rocket', filetypes = 'starship.toml' },
             ['NvmRc'] = { icon = 'npm', filetypes = '.nvmrc' },
             ['Lockfile'] = { icon = 'lockfile', filetypes = '.lock' },
-            ['BitbucketPipeline'] = { icon = 'bitbucket', filetype = 'bitbucket-pipelines.yml' },
+            ['BitbucketPipeline'] = { icon = 'bitbucket', filetypes = 'bitbucket-pipelines.yml' },
             ['Composer'] = { icon = 'composer', filetypes = 'composer.json' },
             ['PluginsSpec'] = { icon = 'list', filetypes = 'plugins-spec' },
             ['Prompt'] = { icon = 'rocket', filetypes = 'prompt' },
+            ['Neon'] = { icon = 'nmode', filetypes = 'neon' }
         },
     },
     lsp = {},

@@ -52,7 +52,7 @@ return {
                     if server == 'phpactor' then
                         require('phpactor').setup({
                             install = {
-                                bin = '/usr/local/bin/phpactor'
+                                bin = '/usr/local/bin/phpactor',
                             },
                             lspconfig = {
                                 enabled = true,
@@ -89,6 +89,7 @@ return {
                 'flake8',
                 'phpactor',
             },
+            ui = BORDERS,
         },
         config = function(plugin, opts)
             require('mason').setup(opts)

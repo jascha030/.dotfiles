@@ -54,7 +54,7 @@ return {
             end
 
             config.layout = {
-                { type = 'padding', val = 2 },
+                { type = 'padding', val = 1 },
                 term_or_text,
                 { type = 'padding', val = 2 },
                 {
@@ -64,7 +64,11 @@ return {
                         section.mru_cwd,
                         section.mru,
                     },
-                    opts = { position = 'center' },
+                    width = 36,
+                    opts = {
+                        position = 'center',
+                        window_config = {},
+                    },
                 },
                 { type = 'padding', val = 1 },
                 section.bottom_buttons,
