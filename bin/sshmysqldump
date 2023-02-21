@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ssh $1 mysqldump $2 > ${PWD}/$2
+ssh $1 mysqldump -u $2 $3 > ${PWD}/$3
 
 #ssh user@host1 mysqldump database_name > ~/path/to/export/to
 # ssh user@host2 mysql database_name < ~/path/to/export/to
