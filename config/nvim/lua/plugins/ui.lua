@@ -26,8 +26,8 @@ return {
             if ret == 0 then
                 term_or_text = {
                     type = 'terminal',
-                    command = "neo --fps=20 --speed=5 -D -m 'NEO VIM' -d 0.5 -l 1,1",
-                    width = 36,
+                    command = "neo --fps=20 --speed=8 -D -m 'NEOVIM' -d 0.5 -l 1,1",
+                    width = 72,
                     height = term_height,
                     opts = {
                         position = 'center',
