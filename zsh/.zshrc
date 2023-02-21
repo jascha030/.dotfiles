@@ -53,6 +53,7 @@ path=(
     /usr/local/opt/openjdk/bin
     /usr/local/opt/openssl@1.1/bin
     "${HOME}/bin"
+    "${HOME}/tools"
     "${HOME}/.composer/vendor/bin"
     "${HOME}/.bun/bin"
     "${HOME}/.yarn/bin"
@@ -73,7 +74,8 @@ typeset -aU path
 compinit
 
 eval "$(op completion zsh)"; compdef _op op
-# lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
+
+lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
 
 safe_source "${ZDOTDIR}/prompt/prompt"
 
