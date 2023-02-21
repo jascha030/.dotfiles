@@ -57,7 +57,6 @@ alias new:composer-template='cp -r /Users/jaschavanaalst/.development/Projects/C
 alias wpuser:create='wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpuser:update='wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
 
-
 alias p74="/usr/local/opt/php@7.4/bin/php"
 alias p80="/usr/local/opt/php@8.0/bin/php"
 alias p81="/usr/local/opt/php@8.1/bin/php"
@@ -75,6 +74,7 @@ alias composer82="/usr/local/opt/php@8.2/bin/php $(which composer)"
 alias valetrm="rm $HOME/.config/valet/*.sock"
 alias valetr="valetrm && valet restart"
 alias fpmlog:open="$EDITOR $FPM_LOG_DIR/php-fpm.log"
+alias cp:composer-bin-extras='echo "\"extra\": { \"bamarni-bin\": { \"bin-links\": false, \"forward-command\": true } }," | pbcopy'
 
 # Debugging
 alias rscr='tput rmcup'
@@ -83,7 +83,10 @@ alias rrp="exec env PROFILE_ZSHRC=1 zsh --login"
 alias rrdm="exec env DOT_DISABLE_MSG=1 zsh --login"
 alias pwd='e $PWD | pbcopy'
 
-alias cp:defaults='cp -r $HOME/.composer/vendor/jascha030/defaults/templates/{.*,phpunit.xml,phpstan.neon} $PWD/'
+# alias cp:defaults='cp -r $HOME/.composer/vendor/jascha030/defaults/templates/{.*,phpunit.xml,phpstan.neon} $PWD/'
+alias cp:defaults='cp -r $HOME/.development/Projects/Php/Composer/jascha030/project-templates/composer-template/{.var,.phive,.editorconfig,.gitignore,.gitattributes,.phpstorm.meta.php,.php-cs-fixer.dist.php,phpunit.xml.dist,phpstan.neon.dist} $PWD/'
+
+alias cp:composerauth='cp $HOME/.composer/auth.json ./'
 
 alias checkitalics="echo -e '\e[3mitalic\e[23m'"
 alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
