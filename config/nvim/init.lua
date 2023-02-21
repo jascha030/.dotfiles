@@ -9,5 +9,9 @@
 --[[================ beep-beep-Config-2.0-beep-boop ====================]]
 
 BORDERS = { border = 'rounded' }
+
 require('utils.conf').setup()
 require('core.lazy')
+
+-- Fix for the fact that n is bound to q, and I can't seem to find the source of this... :thinking_emoji:
+vim.keymap.set('n', 'n', 'n')
