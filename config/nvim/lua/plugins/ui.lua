@@ -123,7 +123,14 @@ return {
             },
         },
     },
-    { 'norcalli/nvim-colorizer.lua', name = 'colorizer', config = true },
+    -- { 'norcalli/nvim-colorizer.lua', name = 'colorizer', config = true },
+    {
+        'brenoprata10/nvim-highlight-colors',
+        name = 'nvim-highlight-colors',
+        config = {
+            render = 'first_column'
+        },
+    },
     {
         'stevearc/dressing.nvim',
         init = function()
