@@ -206,31 +206,30 @@ plugins {
 // For more examples, see: https://github.com/zellij-org/zellij/tree/main/example/themes
 // Once these themes are defined, one of them should to be selected in the "theme" section of this file
 //
-// themes {
-//     dracula {
-//         fg 248 248 242
-//         bg 40 42 54
-//         red 255 85 85
-//         green 80 250 123
-//         yellow 241 250 140
-//         blue 98 114 164
-//         magenta 255 121 198
-//         orange 255 184 108
-//         cyan 139 233 253
-//         black 0 0 0
-//         white 255 255 255
-//     }
-// }
+themes {
+    nitepal-dark {
+        fg "#c8d3d5"
+        bg "#1e2030"
+        red "#ff007c"
+        green "#8fd742"
+        yellow "#ffae31"
+        blue "#0083f7"
+        magenta "#5f5fec"
+        orange "#ff8000"
+        cyan "#0a6e81"
+        black "#232235"
+        white "#fffcfc"
+    }
+}
 
 // Choose the theme that is specified in the themes section.
 // Default: default
-//
-// theme "default"
+theme "nitepal-dark"
 
 // The name of the default layout to load on startup
 // Default: "default"
 //
-// default_layout "compact"
+default_layout "compact"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
