@@ -13,6 +13,8 @@ alias c='clear'
 alias e='echo -n'
 alias rd='rmdir'
 alias edit="vim $1"
+alias n="nvim"
+alias lg="lazygit"
 
 alias ll="ls ${LS_DEFAULT_ARGS}"
 alias lll='ll | lolcrab'
