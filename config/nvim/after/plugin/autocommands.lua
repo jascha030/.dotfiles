@@ -30,6 +30,8 @@ vim.cmd([[
     autocmd!
     autocmd FileType plist set ft=xml
     autocmd BufReadPost *.neon set ft=yaml
+    autocmd BufReadPost *.neon.dist set ft=yaml
+    autocmd BufReadPost *.xml.dist set ft=xml
     autocmd BufReadPost *.ejs.t set ft=embedded_template
     autocmd BufReadPost *.*ignore set ft=gitignore
     autocmd BufReadPost gitignore_global set ft=gitignore
@@ -37,6 +39,7 @@ vim.cmd([[
     autocmd BufReadPost *.gitconfig set ft=gitconfig
     autocmd BufReadPost env.local set ft=bash
     autocmd BufReadPost *.cnf set ft=dosini
+    autocmd BufReadPost *.kdl set ft=kdl
     autocmd BufReadPost *.antigenrc set ft=zsh
     autocmd BufReadPost Deployfile set ft=json
   augroup end
