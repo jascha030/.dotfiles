@@ -15,6 +15,7 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 require('lazy').setup('plugins', {
+    concurrency = 5,
     performance = {
         rtp = {
             disabled_plugins = {
