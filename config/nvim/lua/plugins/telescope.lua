@@ -3,7 +3,7 @@ return {
     dependencies = {
         { 'nvim-lua/popup.nvim' },
         { 'nvim-lua/plenary.nvim' },
-        { 'nvim-telescope/telescope-fzy-native.nvim', build = 'make' },
+        { 'nvim-telescope/telescope-fzy-native.nvim',  build = 'make' },
         { 'nvim-telescope/telescope-ui-select.nvim' },
         { 'nvim-telescope/telescope-file-browser.nvim' },
         { 'nvim-telescope/telescope-fzy-native.nvim' },
@@ -44,10 +44,10 @@ return {
                 },
                 file_browser = {
                     mappings = {
-                        ['n'] = {
-                            ['q'] = actions.close,
-                            ['x'] = actions.delete_buffer,
-                            ['d'] = fb_actions.remove,
+                            ['n'] = {
+                                ['q'] = actions.close,
+                                ['x'] = actions.delete_buffer,
+                                ['d'] = fb_actions.remove,
                         },
                     },
                 },
