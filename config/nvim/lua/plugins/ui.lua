@@ -27,7 +27,7 @@ return {
                 term_or_text = {
                     type = 'terminal',
                     command = "neo --fps=20 --speed=8 -D -m 'NEOVIM' -d 0.5 -l 1,1",
-                    width = 72,
+                    width = 54,
                     height = term_height,
                     opts = {
                         position = 'center',
@@ -123,7 +123,7 @@ return {
             },
         },
     },
-    -- { 'norcalli/nvim-colorizer.lua', name = 'colorizer', config = true },
+    { 'norcalli/nvim-colorizer.lua', name = 'colorizer', config = true },
     {
         'brenoprata10/nvim-highlight-colors',
         name = 'nvim-highlight-colors',
