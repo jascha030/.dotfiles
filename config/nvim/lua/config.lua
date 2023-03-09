@@ -57,7 +57,7 @@ return {
             ['<leader>p'] = { '<cmd>TSPlaygroundToggle<CR>' },
         },
         ['v'] = {
-            ['<C-c>'] = { ':OSCYank<CR>' },
+            ['<C-c>'] = { ':OSCYankVisual<CR>' },
             ['<C-_>'] = { ":'<,'>CommentToggle<CR>" },
         },
         ['t'] = {
