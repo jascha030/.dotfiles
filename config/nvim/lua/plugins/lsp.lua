@@ -5,6 +5,7 @@ return {
         dependencies = {
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
+            'simrat39/rust-tools.nvim',
             {
                 'gbprod/phpactor.nvim',
                 dependencies = { 'nvim-lua/plenary.nvim' },
@@ -63,7 +64,30 @@ return {
                         })
                     end
                     if server == 'rust_analyzer' then
-                        require('rust-tools').setup({ server = conf })
+                        local rt = require('rust-tools')
+
+                        rt.setup({
+                            tools = {
+                                reload_workspace_from_cargo_toml = true,
+                                inlay_hints = {
+                                    auto = true,
+                                    only_current_line = true,
+                                    show_parameter_hints = true,
+                                },
+                            },
+                            server = {
+                                on_attach = function(_, bufnr)
+                                    vim.keymap.set('n', '<C-space>', rt.hover_actions.hover_actions, { buffer = bufnr })
+
+                                    vim.keymap.set(
+                                        'n',
+                                        '<Leader>a',
+                                        rt.code_action_group.code_action_group,
+                                        { buffer = bufnr }
+                                    )
+                                end,
+                            },
+                        })
                     else
                         require('lspconfig')[server].setup(conf)
                     end
@@ -105,10 +129,10 @@ return {
             end
         end,
     },
-    'simrat39/rust-tools.nvim',
     'b0o/schemastore.nvim',
     'folke/trouble.nvim',
     'ray-x/lsp_signature.nvim',
     'onsails/lspkind-nvim',
+    { 'LhKipp/nvim-nu',     build = 'TSInstall nu' },
     { 'folke/lua-dev.nvim', lazy = true },
 }
