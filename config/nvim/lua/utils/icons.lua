@@ -42,6 +42,7 @@ function M.setup(conf)
     for name, devicon in pairs(M.options.overrides) do
         M.add(devicon.icon, name, devicon.filetypes)
     end
+
     devicons.set_icon(M.devicons)
 end
 

@@ -34,6 +34,7 @@ vim.cmd([[
     autocmd BufReadPost *.xml.dist set ft=xml
     autocmd BufReadPost *.ejs.t set ft=embedded_template
     autocmd BufReadPost *.*ignore set ft=gitignore
+    autocmd BufReadPost *.nu set ft=nu
     autocmd BufReadPost gitignore_global set ft=gitignore
     autocmd BufReadPost *.gitattributes set ft=gitattributes
     autocmd BufReadPost *.gitconfig set ft=gitconfig

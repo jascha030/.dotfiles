@@ -18,6 +18,7 @@ return {
                     window = { relative = 'editor', blend = 0, zindex = nil },
                 },
             },
+            { 'LhKipp/nvim-nu', build = 'TSInstall nu' },
         },
         ---@class PluginLspOpts
         opts = {
@@ -33,6 +34,8 @@ return {
             },
         },
         config = function(plugin, opts)
+            require('nu').setup({})
+
             require('core.utils').on_attach(function(client, buffer)
                 require('lsp.keymaps').on_attach(client, buffer)
             end)
@@ -133,6 +136,5 @@ return {
     'folke/trouble.nvim',
     'ray-x/lsp_signature.nvim',
     'onsails/lspkind-nvim',
-    { 'LhKipp/nvim-nu',     build = 'TSInstall nu' },
     { 'folke/lua-dev.nvim', lazy = true },
 }
