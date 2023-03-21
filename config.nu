@@ -650,3 +650,10 @@ let-env config = {
     }
   ]
 }
+
+def nuopen [arg, --raw (-r)] { if $raw { open -r $arg } else { open $arg } }
+alias open = ^open
+
+let-env PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/bin')
+
+source ~/.config/nu/aliases

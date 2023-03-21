@@ -36,6 +36,10 @@ alias scrsvr='open -a ScreenSaverEngine'
 alias tm-auto='sudo tmutil startbackup --auto; tmutil status'
 alias luamake="$HOME/tools/lua-language-server/3rd/luamake/luamake"
 
+# Fix for Nu-shell and @antfu/ni:nu confusion
+alias nup="$(which nu)"
+alias nu="$HOME/.cargo/bin/nu"
+
 alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
 alias cargoup='cargo install-update --all'
 alias appup='brewup && cargoup'
