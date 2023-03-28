@@ -35,7 +35,7 @@ return {
         ['n'] = {
             ['ff'] = { ':lua require("telescope.builtin").find_files()<CR>' },
             ['FF'] = { ':lua require("telescope").extensions.file_browser.file_browser()<CR>' },
-            ['<C-p>'] = { ':lua require("telescope.builtin").git_files()<CR>'},
+            ['<C-p>'] = { ':lua require("telescope.builtin").git_files()<CR>' },
             ['fg'] = { ':lua require("telescope.builtin").live_grep()<CR>' },
             ['<C-f>'] = { ':lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>' },
             ['<C-l>'] = { ':lua vim.lsp.buf.format()<CR>' },
@@ -100,7 +100,7 @@ return {
             ['Composer'] = { icon = 'composer', filetypes = 'composer.json' },
             ['PluginsSpec'] = { icon = 'list', filetypes = 'plugins-spec' },
             ['Prompt'] = { icon = 'rocket', filetypes = 'prompt' },
-            ['Neon'] = { icon = 'nmode', filetypes = 'neon' }
+            ['Neon'] = { icon = 'nmode', filetypes = 'neon' },
         },
     },
     lsp = {},
