@@ -10,6 +10,11 @@
 
 BORDERS = { border = 'rounded' }
 
+vim.cmd([[
+    set termguicolors
+    set t_Co=256
+]])
+
 require('utils.conf').setup()
 require('core.lazy')
 
