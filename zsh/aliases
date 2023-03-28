@@ -97,6 +97,8 @@ alias cp:composerauth='cp $HOME/.composer/auth.json ./'
 alias checkitalics="echo -e '\e[3mitalic\e[23m'"
 alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
 
+alias bench='hyperfine --warmup 100 "exec zsh -l"'
+
 #-------------------------------------------------- Suffix Aliases ---------------------------------------------------#
 
 alias -s php=pstorm
