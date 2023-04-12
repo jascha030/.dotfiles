@@ -63,6 +63,9 @@ alias new:composer-template='cp -r /Users/jaschavanaalst/.development/Projects/C
 alias wpuser:create='wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpuser:update='wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
 
+alias wpenv:user:create='wp-env run cli wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
+alias wpenv:user:update='wp-env run cli wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
+
 alias p74="/usr/local/opt/php@7.4/bin/php"
 alias p80="/usr/local/opt/php@8.0/bin/php"
 alias p81="/usr/local/opt/php@8.1/bin/php"
@@ -91,6 +94,7 @@ alias pwd='e $PWD | pbcopy'
 
 # alias cp:defaults='cp -r $HOME/.composer/vendor/jascha030/defaults/templates/{.*,phpunit.xml,phpstan.neon} $PWD/'
 alias cp:defaults='cp -r $HOME/.development/Projects/Php/Composer/jascha030/project-templates/composer-template/{.var,.phive,.editorconfig,.gitignore,.gitattributes,.phpstorm.meta.php,.php-cs-fixer.dist.php,phpunit.xml.dist,phpstan.neon.dist} $PWD/'
+alias cp:fontawesome='cat $HOME/.development/Projects/Php/Wordpress/sites/sbtweema/.npmrc | pbcopy'
 
 alias cp:composerauth='cp $HOME/.composer/auth.json ./'
 
