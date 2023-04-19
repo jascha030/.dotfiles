@@ -6,7 +6,7 @@ alias kraken = (open gitkraken://repo/$env.PWD)
 
 alias x = exit
 alias c = clear
-alias e = echo -n
+# alias e = echo
 alias rd = rmdir
 alias n = nvim
 alias lg = lazygit
@@ -16,17 +16,16 @@ alias ll = ls -all
 alias lll = (ll | lolcrab)
 alias kk = ll
 #
-# alias config = cd $env.XDG_CONFIG
-# alias cf = config
-# alias dev = cd $env.DEV
-# alias df = cd $env.DOTFILES
-# alias zp = cd $env.ZDOTDIR/plugins/
-# alias composerhome=cd (composer -g config home)
-#
-# alias localenv = nvim $env.HOME/env.local
-# alias scrsvr = open -a ScreenSaverEngine
-# alias tm-auto = sudo tmutil startbackup --auto; tmutil status
-# alias luamake = $env.HOME/tools/lua-language-server/3rd/luamake/luamake
+alias config = cd $env.XDG_CONFIG
+alias cf = config
+alias dev = cd $env.DEV
+alias df = cd $env.DOTFILES
+alias composerhome = cd (composer -g config home)
+
+alias localenv = nvim $env.HOME/env.local
+alias scrsvr = ^open -a ScreenSaverEngine
+alias tm-auto = sudo tmutil startbackup --auto; tmutil status
+alias luamake = $env.HOME/tools/lua-language-server/3rd/luamake/luamake
 #
 # alias p74 = /usr/local/opt/php@7.4/bin/php
 # alias p80 = /usr/local/opt/php@8.0/bin/php
