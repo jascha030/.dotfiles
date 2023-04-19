@@ -19,7 +19,6 @@ return function()
             adaptive_size = true,
             centralize_selection = false,
             width = 40,
-            hide_root_folder = true,
             side = 'right',
             preserve_window_proportions = false,
             number = false,
@@ -33,6 +32,7 @@ return function()
             },
         },
         renderer = {
+            root_folder_label = true,
             highlight_git = true,
             highlight_opened_files = 'none',
             indent_width = 2,
