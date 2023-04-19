@@ -30,6 +30,7 @@ vim.cmd([[
     autocmd!
     autocmd FileType plist set ft=xml
     autocmd BufReadPost *.neon set ft=yaml
+    autocmd BufReadPost *.tape set ft=tape
     autocmd BufReadPost *.neon.dist set ft=yaml
     autocmd BufReadPost *.xml.dist set ft=xml
     autocmd BufReadPost *.ejs.t set ft=embedded_template
