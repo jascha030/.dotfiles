@@ -1,7 +1,6 @@
 local M = {}
 
 local wezterm = require('wezterm')
-local theme = require('theme')
 local font = require('fonts')
 
 M.options = {
@@ -29,7 +28,7 @@ function M.opacity_down(window, _)
     local overrides = window:get_config_overrides() or {}
     local current = overrides.window_background_opacity or M.options.opacity
 
-    if current > 0 then
+    if current > 0.01 then
         overrides.window_background_opacity = current - 0.01
         window:set_config_overrides(overrides)
     end
