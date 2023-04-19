@@ -73,7 +73,7 @@ M.icons = {
 function M.get_diagnostic_signs()
     local signs = {}
 
-    for k, v in icons.diagnostics do
+    for k, v in M.icons.diagnostics do
         table.insert(signs, { name = k, text = v})
     end
 
