@@ -30,4 +30,7 @@ require('lazy').setup('plugins', {
             },
         },
     },
+    ui = {
+        border = 'rounded'
+    }
 })
