@@ -117,9 +117,15 @@ return {
     font_rules = font.get_rules(false),
     colors = theme.get_scheme('Dark', true),
     inactive_pane_hsb = { saturation = 0.98, brightness = 0.9 },
-    window_background_opacity = 1,
-    macos_window_background_blur = 60,
+    window_background_opacity = 0.75,
+    macos_window_background_blur = 50,
     keys = require('keymap'),
     disable_default_key_bindings = true,
     leader = { key = 'd', mods = 'CTRL' },
+    harfbuzz_features = {
+        'zero', -- Use a slashed zero '0' (instead of dotted)
+        'kern', -- (default) kerning (todo check what is really is)
+        'liga', -- (default) ligatures
+        'clig', -- (default) contextual ligatures
+    },
 }

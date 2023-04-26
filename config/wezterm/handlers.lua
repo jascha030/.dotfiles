@@ -4,7 +4,7 @@ local wezterm = require('wezterm')
 local font = require('fonts')
 
 M.options = {
-    opacity = 1,
+    opacity = 0.6,
     colors = {},
     alt_font_active = false,
 }
