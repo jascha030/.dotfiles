@@ -45,9 +45,9 @@ vim.cmd([[
     autocmd BufReadPost *.antigenrc set ft=zsh
     autocmd BufReadPost Deployfile set ft=json
   augroup end
-]])
 
-vim.cmd([[autocmd FileType php setlocal omnifunc=phpactor#Complete]])
+  autocmd FileType php setlocal omnifunc=phpactor#Complete
+]])
 
 vim.api.nvim_create_autocmd('FileType', {
     pattern = { 'help', 'lspinfo' },
