@@ -14,7 +14,7 @@ return function()
         disable_netrw = true,
         hijack_cursor = true,
         hijack_unnamed_buffer_when_opening = false,
-        on_attach = 'disable', -- function(bufnr). If nil, will use the deprecated mapping strategy
+        on_attach = 'default', -- function(bufnr). If nil, will use the deprecated mapping strategy
         view = {
             adaptive_size = true,
             centralize_selection = false,
@@ -23,13 +23,13 @@ return function()
             preserve_window_proportions = false,
             number = false,
             relativenumber = false,
-            -- @deprecated
-            mappings = {
-                custom_only = false,
-                list = {
-                    { key = '<C-v>', action = 'vsplit' },
-                },
-            },
+            -- -- @deprecated
+            -- mappings = {
+            --     custom_only = false,
+            --     list = {
+            --         { key = '<C-v>', action = 'vsplit' },
+            --     },
+            -- },
         },
         renderer = {
             root_folder_label = true,

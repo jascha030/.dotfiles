@@ -18,15 +18,15 @@ return {
                     return utils.root_has_file({ '.luacheckrc' })
                 end,
             }),
-            nls.formatting.stylua.with({
+            nls.builtins.formatting.stylua.with({
                 extra_args = { '--config-path', os.getenv('XDG_CONFIG_HOME') .. '/stylua.toml' },
             }),
-            nls.diagnostics.eslint,
-            nls.diagnostics.zsh,
-            nls.diagnostics.twigcs,
-            nls.formatting.blade_formatter,
-            nls.formatting.beautysh,
-            nls.formatting.phpcsfixer.with({
+            nls.builtins.diagnostics.eslint,
+            nls.builtins.diagnostics.zsh,
+            nls.builtins.diagnostics.twigcs,
+            nls.builtins.formatting.blade_formatter,
+            nls.builtins.formatting.beautysh,
+            nls.builtins.formatting.phpcsfixer.with({
                 args = {
                     '--no-interaction',
                     '--quiet',
@@ -38,4 +38,5 @@ return {
             nls.builtins.completion.spell,
         })
     end,
+    config = {}
 }
