@@ -35,6 +35,7 @@ M.icons = {
     wrench = '',
     lockfile = '',
     bitbucket = '',
+    package = '',
     cmp_icons = {
         Text = '',
         Method = 'm',

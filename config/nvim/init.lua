@@ -8,7 +8,8 @@
 --      \/_/\/_/`\/__/  \/_____/ \/_/ \/_/    \/___/   \/_____/\/_/\/_/ --
 --[[================ beep-beep-Config-2.0-beep-boop ====================]]
 
-BORDERS = { border = 'rounded' }
+BORDER = 'rounded'
+BORDERS = { border = BORDER }
 
 vim.cmd([[
     set termguicolors

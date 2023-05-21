@@ -13,7 +13,7 @@ return {
             {
                 'j-hui/fidget.nvim',
                 name = 'fidget',
-                config = {
+                opts = {
                     text = { spinner = 'dots' },
                     window = { relative = 'editor', blend = 0, zindex = nil },
                 },
@@ -33,7 +33,7 @@ return {
                 timeout_ms = nil,
             },
         },
-        config = function(plugin, opts)
+        config = function(_, opts)
             require('nu').setup({})
 
             require('core.utils').on_attach(function(client, buffer)

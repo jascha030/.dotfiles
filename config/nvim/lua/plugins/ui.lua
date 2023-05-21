@@ -104,7 +104,7 @@ return {
     },
     {
         'yamatsum/nvim-cursorline',
-        config = {
+        opts = {
             cursorline = { enable = true, timeout = 1000, number = false },
             cursorword = { enable = true, min_length = 3, hl = { underline = true } },
         },
@@ -120,7 +120,7 @@ return {
     {
         'brenoprata10/nvim-highlight-colors',
         name = 'nvim-highlight-colors',
-        config = {
+        opts = {
             render = 'first_column',
         },
     },

@@ -17,30 +17,30 @@ return {
         'phaazon/hop.nvim',
         branch = 'v2',
         name = 'hop',
-        config = {
+        opts = {
             keys = 'etovxqpdygfblzhckisuran',
             jump_on_sole_occurrence = false,
         },
     },
     {
         'lukas-reineke/indent-blankline.nvim',
-        namme = 'indent_blankline',
-        config = { filetype_exclude = { 'dashboard' } },
+        name = 'indent_blankline',
+        opts = { filetype_exclude = { 'dashboard' } },
     },
-    {
-        'zbirenbaum/neodim',
-        event = 'LspAttach',
-        config = {
-            alpha = 0.75,
-            blend_color = '#000000',
-            update_in_insert = { enable = true, delay = 100 },
-            hide = { virtual_text = true, signs = true, underline = true },
-        },
-    },
-    { 'ziontee113/icon-picker.nvim', config = {} },
-    { 'ziontee113/color-picker.nvim', config = {} },
+    -- {
+    --     'zbirenbaum/neodim',
+    --     event = 'LspAttach',
+    --     opts = {
+    --         alpha = 0.75,
+    --         blend_color = '#000000',
+    --         update_in_insert = { enable = true, delay = 100 },
+    --         hide = { virtual_text = true, signs = true, underline = true },
+    --     },
+    -- },
+    { 'ziontee113/icon-picker.nvim', opts = {} },
+    { 'ziontee113/color-picker.nvim', opts = {} },
     { 'terrortylor/nvim-comment', name = 'nvim_comment', config = true },
-    { 'windwp/nvim-autopairs', config = {} },
+    { 'windwp/nvim-autopairs', opts = {} },
     { 'petertriho/nvim-scrollbar', config = true },
     { 'luukvbaal/stabilize.nvim', config = true },
 }
