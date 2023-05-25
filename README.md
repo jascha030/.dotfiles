@@ -1,10 +1,13 @@
 # Jascha030's dotfiles
 
-**Screenshot on WezTerm (of both light/dark mode).**
+![WezTerm w background](https://github.com/jascha030/.dotfiles/blob/main/img/terminal_background.png?raw=true)
 
-![WezTerm home](https://github.com/jascha030/.dotfiles/blob/main/img/termintro.gif?raw=true)
 
 Backup of my .dotfiles (zsh, bash, git, npm)
+
+**Zsh Prompt on Wezterm**
+
+![ZSH Prompt](https://github.com/jascha030/.dotfiles/blob/main/img/ZSH_Prompt.png?raw=true)
 
 ## Epic backstory
 
@@ -19,6 +22,10 @@ After a colleague made a remark about now using stow in [his dotfiles repo](http
 And now we replaced stow with rcup, because I like the clean directory structure.
 
 ## More img
+
+![WezTerm intro 1](https://github.com/jascha030/.dotfiles/blob/main/img/termintro.gif?raw=true)
+
+![WezTerm intro 2](https://github.com/jascha030/.dotfiles/blob/main/img/termintro_2.gif?raw=true)
 
 ### Neovim
 
