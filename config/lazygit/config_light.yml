@@ -37,10 +37,6 @@ gui:
   showCommandLog: true
   showIcons: true
   splitDiff: 'auto'
-os:
-  editCommand: 'nvim'
-  editCommandTemplate: ''
-  openCommand: ''
 refresher:
   refreshInterval: 10
   fetchInterval: 60
