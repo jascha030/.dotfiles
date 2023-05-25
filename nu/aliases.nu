@@ -2,18 +2,16 @@
 
 alias rr = exec $env.SHELL -l
 alias root = cd (git rev-parse --show-toplevel)
-alias kraken = (open gitkraken://repo/$env.PWD)
+# alias kraken = (open gitkraken://repo/$env.PWD)
 
 alias x = exit
 alias c = clear
-# alias e = echo
 alias rd = rmdir
 alias n = nvim
 alias lg = lazygit
 
-# alias ll = (lsd -Ahl --color=always | prepend '  ')
-alias ll = ls -all
-alias lll = (ll | lolcrab)
+alias ll = ls -al
+def lll [] { ll | lolcrab }
 alias kk = ll
 #
 alias config = cd $env.XDG_CONFIG
@@ -25,21 +23,5 @@ alias composerhome = cd (composer -g config home)
 alias localenv = nvim $env.HOME/env.local
 alias scrsvr = ^open -a ScreenSaverEngine
 alias tm-auto = sudo tmutil startbackup --auto; tmutil status
-alias luamake = $env.HOME/tools/lua-language-server/3rd/luamake/luamake
-#
-# alias p74 = /usr/local/opt/php@7.4/bin/php
-# alias p80 = /usr/local/opt/php@8.0/bin/php
-# alias p81 = /usr/local/opt/php@8.1/bin/php
-# alias p82 = /usr/local/opt/php@8.2/bin/php
-#
-# alias rscr = tput rmcup
-# alias rrscr = rr && rscr
-# alias rrp = exec env PROFILE_ZSHRC=1 zsh --login
-# alias rrdm = exec env DOT_DISABLE_MSG=1 zsh --login
-# alias pwd = (echo $env.PWD | pbcopy)
-#
-# alias cp:defaults = cp -r $env.HOME/.development/Projects/Php/Composer/jascha030/project-templates/composer-template/{.var,.phive,.editorconfig,.gitignore,.gitattributes,.phpstorm.meta.php,.php-cs-fixer.dist.php,phpunit.xml.dist,phpstan.neon.dist} $env.PWD/
-# alias cp:composerauth = cp $env.HOME/.composer/auth.json ./
-#
-# alias checkitalics = echo -e '\e[3mitalic\e[23m'
-# alias displaycolors = (curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash)
+def luamake [] { $env.HOME/tools/lua-language-server/3rd/luamake/luamake }
+

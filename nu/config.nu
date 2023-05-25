@@ -534,4 +534,5 @@ let-env config = {
     }
   ]
 }
+
 source ~/.dotfiles/nu/aliases.nu
