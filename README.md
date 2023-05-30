@@ -26,20 +26,9 @@ After a colleague made a remark about now using stow in [his dotfiles repo](http
 
 And now we replaced stow with rcup, because I like the clean directory structure.
 
-## ZSH startup screens 
+## ZSH startup screens
 
 ![WezTerm intro 1](https://github.com/jascha030/.dotfiles/blob/main/img/termintro.gif?raw=true)
 
 ![WezTerm intro 2](https://github.com/jascha030/.dotfiles/blob/main/img/termintro_2.gif?raw=true)
-
-
-### Iterm
-
-![terminal in action](https://github.com/jascha030/.dotfiles/blob/main/img/nvim-tmux-lazygit-iterm.png?raw=true)
-
-![iTerm home](https://github.com/jascha030/.dotfiles/blob/main/img/term-home-iterm.png?raw=true)
-
-### Alacritty
-
-![Alacritty home](https://github.com/jascha030/.dotfiles/blob/main/img/term-home-alacritty.png?raw=true)
 
