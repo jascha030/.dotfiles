@@ -19,6 +19,7 @@ alias lg="lazygit"
 alias ll="ls ${LS_DEFAULT_ARGS}"
 alias lll='ll | lolcrab'
 alias kk="ll" # Using two keyboards Fs up finger positioning, how much I type kk instead of ll is causing lots of rage.
+alias llc='ls | wc -l'
 
 #---------------------------------------------------- Navigation -----------------------------------------------------#
 
