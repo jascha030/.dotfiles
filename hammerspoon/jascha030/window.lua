@@ -8,31 +8,45 @@ local function current()
     return hs.window.focusedWindow()
 end
 
-local function scr_frame()
-    return current():screen():fullFrame()
-end
+local function left_half(frame, margin)
+    margin = margin or 16
+    local half = margin / 2
 
-local function left_half(frame)
     return {
-        x = frame.x,
-        y = frame.y,
-        w = frame.w / 2,
-        h = frame.h,
+        x = frame.x + half,
+        y = frame.y + half,
+        w = (frame.w / 2) - (margin - (half / 2)),
+        h = frame.h - margin,
     }
 end
 
-local function right_half(frame)
+local function right_half(frame, margin)
+    margin = margin or 16
+    local half = margin / 2
+
     return {
-        x = frame.x + frame.w / 2,
-        y = frame.y,
-        w = frame.w / 2,
-        h = frame.h,
+        x = (frame.x + frame.w / 2) + (half /2),
+        y = frame.y + half,
+        w = (frame.w / 2) - (margin - (half / 2)),
+        h = frame.h - margin,
+    }
+end
+
+local function maxed(frame, margin)
+    margin = margin or 16
+    local half = margin / 2
+
+    return {
+        x = frame.x + half,
+        y = frame.y + half,
+        w = frame.w - margin,
+        h = frame.h - margin
     }
 end
 
 --@param win window
 local function move_left(win)
-    local frame = win:screen():fullFrame()
+    local frame = win:screen():frame()
     local state = win:frame()
 
     win:setFrame(left_half(frame))
@@ -42,13 +56,13 @@ local function move_left(win)
 
     win:moveOneScreenWest()
 
-    frame = win:screen():fullFrame()
+    frame = win:screen():frame()
     win:setFrame(right_half(frame))
 end
 
 --@param win window
 local function move_right(win)
-    local frame = win:screen():fullFrame()
+    local frame = win:screen():frame()
     local state = win:frame()
 
     win:setFrame(right_half(frame))
@@ -58,8 +72,15 @@ local function move_right(win)
 
     win:moveOneScreenEast()
 
-    frame = win:screen():fullFrame()
+    frame = win:screen():frame()
     win:setFrame(left_half(frame))
+end
+
+local function maximize(win)
+    local frame = win:screen():frame()
+
+    frame = win:screen():frame()
+    win:setFrame(maxed(frame))
 end
 
 -- TODO: abstraction and extraction.
@@ -95,7 +116,8 @@ function M.move(application, space)
     end
 
     local f = win:frame()
-    local max = spaceScreen:fullFrame()
+    -- local max = spaceScreen:fullFrame()
+    local max = maxed(spaceScreen:frame())
 
     -- Center window if not snapped left or right
     if max.x ~= f.x and max.y ~= f.y and max.x2 ~= f.x2 and max.y2 ~= f.y2 then
@@ -133,7 +155,7 @@ function M.center()
 end
 
 function M.max()
-    current():maximize()
+    maximize(current())
 end
 
 function M.left()
