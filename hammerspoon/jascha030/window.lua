@@ -54,7 +54,13 @@ local function move_left(win)
         return
     end
 
+    state = win:frame()
     win:moveOneScreenWest()
+
+    if win:frame():equals(state) then
+        local screen = win:screen()
+        win:move(win:frame():toUnitRect(screen:frame()), screen:previous(), true, 0)
+    end
 
     frame = win:screen():frame()
     win:setFrame(right_half(frame))
@@ -70,7 +76,14 @@ local function move_right(win)
         return
     end
 
+
+    state = win:frame()
     win:moveOneScreenEast()
+
+    if win:frame():equals(state) then
+        local screen = win:screen()
+        win:move(win:frame():toUnitRect(screen:frame()), screen:next(), true, 0)
+    end
 
     frame = win:screen():frame()
     win:setFrame(left_half(frame))
@@ -116,7 +129,6 @@ function M.move(application, space)
     end
 
     local f = win:frame()
-    -- local max = spaceScreen:fullFrame()
     local max = maxed(spaceScreen:frame())
 
     -- Center window if not snapped left or right
