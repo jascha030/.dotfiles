@@ -30,6 +30,7 @@ vim.cmd([[
     autocmd!
     autocmd FileType plist set ft=xml
     autocmd FileType php setlocal omnifunc=phpactor#Complete
+    autocmd BufReadPost *.xml.dist set ft=xml
     autocmd BufReadPost Deployfile,*.json.dist set ft=json
     autocmd BufReadPost *.neon,*.neon.dist set ft=yaml
     autocmd BufReadPost *.tape set ft=tape
