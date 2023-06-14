@@ -76,7 +76,15 @@ return {
             })
 
             parsers.ft_to_lang = function(ft)
-                return ft == 'zsh' and 'bash' or ft_to_lang(ft)
+                if ft == 'zsh' then
+                    return 'bash'
+                end
+
+                if ft == 'xml' then
+                    return 'html'
+                end
+
+                return ft_to_lang(ft)
             end
         end,
     },
