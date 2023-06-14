@@ -4,7 +4,7 @@
     },
     "language_server_phpstan": {
         "enabled": true,
-        "bin": "%project_root%/tools/phpstan"
+        "bin": "%project_root%/vendor/bin/phpstan"
     },
     "phpunit": {
         "enabled": true
