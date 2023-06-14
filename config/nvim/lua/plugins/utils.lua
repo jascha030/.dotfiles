@@ -27,16 +27,6 @@ return {
         name = 'indent_blankline',
         opts = { filetype_exclude = { 'dashboard' } },
     },
-    -- {
-    --     'zbirenbaum/neodim',
-    --     event = 'LspAttach',
-    --     opts = {
-    --         alpha = 0.75,
-    --         blend_color = '#000000',
-    --         update_in_insert = { enable = true, delay = 100 },
-    --         hide = { virtual_text = true, signs = true, underline = true },
-    --     },
-    -- },
     { 'ziontee113/icon-picker.nvim', opts = {} },
     { 'ziontee113/color-picker.nvim', opts = {} },
     { 'terrortylor/nvim-comment', name = 'nvim_comment', config = true },
