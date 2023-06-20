@@ -1,5 +1,30 @@
 local M = {}
 
+local border = {
+    { '╭', 'FloatBorder' },
+    { '─', 'FloatBorder' },
+    { '╮', 'FloatBorder' },
+    { '│', 'FloatBorder' },
+    { '╯', 'FloatBorder' },
+    { '─', 'FloatBorder' },
+    { '╰', 'FloatBorder' },
+    { '│', 'FloatBorder' },
+}
+
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+    opts = opts or {}
+    -- opts.border = opts.border or border
+    opts.border = 'rounded'
+    opts.close_events = { 'CursorMoved', 'CursorMovedI', 'BufHidden', 'InsertCharPre', 'WinLeave' }
+    opts.focus_id = 'cursor'
+    opts.focusable = false
+    opts.scope = 'cursor'
+
+    return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
+
 function M.on_attach(client, buffer)
     local self = M.new(client, buffer)
 
@@ -26,34 +51,8 @@ function M.on_attach(client, buffer)
     self:map('<leader>ca', vim.lsp.buf.code_action, { desc = 'Code Action', mode = { 'n', 'v' }, has = 'codeAction' })
     self:map('<C-a>', vim.lsp.buf.code_action, { desc = 'Code Action', mode = { 'n', 'v' }, has = 'codeAction' })
 
-    -- Show diagnostics under the cursor when holding position
-    vim.api.nvim_create_augroup('lsp_diagnostics_hold', { clear = true })
-    vim.api.nvim_create_autocmd({ 'CursorHold' }, {
-        pattern = '*',
-        callback = function()
-            for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
-                if vim.api.nvim_win_get_config(winid).zindex then
-                    return
-                end
-            end
-
-            vim.diagnostic.open_float(0, {
-                scope = 'cursor',
-                focusable = false,
-                border = BORDER,
-                close_events = {
-                    'CursorMoved',
-                    'CursorMovedI',
-                    'BufHidden',
-                    'InsertCharPre',
-                    'WinLeave',
-                },
-            })
-        end,
-        group = 'lsp_diagnostics_hold',
-    })
-
     local format = require('lsp.format').format
+
     self:map('<C-f>', format, { desc = 'Format Document', has = 'documentFormatting' })
     self:map('<C-f>', format, { desc = 'Format Range', mode = 'v', has = 'documentRangeFormatting' })
     self:map('<leader>cr', M.rename, { expr = true, desc = 'Rename', has = 'rename' })

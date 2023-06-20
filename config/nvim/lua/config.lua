@@ -14,7 +14,7 @@ return {
             showtabline = 2,
             tabstop = 4,
             shiftwidth = 4,
-            updatetime = 400,
+            updatetime = 1000,
             mouse = 'nvi',
             colorcolumn = '120',
             backspace = 'indent,eol,start',
