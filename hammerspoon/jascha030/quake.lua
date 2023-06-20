@@ -12,7 +12,8 @@ function M.toggle(app_name)
     if instance ~= nil and instance:isFrontmost() then
         instance:hide()
     else
-        local main_screen = hs.screen.mainScreen()
+        -- local main_screen = hs.screen.mainScreen()
+        local main_screen = hs.mouse.getCurrentScreen()
         local space = hs.spaces.activeSpaceOnScreen(main_screen)
 
         if instance == nil and hs.application.launchOrFocus(app_name) then
