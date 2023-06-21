@@ -36,38 +36,11 @@ return {
         config = function(_, opts)
             require('nu').setup({})
             require('core.utils').on_attach(function(client, buffer)
-                -- Show diagnostics under the cursor when holding position
-                vim.api.nvim_create_augroup('lsp_diagnostics_hold', { clear = true })
-                vim.api.nvim_create_autocmd({ 'CursorHold' }, {
-                    pattern = '*',
-                    callback = function()
-                        -- for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
-                        --     if vim.api.nvim_win_get_config(winid).zindex then
-                        --         return
-                        --     end
-                        -- end
-
-                        local b, d = vim.diagnostic.open_float(0, {
-                            scope = 'cursor',
-                            focusable = false,
-                            border = BORDER,
-                            close_events = {
-                                'CursorMoved',
-                                'CursorMovedI',
-                                'BufHidden',
-                                'InsertCharPre',
-                                'WinLeave',
-                            },
-                        })
-
-                        if b == nil and d == nil then
-                            vim.lsp.buf.hover()
-                        end
-                    end,
-                    group = 'lsp_diagnostics_hold',
-                })
-
                 require('lsp.keymaps').on_attach(client, buffer)
+
+                if client.name == 'phpactor' then
+                    client.server_capabilities.hoverProvider = false
+                end
             end)
 
             -- diagnostics
@@ -76,6 +49,37 @@ return {
             end
 
             vim.diagnostic.config(opts.diagnostics)
+
+            -- Show diagnostics under the cursor when holding position
+            vim.api.nvim_create_augroup('lsp_diagnostics_hold', { clear = true })
+            vim.api.nvim_create_autocmd({ 'CursorHold' }, {
+                pattern = '*',
+                callback = function()
+                    -- for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
+                    --     if vim.api.nvim_win_get_config(winid).zindex then
+                    --         return
+                    --     end
+                    -- end
+
+                    local b, d = vim.diagnostic.open_float(0, {
+                        scope = 'cursor',
+                        focusable = false,
+                        border = BORDER,
+                        close_events = {
+                            'CursorMoved',
+                            'CursorMovedI',
+                            'BufHidden',
+                            'InsertCharPre',
+                            'WinLeave',
+                        },
+                    })
+
+                    if b == nil and d == nil then
+                        vim.lsp.buf.hover()
+                    end
+                end,
+                group = 'lsp_diagnostics_hold',
+            })
 
             -- local servers = opts.servers
             require('mason-lspconfig').setup({})
