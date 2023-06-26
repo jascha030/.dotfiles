@@ -1,6 +1,7 @@
-#!/bin/sh
+#!/bin/zsh
 
-DIR=/usr/local/etc/php/"$(gum choose --height=15 "7.4" "8.0" "8.1" "8.2")"
+local pinidir
 
-echo "$DIR" | pbcopy
+pinidir=/usr/local/etc/php/"$(gum choose --height=15 "7.4" "8.0" "8.1" "8.2")"
 
+echo "${pinidir}" | pbcopy
