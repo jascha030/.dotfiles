@@ -21,7 +21,7 @@ export PS1_HEIGHT=4
 # PS1_L(eft)R(ight)_MARG(in) - Repeat $PS1_FC amt. of times.
 export PS1_LR_MARG=${(pl.$(( ${#PS1_FC}*2 ))..$PS1_FC.)}
 
-# PS1_[T(op)/B(ottom)][L(eft)/R(ight)] .
+# PS1_[T(op)/B(ottom)][L(eft)/R(ight)].
 export PS1_TL=' '${PS1_B_TOP_L}
 export PS1_TR=${PS1_B_TOP_R}' '
 export PS1_BL=' '${PS1_B_BOT_L}''${PS1_LR_MARG}
