@@ -11,10 +11,11 @@ fi
 
 # Prompt height in lines
 ! (( DOT_PROMPT_HEIGHT )) && export DOT_PROMPT_HEIGHT=2
-# Decide which msg to display. 
-if (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )); then 
-    export _IS_VIMTERM=true 
-else 
+
+# Decide which msg to display.
+if (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )); then
+    export _IS_VIMTERM=true
+else
     export _IS_VIMTERM=false
 fi
 
@@ -40,9 +41,12 @@ function __autoload {
 function zsh_add_plugin {
     PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
 
-    if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then
+    if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ];
+    then
         _PLUGIN_DIR="$ZDOTDIR/plugins/$PLUGIN_NAME"
-        [ -f "$_PLUGIN_DIR/$PLUGIN_NAME.plugin.zsh" ] && source "$_PLUGIN_DIR/$PLUGIN_NAME.plugin.zsh" \
+
+        [ -f "$_PLUGIN_DIR/$PLUGIN_NAME.plugin.zsh" ] \
+            && source "$_PLUGIN_DIR/$PLUGIN_NAME.plugin.zsh" \
             || source "$_PLUGIN_DIR/$PLUGIN_NAME.zsh"
     else
         git clone "git@github.com:$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
@@ -97,11 +101,10 @@ if (( ${+DOT_REQUIRED_FILES} )); then
     assert_files "${DOT_REQUIRED_FILES[@]}"
 fi
 
+# Load plugins.
 safe_source "${ZDOTDIR}/plugin-spec"
 
-# TODO: figure out how to make this more dynamic.
-# eval "$(starship init zsh)"
-
+# Application init evaluations.
 eval "$(zoxide init zsh)"
 eval "$(teleport-dir init)"
 eval "$(fnm env --use-on-cd)"
@@ -113,5 +116,5 @@ if (( ${+DOT_AFTER_INIT_SOURCES} )); then
     safe_source "${DOT_AFTER_INIT_SOURCES[@]}"
 fi
 
+# Init mcfly last.
 eval "$(mcfly init zsh)"
-

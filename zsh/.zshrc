@@ -1,28 +1,22 @@
-# if (( ${+PROFILE_ZSHRC} )); then zmodload zsh/zprof; fi
-
 # Hacky fix when first window of wezterm messes up lolmsg placement.
-# Related to Hammerspoon handling of application on quake.
 if (( LINES == 24 )); then
-    until (( ${LINES} > 24)); do exec zsh -l; done
+    until (( LINES > 24 )); do zsh -l; done
 fi
 
-export FPM_LOG_DIR="${HOME}/.config/valet/Log"
-
 autoload -Uz compinit
-setopt autocd extendedglob nomatch menucomplete
-setopt traps_async
+setopt autocd extendedglob nomatch menucomplete traps_async
 unsetopt BEEP
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
-
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=10,underline'
 ZSH_HIGHLIGHT_STYLES[arg0]='fg=10'
 ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=10,underline'
 ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=10,bold'
+export ZSH_HIGHLIGHT_STYLES
 
 export DOT_BASH_COMPLETIONS_DIRS=(
     "${HOME}/.bash.d"
@@ -63,22 +57,15 @@ path=(
     "${HOME}/go/bin"
     "${HOME}/tools"
     "${path[@]}"
-)
+); typeset -aU path
 
-typeset -aU path
-
-#------------------------------------------------- Initialization ----------------------------------------------------#
-
-[[ -f ${ZDOTDIR}/init ]] && source "${ZDOTDIR}/init"
-
+#------------------------ Initialization - This is where most of the magic actually happens --------------------------#
+source "${ZDOTDIR}/init"
+#------------------------------------------------- Finalizing stuff --------------------------------------------------#
 compinit
-
-eval "$(op completion zsh)"; compdef _op op
-
+eval "$(op completion zsh)"
+compdef _op op
+#-------------------------------------------- Nice flashy intro graphics ---------------------------------------------#
 lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
-
+#--------------------------------------------- And finally, the prompt...---------------------------------------------#
 safe_source "${ZDOTDIR}/prompt/prompt"
-
-# if (( ${+PROFILE_ZSHRC} )); then echoti rmcup; echoti clear; echoti sgr0; zprof; unset PROFILE_ZSHRC; # fi
-
-# pnpm end
