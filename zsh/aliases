@@ -1,108 +1,78 @@
 #!/usr/bin/env sh
 
-alias rr="exec $SHELL -l"
-alias kraken='$(open gitkraken://repo/$PWD)' # Note: Don't change to double quotes, as it auto-triggers.
-alias root='cd $(git rev-parse --show-toplevel)'
-
 #------------------------------------------------ Terminal / Dotfiles ------------------------------------------------#
 
 # Controls
-alias x='exit'
+alias z="exec zsh"
+alias rr='exec $SHELL -l'
 alias clear='clear-screen-zle'
+alias rscr='tput rmcup'
+alias rrscr='rr && rscr'
+
+alias x='exit'
 alias c='clear'
 alias e='echo -n'
-alias rd='rmdir'
-alias edit="vim $1"
 alias n="nvim"
 alias lg="lazygit"
 
-alias ll="ls ${LS_DEFAULT_ARGS}"
+alias df="cd ${DOTFILES}"
+alias kk="ll" # Rotating 3 keyboards, created 50/50 chance I type 'kk' instead of 'll'.
 alias lll='ll | lolcrab'
-alias kk="ll" # Using two keyboards Fs up finger positioning, how much I type kk instead of ll is causing lots of rage.
-alias llc='ls | wc -l'
+alias lcount='ls | wc -l'
+alias llc='lcount'
 
-#---------------------------------------------------- Navigation -----------------------------------------------------#
+# Debugging
+alias rrp="exec env PROFILE_ZSHRC=1 zsh --login"
+alias rrdm="exec env DOT_DISABLE_MSG=1 zsh --login"
+alias checkitalics="echo -e '\e[3mitalic\e[23m'"
+alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
+alias bench='hyperfine --warmup 100 "exec zsh -l"'
 
 alias config="cd $XDG_CONFIG"
 alias cf="config"
-alias dev="cd $DEV"
-alias df="cd $DOTFILES"
+alias dev="cd ${DEV}"
 alias zp="cd $ZDOTDIR/plugins/"
 alias composerhome='cd $(composer -g config home)'
+alias root='cd $(git rev-parse --show-toplevel)'
+
 
 #----------------------------------------------------- Utilities -----------------------------------------------------#
 
+alias luamake="$HOME/tools/lua-language-server/3rd/luamake/luamake"
 alias localenv="nvim $HOME/env.local"
+
 alias scrsvr='open -a ScreenSaverEngine'
 alias tm-auto='sudo tmutil startbackup --auto; tmutil status'
-alias luamake="$HOME/tools/lua-language-server/3rd/luamake/luamake"
-
-# Fix for Nu-shell and @antfu/ni:nu confusion
-alias nup="$(which nu)"
-alias nu="$HOME/.cargo/bin/nu"
 
 alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
 alias cargoup='cargo install-update --all'
 alias appup='brewup && cargoup'
-alias packersync="nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
 
 alias list:brew="brew list"
 alias list:cargo="cargo install --list"
 alias list:path="echo \"$PATH\" | tr ':' '\n'"
 
-alias cp:ssh="cat $HOME/.ssh/id_rsa.pub | pbcopy"
 alias cp:shrug='e "¯\_(ツ)_/¯" | pbcopy'
-# alias cp:broodje='e "38. Witte Ital. Bol Gerookte Kip, avocado mayo met extra avocado + blik cola - €9,50" | pbcopy'
 alias cp:broodje='e "52. HUMMES-AVOCADO - witte italiaanse bol - € 6,00" | pbcopy'
 alias cp:linkedin='e $LINKEDIN_PROFILE_URL | pbcopy'
+alias cp:defaults='cp -r $HOME/.development/Projects/Php/Composer/jascha030/project-templates/composer-template/{.var,.phive,.editorconfig,.gitignore,.gitattributes,.phpstorm.meta.php,.php-cs-fixer.dist.php,phpunit.xml.dist,phpstan.neon.dist} $PWD/'
+alias cp:fontawesome='cat $HOME/.development/Projects/Php/Wordpress/sites/sbtweema/.npmrc | pbcopy'
+alias cp:composerauth='cp $HOME/.composer/auth.json ./'
+alias cp:composer-bin-extras='echo "\"extra\": { \"bamarni-bin\": { \"bin-links\": false, \"forward-command\": true } }," | pbcopy'
 
-alias cl="gcl"
-alias clone:sb-starter="git clone git@bitbucket.org:socialbrothers/wordpress-starter-theme.git"
-alias clone:wp="git clone git@github.com:wordpress/wordpress"
-
-alias new:composer-template='cp -r /Users/jaschavanaalst/.development/Projects/Composer/jascha030/project-templates/composer-template $PWD/composer-template && rm -rf $PWD/composer-template/.git'
 alias wpuser:create='wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpuser:update='wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
-
 alias wpenv:user:create='wp-env run cli wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpenv:user:update='wp-env run cli wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
 
-alias p74="/usr/local/opt/php@7.4/bin/php"
-alias p80="/usr/local/opt/php@8.0/bin/php"
-alias p81="/usr/local/opt/php@8.1/bin/php"
-alias p82="/usr/local/opt/php@8.2/bin/php"
+alias valetrm="rm ${HOME}/.config/valet/*.sock"
+alias valetr='valetrm && valet restart'
 
-alias php74='valet use php@7.4 && composer global update'
-alias php80='valet use php@8.0 && composer global update'
-alias php81='valet use php@8.1 && composer global update'
-alias php82='valet use php@8.2 && composer global update'
+# Fix for Nu-shell and @antfu/ni:nu confusion
+alias nup="$(which nu)"
+alias nu="$HOME/.cargo/bin/nu"
 
-alias composer74="/usr/local/opt/php@7.4/bin/php $(which composer)"
-alias composer80="/usr/local/opt/php@8.0/bin/php $(which composer)"
-alias composer81="/usr/local/opt/php@8.1/bin/php $(which composer)"
-alias composer82="/usr/local/opt/php@8.2/bin/php $(which composer)"
-alias valetrm="rm $HOME/.config/valet/*.sock"
-alias valetr="valetrm && valet restart"
-alias fpmlog:open="$EDITOR $FPM_LOG_DIR/php-fpm.log"
-alias cp:composer-bin-extras='echo "\"extra\": { \"bamarni-bin\": { \"bin-links\": false, \"forward-command\": true } }," | pbcopy'
-
-# Debugging
-alias rscr='tput rmcup'
-alias rrscr='rr && rscr'
-alias rrp="exec env PROFILE_ZSHRC=1 zsh --login"
-alias rrdm="exec env DOT_DISABLE_MSG=1 zsh --login"
-alias pwd='e $PWD | pbcopy'
-
-# alias cp:defaults='cp -r $HOME/.composer/vendor/jascha030/defaults/templates/{.*,phpunit.xml,phpstan.neon} $PWD/'
-alias cp:defaults='cp -r $HOME/.development/Projects/Php/Composer/jascha030/project-templates/composer-template/{.var,.phive,.editorconfig,.gitignore,.gitattributes,.phpstorm.meta.php,.php-cs-fixer.dist.php,phpunit.xml.dist,phpstan.neon.dist} $PWD/'
-alias cp:fontawesome='cat $HOME/.development/Projects/Php/Wordpress/sites/sbtweema/.npmrc | pbcopy'
-
-alias cp:composerauth='cp $HOME/.composer/auth.json ./'
-
-alias checkitalics="echo -e '\e[3mitalic\e[23m'"
-alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
-
-alias bench='hyperfine --warmup 100 "exec zsh -l"'
+kraken () { $(open gitkraken://repo/${PWD}); }
 
 #-------------------------------------------------- Suffix Aliases ---------------------------------------------------#
 

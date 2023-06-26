@@ -1,8 +1,23 @@
 #!/usr/bin/env zsh
 
+# Navigation
 if (( ${+LS_OVERRIDE} )); then
     alias ls=${LS_OVERRIDE}
 fi
+
+function ll {
+    if (( ${+LS_DEFAULT_ARGS} )); then
+        eval "ls ${LS_DEFAULT_ARGS}"
+    else
+        ls -Ahl
+    fi
+}
+
+function __cpwd {
+    echo -e "${PWD}" | pbcopy
+}
+
+alias pwd='__cpwd'
 
 if (( ${+CAT_OVERRIDE} )); then
     alias cat=${CAT_OVERRIDE}
@@ -26,19 +41,20 @@ if (( ${+LAZYGIT_CONFIG} )); then
     }
 
     autoload -Uz __lazygit
+
     alias lazygit="__lazygit"
 fi
 
 if (( ${+commands[idea]} )); then
-    alias idea="idea ."
+    alias idea='idea .'
 fi
 
 if (( ${+commands[phpstorm]} )); then
-    alias pstorm="phpstorm ."
+    alias pstorm='phpstorm .'
 fi
 
 if (( ${+commands[webstorm]} )); then
-    alias wstorm="webstorm ."
+    alias wstorm='webstorm .'
 fi
 
 if (( ${+commands[egrep]} )); then
