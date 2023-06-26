@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 #------------------------------------------------ Terminal / Dotfiles ------------------------------------------------#
 
@@ -15,32 +15,27 @@ alias e='echo -n'
 alias n="nvim"
 alias lg="lazygit"
 
-alias df="cd ${DOTFILES}"
 alias kk="ll" # Rotating 3 keyboards, created 50/50 chance I type 'kk' instead of 'll'.
 alias lll='ll | lolcrab'
 alias lcount='ls | wc -l'
 alias llc='lcount'
+alias cpd='cpwd'
 
-# Debugging
-alias rrp="exec env PROFILE_ZSHRC=1 zsh --login"
-alias rrdm="exec env DOT_DISABLE_MSG=1 zsh --login"
-alias checkitalics="echo -e '\e[3mitalic\e[23m'"
-alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
-alias bench='hyperfine --warmup 100 "exec zsh -l"'
-
-alias config="cd $XDG_CONFIG"
-alias cf="config"
+alias df="cd ${DOTFILES}"
+alias config="cd ${XDG_CONFIG_HOME}"
 alias dev="cd ${DEV}"
-alias zp="cd $ZDOTDIR/plugins/"
 alias composerhome='cd $(composer -g config home)'
 alias root='cd $(git rev-parse --show-toplevel)'
 
+# Debugging
+alias bench='hyperfine --warmup 100 "exec zsh -l"'
+alias checkitalics="echo -e '\e[3mitalic\e[23m'"
+alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
 
 #----------------------------------------------------- Utilities -----------------------------------------------------#
 
-alias luamake="$HOME/tools/lua-language-server/3rd/luamake/luamake"
-alias localenv="nvim $HOME/env.local"
-
+alias luamake="${HOME}/tools/lua-language-server/3rd/luamake/luamake"
+alias localenv="nvim ${HOME}/env.local"
 alias scrsvr='open -a ScreenSaverEngine'
 alias tm-auto='sudo tmutil startbackup --auto; tmutil status'
 
@@ -48,9 +43,19 @@ alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew d
 alias cargoup='cargo install-update --all'
 alias appup='brewup && cargoup'
 
+alias valetrm='rm ${HOME}/.config/valet/*.sock'
+alias valetr='valetrm && valet restart'
+alias kraken='$(open gitkraken://repo/${PWD})'
+
+alias wpuser:create='wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
+alias wpuser:update='wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
+alias wpenv:user:create='wp-env run cli wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
+alias wpenv:user:update='wp-env run cli wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
+
+__list_path () { echo "$PATH" | tr ':' '\n'; }
+alias list:path='__list_path'
 alias list:brew="brew list"
 alias list:cargo="cargo install --list"
-alias list:path="echo \"$PATH\" | tr ':' '\n'"
 
 alias cp:shrug='e "¯\_(ツ)_/¯" | pbcopy'
 alias cp:broodje='e "52. HUMMES-AVOCADO - witte italiaanse bol - € 6,00" | pbcopy'
@@ -60,19 +65,9 @@ alias cp:fontawesome='cat $HOME/.development/Projects/Php/Wordpress/sites/sbtwee
 alias cp:composerauth='cp $HOME/.composer/auth.json ./'
 alias cp:composer-bin-extras='echo "\"extra\": { \"bamarni-bin\": { \"bin-links\": false, \"forward-command\": true } }," | pbcopy'
 
-alias wpuser:create='wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
-alias wpuser:update='wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
-alias wpenv:user:create='wp-env run cli wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
-alias wpenv:user:update='wp-env run cli wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
-
-alias valetrm="rm ${HOME}/.config/valet/*.sock"
-alias valetr='valetrm && valet restart'
-
 # Fix for Nu-shell and @antfu/ni:nu confusion
-alias nup="$(which nu)"
-alias nu="$HOME/.cargo/bin/nu"
-
-kraken () { $(open gitkraken://repo/${PWD}); }
+alias nup='$(which nu)'
+alias nu="${HOME}/.cargo/bin/nu"
 
 #-------------------------------------------------- Suffix Aliases ---------------------------------------------------#
 

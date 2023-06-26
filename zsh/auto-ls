@@ -1,20 +1,24 @@
 #!/usr/bin/env zsh
 
 # This file is used by auto-ls, which is installed as zsh plugin.
-
+#
 # Default opts for ls
 if ! (( ${+LS_DEFAULT_ARGS} )); then
-    export LS_DEFAULT_ARGS="-Ahl --color=always | prepend '  '"
+    export LS_DEFAULT_ARGS='-Ahl --color=always | prepend "  "'
 fi
 
 # Executes ls or other prefered command.
-#
 # export `LS_OVERRIDE` to use other prefered command (e.g. lsd, colorls).
 # export `LS_DEFAULT_ARGS` to override default args `-Ahl --color`.
 function __ls_cmd () {
-    (( ${+LS_OVERRIDE} )) && eval "$LS_OVERRIDE $LS_DEFAULT_ARGS" || ls "$LS_DEFAULT_ARGS"
+    local ls_cmd='ls'
 
-    echo ""
+    if (( ${+LS_OVERRIDE} )); then
+        ls_cmd=$LS_OVERRIDE
+    fi
+
+    eval "${ls_cmd}" "${LS_DEFAULT_ARGS}"; 
+    echo ''
 }
 
 # Command that is added to AUTO_LS_COMMANDS.

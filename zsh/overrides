@@ -13,11 +13,10 @@ function ll {
     fi
 }
 
-function __cpwd {
+function cpwd {
     echo -e "${PWD}" | pbcopy
 }
 
-alias pwd='__cpwd'
 
 if (( ${+CAT_OVERRIDE} )); then
     alias cat=${CAT_OVERRIDE}
@@ -64,4 +63,3 @@ fi
 if (( ${+commands[fgrep]} )); then
     alias fgrep='fgrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 fi
-
