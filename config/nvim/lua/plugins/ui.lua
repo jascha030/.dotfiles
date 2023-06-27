@@ -16,22 +16,6 @@ return {
         event = 'VimEnter',
         config = function(_, _)
             local opts = require('alpha.themes.startify').config
-            local default_header = {
-                type = 'text',
-                val = {
-                    [[ ooooo      ooo   .oooo.     .oooo.     .oooo.   ]],
-                    [[ `888b.     `8'  d8P'`Y8b  .dP""Y88b   d8P'`Y8b  ]],
-                    [[  8 `88b.    8  888    888       ]8P' 888    888 ]],
-                    [[  8   `88b.  8  888    888     <88b.  888    888 ]],
-                    [[  8     `88b.8  888    888      `88b. 888    888 ]],
-                    [[  8       `888  `88b  d88' o.   .88P  `88b  d88' ]],
-                    [[ o8o        `8   `Y8bd8P'  `8bd88P'    `Y8bd8P'  ]],
-                },
-                opts = {
-                    hl = 'Type',
-                    shrink_margin = false,
-                },
-            }
 
             require('alpha').setup(opts)
         end,
