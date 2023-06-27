@@ -1,30 +1,5 @@
 local M = {}
 
-local border = {
-    { '╭', 'FloatBorder' },
-    { '─', 'FloatBorder' },
-    { '╮', 'FloatBorder' },
-    { '│', 'FloatBorder' },
-    { '╯', 'FloatBorder' },
-    { '─', 'FloatBorder' },
-    { '╰', 'FloatBorder' },
-    { '│', 'FloatBorder' },
-}
-
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-    opts = opts or {}
-    -- opts.border = opts.border or border
-    opts.border = 'rounded'
-    opts.close_events = { 'CursorMoved', 'CursorMovedI', 'BufHidden', 'InsertCharPre', 'WinLeave' }
-    opts.focus_id = 'cursor'
-    opts.focusable = false
-    opts.scope = 'cursor'
-
-    return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
-
 function M.on_attach(client, buffer)
     local self = M.new(client, buffer)
 

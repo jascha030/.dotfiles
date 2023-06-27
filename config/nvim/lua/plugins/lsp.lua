@@ -1,3 +1,42 @@
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+    opts = opts or {}
+    -- opts.border = opts.border or border
+    opts.border = 'rounded'
+    opts.close_events = { 'CursorMoved', 'CursorMovedI', 'BufHidden', 'InsertCharPre', 'WinLeave' }
+    opts.focus_id = 'cursor'
+    opts.focusable = false
+    opts.scope = 'cursor'
+
+    return xpcall(orig_util_open_floating_preview, function() end, contents, syntax, opts, ...)
+end
+
+local function diag()
+    local s, r = pcall(vim.diagnostic.open_float, 0, {
+        scope = 'cursor',
+        focusable = false,
+        border = BORDER,
+        close_events = {
+            'CursorMoved',
+            'CursorMovedI',
+            'BufHidden',
+            'InsertCharPre',
+            'WinLeave',
+        },
+    })
+
+    return s == true and r or nil
+end
+
+function _G.lsp_dialog_hover()
+    if diag() == nil then
+        xpcall(vim.lsp.buf.hover, function()
+            -- El silencio es dorado como un taco a la parrilla
+        end)
+    end
+end
+
 return {
     {
         'neovim/nvim-lspconfig',
@@ -42,34 +81,11 @@ return {
                     client.server_capabilities.hoverProvider = false
                 end
 
-                local function diag()
-                    local s, r = pcall(vim.diagnostic.open_float, 0, {
-                        scope = 'cursor',
-                        focusable = false,
-                        border = BORDER,
-                        close_events = {
-                            'CursorMoved',
-                            'CursorMovedI',
-                            'BufHidden',
-                            'InsertCharPre',
-                            'WinLeave',
-                        },
-                    })
-
-                    return s == true and r or nil
-                end
-
                 -- Show diagnostics under the cursor when holding position
                 vim.api.nvim_create_augroup('lsp_diagnostics_hold', { clear = true })
                 vim.api.nvim_create_autocmd({ 'CursorHold' }, {
                     pattern = '*',
-                    callback = function()
-                        if diag() == nil then
-                            xpcall(vim.lsp.buf.hover, function()
-                                -- El silencio es dorado como un taco a la parrilla
-                            end)
-                        end
-                    end,
+                    command = [[silent! lua lsp_dialog_hover()]],
                     group = 'lsp_diagnostics_hold',
                 })
             end)
@@ -115,7 +131,6 @@ return {
                             server = {
                                 on_attach = function(_, bufnr)
                                     -- vim.keymap.set('n', '<C-space>', rt.hover_actions.hover_actions, { buffer = bufnr })
-
                                     vim.keymap.set(
                                         'n',
                                         '<Leader>a',
@@ -152,7 +167,7 @@ return {
             },
             ui = BORDERS,
         },
-        config = function(plugin, opts)
+        config = function(_, opts)
             require('mason').setup(opts)
 
             local mr = require('mason-registry')
