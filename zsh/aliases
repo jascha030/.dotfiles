@@ -3,8 +3,7 @@
 #------------------------------------------------ Terminal / Dotfiles ------------------------------------------------#
 
 # Controls
-alias z="exec zsh"
-alias rr='exec $SHELL -l'
+alias rr="exec ${SHELL} -l"
 alias clear='clear-screen-zle'
 alias rscr='tput rmcup'
 alias rrscr='rr && rscr'
@@ -14,6 +13,7 @@ alias c='clear'
 alias e='echo -n'
 alias n="nvim"
 alias lg="lazygit"
+alias s='sudo'
 
 alias kk="ll" # Rotating 3 keyboards, created 50/50 chance I type 'kk' instead of 'll'.
 alias lll='ll | lolcrab'
