@@ -1,6 +1,10 @@
+# shellcheck disable=SC2093
+
 # Hacky fix when first window of wezterm messes up lolmsg placement.
 if (( LINES == 24 )); then
-    until (( LINES > 24 )); do zsh -l; done
+    until (( LINES > 24 )); do
+        exec zsh -l
+    done
 fi
 
 autoload -Uz compinit
