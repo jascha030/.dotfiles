@@ -38,21 +38,6 @@ function __autoload {
     done
 }
 
-function zsh_add_plugin {
-    PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
-
-    if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ];
-    then
-        _PLUGIN_DIR="$ZDOTDIR/plugins/$PLUGIN_NAME"
-
-        [ -f "$_PLUGIN_DIR/$PLUGIN_NAME.plugin.zsh" ] \
-            && source "$_PLUGIN_DIR/$PLUGIN_NAME.plugin.zsh" \
-            || source "$_PLUGIN_DIR/$PLUGIN_NAME.zsh"
-    else
-        git clone "git@github.com:$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
-    fi
-}
-
 #--------------------------------------------------------- Init ------------------------------------------------------#
 
 if (( ${+DOT_COMP_DIRS} )); then
@@ -69,12 +54,6 @@ fi
 
 # Utility function, to merge arrays...
 function merge_arrays {
-    # undefined
-    builtin autoload -X
-}
-
-# Run and time zsh initialization 10 times.
-function speedtest {
     # undefined
     builtin autoload -X
 }

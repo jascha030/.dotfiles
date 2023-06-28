@@ -3,15 +3,31 @@
 fpath+=( ${ZDOTDIR}/plugins/** )
 path+=( ${ZDOTDIR}/plugins/** )
 
-source /Users/jaschavanaalst/.config/zsh/plugins/zsh-plugin-fzf-finder/fzf-finder.plugin.zsh
-source /Users/jaschavanaalst/.config/zsh/plugins/wakatime-zsh-plugin/wakatime.plugin.zsh
+function zsh_add_plugin {
+    local plugin_name=$(echo $1 | cut -d "/" -f 2)
 
-# zsh_add_plugin leophys/zsh-plugin-fzf-finder
+    if [ ! -d "$ZDOTDIR/plugins/$plugin_name" ]; then
+        git clone "git@github.com:$1.git" "$ZDOTDIR/plugins/$plugin_name"
+    else
+        _plugin_dir="$ZDOTDIR/plugins/$plugin_name"
+
+        if [ $# -eq 2 ] && [ -f "$_plugin_dir/$2" ]; then
+            source "$_plugin_dir/$2"; return
+        fi
+
+        [ -f "$_plugin_dir/$plugin_name.plugin.zsh" ] \
+            && source "$_plugin_dir/$plugin_name.plugin.zsh" \
+            || source "$_plugin_dir/$plugin_name.zsh"
+    fi
+}
+
 zsh_add_plugin Aloxaf/fzf-tab
 zsh_add_plugin chrissicool/zsh-256color
 zsh_add_plugin desyncr/auto-ls
 zsh_add_plugin zsh-users/zsh-completions
 zsh_add_plugin zsh-users/zsh-autosuggestions
 zsh_add_plugin zsh-users/zsh-syntax-highlighting
-# zsh_add_plugin sobolevn/wakatime-zsh-plugin
 zsh_add_plugin jascha030/lolmsg
+
+zsh_add_plugin "leophys/zsh-plugin-fzf-finder" "fzf-finder.plugin.zsh"
+zsh_add_plugin "sobolevn/wakatime-zsh-plugin" "wakatime.plugin.zsh"
