@@ -11,9 +11,6 @@ local proc_icons = {
 local colors = theme.get_scheme('Dark', true)
 
 font.extend({
-    -- main = 'MesloLGS Nerd Font',
-    -- main = 'Hack Nerd Font Mono',
-    -- italic = 'Dank Mono',
     main = 'Cascadia Code',
     alt = 'Dank Mono',
     italic = 'Cascadia Code',
@@ -55,7 +52,6 @@ wezterm.on('format-tab-title', function(tab)
                 { Text = ' ' },
                 { Foreground = { Color = colors.background } },
                 { Background = { Color = colors.foreground } },
-                -- { Text = '' },
                 { Text = ' ' },
                 { Foreground = { Color = c.fg } },
                 { Background = { Color = c.bg } },

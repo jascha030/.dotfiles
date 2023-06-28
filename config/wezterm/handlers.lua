@@ -85,7 +85,26 @@ function M.reset_font(window, _)
     window:set_config_overrides({})
 end
 
+-- TODO: Figure out some sort of formula that works nicely beyond just one smaller size
+function M.adapt_font_for_window_size(window, _)
+    local overrides = window:get_config_overrides() or {}
+    local font_size_sm = (font.options.size - 2)
+
+    -- Probably most relevant due to regular use of (ultra)wide monitors.
+    local height = window:get_dimensions().pixel_height
+
+    if height > 1000 then
+        overrides.font_size = font.options.size
+    else
+        overrides.font_size = font_size_sm
+    end
+
+    window:set_config_overrides(overrides)
+end
+
 function M.setup()
+    wezterm.on('window-resized', M.adapt_font_for_window_size)
+
     local events = {
         ['opacity-up'] = M.opacity_up,
         ['opacity-down'] = M.opacity_down,
