@@ -19,10 +19,8 @@ function top-prompt {
     local left="%F{012}    ${${SHELL/#\/bin\//}:u} |   ${TERM_PROGRAM} | ${TERM} %f"
     local right='%F{011}   %w %b |   %T   %f'
 
-    fill-line \
-        $left \
-        $right \
-        ' '
+    fill-line $left $right ' '
+
     typeset -g top=$REPLY
 }
 
@@ -43,6 +41,7 @@ function set-prompt {
     local top; top-prompt
 
     local prompt_dir='%(5~|%-1~/…/%3~|%4~)'
+
     # Render layout elements
     local bot_left="${PS1_BL} %F{08} ${prompt_dir}%f ${vcs_info_msg_0_} "
     local bot_right=" ${php_wgt} ${PS1_BR}"

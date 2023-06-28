@@ -8,7 +8,6 @@ function _clear-screen {
 
 function clear-screen-zle {
     emulate -L zsh
-    
     _clear-screen
     zle && zle redisplay
 }
