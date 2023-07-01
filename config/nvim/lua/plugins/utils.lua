@@ -25,14 +25,18 @@ return {
     {
         'lukas-reineke/indent-blankline.nvim',
         name = 'indent_blankline',
-        opts = { filetype_exclude = { 'dashboard' } },
+        opts = {
+            filetype_exclude = { 'dashboard' },
+            show_current_context = true,
+            show_current_context_start = true,
+        },
     },
-    { 'ziontee113/icon-picker.nvim', opts = {} },
+    { 'ziontee113/icon-picker.nvim',  opts = {} },
     { 'ziontee113/color-picker.nvim', opts = {} },
-    { 'terrortylor/nvim-comment', name = 'nvim_comment', config = true },
-    { 'windwp/nvim-autopairs', opts = {} },
-    { 'petertriho/nvim-scrollbar', config = true },
-    { 'luukvbaal/stabilize.nvim', config = true },
+    { 'terrortylor/nvim-comment',     name = 'nvim_comment', config = true },
+    { 'windwp/nvim-autopairs',        opts = {} },
+    { 'petertriho/nvim-scrollbar',    config = true },
+    { 'luukvbaal/stabilize.nvim',     config = true },
     {
         'folke/which-key.nvim',
         config = function()

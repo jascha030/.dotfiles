@@ -32,7 +32,7 @@ local picker = function()
                 },
             }),
             sorter = conf.generic_sorter(),
-            attach_mappings = function(prompt_buff, map)
+            attach_mappings = function(prompt_buff, _)
                 actions.select_default:replace(function()
                     actions.close(prompt_buff)
                     vim.api.nvim_command(action_state.get_selected_entry()[1])

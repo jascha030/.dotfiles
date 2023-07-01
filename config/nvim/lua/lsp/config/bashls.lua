@@ -1,7 +1,7 @@
 return {
-	filetypes = {
-		"sh",
-		"zsh",
-	},
-	single_file_support = true,
+    filetypes = {
+        'sh',
+        'zsh',
+    },
+    single_file_support = true,
 }
