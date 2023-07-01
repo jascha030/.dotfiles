@@ -20,8 +20,31 @@ return {
             require('alpha').setup(opts)
         end,
     },
-    'kyazdani42/nvim-tree.lua',
     'sheerun/vim-polyglot',
+    {
+        'nvim-neo-tree/neo-tree.nvim',
+        branch = 'v2.x',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'MunifTanjim/nui.nvim',
+        },
+        config = function(_, _)
+            vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+
+            require('neo-tree').setup({
+                close_if_last_window = true,
+                enable_git_status = true,
+                enable_diagnostics = true,
+                open_files_do_not_replace_types = { 'terminal', 'trouble' },
+                window = {
+                    position = 'right',
+                },
+                filesystem = {
+                    hide_dotfiles = false
+                }
+            })
+        end,
+    },
     {
         'rcarriga/nvim-notify',
         keys = {
@@ -55,10 +78,12 @@ return {
         'yamatsum/nvim-nonicons',
         dependencies = { 'kyazdani42/nvim-web-devicons' },
     },
+    'noib3/nvim-cokeline',
     {
-        'noib3/nvim-cokeline',
+        'norcalli/nvim-colorizer.lua',
+        name = 'colorizer',
+        config = true,
     },
-    { 'norcalli/nvim-colorizer.lua', name = 'colorizer', config = true },
     {
         'brenoprata10/nvim-highlight-colors',
         name = 'nvim-highlight-colors',
