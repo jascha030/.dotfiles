@@ -1,42 +1,3 @@
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-    opts = opts or {}
-    -- opts.border = opts.border or border
-    opts.border = 'rounded'
-    opts.close_events = { 'CursorMoved', 'CursorMovedI', 'BufHidden', 'InsertCharPre', 'WinLeave' }
-    opts.focus_id = 'cursor'
-    opts.focusable = false
-    opts.scope = 'cursor'
-
-    return xpcall(orig_util_open_floating_preview, function() end, contents, syntax, opts, ...)
-end
-
-local function diag()
-    local s, r = pcall(vim.diagnostic.open_float, 0, {
-        scope = 'cursor',
-        focusable = false,
-        border = BORDER,
-        close_events = {
-            'CursorMoved',
-            'CursorMovedI',
-            'BufHidden',
-            'InsertCharPre',
-            'WinLeave',
-        },
-    })
-
-    return s == true and r or nil
-end
-
-function _G.lsp_dialog_hover()
-    if diag() == nil then
-        xpcall(vim.lsp.buf.hover, function()
-            -- El silencio es dorado como un taco a la parrilla
-        end)
-    end
-end
-
 return {
     {
         'neovim/nvim-lspconfig',
@@ -57,7 +18,12 @@ return {
                     window = { relative = 'editor', blend = 0, zindex = nil },
                 },
             },
-            { 'LhKipp/nvim-nu', build = 'TSInstall nu' },
+            { 'LhKipp/nvim-nu',     build = 'TSInstall nu' },
+            { 'folke/lua-dev.nvim', lazy = true },
+            {
+                'folke/neodev.nvim',
+                opts = {},
+            },
         },
         ---@class PluginLspOpts
         opts = {
@@ -73,9 +39,12 @@ return {
             },
         },
         config = function(_, opts)
+            require('lsp').setup()
+            require('neodev').setup({})
             require('nu').setup({})
             require('core.utils').on_attach(function(client, buffer)
                 require('lsp.keymaps').on_attach(client, buffer)
+                -- client.server_capabilities.semanticTokensProvider = nil
 
                 if client.name == 'phpactor' then
                     client.server_capabilities.hoverProvider = false
@@ -130,7 +99,6 @@ return {
                             },
                             server = {
                                 on_attach = function(_, bufnr)
-                                    -- vim.keymap.set('n', '<C-space>', rt.hover_actions.hover_actions, { buffer = bufnr })
                                     vim.keymap.set(
                                         'n',
                                         '<Leader>a',
@@ -169,7 +137,6 @@ return {
         },
         config = function(_, opts)
             require('mason').setup(opts)
-
             local mr = require('mason-registry')
 
             for _, tool in ipairs(opts.ensure_installed) do
@@ -182,8 +149,12 @@ return {
         end,
     },
     'b0o/schemastore.nvim',
-    'folke/trouble.nvim',
+    {
+        'folke/trouble.nvim',
+        opts = {
+            position = 'left',
+        },
+    },
     'ray-x/lsp_signature.nvim',
     'onsails/lspkind-nvim',
-    { 'folke/lua-dev.nvim', lazy = true },
 }
