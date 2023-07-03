@@ -81,7 +81,8 @@ return {
                 },
             },
             ['GitConfig'] = { icon = 'git', filetypes = { ['Default'] = '.gitconfig', ['Dotfile'] = 'gitconfig' } },
-            ['EditorConfig'] = { icon = 'editor', filetypes = '.editorconfig' }, ['Zshrc'] = { icon = 'term', filetypes = '.zshrc' },
+            ['EditorConfig'] = { icon = 'editor', filetypes = '.editorconfig' },
+            ['Zshrc'] = { icon = 'term', filetypes = '.zshrc' },
             ['Antigenrc'] = { icon = 'term', filetypes = '.antigenrc' },
             ['Zshenv'] = { icon = 'term', filetypes = '.zshenv' },
             ['Init'] = { icon = 'init', filetypes = 'init' },
@@ -99,8 +100,7 @@ return {
             ['PluginsSpec'] = { icon = 'list', filetypes = 'plugins-spec' },
             ['Prompt'] = { icon = 'rocket', filetypes = 'prompt' },
             ['Neon'] = { icon = 'nmode', filetypes = 'neon' },
-            ['DistFile'] = { icon = 'package', filetypes = '.dist' }
+            ['DistFile'] = { icon = 'package', filetypes = '.dist' },
         },
     },
-    lsp = {},
 }

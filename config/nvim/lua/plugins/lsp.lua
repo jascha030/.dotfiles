@@ -24,6 +24,7 @@ return {
                 'folke/neodev.nvim',
                 opts = {},
             },
+            { 'ray-x/lsp_signature.nvim' },
         },
         ---@class PluginLspOpts
         opts = {
@@ -155,6 +156,5 @@ return {
             position = 'left',
         },
     },
-    'ray-x/lsp_signature.nvim',
     'onsails/lspkind-nvim',
 }
