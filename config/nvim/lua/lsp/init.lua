@@ -16,10 +16,6 @@ function M.setup()
     end
 
     function _G.lsp_dialog_hover()
-        -- for _, window_id in pairs(vim.api.nvim_tabpage_list_wins(0)) do
-            -- local win_conf = vim.api.nvim_win_get_config(window_id)
-        -- end
-
         local bufnr = vim.diagnostic.open_float({
             scope = 'cursor',
             focusable = false,
@@ -37,6 +33,17 @@ function M.setup()
             vim.lsp.buf.hover()
         end
     end
+end
+
+function M.register_hover_cmd()
+    -- Show diagnostics under the cursor when holding position
+    vim.api.nvim_create_augroup('lsp_diagnostics_hold', { clear = true })
+
+    vim.api.nvim_create_autocmd({ 'CursorHold' }, {
+        pattern = '*',
+        command = [[silent! lua lsp_dialog_hover()]],
+        group = 'lsp_diagnostics_hold',
+    })
 end
 
 return M

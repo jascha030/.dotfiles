@@ -28,7 +28,7 @@ function M.on_attach(client, buffer)
 
     local format = require('lsp.format').format
 
-    self:map('<C-f>', format, { desc = 'Format Document', has = 'documentFormatting' })
+    self:map('<C-l>', format, { desc = 'Format Document', has = 'documentFormatting' })
     self:map('<C-f>', format, { desc = 'Format Range', mode = 'v', has = 'documentRangeFormatting' })
     self:map('<leader>cr', M.rename, { expr = true, desc = 'Rename', has = 'rename' })
 end
