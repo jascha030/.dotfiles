@@ -1,12 +1,10 @@
 local M = {}
 
 M.root_patterns = { '.git', 'lua' }
-local caps = vim.lsp.protocol.make_client_capabilities()
-
--- caps.textDocument.hover
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local default = {
-    capabilities = require('cmp_nvim_lsp').default_capabilities(caps),
+    capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities),
     flags = { debounce_text = 150 },
 }
 
