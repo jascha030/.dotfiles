@@ -31,10 +31,23 @@ return {
                     'vim',
                     'yaml',
                     'vimdoc',
+                    'swift',
+                },
+                query_linter = {
+                    enable = true,
+                    use_virtual_text = true,
+                    lint_events = { 'BufWrite', 'CursorHold' },
                 },
                 indent = { enable = true },
-                highlight = { enable = true, additional_vim_regex_highlighting = { 'zsh' } },
-                rainbow = { enable = true, extended_mode = true, max_file_lines = 1000 },
+                highlight = {
+                    enable = true,
+                    additional_vim_regex_highlighting = { 'zsh' },
+                },
+                rainbow = {
+                    enable = true,
+                    extended_mode = true,
+                    max_file_lines = 1000,
+                },
                 playground = {},
                 textobjects = {
                     ['aa'] = '@parameters.outer',
