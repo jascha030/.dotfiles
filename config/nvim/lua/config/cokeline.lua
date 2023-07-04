@@ -6,6 +6,7 @@ local errors_fg = get_hex('DiagnosticError', 'fg')
 local warnings_fg = get_hex('DiagnosticWarn', 'fg')
 
 local red = vim.g.terminal_color_1
+local green = vim.g.terminal_color_2
 local yellow = vim.g.terminal_color_3
 
 local components = {
