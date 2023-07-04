@@ -31,7 +31,7 @@ return {
             diagnostics = {
                 underline = true,
                 update_in_insert = false,
-                virtual_text = false,
+                virtual_text = true,
                 severity_sort = true,
             },
             format = {
@@ -43,22 +43,22 @@ return {
             require('lsp').setup()
             require('neodev').setup({})
             require('nu').setup({})
+
             require('core.utils').on_attach(function(client, buffer)
                 require('lsp.keymaps').on_attach(client, buffer)
-                -- client.server_capabilities.semanticTokensProvider = nil
 
                 if client.name == 'phpactor' then
                     client.server_capabilities.hoverProvider = false
                 end
-
-                -- Show diagnostics under the cursor when holding position
-                vim.api.nvim_create_augroup('lsp_diagnostics_hold', { clear = true })
-                vim.api.nvim_create_autocmd({ 'CursorHold' }, {
-                    pattern = '*',
-                    command = [[silent! lua lsp_dialog_hover()]],
-                    group = 'lsp_diagnostics_hold',
-                })
             end)
+
+            -- Show diagnostics under the cursor when holding position
+            -- vim.api.nvim_create_augroup('lsp_diagnostics_hold', { clear = true })
+            -- vim.api.nvim_create_autocmd({ 'CursorHold' }, {
+            --     pattern = '*',
+            --     command = [[lua lsp_dialog_hover()]],
+            --     group = 'lsp_diagnostics_hold',
+            -- })
 
             -- diagnostics
             for name, icon in pairs(require('core.icons').icons.diagnostics) do
@@ -66,6 +66,11 @@ return {
             end
 
             vim.diagnostic.config(opts.diagnostics)
+
+            vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+                silent = true,
+                border = BORDER,
+            })
 
             -- local servers = opts.servers
             require('mason-lspconfig').setup({})

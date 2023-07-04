@@ -16,6 +16,10 @@ function M.setup()
     end
 
     function _G.lsp_dialog_hover()
+        -- for _, window_id in pairs(vim.api.nvim_tabpage_list_wins(0)) do
+            -- local win_conf = vim.api.nvim_win_get_config(window_id)
+        -- end
+
         local bufnr = vim.diagnostic.open_float({
             scope = 'cursor',
             focusable = false,

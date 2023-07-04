@@ -1,11 +1,12 @@
 local M = {}
 
 M.root_patterns = { '.git', 'lua' }
+local caps = vim.lsp.protocol.make_client_capabilities()
+
+-- caps.textDocument.hover
 
 local default = {
-    capabilities = require('cmp_nvim_lsp').default_capabilities(
-        vim.lsp.protocol.make_client_capabilities()
-    ),
+    capabilities = require('cmp_nvim_lsp').default_capabilities(caps),
     flags = { debounce_text = 150 },
 }
 
@@ -42,9 +43,9 @@ function M.get_root()
         for _, client in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
             local workspace = client.config.workspace_folders
             local paths = workspace
-                    and vim.tbl_map(function(ws)
-                        return vim.uri_to_fname(ws.uri)
-                    end, workspace)
+                and vim.tbl_map(function(ws)
+                    return vim.uri_to_fname(ws.uri)
+                end, workspace)
                 or client.config.root_dir and { client.config.root_dir }
                 or {}
             for _, p in ipairs(paths) do
