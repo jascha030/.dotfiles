@@ -140,7 +140,7 @@ return {
             end
         end,
     },
-    { 'folke/trouble.nvim', opts = { position = 'left' } },
+    { 'folke/trouble.nvim', opts = { position = 'bottom' } },
     'b0o/schemastore.nvim',
     'onsails/lspkind-nvim',
 }
