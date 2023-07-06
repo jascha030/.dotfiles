@@ -1,4 +1,5 @@
 # shellcheck disable=SC2093
+# shellcheck disable=SC2155
 
 # Hacky fix when first window of wezterm messes up lolmsg placement.
 if (( LINES == 24 )); then
@@ -62,6 +63,8 @@ path=(
     "${HOME}/tools"
     "${path[@]}"
 ); typeset -aU path
+
+export GPG_TTY=$(tty)
 
 #------------------------ Initialization - This is where most of the magic actually happens --------------------------#
 source "${ZDOTDIR}/init"
