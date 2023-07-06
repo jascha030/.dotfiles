@@ -16,3 +16,6 @@ zsh/.zsh_history
 zsh/.zcompcache
 
 config/lazygit/state.yml
+gitconfig
+.gitsecret/keys/random_seed
+!*.secret
