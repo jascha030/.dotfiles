@@ -1,15 +1,11 @@
 {
     "$schema": "/Users/jaschavanaalst/tools/phpactor/phpactor.schema.json",
-    "php.version": "8.1",
     "language_server_phpstan.bin": "%project_root%/vendor/bin/phpstan",
     "language_server_phpstan.enabled": true,
-    "indexer.exclude_patterns": [
-        "/vendor/**/Tests/**/*",
-        "/vendor/**/tests/**/*",
-        "/vendor/composer/**/*",
-        "/extensions/**/*",
-        "/tests/**/*"
-    ],
+    "language_server_php_cs_fixer.enabled": true,
+    "language_server_php_cs_fixer.bin": "%project_root%/tools/php-cs-fixer.phar",
+    "language_server_php_cs_fixer.show_diagnostics": true,
+    "phpunit.enabled": true,
     "composer.autoloader_path": [
         "%project_root%/vendor/autoload.php"
     ]
