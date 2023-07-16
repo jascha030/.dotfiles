@@ -67,9 +67,9 @@ path=(
 export GPG_TTY=$(tty)
 
 #------------------------ Initialization - This is where most of the magic actually happens --------------------------#
+compinit
 source "${ZDOTDIR}/init"
 #------------------------------------------------- Finalizing stuff --------------------------------------------------#
-compinit
 eval "$(op completion zsh)"
 compdef _op op
 #-------------------------------------------- Nice flashy intro graphics ---------------------------------------------#
