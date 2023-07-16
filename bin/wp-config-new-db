@@ -15,4 +15,4 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "CREATE DATABASE ${WPDBNAME};" | mysql -u "$WPMYSQLUSER" -p
 fi
 
-wp config create --dbname="$WPDBNAME" --dbuser=root --dbpass=root --dbprefix=wp
+wp config create --dbname="$WPDBNAME" --dbuser=root --dbpass=root --dbprefix=wp_
