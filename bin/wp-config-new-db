@@ -1,0 +1,18 @@
+#! /usr/bin/env bash
+
+read -rp "Do you want to create a new database? [y/n]: " REPLY
+
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    if [ "$#" -ne 1 ]; then
+        read -rp "Database name: " WPDBNAME
+    else
+        WPDBNAME="$1"
+        printf "Database name: %s\n" "$WPDBNAME"
+    fi
+
+    read -rp "mysql user: " WPMYSQLUSER
+
+    echo "CREATE DATABASE ${WPDBNAME};" | mysql -u "$WPMYSQLUSER" -p
+fi
+
+wp config create --dbname="$WPDBNAME" --dbuser=root --dbpass=root --dbprefix=wp
