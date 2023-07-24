@@ -29,6 +29,7 @@ return {
             loaded_netrw = 1,
             loaded_netrwPlugin = 1,
             gitblame_display_virtual_text = 0,
+            editorconfig = true,
         },
     },
     keymaps = {
@@ -73,11 +74,7 @@ return {
             ['ZshOverrides'] = { icon = 'alias', filetypes = 'overrides' },
             ['Ignore'] = {
                 icon = 'ignore',
-                filetypes = {
-                    ['Git'] = '.gitignore',
-                    ['GlobalGit'] = 'gitignore_global',
-                    ['Stylua'] = '.styluaignore',
-                },
+                filetypes = { ['Git'] = '.gitignore', ['GlobalGit'] = 'gitignore_global', ['Stylua'] = '.styluaignore' },
             },
             ['GitConfig'] = { icon = 'git', filetypes = { ['Default'] = '.gitconfig', ['Dotfile'] = 'gitconfig' } },
             ['EditorConfig'] = { icon = 'editor', filetypes = '.editorconfig' },

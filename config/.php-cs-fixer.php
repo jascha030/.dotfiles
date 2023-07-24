@@ -7,13 +7,14 @@ declare(strict_types=1);
  * based on config sets below.
  *
  * @PSR-1
+ *
  * @PSR-12
+ *
  * @PhpCSFixer
  */
 
 use PhpCsFixer\Config;
 use PhpCsFixer\ConfigInterface;
-use PhpCsFixer\Finder;
 
 $rules = new ArrayIterator([
     'blank_line_after_namespace'         => true,
@@ -254,5 +255,5 @@ return (static function (Traversable $rules, ?string $cacheDirectory = null): Co
         ->setRules(iterator_to_array($rules))
         ->setRiskyAllowed(true)
         ->setCacheFile("{$cacheDirectory}/.php-cs-fixer.cache");
-        //->setFinder(Finder::create()->exclude(['vendor', '.cache'])->in(__DIR__));
+    //->setFinder(Finder::create()->exclude(['vendor', '.cache'])->in(__DIR__));
 })($rules);
