@@ -46,6 +46,8 @@ export DOT_AFTER_INIT_SOURCES=(
     "${ZDOTDIR}/aliases"
 )
 
+source "$HOME/.cargo/env"
+
 # Path
 path=(
     /usr/local/sbin
