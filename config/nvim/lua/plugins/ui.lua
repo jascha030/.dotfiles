@@ -8,6 +8,41 @@ end
 
 return {
     {
+        'rcarriga/nvim-notify',
+        keys = {
+            {
+                '<leader>un',
+                function()
+                    require('notify').dismiss({ silent = true, pending = true })
+                end,
+                desc = 'Delete all Notifications',
+            },
+        },
+        opts = {
+            background_colour = get_background(),
+            timeout = 3000,
+            max_height = function()
+                return math.floor(vim.o.lines * 0.75)
+            end,
+            max_width = function()
+                return math.floor(vim.o.columns * 0.75)
+            end,
+            -- on_open = function(win)
+            --     vim.api.nvim_win_set_config(win, {
+            --         relative = 'win',
+            --         col = 0,
+            --         row = 1,
+            --     })
+            -- end,
+        },
+        config = function(_, opts)
+            local notify = require('notify')
+
+            notify.setup(opts)
+            vim.notify = notify
+        end,
+    },
+    {
         dir = '~/.development/Projects/Lua/nitepal.nvim',
         dependencies = { 'hoob3rt/lualine.nvim' },
     },
@@ -25,16 +60,28 @@ return {
         event = 'VeryLazy',
         dependencies = {
             'MunifTanjim/nui.nvim',
+            'rcarriga/nvim-notify',
         },
         opts = {
+            routes = {
+                {
+                    filter = {
+                        event = 'msg_show',
+                        kind = '',
+                        find = 'written',
+                    },
+                    opts = { skip = true },
+                },
+            },
+            notify = {
+                enabled = true,
+                view = 'notify',
+            },
             lsp = {
                 hover = {
-                    enabled = false,
+                    enabled = true,
                 },
                 progress = {
-                    enabled = false,
-                },
-                notify = {
                     enabled = false,
                 },
                 override = {
@@ -129,27 +176,5 @@ return {
                 return vim.ui.input(...)
             end
         end,
-    },
-    {
-        'rcarriga/nvim-notify',
-        keys = {
-            {
-                '<leader>un',
-                function()
-                    require('notify').dismiss({ silent = true, pending = true })
-                end,
-                desc = 'Delete all Notifications',
-            },
-        },
-        opts = {
-            background_colour = get_background(),
-            timeout = 3000,
-            max_height = function()
-                return math.floor(vim.o.lines * 0.75)
-            end,
-            max_width = function()
-                return math.floor(vim.o.columns * 0.75)
-            end,
-        },
     },
 }
