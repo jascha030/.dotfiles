@@ -3,18 +3,20 @@
 .vscode
 TODO.md
 
-# macOS
+## macOS
 *.DS_Store
 .cache/
 
-# Hammerspoon
+## Hammerspoon
 hammerspoon/Spoons
 hammerspoon/Spoons/EmmyLua.spoon/annotations
 config/nvim/plugin/packer_compiled.lua
 
+## ZSH
 zsh/.zsh_history
 zsh/.zcompcache
 
+## Other
 config/lazygit/state.yml
 gitconfig
 .gitsecret/keys/random_seed
