@@ -52,7 +52,9 @@ return {
             ['<C-_>'] = { '<cmd>CommentToggle<CR>' },
             ['<leader>CP'] = { '<cmd>PickColor<CR>' },
             -- TreeSitter
-            ['<leader>tc'] = { '<cmd>TSHighlightCapturesUnderCursor<CR>' },
+            ['<leader>tc'] = { ':lua vim.show_pos()<CR>' },
+            -- ['<leader>tc'] = { ':lua require("core.utils").open_inspect_float()<CR>' },
+            -- ['<leader>tc'] = { ':lua require("noice").redirect("Inspect", { view = "popup" })<CR>' },
             ['<leader>p'] = { '<cmd>TSPlaygroundToggle<CR>' },
         },
         ['v'] = {

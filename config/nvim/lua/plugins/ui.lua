@@ -57,71 +57,68 @@ return {
             end
         end,
     },
-    {
-        'rcarriga/nvim-notify',
-        keys = {
-            {
-                '<leader>un',
-                function()
-                    require('notify').dismiss({ silent = true, pending = true })
-                end,
-                desc = 'Delete all Notifications',
-            },
-        },
-        opts = {
-            background_colour = get_background(),
-            timeout = 2000,
-            stages = 'static',
-            max_height = function()
-                return math.floor(vim.o.lines * 0.75)
-            end,
-            max_width = function()
-                return math.floor(vim.o.columns * 0.75)
-            end,
-            -- on_open = function(win)
-            --     vim.api.nvim_win_set_config(win, { relative = 'win', col = 0, row = 1 })
-            -- end,
-        },
-    },
-    {
-        'folke/noice.nvim',
-        event = 'VeryLazy',
-        dependencies = {
-            'MunifTanjim/nui.nvim',
-            'rcarriga/nvim-notify',
-        },
-        opts = {
-            routes = {
-                {
-                    filter = {
-                        event = 'msg_show',
-                        kind = '',
-                        find = 'written',
-                    },
-                    opts = { skip = true },
-                },
-            },
-            notify = {
-                enabled = true,
-                view = 'notify',
-            },
-            lsp = {
-                hover = { enabled = true },
-                progress = { enabled = false },
-                message = { enabled = false },
-                override = {
-                    ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
-                    ['vim.lsp.util.stylize_markdown'] = true,
-                    ['cmp.entry.get_documentation'] = true,
-                },
-            },
-            presets = {
-                bottom_search = true, -- use a classic bottom cmdline for search
-                long_message_to_split = true, -- long messages will be sent to a split
-                lsp_doc_border = true, -- add a border to hover docs and signature help
-            },
-        },
-    },
+    -- {
+    --     'rcarriga/nvim-notify',
+    --     keys = {
+    --         {
+    --             '<leader>un',
+    --             function()
+    --                 require('notify').dismiss({ silent = true, pending = true })
+    --             end,
+    --             desc = 'Delete all Notifications',
+    --         },
+    --     },
+    --     opts = {
+    --         background_colour = get_background(),
+    --         timeout = 2000,
+    --         stages = 'static',
+    --         max_height = function()
+    --             return math.floor(vim.o.lines * 0.75)
+    --         end,
+    --         max_width = function()
+    --             return math.floor(vim.o.columns * 0.75)
+    --         end,
+    --     },
+    -- },
+    -- {
+    --     'folke/noice.nvim',
+    --     event = 'VeryLazy',
+    --     dependencies = {
+    --         'MunifTanjim/nui.nvim',
+    --         'rcarriga/nvim-notify',
+    --     },
+    --     opts = {
+    --         routes = {
+    --             {
+    --                 filter = {
+    --                     event = 'msg_show',
+    --                     kind = '',
+    --                     find = 'written',
+    --                 },
+    --                 opts = { skip = true },
+    --             },
+    --         },
+    --         notify = {
+    --             enabled = true,
+    --             view = 'notify',
+    --         },
+    --         lsp = {
+    --             hover = { enabled = true },
+    --             progress = { enabled = false },
+    --             message = { enabled = false },
+    --             override = {
+    --                 ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
+    --                 ['vim.lsp.util.stylize_markdown'] = true,
+    --                 ['cmp.entry.get_documentation'] = true,
+    --             },
+    --         },
+    --         presets = {
+    --             bottom_search = true, -- use a classic bottom cmdline for search
+    --             long_message_to_split = true, -- long messages will be sent to a split
+    --             lsp_doc_border = true, -- add a border to hover docs and signature help
+    --         },
+    --     },
+    -- },
     {
         'nvim-neo-tree/neo-tree.nvim',
         branch = 'v2.x',
