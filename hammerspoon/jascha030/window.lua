@@ -96,10 +96,9 @@ local function maximize(win)
     win:setFrame(maxed(frame))
 end
 
--- TODO: abstraction and extraction.
-local function window_frame_eq_screen(w)
-    local f = w:frame()
-    local max = w:screen():frame()
+local function window_frame_eq_screen(win)
+    local f = win:frame()
+    local max = win:screen():frame()
 
     return f.h == max.h and f.w == max.w and f.x == max.x and f.y == max.y
 end
@@ -108,6 +107,35 @@ end
 -- If mainScreen is built-in, make window wider by default.
 function M.getWidthFactor(selectedScreen)
     return selectedScreen:name() == BUILTIN and 3 or 2
+end
+
+function M.center_frame(win, screen)
+    local f = win:frame()
+    local max = maxed(screen:fullFrame())
+
+    f.h = (max.h / 3) * 2
+    f.w = (max.w / 4) * M.getWidthFactor(screen)
+    f.y = max.y + ((max.h / 2) - (f.h / 2))
+    f.x = max.x + ((max.w / 2) - (f.w / 2))
+
+    return f
+end
+
+function M.center()
+    local win = hs.window.frontmostWindow()
+
+    local space = hs.spaces.activeSpaceOnScreen(hs.screen.mainScreen())
+    local spaceScreen = hs.screen.find(hs.spaces.spaceDisplay(space))
+    local windowSpaces = hs.spaces.windowSpaces(win)
+
+    local firstSpace = windowSpaces ~= nil and windowSpaces[0] or nil
+
+    if firstSpace ~= space then
+        win:moveToScreen(spaceScreen)
+        hs.spaces.moveWindowToSpace(win:id(), space)
+    end
+
+    win:setFrame(M.center_frame(win, spaceScreen))
 end
 
 function M.move(application, space)
@@ -119,7 +147,7 @@ function M.move(application, space)
     end
 
     local windowSpaces = hs.spaces.windowSpaces(win)
-    local currentWindowSpace = windowSpaces[0]
+    local currentWindowSpace = windowSpaces ~= nil and windowSpaces[0] or nil
 
     if currentWindowSpace ~= space then
         if true ~= window_frame_eq_screen(win) then
@@ -133,37 +161,10 @@ function M.move(application, space)
 
     -- Center window if not snapped left or right
     if max.x ~= f.x and max.y ~= f.y and max.x2 ~= f.x2 and max.y2 ~= f.y2 then
-        f.h = (max.h / 3) * 2
-        f.w = (max.w / 4) * M.getWidthFactor(spaceScreen)
-        f.y = max.y + ((max.h / 2) - (f.h / 2))
-        f.x = max.x + ((max.w / 2) - (f.w / 2))
-
-        win:setFrame(f, 0)
+        win:setFrame(M.center_frame(win, spaceScreen))
     end
 
     win:focus()
-end
-
-function M.center()
-    local win = hs.window.frontmostWindow()
-    local space = hs.spaces.activeSpaceOnScreen(hs.screen.mainScreen())
-    local spaceScreen = hs.screen.find(hs.spaces.spaceDisplay(space))
-    local windowSpaces = hs.spaces.windowSpaces(win)
-
-    if windowSpaces[0] ~= space then
-        win:moveToScreen(spaceScreen)
-        hs.spaces.moveWindowToSpace(win:id(), space)
-    end
-
-    local f = win:frame()
-    local max = spaceScreen:fullFrame()
-
-    f.h = (max.h / 3) * 2
-    f.w = (max.w / 4) * M.getWidthFactor(spaceScreen)
-    f.y = max.y + ((max.h / 2) - (f.h / 2))
-    f.x = max.x + ((max.w / 2) - (f.w / 2))
-
-    win:setFrame(f)
 end
 
 function M.max()
