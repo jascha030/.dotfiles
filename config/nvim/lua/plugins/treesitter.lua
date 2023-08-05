@@ -9,7 +9,8 @@ return {
             'theHamsta/nvim-treesitter-commonlisp',
         },
         build = ':TSUpdate',
-        config = function()
+        event = { 'BufReadPost', 'BufNewFile' },
+        config = function(_, _)
             local parsers = require('nvim-treesitter.parsers')
             local ft_to_lang = parsers.ft_to_lang
 

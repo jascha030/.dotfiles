@@ -9,7 +9,7 @@ return {
             require('copilot').setup()
         end,
     },
-    'nvim-lua/plenary.nvim',
+    { 'nvim-lua/plenary.nvim', lazy = true },
     'wakatime/vim-wakatime',
     'ojroques/vim-oscyank',
     'f-person/git-blame.nvim',
@@ -31,14 +31,15 @@ return {
             show_current_context_start = true,
         },
     },
-    { 'ziontee113/icon-picker.nvim',  opts = {} },
-    { 'ziontee113/color-picker.nvim', opts = {} },
-    { 'terrortylor/nvim-comment',     name = 'nvim_comment', config = true },
-    { 'windwp/nvim-autopairs',        opts = {} },
-    { 'petertriho/nvim-scrollbar',    config = true },
-    { 'luukvbaal/stabilize.nvim',     config = true },
+    { 'ziontee113/icon-picker.nvim', opts = {}, lazy = true },
+    { 'ziontee113/color-picker.nvim', opts = {}, lazy = true },
+    { 'terrortylor/nvim-comment', name = 'nvim_comment', config = true },
+    { 'windwp/nvim-autopairs', opts = {} },
+    { 'petertriho/nvim-scrollbar', config = true },
+    { 'luukvbaal/stabilize.nvim', config = true },
     {
         'folke/which-key.nvim',
+        event = 'VeryLazy',
         config = function()
             local keymaps = require('utils.conf').keymaps
             local wk = require('which-key')

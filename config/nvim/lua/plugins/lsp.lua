@@ -2,11 +2,19 @@ return {
     {
         'neovim/nvim-lspconfig',
         event = 'BufReadPre',
+        lazy = false,
         dependencies = {
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
-            'simrat39/rust-tools.nvim',
-            { 'gbprod/phpactor.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
+            {
+                'simrat39/rust-tools.nvim',
+                ft = 'rs',
+            },
+            {
+                'gbprod/phpactor.nvim',
+                dependencies = { 'nvim-lua/plenary.nvim' },
+                ft = 'php',
+            },
             {
                 'j-hui/fidget.nvim',
                 name = 'fidget',
@@ -139,8 +147,14 @@ return {
                 end
             end
         end,
+        lazy = false,
     },
-    { 'folke/trouble.nvim', opts = { position = 'bottom' } },
-    'b0o/schemastore.nvim',
+    {
+        'folke/trouble.nvim',
+        opts = { position = 'bottom' },
+        event = 'VeryLazy',
+        lazy = true,
+    },
+    { 'b0o/schemastore.nvim', ft = 'json' },
     'onsails/lspkind-nvim',
 }
