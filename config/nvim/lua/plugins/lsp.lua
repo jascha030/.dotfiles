@@ -157,4 +157,8 @@ return {
     },
     { 'b0o/schemastore.nvim', ft = 'json' },
     'onsails/lspkind-nvim',
+    {
+        'chr4/nginx.vim',
+        ft = { 'nginx' },
+    },
 }
