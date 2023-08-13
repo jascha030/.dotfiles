@@ -20,7 +20,6 @@ alias l='ll'
 alias lll='ll | lolcrab'
 alias lcount='ls | wc -l'
 alias llc='lcount'
-alias cpd='cpwd'
 
 alias df="cd ${DOTFILES}"
 alias config="cd ${XDG_CONFIG_HOME}"
