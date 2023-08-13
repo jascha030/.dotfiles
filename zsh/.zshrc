@@ -1,14 +1,10 @@
 # shellcheck disable=SC2093
+# shellcheck disable=SC1091
 # shellcheck disable=SC2155
 
 # Hacky fix when first window of wezterm messes up lolmsg placement.
-if (( LINES == 24 )); then
-    until (( LINES > 24 )); do
-        exec zsh -l
-    done
-fi
+(( LINES == 24 )) && { until (( LINES > 24 )); do exec zsh -l; done; }
 
-autoload -Uz compinit
 setopt autocd extendedglob nomatch menucomplete traps_async
 unsetopt BEEP
 
@@ -16,6 +12,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
+
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=10,underline'
 ZSH_HIGHLIGHT_STYLES[arg0]='fg=10'
@@ -46,8 +43,6 @@ export DOT_AFTER_INIT_SOURCES=(
     "${ZDOTDIR}/aliases"
 )
 
-source "$HOME/.cargo/env"
-
 # Path
 path=(
     /usr/local/sbin
@@ -69,8 +64,9 @@ path=(
 export GPG_TTY=$(tty)
 
 #------------------------ Initialization - This is where most of the magic actually happens --------------------------#
-compinit
-source "${ZDOTDIR}/init"
+source "${HOME}"/.cargo/env
+autoload -Uz compinit; compinit
+source "${ZDOTDIR}"/init
 #------------------------------------------------- Finalizing stuff --------------------------------------------------#
 eval "$(op completion zsh)"
 compdef _op op
