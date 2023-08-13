@@ -4,7 +4,7 @@ local M = {}
 local DEFAULT = 'Jetbrains Mono'
 
 local defaults = {
-    size = 17,
+    size = 16.5,
     line_height = 1.8,
     main = DEFAULT,
     alt = DEFAULT,
