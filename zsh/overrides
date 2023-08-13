@@ -1,9 +1,15 @@
 #!/usr/bin/env zsh
 
-# Navigation
-if (( ${+LS_OVERRIDE} )); then
-    alias ls=${LS_OVERRIDE}
-fi
+# Overrides from env.
+(( ${+CAT_OVERRIDE} )) && alias cat=${CAT_OVERRIDE}
+(( ${+LS_OVERRIDE} )) && alias ls=${LS_OVERRIDE}
+
+(( ${+commands[idea]} ))     && alias idea='idea .'
+(( ${+commands[phpstorm]} )) && alias pstorm='phpstorm .'
+(( ${+commands[webstorm]} )) && alias wstorm='webstorm .'
+
+(( ${+commands[egrep]} )) && alias egrep='egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+(( ${+commands[fgrep]} )) && alias fgrep='fgrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 
 function ll {
     if (( ${+LS_DEFAULT_ARGS} )); then
@@ -13,53 +19,38 @@ function ll {
     fi
 }
 
-function cpwd {
-    echo -e "${PWD}" | pbcopy
-}
+# Copy pwd to clipboard
+if (( ! $+commands[cpd] )); then
+    function cpd { builtin echo -en "${PWD}" | pbcopy; }
 
-
-if (( ${+CAT_OVERRIDE} )); then
-    alias cat=${CAT_OVERRIDE}
+    autoload -Uz cpd
 fi
 
-if (( ${+commands[nvim]} )); then
-    alias vim=nvim
+# Isolated PHP
+if (( $+commands[valet] )); then
+    function __iphp {
+        if [[ -f "${PWD}/composer.json" ]]; then
+            ${HOME}/.composer/vendor/bin/valet php "$@"
+        else 
+            /usr/local/bin/php "$@"
+        fi
+    }
+
+    autoload -Uz __iphp
+    alias php='__iphp'
 fi
 
 if (( ${+LAZYGIT_CONFIG} )); then
     function __lazygit {
-        local _config=${LAZYGIT_CONFIG}/config_dark.yml
-        local _dark=$(is_dark)
-        local _nvim=$(is_neovim)
-
-        if [[ "$_dark" == 0 ]] && [[ "$is_neovim" == 0 ]]; then
-            _config=${LAZYGIT_CONFIG}/config_light.yml
+        if [[ "$(is_dark)" == 0 ]] && [[ "$(is_neovim)" == 0 ]]; then
+            local config=${LAZYGIT_CONFIG}/config_light.yml
+        else
+            local config=${LAZYGIT_CONFIG}/config_dark.yml
         fi
 
-        lazygit -ucf "$_config"
+        lazygit -ucf "$config"
     }
 
     autoload -Uz __lazygit
-
-    alias lazygit="__lazygit"
-fi
-
-if (( ${+commands[idea]} )); then
-    alias idea='idea .'
-fi
-
-if (( ${+commands[phpstorm]} )); then
-    alias pstorm='phpstorm .'
-fi
-
-if (( ${+commands[webstorm]} )); then
-    alias wstorm='webstorm .'
-fi
-
-if (( ${+commands[egrep]} )); then
-    alias egrep='egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
-fi
-
-if (( ${+commands[fgrep]} )); then
-    alias fgrep='fgrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+    alias lazygit='__lazygit'
 fi

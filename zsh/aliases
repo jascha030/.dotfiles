@@ -11,7 +11,6 @@ alias rrscr='rr && rscr'
 alias x='exit'
 alias c='clear'
 alias e='echo -n'
-alias n="nvim"
 alias lg="lazygit"
 alias s='sudo'
 
@@ -33,6 +32,11 @@ alias checkitalics="echo -e '\e[3mitalic\e[23m'"
 alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
 
 #----------------------------------------------------- Utilities -----------------------------------------------------#
+
+(( ${+commands[nvim]} )) && {
+    alias vim=nvim
+    alias n=nvim
+}
 
 alias luamake="${HOME}/tools/lua-language-server/3rd/luamake/luamake"
 alias localenv="nvim ${HOME}/env.local"
@@ -72,6 +76,5 @@ alias nup='$(which nu)'
 alias nu="${HOME}/.cargo/bin/nu"
 
 #-------------------------------------------------- Suffix Aliases ---------------------------------------------------#
-
 alias -s php=pstorm
-alias -s {.zshrc,zsh,sh,json,yaml,.env,cs,ts,html}=nvim
+alias -s {.zshrc,zsh,sh,json,yaml,.env,cs,ts,html}=vim
