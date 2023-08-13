@@ -2,8 +2,9 @@
 
 # Overrides from env.
 (( ${+CAT_OVERRIDE} )) && alias cat=${CAT_OVERRIDE}
-(( ${+LS_OVERRIDE} )) && alias ls=${LS_OVERRIDE}
+(( ${+LS_OVERRIDE} ))  && alias ls=${LS_OVERRIDE}
 
+# Open cwd as project in various JetBrains IDE's
 (( ${+commands[idea]} ))     && alias idea='idea .'
 (( ${+commands[phpstorm]} )) && alias pstorm='phpstorm .'
 (( ${+commands[webstorm]} )) && alias wstorm='webstorm .'
@@ -26,7 +27,7 @@ if (( ! $+commands[cpd] )); then
     autoload -Uz cpd
 fi
 
-# Isolated PHP
+# Isolated php and composer
 if (( $+commands[valet] )); then
     function __iphp {
         if [[ -f "${PWD}/composer.json" ]]; then
@@ -36,8 +37,18 @@ if (( $+commands[valet] )); then
         fi
     }
 
-    autoload -Uz __iphp
+    function __icomposer {
+        if [[ -f "${PWD}/composer.json" ]]; then
+            ${HOME}/.composer/vendor/bin/valet composer "$@"
+        else
+            /Users/jaschavanaalst/tools/composer "$@"
+        fi
+    }
+
+    autoload -Uz __iphp __icomposer
+
     alias php='__iphp'
+    alias composer='__icomposer'
 fi
 
 if (( ${+LAZYGIT_CONFIG} )); then
