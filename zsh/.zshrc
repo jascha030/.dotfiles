@@ -20,14 +20,14 @@ ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=10,underline'
 ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=10,bold'
 export ZSH_HIGHLIGHT_STYLES
 
-export DOT_BASH_COMPLETIONS_DIRS=(
-    "${HOME}/.bash.d"
-    /usr/local/Cellar/wp-cli-completion/2.6.0/etc
-)
-
 export DOT_COMP_DIRS=(
     "${HOME}/.bun/_bun"
     "${HOME}/.config/tabtab/zsh/__tabtab.zsh"
+)
+
+export DOT_BASH_COMPLETIONS=(
+    "${HOME}"/.bash.d/*
+    /usr/local/Cellar/wp-cli-completion/2.8.1/etc/bash_completion.d/wp
 )
 
 export DOT_SOURCES=(
@@ -65,12 +65,9 @@ export GPG_TTY=$(tty)
 
 #------------------------ Initialization - This is where most of the magic actually happens --------------------------#
 source "${HOME}"/.cargo/env
-autoload -Uz compinit; compinit
+autoload -Uz compinit bashcompinit; compinit; bashcompinit
 source "${ZDOTDIR}"/init
-#------------------------------------------------- Finalizing stuff --------------------------------------------------#
-eval "$(op completion zsh)"
-compdef _op op
 #-------------------------------------------- Nice flashy intro graphics ---------------------------------------------#
 lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
 #--------------------------------------------- And finally, the prompt...---------------------------------------------#
-safe_source "${ZDOTDIR}/prompt/prompt"
+safe_source "${ZDOTDIR}"/prompt/prompt

@@ -12,14 +12,7 @@ fi
 # Prompt height in lines
 ! (( DOT_PROMPT_HEIGHT )) && export DOT_PROMPT_HEIGHT=2
 
-# Decide which msg to display.
-if (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )); then
-    export _IS_VIMTERM=true
-else
-    export _IS_VIMTERM=false
-fi
-
-[[ "$_IS_VIMTERM" == true ]] && LOL_MSG="${DOT_NEOVIM_LOL_MSG}" || LOL_MSG="${DOT_DEFAULT_LOL_MSG}"
+(( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )) && LOL_MSG="${DOT_NEOVIM_LOL_MSG}" || LOL_MSG="${DOT_DEFAULT_LOL_MSG}";
 
 #--------------------------------------------- Internally used functions ---------------------------------------------#
 
@@ -46,6 +39,15 @@ fi
 
 __fpath_add "${DOTFILES}/zsh/zfunc" "${DOTFILES}/zsh/completions"
 __autoload "${DOTFILES}/zsh/zfunc"
+
+# Load Bash completion scripts
+if (( ${+DOT_BASH_COMPLETIONS})); then
+    safe_source "${DOT_BASH_COMPLETIONS[@]}"
+fi
+
+# Run (bash)compinit for completions.
+autoload -Uz compinit bashcompinit
+compinit; bashcompinit
 
 # Source files that are required early.
 if (( ${+DOT_SOURCES} )); then
@@ -87,6 +89,7 @@ safe_source "${ZDOTDIR}/plugin-spec"
 eval "$(zoxide init zsh)"
 eval "$(teleport-dir init)"
 eval "$(fnm env --use-on-cd)"
+eval "$(op completion zsh)"
 
 export LS_COLORS="$(vivid generate jassie030)"
 
@@ -94,6 +97,8 @@ export LS_COLORS="$(vivid generate jassie030)"
 if (( ${+DOT_AFTER_INIT_SOURCES} )); then
     safe_source "${DOT_AFTER_INIT_SOURCES[@]}"
 fi
+
+compdef _op op
 
 # Init mcfly last.
 eval "$(mcfly init zsh)"
