@@ -38,7 +38,7 @@ vim.cmd([[
     autocmd BufReadPost *.nu set ft=nu
     autocmd BufReadPost gitignore_global,*.*ignore set ft=gitignore
     autocmd BufReadPost *.gitattributes set ft=gitattributes
-    autocmd BufReadPost *.gitconfig set ft=gitconfig
+    autocmd BufReadPost *.gitconfig,gitconfig set ft=gitconfig
     autocmd BufReadPost env.local set ft=bash
     autocmd BufReadPost *.cnf set ft=dosini
     autocmd BufReadPost *.kdl set ft=kdl
