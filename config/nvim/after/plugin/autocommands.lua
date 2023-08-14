@@ -43,6 +43,7 @@ vim.cmd([[
     autocmd BufReadPost *.cnf set ft=dosini
     autocmd BufReadPost *.kdl set ft=kdl
     autocmd BufReadPost *.antigenrc set ft=zsh
+    autocmd BufRead,BufNewFile .zsh* set ft=zsh | set tabstop=4 | set shiftwidth=4
     autocmd BufRead,BufNewFile *.nginx set ft=nginx
     autocmd BufRead,BufNewFile */.config/valet/Nginx/* set ft=nginx
   augroup end
