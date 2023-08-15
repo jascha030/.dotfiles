@@ -71,6 +71,8 @@ alias cp:fontawesome='cat $HOME/.development/Projects/Php/Wordpress/sites/sbtwee
 alias cp:composerauth='cp $HOME/.composer/auth.json ./'
 alias cp:composer-bin-extras='echo "\"extra\": { \"bamarni-bin\": { \"bin-links\": false, \"forward-command\": true } }," | pbcopy'
 
+alias gh:codeowners='mkdir .github/ && echo "* @jascha030" > .github/CODEOWNERS'
+
 # Fix for Nu-shell and @antfu/ni:nu confusion
 alias nup='$(which nu)'
 alias nu="${HOME}/.cargo/bin/nu"
