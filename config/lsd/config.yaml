@@ -11,11 +11,13 @@ blocks:
   - name
 
 color:
-  when: auto
+  # when: auto
+  when: always
   theme: jascha030
 
 date: '+%d-%m-%y' 
 dereference: false
+# dereference: true
 display: almost-all
 
 icons:
@@ -71,6 +73,6 @@ no-symlink: false
 
 # Warning: true makes it slow as sh*t.
 total-size: false 
-symlink-arrow: 
+symlink-arrow: 
 
 # header: true
