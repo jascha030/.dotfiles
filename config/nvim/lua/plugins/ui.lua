@@ -16,6 +16,7 @@ return {
         dir = '~/.development/Projects/Lua/nitepal.nvim',
         dependencies = { 'hoob3rt/lualine.nvim' },
     },
+    { 'hoob3rt/lualine.nvim', event = { 'VimEnter', 'BufReadPost', 'BufNewFile' } },
     {
         'yamatsum/nvim-cursorline',
         opts = {
@@ -37,7 +38,6 @@ return {
         name = 'nvim-highlight-colors',
         opts = { render = 'first_column' },
     },
-
     {
         'goolord/alpha-nvim',
         event = 'VimEnter',
