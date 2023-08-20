@@ -1,3 +1,14 @@
+local servers = {
+    'angularls',
+    'bashls',
+    'intelephense',
+    'jsonls',
+    'lua_ls',
+    'phpactor',
+    'rust_analyzer',
+    'tailwindcss',
+}
+
 return {
     {
         'neovim/nvim-lspconfig',
@@ -12,8 +23,21 @@ return {
             },
             {
                 'gbprod/phpactor.nvim',
-                dependencies = { 'nvim-lua/plenary.nvim' },
-                ft = 'php',
+                ft = { 'php' },
+                cmd = { 'PhpActor' },
+                keys = {
+                    {
+                        '<leader>pc',
+                        ':PhpActor context_menu<cr>',
+                        desc = 'PhpActor context menu',
+                    },
+                },
+                build = function()
+                    require('phpactor.handler.update')()
+                end,
+                opts = {
+                    lspconfig = { enabled = false },
+                },
             },
             {
                 'j-hui/fidget.nvim',
@@ -45,12 +69,13 @@ return {
             },
             format = {
                 formatting_options = nil,
-                timeout_ms = nil,
+                timeout_ms = 10000,
             },
         },
         config = function(_, opts)
             require('lsp').setup()
             require('nu').setup({})
+
             require('core.utils').on_attach(function(client, buffer)
                 local caps = client.server_capabilities
                 -- Enable completion triggered by <C-X><C-O>
@@ -78,10 +103,18 @@ return {
                 border = BORDER,
             })
 
+            vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+                border = BORDER,
+            })
+
             local get_server_config = require('core.utils').get_server_config
             local lspconfig = require('lspconfig')
 
-            require('mason-lspconfig').setup({})
+            require('mason-lspconfig').setup({
+                ensure_installed = servers,
+                automatic_installation = true,
+            })
+
             require('mason-lspconfig').setup_handlers({
                 function(server)
                     lspconfig[server].setup(get_server_config(server))
@@ -111,14 +144,34 @@ return {
                         },
                         lspconfig = {
                             enabled = true,
-                            options = {
-                                cmd = { 'phpactor', 'language-server' },
-                            },
+                            options = require('lsp.config.phpactor'),
                         },
                     })
                 end,
             })
         end,
+    },
+    {
+        'nvimdev/lspsaga.nvim',
+        config = function()
+            require('lspsaga').setup({})
+        end,
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter',
+            -- 'nvim-tree/nvim-web-devicons',
+        },
+    },
+    {
+        'folke/trouble.nvim',
+        opts = { position = 'bottom' },
+        event = 'VeryLazy',
+        lazy = true,
+    },
+    { 'b0o/schemastore.nvim', ft = 'json' },
+    'onsails/lspkind-nvim',
+    {
+        'chr4/nginx.vim',
+        ft = { 'nginx' },
     },
     {
         'williamboman/mason.nvim',
@@ -139,6 +192,20 @@ return {
         config = function(_, opts)
             require('mason').setup(opts)
             local mr = require('mason-registry')
+            local function ensure_installed()
+                for _, tool in ipairs(opts.ensure_installed) do
+                    local p = mr.get_package(tool)
+                    if not p:is_installed() then
+                        p:install()
+                    end
+                end
+            end
+
+            if mr.refresh then
+                mr.refresh(ensure_installed)
+            else
+                ensure_installed()
+            end
 
             for _, tool in ipairs(opts.ensure_installed) do
                 local p = mr.get_package(tool)
@@ -148,17 +215,5 @@ return {
             end
         end,
         lazy = false,
-    },
-    {
-        'folke/trouble.nvim',
-        opts = { position = 'bottom' },
-        event = 'VeryLazy',
-        lazy = true,
-    },
-    { 'b0o/schemastore.nvim', ft = 'json' },
-    'onsails/lspkind-nvim',
-    {
-        'chr4/nginx.vim',
-        ft = { 'nginx' },
     },
 }
