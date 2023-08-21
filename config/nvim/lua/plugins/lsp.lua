@@ -34,10 +34,7 @@ return {
                 },
                 build = function()
                     require('phpactor.handler.update')()
-                end,
-                opts = {
-                    lspconfig = { enabled = false },
-                },
+                end
             },
             {
                 'j-hui/fidget.nvim',
