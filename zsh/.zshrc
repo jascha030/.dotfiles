@@ -1,9 +1,13 @@
+#!/usr/bin/env zsh
+
 # shellcheck disable=SC2093
 # shellcheck disable=SC1091
 # shellcheck disable=SC2155
 
-# Hacky fix when first window of wezterm messes up lolmsg placement.
-(( LINES == 24 )) && { until (( LINES > 24 )); do exec zsh -l; done; }
+if [[ "$TERM_PROGRAM" == "WezTerm" ]]; then
+    # Hacky fix when first window of wezterm messes up lolmsg placement.
+    (( LINES == 24 )) && { until (( LINES > 24 )); do exec zsh -l; done; }
+fi
 
 setopt autocd extendedglob nomatch menucomplete traps_async
 unsetopt BEEP
@@ -27,6 +31,7 @@ export DOT_COMP_DIRS=(
 
 export DOT_BASH_COMPLETIONS=(
     "${HOME}"/.bash.d/*
+    "${DOTFILES}"/config/bash/bash_completion.d/*
     /usr/local/Cellar/wp-cli-completion/2.8.1/etc/bash_completion.d/wp
 )
 
