@@ -1,25 +1,29 @@
-# Projectfiles.
-.idea
-.vscode
-TODO.md
+### gitignore for actual .dotfiles repo
+
+## Projectfiles
+/.idea/
+/.vscode/
+
+/TODO.md
 
 ## macOS
 *.DS_Store
-.cache/
+/.cache/
 
 ## Hammerspoon
-hammerspoon/Spoons
-hammerspoon/Spoons/EmmyLua.spoon/annotations
-config/nvim/plugin/packer_compiled.lua
+/hammerspoon/Spoons
+/hammerspoon/Spoons/EmmyLua.spoon/annotations
+/config/nvim/plugin/packer_compiled.lua
 
 ## ZSH
-zsh/.zsh_history
-zsh/.zcompcache
+/zsh/.zsh_history
+/zsh/.zcompcache
 
 ## Other
-config/lazygit/state.yml
-gitconfig
-.gitsecret/keys/random_seed
-!*.secret
-
+/config/lazygit/state.yml
+/gitconfig
 *.log
+
+## Secret
+/.gitsecret/keys/random_seed
+!*.secret
