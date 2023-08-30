@@ -1,0 +1,6 @@
+# Don't F me NVIM heading comment thingy plx.
+/config/nvim/init.lua
+
+# Ignore all but jascha030 folder
+/hammerspoon/**
+!/hammerspoon/jascha030/
