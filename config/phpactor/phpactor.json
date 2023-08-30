@@ -1,12 +1,12 @@
 {
-    "$schema": "/Users/jaschavanaalst/tools/phpactor/phpactor.schema.json",
-    "language_server_phpstan.bin": "%project_root%/vendor/bin/phpstan",
-    "language_server_phpstan.enabled": true,
-    "language_server_php_cs_fixer.enabled": true,
-    "language_server_php_cs_fixer.bin": "%project_root%/tools/php-cs-fixer.phar",
-    "language_server_php_cs_fixer.show_diagnostics": true,
-    "phpunit.enabled": true,
-    "composer.autoloader_path": [
-        "%project_root%/vendor/autoload.php"
-    ]
+  "$schema": "/Users/jaschavanaalst/tools/phpactor/phpactor.schema.json",
+  "language_server_phpstan.bin": "/Users/jaschavanaalst/tools/phpstan",
+  "language_server_phpstan.enabled": true,
+  "language_server_php_cs_fixer.enabled": true,
+  "language_server_php_cs_fixer.bin": "/Users/jaschavanaalst/tools/php-cs-fixer",
+  "language_server_php_cs_fixer.show_diagnostics": true,
+  "phpunit.enabled": true,
+  "composer.autoloader_path": [
+    "%project_root%/vendor/autoload.php"
+  ]
 }
