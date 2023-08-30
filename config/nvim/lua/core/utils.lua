@@ -1,34 +1,6 @@
 local M = {}
 
 M.root_patterns = { '.git', 'lua' }
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-local default = {
-    capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities),
-    flags = { debounce_text = 150 },
-}
-
-function M.get_server_config(server_name)
-    local ok, server_config = pcall(require, 'lsp.config.' .. server_name)
-
-    if not ok then
-        return vim.tbl_deep_extend('force', {}, default)
-    end
-
-    return vim.tbl_deep_extend('force', {}, default, server_config)
-end
-
----@param on_attach fun(client, buffer)
-function M.on_attach(on_attach)
-    vim.api.nvim_create_autocmd('LspAttach', {
-        callback = function(args)
-            local buffer = args.buf
-            local client = vim.lsp.get_client_by_id(args.data.client_id)
-
-            on_attach(client, buffer)
-        end,
-    })
-end
 
 function M.get_root()
     ---@type string?
