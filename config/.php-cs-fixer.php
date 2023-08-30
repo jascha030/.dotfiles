@@ -15,7 +15,6 @@ use PhpCsFixer\Finder;
  *
  * Used to ensure compliant classnames for classes that use PSR-4 autoloading.
  */
-$namespaceRoot = './src';
 
 /**
  * Rulesets and overrides.
@@ -149,9 +148,6 @@ $rules = [
     'phpdoc_order_by_value'                  => true,
     'phpdoc_to_comment'                      => false,
     'phpdoc_var_annotation_correct_order'    => true,
-    'psr_autoloading'                        => [
-        'dir' => $namespaceRoot,
-    ],
     'return_assignment'                      => true,
 ];
 
