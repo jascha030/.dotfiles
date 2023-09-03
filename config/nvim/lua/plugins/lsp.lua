@@ -17,10 +17,7 @@ return {
         dependencies = {
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
-            {
-                'simrat39/rust-tools.nvim',
-                ft = 'rs',
-            },
+            { 'simrat39/rust-tools.nvim', ft = 'rs' },
             {
                 'gbprod/phpactor.nvim',
                 ft = { 'php' },
@@ -43,19 +40,14 @@ return {
                     text = { spinner = 'dots' },
                     window = { relative = 'editor', blend = 0, zindex = nil },
                 },
+                event = 'VeryLazy',
             },
             { 'LhKipp/nvim-nu', build = 'TSInstall nu' },
-            { 'folke/lua-dev.nvim', lazy = true },
+            { 'folke/lua-dev.nvim', event = 'VeryLazy' },
             { 'folke/neodev.nvim', opts = {}, lazy = true },
             { 'ray-x/lsp_signature.nvim' },
             { 'lvimuser/lsp-inlayhints.nvim', config = true },
-            {
-                'saecki/crates.nvim',
-                event = { 'BufRead Cargo.toml' },
-                dependencies = { { 'nvim-lua/plenary.nvim' } },
-                config = true,
-                lazy = true,
-            },
+            'saecki/crates.nvim',
         },
         opts = {
             diagnostics = {
@@ -122,13 +114,8 @@ return {
     },
     {
         'nvimdev/lspsaga.nvim',
-        config = function()
-            require('lspsaga').setup({})
-        end,
-        dependencies = {
-            'nvim-treesitter/nvim-treesitter',
-            -- 'nvim-tree/nvim-web-devicons',
-        },
+        event = 'LspAttach',
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
     },
     {
         'folke/trouble.nvim',
@@ -136,11 +123,18 @@ return {
         event = 'VeryLazy',
         lazy = true,
     },
-    { 'b0o/schemastore.nvim', ft = 'json' },
+    { 'b0o/schemastore.nvim', ft = { 'json' } },
     'onsails/lspkind-nvim',
     {
         'chr4/nginx.vim',
         ft = { 'nginx' },
+    },
+    {
+        'saecki/crates.nvim',
+        event = { 'BufRead Cargo.toml' },
+        dependencies = { { 'nvim-lua/plenary.nvim' } },
+        config = true,
+        lazy = true,
     },
     {
         'williamboman/mason.nvim',

@@ -1,17 +1,21 @@
-local caps = vim.lsp.protocol.make_client_capabilities()
-local cmp_ok, cmp = pcall(require, 'cmp_nvim_lsp')
+local capabilities = vim.lsp.protocol.make_client_capabilities
 
 local M = setmetatable({
     opts = {
-        capabilities = cmp_ok and cmp.default_capabilities(caps) or caps,
+        capabilities = (function()
+            local caps, ok, cmp = capabilities(), pcall(require, 'cmp_nvim_lsp')
+
+            return ok and cmp.default_capabilities(caps) or caps
+        end)(),
         flags = {
             debounce_text = 150,
         },
     },
 }, {
     __index = function(_, key)
-        local submod_ok, submod = pcall(require, 'lsp.' .. key)
-        return submod_ok and submod or nil
+        local ok, submod = pcall(require, 'lsp.' .. key)
+
+        return ok and submod or nil
     end,
 })
 
@@ -28,22 +32,22 @@ end
 ---@param on_attach fun(client, buffer)
 ---@param group string|nil
 function M.lsp_attach(on_attach, group)
-    local attach = {}
-
     group = group or nil
+
+    local attach = {
+        callback = function(args)
+            if not (args.data and args.data.client_id) then
+                return
+            end
+
+            on_attach(vim.lsp.get_client_by_id(args.data.client_id), args.buf)
+        end,
+    }
 
     if nil ~= group then
         attach.group = group
 
         vim.api.nvim_create_augroup(group, {})
-    end
-
-    attach.callback = function(args)
-        if not (args.data and args.data.client_id) then
-            return
-        end
-
-        on_attach(vim.lsp.get_client_by_id(args.data.client_id), args.buf)
     end
 
     vim.api.nvim_create_autocmd('LspAttach', attach)
@@ -64,13 +68,10 @@ end
 function M.format()
     local buf = vim.api.nvim_get_current_buf()
 
-    local ft = vim.bo[buf].filetype
-    local have_nls = #require('null-ls.sources').get_available(ft, 'NULL_LS_FORMATTING') > 0
-
     vim.lsp.buf.format({
         bufnr = buf,
         filter = function(client)
-            if have_nls then
+            if #require('null-ls.sources').get_available(vim.bo[buf].filetype, 'NULL_LS_FORMATTING') > 0 then
                 return client.name == 'null-ls'
             end
 
@@ -80,14 +81,16 @@ function M.format()
 end
 
 function M.setup(opts)
-    opts = opts or {}
-
-    M.opts = vim.tbl_deep_extend('force', M.opts, opts)
+    opts = opts and vim.tbl_deep_extend('force', M.opts, opts) or {}
 
     require('lspconfig.ui.windows').default_options.border = BORDER
 
     M.lsp_attach(require('lsp-inlayhints').on_attach, 'LspAttach_inlayhints')
     M.lsp_attach(M.on_attach)
+
+    if opts.on_attach ~= nil then
+        M.lsp_attach(opts.on_attach)
+    end
 
     -- diagnostics
     for name, icon in pairs(require('core.icons').icons.diagnostics) do
