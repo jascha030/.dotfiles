@@ -5,6 +5,7 @@ M.root_patterns = { '.git', 'lua' }
 function M.get_root()
     ---@type string?
     local path = vim.api.nvim_buf_get_name(0)
+
     path = path ~= '' and vim.loop.fs_realpath(path) or nil
     ---@type string[]
     local roots = {}
@@ -44,10 +45,12 @@ end
 
 function M.telescope(builtin, opts)
     local params = { builtin = builtin, opts = opts }
+
     return function()
         builtin = params.builtin
         opts = params.opts
         opts = vim.tbl_deep_extend('force', { cwd = M.get_root() }, opts or {})
+
         if builtin == 'files' then
             if vim.loop.fs_stat((opts.cwd or vim.loop.cwd()) .. '/.git') then
                 opts.show_untracked = true
@@ -56,6 +59,7 @@ function M.telescope(builtin, opts)
                 builtin = 'find_files'
             end
         end
+
         require('telescope.builtin')[builtin](opts)
     end
 end
@@ -76,6 +80,7 @@ function M.lazy_notify()
     local replay = function()
         timer:stop()
         check:stop()
+
         if vim.notify == temp then
             vim.notify = orig -- put back the original notify if needed
         end
@@ -100,7 +105,6 @@ end
 
 function M.open_inspect_float()
     local bufnr = vim.api.nvim_create_buf(false, true)
-    -- vim.show_pos()
     local items = vim.inspect_pos()
 
     local lines = { {} }

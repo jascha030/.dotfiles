@@ -2,6 +2,7 @@ local Utils = {}
 
 function Utils.wrap(fnc, ...)
     local params = { ... }
+
     if type(fnc) ~= 'function' then
         local prev = fnc
         fnc = function(...)
@@ -15,9 +16,7 @@ function Utils.wrap(fnc, ...)
 end
 
 local function safe_load(m)
-    local ok, res = pcall(require, m)
-
-    return ok, res
+    return pcall(require, m)
 end
 
 function Utils.check_deps(list)
@@ -67,11 +66,10 @@ function Utils.get_height()
     return vim.api.nvim_list_uis()[1].height
 end
 
-Utils = setmetatable(Utils, {
+return setmetatable(Utils, {
     __index = function(_, key)
         local ok, submod = pcall(require, 'utils.' .. key)
+
         return ok and submod or nil
     end,
 })
-
-return Utils

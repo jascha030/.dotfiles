@@ -4,10 +4,9 @@ local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')
 local conf = require('telescope.config').values
 
-local picker = function()
-    if vim.bo.filetype ~= 'php' then
-        return
-    end
+local M = {}
+
+function M.picker()
     pickers
         .new({
             prompt_title = 'Phpactor',
@@ -43,6 +42,4 @@ local picker = function()
         :find()
 end
 
-return {
-    picker = picker,
-}
+return M

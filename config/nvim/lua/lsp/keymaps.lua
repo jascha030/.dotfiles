@@ -42,6 +42,7 @@ end
 
 function M:map(lhs, rhs, opts)
     opts = opts or {}
+
     if opts.has and not self:has(opts.has) then
         return
     end
@@ -65,6 +66,7 @@ end
 function M.diagnostic_goto(next, severity)
     local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
     severity = severity and vim.diagnostic.severity[severity] or nil
+
     return function()
         go({ severity = severity })
     end

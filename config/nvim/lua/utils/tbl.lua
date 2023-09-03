@@ -2,6 +2,7 @@ local M = {}
 
 local function value_index(table)
 	local set = {}
+
 	for _, v in ipairs(table) do
 		set[v] = true
 	end
