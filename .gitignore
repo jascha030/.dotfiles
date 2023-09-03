@@ -23,6 +23,7 @@
 /config/lazygit/state.yml
 /gitconfig
 *.log
+**.cache
 
 ## Secret
 /.gitsecret/keys/random_seed
