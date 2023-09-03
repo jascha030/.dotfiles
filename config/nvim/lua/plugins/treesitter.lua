@@ -45,7 +45,7 @@ return {
                 indent = { enable = true },
                 highlight = {
                     enable = true,
-                    additional_vim_regex_highlighting = { 'zsh' },
+                    -- additional_vim_regex_highlighting = { 'zsh' },
                 },
                 rainbow = {
                     enable = true,
