@@ -1,13 +1,9 @@
 #!/usr/bin/env zsh
 
-# shellcheck disable=SC2093
-# shellcheck disable=SC1091
-# shellcheck disable=SC2155
+# shellcheck disable=SC2093,SC1091,SC2155
 
-if [[ "$TERM_PROGRAM" == "WezTerm" ]]; then
-    # Hacky fix when first window of wezterm messes up lolmsg placement.
-    (( LINES == 24 )) && { until (( LINES > 24 )); do exec zsh -l; done; }
-fi
+# Hacky fix when first window of wezterm messes up lolmsg placement.
+[[ "$TERM_PROGRAM" == "WezTerm" ]] && (( LINES == 24 )) && { until (( LINES > 24 )); do exec zsh -l; done; }
 
 setopt autocd extendedglob nomatch menucomplete traps_async
 unsetopt BEEP
@@ -15,14 +11,15 @@ unsetopt BEEP
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
-
 typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=10,underline'
-ZSH_HIGHLIGHT_STYLES[arg0]='fg=10'
-ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=10,underline'
-ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=10,bold'
-export ZSH_HIGHLIGHT_STYLES
+export ZSH_HIGHLIGHT_STYLES=(
+    autodirectory   'fg=10,underline'
+    arg0            'fg=10'
+    suffix-alias    'fg=10,underline'
+    bracket-level-2 'fg=10,bold'
+)
+
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
 
 export DOT_COMP_DIRS=(
     "${HOME}/.bun/_bun"
@@ -48,6 +45,8 @@ export DOT_AFTER_INIT_SOURCES=(
     "${ZDOTDIR}/aliases"
 )
 
+export GPG_TTY=$(tty)
+
 # Path
 path=(
     /usr/local/sbin
@@ -66,11 +65,8 @@ path=(
     "${path[@]}"
 ); typeset -aU path
 
-export GPG_TTY=$(tty)
-
 #------------------------ Initialization - This is where most of the magic actually happens --------------------------#
 source "${HOME}"/.cargo/env
-autoload -Uz compinit bashcompinit; compinit; bashcompinit
 source "${ZDOTDIR}"/init
 #-------------------------------------------- Nice flashy intro graphics ---------------------------------------------#
 lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
