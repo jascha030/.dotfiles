@@ -1,0 +1,5 @@
+config create:
+    dbuser: root
+    dbpass: root
+    extra-php: |
+        define('WP_DEBUG', true);
