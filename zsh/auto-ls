@@ -14,7 +14,7 @@ function __ls_cmd () {
     local ls_cmd='ls'
 
     if (( ${+LS_OVERRIDE} )); then
-        ls_cmd=$LS_OVERRIDE
+        ls_cmd="$LS_OVERRIDE"
     fi
 
     eval "${ls_cmd}" "${LS_DEFAULT_ARGS}"; 

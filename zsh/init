@@ -1,52 +1,52 @@
 #!/usr/bin/env zsh
 
+#######################################################################################################################
 # By Jascha030                                  Dotfiles Initialization         https://github.io/jascha030/.dotfiles #
 #######################################################################################################################
+
+# Alternative dir for histfiles
+! (( ${+DOT_DATA_DIR} )) && export DOT_DATA_DIR="${XDG_CONFIG_HOME}"/datafiles
+# Prompt height in lines
+! (( DOT_PROMPT_HEIGHT )) && export DOT_PROMPT_HEIGHT=2
+
+# Conditionals, if current term is in neovim .
+if (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )); then
+    export _IS_VIMTERM=true
+    export LOL_MSG="${DOT_NEOVIM_LOL_MSG}"
+else
+    export _IS_VIMTERM=false
+    export LOL_MSG="${DOT_DEFAULT_LOL_MSG}"
+fi
 
 #--------------------------------------------- Internally used functions ---------------------------------------------#
 
 function __fpath_add {
-    fpath=( "$@" ${fpath[@]} )
+    fpath=( "$@" "${fpath[@]}" )
 }
 
 function __path_add {
-    path=( "$@" ${path[@]} )
+    path=( "$@" "${path[@]}" )
 }
 
 function __autoload {
     local a
+
     for a in "$@"; do
-        [[ -d "$a" ]] && autoload -Uz ${a}/*(.:t)
+        [[ -d "$a" ]] && autoload -Uz "${a}"/*(.:t)
     done
 }
 
-#--------------------------------------------------------- Init ------------------------------------------------------#
+#------------------------------------------------------ Init ---------------------------------------------------------#
 
-# Alternative dir for histfiles
-! (( ${+DOT_DATA_DIR} )) && export DOT_DATA_DIR="${XDG_CONFIG_HOME}"/datafiles
-
-# Prompt height in lines
-! (( DOT_PROMPT_HEIGHT )) && export DOT_PROMPT_HEIGHT=2
-
-# Decide which msg to display.
-(( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )) && export _IS_VIMTERM=true || export _IS_VIMTERM=false
-[[ "$_IS_VIMTERM" == true ]] && LOL_MSG="${DOT_NEOVIM_LOL_MSG}" || LOL_MSG="${DOT_DEFAULT_LOL_MSG}"
-
-if (( ${+DOT_COMP_DIRS} )); then
-    __fpath_add "${DOT_COMP_DIRS[@]}"
-fi
+(( ${+DOT_COMP_DIRS} )) && __fpath_add "${DOT_COMP_DIRS[@]}"
 
 __fpath_add "${DOTFILES}/zsh/zfunc" "${DOTFILES}/zsh/completions"
 __autoload "${DOTFILES}/zsh/zfunc"
 
-# Run (bash)compinit for completions.
-autoload -Uz compinit bashcompinit
-compinit; bashcompinit;
+# Source files that are required early.
+(( ${+DOT_SOURCES} )) && safe_source "${DOT_SOURCES[@]}"
 
-# Load Bash completion scripts
-if (( ${+DOT_BASH_COMPLETIONS})); then
-    safe_source "${DOT_BASH_COMPLETIONS[@]}"
-fi
+#-------------------------------------------------- Lazyload functions -----------------------------------------------#
 
 # Utility function, to merge arrays...
 function merge_arrays {
@@ -63,6 +63,26 @@ function sb2init {
     # undefined
     builtin autoload -X
 }
+
+#--------------------------------------------------------- Init ------------------------------------------------------#
+
+# Run (bash)compinit for completions.
+autoload -Uz compinit bashcompinit
+compinit; bashcompinit;
+
+# Load Bash completion scripts
+if (( ${+DOT_BASH_COMPLETIONS})); then
+    safe_source "${DOT_BASH_COMPLETIONS[@]}"
+fi
+
+# Run (bash)compinit for completions.
+autoload -Uz compinit bashcompinit
+compinit; bashcompinit;
+
+# Load Bash completion scripts
+if (( ${+DOT_BASH_COMPLETIONS})); then
+    safe_source "${DOT_BASH_COMPLETIONS[@]}"
+fi
 
 # Assure required dirs and files exist.
 assert_dirs "${DOT_DATA_DIR}"
