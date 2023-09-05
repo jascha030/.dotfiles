@@ -12,11 +12,7 @@ local M = {
         'ray-x/cmp-treesitter',
         'saadparwaiz1/cmp_luasnip',
         'ncm2/ncm2',
-        {
-            'onsails/lspkind-nvim',
-            event = { 'VeryLazy' },
-            config = true,
-        },
+        'onsails/lspkind-nvim',
         {
             'L3MON4D3/LuaSnip',
             config = function(_, _)
