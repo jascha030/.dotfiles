@@ -1,13 +1,8 @@
-local function get_background()
-    if require('utils.theme').is_dark() then
-        return '#1e2030'
-    else
-        return '#e7e9ef'
-    end
-end
-
 return {
-    'sheerun/vim-polyglot',
+    {
+        'sheerun/vim-polyglot',
+        lazy = true,
+    },
     {
         'noib3/nvim-cokeline',
         event = 'VeryLazy',
@@ -16,12 +11,27 @@ return {
         dir = '~/.development/Projects/Lua/nitepal.nvim',
         dependencies = { 'hoob3rt/lualine.nvim' },
     },
-    { 'hoob3rt/lualine.nvim', event = { 'VimEnter', 'BufReadPost', 'BufNewFile' } },
+    {
+        'hoob3rt/lualine.nvim',
+        event = {
+            'VimEnter',
+            'BufReadPost',
+            'BufNewFile',
+        },
+    },
     {
         'yamatsum/nvim-cursorline',
         opts = {
-            cursorline = { enable = true, timeout = 1000, number = false },
-            cursorword = { enable = true, min_length = 3, hl = { underline = true } },
+            cursorline = {
+                enable = true,
+                timeout = 1000,
+                number = false,
+            },
+            cursorword = {
+                enable = true,
+                min_length = 3,
+                hl = { underline = true },
+            },
         },
     },
     {
@@ -36,7 +46,9 @@ return {
     {
         'brenoprata10/nvim-highlight-colors',
         name = 'nvim-highlight-colors',
-        opts = { render = 'first_column' },
+        opts = {
+            render = 'first_column',
+        },
     },
     {
         'goolord/alpha-nvim',
@@ -61,6 +73,47 @@ return {
             end
         end,
     },
+    {
+        'm-demare/hlargs.nvim',
+        opts = {
+            color = '#ea1479',
+            highlight = {},
+            excluded_filetypes = {},
+            paint_arg_declarations = true,
+            paint_arg_usages = true,
+            paint_catch_blocks = {
+                declarations = false,
+                usages = false,
+            },
+            extras = {
+                named_parameters = false,
+            },
+            hl_priority = 10000,
+            excluded_argnames = {
+                declarations = {},
+                usages = {
+                    python = { 'self', 'cls' },
+                    lua = { 'self' },
+                },
+            },
+            performance = {
+                parse_delay = 1,
+                slow_parse_delay = 50,
+                max_iterations = 400,
+                max_concurrent_partial_parses = 30,
+                debounce = {
+                    partial_parse = 3,
+                    partial_insert_mode = 100,
+                    total_parse = 700,
+                    slow_parse = 5000,
+                },
+            },
+        },
+    },
+    --[[
+    local function get_background()
+        return require('utils.theme').is_dark() and '#1e2030' or '#e7e9ef'
+    end
     {
         'rcarriga/nvim-notify',
         cond = false,
@@ -125,40 +178,5 @@ return {
             },
         },
     },
-    {
-        'nvim-neo-tree/neo-tree.nvim',
-        branch = 'v2.x',
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-            'MunifTanjim/nui.nvim',
-        },
-        lazy = false,
-        opts = {
-            source_selector = {
-                winbar = true,
-                statusline = false,
-            },
-            close_if_last_window = true,
-            enable_git_status = true,
-            enable_diagnostics = true,
-            open_files_do_not_replace_types = {
-                'terminal',
-                'trouble',
-            },
-            window = {
-                position = 'right',
-                mappings = { ['<c-v>'] = 'open_vsplit' },
-            },
-            filesystem = {
-                filtered_items = {
-                    hide_dotfiles = false,
-                    always_hide = { '.DS_Store' },
-                },
-            },
-        },
-        config = function(_, opts)
-            vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-            require('neo-tree').setup(opts)
-        end,
-    },
+    ]]
 }

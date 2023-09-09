@@ -34,7 +34,7 @@ return {
     { 'ziontee113/icon-picker.nvim', opts = {}, lazy = true },
     { 'ziontee113/color-picker.nvim', opts = {}, lazy = true },
     { 'terrortylor/nvim-comment', name = 'nvim_comment', config = true },
-    { 'windwp/nvim-autopairs', opts = {} },
+    { 'windwp/nvim-autopairs', config = true },
     { 'petertriho/nvim-scrollbar', config = true },
     { 'luukvbaal/stabilize.nvim', config = true },
     {
