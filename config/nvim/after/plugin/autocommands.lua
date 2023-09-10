@@ -21,36 +21,32 @@ vim.api.nvim_create_autocmd('BufRead', {
     group = vim.api.nvim_create_augroup('CmpSourceCargo', { clear = true }),
     pattern = 'Cargo.toml',
     callback = function()
-        require('cmp').setup.buffer({ sources = { { name = 'crates' } } })
+        require('cmp').setup.buffer({
+            sources = {
+                {
+                    name = 'crates',
+                },
+            },
+        })
     end,
 })
 
 vim.cmd([[
   augroup _lsp
     autocmd!
-    autocmd FileType plist set ft=xml
     autocmd FileType php setlocal omnifunc=phpactor#Complete
-    autocmd BufReadPost *.xml.dist set ft=xml
-    autocmd BufReadPost Deployfile,*.json.dist set ft=json
-    autocmd BufReadPost *.neon,*.neon.dist set ft=yaml
-    autocmd BufReadPost *.tape set ft=tape
-    autocmd BufReadPost *.ejs.t set ft=embedded_template
-    autocmd BufReadPost *.nu set ft=nu
-    autocmd BufReadPost gitignore_global,*.*ignore set ft=gitignore
-    autocmd BufReadPost *.gitattributes set ft=gitattributes
-    autocmd BufReadPost *.gitconfig,gitconfig set ft=gitconfig
-    autocmd BufReadPost env.local set ft=bash
-    autocmd BufReadPost *.cnf set ft=dosini
-    autocmd BufReadPost *.kdl set ft=kdl
-    autocmd BufReadPost *.antigenrc set ft=zsh
-    autocmd BufRead,BufNewFile .zsh* set ft=zsh | set tabstop=4 | set shiftwidth=4
-    autocmd BufRead,BufNewFile *.nginx set ft=nginx
-    autocmd BufRead,BufNewFile */.config/valet/Nginx/* set ft=nginx
+    autocmd BufRead,BufNewFile .zsh* set tabstop=4 | set shiftwidth=4
   augroup end
 
   augroup _ft
+    autocmd!
+    autocmd BufReadPost *.neon,*.neon.dist set ft=yaml
+    autocmd BufReadPost *.tape set ft=tape
+    autocmd BufReadPost *.ejs.t set ft=embedded_template
+    autocmd BufReadPost *.cnf set ft=dosini
+    autocmd BufReadPost *.kdl set ft=kdl
+
     autocmd FileType help,lspinfo nnoremap <buffer><silent> q :close<CR>
     autocmd FileType dashboard,toggleterm nnoremap <buffer><silent> q :q<CR>
   augroup end
 ]])
-
