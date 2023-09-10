@@ -65,17 +65,19 @@ function M.on_attach(client, buffer)
     M.keymaps.on_attach(client, buffer)
 end
 
-function M.format()
-    local buf = vim.api.nvim_get_current_buf()
+function M.format(client, bufnr)
+    if not client.server_capabilities.documentFormattingProvider then
+        return
+    end
 
     vim.lsp.buf.format({
-        bufnr = buf,
-        filter = function(client)
-            if #require('null-ls.sources').get_available(vim.bo[buf].filetype, 'NULL_LS_FORMATTING') > 0 then
-                return client.name == 'null-ls'
+        bufnr = bufnr,
+        filter = function(c)
+            if #require('null-ls.sources').get_available(vim.bo[bufnr].filetype, 'NULL_LS_FORMATTING') > 0 then
+                return c.name == 'null-ls'
             end
 
-            return client.name ~= 'null-ls'
+            return c.name ~= 'null-ls'
         end,
     })
 end

@@ -18,14 +18,6 @@ local default = {
 local config = nil
 local setup = false
 
-local function init()
-    if type(config) == 'table' then
-        return
-    end
-
-    config = vim.tbl_deep_extend('force', default, require('config'))
-end
-
 local function opt(key, val, scope)
     if not scope then
         vim.opt[key] = val
@@ -36,8 +28,13 @@ end
 
 local Conf = setmetatable({}, {
     __index = function(_, key)
-        init()
-        return config[key]
+        if type(config) ~= 'table' then
+            config = vim.tbl_deep_extend('force', default, require('config'))
+        end
+
+        if config[key] ~= nil then
+            return config[key]
+        end
     end,
 })
 

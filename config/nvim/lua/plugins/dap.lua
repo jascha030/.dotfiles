@@ -1,6 +1,5 @@
 local M = {
     'mfussenegger/nvim-dap',
-    event = { 'VeryLazy' },
     lazy = true,
     dependencies = {
         {

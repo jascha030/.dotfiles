@@ -33,7 +33,7 @@ return {
         },
     },
     keymaps = {
-        ['n'] = {
+        n = {
             ['ff'] = { ':lua require("telescope.builtin").find_files()<CR>' },
             ['<C-p>'] = { ':lua require("telescope.builtin").git_files()<CR>' },
             ['fg'] = { ':lua require("telescope.builtin").live_grep()<CR>' },
@@ -53,20 +53,18 @@ return {
             ['<leader>CP'] = { '<cmd>PickColor<CR>' },
             -- TreeSitter
             ['<leader>tc'] = { ':lua vim.show_pos()<CR>' },
-            -- ['<leader>tc'] = { ':lua require("core.utils").open_inspect_float()<CR>' },
-            -- ['<leader>tc'] = { ':lua require("noice").redirect("Inspect", { view = "popup" })<CR>' },
-            -- ['<leader>p'] = { '<cmd>TSPlaygroundToggle<CR>' },
             ['<leader>p'] = { '<cmd>InsprectTree<CR>' },
+            ['<leader>l'] = { '<cmd>Lazy<CR>' },
         },
-        ['v'] = {
+        v = {
             ['<C-c>'] = { ':OSCYankVisual<CR>' },
             ['<C-_>'] = { ":'<,'>CommentToggle<CR>" },
         },
-        ['t'] = {
+        t = {
             ['<M-[>'] = { '<Esc>' },
             ['<C-v><Esc>'] = { '<Esc>' },
         },
-        ['i'] = {},
+        i = {},
     },
     devicons = {
         default_icon = '',

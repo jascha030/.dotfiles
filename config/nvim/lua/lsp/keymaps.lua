@@ -2,7 +2,10 @@ local M = {}
 
 function M.on_attach(client, bufnr)
     local self = M.new(client, bufnr)
-    local format = require('lsp').format
+
+    local fmt = function()
+        require('lsp').format(client, bufnr)
+    end
 
     self:map('<leader>cd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
     self:map('<leader>cl', 'LspInfo', { desc = 'Lsp Info' })
@@ -26,10 +29,12 @@ function M.on_attach(client, bufnr)
     self:map('[w', M.diagnostic_goto(false, 'WARNING'), { desc = 'Prev Warning' })
 
     self:map('<C-a>', vim.lsp.buf.code_action, { desc = 'Code Action', mode = { 'n', 'v' }, has = 'codeAction' })
-
-    self:map('<C-l>', format, { desc = 'Format Document', has = 'documentFormatting' })
-    -- self:map('<C-f>', format, { desc = 'Format Range', mode = 'v', has = 'documentRangeFormatting' })
     self:map('<leader>cr', M.rename, { expr = true, desc = 'Rename', has = 'rename' })
+
+    self:map('<C-l>', fmt, {
+        desc = 'Format Document',
+        has = 'documentFormatting',
+    })
 end
 
 function M.new(client, buffer)
