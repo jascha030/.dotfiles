@@ -6,6 +6,7 @@ return function()
         config = utils.conf
     end
 
+    ---@diagnostic disable-next-line: undefined-field, need-check-nil 
     utils.icons.setup(config.devicons)
 
     require('nvim-web-devicons').set_up_highlights()
