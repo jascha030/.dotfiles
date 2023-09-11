@@ -1,18 +1,29 @@
 return {
-    -- 'github/copilot.vim',
+    'wakatime/vim-wakatime',
+    {
+        'ojroques/vim-oscyank',
+    },
     {
         'zbirenbaum/copilot.lua',
         cmd = 'Copilot',
-        dependencies = { 'nvim-lspconfig' },
-        event = { 'VimEnter' },
-        config = function()
+        dependencies = 'nvim-lspconfig',
+        event = 'VimEnter',
+        config = function(_, _)
             require('copilot').setup()
         end,
     },
-    { 'nvim-lua/plenary.nvim', lazy = true },
-    'wakatime/vim-wakatime',
-    'ojroques/vim-oscyank',
-    'f-person/git-blame.nvim',
+    {
+        'nvim-lua/plenary.nvim',
+        lazy = true,
+    },
+    { 'f-person/git-blame.nvim' },
+    {
+        'saecki/crates.nvim',
+        event = { 'BufRead Cargo.toml' },
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        config = true,
+        lazy = true,
+    },
     {
         'phaazon/hop.nvim',
         branch = 'v2',
@@ -31,16 +42,35 @@ return {
             show_current_context_start = true,
         },
     },
-    { 'ziontee113/icon-picker.nvim', opts = {}, lazy = true },
-    { 'ziontee113/color-picker.nvim', opts = {}, lazy = true },
-    { 'terrortylor/nvim-comment', name = 'nvim_comment', config = true },
-    { 'windwp/nvim-autopairs', config = true },
-    { 'petertriho/nvim-scrollbar', config = true },
-    { 'luukvbaal/stabilize.nvim', config = true },
+    {
+        'ziontee113/icon-picker.nvim',
+        lazy = true,
+    },
+    {
+        'ziontee113/color-picker.nvim',
+        lazy = true,
+    },
+    {
+        'terrortylor/nvim-comment',
+        name = 'nvim_comment',
+        config = true,
+    },
+    {
+        'windwp/nvim-autopairs',
+        config = true,
+    },
+    {
+        'petertriho/nvim-scrollbar',
+        config = true,
+    },
+    {
+        'luukvbaal/stabilize.nvim',
+        config = true,
+    },
     {
         'folke/which-key.nvim',
         event = 'VeryLazy',
-        config = function()
+        config = function(_, _)
             local keymaps = require('utils.conf').keymaps
             local wk = require('which-key')
 

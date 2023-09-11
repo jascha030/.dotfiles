@@ -13,15 +13,24 @@ return {
     {
         'neovim/nvim-lspconfig',
         event = 'BufReadPre',
-        lazy = false,
         dependencies = {
             'williamboman/mason.nvim',
-            'williamboman/mason-lspconfig.nvim',
-            { 'simrat39/rust-tools.nvim', ft = 'rs' },
+            {
+                'williamboman/mason-lspconfig.nvim',
+                lazy = true,
+            },
+            {
+                'simrat39/rust-tools.nvim',
+                ft = 'rs',
+            },
+            {
+                'chr4/nginx.vim',
+                ft = 'nginx',
+            },
             {
                 'gbprod/phpactor.nvim',
-                ft = { 'php' },
-                cmd = { 'PhpActor' },
+                ft = 'php',
+                cmd = 'PhpActor',
                 keys = {
                     {
                         '<leader>pc',
@@ -36,18 +45,53 @@ return {
             {
                 'j-hui/fidget.nvim',
                 name = 'fidget',
+                lazy = true,
                 opts = {
-                    text = { spinner = 'dots' },
-                    window = { relative = 'editor', blend = 0, zindex = nil },
+                    text = {
+                        spinner = 'dots',
+                    },
+                    window = {
+                        relative = 'editor',
+                        blend = 0,
+                        zindex = nil,
+                    },
                 },
+            },
+            {
+                'LhKipp/nvim-nu',
+                build = 'TSInstall nu',
+                ft = 'nu',
+            },
+            {
+                'folke/lua-dev.nvim',
                 event = 'VeryLazy',
             },
-            { 'LhKipp/nvim-nu', build = 'TSInstall nu' },
-            { 'folke/lua-dev.nvim', event = 'VeryLazy' },
-            { 'folke/neodev.nvim', opts = {}, lazy = true },
-            { 'ray-x/lsp_signature.nvim' },
-            { 'lvimuser/lsp-inlayhints.nvim', config = true },
-            'saecki/crates.nvim',
+            {
+                'folke/neodev.nvim',
+                config = true,
+                lazy = true,
+            },
+            {
+                'ray-x/lsp_signature.nvim',
+                config = true,
+            },
+            {
+                'lvimuser/lsp-inlayhints.nvim',
+                config = true,
+                lazy = true,
+            },
+            {
+                'b0o/schemastore.nvim',
+                ft = { 'json', 'yaml', 'yml' },
+            },
+            {
+                'nvimdev/lspsaga.nvim',
+                lazy = true,
+                opts = {
+                    border_style = BORDER,
+                },
+                dependencies = { 'nvim-treesitter/nvim-treesitter' },
+            },
         },
         opts = {
             diagnostics = {
@@ -112,15 +156,12 @@ return {
             })
         end,
     },
-    { 'nvimdev/lspsaga.nvim', event = 'LspAttach', dependencies = { 'nvim-treesitter/nvim-treesitter' } },
-    { 'folke/trouble.nvim', opts = { position = 'bottom' }, event = 'VeryLazy', lazy = true },
-    { 'b0o/schemastore.nvim', ft = { 'json' } },
-    { 'chr4/nginx.vim', ft = { 'nginx' } },
     {
-        'saecki/crates.nvim',
-        event = { 'BufRead Cargo.toml' },
-        dependencies = { { 'nvim-lua/plenary.nvim' } },
-        config = true,
+        'folke/trouble.nvim',
+        opts = {
+            position = 'bottom',
+        },
+        event = 'VeryLazy',
         lazy = true,
     },
 }

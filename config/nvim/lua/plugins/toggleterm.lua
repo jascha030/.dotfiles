@@ -1,4 +1,3 @@
-local map_opts = { noremap = true, buffer = 0 }
 local silent_opts = { noremap = true, silent = true }
 
 local M = {
@@ -7,9 +6,9 @@ local M = {
     priority = 100,
     version = '*',
     keys = {
-        { 't', '<esc><esc>', [[<C-\><C-n>]], map_opts },
-        { 't', '<C-w>', [[:close<CR>]], map_opts },
-        { 'n', 'q', [[:close<CR>]], map_opts },
+        { 't', '<esc><esc>', [[<C-\><C-n>]], { noremap = true, buffer = 0 } },
+        { 't', '<C-w>', [[:close<CR>]], { noremap = true, buffer = 0 } },
+        { 'n', 'q', [[:close<CR>]], { noremmap = true, buffer = 0 } },
     },
 }
 
@@ -64,9 +63,9 @@ function M.config(_, _)
     toggleterm.setup({})
 
     function _G.set_terminal_keymaps()
-        map('t', '<esc><esc>', [[<C-\><C-n>]], map_opts)
-        map('t', '<C-w>', [[:close<CR>]], map_opts)
-        map('n', 'q', [[:close<CR>]], map_opts)
+        map('t', '<esc><esc>', [[<C-\><C-n>]], { noremap = true, buffer = 0 })
+        map('t', '<C-w>', [[:close<CR>]], { noremap = true, buffer = 0 })
+        map('n', 'q', [[:close<CR>]], { noremap = true, buffer = 0 })
     end
 
     vim.cmd([[autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()]])

@@ -4,7 +4,6 @@ local M = {
     dependencies = {
         {
             'rcarriga/nvim-dap-ui',
-            event = { 'VeryLazy' },
             lazy = true,
             config = function()
                 local dap = require('dap')
@@ -25,9 +24,9 @@ local M = {
                 end
             end,
         },
-        'jayp0521/mason-nvim-dap.nvim',
-        'theHamsta/nvim-dap-virtual-text',
-        'nvim-telescope/telescope-dap.nvim',
+        { 'jayp0521/mason-nvim-dap.nvim', lazy = true },
+        { 'theHamsta/nvim-dap-virtual-text', lazy = true },
+        { 'nvim-telescope/telescope-dap.nvim', lazy = true },
     },
 }
 
