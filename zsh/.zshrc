@@ -2,8 +2,11 @@
 
 # shellcheck disable=SC2093,SC1091,SC2155
 
-# Hacky fix when first window of wezterm messes up lolmsg placement.
-[[ "$TERM_PROGRAM" == "WezTerm" ]] && (( LINES == 24 )) && { until (( LINES > 24 )); do exec zsh -l; done; }
+# Conditionals, if current term is not in neovim .
+if ! (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )); then
+    # Hacky fix when first window of wezterm messes up lolmsg placement.
+    [[ "$TERM_PROGRAM" == "WezTerm" ]] && (( LINES == 24 )) && { until (( LINES > 24 )); do exec zsh -l; done; }
+fi
 
 setopt autocd extendedglob nomatch menucomplete traps_async
 unsetopt BEEP
