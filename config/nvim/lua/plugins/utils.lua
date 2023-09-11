@@ -1,8 +1,12 @@
 return {
     'wakatime/vim-wakatime',
-    {
-        'ojroques/vim-oscyank',
-    },
+    'f-person/git-blame.nvim',
+    { 'ojroques/vim-oscyank', lazy = true },
+    { 'nvim-lua/plenary.nvim', lazy = true },
+    { 'ziontee113/color-picker.nvim', lazy = true },
+    { 'windwp/nvim-autopairs', config = true },
+    { 'petertriho/nvim-scrollbar', config = true },
+    { 'luukvbaal/stabilize.nvim', config = true },
     {
         'zbirenbaum/copilot.lua',
         cmd = 'Copilot',
@@ -12,11 +16,6 @@ return {
             require('copilot').setup()
         end,
     },
-    {
-        'nvim-lua/plenary.nvim',
-        lazy = true,
-    },
-    { 'f-person/git-blame.nvim' },
     {
         'saecki/crates.nvim',
         event = { 'BufRead Cargo.toml' },
@@ -43,29 +42,23 @@ return {
         },
     },
     {
-        'ziontee113/icon-picker.nvim',
-        lazy = true,
-    },
-    {
-        'ziontee113/color-picker.nvim',
-        lazy = true,
-    },
-    {
         'terrortylor/nvim-comment',
         name = 'nvim_comment',
         config = true,
     },
     {
-        'windwp/nvim-autopairs',
-        config = true,
-    },
-    {
-        'petertriho/nvim-scrollbar',
-        config = true,
-    },
-    {
-        'luukvbaal/stabilize.nvim',
-        config = true,
+        'folke/trouble.nvim',
+        cmd = {
+            'Trouble',
+            'TroubleClose',
+            'TroubleToggle',
+            'TroubleRefresh',
+        },
+        opts = {
+            position = 'bottom',
+            win_config = { border = BORDER },
+            use_diagnostic_signs = true,
+        },
     },
     {
         'folke/which-key.nvim',
@@ -84,5 +77,9 @@ return {
                 wk.register(results, { nowait = true, mode = mtype })
             end
         end,
+    },
+    {
+        'ziontee113/icon-picker.nvim',
+        cond = false,
     },
 }
