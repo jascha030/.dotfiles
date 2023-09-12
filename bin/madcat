@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+function __madcat() {
+    local _path="$1"
+    local bin
+
+    bin=$(which cat)
+
+    if which bat >/dev/null; then
+        bin=$(which bat)
+    fi
+
+    if [[ $_path == *md ]]; then
+        if which mdcat >/dev/null; then
+            bin=$(which mdcat)
+        fi
+    fi
+
+    $bin "$@"
+}
+
+__madcat "$@"
