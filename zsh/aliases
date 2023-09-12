@@ -26,6 +26,8 @@ alias dev="cd ${DEV}"
 alias composerhome='cd $(composer -g config home)'
 alias root='cd $(git rev-parse --show-toplevel)'
 
+alias grv='git remote -v'
+
 # Debugging
 alias bench='hyperfine --warmup 100 "exec zsh -l"'
 alias checkitalics="echo -e '\e[3mitalic\e[23m'"
