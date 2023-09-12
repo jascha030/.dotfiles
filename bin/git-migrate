@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+bb2gh mv -o "WP-Brothers" -c "jascha030"
+git add .
+git commit -m "CODEOWNERS"
+git push
+git push origin --tags
+
