@@ -103,6 +103,29 @@ function M.lazy_notify()
     timer:start(500, 0, replay)
 end
 
+function M.float_term(cmd, opts)
+    require('lazy.util').open_cmd(
+        cmd,
+        vim.tbl_deep_extend('force', {
+            terminal = true,
+            close_on_exit = true,
+            enter = true,
+            float = {
+                size = {
+                    width = 0.9,
+                    height = 0.9,
+                },
+                margin = {
+                    top = 0,
+                    right = 0,
+                    bottom = 0,
+                    left = 0,
+                },
+            },
+        }, opts or {})
+    )
+end
+
 function M.open_inspect_float()
     local bufnr = vim.api.nvim_create_buf(false, true)
     local items = vim.inspect_pos()
