@@ -38,7 +38,10 @@ local M = {
             lint_events = { 'BufWrite', 'CursorHold' },
         },
         indent = { enable = true },
-        highlight = { enable = true },
+        highlight = {
+            enable = true,
+            use_languagetree = true,
+        },
         rainbow = {
             enable = true,
             extended_mode = true,
