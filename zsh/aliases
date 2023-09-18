@@ -1,8 +1,6 @@
 #!/usr/bin/env zsh
 
 #------------------------------------------------ Terminal / Dotfiles ------------------------------------------------#
-
-# Controls
 alias rr="exec ${SHELL} -l"
 alias clear='clear-screen-zle'
 alias rscr='tput rmcup'
@@ -26,48 +24,43 @@ alias dev="cd ${DEV}"
 alias composerhome='cd $(composer -g config home)'
 alias root='cd $(git rev-parse --show-toplevel)'
 
-alias grv='git remote -v'
-
-# Debugging
+alias localenv="nvim ${HOME}/env.local"
 alias bench='hyperfine --warmup 100 "exec zsh -l"'
 alias checkitalics="echo -e '\e[3mitalic\e[23m'"
 alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
 
-#----------------------------------------------------- Utilities -----------------------------------------------------#
+__list_path () { echo "$PATH" | tr ':' '\n'; }
+alias list:path='__list_path'
+alias list:brew="brew list"
+alias list:cargo="cargo install --list"
 
+#----------------------------------------------------- Utilities -----------------------------------------------------#
 (( ${+commands[nvim]} )) && {
     alias vim=nvim
     alias n=nvim
 }
 
 alias luamake="${HOME}/tools/lua-language-server/3rd/luamake/luamake"
-alias localenv="nvim ${HOME}/env.local"
-alias scrsvr='open -a ScreenSaverEngine'
-alias tm-auto='sudo tmutil startbackup --auto; tmutil status'
-
-alias kraken='$(open gitkraken://repo/${PWD})'
-alias wpe='open "https://my.wpengine.com/#all"'
-
 alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
 alias cargoup='cargo install-update --all'
 alias appup='brewup && cargoup'
+alias scrsvr='open -a ScreenSaverEngine'
+alias tm-auto='sudo tmutil startbackup --auto; tmutil status'
+alias kraken='$(open gitkraken://repo/${PWD})'
+alias grv='git remote -v'
+alias gh:codeowners='mkdir .github/ && echo "* @jascha030" > .github/CODEOWNERS'
+alias xdebug:enable="export XDEBUG_MODE=debug XDEBUG_SESSION=1"
 
 alias valetrm='rm ${HOME}/.config/valet/*.sock'
 alias valetr='valetrm && valet restart'
 alias vo='valet open'
 
-alias xdebug:enable="export XDEBUG_MODE=debug XDEBUG_SESSION=1"
-
+alias wpe='open "https://my.wpengine.com/#all"'
 alias wpuser:create='wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpuser:update='wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
 alias wpconfig:new='wp-config-new-db'
 alias wpenv:user:create='wp-env run cli wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpenv:user:update='wp-env run cli wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
-
-__list_path () { echo "$PATH" | tr ':' '\n'; }
-alias list:path='__list_path'
-alias list:brew="brew list"
-alias list:cargo="cargo install --list"
 
 alias cp:shrug='e "¯\_(ツ)_/¯" | pbcopy'
 alias cp:broodje='e "52. HUMMES-AVOCADO - witte italiaanse bol - € 6,00" | pbcopy'
@@ -77,13 +70,9 @@ alias cp:fontawesome='cat $HOME/.development/Projects/Php/Wordpress/sites/sbtwee
 alias cp:composerauth='cp $HOME/.composer/auth.json ./'
 alias cp:composer-bin-extras='echo "\"extra\": { \"bamarni-bin\": { \"bin-links\": false, \"forward-command\": true } }," | pbcopy'
 
-alias gh:codeowners='mkdir .github/ && echo "* @jascha030" > .github/CODEOWNERS'
-
 # Fix for Nu-shell and @antfu/ni:nu confusion
 alias nup='$(which nu)'
 alias nu="${HOME}/.cargo/bin/nu"
-
 #-------------------------------------------------- Suffix Aliases ---------------------------------------------------#
 alias -s php=pstorm
 alias -s {.zshrc,zsh,sh,json,yaml,.env,cs,ts,html}=vim
-
