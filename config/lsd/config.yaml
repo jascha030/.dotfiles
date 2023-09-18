@@ -13,7 +13,7 @@ blocks:
 color:
   # when: auto
   when: always
-  theme: jascha030
+  theme: custom 
 
 date: '+%d-%m-%y' 
 dereference: false
