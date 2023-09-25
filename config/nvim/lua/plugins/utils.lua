@@ -1,7 +1,7 @@
 return {
     'wakatime/vim-wakatime',
     'f-person/git-blame.nvim',
-    { 'ojroques/vim-oscyank', lazy = true },
+    { 'ojroques/vim-oscyank' },
     { 'nvim-lua/plenary.nvim', lazy = true },
     { 'ziontee113/color-picker.nvim', lazy = true },
     { 'windwp/nvim-autopairs', config = true },
