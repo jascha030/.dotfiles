@@ -4,22 +4,6 @@ return {
         lazy = true,
     },
     {
-        'noib3/nvim-cokeline',
-        event = 'VeryLazy',
-    },
-    {
-        dir = '~/.development/Projects/Lua/nitepal.nvim',
-        dependencies = { 'hoob3rt/lualine.nvim' },
-    },
-    {
-        'hoob3rt/lualine.nvim',
-        event = {
-            'VimEnter',
-            'BufReadPost',
-            'BufNewFile',
-        },
-    },
-    {
         'yamatsum/nvim-cursorline',
         opts = {
             cursorline = {
@@ -33,10 +17,9 @@ return {
                 hl = { underline = true },
             },
         },
-    },
-    {
-        'yamatsum/nvim-nonicons',
-        dependencies = { 'kyazdani42/nvim-web-devicons' },
+        config = function(_, opts)
+            require('nvim-cursorline').setup(opts)
+        end,
     },
     {
         'norcalli/nvim-colorizer.lua',

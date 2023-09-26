@@ -1,5 +1,5 @@
 -- @type Utils utils
-local utils = require('utils')
+local utils = require('jascha030.utils')
 
 local function paths()
     local path = utils.fs.in_neovim() and vim.split(package.path, ';') or {}

@@ -42,7 +42,6 @@ local M = {
                 },
             },
         },
-
         {
             'nvimdev/lspsaga.nvim',
             lazy = true,
@@ -67,7 +66,7 @@ local M = {
 }
 
 function M.config(_, opts)
-    local lsp = require('lsp')
+    local lsp = require('jascha030.lsp')
     local lspconfig = require('lspconfig')
 
     lsp.setup(opts)
@@ -92,10 +91,6 @@ function M.config(_, opts)
         function(server_name)
             lspconfig[server_name].setup(lsp.get_server_config(server_name))
         end,
-        ['lua_ls'] = function()
-            require('neodev').setup({})
-            lspconfig.lua_ls.setup(lsp.get_server_config('lua_ls'))
-        end,
         ['rust_analyzer'] = function()
             require('rust-tools').setup({
                 tools = {
@@ -111,9 +106,14 @@ function M.config(_, opts)
         end,
         phpactor = function()
             require('phpactor').setup({
-                install = { bin = '/usr/local/bin/phpactor' },
-                lspconfig = { enabled = false },
+                install = {
+                    bin = '/usr/local/bin/phpactor',
+                },
+                lspconfig = {
+                    enabled = false,
+                },
             })
+
             lspconfig.phpactor.setup(lsp.get_server_config('phpactor'))
         end,
     })

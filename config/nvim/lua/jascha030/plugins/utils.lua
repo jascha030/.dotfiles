@@ -56,7 +56,9 @@ return {
         },
         opts = {
             position = 'bottom',
-            win_config = { border = BORDER },
+            win_config = {
+                border = BORDER,
+            },
             use_diagnostic_signs = true,
         },
     },
@@ -64,7 +66,7 @@ return {
         'folke/which-key.nvim',
         event = 'VeryLazy',
         config = function(_, _)
-            local keymaps = require('utils.conf').keymaps
+            local keymaps = require('jascha030.config').options.keymaps
             local wk = require('which-key')
 
             for mtype, tmaps in pairs(keymaps) do

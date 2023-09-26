@@ -4,7 +4,7 @@ function M.on_attach(client, bufnr)
     local self = M.new(client, bufnr)
 
     local fmt = function()
-        require('lsp').format(client, bufnr)
+        require('jascha030.lsp').format(client, bufnr)
     end
 
     self:map('<leader>cd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })

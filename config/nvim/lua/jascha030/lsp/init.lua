@@ -13,14 +13,14 @@ local M = setmetatable({
     },
 }, {
     __index = function(_, key)
-        local ok, submod = pcall(require, 'lsp.' .. key)
+        local ok, submod = pcall(require, 'jascha030.lsp.' .. key)
 
         return ok and submod or nil
     end,
 })
 
 function M.get_server_config(server_name)
-    local ok, server_config = pcall(require, 'lsp.config.' .. server_name)
+    local ok, server_config = pcall(require, 'jascha030.lsp.config.' .. server_name)
 
     if ok and type(server_config) == 'table' then
         return vim.tbl_deep_extend('force', M.opts, server_config)
@@ -95,7 +95,7 @@ function M.setup(opts)
     end
 
     -- diagnostics
-    for name, icon in pairs(require('core.icons').icons.diagnostics) do
+    for name, icon in pairs(require('jascha030.config.icons').icons.diagnostics) do
         vim.fn.sign_define(name, { text = icon, texthl = name, numhl = '' })
     end
 
