@@ -1,6 +1,6 @@
-local Utils = {}
+local M = {}
 
-function Utils.wrap(fnc, ...)
+function M.wrap(fnc, ...)
     local params = { ... }
 
     if type(fnc) ~= 'function' then
@@ -19,7 +19,7 @@ local function safe_load(m)
     return pcall(require, m)
 end
 
-function Utils.check_deps(list)
+function M.check_deps(list)
     for _, v in ipairs(list) do
         if not safe_load(v) then
             return false, v
@@ -29,8 +29,8 @@ function Utils.check_deps(list)
     return true, list
 end
 
-function Utils.validate(list, where)
-    local ok, v = Utils.check_deps(list)
+function M.validate(list, where)
+    local ok, v = M.check_deps(list)
     if not ok then
         error('Error initializing ' .. where .. ': missing dependency: "' .. v .. '.')
     end
@@ -38,7 +38,7 @@ function Utils.validate(list, where)
     return ok
 end
 
-function Utils.str_explode(delimiter, p)
+function M.str_explode(delimiter, p)
     local tbl, position = {}, 0
     if #p == 1 then
         return { p }
@@ -58,18 +58,18 @@ function Utils.str_explode(delimiter, p)
     return tbl
 end
 
-function Utils.get_width()
+function M.get_width()
     return vim.api.nvim_list_uis()[1].width
 end
 
-function Utils.get_height()
+function M.get_height()
     return vim.api.nvim_list_uis()[1].height
 end
 
-return setmetatable(Utils, {
-    __index = function(_, key)
-        local ok, submod = pcall(require, 'utils.' .. key)
+return setmetatable(M, {
+    __index = function (t, k)
+        local ok, mod = pcall(require, 'jascha030.utils.' .. k)
 
-        return ok and submod or nil
-    end,
+        return ok and mod or nil
+    end
 })
