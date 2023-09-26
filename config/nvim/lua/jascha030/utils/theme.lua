@@ -1,6 +1,9 @@
+-- @class ThemeUtils
 local M = {}
+
 local DARK = 'dark'
 local LIGHT = 'light'
+
 local loaded = false
 local darkmode = nil
 
@@ -9,7 +12,7 @@ function M.is_dark()
 end
 
 function M.update(mode)
-    local cs = require('utils').conf.colorscheme
+    local cs = require('jascha030.config').options.colorscheme
 
     if vim.o.background ~= mode then
         if cs == 'nitepal' or cs == 'litepal' then

@@ -1,3 +1,4 @@
+-- @class FilesystemUtils
 local M = {}
 
 M.data_dir = string.format('%s/site', vim.fn.stdpath('data'))

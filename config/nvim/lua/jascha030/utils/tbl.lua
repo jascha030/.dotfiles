@@ -1,3 +1,4 @@
+-- @class TableUtils
 local M = {}
 
 local function value_index(table)
