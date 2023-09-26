@@ -30,5 +30,6 @@ vim.api.nvim_create_autocmd('Signal', {
         utils.theme.set_from_os()
 
         require('config.loader').load_all()
+        require('lualine').refresh()
     end,
 })
