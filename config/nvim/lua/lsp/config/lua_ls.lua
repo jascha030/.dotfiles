@@ -1,3 +1,4 @@
+-- @type Utils utils
 local utils = require('utils')
 
 local function paths()
@@ -43,18 +44,31 @@ end
 local root = os.getenv('HOME') .. '/tools/lua-language-server'
 local binary = root .. '/bin/lua-language-server'
 
+require('neodev').setup({})
+
 return {
     cmd = { binary, '-E', root .. '/main.lua' },
     settings = {
         Lua = {
+            completion = {
+                callSnippet = 'Replace',
+            },
             runtime = {
                 version = version(),
                 maxPreload = 1000,
                 path = paths(),
                 preloadFileSize = 150,
             },
-            diagnostics = { globals = globals() },
-            workspace = { checkThirdParty = false },
+            diagnostics = {
+                globals = globals(),
+            },
+            workspace = {
+                checkThirdParty = false,
+                library = {
+                    vim.fn.stdpath('data') .. '/lazy/emmylua-nvim',
+                    vim.fn.stdpath('config'),
+                }
+            },
             telemetry = { enable = false },
         },
     },
