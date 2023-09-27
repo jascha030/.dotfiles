@@ -100,9 +100,9 @@ fi
 safe_source "${ZDOTDIR}/plugin-spec"
 
 # Application init evaluations.
+eval "$(rtx activate zsh)"
 eval "$(zoxide init zsh)"
 eval "$(teleport-dir init)"
-eval "$(fnm env --use-on-cd)"
 eval "$(op completion zsh)"
 
 export LS_COLORS="$(vivid generate jassie030)"
