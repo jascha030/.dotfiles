@@ -16,7 +16,7 @@ local defaults = {
         opt = {},
     },
     devicons = {
-        icons = require('jascha030.config.icons'),
+        icons = require('jascha030.config.icons').get_icons(),
         overrides = {},
     },
 }
