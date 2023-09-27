@@ -1,6 +1,6 @@
 local M = {}
 
-M.icons = {
+local default = {
     alias = '',
     asterisk = '',
     bookmark = '',
@@ -71,14 +71,30 @@ M.icons = {
     },
 }
 
+M.icons = {}
+
+function M.extend(options)
+    if type(options) ~= 'table' and type(options) ~= 'nil' then
+        return
+    end
+
+    M.icons = vim.tbl_deep_extend('force', {}, M.icons, options or {})
+end
+
+function M.get_icons()
+    return M.icons
+end
+
 function M.get_diagnostic_signs()
     local signs = {}
 
     for k, v in M.icons.diagnostics do
-        table.insert(signs, { name = k, text = v})
+        table.insert(signs, { name = k, text = v })
     end
 
     return signs
 end
+
+M.extend(default)
 
 return M
