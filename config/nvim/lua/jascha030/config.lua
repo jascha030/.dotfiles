@@ -1,6 +1,6 @@
--- @class ConfigOptions
 local M = {}
 
+--- @class ConfigOptions
 local defaults = {
     colorscheme = false,
     keymaps = {
@@ -21,10 +21,19 @@ local defaults = {
     },
 }
 
+--- @type ConfigOptions
 M.options = {}
 
 function M.setup(options)
-    M.options = vim.tbl_deep_extend('force', {}, defaults, options or {})
+    if type(options) == 'table' then
+        M.options = vim.tbl_deep_extend('force', {}, defaults, options or {})
+    end
+end
+
+function M.extend(options)
+    if type(options) == 'table' then
+        M.options = vim.tbl_deep_extend('force', M.options, options)
+    end
 end
 
 return M
