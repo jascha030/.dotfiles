@@ -7,6 +7,7 @@ local scopes = {
     wo = vim.wo,
 }
 
+--- @class OptsUtil
 local M = {}
 
 function M.opt(key, val, scope)

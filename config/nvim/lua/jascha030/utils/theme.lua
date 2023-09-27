@@ -1,4 +1,4 @@
--- @class ThemeUtils
+--- @class ThemeUtil
 local M = {}
 
 local DARK = 'dark'

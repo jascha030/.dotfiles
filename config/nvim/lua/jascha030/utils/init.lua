@@ -1,3 +1,9 @@
+--- @class Utils
+--- @field public fs FilesystemHelpers
+--- @field public keymaps KeymapsUtil
+--- @field public opts OptsUtil
+--- @field public tbl TableHelpers 
+--- @field public theme ThemeUtil
 local M = {}
 
 function M.wrap(fnc, ...)
@@ -67,7 +73,7 @@ function M.get_height()
 end
 
 return setmetatable(M, {
-    __index = function (t, k)
+    __index = function (_, k)
         local ok, mod = pcall(require, 'jascha030.utils.' .. k)
 
         return ok and mod or nil
