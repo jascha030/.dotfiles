@@ -33,9 +33,9 @@ function M.config(_, opts)
     vim.api.nvim_create_autocmd('Signal', {
         pattern = 'SIGUSR1',
         callback = function()
-            theme.theme.set_from_os()
+            theme.set_from_os()
 
-            require('config.loader').load_all()
+            require('jascha030.config.devicons').setup(require('jascha030.config').options.devicons)
             require('lualine').refresh()
         end,
     })
