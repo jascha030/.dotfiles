@@ -1,3 +1,6 @@
+-- Set default window borders
+require('lspconfig.ui.windows').default_options.border = BORDER
+
 local capabilities = vim.lsp.protocol.make_client_capabilities
 
 local M = setmetatable({
@@ -61,8 +64,51 @@ function M.on_attach(client, buffer)
     if client.name == 'phpactor' then
         client.server_capabilities.hoverProvider = false
     end
+end
 
-    M.keymaps.on_attach(client, buffer)
+function M.virtual_text(opts)
+    if type(opts.diagnostics.virtual_text) == 'table' and opts.diagnostics.virtual_text.prefix == 'icons' then
+        opts.diagnostics.virtual_text.prefix = vim.fn.has('nvim-0.10') == 0 and '●'
+            or function(diagnostic)
+                local icons = require('jascha030.config.icons').get_diagnostic_signs()
+
+                for d, icon in pairs(icons) do
+                    if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
+                        return icon
+                    end
+                end
+            end
+    end
+end
+
+function M.inlay_hints(opts)
+    -- Setup inlay-hints
+    local inlay_hint = vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint
+
+    if opts.inlay_hints.enabled and inlay_hint then
+        M.lsp_attach(function(client, buffer)
+            if client.supports_method('textDocument/inlayHint') then
+                inlay_hint(buffer, true)
+            end
+        end)
+    end
+
+    -- Init lsp-inlayhints plugin if available
+    local ok, inlay_hints_plugin = pcall(require, 'lsp-inlayhints')
+
+    if not ok then
+        return
+    end
+
+    M.lsp_attach(inlay_hints_plugin.on_attach, 'LspAttach_inlayhints')
+end
+
+local diagnostic_signs_init = function()
+    local diagnostics_icons = require('jascha030.config.icons').get_diagnostic_signs()
+
+    for _, icon in pairs(diagnostics_icons) do
+        vim.fn.sign_define(icon.name, { text = icon.text, texthl = icon.name, numhl = '' })
+    end
 end
 
 function M.format(client, bufnr)
@@ -85,25 +131,31 @@ end
 function M.setup(opts)
     opts = opts and vim.tbl_deep_extend('force', M.opts, opts) or {}
 
-    require('lspconfig.ui.windows').default_options.border = BORDER
-
-    M.lsp_attach(require('lsp-inlayhints').on_attach, 'LspAttach_inlayhints')
-    M.lsp_attach(M.on_attach)
-
+    -- Register opts defined handler if available
     if opts.on_attach ~= nil then
         M.lsp_attach(opts.on_attach)
     end
 
-    -- diagnostics
-    for name, icon in pairs(require('jascha030.config.icons').icons.diagnostics) do
-        vim.fn.sign_define(name, { text = icon, texthl = name, numhl = '' })
-    end
+    -- Define diagnostic icons
+    diagnostic_signs_init()
 
-    vim.diagnostic.config(opts.diagnostics)
+    -- Default on_attach handlers 
+    M.lsp_attach(M.on_attach)
+    M.lsp_attach(M.keymaps.on_attach)
 
-    -- handlers
+    -- Init optional features
+    M.inlay_hints(opts)
+    M.virtual_text(opts)
+
+    -- Configure diagnostics
+    vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
+
+    -- LSP Handlers
     vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { silent = true, border = BORDER })
-    vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, BORDERS)
+
+    if not (require('jascha030.utils').has_plugin('noice.nvim')) then
+        vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, BORDERS)
+    end
 end
 
 return M
