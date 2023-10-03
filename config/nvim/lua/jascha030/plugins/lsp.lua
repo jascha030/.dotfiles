@@ -16,13 +16,7 @@ local M = {
             'gbprod/phpactor.nvim',
             ft = 'php',
             cmd = 'PhpActor',
-            keys = {
-                {
-                    '<leader>pc',
-                    ':PhpActor context_menu<cr>',
-                    desc = 'PhpActor context menu',
-                },
-            },
+            keys = { { '<leader>pc', ':PhpActor context_menu<cr>', desc = 'PhpActor context menu' } },
             build = function()
                 require('phpactor.handler.update')()
             end,
@@ -32,22 +26,14 @@ local M = {
             name = 'fidget',
             lazy = true,
             opts = {
-                text = {
-                    spinner = 'dots',
-                },
-                window = {
-                    relative = 'editor',
-                    blend = 0,
-                    zindex = nil,
-                },
+                text = { spinner = 'dots' },
+                window = { relative = 'editor', blend = 0, zindex = nil },
             },
         },
         {
             'nvimdev/lspsaga.nvim',
             lazy = true,
-            opts = {
-                border_style = BORDER,
-            },
+            opts = { border_style = BORDER },
             dependencies = { 'nvim-treesitter/nvim-treesitter' },
         },
     },
@@ -55,41 +41,46 @@ local M = {
         diagnostics = {
             underline = true,
             update_in_insert = false,
-            virtual_text = true,
             severity_sort = true,
+            virtual_text = {
+                spacing = 4,
+                source = 'if_many',
+                prefix = '●',
+            },
         },
         format = {
             formatting_options = nil,
             timeout_ms = 10000,
         },
+        inlay_hints = { enabled = false },
+        mason = {
+            lspconfig = {
+                automatic_installation = true,
+                ensure_installed = {
+                    'angularls',
+                    'bashls',
+                    'intelephense',
+                    'jsonls',
+                    'lua_ls',
+                    'phpactor',
+                    'rust_analyzer',
+                    'tailwindcss',
+                },
+            },
+        },
     },
 }
 
 function M.config(_, opts)
-    local lsp = require('jascha030.lsp')
-    local lspconfig = require('lspconfig')
+    local lspconfig, get_server_config = require('lspconfig'), require('jascha030.lsp').get_server_config
 
-    lsp.setup(opts)
-
+    require('jascha030.lsp').setup(opts)
     require('nu').setup({})
-
-    require('mason-lspconfig').setup({
-        ensure_installed = {
-            'angularls',
-            'bashls',
-            'intelephense',
-            'jsonls',
-            'lua_ls',
-            'phpactor',
-            'rust_analyzer',
-            'tailwindcss',
-        },
-        automatic_installation = true,
-    })
+    require('mason-lspconfig').setup(opts.mason.lspconfig)
 
     require('mason-lspconfig').setup_handlers({
         function(server_name)
-            lspconfig[server_name].setup(lsp.get_server_config(server_name))
+            lspconfig[server_name].setup(get_server_config(server_name))
         end,
         ['rust_analyzer'] = function()
             require('rust-tools').setup({
@@ -101,7 +92,7 @@ function M.config(_, opts)
                         show_parameter_hints = true,
                     },
                 },
-                server = lsp.get_server_config('rust_analyzer'),
+                server = get_server_config('rust_analyzer'),
             })
         end,
         phpactor = function()
@@ -109,12 +100,9 @@ function M.config(_, opts)
                 install = {
                     bin = '/usr/local/bin/phpactor',
                 },
-                lspconfig = {
-                    enabled = false,
-                },
+                lspconfig = { enabled = false },
             })
-
-            lspconfig.phpactor.setup(lsp.get_server_config('phpactor'))
+            lspconfig.phpactor.setup(get_server_config('phpactor'))
         end,
     })
 end
