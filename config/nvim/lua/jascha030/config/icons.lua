@@ -82,13 +82,17 @@ function M.extend(options)
 end
 
 function M.get_icons()
+    if vim.tbl_isempty(M.icons) then
+        M.extend({})
+    end
+
     return M.icons
 end
 
 function M.get_diagnostic_signs()
     local signs = {}
 
-    for k, v in M.icons.diagnostics do
+    for k, v in pairs(M.get_icons().diagnostics) do
         table.insert(signs, { name = k, text = v })
     end
 
