@@ -35,10 +35,19 @@ return {
     {
         'lukas-reineke/indent-blankline.nvim',
         name = 'indent_blankline',
+        main = 'ibl',
         opts = {
-            filetype_exclude = { 'dashboard' },
-            show_current_context = true,
-            show_current_context_start = true,
+            indent = {
+                char = '│'
+            },
+            exclude = {
+                filetypes = {
+                    'dashboard',
+                },
+            },
+            scope = {
+                enabled = true,
+            },
         },
     },
     {
