@@ -128,6 +128,14 @@ function M.format(client, bufnr)
     })
 end
 
+function M.signature_help_handler()
+    if require('jascha030.utils').has_plugin('noice.nvim') then
+        return false
+    end
+
+    return vim.lsp.with(vim.lsp.handlers.signature_help, BORDERS)
+end
+
 function M.setup(opts)
     opts = opts and vim.tbl_deep_extend('force', M.opts, opts) or {}
 
@@ -139,7 +147,7 @@ function M.setup(opts)
     -- Define diagnostic icons
     diagnostic_signs_init()
 
-    -- Default on_attach handlers 
+    -- Default on_attach handlers
     M.lsp_attach(M.on_attach)
     M.lsp_attach(M.keymaps.on_attach)
 
@@ -152,10 +160,7 @@ function M.setup(opts)
 
     -- LSP Handlers
     vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { silent = true, border = BORDER })
-
-    if not (require('jascha030.utils').has_plugin('noice.nvim')) then
-        vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, BORDERS)
-    end
+    vim.lsp.handlers['textDocument/signatureHelp'] = M.signature_help_handler()
 end
 
 return M
