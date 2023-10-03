@@ -82,13 +82,17 @@ return {
             },
         },
     },
+    -- { "rcarriga/nvim-notify", enabled = false },
     {
         'folke/noice.nvim',
         event = 'VeryLazy',
         dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
         opts = {
             routes = { { filter = { event = 'msg_show', kind = '', find = 'written' }, opts = { skip = true } } },
-            notify = { enabled = true, view = 'notify' },
+            notify = {
+                enabled = false,
+                -- view = 'notify',
+            },
             lsp = {
                 hover = { enabled = true },
                 progress = { enabled = false },
@@ -110,6 +114,7 @@ return {
     },
     {
         'rcarriga/nvim-notify',
+        cond = false,
         keys = {
             {
                 '<leader>un',
