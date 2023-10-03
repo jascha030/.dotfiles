@@ -6,6 +6,12 @@
 --- @field public theme ThemeUtil
 local M = {}
 
+---@param plugin string
+---@return boolean
+function M.has_plugin(plugin)
+	return require('lazy.core.config').spec.plugins[plugin] ~= nil
+end
+
 function M.wrap(fnc, ...)
     local params = { ... }
 
