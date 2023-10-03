@@ -65,6 +65,7 @@ path=(
     "${HOME}/.cargo/bin"
     "${HOME}/go/bin"
     "${HOME}/tools"
+    "${HOME}/.local/share/rtx/shims"
     "${path[@]}"
 ); typeset -aU path
 
