@@ -1,10 +1,9 @@
--- Set default window borders
-require('lspconfig.ui.windows').default_options.border = BORDER
-
+local init = false
 local capabilities = vim.lsp.protocol.make_client_capabilities
 
 local M = setmetatable({
-    opts = {
+    opts = {},
+    default = {
         capabilities = (function()
             local caps, ok, cmp = capabilities(), pcall(require, 'cmp_nvim_lsp')
 
@@ -22,14 +21,26 @@ local M = setmetatable({
     end,
 })
 
+function M.extend_opts(opts)
+    if not vim.tbl_isempty(opts) then
+        M.opts = vim.tbl_deep_extend('force', M.opts, opts)
+    end
+
+    return M.opts
+end
+
+function M.default_server_opts()
+    return vim.deepcopy(M.default)
+end
+
 function M.get_server_config(server_name)
     local ok, server_config = pcall(require, 'jascha030.lsp.config.' .. server_name)
 
     if ok and type(server_config) == 'table' then
-        return vim.tbl_deep_extend('force', M.opts, server_config)
+        return vim.tbl_deep_extend('force', M.default_server_opts(), server_config)
     end
 
-    return vim.tbl_deep_extend('force', {}, M.opts)
+    return vim.tbl_deep_extend('force', {}, M.default_server_opts())
 end
 
 ---@param on_attach fun(client, buffer)
@@ -60,6 +71,8 @@ function M.on_attach(client, buffer)
     if client.server_capabilities.completionProvider then
         vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = buffer })
     end
+
+    vim.notify(client.name, vim.log.levels.DEBUG)
 
     if client.name == 'phpactor' then
         client.server_capabilities.hoverProvider = false
@@ -130,14 +143,23 @@ end
 
 function M.signature_help_handler()
     if require('jascha030.utils').has_plugin('noice.nvim') then
-        return false
+        return nil
     end
 
     return vim.lsp.with(vim.lsp.handlers.signature_help, BORDERS)
 end
 
+M.extend_opts({})
+
 function M.setup(opts)
-    opts = opts and vim.tbl_deep_extend('force', M.opts, opts) or {}
+    -- Set default window borders
+    if not init then
+        require('lspconfig.ui.windows').default_options.border = BORDER
+
+        init = true
+    end
+
+    opts = M.extend_opts(opts or {})
 
     -- Register opts defined handler if available
     if opts.on_attach ~= nil then
@@ -160,7 +182,12 @@ function M.setup(opts)
 
     -- LSP Handlers
     vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { silent = true, border = BORDER })
-    vim.lsp.handlers['textDocument/signatureHelp'] = M.signature_help_handler()
+
+    local signature_help = M.signature_help_handler()
+
+    if signature_help ~= nil then
+        vim.lsp.handlers['textDocument/signatureHelp'] = signature_help
+    end
 end
 
 return M
