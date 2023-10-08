@@ -65,6 +65,7 @@ require('jascha030').setup({
             ['<C-_>'] = { '<cmd>CommentToggle<CR>' },
             ['<leader>CP'] = { '<cmd>PickColor<CR>' },
             -- TreeSitter
+            ['<leader>c'] = { '<cmd>lua require("jascha030.lsp.menu").show()<CR>', { desc = 'Context aware menu' } },
             ['<leader>tc'] = { ':lua vim.show_pos()<CR>' },
             ['<leader>p'] = { '<cmd>InsprectTree<CR>' },
             ['<leader>l'] = { '<cmd>Lazy<CR>' },
