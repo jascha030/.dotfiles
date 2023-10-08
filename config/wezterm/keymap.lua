@@ -3,7 +3,7 @@ local fish_args = { args = { '/usr/local/bin/fish', '--login' }, cwd = os.getenv
 
 return {
     { key = 'F', mods = 'LEADER|SHIFT', action = wezterm.action({ SpawnCommandInNewTab = fish_args }) },
-    { key = 'n', mods = 'SHIFT|CTRL',   action = 'ToggleFullScreen' },
+    { key = 'f', mods = 'SHIFT|CTRL',   action = 'ToggleFullScreen' },
     { key = 'v', mods = 'CMD',          action = wezterm.action.PasteFrom('Clipboard') },
     { key = 'c', mods = 'CMD',          action = wezterm.action.CopyTo('ClipboardAndPrimarySelection') },
     {

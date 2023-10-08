@@ -62,21 +62,9 @@ function M.get_rules(alt)
     end
 
     return {
-        {
-            italic = false,
-            intensity = 'Normal',
-            font = font,
-        },
-        {
-            italic = true,
-            intensity = 'Bold',
-            font = font,
-        },
-        {
-            italic = true,
-            intensity = 'Normal',
-            font = wezterm.font(M.options.italic, { italic = true }),
-        },
+        { italic = false, intensity = 'Normal', font = font },
+        { italic = true, intensity = 'Bold', font = font },
+        { italic = true, intensity = 'Normal', font = wezterm.font(M.options.italic, { italic = true }) },
     }
 end
 
