@@ -25,6 +25,7 @@ local M = {
                 hide_dotfiles = false,
                 always_hide = { '.DS_Store' },
             },
+            -- use_libuv_file_watcher = false
         },
     },
 }
