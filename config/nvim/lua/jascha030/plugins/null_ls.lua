@@ -24,17 +24,38 @@ return {
                 }),
                 nls.builtins.diagnostics.eslint,
                 nls.builtins.diagnostics.zsh,
-                nls.builtins.diagnostics.twigcs,
+                nls.builtins.diagnostics.twigcs.with({
+                    condition = function(utils)
+                        return utils.root_has_file('.twig-cs-fixer.php')
+                    end,
+                    extra_args = function()
+                        return {
+                            '--config=' .. vim.fn.getcwd() .. '/.twig-cs-fixer.php',
+                            'lint',
+                            '--fix',
+                            '$FILENAME',
+                            '--no-cache',
+                        }
+                    end,
+                }),
                 nls.builtins.formatting.blade_formatter,
                 nls.builtins.formatting.beautysh,
                 nls.builtins.formatting.phpcsfixer.with({
-                    args = {
-                        '--no-interaction',
-                        '--quiet',
-                        '--config=' .. os.getenv('HOME') .. '/.config/.php-cs-fixer.php',
-                        'fix',
-                        '$FILENAME',
-                    },
+                    condition = function(utils)
+                        local has_file = utils.root_has_file
+
+                        return has_file('.php-cs-fixer.dist.php')
+                    end,
+                    extra_args = function()
+                        local config = vim.fn.getcwd() .. '/.php-cs-fixer.dist.php'
+                        return {
+                            '--no-interaction',
+                            '--quiet',
+                            '--config=' .. config,
+                            'fix',
+                            '$FILENAME',
+                        }
+                    end,
                 }),
                 nls.builtins.completion.spell,
             },
