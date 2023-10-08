@@ -1,0 +1,11 @@
+{{ '<?php'|raw }}
+
+declare(strict_types=1);
+
+namespace {{ prototype.namespace }};
+
+{% for class in prototype.classes %}
+class {{ class.name }}
+{
+}
+{% endfor %}
