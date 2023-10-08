@@ -1,5 +1,4 @@
 {
-    "$schema": "/Users/jaschavanaalst/tools/phpactor/phpactor.schema.json",
     "language_server_phpstan.bin": "%project_root%/vendor/bin/phpstan",
     "language_server_phpstan.enabled": true,
     "language_server_php_cs_fixer.enabled": true,
@@ -11,6 +10,13 @@
     ],
     "completion.dedupe": true,
     "completion.dedupe_match_fqn": true,
+    "indexer.exclude_patterns": [
+        "/vendor/**/Tests/**/*",
+        "/vendor/**/tests/**/*",
+        "/.var/cache/**/*",
+        "/var/cache/**/*",
+        "/vendor-bin/**/vendor/php-stubs/wordpress-stubs/wordpress-stubs.php"
+    ],
     "indexer.stub_paths": [
         "/Users/jaschavanaalst/.composer/vendor-bin/stubs/vendor/jetbrains/phpstorm-stubs",
         "/Users/jaschavanaalst/.composer/vendor-bin/stubs/vendor/php-stubs/wordpress-stubs"
