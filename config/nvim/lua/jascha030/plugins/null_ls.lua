@@ -1,5 +1,6 @@
 return {
-    'jose-elias-alvarez/null-ls.nvim',
+    'nvimtools/none-ls.nvim',
+    name = 'null-ls',
     config = function()
         local nls = require('null-ls')
 
@@ -43,7 +44,6 @@ return {
                 nls.builtins.formatting.phpcsfixer.with({
                     condition = function(utils)
                         local has_file = utils.root_has_file
-
                         return has_file('.php-cs-fixer.dist.php')
                     end,
                     extra_args = function()
