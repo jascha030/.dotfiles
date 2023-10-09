@@ -64,10 +64,10 @@ local default = {
         TypeParameter = '',
     },
     diagnostics = {
-        DiagnosticSignError = '',
-        DiagnosticSignWarn = '',
-        DiagnosticSignHint = '',
-        DiagnosticSignInfo = '',
+        Error = '',
+        Warn = '',
+        Hint = '',
+        Info = '',
     },
 }
 
@@ -89,11 +89,18 @@ function M.get_icons()
     return M.icons
 end
 
+---@class DiagnosticSignIcon
+---@field name string
+---@field text string
+--
+---@return DiagnosticSignIcon[]
 function M.get_diagnostic_signs()
     local signs = {}
 
-    for k, v in pairs(M.get_icons().diagnostics) do
-        table.insert(signs, { name = k, text = v })
+    for name, text in pairs(M.get_icons().diagnostics) do
+        local hl = 'DiagnosticSign' .. name
+
+        table.insert(signs, { name = hl, text = text })
     end
 
     return signs

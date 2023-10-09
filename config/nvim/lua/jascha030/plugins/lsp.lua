@@ -39,6 +39,7 @@ local M = {
     },
     opts = {
         diagnostics = {
+            signs = true,
             underline = true,
             update_in_insert = false,
             severity_sort = true,
