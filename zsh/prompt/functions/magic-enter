@@ -1,4 +1,4 @@
-#!/usr/bin/env/zsh
+#!/usr/bin/env zsh
 
 # Discard line buffer when empty.
 # Prevents unnecessary movement on enter or tab.
