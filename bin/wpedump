@@ -4,8 +4,11 @@ IN="$1"
 IFS='@' read -ra PARTS <<< "$IN"
 
 USR="${PARTS[0]}"
-SSHADDR="${PARTS[1]}"
+# SSHADDR="${PARTS[1]}"
 
 # echo "scp -O \"${1}:sites/${USR}/wp-config.php\" > \"${PWD}/wpe-config.php\""
-scp -O "$1:sites/$USR/wp-config.php" "$PWD/wpe-config.php"
+scp -O "$1":sites/"$USR"/wp-config.php "$PWD"/wpe-config.php 
+scp -O "$1":sites/"$USR"/wp-content/mysql.sql "$PWD"/"$USR".sql
+
+# wp-config-new-db 
 
