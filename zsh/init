@@ -75,15 +75,6 @@ if (( ${+DOT_BASH_COMPLETIONS})); then
     safe_source "${DOT_BASH_COMPLETIONS[@]}"
 fi
 
-# Run (bash)compinit for completions.
-autoload -Uz compinit bashcompinit
-compinit; bashcompinit;
-
-# Load Bash completion scripts
-if (( ${+DOT_BASH_COMPLETIONS})); then
-    safe_source "${DOT_BASH_COMPLETIONS[@]}"
-fi
-
 # Assure required dirs and files exist.
 assert_dirs "${DOT_DATA_DIR}"
 assert_files "${DOT_DATA_DIR}/.zsh_history" "${DOT_DATA_DIR}/.mysql_history"
