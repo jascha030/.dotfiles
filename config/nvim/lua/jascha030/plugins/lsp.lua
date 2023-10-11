@@ -10,24 +10,36 @@ local M = {
         { 'folke/lua-dev.nvim', event = 'VeryLazy' },
         { 'folke/neodev.nvim', lazy = true },
         { 'ray-x/lsp_signature.nvim', config = true },
-        { 'lvimuser/lsp-inlayhints.nvim', config = true, lazy = true },
+        {
+            'lvimuser/lsp-inlayhints.nvim',
+            lazy = true,
+            config = function(opts)
+                require('nu').setup(opts)
+            end,
+        },
         { 'b0o/schemastore.nvim', ft = { 'json', 'yaml', 'yml' } },
         {
             'gbprod/phpactor.nvim',
-            ft = 'php',
-            cmd = 'PhpActor',
+            ft = { 'php', 'yaml' },
+            cmd = { 'PhpActor' },
             keys = { { '<leader>pc', ':PhpActor context_menu<cr>', desc = 'PhpActor context menu' } },
             build = function()
                 require('phpactor.handler.update')()
             end,
+            opts = {
+                install = { check_on_startup = 'daily', bin = vim.fn.stdpath('data') .. '/mason/bin/phpactor' },
+                lspconfig = { enabled = true },
+            },
         },
         {
             'j-hui/fidget.nvim',
             name = 'fidget',
+            tag = 'legacy',
             lazy = true,
             opts = {
                 text = { spinner = 'dots' },
                 window = { relative = 'editor', blend = 0, zindex = nil },
+                sources = { phpactor = { ignore = true } },
             },
         },
         {
@@ -53,58 +65,54 @@ local M = {
             formatting_options = nil,
             timeout_ms = 10000,
         },
-        inlay_hints = { enabled = false },
-        mason = {
-            lspconfig = {
-                automatic_installation = true,
-                ensure_installed = {
-                    'angularls',
-                    'bashls',
-                    'intelephense',
-                    'jsonls',
-                    'lua_ls',
-                    'phpactor',
-                    'rust_analyzer',
-                    'tailwindcss',
-                },
-            },
+        inlay_hints = {
+            enabled = false,
         },
     },
 }
 
 function M.config(_, opts)
-    local lspconfig, get_server_config = require('lspconfig'), require('jascha030.lsp').get_server_config
+    local lspconfig = require('lspconfig')
+    local get_server_config = require('jascha030.lsp').get_server_config
 
+    require('lspconfig.ui.windows').default_options.border = BORDER
     require('jascha030.lsp').setup(opts)
-    require('nu').setup({})
-    require('mason-lspconfig').setup(opts.mason.lspconfig)
 
-    require('mason-lspconfig').setup_handlers({
-        function(server_name)
-            lspconfig[server_name].setup(get_server_config(server_name))
-        end,
-        ['rust_analyzer'] = function()
-            require('rust-tools').setup({
-                tools = {
-                    reload_workspace_from_cargo_toml = true,
-                    inlay_hints = {
-                        auto = false,
-                        only_current_line = false,
-                        show_parameter_hints = true,
+    require('mason-lspconfig').setup({
+        automatic_installation = true,
+        ensure_installed = {
+            'angularls',
+            'bashls',
+            'intelephense',
+            'jsonls',
+            'lua_ls',
+            'marksman',
+            'phpactor',
+            'rust_analyzer',
+            'tailwindcss',
+        },
+        handlers = {
+            function(server)
+                -- Specifically resolve before setup(), allows for before_init logic in case of config function.
+                -- E.g. jascha030.lsp.config.lua_ls.get_server_config() runs neodev setup before config table is returned.
+                local config = get_server_config(server)
+
+                lspconfig[server].setup(config)
+            end,
+            rust_analyzer = function()
+                require('rust-tools').setup({
+                    server = get_server_config('rust_analyzer'),
+                    tools = {
+                        reload_workspace_from_cargo_toml = true,
+                        inlay_hints = {
+                            auto = true,
+                            only_current_line = false,
+                            show_parameter_hints = true,
+                        },
                     },
-                },
-                server = get_server_config('rust_analyzer'),
-            })
-        end,
-        phpactor = function()
-            require('phpactor').setup({
-                install = {
-                    bin = '/usr/local/bin/phpactor',
-                },
-                lspconfig = { enabled = false },
-            })
-            lspconfig.phpactor.setup(get_server_config('phpactor'))
-        end,
+                })
+            end,
+        },
     })
 end
 

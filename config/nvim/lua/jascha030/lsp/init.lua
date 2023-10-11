@@ -1,46 +1,69 @@
-local init = false
-local capabilities = vim.lsp.protocol.make_client_capabilities
+local M = {}
 
-local M = setmetatable({
-    opts = {},
-    default = {
-        capabilities = (function()
-            local caps, ok, cmp = capabilities(), pcall(require, 'cmp_nvim_lsp')
+function M.client_capabilities()
+    local caps = { vim.lsp.protocol.make_client_capabilities() }
 
-            return ok and cmp.default_capabilities(caps) or caps
-        end)(),
-        flags = {
-            debounce_text = 150,
+    local ok, cmp = pcall(require, 'cmp_nvim_lsp')
+    if ok then
+        table.insert(caps, cmp.default_capabilities())
+    end
+
+    return vim.tbl_deep_extend('force', unpack(caps), {
+        workspace = {
+            didChangeWatchedFiles = {
+                dynamicRegistration = false,
+            },
         },
+    })
+end
+
+local defaults = {
+    capabilities = M.client_capabilities(),
+    flags = {
+        debounce_text = 150,
     },
-}, {
-    __index = function(_, key)
-        local ok, submod = pcall(require, 'jascha030.lsp.' .. key)
+}
 
-        return ok and submod or nil
-    end,
-})
+function M.config(config)
+    local merge = { {}, vim.deepcopy(defaults) }
 
-function M.extend_opts(opts)
-    if not vim.tbl_isempty(opts) then
-        M.opts = vim.tbl_deep_extend('force', M.opts, opts)
+    if type(config) == 'table' and not vim.tbl_isempty(config) then
+        table.insert(merge, config)
     end
 
-    return M.opts
+    return vim.tbl_deep_extend('force', table.unpack(merge))
 end
 
-function M.default_server_opts()
-    return vim.deepcopy(M.default)
+local function config_error(server, err, level)
+    error('Failed to load config for ' .. server .. ' ' .. err, level)
 end
 
-function M.get_server_config(server_name)
-    local ok, server_config = pcall(require, 'jascha030.lsp.config.' .. server_name)
-
-    if ok and type(server_config) == 'table' then
-        return vim.tbl_deep_extend('force', M.default_server_opts(), server_config)
+---@param server string LSP server name
+---@return table
+function M.get_server_config(server)
+    local ok, config = pcall(require, 'jascha030.lsp.servers.' .. server)
+    if not ok then
+        config = {}
     end
 
-    return vim.tbl_deep_extend('force', {}, M.default_server_opts())
+    if type(config) == 'function' then
+        ok, config = pcall(config)
+        if not ok then
+            config_error(server, 'Error: ' .. config, 2)
+        end
+
+        if type(config) ~= 'table' then
+            config_error(server, 'provided callback should be a table, got ' .. type(config) .. ' instead', 2)
+        end
+
+        return M.config(config)
+    end
+
+    if type(config) ~= 'table' then
+        config_error(server, 'a table was expected, got ' .. type(config) .. ' instead', 2)
+    end
+
+    return M.config(config)
 end
 
 ---@param on_attach fun(client, buffer)
@@ -60,7 +83,6 @@ function M.lsp_attach(on_attach, group)
 
     if nil ~= group then
         attach.group = group
-
         vim.api.nvim_create_augroup(group, {})
     end
 
@@ -77,6 +99,8 @@ function M.on_attach(client, buffer)
     if client.name == 'phpactor' then
         client.server_capabilities.hoverProvider = false
     end
+
+    require('jascha030.lsp.keymaps').on_attach(client, buffer)
 end
 
 function M.virtual_text(opts)
@@ -94,8 +118,8 @@ function M.virtual_text(opts)
     end
 end
 
+-- Setup inlay-hints
 function M.inlay_hints(opts)
-    -- Setup inlay-hints
     local inlay_hint = vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint
 
     if opts.inlay_hints.enabled and inlay_hint then
@@ -108,7 +132,6 @@ function M.inlay_hints(opts)
 
     -- Init lsp-inlayhints plugin if available
     local ok, inlay_hints_plugin = pcall(require, 'lsp-inlayhints')
-
     if not ok then
         return
     end
@@ -117,10 +140,18 @@ function M.inlay_hints(opts)
 end
 
 local diagnostic_signs_init = function()
-    local diagnostics_icons = require('jascha030.config.icons').get_diagnostic_signs()
+    ---@param icon DiagnosticSignIcon
+    local function define_diagnostic_icon(icon)
+        vim.fn.sign_define(icon.name, {
+            text = icon.text,
+            texthl = icon.name,
+            numhl = icon.name,
+        })
+    end
 
-    for _, icon in pairs(diagnostics_icons) do
-        vim.fn.sign_define(icon.name, { text = icon.text, texthl = icon.name, numhl = '' })
+    ---@param icon DiagnosticSignIcon
+    for _, icon in pairs(require('jascha030.config.icons').get_diagnostic_signs()) do
+        define_diagnostic_icon(icon)
     end
 end
 
@@ -149,39 +180,26 @@ function M.signature_help_handler()
     return vim.lsp.with(vim.lsp.handlers.signature_help, BORDERS)
 end
 
-M.extend_opts({})
+diagnostic_signs_init()
 
 function M.setup(opts)
-    -- Set default window borders
-    if not init then
-        require('lspconfig.ui.windows').default_options.border = BORDER
-
-        init = true
-    end
-
-    opts = M.extend_opts(opts or {})
-
-    -- Register opts defined handler if available
-    if opts.on_attach ~= nil then
-        M.lsp_attach(opts.on_attach)
-    end
-
-    -- Define diagnostic icons
-    diagnostic_signs_init()
+    opts = opts or {}
 
     -- Default on_attach handlers
     M.lsp_attach(M.on_attach)
-    M.lsp_attach(M.keymaps.on_attach)
 
     -- Init optional features
     M.inlay_hints(opts)
     M.virtual_text(opts)
 
     -- Configure diagnostics
-    vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
+    local diagnostics = vim.deepcopy(opts.diagnostics)
+    vim.diagnostic.config(diagnostics)
 
     -- LSP Handlers
     vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { silent = true, border = BORDER })
+    vim.lsp.handlers['textDocument/publishDiagnostics'] =
+        vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, diagnostics)
 
     local signature_help = M.signature_help_handler()
 
