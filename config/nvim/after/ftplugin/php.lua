@@ -1,5 +1,5 @@
 if vim.g.phpactor_picker_loaded == nil then
-    vim.cmd([[command PhpactorTelescope :lua require('utils.php.phpactor-telescope').picker()]])
+    vim.cmd([[command PhpactorTelescope :lua require('jascha030.utils.php.phpactor-telescope').picker()]])
 
     vim.keymap.set('i', '<C-p>', '<cmd>PhpactorTelescope<CR>')
     vim.g.phpactor_picker_loaded = true
@@ -36,3 +36,4 @@ end
 --     require('dapui').setup()
 -- end
 --
+
