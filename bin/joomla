@@ -1,0 +1,39 @@
+#!/usr/bin/env zsh
+
+function __clean {
+    if [ $# -eq 0 ]; then
+        local curr_path="${PWD}"
+    else 
+        local curr_path="${1}"
+    fi
+
+    local jpaths=(
+        "administrator/templates/atum/css"
+        "templates/cassiopeia/css"
+        "administrator/templates/system/css"
+        "templates/system/css"
+        "media/"
+        "node_modules/"
+        "libraries/vendor/"
+        "administrator/cache/autoload_psr4.php"
+        "installation/template/css"
+    )
+
+    for p in "${jpaths[@]}"; do
+        rm -rf "${curr_path}/${p}"
+    done
+}
+
+function __install {
+    __clean
+    composer install
+    npm ci
+}
+
+if [ "$1" = "clean" ]; then
+    __clean
+fi
+
+if [ "$1" = "install" ]; then
+    __install
+fi
