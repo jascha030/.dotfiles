@@ -73,7 +73,7 @@ local M = {
 
 function M.config(_, opts)
     local lspconfig = require('lspconfig')
-    local get_server_config = require('jascha030.lsp').get_server_config
+    local get_server_config = require('jascha030.lsp.config').get_server_config
 
     require('lspconfig.ui.windows').default_options.border = BORDER
     require('jascha030.lsp').setup(opts)
