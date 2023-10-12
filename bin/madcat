@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# For real madlads.
 function __madcat() {
     local _path="$1"
     local bin
