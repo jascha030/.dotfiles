@@ -12,7 +12,8 @@ local M = {
     opts = {
         ensure_installed = {
             'bash',
-            'comment',
+            -- 'comment',
+            'commonlisp',
             'css',
             'gitattributes',
             'git_config',
@@ -63,7 +64,6 @@ local M = {
                 node_decremental = '<bs>',
             },
         },
-        -- playground = {},
         textobjects = {
             ['aa'] = '@parameters.outer',
             ['ia'] = '@parameters.inner',
@@ -124,3 +124,4 @@ function M.config(_, opts)
 end
 
 return M
+
