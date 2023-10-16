@@ -5,7 +5,7 @@ local M = {
         'BufReadPost',
         'BufNewFile',
     },
-    dependencies = { { 'f-person/git-blame.nvim' } },
+    dependencies = { 'f-person/git-blame.nvim' },
 }
 
 -- Thanks to https://gist.github.com/Lamarcke/36e086dd3bb2cebc593d505e2f838e07 for the attached_clients functionality.
@@ -21,7 +21,6 @@ function M._get_attached_clients()
     local buf_ft = vim.bo.filetype
     local buf_client_names = {}
 
-    -- add client
     for _, client in pairs(buf_clients) do
         if client.name ~= 'copilot' and client.name ~= 'null-ls' then
             table.insert(buf_client_names, client.name)

@@ -11,7 +11,9 @@ local M = {
 
 function M.config()
     require('neotest').setup({
-        adapters = { require('neotest-phpunit') },
+        adapters = {
+            require('neotest-phpunit'),
+        },
     })
 end
 
