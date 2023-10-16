@@ -1,29 +1,14 @@
 --- @class TableHelpers
 local M = {}
 
-local function value_index(table)
-	local set = {}
-
-	for _, v in ipairs(table) do
-		set[v] = true
-	end
-
-	return set
-end
-
-local function count(table)
+function M.tbl_count(table)
 	local _count = 0
+
 	for _, _ in ipairs(table) do
 		_count = _count + 1
 	end
 
 	return _count
-end
-
-function M.tbl_contains(t, v)
-	local map = value_index(t)
-
-	return map[v] or false
 end
 
 function M.tbl_length(t)
@@ -32,15 +17,7 @@ function M.tbl_length(t)
 		return 0
 	end
 
-	return count(t)
-end
-
-function M.tbl_merge(t1, t2)
-	for _, v in ipairs(t2) do
-		table.insert(t1, v)
-	end
-
-	return t1
+	return M.tbl_count(t)
 end
 
 return M
