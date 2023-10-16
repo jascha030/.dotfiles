@@ -92,7 +92,6 @@ end
 ---@class DiagnosticSignIcon
 ---@field name string
 ---@field text string
---
 ---@return DiagnosticSignIcon[]
 function M.get_diagnostic_signs()
     local signs = {}
