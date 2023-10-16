@@ -1,3 +1,4 @@
+---@class jascha030.lsp.Config
 local M = {}
 
 ---@param server string LSP server name

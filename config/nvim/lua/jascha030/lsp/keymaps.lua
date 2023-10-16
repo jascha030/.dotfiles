@@ -1,3 +1,4 @@
+---@class jascha030.lsp.Keymaps
 local M = {}
 
 function M.on_attach(client, bufnr)

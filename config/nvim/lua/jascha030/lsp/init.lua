@@ -1,69 +1,128 @@
+---@class jascha030.lsp.Module
+---@field public keymaps jascha030.lsp.Keymaps
+---@field public config jascha030.lsp.Config
+---@field public menu jascha030.lsp.ContextAwareMenu
 local M = {}
 
-function M.client_capabilities()
-    local caps = { vim.lsp.protocol.make_client_capabilities() }
-
-    local ok, cmp = pcall(require, 'cmp_nvim_lsp')
-    if ok then
-        table.insert(caps, cmp.default_capabilities())
-    end
-
-    return vim.tbl_deep_extend('force', unpack(caps), {
-        workspace = {
-            didChangeWatchedFiles = {
-                dynamicRegistration = false,
-            },
-        },
-    })
-end
-
-local defaults = {
-    capabilities = M.client_capabilities(),
-    flags = {
-        debounce_text = 150,
-    },
-}
-
-function M.config(config)
-    local merge = { {}, vim.deepcopy(defaults) }
-
-    if type(config) == 'table' and not vim.tbl_isempty(config) then
-        table.insert(merge, config)
-    end
-
-    return vim.tbl_deep_extend('force', table.unpack(merge))
-end
-
-local function config_error(server, err, level)
-    error('Failed to load config for ' .. server .. ' ' .. err, level)
-end
-
----@param server string LSP server name
----@return table
-function M.get_server_config(server)
-    local ok, config = pcall(require, 'jascha030.lsp.servers.' .. server)
-    if not ok then
-        config = {}
-    end
-
-    if type(config) == 'function' then
-        ok, config = pcall(config)
+M = setmetatable(M, {
+    __index = function(_, index)
+        local ok, submod = pcall(require, 'jascha030.lsp.' .. index)
         if not ok then
-            config_error(server, 'Error: ' .. config, 2)
+            return nil
         end
 
-        if type(config) ~= 'table' then
-            config_error(server, 'provided callback should be a table, got ' .. type(config) .. ' instead', 2)
+        M[index] = submod
+
+        return M[index]
+    end,
+})
+
+-- local methods = vim.lsp.protocol.Methods
+local md_namespace = vim.api.nvim_create_namespace('jascha030/lsp_float')
+
+--- Adds extra inline highlights to the given buffer.
+---@param buf integer
+local function add_inline_highlights(buf)
+    for l, line in ipairs(vim.api.nvim_buf_get_lines(buf, 0, -1, false)) do
+        for pattern, hl_group in pairs({
+            ['@%S+'] = '@parameter',
+            ['^%s*(Parameters:)'] = '@text.title',
+            ['^%s*(Return:)'] = '@text.title',
+            ['^%s*(See also:)'] = '@text.title',
+            ['{%S-}'] = '@parameter',
+        }) do
+            ---@type integer? from
+            local from, to = 1, nil
+
+            while from do
+                from, to = line:find(pattern, from)
+                if from then
+                    vim.api.nvim_buf_set_extmark(
+                        buf,
+                        md_namespace,
+                        l - 1,
+                        from - 1,
+                        { end_col = to, hl_group = hl_group }
+                    )
+                end
+                from = to and to + 1 or nil
+            end
         end
+    end
+end
 
-        return M.config(config)
+-- HACK: Override `vim.lsp.util.stylize_markdown` to use Treesitter.
+---@param bufnr integer
+---@param contents string[]
+---@param opts table
+---@return string[]
+---@diagnostic disable-next-line: duplicate-set-field
+vim.lsp.util.stylize_markdown = function(bufnr, contents, opts)
+    contents = vim.lsp.util._normalize_markdown(contents, {
+        width = vim.lsp.util._make_floating_popup_size(contents, opts),
+    })
+
+    vim.bo[bufnr].filetype = 'markdown'
+    vim.treesitter.start(bufnr)
+    vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, contents)
+
+    add_inline_highlights(bufnr)
+
+    return contents
+end
+
+local diagnostic_signs_init = function()
+    ---@param icon DiagnosticSignIcon
+    local function define_diagnostic_icon(icon)
+        vim.fn.sign_define(icon.name, {
+            text = icon.text,
+            texthl = icon.name,
+            numhl = icon.name,
+        })
     end
 
-    if type(config) ~= 'table' then
-        config_error(server, 'a table was expected, got ' .. type(config) .. ' instead', 2)
+    ---@param icon DiagnosticSignIcon
+    for _, icon in pairs(require('jascha030.config.icons').get_diagnostic_signs()) do
+        define_diagnostic_icon(icon)
     end
+end
 
-    return M.config(config)
+---@param client lsp.Client
+local function set_keymaps(client, bufnr)
+    local self = M.keymaps.new(client, bufnr)
+    local diagnostic_goto = M.keymaps.diagnostic_goto
+
+    self:map('<leader>cd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
+    self:map('<leader>cl', 'LspInfo', { desc = 'Lsp Info' })
+    self:map('<leader>xd', 'Telescope diagnostics', { desc = 'Telescope Diagnostics' })
+
+    self:map('gd', 'Telescope lsp_definitions', { desc = 'Goto Definition' })
+    self:map('gr', 'Telescope lsp_references', { desc = 'References' })
+    self:map('gD', 'Telescope lsp_declarations', { desc = 'Goto Declaration' })
+    self:map('gI', 'Telescope lsp_implementations', { desc = 'Goto Implementation' })
+    self:map('gt', 'Telescope lsp_type_definitions', { desc = 'Goto Type Definition' })
+
+    self:map('K', vim.lsp.buf.hover, { desc = 'Hover' })
+    self:map('gK', vim.lsp.buf.signature_help, { desc = 'Signature Help', has = 'signatureHelp' })
+    self:map('<C-k>', vim.lsp.buf.signature_help, { mode = 'i', desc = 'Signature Help', has = 'signatureHelp' })
+
+    self:map(']d', diagnostic_goto(true), { desc = 'Next Diagnostic' })
+    self:map('[d', diagnostic_goto(false), { desc = 'Prev Diagnostic' })
+    self:map(']e', diagnostic_goto(true, 'ERROR'), { desc = 'Next Error' })
+    self:map('[e', diagnostic_goto(false, 'ERROR'), { desc = 'Prev Error' })
+    self:map(']w', diagnostic_goto(true, 'WARNING'), { desc = 'Next Warning' })
+    self:map('[w', diagnostic_goto(false, 'WARNING'), { desc = 'Prev Warning' })
+
+    self:map('<C-a>', vim.lsp.buf.code_action, { desc = 'Code Action', mode = { 'n', 'v' }, has = 'codeAction' })
+    self:map('<leader>a', vim.lsp.buf.code_action, { desc = 'Code Action', mode = { 'n', 'v' }, has = 'codeAction' })
+    self:map('<leader>r', M.keymaps.rename, { expr = true, desc = 'Rename', has = 'rename' })
+
+    self:map('<C-l>', function()
+        M.format(client, bufnr)
+    end, {
+        desc = 'Format Document',
+        has = 'documentFormatting',
+    })
 end
 
 ---@param on_attach fun(client, buffer)
@@ -89,6 +148,7 @@ function M.lsp_attach(on_attach, group)
     vim.api.nvim_create_autocmd('LspAttach', attach)
 end
 
+---@param client lsp.Client
 function M.on_attach(client, buffer)
     if client.server_capabilities.completionProvider then
         vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = buffer })
@@ -100,7 +160,7 @@ function M.on_attach(client, buffer)
         client.server_capabilities.hoverProvider = false
     end
 
-    require('jascha030.lsp.keymaps').on_attach(client, buffer)
+    M.lsp_attach(set_keymaps)
 end
 
 function M.virtual_text(opts)
@@ -139,22 +199,6 @@ function M.inlay_hints(opts)
     M.lsp_attach(inlay_hints_plugin.on_attach, 'LspAttach_inlayhints')
 end
 
-local diagnostic_signs_init = function()
-    ---@param icon DiagnosticSignIcon
-    local function define_diagnostic_icon(icon)
-        vim.fn.sign_define(icon.name, {
-            text = icon.text,
-            texthl = icon.name,
-            numhl = icon.name,
-        })
-    end
-
-    ---@param icon DiagnosticSignIcon
-    for _, icon in pairs(require('jascha030.config.icons').get_diagnostic_signs()) do
-        define_diagnostic_icon(icon)
-    end
-end
-
 function M.format(client, bufnr)
     if not client.server_capabilities.documentFormattingProvider then
         return
@@ -180,32 +224,28 @@ function M.signature_help_handler()
     return vim.lsp.with(vim.lsp.handlers.signature_help, BORDERS)
 end
 
-diagnostic_signs_init()
-
 function M.setup(opts)
     opts = opts or {}
 
-    -- Default on_attach handlers
-    M.lsp_attach(M.on_attach)
-
-    -- Init optional features
-    M.inlay_hints(opts)
-    M.virtual_text(opts)
-
+    diagnostic_signs_init()
     -- Configure diagnostics
     local diagnostics = vim.deepcopy(opts.diagnostics)
     vim.diagnostic.config(diagnostics)
 
     -- LSP Handlers
     vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { silent = true, border = BORDER })
-    vim.lsp.handlers['textDocument/publishDiagnostics'] =
-        vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, diagnostics)
+    -- stylua: ignore
+    vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, diagnostics)
 
     local signature_help = M.signature_help_handler()
-
     if signature_help ~= nil then
         vim.lsp.handlers['textDocument/signatureHelp'] = signature_help
     end
+
+    -- Default on_attach handlers
+    M.lsp_attach(M.on_attach)
+    M.inlay_hints(opts)
+    M.virtual_text(opts)
 end
 
 return M

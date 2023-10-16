@@ -3,6 +3,7 @@
 -- Credits to https://github.com/rafi 
 -- https://github.com/rafi/vim-config
 
+---@class jascha030.lsp.ContextAwareMenu
 local M = {}
 
 ---@param method string
