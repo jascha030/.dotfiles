@@ -1,6 +1,7 @@
 local JSpoon = require('jascha030')
 local fn = JSpoon.fn
 
+
 JSpoon.setup({
     term_app = 'WezTerm',
     spoons = {
@@ -16,9 +17,6 @@ JSpoon.setup({
         },
         control = {
             ['h'] = fn(hs.toggleConsole),
-            ['p'] = fn(hs.itunes.playpause),
-            [']'] = fn(JSpoon.music.next),
-            ['['] = fn(JSpoon.music.previous),
             ['l'] = fn(JSpoon.window.center),
             ['left'] = fn(JSpoon.window.left),
             ['right'] = fn(JSpoon.window.right),
