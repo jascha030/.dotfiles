@@ -6,10 +6,8 @@ function M.fn(f, ...)
 
     if type(f) ~= 'function' then
         local prev = f
-
-        f = function(...)
-            return prev
-        end
+        -- stylua: ignore
+        f = function(...) return prev(...) end
     end
 
     return function()
@@ -34,10 +32,9 @@ function M.setup(config)
     end
 
     loaded = true
-
     require('hs.ipc')
-    hs.ipc.cliInstall()
 
+    hs.ipc.cliInstall()
     hs.window.setShadows(false)
     hs.window.animationDuration = 0
 
@@ -45,16 +42,11 @@ function M.setup(config)
         hs.loadSpoon(sp)
     end
 
-    spoon.SpoonInstall:andUse('RoundedCorners', {
-        start = true,
-        config = { radius = 8 },
-    })
-
+    spoon.SpoonInstall:andUse('RoundedCorners', { start = true, config = { radius = 8 } })
     spoon.ReloadConfiguration:start()
 
     require('jascha030.quake').set(config.term_app)
     require('jascha030.hotkey').setup(config.hotkeys)
-
     hs.alert.show('🔨🥄 load done.')
 end
 
