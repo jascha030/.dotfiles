@@ -3,8 +3,10 @@ local function get_background()
 end
 
 return {
-    -- { 'norcalli/nvim-colorizer.lua', name = 'colorizer' },
-    { 'sheerun/vim-polyglot', lazy = true },
+    {
+        'sheerun/vim-polyglot',
+        lazy = true,
+    },
     {
         'yamatsum/nvim-cursorline',
         opts = {
@@ -50,6 +52,23 @@ return {
         end,
     },
     {
+        'folke/paint.nvim',
+        opts = {
+            highlights = {
+                {
+                    filter = { filetype = 'lua' },
+                    pattern = '%s*%-%-%-%s*(@%w+)',
+                    hl = '@keyword',
+                },
+                {
+                    filter = { filetype = 'php' },
+                    pattern = '%s*%*% %s*(@%w+)',
+                    hl = '@keyword',
+                },
+            },
+        },
+    },
+    {
         'm-demare/hlargs.nvim',
         opts = {
             color = '#ea1479',
@@ -82,17 +101,13 @@ return {
             },
         },
     },
-    -- { "rcarriga/nvim-notify", enabled = false },
     {
         'folke/noice.nvim',
         event = 'VeryLazy',
         dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
         opts = {
             routes = { { filter = { event = 'msg_show', kind = '', find = 'written' }, opts = { skip = true } } },
-            notify = {
-                enabled = false,
-                -- view = 'notify',
-            },
+            notify = { enabled = false },
             lsp = {
                 hover = { enabled = true },
                 progress = { enabled = false },
