@@ -47,26 +47,24 @@ require('jascha030').setup({
     },
     keymaps = {
         n = {
-            ['ff'] = { ':lua require("telescope.builtin").find_files()<CR>' },
-            ['<C-p>'] = { ':lua require("telescope.builtin").git_files()<CR>' },
-            ['fg'] = { ':lua require("telescope.builtin").live_grep()<CR>' },
-            ['<C-f>'] = { ':lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>' },
-            ['<leader><leader>h'] = { ':lua require("telescope.builtin").highlights()<CR>' },
+            ['ff'] = { '<cmd>lua require("telescope.builtin").find_files()<CR>' },
+            ['<C-p>'] = { '<cmd>lua require("telescope.builtin").git_files()<CR>' },
+            ['fg'] = { '<cmd>lua require("telescope.builtin").live_grep()<CR>' },
+            ['<C-f>'] = { '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>' },
+            ['<leader><leader>h'] = { '<cmd>lua require("telescope.builtin").highlights()<CR>' },
             ['<S-Tab>'] = { '<Plug>(cokeline-focus-next)', { silent = true } },
             ['<C-w><C-c>'] = { '<cmd>close<CR>' },
             ['<C-n>'] = { '<cmd>NeoTreeFocusToggle<CR>' },
             ['N'] = { '<cmd>NeoTreeFocus<CR>' },
-            ['ss'] = { '<cmd>Telescope<CR>' },
+            ['<C-t>'] = { '<cmd>Telescope<CR>' },
             ['TT'] = { '<cmd>TroubleToggle<CR>' },
             ['<Tab><Tab>'] = { '<cmd>HopWord<CR>' },
             ['sR'] = { '<cmd>source $MYVIMRC<CR>', { noremap = true, silent = true } },
-            ['<C-t>'] = { '<cmd>[!]<CR>' },
             ['m'] = { '<cmd>Mason<CR>' },
             ['<C-_>'] = { '<cmd>CommentToggle<CR>' },
             ['<leader>CP'] = { '<cmd>PickColor<CR>' },
-            -- TreeSitter
             ['<leader>c'] = { '<cmd>lua require("jascha030.lsp.menu").show()<CR>', { desc = 'Context aware menu' } },
-            ['<leader>tc'] = { ':lua vim.show_pos()<CR>' },
+            ['<leader>tc'] = { '<cmd>lua vim.show_pos()<CR>' },
             ['<leader>p'] = { '<cmd>InsprectTree<CR>' },
             ['<leader>l'] = { '<cmd>Lazy<CR>' },
         },
@@ -113,6 +111,5 @@ require('jascha030').setup({
             ['DistFile'] = { icon = 'package', filetypes = '.dist' },
         },
     },
-
 })
 
