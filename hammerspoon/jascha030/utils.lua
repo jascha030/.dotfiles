@@ -1,5 +1,11 @@
 local M = {}
 
+function M.tbl_empty(tbl)
+    local next = next
+
+    return next(tbl) == nil
+end
+
 function M.alert(callback, args)
     args = args or nil
 
