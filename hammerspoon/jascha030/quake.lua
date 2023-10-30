@@ -1,33 +1,61 @@
 local M = {}
+local window = {}
 
-local window = nil
+window = setmetatable(window, { __index = function(_, k)
+    local next = next
 
-function M.toggle(app_name)
-    local instance = hs.application.get(app_name)
-
-    if window == nil then
+    if next(window) == nil then
         window = require('jascha030').window
     end
+
+    return window[k]
+end})
+
+function M.new(app_name)
+    return setmetatable({ app_name = app_name }, { __index = M })
+end
+
+---@return string
+function M:get_app_name()
+    return self.app_name
+end
+
+function M:get_instance()
+    return hs.application.get(self:get_app_name())
+end
+
+function M:get_observer(app_watcher, space)
+    local app_name = self:get_app_name()
+
+    return function(name, event, app)
+        if event == hs.application.watcher.launched and name == app_name then
+            app:hide()
+            window.move(app, space)
+
+            if app_watcher ~= nil then
+                app_watcher:stop()
+            end
+        end
+    end
+end
+
+function M:toggle()
+    local app_name = self:get_app_name()
+    local instance = self:get_instance()
 
     if instance ~= nil and instance:isFrontmost() then
         instance:hide()
     else
-        -- local main_screen = hs.screen.mainScreen()
+        -- if instance ~= nil and instance:isHidden() then
+        --     instance:unhide()
+        -- end
         local main_screen = hs.mouse.getCurrentScreen()
         local space = hs.spaces.activeSpaceOnScreen(main_screen)
 
         if instance == nil and hs.application.launchOrFocus(app_name) then
             local app_watcher = nil
 
-            app_watcher = hs.application.watcher.new(function(name, event, app)
-                if event == hs.application.watcher.launched and name == app_name then
-                    app:hide()
-
-                    window.move(app, space)
-                    app_watcher:stop()
-                end
-            end)
-
+            app_watcher = hs.application.watcher.new(self:get_observer(app_watcher, space))
             app_watcher:start()
         end
 
@@ -38,8 +66,10 @@ function M.toggle(app_name)
 end
 
 function M.set(app)
+    local instance = M.new(app)
+
     require('jascha030.tap').action = function()
-        M.toggle(app)
+        instance:toggle()
     end
 end
 
