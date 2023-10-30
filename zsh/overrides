@@ -33,7 +33,7 @@ if (( $+commands[valet] )); then
         if [[ -f "${PWD}/composer.json" ]]; then
             ${HOME}/.composer/vendor/bin/valet php "$@"
         else 
-            /usr/local/bin/php "$@"
+            /opt/homebrew/bin/php "$@"
         fi
     }
 

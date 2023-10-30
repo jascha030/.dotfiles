@@ -79,6 +79,6 @@ function term-variable {
 function php-ver {
     emulate -L zsh
 
-    local w="%F{013}  ${$(/usr/local/bin/php -r 'echo PHP_VERSION;')[1,3]}%f"
+    local w="%F{013}  ${$(/opt/homebrew/bin/php -r 'echo PHP_VERSION;')[1,3]}%f"
     typeset -g php_wgt=$w
 }
