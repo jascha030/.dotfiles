@@ -89,7 +89,7 @@ local function eq_pad(size, alt, cell)
 end
 
 return {
-    default_prog = { '/usr/local/bin/zsh', '--login' },
+    default_prog = { '/bin/zsh', '--login' },
     window_decorations = 'NONE | RESIZE',
     window_padding = eq_pad(0.1, 1, true),
     window_frame = {
