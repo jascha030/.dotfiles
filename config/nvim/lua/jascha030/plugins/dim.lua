@@ -1,4 +1,4 @@
-return {
+local M = {
     '0oAstro/dim.lua',
     dependencies = {
         'nvim-treesitter/nvim-treesitter',
@@ -6,3 +6,4 @@ return {
     },
 }
 
+return M

@@ -1,6 +1,7 @@
 local M = {
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
+        { 'nvim-treesitter/nvim-treesitter-context', config = true },
         { 'p00f/nvim-ts-rainbow' },
         { 'theHamsta/nvim-treesitter-commonlisp' },
     },
@@ -12,7 +13,6 @@ local M = {
     opts = {
         ensure_installed = {
             'bash',
-            -- 'comment',
             'commonlisp',
             'css',
             'gitattributes',
@@ -26,6 +26,8 @@ local M = {
             'lua',
             'markdown',
             'markdown_inline',
+            'ocaml',
+            'ocaml_interface',
             'php',
             'python',
             'query',
@@ -124,4 +126,3 @@ function M.config(_, opts)
 end
 
 return M
-
