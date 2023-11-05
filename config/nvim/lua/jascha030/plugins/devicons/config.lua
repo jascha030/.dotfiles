@@ -1,14 +1,13 @@
---@class IconConfig
+---@class IconConfig
 local defaults = {
     default_icon = nil,
     icons = {},
     overrides = {},
 }
 
---@class IconsModule
---@field public options IconConfig
+---@class IconsModule
+---@field public options IconConfig
 local M = { devicons = {} }
-
 local devicons = nil
 
 function M.get_icon(name)
