@@ -5,27 +5,20 @@ local scopes = {
     bo = vim.bo,
     w = vim.wo,
     wo = vim.wo,
+    opt = vim.opt,
 }
 
 --- @class OptsUtil
 local M = {}
 
-function M.opt(key, val, scope)
-    if not scope then
-        vim.opt[key] = val
-    else
-        scopes[scope][key] = val
-    end
+function M.set_opt(key, val, scope)
+    scopes[scope][key] = val
 end
 
 function M.set_opts(options)
     for scope, opts in pairs(options) do
         for o, v in pairs(opts) do
-            if scope == 'opt' then
-                M.opt(o, v)
-            else
-                M.opt(o, v, scope)
-            end
+            M.set_opt(o, v, scope)
         end
     end
 end
