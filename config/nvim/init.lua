@@ -15,12 +15,12 @@ require('jascha030').setup({
     colorscheme = 'nitepal',
     opts = {
         opt = {
+            termguicolors = true,
             expandtab = true,
             smartindent = true,
             number = true,
             cursorline = true,
             modifiable = true,
-            termguicolors = true,
             incsearch = true,
             rnu = true,
             scrolloff = 5,
@@ -44,6 +44,9 @@ require('jascha030').setup({
             gitblame_display_virtual_text = 0,
             editorconfig = true,
         },
+        o = {
+            t_Co = '256',
+        }
     },
     keymaps = {
         n = {
