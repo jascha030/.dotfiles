@@ -14,14 +14,14 @@ unsetopt BEEP
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
-typeset -A ZSH_HIGHLIGHT_STYLES
-export ZSH_HIGHLIGHT_STYLES=(
+typeset -A ZSH_HIGHLIGHT_STYLES=(
     autodirectory   'fg=10,underline'
     arg0            'fg=10'
     suffix-alias    'fg=10,underline'
     bracket-level-2 'fg=10,bold'
 )
 
+export ZSH_HIGHLIGHT_STYLES
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
 
 export DOT_COMP_DIRS=(
