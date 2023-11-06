@@ -48,6 +48,9 @@ export DOT_AFTER_INIT_SOURCES=(
     "${ZDOTDIR}/aliases"
 )
 
+[[ ! -r /Users/jaschavanaalst/.opam/opam-init/init.zsh ]] \
+    || source /Users/jaschavanaalst/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
 export GPG_TTY=$(tty)
 
 # Path
