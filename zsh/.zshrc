@@ -55,6 +55,7 @@ export GPG_TTY=$(tty)
 
 # Path
 path=(
+    /opt/homebrew/opt/gnu-sed/libexec/gnubin
     /usr/local/sbin
     /usr/local/opt/openjdk/bin
     /usr/local/opt/openssl@1.1/bin
