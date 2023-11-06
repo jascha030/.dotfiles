@@ -3,10 +3,8 @@ local function get_background()
 end
 
 return {
-    {
-        'sheerun/vim-polyglot',
-        lazy = true,
-    },
+    { 'sheerun/vim-polyglot', lazy = true },
+    { 'norcalli/nvim-colorizer.lua', lazy = true, name = 'colorizer' },
     {
         'yamatsum/nvim-cursorline',
         opts = {
@@ -151,10 +149,5 @@ return {
                 return math.floor(vim.o.columns * 0.75)
             end,
         },
-    },
-    {
-        'norcalli/nvim-colorizer.lua',
-        lazy = true,
-        name = 'colorizer',
     },
 }
