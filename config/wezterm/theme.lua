@@ -1,3 +1,4 @@
+---@class WezThemeConfig
 local M = {}
 
 local default = require('colors.jassie030')
