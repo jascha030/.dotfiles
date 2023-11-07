@@ -32,7 +32,7 @@ export DOT_COMP_DIRS=(
 export DOT_BASH_COMPLETIONS=(
     "${HOME}"/.bash.d/*
     "${DOTFILES}"/config/bash/bash_completion.d/*
-    /usr/local/Cellar/wp-cli-completion/2.8.1/etc/bash_completion.d/wp
+    /opt/homebrew/Cellar/wp-cli-completion/**/etc/bash_completion.d/*
 )
 
 export DOT_SOURCES=(
