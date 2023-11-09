@@ -1,4 +1,3 @@
----@type LazyPluginSpec
 local M = {
     '0oAstro/dim.lua',
     dependencies = {

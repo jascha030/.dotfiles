@@ -6,21 +6,6 @@ return {
     { 'sheerun/vim-polyglot', lazy = true },
     { 'norcalli/nvim-colorizer.lua', lazy = true, name = 'colorizer' },
     {
-        'yamatsum/nvim-cursorline',
-        opts = {
-            cursorline = {
-                enable = true,
-                timeout = 1000,
-                number = false,
-            },
-            cursorword = {
-                enable = true,
-                min_length = 3,
-                hl = { underline = true },
-            },
-        },
-    },
-    {
         'brenoprata10/nvim-highlight-colors',
         name = 'nvim-highlight-colors',
         event = 'VeryLazy',
@@ -29,24 +14,11 @@ return {
     {
         'goolord/alpha-nvim',
         event = 'VimEnter',
-        config = function(_, _)
-            require('alpha').setup(require('alpha.themes.startify').config)
+        opts = function()
+            return require('alpha.themes.startify').config
         end,
-    },
-    {
-        'stevearc/dressing.nvim',
-        event = 'VeryLazy',
-        init = function()
-            ---@diagnostic disable-next-line: duplicate-set-field
-            vim.ui.select = function(...)
-                require('lazy').load({ plugins = { 'dressing.nvim' } })
-                return vim.ui.select(...)
-            end
-            ---@diagnostic disable-next-line: duplicate-set-field
-            vim.ui.input = function(...)
-                require('lazy').load({ plugins = { 'dressing.nvim' } })
-                return vim.ui.input(...)
-            end
+        config = function(_, opts)
+            require('alpha').setup(opts)
         end,
     },
     {
@@ -96,33 +68,6 @@ return {
                     total_parse = 700,
                     slow_parse = 5000,
                 },
-            },
-        },
-    },
-    {
-        'folke/noice.nvim',
-        event = 'VeryLazy',
-        dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
-        opts = {
-            routes = { { filter = { event = 'msg_show', kind = '', find = 'written' }, opts = { skip = true } } },
-            notify = { enabled = false },
-            lsp = {
-                hover = { enabled = true },
-                progress = { enabled = false },
-                message = { enabled = false },
-                override = {
-                    ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
-                    ['vim.lsp.util.stylize_markdown'] = true,
-                    ['cmp.entry.get_documentation'] = true,
-                },
-                signature = { enabled = false },
-            },
-            presets = {
-                bottom_search = true, -- use a classic bottom cmdline for search
-                command_palette = true, -- position the cmdline and popupmenu together
-                long_message_to_split = true, -- long messages will be sent to a split
-                inc_rename = true, -- enables an input dialog for inc-rename.nvim
-                lsp_doc_border = true, -- add a border to hover docs and signature help
             },
         },
     },
