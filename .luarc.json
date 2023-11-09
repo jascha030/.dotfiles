@@ -2,6 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
   "Lua.workspace.checkThirdParty": false,
   "Lua.workspace.library": [
-    "/Users/YOUR_USERNAME/.hammerspoon/Spoons/EmmyLua.spoon/annotations"
-  ]
+    "/Users/jaschavanaalst/.hammerspoon/Spoons/EmmyLua.spoon/annotations"
+  ],
+  "Lua.diagnostics.globals": [
+    "vim"
+  ],
+  "Lua.runtime.version": "LuaJIT"
 }
