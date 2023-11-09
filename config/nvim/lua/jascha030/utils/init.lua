@@ -17,7 +17,7 @@ function M.wrap(fnc, ...)
 
     if type(fnc) ~= 'function' then
         local prev = fnc
-        fnc = function(...)
+        fnc = function(...) -- stylua: ignore 
             return prev
         end
     end
