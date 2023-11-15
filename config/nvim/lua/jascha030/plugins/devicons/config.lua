@@ -43,6 +43,8 @@ function M.init()
     end
 
     devicons.setup(M.options)
+    require('nvim-nonicons').setup(M.options)
+
     devicons.set_icon(M.devicons)
 end
 
