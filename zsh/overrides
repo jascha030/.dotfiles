@@ -41,7 +41,11 @@ if (( $+commands[valet] )); then
         if [[ -f "${PWD}/composer.json" ]]; then
             ${HOME}/.composer/vendor/bin/valet composer "$@"
         else
-            /Users/jaschavanaalst/tools/composer "$@"
+            if [[ -f "${PWD}/app/public/composer.json" ]]; then
+                ${HOME}/.composer/vendor/bin/valet composer --working-dir="${PWD}/app/public" "$@"
+            else 
+                /Users/jaschavanaalst/tools/composer "$@"
+            fi
         fi
     }
 
