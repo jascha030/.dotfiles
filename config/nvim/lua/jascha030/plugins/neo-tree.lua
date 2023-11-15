@@ -25,6 +25,10 @@ local M = {
                 hide_dotfiles = false,
                 always_hide = { '.DS_Store' },
             },
+            follow_current_file = {
+                enabled = false,
+                leave_dirs_open = false,
+            },
         },
     },
 }
