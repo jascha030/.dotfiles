@@ -1,6 +1,9 @@
 local M = {
-    dir = '~/.development/Projects/Lua/nitepal.nvim',
-    dependencies = { 'hoob3rt/lualine.nvim' },
+    dir = '/Users/jaschavanaalst/.development/Projects/Lua/nitepal.nvim',
+    name = 'nitepal',
+    dependencies = {
+        { 'hoob3rt/lualine.nvim' },
+    },
     opts = {
         transparent = {
             background = true,
@@ -14,6 +17,7 @@ local M = {
 
 function M.config(_, opts)
     vim.o.runtimepath = vim.o.runtimepath .. ',' .. os.getenv('XDG_CONFIG_HOME')
+
     require('nitepal.config').extend(opts)
 
     ---@type ThemeUtil
@@ -31,7 +35,9 @@ function M.config(_, opts)
         pattern = 'SIGUSR1',
         callback = function()
             theme.set_from_os()
-            require('jascha030.config.devicons').setup(require('jascha030.config').options.devicons)
+
+            require('jascha030.plugins.devicons.config').init()
+            -- .setup(require('jascha030').get_config('devicons'))
             require('lualine').refresh()
         end,
     })
