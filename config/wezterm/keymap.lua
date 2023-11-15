@@ -50,4 +50,5 @@ return {
     { key = '0',          mods = 'CMD',          action = wezterm.action.EmitEvent('reset-font') },
     { key = '9',          mods = 'CMD',          action = wezterm.action.EmitEvent('toggle-font') },
     { key = 'L',          mods = 'CMD',          action = wezterm.action.ShowDebugOverlay },
+    { key = 'P',          mods = 'CMD',          action = wezterm.action.ActivateCommandPalette },
 }
