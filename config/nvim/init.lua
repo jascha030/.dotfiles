@@ -13,6 +13,12 @@ BORDERS = { border = BORDER }
 
 require('jascha030').setup({
     colorscheme = 'nitepal',
+    polyglot = {
+        enabled = true,
+        languages = {
+            'zsh',
+        },
+    },
     opts = {
         opt = {
             termguicolors = true,

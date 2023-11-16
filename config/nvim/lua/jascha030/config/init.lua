@@ -1,6 +1,10 @@
 --- @class ConfigOptions
 local defaults = {
     colorscheme = false,
+    polyglot = {
+        enabled = false,
+        languages = {},
+    },
     keymaps = {
         n = {},
         v = {},
