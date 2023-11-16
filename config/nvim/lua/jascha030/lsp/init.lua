@@ -87,7 +87,6 @@ local diagnostic_signs_init = function()
     end
 end
 
----@param client lsp.Client
 local function set_keymaps(client, bufnr)
     local self = M.keymaps.new(client, bufnr)
     local diagnostic_goto = M.keymaps.diagnostic_goto
@@ -148,7 +147,6 @@ function M.lsp_attach(on_attach, group)
     vim.api.nvim_create_autocmd('LspAttach', attach)
 end
 
----@param client lsp.Client
 function M.on_attach(client, buffer)
     if client.server_capabilities.completionProvider then
         vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = buffer })
@@ -170,7 +168,7 @@ function M.virtual_text(opts)
                 local icons = require('jascha030.config.icons').get_diagnostic_signs()
 
                 for d, icon in pairs(icons) do
-                    if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
+                    if diagnostic.severity == vim.diagnostic.severity[d:upper()] then ---@diagnostic disable-line
                         return icon
                     end
                 end

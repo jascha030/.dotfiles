@@ -1,20 +1,23 @@
 -- Context-aware menu
 --
--- Credits to https://github.com/rafi 
+-- Credits to https://github.com/rafi
 -- https://github.com/rafi/vim-config
 
 ---@class jascha030.lsp.ContextAwareMenu
 local M = {}
 
 ---@param method string
+---@diagnostic disable-next-line
 ---@param clients lsp.Client[]
 ---@return boolean
 function M.supports_method(method, clients)
     for _, client in pairs(clients) do
-        if client.supports_method then
+        ---@diagnostic disable-next-line
+        if client.supports_method(method) then
             return true
         end
     end
+
     return false
 end
 

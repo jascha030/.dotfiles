@@ -1,4 +1,6 @@
 ---@class jascha030.lsp.Keymaps
+---@field client table
+---@field buffer table 
 local M = {}
 
 ---@return jascha030.lsp.Keymaps
