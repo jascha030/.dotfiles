@@ -1,6 +1,6 @@
 local M = {
-    dir = '/Users/jaschavanaalst/.development/Projects/Lua/nitepal.nvim',
-    name = 'nitepal',
+    dir = '~/.development/Projects/lua/nitepal.nvim',
+    lazy = false,
     dependencies = {
         { 'hoob3rt/lualine.nvim' },
     },
@@ -16,31 +16,27 @@ local M = {
 }
 
 function M.config(_, opts)
-    vim.o.runtimepath = vim.o.runtimepath .. ',' .. os.getenv('XDG_CONFIG_HOME')
-
     require('nitepal.config').extend(opts)
 
     ---@type ThemeUtil
     local theme = require('jascha030.utils.theme')
     local config = require('jascha030.config').options
 
-    if config.colorscheme == 'nitepal' then
+    vim.api.nvim_create_autocmd('User', {
+        group = vim.api.nvim_create_augroup('themeUpdate', { clear = true }),
+        pattern = 'NitePalUpdateScheme',
+        callback = function()
+            print('refrashie')
+            require('jascha030.plugins.devicons.config').init()
+            require('lualine').refresh()
+        end,
+    })
+
+    if config.colorscheme == 'nitepal' or config.colorscheme == 'litepal' then
         theme.init()
     else
         vim.cmd('colorscheme ' .. config.colorscheme)
     end
-
-    -- Auto change colorscheme on MacOS Light/Darkmode change.
-    vim.api.nvim_create_autocmd('Signal', {
-        pattern = 'SIGUSR1',
-        callback = function()
-            theme.set_from_os()
-
-            require('jascha030.plugins.devicons.config').init()
-            -- .setup(require('jascha030').get_config('devicons'))
-            require('lualine').refresh()
-        end,
-    })
 end
 
 return M

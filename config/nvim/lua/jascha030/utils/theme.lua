@@ -4,8 +4,14 @@ local M = {}
 local DARK = 'dark'
 local LIGHT = 'light'
 
+local lrequire = require('jascha030.lreq')
+
 local loaded = false
-local darkmode = nil
+local darkmode = lrequire('darkmode')
+
+local function do_update_autocmd()
+    vim.cmd([[doautocmd <nomodeline> User NitePalUpdateScheme]])
+end
 
 function M.is_dark()
     return vim.o.background == DARK
@@ -18,10 +24,17 @@ function M.update(mode)
         if cs == 'nitepal' or cs == 'litepal' then
             require('nitepal.config').options.style = mode
         end
+
         vim.o.background = mode
     end
 
-    vim.cmd([[colorscheme nitepal]])
+    if mode == DARK then
+        vim.cmd([[colorscheme nitepal]])
+    else
+        vim.cmd([[colorscheme litepal]])
+    end
+
+    do_update_autocmd()
 end
 
 function M.toggle()
@@ -29,10 +42,6 @@ function M.toggle()
 end
 
 function M.set_from_os()
-    if not darkmode then
-        darkmode = require('darkmode')
-    end
-
     M.update(darkmode.enabled() and DARK or LIGHT)
 end
 
@@ -40,12 +49,27 @@ function M.init()
     if loaded == true then
         return
     end
-    loaded = true
-    vim.keymap.set('n', 'CS', function()
-        M.toggle()
-    end, { noremap = true })
 
-    M.set_from_os()
+    (function()
+        loaded = true
+        vim.opt.runtimepath:prepend(os.getenv('XDG_CONFIG_HOME'))
+
+        local function toggle_action()
+            M.toggle()
+        end
+
+        vim.keymap.set('n', 'CS', toggle_action, { noremap = true })
+
+        -- Auto change colorscheme on MacOS Light/Darkmode change.
+        vim.api.nvim_create_autocmd('Signal', {
+            pattern = 'SIGUSR1',
+            callback = M.set_from_os,
+        })
+
+        vim.o.background = darkmode.enabled() and DARK or LIGHT
+
+        M.set_from_os()
+    end)()
 end
 
 return M
