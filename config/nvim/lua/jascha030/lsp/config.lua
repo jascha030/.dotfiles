@@ -72,7 +72,7 @@ function M.extend(config)
         table.insert(merge, config)
     end
 
-    return vim.tbl_deep_extend('force', table.unpack(merge))
+    return vim.tbl_deep_extend('force', unpack(merge))
 end
 
 return M
