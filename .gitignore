@@ -28,3 +28,4 @@
 ## Secret
 /.gitsecret/keys/random_seed
 !*.secret
+tem.txt
