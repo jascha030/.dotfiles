@@ -8,7 +8,9 @@ local defaults = {
 ---@class IconsModule
 ---@field public options IconConfig
 local M = { devicons = {} }
-local devicons = nil
+
+local lreq = require('jascha030.lreq')
+local devicons = lreq('nvim-web-devicons')
 
 function M.get_icon(name)
     if not M.options.icons[name] then
@@ -38,13 +40,8 @@ end
 M.options = {}
 
 function M.init()
-    if devicons == nil then
-        devicons = require('nvim-web-devicons')
-    end
-
-    devicons.setup(M.options)
-    require('nvim-nonicons').setup(M.options)
-
+    ---@diagnostic disable-next-line: undefined-field, need-check-nil
+    devicons.refresh()
     devicons.set_icon(M.devicons)
 end
 
@@ -55,6 +52,9 @@ function M.setup(options)
         M.add(devicon.icon, name, devicon.filetypes)
     end
 
+    M.devicons = vim.tbl_deep_extend('force', require('jascha030.plugins.devicons.defaults'), M.devicons)
+
+    devicons.setup(M.options)
     M.init()
 end
 
