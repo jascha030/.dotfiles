@@ -9,7 +9,6 @@ local M = {
 }
 
 -- Thanks to https://gist.github.com/Lamarcke/36e086dd3bb2cebc593d505e2f838e07 for the attached_clients functionality.
---
 -- Returns a string with a list of attached LSP clients, including
 -- formatters and linters from null-ls, nvim-lint and formatter.nvim
 function M._get_attached_clients()
@@ -76,7 +75,7 @@ function M._get_attached_clients()
     return language_servers
 end
 
-function M.opts()
+M.opts = function()
     local git_blame = require('gitblame')
 
     local attached_clients = {
@@ -123,12 +122,6 @@ function M.opts()
         tabline = {},
         extensions = {},
     }
-end
-
-function M.config(_, opts)
-    local lualine = require('lualine')
-
-    lualine.setup(opts)
 end
 
 return M
