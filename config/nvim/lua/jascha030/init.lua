@@ -2,18 +2,7 @@ local M = {}
 
 local config = require('jascha030.config')
 
--- Just having some fun exploring lua "lazyloading"
-local utils = {}
 
--- stylua: ignore
-utils = setmetatable(utils, { __index = function(_, k)
-    return vim.tbl_isempty(utils)
-            and (function()
-                utils = require('jascha030.utils')
-                return utils[k] or nil
-            end)()
-        or nil
-end })
 
 function M.setup(options)
     config.setup(options or {})
@@ -38,6 +27,10 @@ end
 
 return setmetatable(M, {
     __index = function(_, key)
-        return (key == 'options' or key == 'config') and config.options or nil
+        if key == 'options' or key == 'opts' or key == 'config' then
+            return config.options
+        end
+
+        return M.get_option(key)
     end,
 })
