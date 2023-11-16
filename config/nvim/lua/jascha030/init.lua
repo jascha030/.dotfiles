@@ -4,25 +4,21 @@ local config = require('jascha030.config')
 
 
 
-function M.setup(options)
-    config.setup(options or {})
 
-    vim.cmd([[
-        set termguicolors
-        set t_Co=256
-    ]])
+function M.get_config(key)
+    return key == nil and config.options or config.get(key)
+end
 
-    utils.keymaps.set_keymaps(config.options.keymaps)
-    utils.opts.set_opts(config.options.opts)
+function M.setup(opts)
+    config.setup(opts)
+    require('jascha030.config.keymaps').set_keymaps(config.get('keymaps'))
+    require('jascha030.config.options').set_opts(config.get('opts'))
 
+    ---@diagnostic disable-next-line
     require('jascha030.lazy')
 
     -- Fix for the fact that n is bound to q, and I can't seem to find the source of this... :thinking_emoji:
     vim.keymap.set('n', 'n', 'n')
-
-    ---@diagnostic disable-next-line: undefined-field, need-check-nil
-    require('jascha030.config.devicons').setup(config.options.devicons)
-    require('nvim-web-devicons').set_up_highlights()
 end
 
 return setmetatable(M, {
