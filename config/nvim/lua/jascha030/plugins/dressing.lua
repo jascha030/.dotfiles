@@ -23,15 +23,15 @@ function M.opts()
 end
 
 function M.init()
-    ---@diagnostic disable-next-line: duplicate-set-field different-requires
     vim.ui.select = function(...)
+        ---@diagnostic disable-next-line: duplicate-set-field different-requires
         require('lazy').load({ plugins = { 'dressing.nvim' } })
 
         return vim.ui.select(...)
     end
 
-    ---@diagnostic disable-next-line: duplicate-set-field different-requires
     vim.ui.input = function(...)
+        ---@diagnostic disable-next-line: duplicate-set-field different-requires
         require('lazy').load({ plugins = { 'dressing.nvim' } })
 
         return vim.ui.input(...)
