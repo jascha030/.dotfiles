@@ -3,7 +3,7 @@ local function get_background()
 end
 
 return {
-    { 'norcalli/nvim-colorizer.lua', lazy = true, name = 'colorizer' },
+    -- { 'norcalli/nvim-colorizer.lua', lazy = true, name = 'colorizer' },
     {
         'brenoprata10/nvim-highlight-colors',
         name = 'nvim-highlight-colors',
