@@ -26,7 +26,6 @@ function M.config(_, opts)
         group = vim.api.nvim_create_augroup('themeUpdate', { clear = true }),
         pattern = 'NitePalUpdateScheme',
         callback = function()
-            print('refrashie')
             require('jascha030.plugins.devicons.config').init()
             require('lualine').refresh()
         end,
