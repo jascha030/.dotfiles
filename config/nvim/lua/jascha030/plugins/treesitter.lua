@@ -2,7 +2,7 @@ local M = {
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
         { 'nvim-treesitter/nvim-treesitter-context', config = true },
-        { 'p00f/nvim-ts-rainbow' },
+        { 'p00f/nvim-ts-rainbow', lazy = true },
         { 'theHamsta/nvim-treesitter-commonlisp' },
     },
     build = ':TSUpdate',
@@ -53,7 +53,7 @@ local M = {
             use_languagetree = true,
         },
         rainbow = {
-            enable = true,
+            enable = false,
             extended_mode = true,
             max_file_lines = 1000,
         },
