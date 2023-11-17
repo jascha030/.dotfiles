@@ -146,22 +146,6 @@ return {
         config = true,
     },
     {
-        'folke/trouble.nvim',
-        cmd = {
-            'Trouble',
-            'TroubleClose',
-            'TroubleToggle',
-            'TroubleRefresh',
-        },
-        opts = {
-            position = 'bottom',
-            win_config = {
-                border = BORDER,
-            },
-            use_diagnostic_signs = true,
-        },
-    },
-    {
         'folke/which-key.nvim',
         event = 'VeryLazy',
         config = function(_, _)

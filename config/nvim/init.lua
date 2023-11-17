@@ -66,7 +66,6 @@ require('jascha030').setup({
             ['<C-n>'] = { '<CMD>NeoTreeFocusToggle<CR>' },
             ['N'] = { '<CMD>NeoTreeFocus<CR>' },
             ['<C-t>'] = { '<CMD>Telescope<CR>' },
-            ['TT'] = { '<CMD>TroubleToggle<CR>' },
             ['<Tab><Tab>'] = { '<CMD>HopWord<CR>' },
             ['sR'] = { '<CMD>source $MYVIMRC<CR>', { noremap = true, silent = true } },
             ['m'] = { '<CMD>Mason<CR>' },
