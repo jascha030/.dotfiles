@@ -34,6 +34,11 @@ return {
                     pattern = '%s*%*% %s*(@%w+)',
                     hl = '@keyword',
                 },
+                {
+                    filter = { filetype = 'zsh' },
+                    pattern = 'function',
+                    hl = '@keyword.function',
+                },
             },
         },
     },
