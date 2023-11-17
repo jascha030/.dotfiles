@@ -3,12 +3,10 @@
 #######################################################################################################################
 # By Jascha030                                  Dotfiles Initialization         https://github.io/jascha030/.dotfiles #
 #######################################################################################################################
-
 # Alternative dir for histfiles
 ! (( ${+DOT_DATA_DIR} )) && export DOT_DATA_DIR="${XDG_CONFIG_HOME}"/datafiles
 # Prompt height in lines
 ! (( DOT_PROMPT_HEIGHT )) && export DOT_PROMPT_HEIGHT=2
-
 # Conditionals, if current term is in neovim .
 if (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )); then
     export _IS_VIMTERM=true
@@ -19,7 +17,6 @@ else
 fi
 
 #--------------------------------------------- Internally used functions ---------------------------------------------#
-
 function __fpath_add {
     fpath=( "$@" "${fpath[@]}" )
 }
@@ -37,9 +34,7 @@ function __autoload {
 }
 
 #------------------------------------------------------ Init ---------------------------------------------------------#
-
 (( ${+DOT_COMP_DIRS} )) && __fpath_add "${DOT_COMP_DIRS[@]}"
-
 __fpath_add "${DOTFILES}/zsh/zfunc" "${DOTFILES}/zsh/completions"
 __autoload "${DOTFILES}/zsh/zfunc"
 
@@ -47,25 +42,21 @@ __autoload "${DOTFILES}/zsh/zfunc"
 (( ${+DOT_SOURCES} )) && safe_source "${DOT_SOURCES[@]}"
 
 #-------------------------------------------------- Lazyload functions -----------------------------------------------#
-
 # Utility function, to merge arrays...
 function merge_arrays {
     # undefined
     builtin autoload -X
 }
-
 function echoerr {
     # undefined
     builtin autoload -X
 }
-
 function sb2init {
     # undefined
     builtin autoload -X
 }
 
 #--------------------------------------------------------- Init ------------------------------------------------------#
-
 # Run (bash)compinit for completions.
 autoload -Uz compinit bashcompinit
 compinit; bashcompinit;
@@ -95,7 +86,6 @@ eval "$(rtx activate zsh)"
 eval "$(zoxide init zsh)"
 eval "$(teleport-dir init)"
 eval "$(op completion zsh)"
-
 export LS_COLORS="$(vivid generate jassie030)"
 
 # Source late files like aliases etc.
@@ -105,5 +95,3 @@ fi
 
 compdef _op op
 
-# Init mcfly last.
-eval "$(mcfly init zsh)"

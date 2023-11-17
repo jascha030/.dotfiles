@@ -8,21 +8,13 @@ if ! (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )); then
     [[ "$TERM_PROGRAM" == "WezTerm" ]] && (( LINES == 24 )) && { until (( LINES > 24 )); do exec zsh -l; done; }
 fi
 
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+typeset -A ZSH_HIGHLIGHT_STYLES=(autodirectory 'fg=10,underline' arg0 'fg=10' suffix-alias 'fg=10,underline' bracket-level-2 'fg=10,bold')
 setopt autocd extendedglob nomatch menucomplete traps_async
 unsetopt BEEP
 
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-
-typeset -A ZSH_HIGHLIGHT_STYLES=(
-    autodirectory   'fg=10,underline'
-    arg0            'fg=10'
-    suffix-alias    'fg=10,underline'
-    bracket-level-2 'fg=10,bold'
-)
-
-export ZSH_HIGHLIGHT_STYLES
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export DOT_COMP_DIRS=(
     "${HOME}/.bun/_bun"
@@ -51,14 +43,12 @@ export DOT_AFTER_INIT_SOURCES=(
 [[ ! -r /Users/jaschavanaalst/.opam/opam-init/init.zsh ]] \
     || source /Users/jaschavanaalst/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
-export GPG_TTY=$(tty)
 
 # Path
 path=(
     /opt/homebrew/opt/gnu-sed/libexec/gnubin
-    /usr/local/sbin
-    /usr/local/opt/openjdk/bin
-    /usr/local/opt/openssl@1.1/bin
+    /opt/homebrew/opt/openjdk/bin
+    /opt/homebrew/opt/openssl@1.1/bin
     "${HOME}/bin"
     "${HOME}/tools"
     "${HOME}/.composer/vendor/bin"
@@ -80,3 +70,5 @@ source "${ZDOTDIR}"/init
 lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
 #--------------------------------------------- And finally, the prompt...---------------------------------------------#
 safe_source "${ZDOTDIR}"/prompt/prompt
+# Init mcfly last.
+eval "$(mcfly init zsh)"
