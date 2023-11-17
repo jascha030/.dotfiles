@@ -6,10 +6,7 @@ local M = {
         { 'theHamsta/nvim-treesitter-commonlisp' },
     },
     build = ':TSUpdate',
-    event = {
-        'VeryLazy',
-        -- 'BufNewFile', 'BufReadPost',
-    },
+    event = { 'BufReadPost', 'BufNewFile' },
     opts = {
         ensure_installed = {
             'bash',
