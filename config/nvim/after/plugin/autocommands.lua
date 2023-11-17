@@ -40,7 +40,34 @@ vim.cmd([[
     autocmd BufReadPost *.cnf set ft=dosini
     autocmd BufReadPost *.kdl set ft=kdl
 
-    autocmd FileType help,lspinfo nnoremap <buffer><silent> q :close<CR>
+    " Git
+    autocmd BufRead,BufNewFile gitignore_global,*.*ignore set ft=gitignore
+    autocmd BufRead,BufNewFile *.gitattributes set ft=gitattributes
+    autocmd BufRead,BufNewFile *.gitconfig,gitconfig set ft=gitconfig
+
+    " JSON
+    autocmd BufRead,BufNewFile Deployfile set ft=json
+    autocmd BufRead,BufNewFile *.json.dist set ft=json
+
+    " XML
+    autocmd BufNewFile,BufRead *.svg set ft=xml
+    autocmd BufNewFile,BufRead *.xml.dist set ft=xml
+
+    " Nginx
+    autocmd BufRead,BufNewFile *.nginx set ft=nginx
+    autocmd BufRead,BufNewFile */.config/valet/Nginx/* set ft=nginx
+
+    " ZSH
+    autocmd BufRead,BufNewFile *.antigenrc set ft=zsh
+    autocmd BufRead,BufNewFile .zsh* set ft=zsh 
+
+    " Bash
+    autocmd BufRead,BufNewFile env.local set ft=bash
+
+    " Nushell
+    autocmd BufRead,BufNewFile *.nu set ft=nu
+  
+    autocmd FileType help,lspinfo,Trouble nnoremap <buffer><silent> q :close<CR>
     autocmd FileType dashboard,toggleterm nnoremap <buffer><silent> q :q<CR>
   augroup end
 ]])
