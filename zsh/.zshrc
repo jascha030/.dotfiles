@@ -67,7 +67,33 @@ path=(
 source "${HOME}"/.cargo/env
 source "${ZDOTDIR}"/init
 #-------------------------------------------- Nice flashy intro graphics ---------------------------------------------#
-lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
+if [ -f "${HOME}/.lolmsgrc" ]; then
+    . "${HOME}/.lolmsgrc"
+fi
+
+function __toggle_lolmsg_rc() {
+    if [[ ! -f "${HOME}/.lolmsgrc" ]]; then
+        echo 'export LOLMSGRC_ENABLED=1' > "${HOME}/.lolmsgrc"
+        echo 'lolmsg enabled'
+    fi
+
+    if [[ "$LOLMSGRC_ENABLED" -eq 0 ]]; then
+        echo 'export LOLMSGRC_ENABLED=1' > "${HOME}/.lolmsgrc"
+        echo 'lolmsg enabled'
+    fi
+
+    if [[ "$LOLMSGRC_ENABLED" -eq 1 ]]; then
+        echo 'export LOLMSGRC_ENABLED=0' > "${HOME}/.lolmsgrc"
+        echo 'lolmsg disabled'
+    fi
+}
+
+alias toggle-lolmsg='__toggle_lolmsg_rc'
+
+if [[ "$LOLMSGRC_ENABLED" -eq 1 ]]; then
+    lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
+fi
+
 #--------------------------------------------- And finally, the prompt...---------------------------------------------#
 safe_source "${ZDOTDIR}"/prompt/prompt
 # Init mcfly last.
