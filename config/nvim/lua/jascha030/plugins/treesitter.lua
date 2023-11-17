@@ -48,6 +48,8 @@ local M = {
         highlight = {
             enable = true,
             use_languagetree = true,
+            additional_vim_regex_highlighting = false,
+            disable = { 'zsh' },
         },
         rainbow = {
             enable = false,
@@ -110,10 +112,10 @@ function M.config(_, opts)
     require('nvim-treesitter.configs').setup(opts)
 
     parsers.ft_to_lang = function(ft)
-        if ft == 'zsh' then
-            return 'bash'
-        end
-
+        -- if ft == 'zsh' then
+        --     return 'bash'
+        -- end
+        --
         if ft == 'xml' then
             return 'html'
         end
