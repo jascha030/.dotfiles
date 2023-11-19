@@ -1,6 +1,6 @@
 local M = {
     'neovim/nvim-lspconfig',
-    event = 'BufReadPre',
+    event = { 'BufReadPre' },
     dependencies = {
         { 'williamboman/mason.nvim' },
         { 'williamboman/mason-lspconfig.nvim' },
@@ -41,7 +41,6 @@ function M.config(_, opts)
 
     require('lspconfig.ui.windows').default_options.border = BORDER
     require('jascha030.lsp').setup(opts)
-
     require('mason-lspconfig').setup({
         automatic_installation = true,
         ensure_installed = {
@@ -58,7 +57,6 @@ function M.config(_, opts)
         handlers = {
             function(server)
                 -- Specifically resolve before setup(), allows for before_init logic in case of config function.
-                -- E.g. jascha030.lsp.config.lua_ls.get_server_config() runs neodev setup before config table is returned.
                 local config = get_server_config(server)
 
                 lspconfig[server].setup(config)
@@ -67,6 +65,7 @@ function M.config(_, opts)
                 local server = get_server_config('rust_analyzer')
 
                 require('rust-tools').setup({
+                    server = server,
                     tools = {
                         reload_workspace_from_cargo_toml = true,
                         inlay_hints = {
