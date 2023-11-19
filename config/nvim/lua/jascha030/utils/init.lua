@@ -2,14 +2,28 @@
 --- @field public fs FilesystemHelpers
 --- @field public keymaps KeymapsUtil
 --- @field public opts OptsUtil
---- @field public tbl TableHelpers 
+--- @field public tbl TableHelpers
 --- @field public theme ThemeUtil
 local M = {}
+
+function M.create_submod_loader(module)
+    return function(_, key)
+        local ok, submod = pcall(require, module .. '.' .. key)
+
+        if not ok then
+            return nil
+        else
+            return submod
+        end
+    end
+end
+
+M = setmetatable(M, { __index = M.create_submod_loader('jascha030.utils') })
 
 ---@param plugin string
 ---@return boolean
 function M.has_plugin(plugin)
-	return require('lazy.core.config').spec.plugins[plugin] ~= nil
+    return require('lazy.core.config').spec.plugins[plugin] ~= nil
 end
 
 function M.wrap(fnc, ...)
@@ -17,9 +31,8 @@ function M.wrap(fnc, ...)
 
     if type(fnc) ~= 'function' then
         local prev = fnc
-        fnc = function(...) -- stylua: ignore 
-            return prev
-        end
+        -- stylua: ignore
+        fnc = function(...) return prev end --- @diagnostic disable-line: unused-vararg
     end
 
     return function()
@@ -52,12 +65,14 @@ end
 
 function M.str_explode(delimiter, p)
     local tbl, position = {}, 0
+
     if #p == 1 then
         return { p }
     end
 
     while true do
         local l = string.find(p, delimiter, position, true)
+
         if l ~= nil then
             table.insert(tbl, string.sub(p, position, l - 1))
             position = l + 1
@@ -78,10 +93,4 @@ function M.get_height()
     return vim.api.nvim_list_uis()[1].height
 end
 
-return setmetatable(M, {
-    __index = function (_, k)
-        local ok, mod = pcall(require, 'jascha030.utils.' .. k)
-
-        return ok and mod or nil
-    end
-})
+return M
