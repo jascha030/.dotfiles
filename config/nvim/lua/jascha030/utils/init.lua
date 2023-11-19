@@ -6,15 +6,21 @@
 --- @field public theme ThemeUtil
 local M = {}
 
-function M.create_submod_loader(module)
-    return function(_, key)
+function M.create_submod_loader(module, bind)
+    return function(table, key)
         local ok, submod = pcall(require, module .. '.' .. key)
 
         if not ok then
             return nil
-        else
-            return submod
         end
+
+        if bind == true then
+            table[key] = submod
+
+            return table[key]
+        end
+
+        return submod
     end
 end
 

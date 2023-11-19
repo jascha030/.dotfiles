@@ -4,46 +4,31 @@
 ---@field public menu jascha030.lsp.ContextAwareMenu
 local M = {}
 
-M = setmetatable(M, {
-    __index = function(_, index)
-        local ok, submod = pcall(require, 'jascha030.lsp.' .. index)
-        if not ok then
-            return nil
-        end
-
-        M[index] = submod
-
-        return M[index]
-    end,
-})
+M = setmetatable({}, { __index = require('jascha030.utils').create_submod_loader('jascha030.lsp', true) })
 
 -- local methods = vim.lsp.protocol.Methods
 local md_namespace = vim.api.nvim_create_namespace('jascha030/lsp_float')
 
---- Adds extra inline highlights to the given buffer.
+-- Adds extra inline highlights to the given buffer.
 ---@param buf integer
 local function add_inline_highlights(buf)
+    local patterns = {
+        ['@%S+'] = '@parameter',
+        ['^%s*(Parameters:)'] = '@text.title',
+        ['^%s*(Return:)'] = '@text.title',
+        ['^%s*(See also:)'] = '@text.title',
+        ['{%S-}'] = '@parameter',
+    }
+
     for l, line in ipairs(vim.api.nvim_buf_get_lines(buf, 0, -1, false)) do
-        for pattern, hl_group in pairs({
-            ['@%S+'] = '@parameter',
-            ['^%s*(Parameters:)'] = '@text.title',
-            ['^%s*(Return:)'] = '@text.title',
-            ['^%s*(See also:)'] = '@text.title',
-            ['{%S-}'] = '@parameter',
-        }) do
+        for pattern, hl_group in pairs(patterns) do
             ---@type integer? from
             local from, to = 1, nil
-
             while from do
                 from, to = line:find(pattern, from)
                 if from then
-                    vim.api.nvim_buf_set_extmark(
-                        buf,
-                        md_namespace,
-                        l - 1,
-                        from - 1,
-                        { end_col = to, hl_group = hl_group }
-                    )
+                    -- stylua: ignore 
+                    vim.api.nvim_buf_set_extmark( buf, md_namespace, l - 1, from - 1, { end_col = to, hl_group = hl_group })
                 end
                 from = to and to + 1 or nil
             end
@@ -65,20 +50,15 @@ vim.lsp.util.stylize_markdown = function(bufnr, contents, opts)
     vim.bo[bufnr].filetype = 'markdown'
     vim.treesitter.start(bufnr)
     vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, contents)
-
     add_inline_highlights(bufnr)
 
     return contents
 end
 
-local diagnostic_signs_init = function()
+local function diagnostic_signs_init()
     ---@param icon DiagnosticSignIcon
     local function define_diagnostic_icon(icon)
-        vim.fn.sign_define(icon.name, {
-            text = icon.text,
-            texthl = icon.name,
-            numhl = icon.name,
-        })
+        vim.fn.sign_define(icon.name, { text = icon.text, texthl = icon.name, numhl = icon.name })
     end
 
     ---@param icon DiagnosticSignIcon
@@ -116,12 +96,8 @@ local function set_keymaps(client, bufnr)
     self:map('<leader>a', vim.lsp.buf.code_action, { desc = 'Code Action', mode = { 'n', 'v' }, has = 'codeAction' })
     self:map('<leader>r', M.keymaps.rename, { expr = true, desc = 'Rename', has = 'rename' })
 
-    self:map('<C-l>', function()
-        M.format(client, bufnr)
-    end, {
-        desc = 'Format Document',
-        has = 'documentFormatting',
-    })
+    -- stylua: ignore
+    self:map('<C-l>', function() M.format(client, bufnr) end, { desc = 'Format Document', has = 'documentFormatting' })
 end
 
 ---@param on_attach fun(client, buffer)
@@ -131,9 +107,8 @@ function M.lsp_attach(on_attach, group)
 
     local attach = {
         callback = function(args)
-            if not (args.data and args.data.client_id) then
-                return
-            end
+            -- stylua: ignore
+            if not (args.data and args.data.client_id) then return end
 
             on_attach(vim.lsp.get_client_by_id(args.data.client_id), args.buf)
         end,
@@ -156,6 +131,20 @@ function M.on_attach(client, buffer)
 
     if client.name == 'phpactor' then
         client.server_capabilities.hoverProvider = false
+        client.server_capabilities.completionProvider = false
+        client.server_capabilities.hoverProvider = false
+        client.server_capabilities.implementationProvider = false
+        client.server_capabilities.referencesProvider = false
+        client.server_capabilities.renameProvider = false
+        client.server_capabilities.selectionRangeProvider = false
+        client.server_capabilities.signatureHelpProvider = false
+        client.server_capabilities.typeDefinitionProvider = false
+        client.server_capabilities.workspaceSymbolProvider = false
+        client.server_capabilities.definitionProvider = false
+        client.server_capabilities.documentHighlightProvider = false
+        client.server_capabilities.documentSymbolProvider = false
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
     end
 
     M.lsp_attach(set_keymaps)
@@ -226,11 +215,11 @@ function M.setup(opts)
     opts = opts or {}
 
     diagnostic_signs_init()
+
     -- Configure diagnostics
     local diagnostics = vim.deepcopy(opts.diagnostics)
     vim.diagnostic.config(diagnostics)
 
-    -- LSP Handlers
     vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { silent = true, border = BORDER })
     -- stylua: ignore
     vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, diagnostics)
