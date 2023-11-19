@@ -4,9 +4,9 @@ local M = {}
 local DARK = 'dark'
 local LIGHT = 'light'
 
-local lrequire = require('jascha030.lreq')
-
 local loaded = false
+
+local lrequire = require('jascha030.lreq')
 local darkmode = lrequire('darkmode')
 
 local function do_update_autocmd()
@@ -50,15 +50,11 @@ function M.init()
         return
     end
 
+    loaded = true
+
     (function()
-        loaded = true
         vim.opt.runtimepath:prepend(os.getenv('XDG_CONFIG_HOME'))
-
-        local function toggle_action()
-            M.toggle()
-        end
-
-        vim.keymap.set('n', 'CS', toggle_action, { noremap = true })
+        vim.keymap.set('n', 'CS', M.toggle, { noremap = true })
 
         -- Auto change colorscheme on MacOS Light/Darkmode change.
         vim.api.nvim_create_autocmd('Signal', {

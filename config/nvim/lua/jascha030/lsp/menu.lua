@@ -1,5 +1,4 @@
 -- Context-aware menu
---
 -- Credits to https://github.com/rafi
 -- https://github.com/rafi/vim-config
 
@@ -22,6 +21,8 @@ function M.supports_method(method, clients)
 end
 
 function M.show()
+    local clients
+
     if vim.fn.has('nvim-0.8') ~= 1 then
         vim.notify('You must be running Neovim ≥8.0', vim.log.levels.WARN, { title = 'Contextmenu' })
         return
@@ -30,7 +31,6 @@ function M.show()
     local cword = vim.fn.expand('<cword>')
     local bufnr = vim.api.nvim_get_current_buf()
 
-    local clients
     if vim.lsp.get_clients ~= nil then
         clients = vim.lsp.get_clients({ bufnr = bufnr })
     else

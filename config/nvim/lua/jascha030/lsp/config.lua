@@ -63,10 +63,7 @@ function M.get_server_config(server)
 end
 
 function M.extend(config)
-    local merge = {
-        {},
-        vim.deepcopy(defaults),
-    }
+    local merge = { {}, vim.deepcopy(defaults) }
 
     if type(config) == 'table' and not vim.tbl_isempty(config) then
         table.insert(merge, config)
