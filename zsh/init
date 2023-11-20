@@ -58,8 +58,8 @@ function sb2init {
 
 #--------------------------------------------------------- Init ------------------------------------------------------#
 # Run (bash)compinit for completions.
-autoload -Uz compinit bashcompinit
-compinit; bashcompinit;
+autoload -Uz compinit && compinit 
+autoload -Uz bashcompinit && bashcompinit
 
 # Load Bash completion scripts
 if (( ${+DOT_BASH_COMPLETIONS})); then
@@ -80,6 +80,10 @@ fi
 
 # Load plugins.
 safe_source "${ZDOTDIR}/plugin-spec"
+[[ ${ZDOTDIR}/.zcompdump.zwc -nt ${ZDOTDIR}/.zcompdump ]] || zcompile-many ${ZDOTDIR}/.zcompdump
+unfunction zcompile-many
+
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 # Application init evaluations.
 eval "$(rtx activate zsh)"
