@@ -14,8 +14,6 @@ typeset -A ZSH_HIGHLIGHT_STYLES=(autodirectory 'fg=10,underline' arg0 'fg=10' su
 setopt autocd extendedglob nomatch menucomplete traps_async
 unsetopt BEEP
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 export DOT_COMP_DIRS=(
     "${HOME}/.bun/_bun"
     "${HOME}/.config/tabtab/zsh/__tabtab.zsh"
@@ -64,8 +62,10 @@ path=(
 ); typeset -aU path
 
 #------------------------ Initialization - This is where most of the magic actually happens --------------------------#
-source "${HOME}"/.cargo/env
+# source "${HOME}"/.cargo/env
+eval "$(/opt/homebrew/bin/brew shellenv)"
 source "${ZDOTDIR}"/init
+
 #-------------------------------------------- Nice flashy intro graphics ---------------------------------------------#
 if [ -f "${HOME}/.lolmsgrc" ]; then
     . "${HOME}/.lolmsgrc"

@@ -49,7 +49,7 @@ alias wpenv:user:create='wp-env run cli wp user create "jascha@socialbrothers.nl
 alias wpenv:user:update='wp-env run cli wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
 
 # Fix for Nu-shell and @antfu/ni:nu confusion
-alias nup='$(which nu)'
+alias nup="$(which nu)"
 alias nu="$HOME/.cargo/bin/nu"
 
 #-------------------------------------------------- Suffix Aliases ---------------------------------------------------#
