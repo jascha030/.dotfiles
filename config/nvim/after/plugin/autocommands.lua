@@ -44,6 +44,7 @@ vim.cmd([[
     autocmd BufRead,BufNewFile gitignore_global,*.*ignore set ft=gitignore
     autocmd BufRead,BufNewFile *.gitattributes set ft=gitattributes
     autocmd BufRead,BufNewFile *.gitconfig,gitconfig set ft=gitconfig
+    autocmd BufRead,BufNewFile *.md, *.MD set ft=markdown
 
     " JSON
     autocmd BufRead,BufNewFile Deployfile set ft=json

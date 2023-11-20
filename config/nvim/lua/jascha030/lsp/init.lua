@@ -127,7 +127,6 @@ function M.on_attach(client, buffer)
         vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = buffer })
     end
 
-    vim.notify(client.name, vim.log.levels.DEBUG)
 
     if client.name == 'phpactor' then
         client.server_capabilities.hoverProvider = false
