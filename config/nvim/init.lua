@@ -1,3 +1,4 @@
+-- stylua: ignore-start
 --[[========================== Jascha030's =============================--
 --   __  __  __  __  ______                __       __  __  ______      --
 --  /\ \/\ \/\ \/\ \/\__  _\   /'\_/`\    /\ \     /\ \/\ \/\  _  \     --
@@ -7,6 +8,7 @@
 --     \ \_\ \_\ `\___/ /\_____\\ \_\\ \_\   \ \____/ \ \_____\ \_\ \_\ --
 --      \/_/\/_/`\/__/  \/_____/ \/_/ \/_/    \/___/   \/_____/\/_/\/_/ --
 --[[================ beep-beep-Config-2.0-beep-boop ====================]]
+-- stylua: ignore-end
 
 BORDER = 'rounded'
 BORDERS = { border = BORDER }
@@ -15,9 +17,7 @@ require('jascha030').setup({
     colorscheme = 'nitepal',
     polyglot = {
         enabled = true,
-        languages = {
-            'zsh',
-        },
+        languages = { 'zsh' },
     },
     opts = {
         opt = {
@@ -52,33 +52,51 @@ require('jascha030').setup({
         },
         o = {
             t_Co = '256',
-        }
+        },
     },
     keymaps = {
         n = {
-            ['ff'] = { '<CMD>lua require("telescope.builtin").find_files()<CR>' },
-            ['<C-p>'] = { '<CMD>lua require("telescope.builtin").git_files()<CR>' },
-            ['fg'] = { '<CMD>lua require("telescope.builtin").live_grep()<CR>' },
-            ['<C-f>'] = { '<CMD>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>' },
-            ['<leader><leader>h'] = { '<CMD>lua require("telescope.builtin").highlights()<CR>' },
-            ['<S-Tab>'] = { '<Plug>(cokeline-focus-next)', { silent = true } },
-            ['<C-w><C-c>'] = { '<CMD>close<CR>' },
-            ['<C-n>'] = { '<CMD>NeoTreeFocusToggle<CR>' },
-            ['N'] = { '<CMD>NeoTreeFocus<CR>' },
-            ['<C-t>'] = { '<CMD>Telescope<CR>' },
-            ['<Tab><Tab>'] = { '<CMD>HopWord<CR>' },
-            ['sR'] = { '<CMD>source $MYVIMRC<CR>', { noremap = true, silent = true } },
-            ['m'] = { '<CMD>Mason<CR>' },
-            ['<C-_>'] = { '<CMD>CommentToggle<CR>' },
-            ['<leader>CP'] = { '<CMD>PickColor<CR>' },
-            ['<leader>c'] = { '<CMD>lua require("jascha030.lsp.menu").show()<CR>', { desc = 'Context aware menu' } },
-            ['<leader>tc'] = { '<CMD>lua vim.show_pos()<CR>' },
-            ['<leader>p'] = { '<CMD>InspectTree<CR>' },
-            ['<leader>l'] = { '<CMD>Lazy<CR>' },
+            ['ff'] = { '<cmd>lua require("telescope.builtin").find_files()<cr>' },
+            ['<C-p>'] = { '<cmd>lua require("telescope.builtin").git_files()<cr>' },
+            ['fg'] = { '<cmd>lua require("telescope.builtin").live_grep()<cr>' },
+            ['<C-f>'] = { '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>' },
+            ['<leader>hl'] = {
+                '<cmd>lua require("telescope.builtin").highlights()<cr>',
+                { desc = 'Show available highlights in ui.' },
+            },
+            ['<S-Tab>'] = {
+                '<Plug>(cokeline-focus-next)',
+                {
+                    silent = true,
+                },
+            },
+            ['<C-w><C-c>'] = { '<cmd>close<cr>' },
+            ['<C-n>'] = { '<cmd>NeoTreeFocusToggle<cr>' },
+            ['N'] = { '<cmd>NeoTreeFocus<cr>' },
+            ['<C-t>'] = { '<cmd>Telescope<cr>' },
+            ['<Tab><Tab>'] = { '<cmd>HopWord<cr>' },
+            ['sR'] = {
+                '<cmd>source $MYVIMRC<cr>',
+                {
+                    noremap = true,
+                    silent = true,
+                },
+            },
+            ['m'] = { '<cmd>Mason<cr>' },
+            ['<C-/>'] = { '<cmd>CommentToggle<cr>' },
+            ['<C-_>'] = { '<cmd>CommentToggle<cr>' },
+            ['<leader>CP'] = { '<cmd>PickColor<cr>' },
+            ['<leader>c'] = {
+                '<cmd>lua require("jascha030.lsp.menu").show()<cr>',
+                { desc = 'Context aware menu' },
+            },
+            ['<leader>tc'] = { '<cmd>lua vim.show_pos()<cr>' },
+            ['<leader>p'] = { '<cmd>InspectTree<cr>' },
+            ['<leader>l'] = { '<cmd>Lazy<cr>' },
         },
         v = {
-            ['<C-c>'] = { ':OSCYankVisual<CR>' },
-            ['<C-_>'] = { ":'<,'>CommentToggle<CR>" },
+            ['<C-c>'] = { ':OSCYankVisual<cr>' },
+            ['<C-_>'] = { ":'<,'>CommentToggle<cr>" },
         },
         t = {
             ['<M-[>'] = { '<Esc>' },
