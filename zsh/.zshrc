@@ -68,9 +68,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 source "${ZDOTDIR}"/init
 
 #-------------------------------------------- Nice flashy intro graphics ---------------------------------------------#
-if [ -f "${HOME}/.lolmsgrc" ]; then
-    . "${HOME}/.lolmsgrc"
-fi
+[ -f "${HOME}/.lolmsgrc" ] && . "${HOME}/.lolmsgrc"
 
 function __toggle_lolmsg_rc() {
     if [[ ! -f "${HOME}/.lolmsgrc" ]]; then
@@ -91,11 +89,13 @@ function __toggle_lolmsg_rc() {
 
 alias toggle-lolmsg='__toggle_lolmsg_rc'
 
-if [[ "$LOLMSGRC_ENABLED" -eq 1 ]]; then
-    lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
-fi
-
 #--------------------------------------------- And finally, the prompt...---------------------------------------------#
 safe_source "${ZDOTDIR}"/prompt/prompt
 # Init mcfly last.
 eval "$(mcfly init zsh)"
+
+if [[ "$LOLMSGRC_ENABLED" -eq 1 ]]; then
+    lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
+fi
+
+
