@@ -33,6 +33,7 @@ export DOT_SOURCES=(
 
 export DOT_AFTER_INIT_SOURCES=(
     "${HOME}/.fzf.zsh"
+    "$ZDOTDIR/colors.zsh"
     "${ZDOTDIR}/fzf"
     "${ZDOTDIR}/overrides"
     "${ZDOTDIR}/aliases"

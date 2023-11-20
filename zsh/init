@@ -90,7 +90,8 @@ eval "$(rtx activate zsh)"
 eval "$(zoxide init zsh)"
 eval "$(teleport-dir init)"
 eval "$(op completion zsh)"
-export LS_COLORS="$(vivid generate jassie030)"
+
+# export LS_COLORS="$(vivid generate jassie030)"
 
 # Source late files like aliases etc.
 if (( ${+DOT_AFTER_INIT_SOURCES} )); then
