@@ -17,7 +17,7 @@ export FZF_DARK=$FZF_DEFAULT_OPTS'
 --color=marker:#ea1479,spinner:#5f5fec,header:#465182,border:#c8d3f5'
 
 function __fzf_update_theme {
-    if [[ "$(is_dark)" == 1 ]]; then
+    if [[ "$(is_dark)" -eq 1 ]]; then
         export FZF_DEFAULT_OPTS=$FZF_DARK
     else
         export FZF_DEFAULT_OPTS=$FZF_LIGHT
