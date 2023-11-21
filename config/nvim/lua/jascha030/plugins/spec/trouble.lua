@@ -17,22 +17,4 @@ local M = {
     },
 }
 
-
--- function M.config(_, opts)
---     vim.api.nvim_create_autocmd('FileType', {
---         pattern = 'Trouble',
---        
---     })
---     require('trouble').setup(opts)
--- end
---
--- function M.keys(_, _)
---     local map_opts = { noremap = true, buffer = 0 }
---
---     return {
---         { 'n', 'TT', '<cmd>Trouble<cr>', map_opts },
---         { 'n', 'TT', '<cmd>Trouble<cr>', map_opts },
---     }
--- end
-
 return M

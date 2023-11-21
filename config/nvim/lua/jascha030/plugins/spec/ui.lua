@@ -1,5 +1,8 @@
+local lreq = require('jascha030.lreq')
+local theme = lreq('jascha030.utils.theme')
+
 local function get_background()
-    return require('jascha030.utils.theme').is_dark() and '#1e2030' or '#e7e9ef'
+    return theme.is_dark() and '#1e2030' or '#e7e9ef'
 end
 
 return {
@@ -8,7 +11,9 @@ return {
         'brenoprata10/nvim-highlight-colors',
         name = 'nvim-highlight-colors',
         event = 'VeryLazy',
-        opts = { render = 'first_column' },
+        opts = {
+            render = 'first_column',
+        },
     },
     {
         'goolord/alpha-nvim',
@@ -19,28 +24,6 @@ return {
         config = function(_, opts)
             require('alpha').setup(opts)
         end,
-    },
-    {
-        'folke/paint.nvim',
-        opts = {
-            highlights = {
-                {
-                    filter = { filetype = 'lua' },
-                    pattern = '%s*%-%-%-%s*(@%w+)',
-                    hl = '@keyword',
-                },
-                {
-                    filter = { filetype = 'php' },
-                    pattern = '%s*%*% %s*(@%w+)',
-                    hl = '@keyword',
-                },
-                {
-                    filter = { filetype = 'zsh' },
-                    pattern = 'function',
-                    hl = '@keyword.function',
-                },
-            },
-        },
     },
     {
         'm-demare/hlargs.nvim',
