@@ -123,7 +123,7 @@ function M.opts()
 end
 
 function M.config(_, opts)
-    require('jascha030.plugins.devicons.config').setup(opts)
+    require('jascha030.plugins.spec.devicons.config').setup(opts)
 end
 
 return M

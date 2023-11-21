@@ -13,7 +13,7 @@ end
 
 vim.opt.runtimepath:prepend(lazypath)
 
-require('lazy').setup('jascha030.plugins', {
+require('lazy').setup('jascha030.plugins.spec', {
     concurrency = 5,
     performance = {
         rtp = {

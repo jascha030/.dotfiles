@@ -5,7 +5,7 @@ local M = {
         { 'williamboman/mason.nvim' },
         { 'williamboman/mason-lspconfig.nvim' },
         { 'ray-x/lsp_signature.nvim' },
-        { import = 'jascha030.plugins.neodev', ft = 'lua' },
+        { import = 'jascha030.plugins.spec.neodev', ft = 'lua' },
         {
             'nvimdev/lspsaga.nvim',
             lazy = true,
