@@ -69,6 +69,7 @@ vim.cmd([[
     autocmd BufRead,BufNewFile *.nu set ft=nu
   
     autocmd FileType help,lspinfo,Trouble nnoremap <buffer><silent> q :close<CR>
+    autocmd FileType Trouble nnoremap <buffer><silent> TT :close<CR>
     autocmd FileType dashboard,toggleterm nnoremap <buffer><silent> q :q<CR>
   augroup end
 ]])
