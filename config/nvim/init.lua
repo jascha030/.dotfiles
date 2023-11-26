@@ -51,11 +51,12 @@ require('jascha030').setup({
             editorconfig = true,
         },
         o = {
-            t_Co = '256',
+            -- t_Co = '256',
         },
     },
     keymaps = {
         n = {
+            ['t'] = { '<C-w>' },
             ['ff'] = { '<cmd>lua require("telescope.builtin").find_files()<cr>' },
             ['<C-p>'] = { '<cmd>lua require("telescope.builtin").git_files()<cr>' },
             ['fg'] = { '<cmd>lua require("telescope.builtin").live_grep()<cr>' },
