@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 # shellcheck disable=SC2093,SC1091,SC2155
+# zmodload zsh/zprof
 
 # Conditionals, if current term is not in neovim .
 if ! (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )); then
@@ -8,11 +9,10 @@ if ! (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )); then
     [[ "$TERM_PROGRAM" == "WezTerm" ]] && (( LINES == 24 )) && { until (( LINES > 24 )); do exec zsh -l; done; }
 fi
 
+typeset -A ZSH_HIGHLIGHT_STYLES=(autodirectory 'fg=10,underline' arg0 'fg=10' suffix-alias 'fg=10,underline' bracket-level-2 'fg=10,bold')
+
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-typeset -A ZSH_HIGHLIGHT_STYLES=(autodirectory 'fg=10,underline' arg0 'fg=10' suffix-alias 'fg=10,underline' bracket-level-2 'fg=10,bold')
-setopt autocd extendedglob nomatch menucomplete traps_async
-unsetopt BEEP
 
 export DOT_COMP_DIRS=(
     "${HOME}/.bun/_bun"
@@ -39,8 +39,8 @@ export DOT_AFTER_INIT_SOURCES=(
     "${ZDOTDIR}/aliases"
 )
 
-[[ ! -r /Users/jaschavanaalst/.opam/opam-init/init.zsh ]] \
-    || source /Users/jaschavanaalst/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+[[ ! -r "$HOME"/.opam/opam-init/init.zsh ]] \
+    || source "$HOME"/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 
 # Path
@@ -95,6 +95,8 @@ fi
 
 #--------------------------------------------- And finally, the prompt...---------------------------------------------#
 safe_source "${ZDOTDIR}"/prompt/prompt
+
 # Init mcfly last.
 eval "$(mcfly init zsh)"
 
+# zprof
