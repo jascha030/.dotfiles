@@ -39,6 +39,7 @@ vim.cmd([[
     autocmd BufReadPost *.ejs.t set ft=embedded_template
     autocmd BufReadPost *.cnf set ft=dosini
     autocmd BufReadPost *.kdl set ft=kdl
+    autocmd BufReadPost *Brewfile set ft=ruby
 
     " Git
     autocmd BufRead,BufNewFile gitignore_global,*.*ignore set ft=gitignore
