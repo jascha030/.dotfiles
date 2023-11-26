@@ -43,7 +43,7 @@ function M.config(_, _)
 
     function _G.tterm_terminal()
         if terminal == nil then
-            terminal = create('/usr/bin/zsh --login')
+            terminal = create('/bin/zsh --login')
         end
 
         terminal:toggle()
