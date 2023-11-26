@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-############ Box Drawing Chars ############
+######################## Box Drawing Chars ################################
 # U+250x	─	━	│	┃	┄	┅	┆	┇	┈	┉	┊	┋	┌	┍	┎	┏ #
 # U+251x	┐	┑	┒	┓	└	┕	┖	┗	┘	┙	┚	┛	├	┝	┞	┟ #
 # U+252x	┠	┡	┢	┣	┤	┥	┦	┧	┨	┩	┪	┫	┬	┭	┮	┯ #
@@ -9,7 +9,7 @@
 # U+255x	═	║	╒	╓	╔	╕	╖	╗	╘	╙	╚	╛	╜	╝	╞	╟ #
 # U+256x	╠	╡	╢	╣	╤	╥	╦	╧	╨	╩	╪	╫	╬	╭	╮	╯ #
 # U+257x	╰	╱	╲	╳	╴	╵	╶	╷	╸	╹	╺	╻	╼	╽	╾	╿ # 
-###########################################
+###########################################################################
 
 source ${DOTFILES}/zsh/prompt/helpers.zsh
 
@@ -31,7 +31,6 @@ function top-prompt {
     local right='%F{011}   %w %b |   %T   %f'
 
     fill-line $left $right ' '
-
     typeset -g top=$REPLY
 }
 
@@ -39,7 +38,6 @@ function mid-prompt {
     emulate -L zsh
 
     local REPLY; fill-line $PS1_TL $PS1_TR
-
     typeset -g mid=$REPLY
 }
 
@@ -47,7 +45,7 @@ function set-prompt {
     emulate -L zsh
 
     # Render functional elements
-    local php_wgt; php-ver
+    # local php_wgt; php-ver
     local mid; mid-prompt
     local top; top-prompt
 
@@ -55,7 +53,7 @@ function set-prompt {
 
     # Render layout elements
     local bot_left="${PS1_BL} %F{08} ${prompt_dir}%f ${vcs_info_msg_0_} "
-    local bot_right=" ${php_wgt} ${PS1_BR}"
+    local bot_right=" ${PS1_BR}"
 
     PROMPT=$'\n'${top}$'\n'${mid}$'\n'${bot_left}
     RPROMPT=$bot_right
