@@ -1,15 +1,21 @@
 #!/usr/bin/env zsh
 
 # shellcheck disable=SC2093,SC1091,SC2155
-# zmodload zsh/zprof
+if [[ "$ZPROF_ENABLED" -eq 1 ]]; then
+    zmodload zsh/zprof
+fi
 
-# Conditionals, if current term is not in neovim .
+# Conditional, if current term is not nvim, apply Hacky fix when first window of wezterm messes up lolmsg placement.
 if ! (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )); then
-    # Hacky fix when first window of wezterm messes up lolmsg placement.
     [[ "$TERM_PROGRAM" == "WezTerm" ]] && (( LINES == 24 )) && { until (( LINES > 24 )); do exec zsh -l; done; }
 fi
 
-typeset -A ZSH_HIGHLIGHT_STYLES=(autodirectory 'fg=10,underline' arg0 'fg=10' suffix-alias 'fg=10,underline' bracket-level-2 'fg=10,bold')
+typeset -A ZSH_HIGHLIGHT_STYLES=(
+    autodirectory   'fg=10,underline'
+    arg0            'fg=10'
+    suffix-alias    'fg=10,underline'
+    bracket-level-2 'fg=10,bold'
+)
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
@@ -63,19 +69,26 @@ path=(
 ); typeset -aU path
 
 #------------------------ Initialization - This is where most of the magic actually happens --------------------------#
-# source "${HOME}"/.cargo/env
 eval "$(/opt/homebrew/bin/brew shellenv)"
 source "${ZDOTDIR}"/init
 
 #-------------------------------------------- Nice flashy intro graphics ---------------------------------------------#
-[ -f "${HOME}/.lolmsgrc" ] && . "${HOME}/.lolmsgrc"
+[ -f "${HOME}/.lolmsgrc" ] && . "${HOME}/.lolmsgrc" || echo 'export LOLMSGRC_ENABLED=1' > "${HOME}/.lolmsgrc"
+[ -f "${HOME}/.zprofrc" ] && . "${HOME}/.zprofrc" || echo 'export ZPROF_ENABLED=1' > "${HOME}/.zprofrc"
 
-function __toggle_lolmsg_rc() {
-    if [[ ! -f "${HOME}/.lolmsgrc" ]]; then
-        echo 'export LOLMSGRC_ENABLED=1' > "${HOME}/.lolmsgrc"
-        echo 'lolmsg enabled'
+function __toggle_zprof() {
+    if [[ "$ZPROF_ENABLED" -eq 0 ]]; then
+        echo 'export ZPROF_ENABLED=1' > "${HOME}/.zprofrc"
+        echo 'zprof enabled'
     fi
 
+    if [[ "$ZPROF_ENABLED" -eq 1 ]]; then
+        echo 'export ZPROF_ENABLED=0' > "${HOME}/.zprofrc"
+        echo 'zprof disabled'
+    fi
+}
+
+function __toggle_lolmsg_rc() {
     if [[ "$LOLMSGRC_ENABLED" -eq 0 ]]; then
         echo 'export LOLMSGRC_ENABLED=1' > "${HOME}/.lolmsgrc"
         echo 'lolmsg enabled'
@@ -88,15 +101,12 @@ function __toggle_lolmsg_rc() {
 }
 
 alias toggle-lolmsg='__toggle_lolmsg_rc'
+alias toggle-zprof='__toggle_zprof'
 
-if [[ "$LOLMSGRC_ENABLED" -eq 1 ]]; then
-    lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
-fi
+[[ "$LOLMSGRC_ENABLED" -eq 1 ]] && lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
 
 #--------------------------------------------- And finally, the prompt...---------------------------------------------#
 safe_source "${ZDOTDIR}"/prompt/prompt
+eval "$(mcfly init zsh)" # Init mcfly last.
 
-# Init mcfly last.
-eval "$(mcfly init zsh)"
-
-# zprof
+[[ "$ZPROF_ENABLED" -eq 1 ]] && zprof
