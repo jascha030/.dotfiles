@@ -1,7 +1,7 @@
 ---@class WezThemeConfig
 local M = {}
 
-local default = require('colors.jassie030')
+local default = require('colors.jassie030').get_scheme()
 local color_scheme = nil
 
 local function is_dark(scheme)
