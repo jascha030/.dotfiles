@@ -17,6 +17,8 @@ alias lll='ll | lolcrab'
 alias df="cd ${DOTFILES}"
 alias dev="cd ${DEV}"
 alias root='cd $(git rev-parse --show-toplevel)'
+
+alias zbench="$HOME/zsh-bench/zsh-bench | cat"
 alias checkitalics="echo -e '\e[3mitalic\e[23m'"
 alias checkbold="echo -e '\e[1mbold\e[22m'"
 alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
@@ -42,8 +44,8 @@ alias vo='valet open'
 
 # WP Development
 alias wpe='open "https://my.wpengine.com/#all"'
-alias wpuser:create='wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
-alias wpuser:update='wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
+alias wpuser:create='wp --skip-plugins --skip-themes user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
+alias wpuser:update='wp --skip-plugins --skip-themes user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
 alias wpconfig:new='wp-config-new-db'
 alias wpenv:user:create='wp-env run cli wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpenv:user:update='wp-env run cli wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
@@ -59,8 +61,7 @@ alias -s {.zshrc,zsh,sh,json,yaml,.env,cs,ts,html}=vim
 #----------------------------------------------------In Memoriam -----------------------------------------------------#
 # alias cp:shrug='e "¯\_(ツ)_/¯" | pbcopy'
 # alias cp:broodje='e "52. HUMMES-AVOCADO - witte italiaanse bol - € 6,00" | pbcopy'
-
 # alias tm-auto='sudo tmutil startbackup --auto; tmutil status'
 # alias cp:defaults='cp -r $HOME/.development/Projects/Php/Composer/jascha030/project-templates/composer-template/{.var,.phive,.editorconfig,.gitignore,.gitattributes,.phpstorm.meta.php,.php-cs-fixer.dist.php,phpunit.xml.dist,phpstan.neon.dist} $PWD/'
-
 # alias scrsvr='open -a ScreenSaverEngine'
+
