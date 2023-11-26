@@ -15,7 +15,7 @@ local function nvim_create_augroups(definitions)
     end
 end
 
-nvim_create_augroups({ open_folds = { { 'BufReadPost,FileReadPost', '*', 'normal zR' } } })
+-- nvim_create_augroups({ open_folds = { { 'BufReadPost,FileReadPost', '*', 'normal zR' } } })
 
 vim.api.nvim_create_autocmd('BufRead', {
     group = vim.api.nvim_create_augroup('CmpSourceCargo', { clear = true }),
@@ -71,6 +71,6 @@ vim.cmd([[
   
     autocmd FileType help,lspinfo,Trouble nnoremap <buffer><silent> q :close<CR>
     autocmd FileType Trouble nnoremap <buffer><silent> TT :close<CR>
-    autocmd FileType dashboard,toggleterm nnoremap <buffer><silent> q :q<CR>
+    autocmd FileType dashboard nnoremap <buffer><silent> q :q<CR>
   augroup end
 ]])

@@ -3,7 +3,6 @@ local silent_opts = { noremap = true, silent = true }
 local M = {
     'akinsho/toggleterm.nvim',
     lazy = false,
-    priority = 100,
     version = '*',
 }
 
@@ -17,7 +16,7 @@ function M.keys(_, _)
     }
 end
 
-function M.config(_, _)
+function M.config(_, opts)
     local map = vim.keymap.set
     local toggleterm = require('toggleterm')
     local Terminal = require('toggleterm.terminal').Terminal
