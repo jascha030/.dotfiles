@@ -3,26 +3,28 @@
 # Overrides from env.
 (( ${+CAT_OVERRIDE} )) && alias cat=${CAT_OVERRIDE}
 (( ${+LS_OVERRIDE} ))  && alias ls=${LS_OVERRIDE}
+
 # Open cwd as project in various JetBrains IDE's
 (( ${+commands[idea]} ))     && alias idea='idea .'
 (( ${+commands[phpstorm]} )) && alias pstorm='phpstorm .'
 (( ${+commands[webstorm]} )) && alias wstorm='webstorm .'
-(( ${+commands[egrep]} )) && alias egrep='egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
-(( ${+commands[fgrep]} )) && alias fgrep='fgrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+(( ${+commands[egrep]} ))    && alias egrep='egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+(( ${+commands[fgrep]} ))    && alias fgrep='fgrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 
-function ll {
-    if (( ${+LS_DEFAULT_ARGS} )); then
-        eval "ls ${LS_DEFAULT_ARGS}"
-    else
-        ls -Ahl
-    fi
-}
+function ll { (( ${+LS_DEFAULT_ARGS} )) && eval "ls ${LS_DEFAULT_ARGS}" || ls -Ahl; }
 
 # Copy pwd to clipboard
-if (( ! $+commands[cpd] )); then
+if (( ! ${+commands[cpd]} )); then
     function cpd { builtin echo -en "${PWD}" | pbcopy; }
 
     autoload -Uz cpd
+fi
+
+# Copy file contents to clipboard
+if (( ! ${+commands[cpc]} )); then
+    function cpc { cat "$@" | pbcopy; }
+
+    autoload -Uz cpc
 fi
 
 # Isolated php and composer
