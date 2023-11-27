@@ -4,10 +4,11 @@ local fineline = lreq('fine-cmdline')
 local M = {
     'VonHeikemen/fine-cmdline.nvim',
     dependencies = { 'MunifTanjim/nui.nvim' },
+    keys = {
+        { ':', '<cmd>FineCmdline<CR>', mode = 'n', { noremap = true } },
+    },
     opts = {
-        cmdline = {
-            prompt = '  ',
-        },
+        cmdline = { prompt = '  ' },
         popup = {
             position = {
                 row = '40%',
@@ -49,9 +50,6 @@ local M = {
     config = function(_, opts)
         fineline.setup(opts)
     end,
-    keys = {
-        { ':', '<cmd>FineCmdline<CR>', mode = 'n', { noremap = true } },
-    },
 }
 
 return M
