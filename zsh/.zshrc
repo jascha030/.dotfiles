@@ -109,4 +109,6 @@ alias toggle-zprof='__toggle_zprof'
 safe_source "${ZDOTDIR}"/prompt/prompt
 eval "$(mcfly init zsh)" # Init mcfly last.
 
-[[ "$ZPROF_ENABLED" -eq 1 ]] && zprof
+if [[ "$ZPROF_ENABLED" -eq 1 ]]; then
+    zprof
+fi
