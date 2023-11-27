@@ -9,7 +9,10 @@ local M = {
         {
             'nvimdev/lspsaga.nvim',
             lazy = true,
-            opts = { border_style = BORDER },
+            opts = {
+                ui = { border = BORDER },
+                lightbulb = { enable = false },
+            },
             dependencies = { 'nvim-treesitter/nvim-treesitter' },
         },
     },
