@@ -26,12 +26,6 @@ vim.api.nvim_create_autocmd('BufRead', {
 })
 
 vim.cmd([[
-  augroup _lsp
-    autocmd!
-    autocmd FileType php setlocal omnifunc=phpactor#Complete
-    autocmd BufRead,BufNewFile .zsh* set tabstop=4 | set shiftwidth=4
-  augroup end
-
   augroup _ft
     autocmd!
     autocmd BufReadPost *.neon,*.neon.dist set ft=yaml
