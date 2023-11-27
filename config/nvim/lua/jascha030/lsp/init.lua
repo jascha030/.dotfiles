@@ -36,6 +36,7 @@ local function add_inline_highlights(buf)
     end
 end
 
+--[[
 -- HACK: Override `vim.lsp.util.stylize_markdown` to use Treesitter.
 ---@param bufnr integer
 ---@param contents string[]
@@ -48,12 +49,15 @@ vim.lsp.util.stylize_markdown = function(bufnr, contents, opts)
     })
 
     vim.bo[bufnr].filetype = 'markdown'
+
     vim.treesitter.start(bufnr)
     vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, contents)
+
     add_inline_highlights(bufnr)
 
     return contents
 end
+--]]--
 
 local function diagnostic_signs_init()
     ---@param icon DiagnosticSignIcon
@@ -126,7 +130,6 @@ function M.on_attach(client, buffer)
     if client.server_capabilities.completionProvider then
         vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = buffer })
     end
-
 
     if client.name == 'phpactor' then
         client.server_capabilities.hoverProvider = false
