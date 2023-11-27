@@ -6,6 +6,7 @@ local M = {
 local lreq = require('jascha030.lreq')
 local nls = lreq('null-ls')
 
+
 function M.opts()
     return {
         sources = {
@@ -40,7 +41,7 @@ function M.opts()
                 -- stylua: ignore 
                 condition = function(utils) return utils.root_has_file('.php-cs-fixer.dist.php') end,
                 -- stylua: ignore 
-                extra_args = function() return { '--quiet', '--no-interaction', '--config=' .. vim.fn.getcwd() .. '/.php-cs-fixer.dist.php', 'fix', '$FILENAME' } end,
+                extra_args = function() return { '--quiet', '--no-interaction', '--config=.php-cs-fixer.dist.php', 'fix', '$FILENAME' } end,
             }),
         },
     }
