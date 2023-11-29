@@ -108,6 +108,24 @@ local M = {
 function M.config(_, opts)
     local parsers = require('nvim-treesitter.parsers')
     local ft_to_lang = parsers.ft_to_lang
+    local parser_config = parsers.get_parser_configs()
+
+    parser_config.blade = {
+        install_info = {
+            url = 'https://github.com/EmranMR/tree-sitter-blade',
+            files = { 'src/parser.c' },
+            branch = 'main',
+        },
+        filetype = 'blade',
+    }
+
+    vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+        group = vim.api.nvim_create_augroup('BladeFiltypeRelated', { clear = true }),
+        pattern = '*.blade.php',
+        callback = function()
+            vim.bo.filetype = 'blade'
+        end,
+    })
 
     require('nvim-treesitter.configs').setup(opts)
 
@@ -115,10 +133,9 @@ function M.config(_, opts)
         -- if ft == 'zsh' then
         --     return 'bash'
         -- end
-        --
-        if ft == 'xml' then
-            return 'html'
-        end
+        -- if ft == 'xml' then
+            -- return 'html'
+        -- end
 
         return ft_to_lang(ft)
     end
