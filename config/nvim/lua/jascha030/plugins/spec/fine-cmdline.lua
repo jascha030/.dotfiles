@@ -4,6 +4,7 @@ local fineline = lreq('fine-cmdline')
 local M = {
     'VonHeikemen/fine-cmdline.nvim',
     dependencies = { 'MunifTanjim/nui.nvim' },
+    cond = false,
     keys = {
         { ':', '<cmd>FineCmdline<CR>', mode = 'n', { noremap = true } },
     },
