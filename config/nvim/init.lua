@@ -93,7 +93,7 @@ require('jascha030').setup({
             },
             ['<leader>tc'] = { '<cmd>lua vim.show_pos()<cr>' },
             ['<leader>p'] = { '<cmd>InspectTree<cr>' },
-            ['<leader>l'] = { '<cmd>Lazy<cr>' },
+            ['<leader>lz'] = { '<cmd>Lazy<cr>' },
         },
         v = {
             ['<C-c>'] = { ':OSCYankVisual<cr>' },
