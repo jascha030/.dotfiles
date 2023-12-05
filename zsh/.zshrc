@@ -10,6 +10,9 @@ if ! (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )); then
     [[ "$TERM_PROGRAM" == "WezTerm" ]] && (( LINES == 24 )) && { until (( LINES > 24 )); do exec zsh -l; done; }
 fi
 
+setopt autocd extendedglob nomatch menucomplete traps_async
+unsetopt BEEP
+
 typeset -A ZSH_HIGHLIGHT_STYLES=(
     autodirectory   'fg=10,underline'
     arg0            'fg=10'

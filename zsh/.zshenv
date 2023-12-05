@@ -15,6 +15,3 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
 export DOT_DEFAULT_LOL_MSG="Hackerman Mode 030"
 export DOT_NEOVIM_LOL_MSG="NVIM 030"
 
-setopt autocd extendedglob nomatch menucomplete traps_async
-unsetopt BEEP
-
