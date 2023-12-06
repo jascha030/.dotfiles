@@ -4,12 +4,14 @@ local M = {
         { 'nvim-treesitter/nvim-treesitter-context', config = true },
         { 'p00f/nvim-ts-rainbow', lazy = true },
         { 'theHamsta/nvim-treesitter-commonlisp' },
+        { 'nvim-treesitter/playground' },
     },
     build = ':TSUpdate',
     event = { 'BufReadPost', 'BufNewFile' },
     opts = {
         ensure_installed = {
             'bash',
+            'comment',
             'commonlisp',
             'css',
             'gitattributes',
@@ -26,6 +28,7 @@ local M = {
             'ocaml',
             'ocaml_interface',
             'php',
+            'phpdoc',
             'python',
             'query',
             'regex',
@@ -35,6 +38,9 @@ local M = {
             'vim',
             'vimdoc',
             'yaml',
+        },
+        playground = {
+            enable = true,
         },
         query_linter = {
             enable = true,
@@ -134,7 +140,7 @@ function M.config(_, opts)
         --     return 'bash'
         -- end
         -- if ft == 'xml' then
-            -- return 'html'
+        -- return 'html'
         -- end
 
         return ft_to_lang(ft)

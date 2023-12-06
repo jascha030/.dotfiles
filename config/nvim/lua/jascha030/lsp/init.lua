@@ -57,7 +57,8 @@ vim.lsp.util.stylize_markdown = function(bufnr, contents, opts)
 
     return contents
 end
---]]--
+--]]
+--
 
 local function diagnostic_signs_init()
     ---@param icon DiagnosticSignIcon
@@ -133,20 +134,19 @@ function M.on_attach(client, buffer)
 
     if client.name == 'phpactor' then
         client.server_capabilities.hoverProvider = false
-        client.server_capabilities.completionProvider = false
-        client.server_capabilities.hoverProvider = false
-        client.server_capabilities.implementationProvider = false
-        client.server_capabilities.referencesProvider = false
-        client.server_capabilities.renameProvider = false
-        client.server_capabilities.selectionRangeProvider = false
-        client.server_capabilities.signatureHelpProvider = false
-        client.server_capabilities.typeDefinitionProvider = false
-        client.server_capabilities.workspaceSymbolProvider = false
-        client.server_capabilities.definitionProvider = false
-        client.server_capabilities.documentHighlightProvider = false
-        client.server_capabilities.documentSymbolProvider = false
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
+        -- client.server_capabilities.completionProvider = false
+        -- client.server_capabilities.implementationProvider = false
+        -- client.server_capabilities.referencesProvider = false
+        -- client.server_capabilities.renameProvider = false
+        -- client.server_capabilities.selectionRangeProvider = false
+        -- client.server_capabilities.signatureHelpProvider = false
+        -- client.server_capabilities.typeDefinitionProvider = false
+        -- client.server_capabilities.workspaceSymbolProvider = false
+        -- client.server_capabilities.definitionProvider = false
+        -- client.server_capabilities.documentHighlightProvider = false
+        -- client.server_capabilities.documentSymbolProvider = false
+        -- client.server_capabilities.documentFormattingProvider = false
+        -- client.server_capabilities.documentRangeFormattingProvider = false
     end
 
     M.lsp_attach(set_keymaps)
@@ -213,6 +213,14 @@ function M.signature_help_handler()
     return vim.lsp.with(vim.lsp.handlers.signature_help, BORDERS)
 end
 
+local function diagnostic_handler(_, result, ctx, config)
+    result.diagnostics = vim.tbl_filter(function(diagnostic)
+        return diagnostic.source ~= 'phpactor'
+    end, result.diagnostics)
+
+    vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx, config)
+end
+
 function M.setup(opts)
     opts = opts or {}
 
@@ -224,7 +232,7 @@ function M.setup(opts)
 
     vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { silent = true, border = BORDER })
     -- stylua: ignore
-    vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, diagnostics)
+    vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(diagnostic_handler, diagnostics)
 
     local signature_help = M.signature_help_handler()
     if signature_help ~= nil then

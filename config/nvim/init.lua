@@ -67,13 +67,11 @@ require('jascha030').setup({
             },
             ['<S-Tab>'] = {
                 '<Plug>(cokeline-focus-next)',
-                {
-                    silent = true,
-                },
+                { silent = true },
             },
             ['<C-w><C-c>'] = { '<cmd>close<cr>' },
-            ['<C-n>'] = { '<cmd>NeoTreeFocusToggle<cr>' },
-            ['N'] = { '<cmd>NeoTreeFocus<cr>' },
+            ['<C-n>'] = { '<cmd>Neotree toggle focus<cr>' },
+            ['N'] = { '<cmd>Neotree focus<cr>' },
             ['<C-t>'] = { '<cmd>Telescope<cr>' },
             ['<Tab><Tab>'] = { '<cmd>HopWord<cr>' },
             ['sR'] = {

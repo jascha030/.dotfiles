@@ -10,9 +10,9 @@ local M = {
         'hrsh7th/cmp-cmdline',
         'hrsh7th/cmp-nvim-lua',
         'ray-x/cmp-treesitter',
-        'saadparwaiz1/cmp_luasnip',
+        -- 'saadparwaiz1/cmp_luasnip',
         'ncm2/ncm2',
-        'onsails/lspkind-nvim',
+        'onsails/Lspkind-nvim',
         {
             'L3MON4D3/LuaSnip',
             config = function(_, _)
@@ -26,7 +26,7 @@ local M = {
             { name = 'path', priority_weight = 110 },
             { name = 'nvim_lsp', priority_weight = 100 },
             { name = 'treesitter', priority_weight = 80 },
-            { name = 'luasnip', priority_weight = 60 },
+            -- { name = 'luasnip', priority_weight = 60 },
             { name = 'buffer', max_item_count = 3, priority_weight = 60 },
         },
     },
@@ -39,7 +39,7 @@ function M.check_backspace()
 end
 
 function M.config(_, opts)
-    local luasnip = require('luasnip')
+    -- local luasnip = require('luasnip')
     local cmp = require('cmp')
     local lspkind = require('lspkind')
 
@@ -65,10 +65,10 @@ function M.config(_, opts)
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            elseif luasnip.expandable() then
-                luasnip.expand()
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
+            -- elseif luasnip.expandable() then
+                -- luasnip.expand()
+            -- elseif luasnip.expand_or_jumpable() then
+                -- luasnip.expand_or_jump()
             elseif M.check_backspace() then
                 fallback()
             else
@@ -78,8 +78,8 @@ function M.config(_, opts)
         ['<C-o>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
+            -- elseif luasnip.jumpable(-1) then
+                -- luasnip.jump(-1)
             else
                 fallback()
             end
@@ -89,7 +89,7 @@ function M.config(_, opts)
     cmp.setup({
         snippet = {
             expand = function(args)
-                luasnip.lsp_expand(args.body)
+                -- luasnip.lsp_expand(args.body)
             end,
         },
         mapping = cmp.mapping.preset.insert(mapping),

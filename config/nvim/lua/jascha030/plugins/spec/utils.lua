@@ -17,26 +17,13 @@ return {
         dependencies = 'nvim-lspconfig',
         opts = {
             panel = { enabled = false },
-            -- suggestion = {
-            --     auto_trigger = true,
-            --     -- Use alt to interact with Copilot.
-            --     keymap = {
-            --         -- Disable the built-in mapping, we'll configure it in nvim-cmp.
-            --         accept = false,
-            --         accept_word = '<M-w>',
-            --         accept_line = '<M-l>',
-            --         next = '<M-]>',
-            --         prev = '<M-[>',
-            --         dismiss = '/',
-            --     },
-            -- },
             filetypes = { markdown = true },
         },
         event = 'VimEnter',
         config = function(_, opts)
             local cmp = require('cmp')
             local copilot = require('copilot.suggestion')
-            local luasnip = require('luasnip')
+            -- local luasnip = require('luasnip')
 
             require('copilot').setup(opts)
 
@@ -56,7 +43,7 @@ return {
             end)
 
             cmp.event:on('menu_closed', function()
-                set_trigger(not luasnip.expand_or_locally_jumpable())
+                -- set_trigger(not luasnip.expand_or_locally_jumpable())
             end)
         end,
     },

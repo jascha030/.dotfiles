@@ -16,11 +16,4 @@ local M = {
     },
 }
 
--- TODO: Fix this query :P
--- {
--- filter = { filetype = 'php' },
--- pattern = '%s*%*% %s*(@%w+)',
--- hl = '@keyword',
--- },
-
 return M
