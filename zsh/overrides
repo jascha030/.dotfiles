@@ -33,6 +33,8 @@ if (( ${+commands[valet]} )); then
         if [[ -f "${PWD}/composer.json" ]]; then
             ${HOME}/.composer/vendor/bin/valet php "$@"
         else 
+            export PHP_VERSION="${$(/opt/homebrew/bin/php -r 'echo PHP_VERSION;')[1,3]}"
+
             /opt/homebrew/bin/php "$@"
         fi
     }
