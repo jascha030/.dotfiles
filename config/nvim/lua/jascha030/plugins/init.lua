@@ -21,7 +21,6 @@ require('lazy').setup('jascha030.plugins.spec', {
                 'gzip',
                 'matchit',
                 'matchparen',
-                'netrwPlugin',
                 'tarPlugin',
                 'tohtml',
                 'tutor',
