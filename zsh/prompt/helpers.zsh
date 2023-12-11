@@ -33,6 +33,7 @@ function prompt-length() {
     emulate -L zsh
 
     local -i COLUMNS=${2:-COLUMNS}
+
     local -i x y=${#1} m
 
     if (( y )); then
@@ -52,7 +53,12 @@ function prompt-length() {
 function fill-line {
     emulate -L zsh
 
-    prompt-length $1
+    if [ $# -eq 4 ]; then 
+        prompt-length $1 $4
+    else
+        prompt-length $1
+    fi 
+
     local -i left_len=REPLY
 
     prompt-length $2 9999
@@ -72,13 +78,15 @@ function fill-line {
 function term-variable {
     emulate -L zsh
 
-    local colored_output="$(echo -n ${TERM} | lolcrab)"
+    local colored_output="${$(echo -n ${TERM} | lolcrab)[1,#TERM]}"
     typeset -g TERM_DISPLAY=$colored_output
 }
 
 function php-ver {
     emulate -L zsh
 
-    local w="%F{013}  ${$(/opt/homebrew/bin/php -r 'echo PHP_VERSION;')[1,3]}%f"
-    typeset -g php_wgt=$w
+    if (( ${+PHP_VERSION} )); then 
+        local w=" %F{013}  ${PHP_VERSION}%f"
+        typeset -g php_wgt=$w
+    fi
 }
