@@ -1,13 +1,14 @@
 local M = {
     'nvim-treesitter/nvim-treesitter',
+    event = { 'BufReadPost', 'BufNewFile' },
+    -- event = 'VeryLazy',
     dependencies = {
         { 'nvim-treesitter/nvim-treesitter-context', config = true },
         { 'p00f/nvim-ts-rainbow', lazy = true },
         { 'theHamsta/nvim-treesitter-commonlisp' },
-        { 'nvim-treesitter/playground' },
+        { 'nvim-treesitter/playground', cmd = 'TSPlaygroundToggle' },
+        'nvim-treesitter/nvim-treesitter-textobjects',
     },
-    build = ':TSUpdate',
-    event = { 'BufReadPost', 'BufNewFile' },
     opts = {
         ensure_installed = {
             'bash',
@@ -111,9 +112,12 @@ local M = {
     },
 }
 
+function M.build()
+    require('nvim-treesitter.install').update({ with_sync = true })
+end
+
 function M.config(_, opts)
     local parsers = require('nvim-treesitter.parsers')
-    local ft_to_lang = parsers.ft_to_lang
     local parser_config = parsers.get_parser_configs()
 
     parser_config.blade = {
@@ -125,20 +129,28 @@ function M.config(_, opts)
         filetype = 'blade',
     }
 
-    vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
-        group = vim.api.nvim_create_augroup('BladeFiltypeRelated', { clear = true }),
-        pattern = '*.blade.php',
-        callback = function()
-            vim.bo.filetype = 'blade'
-        end,
+    vim.filetype.add({
+        pattern = {
+            ['.*%.blade%.php'] = 'blade',
+        },
     })
-
+    --
+    -- vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+    --     group = vim.api.nvim_create_augroup('BladeFiltypeRelated', { clear = true }),
+    --     pattern = '*.blade.php',
+    --     callback = function()
+    --         vim.bo.filetype = 'blade'
+    --     end,
+    -- })
+    --
     require('nvim-treesitter.configs').setup(opts)
 
+    local ft_to_lang = parsers.ft_to_lang
     parsers.ft_to_lang = function(ft)
         -- if ft == 'zsh' then
         --     return 'bash'
         -- end
+
         -- if ft == 'xml' then
         -- return 'html'
         -- end
