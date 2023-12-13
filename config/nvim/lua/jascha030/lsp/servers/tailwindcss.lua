@@ -26,4 +26,37 @@
 --     end,
 -- }
 
-return {}
+return function()
+    return {
+        filetypes = {
+            'css',
+            'scss',
+            'sass',
+            'postcss',
+            'html',
+            'javascript',
+            'javascriptreact',
+            'typescript',
+            'typescriptreact',
+            'svelte',
+            'vue',
+            'rust',
+        },
+        init_options = {
+            userLanguages = {
+                eelixir = 'html-eex',
+                eruby = 'erb',
+                rust = 'html',
+            },
+        },
+        root_dir = require('lspconfig').util.root_pattern(
+            -- 'cargo.toml',
+            'tailwind.config.js',
+            'tailwind.config.cjs',
+            'tailwind.config.ts',
+            'postcss.config.js',
+            'postcss.config.cjs',
+            'postcss.config.ts'
+        ),
+    }
+end
