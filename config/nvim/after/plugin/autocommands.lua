@@ -60,9 +60,6 @@ vim.cmd([[
     " Bash
     autocmd BufRead,BufNewFile env.local set ft=bash
 
-    " Nushell
-    autocmd BufRead,BufNewFile *.nu set ft=nu
-  
     autocmd FileType help,lspinfo,Trouble nnoremap <buffer><silent> q :close<CR>
     autocmd FileType Trouble nnoremap <buffer><silent> TT :close<CR>
     autocmd FileType dashboard nnoremap <buffer><silent> q :q<CR>
