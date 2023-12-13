@@ -16,7 +16,7 @@ BORDERS = { border = BORDER }
 require('jascha030').setup({
     colorscheme = 'nitepal',
     polyglot = {
-        enabled = true,
+        enabled = false,
         languages = { 'zsh' },
     },
     opts = {
@@ -38,7 +38,18 @@ require('jascha030').setup({
             colorcolumn = '120',
             backspace = 'indent,eol,start',
             fileencoding = 'utf-8',
-            fillchars = 'eob: ,msgsep:‾',
+            -- fillchars = 'eob: ,msgsep:‾',
+            fillchars = {
+                eob = ' ',
+                msgsep = '‾',
+                horiz = '═',
+                horizup = '╩',
+                horizdown = '╦',
+                vert = '║',
+                vertleft = '╣',
+                vertright = '╠',
+                verthoriz = '╬',
+            },
             signcolumn = 'yes',
             shell = '/bin/zsh',
             foldmethod = 'expr',
