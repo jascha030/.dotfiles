@@ -43,12 +43,15 @@ function M:toggle()
     local app_name = self:get_app_name()
     local instance = self:get_instance()
 
-    if instance ~= nil and instance:isFrontmost() then
-        instance:hide()
+    if instance ~= nil then
+        if instance:isFrontmost() then
+            instance:hide()
+        end
     else
         -- if instance ~= nil and instance:isHidden() then
         --     instance:unhide()
         -- end
+
         local main_screen = hs.mouse.getCurrentScreen()
         local space = hs.spaces.activeSpaceOnScreen(main_screen)
 
