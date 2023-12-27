@@ -1,5 +1,6 @@
 local M = {
     'adalessa/laravel.nvim',
+    cond = false,
     dependencies = {
         'nvim-telescope/telescope.nvim',
         'tpope/vim-dotenv',
