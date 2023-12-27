@@ -1,7 +1,8 @@
 local M = {
     'nvim-treesitter/nvim-treesitter',
-    event = { 'BufReadPost', 'BufNewFile' },
+    -- event = { 'BufReadPost', 'BufNewFile' },
     -- event = 'VeryLazy',
+    build = ':TSUpdate',
     dependencies = {
         { 'nvim-treesitter/nvim-treesitter-context', config = true },
         { 'p00f/nvim-ts-rainbow', lazy = true },
@@ -39,6 +40,7 @@ local M = {
             'vim',
             'vimdoc',
             'yaml',
+            'blade',
         },
         playground = {
             enable = true,
@@ -46,12 +48,10 @@ local M = {
         query_linter = {
             enable = true,
             use_virtual_text = true,
-            lint_events = {
-                'BufWrite',
-                'CursorHold',
-            },
         },
-        indent = { enable = true },
+        indent = {
+            enable = true,
+        },
         highlight = {
             enable = true,
             use_languagetree = true,
@@ -80,45 +80,49 @@ local M = {
             ['ac'] = '@class.outer',
             ['ic'] = '@class.inner',
         },
-        move = {
-            enable = true,
-            set_jumps = true,
-            goto_next_start = {
-                [']m'] = '@function.outer',
-                [']]'] = '@class.outer',
-            },
-            goto_next_end = {
-                [']M'] = '@function.outer',
-                [']['] = '@class.outer',
-            },
-            goto_previous_start = {
-                ['[m'] = '@function.outer',
-                ['[['] = '@class.outer',
-            },
-            goto_previous_end = {
-                ['[M'] = '@function.outer',
-                ['[]'] = '@class.outer',
-            },
-        },
-        swap = {
-            enable = true,
-            swap_next = {
-                ['<leader>a'] = '@parameter.inner',
-            },
-            swap_previous = {
-                ['<leader>A'] = '@parameter.inner',
-            },
-        },
+        -- move = {
+        --     enable = true,
+        --     set_jumps = true,
+        --     goto_next_start = {
+        --         [']m'] = '@function.outer',
+        --         [']]'] = '@class.outer',
+        --     },
+        --     goto_next_end = {
+        --         [']M'] = '@function.outer',
+        --         [']['] = '@class.outer',
+        --     },
+        --     goto_previous_start = {
+        --         ['[m'] = '@function.outer',
+        --         ['[['] = '@class.outer',
+        --     },
+        --     goto_previous_end = {
+        --         ['[M'] = '@function.outer',
+        --         ['[]'] = '@class.outer',
+        --     },
+        -- },
+        -- swap = {
+        --     enable = true,
+        --     swap_next = {
+        --         ['<leader>a'] = '@parameter.inner',
+        --     },
+        --     swap_previous = {
+        --         ['<leader>A'] = '@parameter.inner',
+        --     },
+        -- },
     },
 }
 
-function M.build()
-    require('nvim-treesitter.install').update({ with_sync = true })
-end
-
 function M.config(_, opts)
     local parsers = require('nvim-treesitter.parsers')
+    require('nvim-treesitter.configs').setup(opts)
+
     local parser_config = parsers.get_parser_configs()
+
+    vim.filetype.add({
+        pattern = {
+            ['.*%.blade%.php'] = 'blade',
+        },
+    })
 
     parser_config.blade = {
         install_info = {
@@ -129,34 +133,10 @@ function M.config(_, opts)
         filetype = 'blade',
     }
 
-    vim.filetype.add({
-        pattern = {
-            ['.*%.blade%.php'] = 'blade',
-        },
-    })
-    --
-    -- vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
-    --     group = vim.api.nvim_create_augroup('BladeFiltypeRelated', { clear = true }),
-    --     pattern = '*.blade.php',
-    --     callback = function()
-    --         vim.bo.filetype = 'blade'
-    --     end,
-    -- })
-    --
-    require('nvim-treesitter.configs').setup(opts)
-
-    local ft_to_lang = parsers.ft_to_lang
-    parsers.ft_to_lang = function(ft)
-        -- if ft == 'zsh' then
-        --     return 'bash'
-        -- end
-
-        -- if ft == 'xml' then
-        -- return 'html'
-        -- end
-
-        return ft_to_lang(ft)
-    end
+    -- local ft_to_lang = parsers.ft_to_lang
+    -- parsers.ft_to_lang = function(ft)
+    --     return ft_to_lang(ft)
+    -- end
 end
 
 return M

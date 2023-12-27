@@ -54,8 +54,8 @@ local M = {
             -- highlight_tab = 'NeoTreeTabInactive',
             -- highlight_tab_active = 'NeoTreeTabActive',
             -- highlight_background = 'NeoTreeTabInactive',
-            -- highlight_separator = 'NeoTreeTabSeparatorInactive',
-            -- highlight_separator_active = 'NeoTreeTabSeparatorActive',
+            highlight_separator = 'NeoTreeTabSeparatorInactive',
+            highlight_separator_active = 'NeoTreeTabSeparatorActive',
         },
         default_component_configs = {
             container = {
