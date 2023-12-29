@@ -4,7 +4,11 @@
 ---@field public menu jascha030.lsp.ContextAwareMenu
 local M = {}
 
-M = setmetatable({}, { __index = require('jascha030.utils').create_submod_loader('jascha030.lsp', true) })
+local utils = require('jascha030.utils')
+
+M = setmetatable({}, {
+    __index = utils.create_submod_loader('jascha030.lsp', true),
+})
 
 -- local methods = vim.lsp.protocol.Methods
 local md_namespace = vim.api.nvim_create_namespace('jascha030/lsp_float')
@@ -36,7 +40,6 @@ local function add_inline_highlights(buf)
     end
 end
 
---[[
 -- HACK: Override `vim.lsp.util.stylize_markdown` to use Treesitter.
 ---@param bufnr integer
 ---@param contents string[]
@@ -57,52 +60,21 @@ vim.lsp.util.stylize_markdown = function(bufnr, contents, opts)
 
     return contents
 end
---]]
---
 
 local function diagnostic_signs_init()
     ---@param icon DiagnosticSignIcon
     local function define_diagnostic_icon(icon)
-        vim.fn.sign_define(icon.name, { text = icon.text, texthl = icon.name, numhl = icon.name })
+        vim.fn.sign_define(icon.name, {
+            text = icon.text,
+            texthl = icon.name,
+            numhl = icon.name,
+        })
     end
 
     ---@param icon DiagnosticSignIcon
     for _, icon in pairs(require('jascha030.config.icons').get_diagnostic_signs()) do
         define_diagnostic_icon(icon)
     end
-end
-
-local function set_keymaps(client, bufnr)
-    local self = M.keymaps.new(client, bufnr)
-    local diagnostic_goto = M.keymaps.diagnostic_goto
-
-    self:map('<leader>cd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
-    self:map('<leader>cl', 'LspInfo', { desc = 'Lsp Info' })
-    self:map('<leader>xd', 'Telescope diagnostics', { desc = 'Telescope Diagnostics' })
-
-    self:map('gd', 'Telescope lsp_definitions', { desc = 'Goto Definition' })
-    self:map('gr', 'Telescope lsp_references', { desc = 'References' })
-    self:map('gD', 'Telescope lsp_declarations', { desc = 'Goto Declaration' })
-    self:map('gI', 'Telescope lsp_implementations', { desc = 'Goto Implementation' })
-    self:map('gt', 'Telescope lsp_type_definitions', { desc = 'Goto Type Definition' })
-
-    self:map('K', vim.lsp.buf.hover, { desc = 'Hover' })
-    self:map('gK', vim.lsp.buf.signature_help, { desc = 'Signature Help', has = 'signatureHelp' })
-    self:map('<C-k>', vim.lsp.buf.signature_help, { mode = 'i', desc = 'Signature Help', has = 'signatureHelp' })
-
-    self:map(']d', diagnostic_goto(true), { desc = 'Next Diagnostic' })
-    self:map('[d', diagnostic_goto(false), { desc = 'Prev Diagnostic' })
-    self:map(']e', diagnostic_goto(true, 'ERROR'), { desc = 'Next Error' })
-    self:map('[e', diagnostic_goto(false, 'ERROR'), { desc = 'Prev Error' })
-    self:map(']w', diagnostic_goto(true, 'WARNING'), { desc = 'Next Warning' })
-    self:map('[w', diagnostic_goto(false, 'WARNING'), { desc = 'Prev Warning' })
-
-    self:map('<C-a>', vim.lsp.buf.code_action, { desc = 'Code Action', mode = { 'n', 'v' }, has = 'codeAction' })
-    self:map('<leader>a', vim.lsp.buf.code_action, { desc = 'Code Action', mode = { 'n', 'v' }, has = 'codeAction' })
-    self:map('<leader>r', M.keymaps.rename, { expr = true, desc = 'Rename', has = 'rename' })
-
-    -- stylua: ignore
-    self:map('<C-l>', function() M.format(client, bufnr) end, { desc = 'Format Document', has = 'documentFormatting' })
 end
 
 ---@param on_attach fun(client, buffer)
@@ -134,22 +106,9 @@ function M.on_attach(client, buffer)
 
     if client.name == 'phpactor' then
         client.server_capabilities.hoverProvider = false
-        -- client.server_capabilities.completionProvider = false
-        -- client.server_capabilities.implementationProvider = false
-        -- client.server_capabilities.referencesProvider = false
-        -- client.server_capabilities.renameProvider = false
-        -- client.server_capabilities.selectionRangeProvider = false
-        -- client.server_capabilities.signatureHelpProvider = false
-        -- client.server_capabilities.typeDefinitionProvider = false
-        -- client.server_capabilities.workspaceSymbolProvider = false
-        -- client.server_capabilities.definitionProvider = false
-        -- client.server_capabilities.documentHighlightProvider = false
-        -- client.server_capabilities.documentSymbolProvider = false
-        -- client.server_capabilities.documentFormattingProvider = false
-        -- client.server_capabilities.documentRangeFormattingProvider = false
     end
 
-    M.lsp_attach(set_keymaps)
+    M.lsp_attach(M.keymaps.on_attach)
 end
 
 function M.virtual_text(opts)
@@ -169,23 +128,27 @@ end
 
 -- Setup inlay-hints
 function M.inlay_hints(opts)
-    local inlay_hint = vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint
-
-    if opts.inlay_hints.enabled and inlay_hint then
-        M.lsp_attach(function(client, buffer)
-            if client.supports_method('textDocument/inlayHint') then
-                inlay_hint(buffer, true)
-            end
-        end)
-    end
-
-    -- Init lsp-inlayhints plugin if available
-    local ok, inlay_hints_plugin = pcall(require, 'lsp-inlayhints')
-    if not ok then
+    if not opts.inlay_hints.enabled then
         return
     end
 
-    M.lsp_attach(inlay_hints_plugin.on_attach, 'LspAttach_inlayhints')
+    local inlay_hint = vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint
+
+    M.lsp_attach(function(client, buffer)
+        if client.server_capabilities.inlayHintProvider and inlay_hint then
+            inlay_hint.enable(buffer, true)
+        end
+
+        -- Init lsp-inlayhints plugin if available
+        local ok, inlay_hints_plugin = pcall(require, 'lsp-inlayhints')
+        if ok then
+            return
+        end
+
+        M.lsp_attach(function(client, buffer)
+            inlay_hints_plugin.on_attach(client, buffer)
+        end, 'LspAttach_inlayhints')
+    end)
 end
 
 function M.format(client, bufnr)
