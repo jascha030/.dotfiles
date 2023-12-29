@@ -34,7 +34,7 @@ local M = {
             timeout_ms = 10000,
         },
         inlay_hints = {
-            enabled = false,
+            enabled = true,
         },
     },
 }
