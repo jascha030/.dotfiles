@@ -17,6 +17,7 @@ alias lll='ll | lolcrab'
 alias df="cd ${DOTFILES}"
 alias dev="cd ${DEV}"
 alias root='cd $(git rev-parse --show-toplevel)'
+alias raycast='open /Applications/Raycast.app'
 
 alias zbench="$HOME/zsh-bench/zsh-bench | cat"
 alias checkitalics="echo -e '\e[3mitalic\e[23m'"
