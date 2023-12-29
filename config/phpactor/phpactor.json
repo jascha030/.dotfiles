@@ -4,6 +4,8 @@
     "language_server_php_cs_fixer.enabled": true,
     "language_server_php_cs_fixer.bin": "/Users/jaschavanaalst/tools/php-cs-fixer",
     "language_server_php_cs_fixer.show_diagnostics": true,
+    "language_server_worse_reflection.inlay_hints.enable": true,
+    "language_server_worse_reflection.inlay_hints.types": true,
     "phpunit.enabled": true,
     "composer.autoloader_path": [
         "%project_root%/vendor/autoload.php"
