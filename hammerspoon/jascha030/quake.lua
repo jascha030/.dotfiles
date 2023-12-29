@@ -43,10 +43,8 @@ function M:toggle()
     local app_name = self:get_app_name()
     local instance = self:get_instance()
 
-    if instance ~= nil then
-        if instance:isFrontmost() then
-            instance:hide()
-        end
+    if instance ~= nil and instance:isFrontmost() then
+        instance:hide()
     else
         -- if instance ~= nil and instance:isHidden() then
         --     instance:unhide()
