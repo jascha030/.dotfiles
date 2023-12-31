@@ -5,16 +5,24 @@ local M = {
         { 'williamboman/mason.nvim' },
         { 'williamboman/mason-lspconfig.nvim' },
         { 'ray-x/lsp_signature.nvim' },
-        { import = 'jascha030.plugins.spec.neodev', ft = 'lua' },
-        { import = 'jascha030.plugins.lang.rust', ft = 'rs' },
+        { 'chr4/nginx.vim', ft = 'nginx' },
+        { 'b0o/schemastore.nvim', ft = { 'json', 'yaml', 'yml' } },
+        { 'simrat39/rust-tools.nvim', ft = 'rs', dependencies = { 'rust-lang/rust.vim' }, lazy = true },
+        {
+            'folke/neodev.nvim',
+            name = 'neodev',
+            ft = 'lua',
+            opts = {
+            },
+        },
         {
             'nvimdev/lspsaga.nvim',
+            dependencies = { 'nvim-treesitter/nvim-treesitter' },
             lazy = true,
             opts = {
                 ui = { border = BORDER },
                 lightbulb = { enable = false },
             },
-            dependencies = { 'nvim-treesitter/nvim-treesitter' },
         },
     },
     opts = {
@@ -60,7 +68,7 @@ function M.config(_, opts)
         },
         handlers = {
             function(server)
-                -- Specifically resolve before setup(), allows for before_init logic in case of config function.
+                -- Resolve before calling setup, enables pre-setup logic to run if server_config returns function.
                 local config = get_server_config(server)
 
                 lspconfig[server].setup(config)
@@ -71,6 +79,9 @@ function M.config(_, opts)
                 require('rust-tools').setup({
                     server = server,
                     tools = {
+                        runnables = {
+                            use_telescope = true,
+                        },
                         reload_workspace_from_cargo_toml = true,
                         inlay_hints = {
                             auto = true,
