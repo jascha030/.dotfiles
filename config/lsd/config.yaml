@@ -15,7 +15,7 @@ color:
   when: always
   theme: custom 
 
-date: '+%d-%m-%y' 
+date: '+%d-%m-%y %H:%M' 
 dereference: false
 # dereference: true
 display: almost-all
@@ -32,7 +32,6 @@ ignore-globs:
   - .wakatime*
   - .*history 
   - .*hst*
-  - .*.zwc
   - .yarnrc 
   - hushlogin
   - .hushlogin
@@ -41,10 +40,14 @@ ignore-globs:
   - .viminfo
   - .Xauthority
   - .z
-  - .zcompdump
   - mysqladmin 
   - .CFUserTextEncoding
   - .angular-config.json
+  - .zprofrc
+  - .lolmsgrc
+  # - .*.zwc
+  # - .zcompdump
+
 
 indicators: true
 layout: grid
