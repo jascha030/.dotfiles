@@ -6,11 +6,16 @@ local M = {
         'tpope/vim-dotenv',
         'MunifTanjim/nui.nvim',
     },
-    cmd = { 'Sail', 'Artisan', 'Composer', 'Npm', 'Yarn', 'Laravel' },
+    event = { 'VeryLazy' },
+    cmd = {
+        'Sail',
+        'Artisan',
+        'Composer',
+        'Npm',
+        'Yarn',
+        'Laravel',
+    },
     keys = {
-        { '<leader>la', '<cmd>Laravel artisan<cr>' },
-        { '<leader>lr', '<cmd>Laravel routes<cr>' },
-        { '<leader>lm', '<cmd>Laravel related<cr>' },
         {
             '<leader>lt',
             function()
@@ -19,8 +24,10 @@ local M = {
             mode = 'v',
             desc = 'Laravel Application Routes',
         },
+        { '<leader>la', '<cmd>Laravel artisan<cr>' },
+        { '<leader>lr', '<cmd>Laravel routes<cr>' },
+        { '<leader>lm', '<cmd>Laravel related<cr>' },
     },
-    event = { 'VeryLazy' },
     config = function(_, opts)
         require('laravel').setup(opts)
         require('telescope').load_extension('laravel')
