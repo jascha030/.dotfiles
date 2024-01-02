@@ -32,21 +32,21 @@ return function()
 
     -- Make the server aware of Neovim runtime files
     local function library()
-        local ret = { vim.fn.stdpath('data') .. '/lazy/neodev/types/nightly' }
+        local ret = {
+            vim.fn.stdpath('config'),
+            vim.fn.stdpath('data') .. '/lazy/neodev/types/stable',
+            vim.fn.expand('$VIMRUNTIME/lua'),
+        }
 
-        local function add(lib, filter)
+        local function add(lib)
             for _, p in ipairs(vim.fn.expand(lib .. '/lua', false, true)) do ---@diagnostic disable-line: param-type-mismatch
-                local plugin_name = vim.fn.fnamemodify(p, ':h:t')
-
                 p = vim.loop.fs_realpath(p) ---@diagnostic disable-line: cast-local-type
-                if p and (not filter or filter[plugin_name]) then
+
+                if p then
                     table.insert(ret, p)
                 end
             end
         end
-
-        add(vim.fn.stdpath('config'))
-        add(vim.fn.expand('$VIMRUNTIME'))
 
         for _, site in pairs(vim.split(vim.o.packpath, ',')) do
             add(site .. '/pack/*/opt/*')
@@ -81,7 +81,9 @@ return function()
             settings = {
                 Lua = {
                     runtime = get_runtime(),
-                    workspace = { library = library() },
+                    workspace = {
+                        library = library(),
+                    },
                 },
             },
         })
