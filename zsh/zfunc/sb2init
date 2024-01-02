@@ -1,6 +1,0 @@
-#!/usr/bin/env zsh
-
-function sb2init {
-    composer create-project socialbrothers/sb-starter-theme --repository=https://composer.sbdev.nl/ "$@"
-}
-
