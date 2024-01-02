@@ -11,27 +11,32 @@
 # U+257x	╰	╱	╲	╳	╴	╵	╶	╷	╸	╹	╺	╻	╼	╽	╾	╿ # 
 ###########################################################################
 
-if ((RANDOM % 2 == 0)); then
-    export TERM_PRETTY="$(builtin echo -n ${TERM} | lolcrab)"
+# if ((RANDOM % 2 == 0)); then
+    # export TERM_PRETTY="$(builtin echo -n ${TERM} | lolcrab)"
     # | sed -e 's/\x1b\[39m\x1b\[49m//g')"
-else 
-    export TERM_PRETTY="$(builtin echo -n ${TERM} | lolcrab -i --sharp 1)"
+# else 
+    # export TERM_PRETTY="$(builtin echo -n ${TERM} | lolcrab -i --sharp 1)"
     # | sed -e 's/\x1b\[39m\x1b\[49m//g')"
-fi
+# fi
 
-export TERM_PRETTY="$(builtin echo -n ${TERM})"
+# export TERM_PRETTY="$(builtin echo -n ${TERM})"
 
 source ${DOTFILES}/zsh/prompt/helpers.zsh
 
 __fpath_add "$PROMPT_FUNCTIONS_PATH"
 __autoload "$PROMPT_FUNCTIONS_PATH"
-
 autoload -Uz add-zsh-hook
 
 # For git info
 autoload -Uz vcs_info
 precmd() { vcs_info }
+
 zstyle ':vcs_info:git:*' formats '|  %b'
+zstyle ':vcs_info:git:ignore' submodule 'all'
+zstyle ':vcs_info:*' enable hg git
+
+
+export TERM_PRETTY=${TERM}
 
 # In case of meer tab gekkigheid: 
 # https://unix.stackexchange.com/questions/14230/zsh-tab-completion-on-empty-line 
@@ -41,7 +46,6 @@ function block-empty-tab {
         zle fzf-completion
         position-prompt-bottom
     fi
-
     # zle expand-or-complete
     # zle expand-or-complete-prefix
 }
@@ -71,7 +75,7 @@ function mid-prompt {
 
 function set-prompt {
     emulate -L zsh
-
+    
     # Render functional elements
     local php_wgt; php-ver
     local mid; mid-prompt
@@ -141,7 +145,6 @@ function TRAPWINCH () {
 
     zle -N zle-line-init
     zle -N magic-enter
-
     bindkey "^M" magic-enter
 
     set-prompt
