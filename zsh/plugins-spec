@@ -3,23 +3,26 @@
 fpath+=( ${ZDOTDIR}/plugins/** )
 path+=( ${ZDOTDIR}/plugins/** )
 
-Z_PLUGINS=()
+export Z_PLUGINS=()
 
 function zcompile-many() {
-  local f
-  for f; do zcompile -R -- "$f".zwc "$f"; done
+    local f
+    for f; do zcompile -R -- "$f".zwc "$f"; done
 }
 
 function zsh_add_plugin {
-    local plugin_name="${1##*/}"
-    
+    local plugin_name=${1##*/}
+
     if [ ! -d "$ZDOTDIR/plugins/$plugin_name" ]; then
         git clone "git@github.com:$1.git" "$ZDOTDIR/plugins/$plugin_name"
     else
         _plugin_dir="$ZDOTDIR/plugins/$plugin_name"
 
         if [ $# -eq 2 ] && [ -f "$_plugin_dir/$2" ]; then
-            source "$_plugin_dir/$2"; return
+            source "$_plugin_dir/$2";
+            Z_PLUGINS+=$_plugin_dir
+
+            return
         fi
 
         [ -f "$_plugin_dir/$plugin_name.plugin.zsh" ] \
@@ -46,11 +49,14 @@ function zcompile_plugins() {
 zsh_add_plugin Aloxaf/fzf-tab
 zsh_add_plugin chrissicool/zsh-256color
 zsh_add_plugin desyncr/auto-ls
+
 zsh_add_plugin zsh-users/zsh-completions
 zsh_add_plugin zsh-users/zsh-autosuggestions
 zsh_add_plugin zsh-users/zsh-syntax-highlighting
+
 zsh_add_plugin jascha030/lolmsg
-zsh_add_plugin "leophys/zsh-plugin-fzf-finder" "fzf-finder.plugin.zsh"
+
+# zsh_add_plugin "leophys/zsh-plugin-fzf-finder" "fzf-finder.plugin.zsh"
 zsh_add_plugin "sobolevn/wakatime-zsh-plugin" "wakatime.plugin.zsh"
 
 autoload -Uz zcompile_plugins
