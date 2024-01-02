@@ -14,7 +14,6 @@ local M = {
         },
         add_blank_line_at_top = false, -- Add a blank line at the top of the tree.
         close_if_last_window = true,
-        close_floats_on_escape_key = true,
         default_source = 'filesystem',
         enable_diagnostics = true,
         enable_git_status = true,
@@ -165,7 +164,9 @@ local M = {
                 never_show = { '.DS_Store' },
             },
             group_empty_dirs = false, -- when true, empty folders will be grouped together
-            follow_current_file = true,
+            follow_current_file = {
+                enabled = true,
+            },
             hijack_netrw_behavior = 'open_default', -- netrw disabled, opening a directory opens neo-tree
             -- use_libuv_file_watcher = false,
         },
