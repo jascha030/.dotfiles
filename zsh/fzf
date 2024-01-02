@@ -17,7 +17,6 @@ export __FZF_LIGHT=$_FZF_DEFAULT_OPTS'
 --color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00
 --color=marker:#ea1479,spinner:#5f5fec,header:#0083f7,border:#444a73'
 
-
 __fzf_update_theme() {
     if [[ "$(is_dark)" -eq 1 ]]; then
         echo "$__FZF_DARK"
@@ -25,7 +24,6 @@ __fzf_update_theme() {
         echo "$__FZF_LIGHT"
     fi
 }
-
 
 export FZF_DEFAULT_OPTS=$(__fzf_update_theme)
 
@@ -66,5 +64,4 @@ _fzf_comprun() {
     esac
 }
 
-# autoload -Uz __fzf_update_theme
-# alias fzf="__themed_fzf"
+alias fzf="__themed_fzf"
