@@ -17,7 +17,7 @@ function __ls_cmd () {
         ls_cmd="$LS_OVERRIDE"
     fi
 
-    eval "${ls_cmd}" "${LS_DEFAULT_ARGS}"; 
+    eval "${ls_cmd}" "${LS_DEFAULT_ARGS}";
     echo ''
 }
 

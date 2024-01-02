@@ -2,49 +2,61 @@
 
 #--------------------------------------------------------- FZF -------------------------------------------------------#
 
-export FZF_DEFAULT_OPTS="--info=inline --border --padding=1 --margin=2"
+export _FZF_DEFAULT_OPTS="--info=inline --border --padding=1 --margin=2"
+export FZF_COMPLETION_OPTS="--info=inline --border --padding=1 --margin=2"
 
-export FZF_LIGHT=$FZF_DEFAULT_OPTS'
---color=fg:#444a73,bg:#e7e9ef,hl:#5f5fec
---color=fg+:#fffcfc,bg+:#c8d3f5,hl+:#0083f7
---color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00
---color=marker:#ea1479,spinner:#5f5fec,header:#0083f7,border:#444a73'
-
-export FZF_DARK=$FZF_DEFAULT_OPTS'
---color=fg:#c8d3f5,bg:#1e2030,hl:#5f5fec
+export __FZF_DARK=$_FZF_DEFAULT_OPTS'
+--color=fg:#c8d3f5,hl:#5f5fec
 --color=fg+:#fffcfc,bg+:#32466e,hl+:#0083f7
 --color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00
 --color=marker:#ea1479,spinner:#5f5fec,header:#465182,border:#c8d3f5'
 
-function __fzf_update_theme {
+export __FZF_LIGHT=$_FZF_DEFAULT_OPTS'
+--color=fg:#444a73,hl:#5f5fec
+--color=fg+:#fffcfc,bg+:#c8d3f5,hl+:#0083f7
+--color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00
+--color=marker:#ea1479,spinner:#5f5fec,header:#0083f7,border:#444a73'
+
+
+__fzf_update_theme() {
     if [[ "$(is_dark)" -eq 1 ]]; then
-        export FZF_DEFAULT_OPTS=$FZF_DARK
+        echo "$__FZF_DARK"
     else
-        export FZF_DEFAULT_OPTS=$FZF_LIGHT
+        echo "$__FZF_LIGHT"
     fi
 }
 
-function __themed_fzf {
-    __fzf_update_theme
+
+export FZF_DEFAULT_OPTS=$(__fzf_update_theme)
+
+# Setup fzf
+if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
+    PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
+fi
+
+# Auto-completion
+[[ $- == *i* ]] && source "/opt/homebrew/opt/fzf/shell/completion.zsh" 2> /dev/null
+
+# Key bindings
+source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
+
+__themed_fzf() {
+    export FZF_DEFAULT_OPTS=$(__fzf_update_theme)
 
     fzf "$@"
 }
 
-__fzf_update_theme
-
-alias fzf=__themed_fzf
-
 _fzf_compgen_dir() {
-    __fzf_update_theme
+    export FZF_DEFAULT_OPTS=$(__fzf_update_theme)
 
     fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
 _fzf_comprun() {
-    __fzf_update_theme
-
     local command=$1
     shift
+
+    export FZF_DEFAULT_OPTS=$(__fzf_update_theme)
 
     case "$command" in
         cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
@@ -53,3 +65,6 @@ _fzf_comprun() {
         *)            fzf "$@" ;;
     esac
 }
+
+# autoload -Uz __fzf_update_theme
+# alias fzf="__themed_fzf"

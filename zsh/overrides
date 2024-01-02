@@ -11,7 +11,20 @@
 (( ${+commands[egrep]} ))    && alias egrep='egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 (( ${+commands[fgrep]} ))    && alias fgrep='fgrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 
-function ll { (( ${+LS_DEFAULT_ARGS} )) && eval "ls ${LS_DEFAULT_ARGS}" || ls -Ahl; }
+function ll() {
+    local ls_cmd='ls'
+    local ls_args='-Ahl'
+
+    if (( ${+LS_OVERRIDE} )); then
+        ls_cmd=$LS_OVERRIDE
+    fi
+
+    if (( ${+LS_DEFAULT_ARGS} )); then
+        ls_args=$LS_DEFAULT_ARGS
+    fi
+
+    eval "$ls_cmd" "$ls_args";
+}
 
 # Copy pwd to clipboard
 if (( ! ${+commands[cpd]} )); then
@@ -32,7 +45,7 @@ if (( ${+commands[valet]} )); then
     function __iphp {
         if [[ -f "${PWD}/composer.json" ]]; then
             ${HOME}/.composer/vendor/bin/valet php "$@"
-        else 
+        else
             export PHP_VERSION="${$(/opt/homebrew/bin/php -r 'echo PHP_VERSION;')[1,3]}"
 
             /opt/homebrew/bin/php "$@"
@@ -45,7 +58,7 @@ if (( ${+commands[valet]} )); then
         else
             if [[ -f "${PWD}/app/public/composer.json" ]]; then
                 ${HOME}/.composer/vendor/bin/valet composer --working-dir="${PWD}/app/public" "$@"
-            else 
+            else
                 /Users/jaschavanaalst/tools/composer "$@"
             fi
         fi

@@ -33,8 +33,56 @@ function __autoload {
     done
 }
 
+# Taken from https://github.com/mroth/evalcache
+function _evalcache () {
+    local cmdHash="nohash" data="$*" name
+
+    # use the first non-variable argument as the name
+    for name in $@; do
+        if [ "${name}" = "${name#[A-Za-z_][A-Za-z0-9_]*=}" ]; then
+            break
+        fi
+    done
+
+    # if command is a function, include its definition in data
+    if typeset -f "${name}" > /dev/null; then
+        data=${data}$(typeset -f "${name}")
+    fi
+
+    if builtin command -v md5 > /dev/null; then
+        cmdHash=$(echo -n "${data}" | md5)
+    elif builtin command -v md5sum > /dev/null; then
+        cmdHash=$(echo -n "${data}" | md5sum | cut -d' ' -f1)
+    fi
+
+    local cacheFile="$ZSH_EVALCACHE_DIR/init-${name##*/}-${cmdHash}.sh"
+
+    if [ "$ZSH_EVALCACHE_DISABLE" = "true" ]; then
+        eval ${(q)@}
+    elif [ -s "$cacheFile" ]; then
+        source "$cacheFile"
+    else
+        if type "${name}" > /dev/null; then
+            echo "evalcache: ${name} initialization not cached, caching output of: $*" >&2
+            mkdir -p "$ZSH_EVALCACHE_DIR"
+            eval ${(q)@} > "$cacheFile"
+            source "$cacheFile"
+        else
+            echo "evalcache: ERROR: ${name} is not installed or in PATH" >&2
+        fi
+    fi
+}
+
+# Taken from https://github.com/mroth/evalcache
+function _evalcache_clear () {
+    rm -i "$ZSH_EVALCACHE_DIR"/init-*.sh
+}
+
 #------------------------------------------------------ Init ---------------------------------------------------------#
-(( ${+DOT_COMP_DIRS} )) && __fpath_add "${DOT_COMP_DIRS[@]}"
+if (( ${+DOT_COMP_DIRS} )); then
+    __fpath_add "${DOT_COMP_DIRS[@]}"
+fi
+
 __fpath_add "${DOTFILES}/zsh/zfunc" "${DOTFILES}/zsh/completions"
 __autoload "${DOTFILES}/zsh/zfunc"
 
@@ -57,14 +105,6 @@ function sb2init {
 }
 
 #--------------------------------------------------------- Init ------------------------------------------------------#
-# Run (bash)compinit for completions.
-autoload -Uz compinit && compinit -d "${ZDOTDIR}/.zcompdump"
-autoload -Uz bashcompinit && bashcompinit
-
-# Load Bash completion scripts
-if (( ${+DOT_BASH_COMPLETIONS})); then
-    safe_source "${DOT_BASH_COMPLETIONS[@]}"
-fi
 
 # Assure required dirs and files exist.
 assert_dirs "${DOT_DATA_DIR}"
@@ -78,26 +118,44 @@ if (( ${+DOT_REQUIRED_FILES} )); then
     assert_files "${DOT_REQUIRED_FILES[@]}"
 fi
 
+# Run (bash)compinit for completions.
+autoload -Uz compinit
+for dump in ${ZDOTDIR}/.zcompdump(N.mh+24); do
+    compinit
+done
+compinit -C
+
+autoload -U +X bashcompinit && bashcompinit
+if (( ${+DOT_BASH_COMPLETIONS})); then
+    safe_source "${DOT_BASH_COMPLETIONS[@]}"
+fi
+
 # Load plugins.
-safe_source "${ZDOTDIR}/plugin-spec"
+safe_source ${ZDOTDIR}/plugin-spec
 
 [[ ${ZDOTDIR}/.zcompdump.zwc -nt ${ZDOTDIR}/.zcompdump ]] || zcompile-many ${ZDOTDIR}/.zcompdump
 unfunction zcompile-many
 
-ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 # Application init evaluations.
-eval "$(rtx activate zsh)"
-eval "$(zoxide init zsh)"
-eval "$(teleport-dir init)"
-eval "$(op completion zsh)"
-
-# export LS_COLORS="$(vivid generate jassie030)"
+_evalcache rtx activate zsh
+_evalcache zoxide init zsh
+_evalcache teleport-dir init
 
 # Source late files like aliases etc.
 if (( ${+DOT_AFTER_INIT_SOURCES} )); then
     safe_source "${DOT_AFTER_INIT_SOURCES[@]}"
 fi
 
+# export LS_COLORS="$(vivid generate jassie030)"
+_evalcache symfony-autocomplete composer
+_evalcache op completion zsh
+compdef _composer __icomposer
 compdef _op op
+
+unfunction _evalcache
+
+[[ "$LOLMSGRC_ENABLED" -eq 1 ]] && lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
+source ${ZDOTDIR}/prompt/prompt
 
