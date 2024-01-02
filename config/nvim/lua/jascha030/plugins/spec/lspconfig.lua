@@ -5,6 +5,7 @@ local M = {
         { 'williamboman/mason.nvim' },
         { 'williamboman/mason-lspconfig.nvim' },
         { 'ray-x/lsp_signature.nvim' },
+        { 'lvimuser/lsp-inlayhints.nvim' },
         { 'chr4/nginx.vim', ft = 'nginx' },
         { 'b0o/schemastore.nvim', ft = { 'json', 'yaml', 'yml' } },
         { 'simrat39/rust-tools.nvim', ft = 'rs', dependencies = { 'rust-lang/rust.vim' }, lazy = true },
