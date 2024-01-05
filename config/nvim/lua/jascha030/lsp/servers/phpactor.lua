@@ -7,6 +7,7 @@ return {
             ['language_server_php_cs_fixer.enabled'] = true,
             ['language_server_phpstan.enabled'] = true,
             ['language_server_php_cs_fixer.bin'] = '/Users/jaschavanaalst/tools/php-cs-fixer',
+            ['language_server_php_cs_fixer.config'] = '%project_root%/.php-cs-fixer.dist.php',
             ['language_server_php_cs_fixer.show_diagnostics'] = true,
             ['phpunit.enabled'] = true,
             ['completion.dedupe'] = true,
