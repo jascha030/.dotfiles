@@ -1,6 +1,15 @@
-.idea
+## JetBrains IDE's
+.idea/
+
+## Caches
 .cache/
 **.cache
+
+## MacOS
+.DS_Store
 *.DS_Store
+
+## Personal 
 .pm.toml
 TODO.md
+
