@@ -38,6 +38,9 @@ alias lspath="echo ${PATH} | tr ':' '\n';"
 alias cp:fontawesome='cat $HOME/.development/Projects/Php/Wordpress/sites/sbtweema/.npmrc | pbcopy'
 alias cp:composerauth='cp $HOME/.composer/auth.json ./'
 
+# Urlparams to test DPG ads.
+alias cp:dpgpostfix='echo "?adops=formats&ast_test=true" | pbcopy'
+
 # PHP
 alias valetrm='rm ${HOME}/.config/valet/*.sock'
 alias valetr='valetrm && valet restart'

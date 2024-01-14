@@ -150,6 +150,8 @@ fi
 
 # export LS_COLORS="$(vivid generate jassie030)"
 _evalcache symfony-autocomplete composer
+_evalcache symfony-autocomplete valet
+
 _evalcache op completion zsh
 compdef _composer __icomposer
 compdef _op op
