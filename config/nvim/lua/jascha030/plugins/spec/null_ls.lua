@@ -6,7 +6,6 @@ local M = {
 local lreq = require('jascha030.lreq')
 local nls = lreq('null-ls')
 
-
 function M.opts()
     return {
         sources = {
@@ -14,7 +13,17 @@ function M.opts()
             nls.builtins.formatting.isort,
             nls.builtins.formatting.black,
             nls.builtins.diagnostics.flake8,
-            nls.builtins.diagnostics.eslint,
+            nls.builtins.diagnostics.eslint.with({
+                condition = function(utils)
+                    return utils.root_has_file({
+                        '.eslintrc.js',
+                        '.eslintrc.cjs',
+                        '.eslintrc.yaml',
+                        '.eslintrc.yml',
+                        '.eslintrc.json',
+                    })
+                end,
+            }),
             nls.builtins.diagnostics.zsh,
             nls.builtins.formatting.blade_formatter,
             nls.builtins.formatting.beautysh,
@@ -40,8 +49,15 @@ function M.opts()
             nls.builtins.formatting.phpcsfixer.with({
                 -- stylua: ignore 
                 condition = function(utils) return utils.root_has_file('.php-cs-fixer.dist.php') end,
-                -- stylua: ignore 
-                extra_args = function() return { '--quiet', '--no-interaction', '--config=.php-cs-fixer.dist.php', 'fix', '$FILENAME' } end,
+                extra_args = function()
+                    return {
+                        -- '--quiet',
+                        '--no-interaction',
+                        '--config=.php-cs-fixer.dist.php',
+                        'fix',
+                        '$FILENAME',
+                    }
+                end,
             }),
         },
     }
