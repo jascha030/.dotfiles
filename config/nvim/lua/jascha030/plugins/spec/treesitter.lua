@@ -13,7 +13,7 @@ local M = {
     opts = {
         ensure_installed = {
             'bash',
-            'comment',
+            -- 'comment',
             'commonlisp',
             'css',
             'gitattributes',
