@@ -1,6 +1,4 @@
 local wezterm = require('wezterm')
-
-local M = {}
 local DEFAULT = 'Jetbrains Mono'
 
 local defaults = {
@@ -16,7 +14,7 @@ local defaults = {
     },
 }
 
-M.options = {}
+local M = { options = {} }
 
 local function table_merge(t1, t2)
     for k, v in pairs(t2) do
@@ -30,7 +28,6 @@ local function table_merge(t1, t2)
             t1[k] = v
         end
     end
-
     return t1
 end
 
@@ -52,6 +49,20 @@ function M.fallback_font(main, alt)
         { family = alt, italic = false, weight = 600 },
         M.options.fallback_font,
     })
+end
+
+function M.should_show_full_scale(window)
+    local dimensions = window:get_dimensions()
+    local is_lg_dpi = window:get_dimensions().dpi > 100
+
+    local height = is_lg_dpi and 1000 or 1000
+    local width = is_lg_dpi and 3000 or 1700
+
+    return dimensions.pixel_height > height or dimensions.pixel_width > width
+end
+
+function M.get_scaled_size(window)
+    return M.should_show_full_scale(window) and M.options.size or (M.options.size - 2)
 end
 
 function M.get_rules(alt)
