@@ -5,7 +5,7 @@ local wezterm = require('wezterm')
 ---@param resize_or_move "resize" | "move"
 ---@param mods string
 ---@param key string
----@param dir "Right" | "Left" | "Up" | "Down"
+---@param dir string 'Right' | 'Left' | 'Up' | 'Down'
 function M.split_nav(resize_or_move, mods, key, vimKey, dir)
     local event = 'SplitNav_' .. resize_or_move .. '_' .. dir
 
@@ -22,6 +22,7 @@ function M.split_nav(resize_or_move, mods, key, vimKey, dir)
             else
                 local panes = pane:tab():panes_with_info()
                 local is_zoomed = false
+
                 for _, p in ipairs(panes) do
                     if p.is_zoomed then
                         is_zoomed = true
@@ -29,8 +30,9 @@ function M.split_nav(resize_or_move, mods, key, vimKey, dir)
                 end
 
                 wezterm.log_info('is_zoomed: ' .. tostring(is_zoomed))
+
                 if is_zoomed then
-                    dir = dir == 'Up' or dir == 'Right' and 'Next' or 'Prev'
+                    dir = (dir == 'Up' or dir == 'Right') and 'Next' or 'Prev'
                     wezterm.log_info('dir: ' .. dir)
                 end
 
@@ -52,28 +54,10 @@ function M.is_nvim(pane)
 end
 
 return {
-    -- { key = 'F', mods = 'LEADER|SHIFT', action = wezterm.action({ SpawnCommandInNewTab = fish_args }) },
-    -- { key = 'f', mods = 'SHIFT|CTRL',   action = 'ToggleFullScreen' },
     { key = 'v', mods = 'CMD', action = wezterm.action.PasteFrom('Clipboard') },
     { key = 'c', mods = 'CMD', action = wezterm.action.CopyTo('ClipboardAndPrimarySelection') },
-    {
-        key = 's',
-        mods = 'LEADER',
-        action = wezterm.action({
-            SplitVertical = { domain = 'CurrentPaneDomain' },
-        }),
-    },
-    {
-        key = 'v',
-        mods = 'LEADER',
-        action = wezterm.action({
-            SplitHorizontal = { domain = 'CurrentPaneDomain' },
-        }),
-    },
-    -- { key = 'LeftArrow', mods = 'ALT', action = wezterm.action({ ActivatePaneDirection = 'Left' }) },
-    -- { key = 'RightArrow', mods = 'ALT', action = wezterm.action({ ActivatePaneDirection = 'Right' }) },
-    -- { key = 'UpArrow', mods = 'ALT', action = wezterm.action({ ActivatePaneDirection = 'Up' }) },
-    -- { key = 'DownArrow', mods = 'ALT', action = wezterm.action({ ActivatePaneDirection = 'Down' }) },
+    { key = 's', mods = 'LEADER', action = wezterm.action({ SplitVertical = { domain = 'CurrentPaneDomain' } }) },
+    { key = 'v', mods = 'LEADER', action = wezterm.action({ SplitHorizontal = { domain = 'CurrentPaneDomain' } }) },
     M.split_nav('move', 'ALT', 'LeftArrow', 'h', 'Left'),
     M.split_nav('move', 'ALT', 'DownArrow', 'j', 'Down'),
     M.split_nav('move', 'ALT', 'UpArrow', 'k', 'Up'),
