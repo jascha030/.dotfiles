@@ -102,6 +102,8 @@ require('jascha030').setup({
             },
             ['<leader>tc'] = { '<cmd>lua vim.show_pos()<cr>' },
             ['<leader>p'] = { '<cmd>InspectTree<cr>' },
+            ['<leader>fh'] = { '<cmd>Telescope help_tags<cr>' },
+            ['<leader>fc'] = { '<cmd>Telescope git_bcommits<cr>' },
             ['<leader>lz'] = { '<cmd>Lazy<cr>' },
         },
         v = {
