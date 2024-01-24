@@ -1,53 +1,101 @@
 #!/usr/bin/env bash
 
-brew_prefix=${HOMEBREW_PREFIX:-$(brew --prefix)}
-php_versions=('7.4' '8.0' '8.1' '8.2' '8.3')
-php_ini_basedir="${brew_prefix}/etc/php/"
-default_editor='vi'
-
 cmd=${0##*/}
+version='1.0.0'
 
-__chooser(){
+#TODO: Dynamically get installed versions.
+php_versions=('7.4' '8.0' '8.1' '8.2' '8.3')
+
+brew_prefix=${HOMEBREW_PREFIX:-$(brew --prefix)}
+php_ini_basedir="${brew_prefix}/etc/php/"
+
+fallback_editor='vi'
+
+__phpini_echo() {
+    command printf %b\\n "$*" 2>/dev/null
+}
+
+__phpini_usage() {
+    __phpini_echo "Usage:"
+    __phpini_echo "${cmd} \e[0;36m[-h|--help]\e[0m \e[0;92m<command>\e[0m"
+    __phpini_echo ""
+
+    __phpini_echo "Commands:"
+    __phpini_echo "  \e[0;92mdir\e[0m     Print the path to the php.ini dir."
+    __phpini_echo "  \e[0;92mprint\e[0m   Print the path to the php.ini file."
+    __phpini_echo "  \e[0;92mcp\e[0m      Copy the path to the php.ini file to the clipboard."
+    __phpini_echo "  \e[0;92medit\e[0m    Open the php.ini file in an editor."
+    __phpini_echo "  \e[0;92mhelp\e[0m    Show this help message."
+}
+
+__phpini_header() {
+    __phpini_echo "\e[0;35m    ____  __  ______  ____      _ \e[0m"
+    __phpini_echo "\e[0;35m   / __ \/ / / / __ \/  _/___  (_)\e[0m"
+    __phpini_echo "\e[0;35m  / /_/ / /_/ / /_/ // // __ \/ / \e[0m"
+    __phpini_echo "\e[0;35m / ____/ __  / ____// // / / / /  \e[0m"
+    __phpini_echo "\e[0;35m/_/   /_/ /_/_/   /___/_/ /_/_/   \e[0m"
+    __phpini_echo ""
+
+    __phpini_echo "\e[0;36mv${version}\e[0m"
+    __phpini_echo ""
+
+    __phpini_echo "A CLI for quickly locating php.ini files of php binaries installed through \e[0;32mHomebrew\e[0m."
+    __phpini_echo ""
+}
+
+__phpini_chooser() {
     gum choose --height=15 "${php_versions[@]}"
 }
 
-# phpini__help(){
-    # echo "phpini: help"
-# }
-
-phpini__dir(){
-    echo "$php_ini_basedir$(__chooser)"
+phpini__dir() {
+    echo "$php_ini_basedir$(__phpini_chooser)"
 }
 
-phpini__print(){
+phpini__print() {
     echo "$(phpini__dir)/php.ini"
 }
 
-phpini__cp(){
+phpini__cp() {
     phpini__print | pbcopy
 }
 
-phpini__edit(){
-    local editor=${EDITOR:-$default_editor}
+phpini__edit() {
+    local editor=${EDITOR:-$fallback_editor}
 
-    "$editor" "$(phpini__print)"
+    local php_ver
+    php_ver="$(phpini__print)" 
+
+    "$editor" "$php_ver"
 }
 
-if [[ $# -eq 0 ]]; then
-    phpini__edit
+phpini() {
+    if [[ $# -eq 0 ]]; then
+        phpini__edit
+        return
+    fi
 
-    exit 0
-fi
+    local i; for i in "$@"; do
+        case $i in
+            --) break ;;
+            '-h'|'--help'|'help')
+                # Print full help info with CLI header.
+                __phpini_header
+                __phpini_usage
+                return 0;
+                ;;
+        esac
+    done
 
-# cmdname=$1; shift
+    if declare -f "${cmd}__$1" >/dev/null 2>&1; then
+        func="${cmd}__$1"; shift
+        "$func" "$@"
+    else
+        __phpini_echo "\e[0;31mERROR: ${cmd} $1 is not a valid command\e[0m"
 
-if declare -f "${cmd}__$1" >/dev/null 2>&1; then
-    func="${cmd}__$1"; shift
+        # Print usage help info without CLI header.
+        __phpini_usage
+        exit 1
+    fi
+}
 
-    "$func" "$@"
-else
-    echo "phpini: $1 is not a valid command" >&2
-    exit 1
-fi
-
-
+phpini "$@"
