@@ -1,7 +1,53 @@
-#!/bin/zsh
+#!/usr/bin/env bash
 
-local pinidir
+brew_prefix=${HOMEBREW_PREFIX:-$(brew --prefix)}
+php_versions=('7.4' '8.0' '8.1' '8.2' '8.3')
+php_ini_basedir="${brew_prefix}/etc/php/"
+default_editor='vi'
 
-pinidir=/usr/local/etc/php/"$(gum choose --height=15 "7.4" "8.0" "8.1" "8.2")"
+cmd=${0##*/}
 
-echo "${pinidir}" | pbcopy
+__chooser(){
+    gum choose --height=15 "${php_versions[@]}"
+}
+
+# phpini__help(){
+    # echo "phpini: help"
+# }
+
+phpini__dir(){
+    echo "$php_ini_basedir$(__chooser)"
+}
+
+phpini__print(){
+    echo "$(phpini__dir)/php.ini"
+}
+
+phpini__cp(){
+    phpini__print | pbcopy
+}
+
+phpini__edit(){
+    local editor=${EDITOR:-$default_editor}
+
+    "$editor" "$(phpini__print)"
+}
+
+if [[ $# -eq 0 ]]; then
+    phpini__edit
+
+    exit 0
+fi
+
+# cmdname=$1; shift
+
+if declare -f "${cmd}__$1" >/dev/null 2>&1; then
+    func="${cmd}__$1"; shift
+
+    "$func" "$@"
+else
+    echo "phpini: $1 is not a valid command" >&2
+    exit 1
+fi
+
+
