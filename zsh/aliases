@@ -5,12 +5,12 @@
 alias rr="exec ${SHELL} -l"
 alias rscr='tput rmcup'
 alias rrscr='rr && rscr'
-alias c='clear-screen-zle'
 alias x='exit'
 alias e='echo -n'
 alias lg='lazygit'
+alias c='clear-screen-zle'
 alias s='sudo'
-alias kk="ll" # Rotating 3 keyboards, created 50/50 chance I type 'kk' instead of 'll'.
+alias kk='ll' # Rotating 3 keyboards, created 50/50 chance I type 'kk' instead of 'll'.
 alias l='ll'
 alias llc='ls | wc -l'
 alias lll='ll | lolcrab'
@@ -18,6 +18,9 @@ alias df="cd ${DOTFILES}"
 alias dev="cd ${DEV}"
 alias root='cd $(git rev-parse --show-toplevel)'
 alias raycast='open /Applications/Raycast.app'
+
+alias cpc='copy-to-pasteboard'
+alias cpd='copy-dir-path'
 
 alias zbench="$HOME/zsh-bench/zsh-bench | cat"
 alias checkitalics="echo -e '\e[3mitalic\e[23m'"
@@ -35,6 +38,7 @@ alias cargoup='cargo install-update --all'
 alias kraken='$(open gitkraken://repo/${PWD})'
 alias gh:codeowners='mkdir .github/ && echo "* @jascha030" > .github/CODEOWNERS'
 alias lspath="echo ${PATH} | tr ':' '\n';"
+
 alias cp:fontawesome='cat $HOME/.development/Projects/Php/Wordpress/sites/sbtweema/.npmrc | pbcopy'
 alias cp:composerauth='cp $HOME/.composer/auth.json ./'
 
@@ -68,4 +72,3 @@ alias -s {.zshrc,zsh,sh,json,yaml,.env,cs,ts,html}=vim
 # alias tm-auto='sudo tmutil startbackup --auto; tmutil status'
 # alias cp:defaults='cp -r $HOME/.development/Projects/Php/Composer/jascha030/project-templates/composer-template/{.var,.phive,.editorconfig,.gitignore,.gitattributes,.phpstorm.meta.php,.php-cs-fixer.dist.php,phpunit.xml.dist,phpstan.neon.dist} $PWD/'
 # alias scrsvr='open -a ScreenSaverEngine'
-

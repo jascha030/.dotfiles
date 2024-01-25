@@ -11,35 +11,6 @@
 (( ${+commands[egrep]} ))    && alias egrep='egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 (( ${+commands[fgrep]} ))    && alias fgrep='fgrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 
-function ll() {
-    local ls_cmd='ls'
-    local ls_args='-Ahl'
-
-    if (( ${+LS_OVERRIDE} )); then
-        ls_cmd=$LS_OVERRIDE
-    fi
-
-    if (( ${+LS_DEFAULT_ARGS} )); then
-        ls_args=$LS_DEFAULT_ARGS
-    fi
-
-    eval "$ls_cmd" "$ls_args";
-}
-
-# Copy pwd to clipboard
-if (( ! ${+commands[cpd]} )); then
-    function cpd { builtin echo -en "${PWD}" | pbcopy; }
-
-    autoload -Uz cpd
-fi
-
-# Copy file contents to clipboard
-if (( ! ${+commands[cpc]} )); then
-    function cpc { cat "$@" | pbcopy; }
-
-    autoload -Uz cpc
-fi
-
 # Isolated php and composer
 if (( ${+commands[valet]} )); then
     function __iphp {
