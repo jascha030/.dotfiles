@@ -150,6 +150,6 @@ function TRAPWINCH () {
     set-prompt
 
     if [[ "$LOLMSGRC_ENABLED" -eq 1 ]]; then
-        clear-screen
+        clear-screen && autoload -Uz clear-screen-zle
     fi
 }

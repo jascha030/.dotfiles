@@ -158,6 +158,8 @@ compdef _op op
 
 unfunction _evalcache
 
-[[ "$LOLMSGRC_ENABLED" -eq 1 ]] && lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
-source ${ZDOTDIR}/prompt/prompt
+if [[ "$LOLMSGRC_ENABLED" -eq 1 ]]; then
+    lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
+fi
 
+source ${ZDOTDIR}/prompt/prompt
