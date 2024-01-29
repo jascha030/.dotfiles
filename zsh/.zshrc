@@ -7,7 +7,7 @@ if [[ "$ZPROF_ENABLED" -eq 1 ]]; then
     zmodload zsh/zprof
 fi
 
-# Conditional, if current term is not nvim, apply Hacky fix when first window of wezterm messes up lolmsg placement.
+# If current term is not nvim, apply Hacky fix when first window of wezterm messes up lolmsg placement.
 if ! (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )); then
     [[ "$TERM_PROGRAM" == "WezTerm" ]] && (( LINES == 24 )) && { until (( LINES > 24 )); do exec zsh -l; done; }
 fi
@@ -18,18 +18,11 @@ unsetopt BEEP
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-
-# disable sort when completing `git checkout`
-zstyle ':completion:*:git-checkout:*' sort false
-# set descriptions format to enable group support
-zstyle ':completion:*:descriptions' format '[%d]'
-# set list-colors to enable filename colorizing
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-# preview directory's content with exa when completing cd
-# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -1 --color=always $realpath'
-# switch group using `,` and `.`
-zstyle ':fzf-tab:*' switch-group ',' '.'
+zstyle ':completion:*:git-checkout:*' sort false                                # disable sort on `git checkout`
+zstyle ':completion:*:descriptions' format '[%d]'                               # set descr fmt to enable group support
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}                           # set enable filename colorizing
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'   # preview dir content with exa for cd
+zstyle ':fzf-tab:*' switch-group ',' '.'                                        # switch group using `,` and `.`
 
 export ZSH_HIGHLIGHT_STYLES
 typeset -A ZSH_HIGHLIGHT_STYLES=(
