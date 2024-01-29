@@ -139,6 +139,7 @@ unfunction zcompile-many
 export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 # Application init evaluations.
+_evalcache /opt/homebrew/bin/brew shellenv
 _evalcache rtx activate zsh
 _evalcache zoxide init zsh
 _evalcache teleport-dir init
