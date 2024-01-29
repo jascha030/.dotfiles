@@ -2,6 +2,7 @@
 
 # shellcheck disable=SC2093,SC1091,SC2155
 
+[ -f "${HOME}/.zprofrc" ] && . "${HOME}/.zprofrc" || echo 'export ZPROF_ENABLED=1' > "${HOME}/.zprofrc"
 if [[ "$ZPROF_ENABLED" -eq 1 ]]; then
     zmodload zsh/zprof
 fi
