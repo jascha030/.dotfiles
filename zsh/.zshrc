@@ -52,7 +52,6 @@ export DOT_SOURCES=(
 export DOT_AFTER_INIT_SOURCES=(
     ${ZDOTDIR}/colors.zsh
     ${ZDOTDIR}/overrides
-    # ${HOME}/.fzf.zsh
     ${ZDOTDIR}/fzf
 )
 
