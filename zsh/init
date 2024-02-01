@@ -1,8 +1,10 @@
 #!/usr/bin/env zsh
 
-#######################################################################################################################
-# By Jascha030                                  Dotfiles Initialization         https://github.io/jascha030/.dotfiles #
-#######################################################################################################################
+#---------------------------------------------------------------------------------------------------------------------#
+#                                                    Dotfiles                                                         #
+# By Jascha030                                                                  https://github.io/jascha030/.dotfiles #
+#---------------------------------------------------------------------------------------------------------------------#
+
 # Alternative dir for histfiles
 ! (( ${+DOT_DATA_DIR} )) && export DOT_DATA_DIR="${XDG_CONFIG_HOME}"/datafiles
 # Prompt height in lines
@@ -16,7 +18,8 @@ else
     export LOL_MSG="${DOT_DEFAULT_LOL_MSG}"
 fi
 
-#--------------------------------------------- Internally used functions ---------------------------------------------#
+#- Internally used functions -----------------------------------------------------------------------------------------#
+
 function __fpath_add {
     fpath=( "$@" "${fpath[@]}" )
 }
@@ -33,7 +36,8 @@ function __autoload {
     done
 }
 
-# Taken from https://github.com/mroth/evalcache
+#- All credits to: https://github.com/mroth/evalcache ----------------------------------------------------------------#
+
 function _evalcache () {
     local cmdHash="nohash" data="$*" name
 
@@ -78,7 +82,7 @@ function _evalcache_clear () {
     rm -i "$ZSH_EVALCACHE_DIR"/init-*.sh
 }
 
-#------------------------------------------------------ Init ---------------------------------------------------------#
+#- Init --------------------------------------------------------------------------------------------------------------#
 if (( ${+DOT_COMP_DIRS} )); then
     __fpath_add "${DOT_COMP_DIRS[@]}"
 fi
@@ -89,16 +93,18 @@ __autoload "${DOTFILES}/zsh/zfunc"
 # Source files that are required early.
 (( ${+DOT_SOURCES} )) && safe_source "${DOT_SOURCES[@]}"
 
-#-------------------------------------------------- Lazyload functions -----------------------------------------------#
-# Utility function, to merge arrays...
+#- Lazyload functions ------------------------------------------------------------------------------------------------#
+
 function merge_arrays {
     # undefined
     builtin autoload -X
 }
+
 function echoerr {
     # undefined
     builtin autoload -X
 }
+
 function sb2init {
     # undefined
     builtin autoload -X
@@ -138,29 +144,37 @@ unfunction zcompile-many
 
 export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
-# Application init evaluations.
+#- Application init evaluations --------------------------------------------------------------------------------------#
 _evalcache /opt/homebrew/bin/brew shellenv
 _evalcache rtx activate zsh
 _evalcache zoxide init zsh
 _evalcache teleport-dir init
+_evalcache symfony-autocomplete composer
+_evalcache symfony-autocomplete valet
+_evalcache symfony-autocomplete phpactor
+_evalcache op completion zsh
 
-# Source late files like aliases etc.
+#- Source late files like aliases etc --------------------------------------------------------------------------------#
 if (( ${+DOT_AFTER_INIT_SOURCES} )); then
     safe_source "${DOT_AFTER_INIT_SOURCES[@]}"
 fi
 
-# export LS_COLORS="$(vivid generate jassie030)"
-_evalcache symfony-autocomplete composer
-_evalcache symfony-autocomplete valet
-
-_evalcache op completion zsh
 compdef _composer __icomposer
 compdef _op op
 
-unfunction _evalcache
+source ${ZDOTDIR}/aliases
 
+#- Display flashy, painstakingly crafted intro screen ----------------------------------------------------------------#
+[ -f "${HOME}/.lolmsgrc" ] && . "${HOME}/.lolmsgrc" || echo 'export LOLMSGRC_ENABLED=1' > "${HOME}/.lolmsgrc"
 if [[ "$LOLMSGRC_ENABLED" -eq 1 ]]; then
     lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
 fi
 
+#- Load flashy, painstakingly crafted shell prompt -------------------------------------------------------------------#
 source ${ZDOTDIR}/prompt/prompt
+
+#- Init mcfly history last -------------------------------------------------------------------------------------------#
+_evalcache mcfly init zsh
+
+#- And finally, unfunc evalcache -------------------------------------------------------------------------------------#
+unfunction _evalcache

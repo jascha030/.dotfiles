@@ -2,17 +2,21 @@
 
 # shellcheck disable=SC2093,SC1091,SC2155
 
-[ -f "${HOME}/.zprofrc" ] && . "${HOME}/.zprofrc" || echo 'export ZPROF_ENABLED=1' > "${HOME}/.zprofrc"
+#- Logic required to easily toggle between zprof profiling -----------------------------------------------------------#
+[ ! -f "${HOME}/.zprofrc" ] && echo 'export ZPROF_ENABLED=0' > ${HOME}/.zprofrc
+source ${HOME}/.zprofrc
+
 if [[ "$ZPROF_ENABLED" -eq 1 ]]; then
     zmodload zsh/zprof
 fi
 
-# If current term is not nvim, apply Hacky fix when first window of wezterm messes up lolmsg placement.
+#- FIX: If term is not nvim, apply Hacky fix when first window of wezterm messes up lolmsg placement.-----------------#
 if ! (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )); then
     [[ "$TERM_PROGRAM" == "WezTerm" ]] && (( LINES == 24 )) && { until (( LINES > 24 )); do exec zsh -l; done; }
 fi
 
-#--------------------------------------------- Dotfiles start here. --------------------------------------------------#
+#- Dotfiles start here. ----------------------------------------------------------------------------------------------#
+
 setopt autocd extendedglob nomatch menucomplete traps_async
 unsetopt BEEP
 
@@ -50,12 +54,10 @@ export DOT_SOURCES=(
 )
 
 export DOT_AFTER_INIT_SOURCES=(
-    ${ZDOTDIR}/colors.zsh
+    ${ZDOTDIR}/.ls-colors
     ${ZDOTDIR}/overrides
     ${ZDOTDIR}/fzf
 )
-
-[[ ! -r "$HOME"/.opam/opam-init/init.zsh ]] || source "$HOME"/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 path=(
     /opt/homebrew/opt/gnu-sed/libexec/gnubin
@@ -75,42 +77,11 @@ path=(
     ${path[@]}
 ); typeset -aU path
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+[[ ! -r "$HOME"/.opam/opam-init/init.zsh ]] || source "$HOME"/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
-#-------------------------------------------- Nice flashy intro graphics ---------------------------------------------#
-[ -f "${HOME}/.lolmsgrc" ] && . "${HOME}/.lolmsgrc" || echo 'export LOLMSGRC_ENABLED=1' > "${HOME}/.lolmsgrc"
-[ -f "${HOME}/.zprofrc" ] && . "${HOME}/.zprofrc" || echo 'export ZPROF_ENABLED=1' > "${HOME}/.zprofrc"
-
-function __toggle_zprof() {
-    if [[ "$ZPROF_ENABLED" -eq 0 ]]; then
-        echo 'export ZPROF_ENABLED=1' > "${HOME}/.zprofrc"
-        echo 'zprof enabled'
-    fi
-    if [[ "$ZPROF_ENABLED" -eq 1 ]]; then
-        echo 'export ZPROF_ENABLED=0' > "${HOME}/.zprofrc"
-        echo 'zprof disabled'
-    fi
-}
-
-function __toggle_lolmsg_rc() {
-    if [[ "$LOLMSGRC_ENABLED" -eq 0 ]]; then
-        echo 'export LOLMSGRC_ENABLED=1' > "${HOME}/.lolmsgrc"
-        echo 'lolmsg enabled'
-    fi
-    if [[ "$LOLMSGRC_ENABLED" -eq 1 ]]; then
-        echo 'export LOLMSGRC_ENABLED=0' > "${HOME}/.lolmsgrc"
-        echo 'lolmsg disabled'
-    fi
-}
-
-alias toggle-lolmsg='__toggle_lolmsg_rc'
-alias toggle-zprof='__toggle_zprof'
-
-#------------------------ Initialization - This is where most of the magic actually happens --------------------------#
+#- Initialization - This is where most of the magic actually happens -------------------------------------------------#
 source ${ZDOTDIR}/init
-source ${ZDOTDIR}/aliases
-#------------------------------------------ And finally, init mcfly history ------------------------------------------#
-eval "$(mcfly init zsh)" # Init mcfly last.
+
 if [[ "$ZPROF_ENABLED" -eq 1 ]]; then
     zprof
 fi
