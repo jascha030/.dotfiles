@@ -100,17 +100,7 @@ function merge_arrays {
     builtin autoload -X
 }
 
-function echoerr {
-    # undefined
-    builtin autoload -X
-}
-
-function sb2init {
-    # undefined
-    builtin autoload -X
-}
-
-#--------------------------------------------------------- Init ------------------------------------------------------#
+#- Init --------------------------------------------------------------------------------------------------------------#
 
 # Assure required dirs and files exist.
 assert_dirs "${DOT_DATA_DIR}"
