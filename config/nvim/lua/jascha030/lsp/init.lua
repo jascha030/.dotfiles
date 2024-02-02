@@ -99,7 +99,6 @@ end
 
 function M.inlay_hints(opts)
     if not opts.inlay_hints.enabled then
-        print('Kuhutzooi')
         return
     end
 
@@ -113,8 +112,6 @@ function M.inlay_hints(opts)
     local ok, inlayhints = pcall(require, 'lsp-inlayhints')
     if ok then
         M.lsp_attach(inlayhints.on_attach, 'LspAttach_inlayhints')
-    else
-        print('kutzooi')
     end
 end
 
