@@ -28,4 +28,12 @@ function M.in_wez()
     return (M.cwd_in(vim.fn.expand('$HOME/.hammerspoon')) or M.in_dotfiles())
 end
 
+function M.file_picker()
+    if require('lazy.util').file_exists(vim.fn.getcwd() .. '/.git') then
+        require('telescope.builtin').git_files()
+    else
+        require('telescope.builtin').find_files()
+    end
+end
+
 return M

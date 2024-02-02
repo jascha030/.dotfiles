@@ -68,7 +68,7 @@ require('jascha030').setup({
     keymaps = {
         n = {
             ['t'] = { '<C-w>' },
-            ['ff'] = { '<cmd>lua require("telescope.builtin").find_files()<cr>' },
+            ['ff'] = { '<cmd>lua require("jascha030.utils.fs").file_picker()<cr>' },
             ['<C-p>'] = { '<cmd>lua require("telescope.builtin").git_files()<cr>' },
             ['fg'] = { '<cmd>lua require("telescope.builtin").live_grep()<cr>' },
             ['<C-f>'] = { '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>' },
