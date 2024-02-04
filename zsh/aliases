@@ -52,7 +52,6 @@ alias valetr='valetrm && valet restart'
 alias vo='valet open'
 
 # WP Development
-alias wpe='open "https://my.wpengine.com/#all"'
 alias wpuser:create='wp --skip-plugins --skip-themes user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpuser:update='wp --skip-plugins --skip-themes user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
 alias wpconfig:new='wp-config-new-db'

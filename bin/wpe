@@ -1,0 +1,95 @@
+#!/usr/bin/env bash
+
+cmd=${0##*/}
+version='1.0.0'
+
+__wpe_echo() {
+    command printf %b\\n "$*" 2>/dev/null
+}
+
+__wpe_usage() {
+    __wpe_echo "Usage:"
+    __wpe_echo "${cmd} \e[0;36m[-h|--help]\e[0m \e[0;92m<command>\e[0m"
+    __wpe_echo ""
+    __wpe_echo "Commands:"
+    __wpe_echo "  \e[0;92mhelp\e[0m                            Show this help message."
+    __wpe_echo "  \e[0;92mopen\e[0m                            Open https://my.wpengine.com/#all."
+    __wpe_echo "  \e[0;92mdump\e[0m \e[0;92m<usr@host>\e[0m    Copy an environments wp-config.php and the latest mysql dump."
+}
+
+__wpe_header() {
+    __wpe_echo "\e[0;35m    :::       :::::::::::: :::::::::: \e[0m"
+    __wpe_echo "\e[0;35m   :+:       :+::+:    :+::+:         \e[0m"
+    __wpe_echo "\e[0;35m  +:+       +:++:+    +:++:+          \e[0m"
+    __wpe_echo "\e[0;35m +#+  +:+  +#++#++:++#+ +#++:++#      \e[0m"
+    __wpe_echo "\e[0;35m+#+ +#+#+ +#++#+       +#+            \e[0m"
+    __wpe_echo "\e[0;35m#+#+# #+#+# #+#       #+#             \e[0m"
+    __wpe_echo "\e[0;35m###   ###  ###       ##########       \e[0m"
+    __wpe_echo ""
+    __wpe_echo "\e[0;36mv${version}\e[0m"
+    __wpe_echo ""
+    __wpe_echo "A CLI utility for working with \e[0;32mWPEngine\e[0m environments."
+    __wpe_echo ""
+}
+
+_wpe_sitename() {
+    local in="$1"
+    local parts
+    IFS='@' read -ra parts <<< "$in"
+
+    echo "${parts[0]}"
+}
+
+wpe__dump() {
+    local in="$1"
+    local usr
+
+    usr="$(wpe__get_sitename "$in")"
+
+    scp -O "$1":sites/"${usr}"/wp-config.php "${PWD}"/wpe-config.php
+    scp -O "$1":sites/"${usr}"/wp-content/mysql.sql "${PWD}"/wp_"${usr}".sql
+}
+
+wpe__open() {
+    open "https://my.wpengine.com/#all"
+}
+
+wpe__cp-plugins() {
+    local in="$1"
+    local usr
+    usr="$(wpe__get_sitename "$in")"
+
+    scp -rO "$1":sites/"${usr}"/wp-content/plugins/ "${PWD}"/wp-content/plugins/
+}
+
+wpe() {
+    if [[ $# -eq 0 ]]; then
+        wpe__edit
+        return
+    fi
+
+    local i; for i in "$@"; do
+        case $i in
+            --) break ;;
+            '-h'|'--help'|'help')
+                # Print full help info with CLI header.
+                __wpe_header
+                __wpe_usage
+                return 0;
+                ;;
+        esac
+    done
+
+    if declare -f "${cmd}__$1" >/dev/null 2>&1; then
+        func="${cmd}__$1"; shift
+        "$func" "$@"
+    else
+        __wpe_echo "\e[0;31mERROR: ${cmd} $1 is not a valid command\e[0m"
+
+        # Print usage help info without CLI header.
+        __wpe_usage
+        exit 1
+    fi
+}
+
+wpe "$@"

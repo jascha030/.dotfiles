@@ -128,7 +128,6 @@ fi
 
 # Load plugins.
 safe_source ${ZDOTDIR}/plugin-spec
-
 [[ ${ZDOTDIR}/.zcompdump.zwc -nt ${ZDOTDIR}/.zcompdump ]] || zcompile-many ${ZDOTDIR}/.zcompdump
 unfunction zcompile-many
 
