@@ -64,7 +64,7 @@ wpe__cp-plugins() {
 
 wpe() {
     if [[ $# -eq 0 ]]; then
-        wpe__edit
+        __wpe_usage
         return
     fi
 

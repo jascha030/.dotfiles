@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+
+cmd=${0##*/}
+version='1.0.0'
+
+__up-echo() {
+    command printf %b\\n "$*" 2>/dev/null
+}
+
+__up-header() {
+    __up-echo "${cmd} \e[0;36mv${version}\e[0m"
+    __up-echo ""
+    __up-echo "A CLI utility to help me update software installed through various package managers."
+    __up-echo ""
+}
+
+__up-usage() {
+    __up-echo "${cmd} \e[0;36m[-h|--help]\e[0m \e[0;92m<command>\e[0m"
+    __up-echo ""
+    __up-echo "Options:"
+    __up-echo "  -h, --help      Show this help message and exit"
+    __up-echo "  -v, --version   Show version number and exit"
+}
+
+up__help() {
+    __up-header
+    __up-usage
+}
+
+up__brew() { brew update; brew upgrade; brew cleanup; }
+up__cargo() { cargo install-update --all; }
+up__composer() { composer global update; }
+
+up() {
+    local h="${cmd}__help"
+
+    if [[ $# -eq 0 ]]; then
+        "$h"
+        return 1
+    fi
+
+    local i; for i in "$@"; do
+        case $i in
+            --) break ;;
+            '-h'|'--help'|'help')
+                # Print full help info with CLI header.
+                "${cmd}__help"
+                return 0;
+                ;;
+            '-v'|'--version')
+                # Print version number.
+                "__${cmd}-echo" "v${version}"
+                return 0;
+                ;;
+            '-a'|'--all')
+                # Run all update commands.
+                up__brew
+                up__cargo
+                up__composer
+                up__rtx
+                return 0;
+                ;;
+        esac
+    done
+
+    if declare -f "${cmd}__${1}" >/dev/null 2>&1; then
+        func="${cmd}__${1}"; shift
+        "$func" "$@"
+    else
+        "__${cmd}-echo" "\e[0;31mERROR: ${cmd} $1 is not a valid command.\e[0m"
+        "__${cmd}-usage"
+        exit 1
+    fi
+}
+
+up "$@"
