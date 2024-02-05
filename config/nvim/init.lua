@@ -63,7 +63,7 @@ require('jascha030').setup({
             editorconfig = true,
         },
         o = {
-            -- t_Co = '256',
+            foldenable = false,
         },
     },
     keymaps = {
