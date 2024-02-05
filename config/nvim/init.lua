@@ -59,6 +59,7 @@ require('jascha030').setup({
             loaded_netrw = 1,
             loaded_netrwPlugin = 1,
             gitblame_display_virtual_text = 0,
+            loaded_matchparen = 1,
             editorconfig = true,
         },
         o = {
