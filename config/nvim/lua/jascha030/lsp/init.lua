@@ -122,14 +122,14 @@ function M.format(client, bufnr)
 
     vim.lsp.buf.format({
         bufnr = bufnr,
-        filter = function(c)
-            ---@diagnostic disable-next-line: undefined-field
-            if #require('null-ls.sources').get_available(vim.bo[bufnr].filetype, 'NULL_LS_FORMATTING') > 0 then
-                return c.name == 'null-ls'
-            end
-
-            return c.name ~= 'null-ls'
-        end,
+        -- filter = function(c)
+        --     ---@diagnostic disable-next-line: undefined-field
+        --     if #require('null-ls.sources').get_available(vim.bo[bufnr].filetype, 'NULL_LS_FORMATTING') > 0 then
+        --         return c.name == 'null-ls'
+        --     end
+        --
+        --     return c.name ~= 'null-ls'
+        -- end,
     })
 end
 
