@@ -34,7 +34,12 @@ local M = {
         },
         { 'chr4/nginx.vim', ft = 'nginx' },
         { 'b0o/schemastore.nvim', ft = { 'json', 'yaml', 'yml' } },
-        { 'simrat39/rust-tools.nvim', ft = 'rs', dependencies = { 'rust-lang/rust.vim' }, lazy = true },
+        {
+            'simrat39/rust-tools.nvim',
+            ft = 'rs',
+            dependencies = { 'rust-lang/rust.vim' },
+            lazy = true,
+        },
         {
             'folke/neodev.nvim',
             name = 'neodev',
