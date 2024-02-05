@@ -22,10 +22,23 @@ return function()
     local opts = {
         settings = {
             Lua = {
-                completion = { callSnippet = 'Replace' },
-                telemetry = { enable = false },
-                diagnostics = { globals = globals() },
-                workspace = { checkThirdParty = false },
+                completion = {
+                    enable = true,
+                    callSnippet = 'Replace',
+                },
+                telemetry = {
+                    enable = false,
+                },
+                diagnostics = {
+                    globals = globals(),
+                },
+                workspace = {
+                    checkThirdParty = false,
+                },
+                hint = {
+                    enable = true,
+                    arrayIndex = false,
+                },
             },
         },
     }
@@ -38,12 +51,15 @@ return function()
             vim.fn.expand('$VIMRUNTIME/lua'),
         }
 
-        local function add(lib)
-            for _, p in ipairs(vim.fn.expand(lib .. '/lua', false, true)) do ---@diagnostic disable-line: param-type-mismatch
-                p = vim.loop.fs_realpath(p) ---@diagnostic disable-line: cast-local-type
+        local function add(lib, filter)
+            ---@diagnostic disable-next-line: param-type-mismatch
+            for _, p in ipairs(vim.fn.expand(lib .. '/lua', false, true)) do
+                local plugin_name = vim.fn.fnamemodify(p, ':h:t')
 
-                if p then
-                    table.insert(ret, p)
+                p = vim.loop.fs_realpath(p)
+
+                if p and (not filter or filter[plugin_name]) then
+                    table.insert(ret, vim.fn.fnamemodify(p, ':h'))
                 end
             end
         end
@@ -63,20 +79,41 @@ return function()
     end
 
     local function get_runtime()
-        if utils.fs.in_neovim() then
-            local runtime_path = vim.split(package.path, ';')
-            table.insert(runtime_path, 'lua/?.lua')
-            table.insert(runtime_path, 'lua/?/init.lua')
+        local function path()
+            local meta = '${version} ${language} ${encoding}'
+            meta = meta:gsub('%${version}', 'LuaJIT')
+            meta = meta:gsub('%${language}', 'en-us')
+            meta = meta:gsub('%${encoding}', 'utf8')
 
-            return {
-                version = 'LuaJIT',
-                path = runtime_path,
+            local runtime_path = {
+                '?.lua',
+                '?/init.lua',
+                ('meta/%s/?.lua'):format(meta),
+                ('meta/%s/?/init.lua'):format(meta),
+                'library/?.lua',
+                'library/?/init.lua',
+                'lua/?.lua',
+                'lua/?/init.lua',
             }
+
+            -- if utils.fs.in_neovim() then
+            -- runtime_path = vim.split(package.path, ';')
+            -- end
+            return runtime_path
         end
+
+        return {
+            version = 'LuaJIT',
+            path = path(),
+            pathStrict = false,
+            special = {
+                ['lreq'] = 'require',
+            },
+        }
     end
 
     if utils.fs.in_neovim() then
-        return vim.tbl_deep_extend('force', opts, {
+        opts = vim.tbl_deep_extend('force', opts, {
             before_init = require('neodev.lsp').before_init,
             settings = {
                 Lua = {
@@ -88,6 +125,8 @@ return function()
             },
         })
     end
+
+    -- print(vim.inspect(get_runtime()))
 
     return opts
 end

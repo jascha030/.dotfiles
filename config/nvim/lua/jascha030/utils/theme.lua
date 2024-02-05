@@ -6,8 +6,8 @@ local LIGHT = 'light'
 
 local loaded = false
 
-local lrequire = require('jascha030.lreq')
-local darkmode = lrequire('darkmode')
+local lreq = require('jascha030.lreq')
+local darkmode = lreq('darkmode')
 
 local function do_update_autocmd()
     vim.cmd([[doautocmd <nomodeline> User NitePalUpdateScheme]])
