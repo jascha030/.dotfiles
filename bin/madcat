@@ -17,7 +17,7 @@ function __madcat() {
         fi
     fi
 
-    $bin "$@"
+    "$bin" "$@"
 }
 
 __madcat "$@"
