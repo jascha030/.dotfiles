@@ -10,7 +10,8 @@
     "language_server_worse_reflection.inlay_hints.types": false,
     "phpunit.enabled": true,
     "composer.autoloader_path": [
-        "%project_root%/vendor/autoload.php"
+        "%project_root%/vendor/autoload.php",
+        "%project_root%/app/public/vendor/autoload.php"
     ],
     "completion.dedupe": true,
     "completion.dedupe_match_fqn": true,
@@ -22,6 +23,8 @@
         "/vendor-bin/**/vendor/php-stubs/wordpress-stubs/wordpress-stubs.php"
     ],
     "indexer.stub_paths": [
+        "%project_root%/vendor-bin/phpstan/vendor",
+        "%project_root%/vendor-bin/stubs/vendor",
         "/Users/jaschavanaalst/.composer/vendor-bin/stubs/vendor/jetbrains/phpstorm-stubs",
         "/Users/jaschavanaalst/.composer/vendor-bin/stubs/vendor/php-stubs/wordpress-stubs"
     ]
