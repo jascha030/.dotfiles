@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 cmd=${0##*/}
-version='1.0.0'
+version='1.0.1'
 
 __wpe_echo() {
     command printf %b\\n "$*" 2>/dev/null
@@ -44,7 +44,7 @@ wpe__dump() {
     local in="$1"
     local usr
 
-    usr="$(wpe__get_sitename "$in")"
+    usr="$(_wpe_sitename "$in")"
 
     scp -O "$1":sites/"${usr}"/wp-config.php "${PWD}"/wpe-config.php
     scp -O "$1":sites/"${usr}"/wp-content/mysql.sql "${PWD}"/wp_"${usr}".sql
