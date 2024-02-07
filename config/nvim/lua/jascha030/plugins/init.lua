@@ -28,7 +28,5 @@ require('lazy').setup('jascha030.plugins.spec', {
             },
         },
     },
-    ui = {
-        border = BORDER,
-    },
+    ui = { border = BORDER },
 })

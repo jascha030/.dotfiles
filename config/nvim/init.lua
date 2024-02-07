@@ -60,7 +60,8 @@ require('jascha030').setup({
             loaded_netrwPlugin = 1,
             gitblame_display_virtual_text = 0,
             loaded_matchparen = 1,
-            editorconfig = true,
+            editorconfig = 1,
+            did_load_filetypes = 1,
         },
         o = {
             foldenable = false,
