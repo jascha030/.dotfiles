@@ -117,4 +117,36 @@ require('jascha030').setup({
         },
         i = {},
     },
+    augroups = {
+        _ft = {
+            {
+                event = 'FileType',
+                pattern = { 'help', 'lspinfo', 'Trouble', 'dashboard' },
+                command = 'nnoremap <buffer><silent> q :close<CR>',
+            },
+            {
+                event = 'FileType',
+                pattern = 'Trouble',
+                command = 'nnoremap <buffer><silent> TT :close<CR>',
+            },
+        },
+        open_folds = {
+            {
+                event = { 'BufReadPost', 'FileReadPost' },
+                pattern = '*',
+                command = 'normal zR',
+            },
+        },
+        CmpSourceCargo = {
+            {
+                event = 'BufRead',
+                pattern = 'Cargo.toml',
+                callback = function()
+                    require('cmp').setup.buffer({
+                        sources = { { name = 'crates' } },
+                    })
+                end,
+            },
+        },
+    },
 })
