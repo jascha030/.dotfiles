@@ -1,5 +1,6 @@
 local M = {
     'nathom/filetype.nvim',
+    cond = false,
     opts = {
         overrides = {
             extensions = {

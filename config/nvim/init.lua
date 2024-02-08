@@ -61,7 +61,6 @@ require('jascha030').setup({
             gitblame_display_virtual_text = 0,
             loaded_matchparen = 1,
             editorconfig = 1,
-            did_load_filetypes = 1,
         },
         o = {
             foldenable = false,
