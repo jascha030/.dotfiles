@@ -16,5 +16,5 @@ export DOT_ZSH=${DOTFILES}/config/zsh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
 export DOT_DEFAULT_LOL_MSG="Hackerman Mode 030"
 export DOT_NEOVIM_LOL_MSG="NVIM 030"
-export PHP_VERSION=${$(/opt/homebrew/bin/php -r 'echo PHP_VERSION;')[1,3]}
+export PHP_VERSION="${$(/opt/homebrew/bin/php -r 'echo PHP_VERSION;')[1,3]}"
 export ZSH_EVALCACHE_DIR=${ZSH_EVALCACHE_DIR:-"$ZDOTDIR/.zsh-evalcache"}
