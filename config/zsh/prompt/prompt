@@ -21,7 +21,7 @@
 
 # export TERM_PRETTY="$(builtin echo -n ${TERM})"
 
-source ${DOTFILES}/zsh/prompt/helpers.zsh
+source ${ZDOTDIR}/prompt/helpers.zsh
 
 __fpath_add "$PROMPT_FUNCTIONS_PATH"
 __autoload "$PROMPT_FUNCTIONS_PATH"

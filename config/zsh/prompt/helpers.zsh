@@ -27,7 +27,7 @@ export PS1_TR=${PS1_B_TOP_R}' '
 export PS1_BL=' '${PS1_B_BOT_L}''${PS1_LR_MARG}
 export PS1_BR=${PS1_LR_MARG}''${PS1_B_BOT_R}' '
 
-export PROMPT_FUNCTIONS_PATH="${DOTFILES}/zsh/prompt/functions"
+export PROMPT_FUNCTIONS_PATH="${ZDOTDIR}/prompt/functions"
 
 function prompt-length() {
     emulate -L zsh
@@ -53,11 +53,11 @@ function prompt-length() {
 function fill-line {
     emulate -L zsh
 
-    if [ $# -eq 4 ]; then 
+    if [ $# -eq 4 ]; then
         prompt-length $1 $4
     else
         prompt-length $1
-    fi 
+    fi
 
     local -i left_len=REPLY
 
@@ -85,7 +85,7 @@ function term-variable {
 function php-ver {
     emulate -L zsh
 
-    if (( ${+PHP_VERSION} )); then 
+    if (( ${+PHP_VERSION} )); then
         local w=" %F{013}  ${PHP_VERSION}%f"
         typeset -g php_wgt=$w
     fi

@@ -9,7 +9,6 @@ alias x='exit'
 alias e='echo -n'
 alias lg='lazygit'
 alias c='clear-screen'
-alias s='sudo'
 alias kk='ll' # Rotating 3 keyboards, created 50/50 chance I type 'kk' instead of 'll'.
 alias l='ll'
 alias llc='ls | wc -l'
@@ -39,10 +38,9 @@ alias kraken='$(open gitkraken://repo/${PWD})'
 alias gh:codeowners='mkdir .github/ && echo "* @jascha030" > .github/CODEOWNERS'
 alias lspath="echo ${PATH} | tr ':' '\n';"
 
+# Urlparams to test DPG ads.
 alias cp:fontawesome='cat $HOME/.development/Projects/Php/Wordpress/sites/sbtweema/.npmrc | pbcopy'
 alias cp:composerauth='cp $HOME/.composer/auth.json ./'
-
-# Urlparams to test DPG ads.
 alias cp:dpgpostfix='echo "?adops=formats&ast_test=true" | pbcopy'
 
 # PHP

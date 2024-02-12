@@ -87,8 +87,8 @@ if (( ${+DOT_COMP_DIRS} )); then
     __fpath_add "${DOT_COMP_DIRS[@]}"
 fi
 
-__fpath_add "${DOTFILES}/zsh/zfunc" "${DOTFILES}/zsh/completions"
-__autoload "${DOTFILES}/zsh/zfunc"
+__fpath_add "${ZDOTDIR}/zfunc" "${ZDOTDIR}/completions"
+__autoload "${ZDOTDIR}/zfunc"
 
 # Source files that are required early.
 (( ${+DOT_SOURCES} )) && safe_source "${DOT_SOURCES[@]}"
@@ -127,7 +127,7 @@ if (( ${+DOT_BASH_COMPLETIONS})); then
 fi
 
 # Load plugins.
-safe_source ${ZDOTDIR}/plugin-spec
+safe_source ${ZDOTDIR}/plugins-spec
 [[ ${ZDOTDIR}/.zcompdump.zwc -nt ${ZDOTDIR}/.zcompdump ]] || zcompile-many ${ZDOTDIR}/.zcompdump
 unfunction zcompile-many
 
