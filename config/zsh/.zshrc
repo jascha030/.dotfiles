@@ -69,11 +69,11 @@ path=(
     ${HOME}/.bun/bin
     ${HOME}/.yarn/bin
     ${HOME}/.gem/ruby/2.6.0/bin
-    ${HOME}/tools/lua-language-server/bin/macOS
     ${HOME}/.cargo/bin
     ${HOME}/go/bin
     ${HOME}/tools
     ${HOME}/.local/share/rtx/shims
+    ${HOME}/.local/share/nvim/mason/bin
     ${path[@]}
 ); typeset -aU path
 
