@@ -18,25 +18,30 @@
 # export TERM_PRETTY="$(builtin echo -n ${TERM} | lolcrab -i --sharp 1)"
 # | sed -e 's/\x1b\[39m\x1b\[49m//g')"
 # fi
-
 # export TERM_PRETTY="$(builtin echo -n ${TERM})"
+export TERM_PRETTY=${TERM_PRETTY:-TERM}
 
 source ${ZDOTDIR}/prompt/helpers.zsh
+
+# Use https://github.com/romkatv/gitstatus/tree/master?tab=readme-ov-file for gitstatus if available
+if [[ -f "${HOME}/tools/gitstatus/gitstatus.plugin.zsh" ]]; then
+    source ${ZDOTDIR}/prompt/gitstatus.prompt.zsh
+
+    export DOT_PROMPT_BETTER_GIT_STATUS=1
+else
+    autoload -Uz vcs_info
+    precmd() { vcs_info }
+
+    zstyle ':vcs_info:git:*' formats '|  %b'
+    zstyle ':vcs_info:git:ignore' submodule 'all'
+    zstyle ':vcs_info:*' enable hg git
+
+    export DOT_PROMPT_BETTER_GIT_STATUS=0
+fi
 
 __fpath_add "$PROMPT_FUNCTIONS_PATH"
 __autoload "$PROMPT_FUNCTIONS_PATH"
 autoload -Uz add-zsh-hook
-
-# For git info
-autoload -Uz vcs_info
-precmd() { vcs_info }
-
-zstyle ':vcs_info:git:*' formats '|  %b'
-zstyle ':vcs_info:git:ignore' submodule 'all'
-zstyle ':vcs_info:*' enable hg git
-
-
-export TERM_PRETTY=${TERM}
 
 # In case of meer tab gekkigheid:
 # https://unix.stackexchange.com/questions/14230/zsh-tab-completion-on-empty-line
@@ -46,6 +51,7 @@ function block-empty-tab {
         zle fzf-completion
         position-prompt-bottom
     fi
+
     # zle expand-or-complete
     # zle expand-or-complete-prefix
 }
@@ -82,9 +88,15 @@ function set-prompt {
     local top; top-prompt
 
     local prompt_dir='%(5~|%-1~/…/%3~|%4~)'
+    local git_prompt=
+    if (( $DOT_PROMPT_BETTER_GIT_STATUS )); then
+        git_prompt='$GITSTATUS_PROMPT'
+    else
+        git_prompt='%F{08}${vcs_info_msg_0_}%f'
+    fi
 
     # Render layout elements
-    local bot_left="${PS1_BL} %F{08} ${prompt_dir}%f ${vcs_info_msg_0_} "
+    local bot_left="${PS1_BL} %F{08} ${prompt_dir}%f ${git_prompt} "
     local bot_right="${php_wgt} ${PS1_BR}"
 
     PROMPT=$'\n'${top}$'\n'${mid}$'\n'${bot_left}
