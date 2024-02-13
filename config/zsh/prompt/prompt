@@ -19,7 +19,7 @@
 # | sed -e 's/\x1b\[39m\x1b\[49m//g')"
 # fi
 # export TERM_PRETTY="$(builtin echo -n ${TERM})"
-export TERM_PRETTY=${TERM_PRETTY:-TERM}
+export TERM_PRETTY=${TERM_PRETTY:-$TERM}
 
 source ${ZDOTDIR}/prompt/helpers.zsh
 

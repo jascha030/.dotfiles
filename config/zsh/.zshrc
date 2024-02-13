@@ -39,6 +39,7 @@ typeset -A ZSH_HIGHLIGHT_STYLES=(
 export DOT_COMP_DIRS=(
     ${HOME}/.bun/_bun
     ${HOME}/.config/tabtab/zsh
+    ${HOME}/tools/eza/completions/zsh
 )
 
 export DOT_BASH_COMPLETIONS=(
