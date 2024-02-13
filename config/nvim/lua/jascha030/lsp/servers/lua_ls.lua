@@ -126,7 +126,5 @@ return function()
         })
     end
 
-    -- print(vim.inspect(get_runtime()))
-
     return opts
 end
