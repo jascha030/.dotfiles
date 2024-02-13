@@ -106,8 +106,21 @@ require('jascha030').setup({
             ['<leader>fh'] = { '<cmd>Telescope help_tags<cr>' },
             ['<leader>fc'] = { '<cmd>Telescope git_bcommits<cr>' },
             ['<leader>lz'] = { '<cmd>Lazy<cr>' },
+            ['<leader>fs'] = { '<cmd>lua require("spectre").toggle()<CR>', { desc = 'Toggle Spectre' } },
+            ['<leader>sw'] = {
+                '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
+                { desc = 'Search current word' },
+            },
+            ['<leader>sp'] = {
+                '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
+                { desc = 'Search on current file' },
+            },
         },
         v = {
+            ['<leader>sw'] = {
+                '<esc><cmd>lua require("spectre").open_visual()<CR>',
+                { desc = 'Search current word' },
+            },
             ['<C-c>'] = { ':OSCYankVisual<cr>' },
             ['<C-_>'] = { ":'<,'>CommentToggle<cr>" },
         },
