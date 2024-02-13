@@ -23,11 +23,12 @@ local M = {
     opts = {
         sources = {
             { name = 'nvim_lsp_signature_help', priority_weight = 120 },
-            { name = 'path', priority_weight = 110 },
-            { name = 'nvim_lsp', priority_weight = 100 },
-            { name = 'treesitter', priority_weight = 80 },
-            { name = 'luasnip', priority_weight = 60 },
-            { name = 'buffer', max_item_count = 3, priority_weight = 60 },
+            { name = 'path',                    priority_weight = 110 },
+            { name = 'nvim_lsp',                priority_weight = 100 },
+            { name = 'nvim_lua',                priority_weight = 90 },
+            { name = 'treesitter',              priority_weight = 80 },
+            { name = 'luasnip',                 priority_weight = 60 },
+            { name = 'buffer',                  max_item_count = 3,   priority_weight = 60 },
         },
     },
 }
