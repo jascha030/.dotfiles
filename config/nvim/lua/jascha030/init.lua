@@ -1,6 +1,14 @@
 local M = {}
 local config = require('jascha030.config')
 
+local function add_env_paths(paths)
+    paths = paths or {}
+
+    for _, path in pairs(paths) do
+        vim.env.PATH = path .. ':' .. vim.env.PATH
+    end
+end
+
 local function set_polyglot_lang_disables(languages)
     local all = vim.deepcopy(require('jascha030.utils.lang').get_langs(true))
     local disabled = {}
@@ -24,6 +32,8 @@ end
 
 function M.setup(opts)
     config.setup(opts)
+
+    add_env_paths(config.get('env').path)
 
     ---@diagnostic disable-next-line
     if config.get('polyglot').enabled then

@@ -14,6 +14,9 @@ BORDER = 'rounded'
 BORDERS = { border = BORDER }
 
 require('jascha030').setup({
+    env = {
+        path = { vim.env.HOME .. '/.local/share/mise/shims' },
+    },
     colorscheme = 'nitepal',
     polyglot = {
         enabled = false,
@@ -155,9 +158,7 @@ require('jascha030').setup({
                 event = 'BufRead',
                 pattern = 'Cargo.toml',
                 callback = function()
-                    require('cmp').setup.buffer({
-                        sources = { { name = 'crates' } },
-                    })
+                    require('cmp').setup.buffer({ sources = { { name = 'crates' } } })
                 end,
             },
         },
