@@ -37,7 +37,7 @@ typeset -A ZSH_HIGHLIGHT_STYLES=(
 )
 
 export DOT_COMP_DIRS=(
-    ${HOME}/.bun/_bun
+    ${HOME}/.bun
     ${HOME}/.config/tabtab/zsh
     ${HOME}/tools/eza/completions/zsh
 )
@@ -58,6 +58,7 @@ export DOT_AFTER_INIT_SOURCES=(
     ${ZDOTDIR}/.ls-colors
     ${ZDOTDIR}/overrides
     ${ZDOTDIR}/fzf
+    ${HOME}/.bun/_bun
 )
 
 path=(

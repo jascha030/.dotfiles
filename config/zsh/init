@@ -135,7 +135,7 @@ export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 #- Application init evaluations --------------------------------------------------------------------------------------#
 _evalcache /opt/homebrew/bin/brew shellenv
-_evalcache mise activate zsh
+_evalcache mise activate zsh --shims
 _evalcache zoxide init zsh
 _evalcache teleport-dir init
 _evalcache symfony-autocomplete composer
