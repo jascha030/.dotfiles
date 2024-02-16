@@ -178,6 +178,10 @@ function M.setup(opts)
         if client.name == 'phpactor' then
             client.server_capabilities.hoverProvider = false
         end
+
+        if client.name == 'yamlls' then
+            client.server_capabilities.documentFormattingProvider = true
+        end
     end
 
     M.lsp_attach(on_attach)

@@ -49,6 +49,7 @@ return function()
             vim.fn.stdpath('config'),
             vim.fn.stdpath('data') .. '/lazy/neodev/types/stable',
             vim.fn.expand('$VIMRUNTIME/lua'),
+            vim.env.HOME .. '/.hammerspoon/Spoons/EmmyLua.spoon/annotations',
         }
 
         local function add(lib, filter)
@@ -56,6 +57,7 @@ return function()
             for _, p in ipairs(vim.fn.expand(lib .. '/lua', false, true)) do
                 local plugin_name = vim.fn.fnamemodify(p, ':h:t')
 
+                ---@diagnostic disable-next-line: cast-local-type
                 p = vim.loop.fs_realpath(p)
 
                 if p and (not filter or filter[plugin_name]) then

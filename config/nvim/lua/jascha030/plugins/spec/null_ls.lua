@@ -1,9 +1,10 @@
 local M = {
     'nvimtools/none-ls.nvim',
     name = 'null-ls',
-    dependencies = {
-        'gbprod/none-ls-php.nvim',
-    },
+    config = function()
+        require('null-ls').register(require('none-ls-php.diagnostics.php'))
+    end,
+    dependencies = { 'gbprod/none-ls-php.nvim' },
 }
 
 local lreq = require('jascha030.lreq')
@@ -30,27 +31,18 @@ function M.opts()
             nls.builtins.formatting.isort,
             nls.builtins.formatting.black,
             nls.builtins.diagnostics.flake8,
-            nls.builtins.diagnostics.eslint.with({
-                condition = function(utils)
-                    return utils.root_has_file({
-                        '.eslintrc.js',
-                        '.eslintrc.cjs',
-                        '.eslintrc.yaml',
-                        '.eslintrc.yml',
-                        '.eslintrc.json',
-                    })
-                end,
-            }),
             nls.builtins.diagnostics.zsh,
             nls.builtins.formatting.blade_formatter,
             nls.builtins.formatting.beautysh,
             nls.builtins.completion.spell,
+            nls.builtins.formatting.yamlfmt.with({ filetypes = { 'yaml' } }),
+            nls.builtins.formatting.shellharden,
             nls.builtins.diagnostics.selene.with({
-                -- stylua: ignore 
+                -- stylua: ignore
                 condition = function(utils) return utils.root_has_file({ 'selene.toml' }) end,
             }),
             nls.builtins.diagnostics.luacheck.with({
-                -- stylua: ignore 
+                -- stylua: ignore
                 condition = function(utils) return utils.root_has_file({ '.luacheckrc' }) end,
             }),
             nls.builtins.formatting.stylua.with({
@@ -92,6 +84,17 @@ function M.opts()
                         'fix',
                         '$FILENAME',
                     }
+                end,
+            }),
+            nls.builtins.diagnostics.eslint.with({
+                condition = function(utils)
+                    return utils.root_has_file({
+                        '.eslintrc.js',
+                        '.eslintrc.cjs',
+                        '.eslintrc.yaml',
+                        '.eslintrc.yml',
+                        '.eslintrc.json',
+                    })
                 end,
             }),
         },
