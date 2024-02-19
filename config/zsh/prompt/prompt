@@ -90,7 +90,7 @@ function set-prompt {
     local prompt_dir='%(5~|%-1~/…/%3~|%4~)'
     local git_prompt=
     if (( $DOT_PROMPT_BETTER_GIT_STATUS )); then
-        git_prompt='$GITSTATUS_PROMPT'
+        git_prompt='${GITSTATUS_PROMPT}'
     else
         git_prompt='%F{08}${vcs_info_msg_0_}%f'
     fi
