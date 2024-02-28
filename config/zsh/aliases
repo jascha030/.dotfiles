@@ -7,6 +7,7 @@ alias rscr='tput rmcup'
 alias rrscr='rr && rscr'
 alias x='exit'
 alias e='echo -n'
+alias o='open .'
 alias lg='lazygit'
 alias c='clear-screen'
 alias kk='ll' # Rotating 3 keyboards, created 50/50 chance I type 'kk' instead of 'll'.
