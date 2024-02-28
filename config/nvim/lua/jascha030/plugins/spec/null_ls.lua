@@ -65,7 +65,7 @@ function M.opts()
                     local ok, _ = pcall(
                         with_fallback,
                         vim.fn.getcwd() .. '/.php-cs-fixer.dist.php',
-                        config_dir .. '/.php-cs-fixer.php'
+                        config_dir .. '/.php-cs-fixer.dist.php'
                     )
                     return ok
                 end,
