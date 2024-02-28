@@ -30,20 +30,15 @@ function M.opts()
             nls.builtins.diagnostics.markdownlint,
             nls.builtins.formatting.isort,
             nls.builtins.formatting.black,
-            nls.builtins.diagnostics.flake8,
             nls.builtins.diagnostics.zsh,
             nls.builtins.formatting.blade_formatter,
             nls.builtins.formatting.beautysh,
             nls.builtins.completion.spell,
-            nls.builtins.formatting.yamlfmt.with({ filetypes = { 'yaml' } }),
             nls.builtins.formatting.shellharden,
+            nls.builtins.formatting.yamlfmt.with({ filetypes = { 'yaml' } }),
             nls.builtins.diagnostics.selene.with({
                 -- stylua: ignore
                 condition = function(utils) return utils.root_has_file({ 'selene.toml' }) end,
-            }),
-            nls.builtins.diagnostics.luacheck.with({
-                -- stylua: ignore
-                condition = function(utils) return utils.root_has_file({ '.luacheckrc' }) end,
             }),
             nls.builtins.formatting.stylua.with({
                 extra_args = {
@@ -72,7 +67,6 @@ function M.opts()
                         vim.fn.getcwd() .. '/.php-cs-fixer.dist.php',
                         config_dir .. '/.php-cs-fixer.php'
                     )
-
                     return ok
                 end,
                 extra_args = function()
@@ -86,6 +80,7 @@ function M.opts()
                     }
                 end,
             }),
+            -- Deprecatardo
             nls.builtins.diagnostics.eslint.with({
                 condition = function(utils)
                     return utils.root_has_file({
@@ -97,6 +92,11 @@ function M.opts()
                     })
                 end,
             }),
+            -- Deprecado massimo
+            -- nls.builtins.diagnostics.luacheck.with({
+            --     -- stylua: ignore
+            --     condition = function(utils) return utils.root_has_file({ '.luacheckrc' }) end,
+            -- }),
         },
     }
 end
