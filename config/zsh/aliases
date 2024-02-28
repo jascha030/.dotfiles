@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
-
-#------------------------------------------------ Terminal / Dotfiles ------------------------------------------------#
-
+#- Terminal / Dotfiles -----------------------------------------------------------------------------------------------#
 alias rr="exec ${SHELL} -l"
 alias rscr='tput rmcup'
 alias rrscr='rr && rscr'
@@ -18,56 +16,38 @@ alias df="cd ${DOTFILES}"
 alias dev="cd ${DEV}"
 alias root='cd $(git rev-parse --show-toplevel)'
 alias raycast='open /Applications/Raycast.app'
-
 alias cpc='copy-to-pasteboard'
 alias cpd='copy-dir-path'
-
+#- Debuggingz --------------------------------------------------------------------------------------------------------#
 alias zbench="$HOME/zsh-bench/zsh-bench | cat"
 alias checkitalics="echo -e '\e[3mitalic\e[23m'"
 alias checkbold="echo -e '\e[1mbold\e[22m'"
 alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
-
-(( ${+commands[nvim]} )) && {
-    alias vim=nvim
-    alias n=nvim
-}
-
-#----------------------------------------------------- Utilities -----------------------------------------------------#
+#- Utilities ---------------------------------------------------------------------------------------------------------#
+(( ${+commands[nvim]} )) && { alias vim=nvim; alias n=nvim; }
 alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
 alias cargoup='cargo install-update --all'
 alias kraken='$(open gitkraken://repo/${PWD})'
 alias gh:codeowners='mkdir .github/ && echo "* @jascha030" > .github/CODEOWNERS'
 alias lspath="echo ${PATH} | tr ':' '\n';"
-
-# Urlparams to test DPG ads.
-alias cp:fontawesome='cat $HOME/.development/Projects/Php/Wordpress/sites/sbtweema/.npmrc | pbcopy'
+#- Copy stuff to pastaboard ------------------------------------------------------------------------------------------#
+alias cp:fontawesome='cat $HOME/.development/Projects/Php/Wordpress/sites/sbtweema/.npmrc | pbcopy' 
+alias cp:ghauth='echo -e "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" | pbcopy'
 alias cp:composerauth='cp $HOME/.composer/auth.json ./'
-alias cp:dpgpostfix='echo "?adops=formats&ast_test=true" | pbcopy'
-
-# PHP
+#- PHP ---------------------------------------------------------------------------------------------------------------#
 alias buggragator='docker run --pull always -p 8000:8000 -p 1025:1025 -p 9912:9912 -p 9913:9913 ghcr.io/buggregator/server:latest'
 alias valetrm='rm ${HOME}/.config/valet/*.sock'
 alias valetr='valetrm && valet restart'
 alias vo='valet open'
-
-# WP Development
+#- WP Development ----------------------------------------------------------------------------------------------------#
 alias wpuser:create='wp --skip-plugins --skip-themes user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpuser:update='wp --skip-plugins --skip-themes user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
 alias wpconfig:new='wp-config-new-db'
 alias wpenv:user:create='wp-env run cli wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpenv:user:update='wp-env run cli wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
-
-# Fix for Nu-shell and @antfu/ni:nu confusion
+#- Fix for Nu-shell and @antfu/ni:nu confusion -----------------------------------------------------------------------#
 alias nup="$(which nu)"
 alias nu="$HOME/.cargo/bin/nu"
-
-#-------------------------------------------------- Suffix Aliases ---------------------------------------------------#
+#- Suffix Aliases ----------------------------------------------------------------------------------------------------#
 alias -s php=pstorm
 alias -s {.zshrc,zsh,sh,json,yaml,.env,cs,ts,html}=vim
-
-#----------------------------------------------------In Memoriam -----------------------------------------------------#
-# alias cp:shrug='e "¯\_(ツ)_/¯" | pbcopy'
-# alias cp:broodje='e "52. HUMMES-AVOCADO - witte italiaanse bol - € 6,00" | pbcopy'
-# alias tm-auto='sudo tmutil startbackup --auto; tmutil status'
-# alias cp:defaults='cp -r $HOME/.development/Projects/Php/Composer/jascha030/project-templates/composer-template/{.var,.phive,.editorconfig,.gitignore,.gitattributes,.phpstorm.meta.php,.php-cs-fixer.dist.php,phpunit.xml.dist,phpstan.neon.dist} $PWD/'
-# alias scrsvr='open -a ScreenSaverEngine'
