@@ -32,7 +32,6 @@ function M.opts()
             nls.builtins.formatting.black,
             nls.builtins.diagnostics.zsh,
             nls.builtins.formatting.blade_formatter,
-            nls.builtins.formatting.beautysh,
             nls.builtins.completion.spell,
             nls.builtins.formatting.shellharden,
             nls.builtins.formatting.yamlfmt.with({ filetypes = { 'yaml' } }),
@@ -80,23 +79,6 @@ function M.opts()
                     }
                 end,
             }),
-            -- Deprecatardo
-            nls.builtins.diagnostics.eslint.with({
-                condition = function(utils)
-                    return utils.root_has_file({
-                        '.eslintrc.js',
-                        '.eslintrc.cjs',
-                        '.eslintrc.yaml',
-                        '.eslintrc.yml',
-                        '.eslintrc.json',
-                    })
-                end,
-            }),
-            -- Deprecado massimo
-            -- nls.builtins.diagnostics.luacheck.with({
-            --     -- stylua: ignore
-            --     condition = function(utils) return utils.root_has_file({ '.luacheckrc' }) end,
-            -- }),
         },
     }
 end
