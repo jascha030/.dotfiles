@@ -1,10 +1,14 @@
 local M = {
     'nvimtools/none-ls.nvim',
     name = 'null-ls',
-    config = function()
-        require('null-ls').register(require('none-ls-php.diagnostics.php'))
-    end,
-    dependencies = { 'gbprod/none-ls-php.nvim' },
+    dependencies = {
+        'gbprod/none-ls-php.nvim',
+        'gbprod/none-ls-luacheck.nvim',
+        'gbprod/none-ls-shellcheck.nvim',
+        'nvimtools/none-ls-extras.nvim',
+        'gbprod/none-ls-psalm.nvim',
+        'gbprod/none-ls-ecs.nvim',
+    },
 }
 
 local lreq = require('jascha030.lreq')
@@ -27,6 +31,9 @@ function M.opts()
 
     return {
         sources = {
+            require('none-ls.diagnostics.cpplint'),
+            require('none-ls.formatting.jq'),
+            require('none-ls.code_actions.eslint'),
             nls.builtins.diagnostics.markdownlint,
             nls.builtins.formatting.isort,
             nls.builtins.formatting.black,
@@ -66,6 +73,7 @@ function M.opts()
                         vim.fn.getcwd() .. '/.php-cs-fixer.dist.php',
                         config_dir .. '/.php-cs-fixer.dist.php'
                     )
+
                     return ok
                 end,
                 extra_args = function()
@@ -85,7 +93,28 @@ end
 
 function M.config(_, opts)
     nls.setup(opts)
-    nls.register(require('none-ls-php.diagnostics.php'))
+
+    nls.register(require('none-ls-ecs.formatting').with({
+        condition = function(utils)
+            return utils.root_has_file('ecs.php')
+        end,
+    }))
+
+    nls.register(require('none-ls-psalm.diagnostics').with({
+        condition = function(utils)
+            return utils.root_has_file('psalm.xml')
+        end,
+    }))
+
+    nls.register(require('none-ls-luacheck.diagnostics.luacheck').with({
+        condition = function(utils)
+            return utils.root_has_file({ '.luacheckrc' })
+        end,
+    }))
+
+    nls.register(require('none-ls-psalm.diagnostics'))
+    nls.register(require('none-ls-shellcheck.diagnostics'))
+    nls.register(require('none-ls-shellcheck.code_actions'))
 end
 
 return M
