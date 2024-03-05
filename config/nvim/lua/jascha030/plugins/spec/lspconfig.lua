@@ -17,7 +17,7 @@ local M = {
                         remove_colon_end = true,
                     },
                     type_hints = {
-                        show = false,
+                        show = true,
                         prefix = ': ',
                         separator = ', ',
                         remove_colon_start = false,

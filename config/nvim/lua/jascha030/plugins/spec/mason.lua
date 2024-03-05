@@ -2,7 +2,7 @@ local M = {
     'williamboman/mason.nvim',
     cmd = 'Mason',
     keys = {
-        { 'm', '<cmd>Mason<cr>', desc = 'Mason' },
+        { '<leader>m', '<cmd>Mason<cr>', desc = 'Mason' },
     },
     opts = {
         ensure_installed = {
