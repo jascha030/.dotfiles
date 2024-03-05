@@ -60,9 +60,7 @@ function M.opts()
                     return {
                         '--config=' .. vim.fn.getcwd() .. '/.twig-cs-fixer.php',
                         'lint',
-                        '--fix',
                         '$FILENAME',
-                        '--no-cache',
                     }
                 end,
             }),
