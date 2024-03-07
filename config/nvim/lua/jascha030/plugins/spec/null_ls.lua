@@ -15,19 +15,31 @@ local lreq = require('jascha030.lreq')
 local nls = lreq('null-ls')
 
 function M.opts()
-    local function with_fallback(path, fallback)
-        if vim.fn.filereadable(path) == 1 then
-            return path
+    local function fb_conf_path(...)
+        local arg = { ... }
+
+        for _, path in ipairs(arg) do
+            -- handle potential tables with recursion.
+            if type(path) == 'table' then
+                local ok, res = pcall(fb_conf_path, path)
+
+                if ok then
+                    return res
+                end
+            end
+
+            if type(path) == 'string' then
+                if vim.fn.filereadable(path) == 1 then
+                    return path
+                end
+            end
         end
 
-        if vim.fn.filereadable(fallback) ~= 1 then
-            error('none-ls: fallback config ' .. fallback .. "doesn't exist.")
-        end
-
-        return fallback
+        error('fb_conf_path (null_ls): No path or fallback paths could be read.')
     end
 
     local config_dir = os.getenv('XDG_CONFIG_HOME')
+    local cwd = vim.fn.getcwd
 
     return {
         sources = {
@@ -39,6 +51,7 @@ function M.opts()
             nls.builtins.formatting.shfmt.with({
                 filetypes = { 'sh', 'zsh', 'bash' },
             }),
+            nls.builtins.formatting.yamlfix,
             nls.builtins.diagnostics.zsh,
             nls.builtins.formatting.blade_formatter,
             nls.builtins.completion.spell,
@@ -51,7 +64,7 @@ function M.opts()
             nls.builtins.formatting.stylua.with({
                 extra_args = {
                     '--config-path',
-                    with_fallback(vim.fn.getcwd() .. '/stylua.toml', config_dir .. '/stylua.toml'),
+                    fb_conf_path(cwd() .. '/stylua.toml', config_dir .. '/stylua.toml'),
                 },
             }),
             nls.builtins.diagnostics.twigcs.with({
@@ -60,28 +73,30 @@ function M.opts()
                 end,
                 extra_args = function()
                     return {
-                        '--config=' .. vim.fn.getcwd() .. '/.twig-cs-fixer.php',
+                        '--config=' .. cwd() .. '/.twig-cs-fixer.php',
                         'lint',
                         '$FILENAME',
                     }
                 end,
             }),
             nls.builtins.formatting.phpcsfixer.with({
-                condition = function()
-                    local ok, _ = pcall(
-                        with_fallback,
-                        vim.fn.getcwd() .. '/.php-cs-fixer.dist.php',
-                        config_dir .. '/.php-cs-fixer.dist.php'
-                    )
+                condition = function(utils)
+                    if utils.root_has_file({ '.php-cs-fixer.dist.php', '.php-cs-fixer.php' }) then
+                        return true
+                    end
+
+                    local ok, _ = pcall(fb_conf_path, config_dir .. '/.php-cs-fixer.dist.php')
 
                     return ok
                 end,
                 extra_args = function()
-                    local config =
-                        with_fallback(vim.fn.getcwd() .. '/.php-cs-fixer.dist.php', config_dir .. '/.php-cs-fixer.php')
                     return {
                         '--no-interaction',
-                        '--config=' .. config,
+                        '--config=' .. fb_conf_path(
+                            cwd() .. '/.php-cs-fixer.dist.php',
+                            cwd() .. '/.php-cs-fixer.php',
+                            config_dir .. '/.php-cs-fixer.dist.php'
+                        ),
                         'fix',
                         '$FILENAME',
                     }
