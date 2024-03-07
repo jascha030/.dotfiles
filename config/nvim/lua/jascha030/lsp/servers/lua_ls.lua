@@ -47,9 +47,10 @@ return function()
     local function library()
         local ret = {
             vim.fn.stdpath('config'),
-            vim.fn.stdpath('data') .. '/lazy/neodev/types/stable',
             vim.fn.expand('$VIMRUNTIME/lua'),
             vim.env.HOME .. '/.hammerspoon/Spoons/EmmyLua.spoon/annotations',
+            require('neodev.config').types(),
+            '${3rd}/luv/library',
         }
 
         local function add(lib, filter)
