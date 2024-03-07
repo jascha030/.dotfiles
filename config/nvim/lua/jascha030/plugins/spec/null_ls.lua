@@ -31,12 +31,14 @@ function M.opts()
 
     return {
         sources = {
-            require('none-ls.diagnostics.cpplint'),
             require('none-ls.formatting.jq'),
             require('none-ls.code_actions.eslint'),
             nls.builtins.diagnostics.markdownlint,
             nls.builtins.formatting.isort,
             nls.builtins.formatting.black,
+            nls.builtins.formatting.shfmt.with({
+                filetypes = { 'sh', 'zsh', 'bash' },
+            }),
             nls.builtins.diagnostics.zsh,
             nls.builtins.formatting.blade_formatter,
             nls.builtins.completion.spell,
