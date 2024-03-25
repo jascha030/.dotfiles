@@ -1,5 +1,17 @@
 config create:
-    dbuser: root
-    dbpass: root
-    extra-php: |
-        define('WP_DEBUG', true);
+  dbuser: root
+  dbpass: root
+  extra-php: |
+    define('WP_DEBUG', true);
+valet new:
+  project: wp # or bedrock
+  version: latest
+  db: mysql # or sqlite
+  dbuser: root # or any other local user capable of creating databases (MySQL only)
+  dbpass: root # enter the appropriate password if necessary (MySQL only)
+  dbprefix: wp_
+  admin_user: admin
+  admin_password: admin
+  # in: # override - defaults to current directory
+  # locale:  # use if not English
+  # dbname: # defaults to wp_name
