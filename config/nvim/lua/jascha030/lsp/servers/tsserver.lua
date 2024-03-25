@@ -8,6 +8,13 @@ return function()
         functionLikeReturnTypes = { enabled = true },
         parameterTypes = { enabled = true },
         parameterNames = { enabled = 'all' },
+        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
     }
 
     return {
@@ -18,7 +25,7 @@ return function()
         settings = {
             javascript = {
                 format = { enable = false },
-                inlayHints,
+                inlayHints = inlayHints,
             },
             typescript = {
                 format = { enable = false },
@@ -29,7 +36,7 @@ return function()
                     enabled = true,
                 },
                 suggest = { completeFunctionCalls = true },
-                inlayHints,
+                inlayHints = inlayHints,
                 preferences = {
                     useAliasesForRenames = false,
                     importModuleSpecifier = 'non-relative',
