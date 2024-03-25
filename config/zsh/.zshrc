@@ -87,3 +87,6 @@ source ${ZDOTDIR}/init
 if [[ "$ZPROF_ENABLED" -eq 1 ]]; then
     zprof
 fi
+
+# bun completions
+[ -s "/Users/jaschavanaalst/.bun/_bun" ] && source "/Users/jaschavanaalst/.bun/_bun"
