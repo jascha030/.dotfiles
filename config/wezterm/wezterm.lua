@@ -115,7 +115,7 @@ return {
     colors = theme.get_scheme('Dark', true),
     inactive_pane_hsb = { saturation = 0.98, brightness = 0.9 },
     window_background_opacity = handlers.options.opacity,
-    macos_window_background_blur = 70,
+    macos_window_background_blur = 75,
     keys = require('keymap'),
     disable_default_key_bindings = true,
     leader = { key = 'd', mods = 'CTRL' },
