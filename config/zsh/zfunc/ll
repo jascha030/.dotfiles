@@ -2,7 +2,7 @@
 
 function ll() {
     local ls_cmd='ls'
-    local ls_args='-Ahl'
+    local ls_args=${LS_DEFAULT_ARGS:-${'-Ahl'}}
 
     if (( ${+LS_OVERRIDE} )); then
         ls_cmd=$LS_OVERRIDE
@@ -12,5 +12,5 @@ function ll() {
         ls_args=$LS_DEFAULT_ARGS
     fi
 
-    eval "$ls_cmd" "$ls_args";
+    prepend "  " < <(eval "$ls_cmd" "$ls_args")
 }

@@ -1,16 +1,17 @@
-#!/usr/bin/env zsh 
+#!/usr/bin/env zsh
 
-__prepend(){
-  local prepended=$1
+function __prepend() {
+	local prepended=$1
+	local str=''
 
-  while read line; do
-    echo "$prepended" "$line"
-  done
+	while read line; do
+		str="${str}"'\n'"${prepended} ${line}"
+	done
+    
+    echo "${str}"
 }
 
 tag=$1
-
 shift
 
 "$@" > >(__prepend "$tag") 2> >(__prepend "$tag" 1>&2)
-
