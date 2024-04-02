@@ -49,15 +49,14 @@ function block-empty-tab {
     if [[ ${#BUFFER//[[:blank:]]/} != 0 ]]; then
         position-prompt-bottom
         zle fzf-completion
-        position-prompt-bottom
     fi
 
-    # zle expand-or-complete
+    zle expand-or-complete
     # zle expand-or-complete-prefix
 }
 
-# zle -N block-empty-tab
-# bindkey '^I' block-empty-tab
+zle -N block-empty-tab
+bindkey '^I' block-empty-tab
 
 function top-prompt {
     emulate -L zsh

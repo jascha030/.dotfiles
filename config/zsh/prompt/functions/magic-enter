@@ -1,11 +1,11 @@
-#!/usr/bin/env/zsh
+#!/usr/bin/env zsh
 
 # Discard line buffer when empty.
 # Prevents unnecessary movement on enter or tab.
 function magic-enter {
-    if [[ -z ${BUFFER//[[:space:]]} ]]; then
-        return
-    fi
+	if [[ -z ${BUFFER//[[:space:]]/} ]]; then
+		return
+	fi
 
-    zle .accept-line
+	zle .accept-line
 }
