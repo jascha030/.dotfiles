@@ -51,12 +51,12 @@ function block-empty-tab {
         zle fzf-completion
     fi
 
-    zle expand-or-complete
+    # zle expand-or-complete
     # zle expand-or-complete-prefix
 }
 
-zle -N block-empty-tab
-bindkey '^I' block-empty-tab
+# zle -N block-empty-tab
+# bindkey '^I' block-empty-tab
 
 function top-prompt {
     emulate -L zsh
