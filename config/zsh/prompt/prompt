@@ -47,16 +47,11 @@ autoload -Uz add-zsh-hook
 # https://unix.stackexchange.com/questions/14230/zsh-tab-completion-on-empty-line
 function block-empty-tab {
     if [[ ${#BUFFER//[[:blank:]]/} != 0 ]]; then
-        position-prompt-bottom
         zle fzf-completion
     fi
-
     # zle expand-or-complete
     # zle expand-or-complete-prefix
 }
-
-# zle -N block-empty-tab
-# bindkey '^I' block-empty-tab
 
 function top-prompt {
     emulate -L zsh
@@ -155,6 +150,10 @@ function TRAPWINCH () {
     add-zsh-hook precmd set-prompt
 
     zle -N zle-line-init
+
+    zle -N block-empty-tab
+    bindkey '^I' block-empty-tab
+
     zle -N magic-enter
     bindkey "^M" magic-enter
 
