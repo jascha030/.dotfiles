@@ -5,9 +5,10 @@ local M = {
     build = ':TSUpdate',
     dependencies = {
         { 'nvim-treesitter/nvim-treesitter-context', config = true },
-        { 'p00f/nvim-ts-rainbow', lazy = true },
+        { 'p00f/nvim-ts-rainbow',                    lazy = true },
         { 'theHamsta/nvim-treesitter-commonlisp' },
-        { 'nvim-treesitter/playground', cmd = 'TSPlaygroundToggle' },
+        { 'nvim-treesitter/playground',              cmd = 'TSPlaygroundToggle' },
+        { 'bleksak/treesitter-neon',                 lazy = true },
         'nvim-treesitter/nvim-treesitter-textobjects',
     },
     opts = {
@@ -133,10 +134,20 @@ function M.config(_, opts)
         filetype = 'blade',
     }
 
-    -- local ft_to_lang = parsers.ft_to_lang
-    -- parsers.ft_to_lang = function(ft)
-    --     return ft_to_lang(ft)
-    -- end
+    parser_config.neon = {
+        install_info = {
+            url = vim.fn.expand('$HOME/.local/share/nvim/lazy/treesitter-neon'),
+            generate_requires_npm = false,
+            requires_generate_from_grammar = false,
+            files = { 'src/parser.c', 'src/scanner.c' },
+        },
+        filetype = 'neon',
+    }
+
+    local ft_to_lang = parsers.ft_to_lang
+    parsers.ft_to_lang = function(ft)
+        return ft_to_lang(ft)
+    end
 end
 
 return M

@@ -4,7 +4,6 @@ require('jascha030.config.autocommands').nvim_create_augroups(require('jascha030
 vim.cmd([[
   augroup _ft
     autocmd!
-    autocmd BufReadPost *.neon,*.neon.dist set ft=yaml
     autocmd BufReadPost *.tape set ft=tape
     autocmd BufReadPost *.ejs.t set ft=embedded_template
     autocmd BufReadPost *.cnf set ft=dosini
@@ -29,5 +28,7 @@ vim.cmd([[
     autocmd BufRead,BufNewFile .zsh* set ft=zsh 
     " Bash
     autocmd BufRead,BufNewFile env.local set ft=bash
+    " Neon
+    autocmd BufRead,BufNewFile *.neon,*.neon.dist set ft=neon
   augroup end
 ]])
