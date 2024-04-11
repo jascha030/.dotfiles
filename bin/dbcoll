@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+cmd=${0##*/}
+
+__dbcoll___echo() {
+	command printf %b\\n "$*" 2>/dev/null
+}
+
+dbcoll__fix() {
+	local filepath="$1"
+	local from="${2:-utf8mb4_0900_ai_ci}"
+	local to="${LOCAL_USER_DBCOLL:-utf8mb4_unicode_ci}"
+
+	sed -i "s/${from}/${to}/g" "$filepath"
+}
+
+dbcoll() {
+	if [[ $# -eq 0 ]]; then
+		# __dbcoll_usage
+		return
+	fi
+
+	local i
+	for i in "$@"; do
+		case $i in
+		--) break ;;
+		'-h' | '--help' | 'help')
+			# Print full help info with CLI header.
+			# __dbcoll_header
+			# __dbcoll_usage
+			__dbcoll___echo "¯\_(ツ)_/¯"
+			__dbcoll___echo ""
+			return 0
+			;;
+		esac
+	done
+
+	if declare -f "${cmd}__$1" >/dev/null 2>&1; then
+		local func="${cmd}__$1"
+		shift
+		"$func" "$@"
+	else
+		__dbcoll_echo "\e[0;31mERROR: ${cmd} $1 is not a valid command\e[0m"
+
+		# Print usage help info without CLI header.
+		# __dbcoll_usage
+		exit 1
+	fi
+}
+
+dbcoll "$@"
