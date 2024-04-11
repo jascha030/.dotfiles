@@ -30,5 +30,7 @@ vim.cmd([[
     autocmd BufRead,BufNewFile env.local set ft=bash
     " Neon
     autocmd BufRead,BufNewFile *.neon,*.neon.dist set ft=neon
+    " INI
+    autocmd BufRead,BufNewFile *.ini set ft=ini
   augroup end
 ]])
