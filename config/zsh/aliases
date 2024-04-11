@@ -43,9 +43,10 @@ alias vo='valet open'
 #- WP Development ----------------------------------------------------------------------------------------------------#
 alias wpuser:create='wp --skip-plugins --skip-themes user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpuser:update='wp --skip-plugins --skip-themes user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
-alias wpconfig:new='wp-config-new-db'
 alias wpenv:user:create='wp-env run cli wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpenv:user:update='wp-env run cli wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
+alias wpconfig:new='wp-config-new-db'
+alias wpmail:disable='wp --skip-plugins --skip-themes plugin install disable-emails --activate'
 #- Fix for Nu-shell and @antfu/ni:nu confusion -----------------------------------------------------------------------#
 alias nup="$(which nu)"
 alias nu="$HOME/.cargo/bin/nu"
