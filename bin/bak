@@ -4,78 +4,80 @@ cmd=${0##*/}
 version='1.0.0'
 
 __bak-echo() {
-    command printf %b\\n "$*" 2>/dev/null
+	command printf %b\\n "$*" 2>/dev/null
 }
 
 __bak-header() {
-    __bak-echo "${cmd} \e[0;36mv${version}\e[0m"
-    __bak-echo ""
-    __bak-echo "Quickly backup a file as <filename>.BAK."
-    __bak-echo ""
+	__bak-echo "${cmd} \e[0;36mv${version}\e[0m"
+	__bak-echo ""
+	__bak-echo "Quickly backup a file as <filename>.BAK."
+	__bak-echo ""
 }
 
 __bak-usage() {
-    __bak-echo "${cmd} \e[0;36m[-h|--help]\e[0m \e[0;92m<filepath>\e[0m"
-    __bak-echo ""
-    __bak-echo "Options:"
-    __bak-echo "  -h, --help      Show this help message and exit"
-    __bak-echo "  -v, --version   Show version number and exit"
+	__bak-echo "${cmd} \e[0;36m[-h|--help]\e[0m \e[0;92m<filepath>\e[0m"
+	__bak-echo ""
+	__bak-echo "Options:"
+	__bak-echo "  -h, --help      Show this help message and exit"
+	__bak-echo "  -v, --version   Show version number and exit"
 }
 
 bak__help() {
-    __bak-header
-    __bak-usage
+	__bak-header
+	__bak-usage
 }
 
 __bak-backup-file() {
-    local file="$1"
+	local file="$1"
 
-    if [ -f "$file" ]; then
-        cp -p "${file}" "${PWD}/${file}.BAK"
+	if [ -f "$file" ] || [ -d "$file" ]; then
+		cp -pr "$file" "${PWD}/${file}.BAK"
 
-        __bak-echo "Backup of $file saved as $file.BAK"
-    else
-        __bak-echo "\e[0;31mERROR: $file does not exist.\e[0m"
-    fi
+		__bak-echo "Backup of $file saved as $file.BAK"
+	else
+		__bak-echo "\e[0;31mERROR: $file does not exist.\e[0m"
+	fi
 }
 
 bak() {
-    local h="${cmd}__help"
+	local h="${cmd}__help"
 
-    if [[ $# -eq 0 ]]; then
-        "$h"
-        return 1
-    fi
+	if [[ $# -eq 0 ]]; then
+		"$h"
+		return 1
+	fi
 
-    local i; for i in "$@"; do
-        case $i in
-            --) break ;;
-            '-h'|'--help'|'help')
-                # Print full help info with CLI header.
-                "${cmd}__help"
-                return 0;
-                ;;
-            '-v'|'--version')
-                # Print version number.
-                "__${cmd}-echo" "v${version}"
-                return 0;
-                ;;
-        esac
-    done
+	local i
+	for i in "$@"; do
+		case $i in
+		--) break ;;
+		'-h' | '--help' | 'help')
+			# Print full help info with CLI header.
+			"${cmd}__help"
+			return 0
+			;;
+		'-v' | '--version')
+			# Print version number.
+			"__${cmd}-echo" "v${version}"
+			return 0
+			;;
+		esac
+	done
 
-    if declare -f "${cmd}__${1}" >/dev/null 2>&1; then
-        func="${cmd}__${1}"; shift
-        "$func" "$@"
-    else
-        if [ $# -eq 1 ]; then
-            __bak-backup-file "$1"
-            return 0
-        fi
+	if declare -f "${cmd}__${1}" >/dev/null 2>&1; then
+		func="${cmd}__${1}"
+		shift
+		"$func" "$@"
+	else
+		if [ $# -eq 1 ]; then
+			__bak-backup-file "$1"
+			return 0
+		fi
 
-        "__${cmd}-echo" "\e[0;31mERROR: ${cmd} $1 is not a valid command.\e[0m"
-        "__${cmd}-usage"
-        exit 1
-    fi
+		"__${cmd}-echo" "\e[0;31mERROR: ${cmd} $1 is not a valid command.\e[0m"
+		"__${cmd}-usage"
+		exit 1
+	fi
 }
 
 bak "$@"
