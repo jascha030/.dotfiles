@@ -34,6 +34,7 @@ alias lspath="echo ${PATH} | tr ':' '\n';"
 alias cp:fontawesome='cat $HOME/.development/Projects/Php/Wordpress/sites/sbtweema/.npmrc | pbcopy' 
 alias cp:ghauth='echo -e "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" | pbcopy'
 alias cp:composerauth='cp $HOME/.composer/auth.json ./'
+alias cp:broodje='echo -e "38. WITTE ITALIAANSE BOL GEROOKTE KIP, AVOCADO MAYONAISE, EUR 6.75" | pbcopy'
 alias cp:shrug='echo -e "¯\_(ツ)_/¯" | pbcopy'
 #- PHP ---------------------------------------------------------------------------------------------------------------#
 alias buggragator='docker run --pull always -p 8000:8000 -p 1025:1025 -p 9912:9912 -p 9913:9913 ghcr.io/buggregator/server:latest'
@@ -53,3 +54,4 @@ alias nu="$HOME/.cargo/bin/nu"
 #- Suffix Aliases ----------------------------------------------------------------------------------------------------#
 alias -s php=pstorm
 alias -s {.zshrc,zsh,sh,json,yaml,.env,cs,ts,html}=vim
+
