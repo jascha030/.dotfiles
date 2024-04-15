@@ -54,3 +54,20 @@ if (( ${+LAZYGIT_CONFIG} )); then
     autoload -Uz __lazygit
     alias lazygit='__lazygit'
 fi
+
+if (( ${+commands[nvim]} )); then
+    # export DOT_NVIM_CFGS=('new' 'test')
+    #
+    # function nn() {
+    #     select config in ${DOT_NVIM_CFGS[@]}; do
+    #         NVIM_APPNAME=nvim-$config nvim $@
+    #         break
+    #     done
+    # }
+
+    function nn() {
+        NVIM_APPNAME=nvim-new nvim "$@"
+    }
+
+    autoload -Uz nn
+fi
