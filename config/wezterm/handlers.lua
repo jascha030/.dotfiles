@@ -7,6 +7,7 @@ M.options = {
     opacity = 0.95,
     colors = {},
     alt_font_active = false,
+    editor_mode_active = false,
 }
 
 function M.set_colors(colors)
@@ -93,6 +94,20 @@ function M.adapt_font_for_window_size(window, _)
     window:set_config_overrides(overrides)
 end
 
+function M.editor_mode(window, _)
+    M.reset_font(window, _)
+
+    local overrides = window:get_config_overrides() or {}
+    local current = not M.options.editor_mode_active
+
+    overrides.font_size = 19
+    overrides.line_height = 2
+    overrides.font_rules = font.get_rules(current)
+    M.options.alt_font_active = current
+
+    window:set_config_overrides(overrides)
+end
+
 function M.setup()
     wezterm.on('window-resized', M.adapt_font_for_window_size)
 
@@ -105,6 +120,7 @@ function M.setup()
         ['line-height-down'] = M.line_height_down,
         ['toggle-font'] = M.toggle_font,
         ['reset-font'] = M.reset_font,
+        ['editor-mode'] = M.editor_mode,
     }
 
     for event, handler in pairs(events) do
