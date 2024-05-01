@@ -116,6 +116,7 @@ programming:
         - .eslintrc.yml
         - .eslintrc.cjs
         - phpstan.neon
+        - phpstan.neon.dist
         - psalm.xml
         - .psalm.xml
         - .psalm.dist.xml 
@@ -274,6 +275,8 @@ programming:
         - README
         - README.md
         - README.txt
+        - TODO.md
+        - TODO.txt
 
       doxygen:
         - Doxyfile
