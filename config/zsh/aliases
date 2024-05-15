@@ -12,9 +12,14 @@ alias kk='ll' # Rotating 3 keyboards, created 50/50 chance I type 'kk' instead o
 alias l='ll'
 alias llc='ls | wc -l'
 alias lll='ll | lolcrab'
+
 alias df="cd ${DOTFILES}"
 alias dev="cd ${DEV}"
+alias vsites="cd ${XDG_CONFIG_HOME}/valet/Sites/"
+alias wsites="cd ${DEV}/Php/Wordpress/sites/"
+alias wplugins="cd ${DEV}/Php/Wordpress/plugins/"
 alias root='cd $(git rev-parse --show-toplevel)'
+
 alias raycast='open /Applications/Raycast.app'
 alias cpc='copy-to-pasteboard'
 alias cpd='copy-dir-path'
