@@ -127,7 +127,6 @@ function M.config(_, opts)
         end,
     }))
 
-    nls.register(require('none-ls-psalm.diagnostics'))
     nls.register(require('none-ls-shellcheck.diagnostics'))
     nls.register(require('none-ls-shellcheck.code_actions'))
 end
