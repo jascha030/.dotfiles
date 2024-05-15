@@ -18,7 +18,7 @@ function M.is_dark()
 end
 
 function M.update(mode)
-    local cs = require('jascha030.config').options.colorscheme
+    local cs = require('jascha030.core.config').options.colorscheme
 
     if vim.o.background ~= mode then
         if cs == 'nitepal' or cs == 'litepal' then

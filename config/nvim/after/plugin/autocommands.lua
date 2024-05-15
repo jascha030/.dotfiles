@@ -1,4 +1,4 @@
-require('jascha030.config.autocommands').nvim_create_augroups(require('jascha030').get_config('augroups'))
+require('jascha030.core.autocommands').nvim_create_augroups(require('jascha030').get_config('augroups'))
 
 -- I was too lazy to do everything lua hehehehe.
 vim.cmd([[

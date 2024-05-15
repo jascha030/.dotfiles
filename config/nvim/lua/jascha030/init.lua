@@ -1,5 +1,5 @@
 local M = {}
-local config = require('jascha030.config')
+local config = require('jascha030.core.config')
 
 local function add_env_paths(paths)
     paths = paths or {}
@@ -40,11 +40,8 @@ function M.setup(opts)
         set_polyglot_lang_disables(config.get('polyglot').languages) ---@diagnostic disable-line
     end
 
-    require('jascha030.config.keymaps').set_keymaps(config.get('keymaps'))
-    require('jascha030.config.options').set_opts(config.get('opts'))
-
-    ---@diagnostic disable-next-line
-    require('jascha030.plugins')
+    require('jascha030.core.keymaps').set_keymaps(config.get('keymaps'))
+    require('jascha030.core.options').set_opts(config.get('opts'))
 
     -- Fix for the fact that n is bound to q, and I can't seem to find the source of this... :thinking_emoji:
     vim.keymap.set('n', 'n', 'n')

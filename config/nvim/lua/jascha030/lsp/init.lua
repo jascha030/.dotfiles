@@ -86,7 +86,7 @@ function M.virtual_text(opts)
     if type(opts.diagnostics.virtual_text) == 'table' and opts.diagnostics.virtual_text.prefix == 'icons' then
         opts.diagnostics.virtual_text.prefix = vim.fn.has('nvim-0.10') == 0 and '●'
             or function(diagnostic)
-                local icons = require('jascha030.config.icons').get_diagnostic_signs()
+                local icons = require('jascha030.core.icons').get_diagnostic_signs()
 
                 for d, icon in pairs(icons) do
                     if diagnostic.severity == vim.diagnostic.severity[d:upper()] then ---@diagnostic disable-line
@@ -154,7 +154,7 @@ function M.setup(opts)
 
     -- Configure diagnostics
     ---@param icon DiagnosticSignIcon
-    for _, icon in pairs(require('jascha030.config.icons').get_diagnostic_signs()) do
+    for _, icon in pairs(require('jascha030.core.icons').get_diagnostic_signs()) do
         vim.fn.sign_define(icon.name, { text = icon.text, texthl = icon.name, numhl = icon.name })
     end
 
