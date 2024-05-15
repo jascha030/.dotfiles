@@ -52,7 +52,7 @@ function M.setup(options)
         M.add(devicon.icon, name, devicon.filetypes)
     end
 
-    M.devicons = vim.tbl_deep_extend('force', require('jascha030.plugins.spec.devicons.defaults'), M.devicons)
+    M.devicons = vim.tbl_deep_extend('force', require('jascha030.plugins.devicons.defaults'), M.devicons)
 
     devicons.setup(M.options)
     M.init()

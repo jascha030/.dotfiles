@@ -13,6 +13,27 @@
 BORDER = 'rounded'
 BORDERS = { border = BORDER }
 
+vim.loader.enable()
+vim.g.maploader = ' '
+
+
+local lazy_path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+local conf_path = vim.fn.stdpath('config') --[[@as string]]
+
+if not vim.loop.fs_stat(lazy_path) then
+    vim.fn.system({
+        'git',
+        'clone',
+        '--filter=blob:none',
+        '--single-branch',
+        'https://github.com/folke/lazy.nvim.git',
+        lazy_path,
+    })
+end
+
+vim.opt.runtimepath:prepend(lazy_path)
+
+
 require('jascha030').setup({
     env = {
         path = { vim.env.HOME .. '/.local/share/mise/shims' },
@@ -75,6 +96,7 @@ require('jascha030').setup({
         n = {
             ['t'] = { '<C-w>' },
             ['ff'] = { '<cmd>lua require("jascha030.utils.fs").file_picker()<cr>' },
+            -- ['ff'] = { '<cmd>require("telescope.builtin").find_files()<cr>' },
             ['<C-p>'] = { '<cmd>lua require("telescope.builtin").git_files()<cr>' },
             ['fg'] = { '<cmd>lua require("telescope.builtin").live_grep()<cr>' },
             ['<C-f>'] = { '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>' },
@@ -165,4 +187,22 @@ require('jascha030').setup({
             },
         },
     },
+})
+
+
+require('lazy').setup('jascha030.plugins', {
+    concurrency = 5,
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                'gzip',
+                'matchit',
+                'matchparen',
+                'tarPlugin',
+                'tohtml',
+                'tutor',
+            },
+        },
+    },
+    ui = { border = BORDER },
 })

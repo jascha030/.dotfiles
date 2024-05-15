@@ -20,13 +20,13 @@ function M.config(_, opts)
 
     ---@type ThemeUtil
     local theme = require('jascha030.utils.theme')
-    local config = require('jascha030.config').options
+    local config = require('jascha030.core.config').options
 
     vim.api.nvim_create_autocmd('User', {
         group = vim.api.nvim_create_augroup('themeUpdate', { clear = true }),
         pattern = 'NitePalUpdateScheme',
         callback = function()
-            require('jascha030.plugins.spec.devicons.config').init()
+            require('jascha030.plugins.devicons.config').init()
             require('lualine').refresh()
         end,
     })

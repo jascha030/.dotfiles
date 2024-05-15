@@ -45,7 +45,7 @@ return {
         'folke/which-key.nvim',
         event = 'VeryLazy',
         config = function(_, _)
-            local keymaps = require('jascha030.config').options.keymaps
+            local keymaps = require('jascha030.core.config').options.keymaps
             local wk = require('which-key')
 
             for mtype, tmaps in pairs(keymaps) do

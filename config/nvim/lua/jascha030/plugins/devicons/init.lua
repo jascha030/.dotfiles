@@ -8,7 +8,7 @@ local M = {
 
 function M.opts()
     return {
-        icons = require('jascha030.config.icons').get_icons(),
+        icons = require('jascha030.core.icons').get_icons(),
         default_icon = '',
         overrides = {
             Alias = {
@@ -123,7 +123,7 @@ function M.opts()
 end
 
 function M.config(_, opts)
-    require('jascha030.plugins.spec.devicons.config').setup(opts)
+    require('jascha030.plugins.devicons.config').setup(opts)
 end
 
 return M
