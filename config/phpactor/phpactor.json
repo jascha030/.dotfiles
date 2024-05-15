@@ -21,10 +21,5 @@
         "/.var/cache/**/*",
         "/var/cache/**/*",
         "/vendor-bin/**/vendor/php-stubs/wordpress-stubs/wordpress-stubs.php"
-    ],
-    "indexer.stub_paths": [
-        "/Users/jaschavanaalst/.composer/vendor-bin/stubs/vendor",
-        "/Users/jaschavanaalst/.composer/vendor-bin/stubs/vendor/jetbrains/phpstorm-stubs",
-        "/Users/jaschavanaalst/.composer/vendor-bin/stubs/vendor/php-stubs/wordpress-stubs"
     ]
 }
