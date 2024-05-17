@@ -45,6 +45,10 @@ function M.set_from_os()
     M.update(darkmode.enabled() and DARK or LIGHT)
 end
 
+function M.get_background()
+    return M.is_dark() and '#1e2030' or '#e7e9ef'
+end
+
 function M.init()
     if loaded == true then
         return

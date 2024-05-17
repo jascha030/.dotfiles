@@ -1,5 +1,6 @@
 local lreq = require('jascha030.lreq')
 
+---@type LazyPluginSpec
 local M = {
     'ThePrimeagen/harpoon',
     dependencies = { 'nvim-lua/plenary.nvim' },

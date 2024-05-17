@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 local M = {
     'folke/flash.nvim',
     lazy = true,

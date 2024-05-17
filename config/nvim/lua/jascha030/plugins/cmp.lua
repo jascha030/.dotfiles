@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 local M = {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',

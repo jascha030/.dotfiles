@@ -1,6 +1,8 @@
+---@type LazyPluginSpec
 local M = {
     'neovim/nvim-lspconfig',
-    event = { 'BufReadPre' },
+    -- event = { 'BufReadPre' },
+    after = { 'neoconf' },
     dependencies = {
         { 'williamboman/mason.nvim' },
         { 'williamboman/mason-lspconfig.nvim' },
@@ -32,6 +34,8 @@ local M = {
                 },
             },
         },
+        { 'folke/neodev.nvim' },
+        { 'folke/neoconf.nvim' },
         { 'chr4/nginx.vim', ft = 'nginx' },
         { 'b0o/schemastore.nvim', ft = { 'json', 'yaml', 'yml' } },
         {
@@ -39,12 +43,6 @@ local M = {
             ft = 'rs',
             dependencies = { 'rust-lang/rust.vim' },
             lazy = true,
-        },
-        {
-            'folke/neodev.nvim',
-            name = 'neodev',
-            ft = 'lua',
-            opts = {},
         },
         {
             'phpactor/phpactor',
@@ -88,7 +86,6 @@ function M.config(_, opts)
     local get_server_config = require('jascha030.lsp.config').get_server_config
 
     require('lspconfig.ui.windows').default_options.border = BORDER
-    require('jascha030.lsp').setup(opts)
     require('mason-lspconfig').setup({
         automatic_installation = true,
         ensure_installed = {
@@ -129,6 +126,8 @@ function M.config(_, opts)
             end,
         },
     })
+
+    require('jascha030.lsp').setup(opts)
 end
 
 return M

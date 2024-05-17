@@ -1,3 +1,4 @@
+---@class LuaLinePluginSpec: LazyPluginSpec
 local M = {
     'hoob3rt/lualine.nvim',
     event = {

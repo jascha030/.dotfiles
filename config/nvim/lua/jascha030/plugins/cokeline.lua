@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 local M = {
     'noib3/nvim-cokeline',
     event = 'VeryLazy',

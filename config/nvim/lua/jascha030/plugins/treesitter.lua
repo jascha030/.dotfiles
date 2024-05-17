@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 local M = {
     'nvim-treesitter/nvim-treesitter',
     -- event = { 'BufReadPost', 'BufNewFile' },

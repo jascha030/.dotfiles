@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 local M = {
     'folke/noice.nvim',
     event = 'VeryLazy',

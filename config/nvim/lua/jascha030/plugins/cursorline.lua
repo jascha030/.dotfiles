@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 local M = {
     'yamatsum/nvim-cursorline',
     opts = {

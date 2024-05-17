@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 local M = {
     'zbirenbaum/copilot.lua',
     cmd = 'InsertEnter',

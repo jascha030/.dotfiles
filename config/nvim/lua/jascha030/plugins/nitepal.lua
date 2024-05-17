@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 local M = {
     dir = '~/.development/Projects/lua/nitepal.nvim',
     lazy = false,

@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 local M = {
     'nvim-telescope/telescope.nvim',
     dependencies = {

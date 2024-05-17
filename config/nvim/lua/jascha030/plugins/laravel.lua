@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 local M = {
     'adalessa/laravel.nvim',
     cond = false,

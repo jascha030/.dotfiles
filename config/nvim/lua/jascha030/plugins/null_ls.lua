@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 local M = {
     'nvimtools/none-ls.nvim',
     name = 'null-ls',

@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 local M = {
     'j-hui/fidget.nvim',
     name = 'fidget',

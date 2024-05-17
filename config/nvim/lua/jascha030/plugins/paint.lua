@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 local M = {
     'folke/paint.nvim',
     opts = {

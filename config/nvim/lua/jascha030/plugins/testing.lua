@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 local M = {
     'nvim-neotest/neotest',
     cond = false,

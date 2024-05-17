@@ -1,9 +1,13 @@
-local silent_opts = { noremap = true, silent = true }
-
+---@type LazyPluginSpec
 local M = {
     'akinsho/toggleterm.nvim',
     lazy = false,
     version = '*',
+}
+
+local silent_opts = {
+    noremap = true,
+    silent = true,
 }
 
 function M.keys(_, _)

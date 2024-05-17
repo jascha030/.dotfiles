@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 local M = {
     'stevearc/dressing.nvim',
     dependencies = { 'MunifTanjim/nui.nvim' },

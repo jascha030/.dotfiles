@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 local M = {
     'mfussenegger/nvim-dap',
     lazy = true,

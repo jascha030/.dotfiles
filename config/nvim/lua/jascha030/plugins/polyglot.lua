@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 local M = {
     'sheerun/vim-polyglot',
     lazy = false,

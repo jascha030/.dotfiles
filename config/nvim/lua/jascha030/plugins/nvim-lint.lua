@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 local M = {
     'mfussenegger/nvim-lint',
     event = { 'BufReadPre', 'BufNewFile' },
