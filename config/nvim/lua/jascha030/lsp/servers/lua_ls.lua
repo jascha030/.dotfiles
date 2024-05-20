@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 return function()
     local utils = require('jascha030.utils')
 
@@ -21,8 +22,7 @@ return function()
     ---@type lspconfig.options.lua_ls
     local lua_ls = {
         settings = {
-            Lua = {
-                workspace = { checkThirdParty = false },
+            Lua = { workspace = { checkThirdParty = false },
                 hint = {
                     enable = true,
                     setType = true,
@@ -32,6 +32,11 @@ return function()
                 telemetry = { enable = false },
                 diagnostics = {
                     globals = globals(),
+                },
+                runtime = {
+                    special = {
+                        ['lreq'] = 'require',
+                    },
                 },
             },
         },
