@@ -12,7 +12,6 @@ local M = {
     },
 }
 
-local lreq = require('jascha030.lreq')
 local nls = lreq('null-ls')
 
 function M.opts()

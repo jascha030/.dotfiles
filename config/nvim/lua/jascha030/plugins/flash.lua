@@ -7,7 +7,6 @@ local M = {
 }
 
 function M.keys(_, _)
-    local lreq = require('jascha030.lreq')
     local flash = lreq('flash')
 
     return {

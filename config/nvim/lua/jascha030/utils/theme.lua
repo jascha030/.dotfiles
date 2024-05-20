@@ -6,7 +6,6 @@ local LIGHT = 'light'
 
 local loaded = false
 
-local lreq = require('jascha030.lreq')
 local darkmode = lreq('darkmode')
 
 local function do_update_autocmd()

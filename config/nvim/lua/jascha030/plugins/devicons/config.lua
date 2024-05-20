@@ -9,7 +9,6 @@ local defaults = {
 ---@field public options IconConfig
 local M = { devicons = {} }
 
-local lreq = require('jascha030.lreq')
 local devicons = lreq('nvim-web-devicons')
 
 function M.get_icon(name)
