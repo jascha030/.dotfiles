@@ -158,18 +158,6 @@ require('jascha030').setup({
         i = {},
     },
     augroups = {
-        _ft = {
-            {
-                event = 'FileType',
-                pattern = { 'help', 'lspinfo', 'Trouble', 'dashboard' },
-                command = 'nnoremap <buffer><silent> q :close<CR>',
-            },
-            {
-                event = 'FileType',
-                pattern = 'Trouble',
-                command = 'nnoremap <buffer><silent> TT :close<CR>',
-            },
-        },
         open_folds = {
             {
                 event = { 'BufReadPost', 'FileReadPost' },
