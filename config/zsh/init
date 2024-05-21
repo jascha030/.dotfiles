@@ -135,13 +135,13 @@ export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 #- Application init evaluations --------------------------------------------------------------------------------------#
 _evalcache /opt/homebrew/bin/brew shellenv
-_evalcache mise activate zsh --shims
 _evalcache zoxide init zsh
 _evalcache teleport-dir init
 _evalcache symfony-autocomplete composer
 _evalcache symfony-autocomplete valet
 _evalcache symfony-autocomplete phpactor
 _evalcache op completion zsh
+_evalcache mise activate zsh --shims
 
 #- Source late files like aliases etc --------------------------------------------------------------------------------#
 if (( ${+DOT_AFTER_INIT_SOURCES} )); then
