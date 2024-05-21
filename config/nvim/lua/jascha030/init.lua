@@ -1,58 +1,56 @@
+-- local lreq = require('jascha030.lreq')
+local Config = require('jascha030.core.config')
+
 local M = {}
-local config = require('jascha030.core.config')
 
-local function add_env_paths(paths)
-    paths = paths or {}
-
-    for _, path in pairs(paths) do
-        vim.env.PATH = path .. ':' .. vim.env.PATH
-    end
-end
-
-local function set_polyglot_lang_disables(languages)
-    local all = vim.deepcopy(require('jascha030.utils.lang').get_langs(true))
-    local disabled = {}
-
-    for _, enabled in pairs(languages) do
-        if all[enabled] ~= nil then
-            all[enabled] = nil
-        end
+---@param k string|nil Config key
+function M.get_config(k)
+    if k == nil then
+        return Config.options
     end
 
-    for _, lang in pairs(all) do
-        table.insert(disabled, lang)
-    end
-
-    vim.g.polyglot_disabled = disabled
-end
-
-function M.get_config(key)
-    return key == nil and config.options or config.get(key)
+    return Config.get(k)
 end
 
 function M.setup(opts)
-    config.setup(opts)
-
-    add_env_paths(config.get('env').path)
-
-    ---@diagnostic disable-next-line
-    if config.get('polyglot').enabled then
-        set_polyglot_lang_disables(config.get('polyglot').languages) ---@diagnostic disable-line
+    local function add_env_paths(paths)
+        paths = paths or {}
+        for _, path in pairs(paths) do
+            vim.env.PATH = path .. ':' .. vim.env.PATH
+        end
     end
 
-    require('jascha030.core.keymaps').set_keymaps(config.get('keymaps'))
-    require('jascha030.core.options').set_opts(config.get('opts'))
+    local function set_polyglot_lang_disables(languages)
+        local disabled = {}
+        local all = vim.deepcopy(require('jascha030.utils.lang').get_langs(true))
 
-    -- Fix for the fact that n is bound to q, and I can't seem to find the source of this... :thinking_emoji:
-    vim.keymap.set('n', 'n', 'n')
-end
-
-return setmetatable(M, {
-    __index = function(_, key)
-        if key == 'options' or key == 'opts' or key == 'config' then
-            return config.options
+        for _, enabled in pairs(languages) do
+            if all[enabled] ~= nil then
+                all[enabled] = nil
+            end
         end
 
-        return M.get_option(key)
-    end,
-})
+        for _, lang in pairs(all) do
+            table.insert(disabled, lang)
+        end
+
+        vim.g.polyglot_disabled = disabled
+    end
+
+    Config.setup(opts)
+
+    ---@diagnostic disable-next-line: undefined-field
+    local path_conf = Config.get('env').path
+
+    add_env_paths(path_conf)
+
+    ---@diagnostic disable-next-line
+    if Config.get('polyglot').enabled then
+        set_polyglot_lang_disables(Config.get('polyglot').languages) ---@diagnostic disable-line
+    end
+
+    require('jascha030.core.keymaps').set_keymaps(Config.get('keymaps'))
+    require('jascha030.core.options').set_opts(Config.get('opts'))
+end
+
+return M
