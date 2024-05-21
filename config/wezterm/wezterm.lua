@@ -1,13 +1,6 @@
-local wezterm = require('wezterm')
 local theme = require('theme')
 local font = require('fonts')
 local handlers = require('handlers')
-
-local proc_icons = {
-    ['default'] = ' ',
-    ['nvim'] = ' ',
-}
-
 local colors = theme.get_scheme('Dark', true)
 
 font.extend({
@@ -18,55 +11,11 @@ font.extend({
 
 handlers.setup()
 
-local function icon(process_name)
-    return proc_icons[process_name] and proc_icons[process_name] .. ' ' or proc_icons['default']
-end
-
-wezterm.on('window-config-reloaded', function(window)
-    local current = window:get_appearance()
-    local overrides = window:get_config_overrides() or {}
-
-    colors = theme.get_scheme(current, true)
-    handlers.set_colors(colors)
-
-    if overrides.colors ~= colors then
-        overrides.colors = colors
-        window:set_config_overrides(overrides)
-    end
-end)
-
-wezterm.on('format-tab-title', function(tab)
-    local title_icon = icon(tab.active_pane.title)
-    local title = ' ' .. tab.tab_index + 1 .. ': ' .. title_icon .. tab.active_pane.title .. ' '
-    local first = tab.tab_index == 0
-
-    local c = {
-        fg = tab.is_active and colors.foreground or colors.background,
-        bg = tab.is_active and colors.background or colors.foreground,
-    }
-
-    return not first
-            and {
-                { Foreground = { Color = colors.background } },
-                { Background = { Color = colors.foreground } },
-                { Text = ' ' },
-                { Foreground = { Color = colors.background } },
-                { Background = { Color = colors.foreground } },
-                { Text = ' ' },
-                { Foreground = { Color = c.fg } },
-                { Background = { Color = c.bg } },
-                { Text = title },
-            }
-        or {
-            { Foreground = { Color = c.fg } },
-            { Background = { Color = c.bg } },
-            { Text = ' ' },
-            { Foreground = { Color = c.fg } },
-            { Background = { Color = c.bg } },
-            { Text = title },
-        }
-end)
-
+---Build padding object
+---@param size number vertical padding
+---@param alt number horizontal padding
+---@param cell boolean|nil use unit: cell for padding.
+---@return table
 local function eq_pad(size, alt, cell)
     alt = alt or size
     cell = cell or false
@@ -114,7 +63,7 @@ return {
     font_rules = font.get_rules(false),
     colors = theme.get_scheme('Dark', true),
     inactive_pane_hsb = { saturation = 0.98, brightness = 0.9 },
-    window_background_opacity = handlers.options.opacity,
+    window_background_opacity = theme.get_opacity('Dark'),
     macos_window_background_blur = 75,
     keys = require('keymap'),
     disable_default_key_bindings = true,

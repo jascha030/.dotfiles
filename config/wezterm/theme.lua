@@ -84,7 +84,7 @@ function M.get_scheme(scheme, enable_tab_bar)
 end
 
 function M.get_opacity(scheme)
-    return is_dark(scheme) and 0.998 or 0.995
+    return is_dark(scheme) and 0.95 or 1
 end
 
 function M.setup(config)
