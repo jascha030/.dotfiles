@@ -97,6 +97,7 @@ function M.config(_, opts)
         },
         mapping = cmp.mapping.preset.insert(mapping),
         formatting = {
+            expandable_indicator = true,
             fields = { 'kind', 'abbr', 'menu' },
             format = lspkind.cmp_format({
                 with_text = false,

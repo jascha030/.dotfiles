@@ -1,4 +1,3 @@
--- local lreq = require('jascha030.lreq')
 local Config = require('jascha030.core.config')
 
 local M = {}

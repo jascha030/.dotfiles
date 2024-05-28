@@ -38,7 +38,7 @@ function M.picker()
                 end)
                 return true
             end,
-        })
+        }, {})
         :find()
 end
 

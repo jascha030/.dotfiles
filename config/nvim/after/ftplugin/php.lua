@@ -1,2 +1,5 @@
 vim.keymap.set('n', '<leader>pn', ':PhpactorClassNew<CR>')
 vim.keymap.set('n', '<leader>pm', ':PhpactorContextMenu<CR>')
+vim.keymap.set('n', '<leader>pp', function()
+    require('jascha030.utils.php.phpactor-telescope').picker()
+end)

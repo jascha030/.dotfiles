@@ -1,12 +1,29 @@
 return {
     'wakatime/vim-wakatime',
     'f-person/git-blame.nvim',
-    { 'ojroques/vim-oscyank' },
-    { 'nvim-lua/plenary.nvim', lazy = true },
-    { 'ziontee113/color-picker.nvim', lazy = true },
+    {
+        'ojroques/vim-oscyank',
+        cmd = {
+            'OSCYank',
+            'OSCYankReg',
+            'OSCYankRegister',
+            'OSCYankVisual',
+        },
+    },
+    {
+        'nvim-lua/plenary.nvim',
+        lazy = true,
+    },
+    {
+        'ziontee113/color-picker.nvim',
+        cmd = {
+            'PickColor',
+            'PickColorInsert',
+        },
+    },
     {
         'windwp/nvim-autopairs',
-        event = 'InsertEnter',
+        event = { 'InsertEnter' },
         config = true,
     },
     { 'petertriho/nvim-scrollbar', config = true },
@@ -40,10 +57,11 @@ return {
         'terrortylor/nvim-comment',
         name = 'nvim_comment',
         config = true,
+        event = { 'VeryLazy' },
     },
     {
         'folke/which-key.nvim',
-        event = 'VeryLazy',
+        event = { 'VeryLazy' },
         config = function(_, _)
             local keymaps = require('jascha030.core.config').options.keymaps
             local wk = require('which-key')

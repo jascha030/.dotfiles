@@ -14,7 +14,7 @@ BORDER = 'rounded'
 BORDERS = { border = BORDER }
 
 vim.loader.enable()
-vim.g.maploader = ' '
+vim.g.mapleader = ' '
 
 local lazy_path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 local conf_path = vim.fn.stdpath('config') --[[@as string]]
@@ -155,8 +155,8 @@ require('lazy').setup({
                         '<cmd>lua require("jascha030.lsp.menu").show()<cr>',
                         { desc = 'Context aware menu' },
                     },
-                    ['<leader>tc'] = { '<cmd>lua vim.show_pos()<cr>' },
                     ['<leader>p'] = { '<cmd>InspectTree<cr>' },
+                    ['<leader>pc'] = { '<cmd>lua vim.show_pos()<cr>' },
                     ['<leader>fh'] = { '<cmd>Telescope help_tags<cr>' },
                     ['<leader>fc'] = { '<cmd>Telescope git_bcommits<cr>' },
                     ['<leader>lz'] = { '<cmd>Lazy<cr>' },

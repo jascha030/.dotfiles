@@ -4,9 +4,12 @@ local M = {
     -- event = { 'BufReadPre' },
     after = { 'neoconf' },
     dependencies = {
-        { 'williamboman/mason.nvim' },
-        { 'williamboman/mason-lspconfig.nvim' },
-        { 'ray-x/lsp_signature.nvim' },
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
+        'ray-x/lsp_signature.nvim',
+        'folke/neodev.nvim',
+        'folke/neoconf.nvim',
+        { 'gbprod/phpactor.nvim', ft = 'php' },
         {
             'lvimuser/lsp-inlayhints.nvim',
             opts = {
@@ -34,8 +37,6 @@ local M = {
                 },
             },
         },
-        { 'folke/neodev.nvim' },
-        { 'folke/neoconf.nvim' },
         { 'chr4/nginx.vim', ft = 'nginx' },
         { 'b0o/schemastore.nvim', ft = { 'json', 'yaml', 'yml' } },
         {
@@ -43,11 +44,6 @@ local M = {
             ft = 'rs',
             dependencies = { 'rust-lang/rust.vim' },
             lazy = true,
-        },
-        {
-            'phpactor/phpactor',
-            build = 'composer install --no-dev --optimize-autoloader',
-            ft = 'php',
         },
         {
             'nvimdev/lspsaga.nvim',
