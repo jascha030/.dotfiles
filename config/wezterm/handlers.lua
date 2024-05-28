@@ -145,7 +145,12 @@ function M.reset_font(window, _)
     M.options.alt_font_active = false
 
     overrides.font_size = font.get_scaled_size(window)
-    window:set_config_overrides(overrides)
+
+    window:set_config_overrides({
+        font_size = overrides.font_size,
+        colors = overrides.colors,
+        window_background_opacity = overrides.window_background_opacity,
+    })
 end
 
 function M.adapt_font_for_window_size(window, _)
