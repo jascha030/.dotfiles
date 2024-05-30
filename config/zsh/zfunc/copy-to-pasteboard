@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
 function copy-to-pasteboard {
-    cat "$@" | pbcopy
+	cat "$@" | pbcopy
 }
+
+copy-to-pasteboard "$@"

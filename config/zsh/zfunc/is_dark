@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
 
 function is_dark {
-    echo $(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 1 || echo 0)
+	echo $(defaults read -globalDomain AppleInterfaceStyle &>/dev/null && echo 1 || echo 0)
 }
-

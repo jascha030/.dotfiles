@@ -1,10 +1,9 @@
 #!/usr/bin/env zsh
 
 function assert_files {
-  local f
+	local f
 
-  for f in "$@" ; do 
-    [[ ! -f "$f" ]] && touch "$f"
-  done
+	for f in "$@"; do
+		[[ ! -f "$f" ]] && touch "$f"
+	done
 }
-

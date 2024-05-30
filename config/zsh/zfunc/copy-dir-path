@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
 
 function copy-dir-path {
-    builtin echo -en "${PWD}" | pbcopy;
+	builtin echo -en "${PWD}" | pbcopy
 }
