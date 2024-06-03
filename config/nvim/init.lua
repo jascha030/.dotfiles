@@ -123,7 +123,6 @@ require('lazy').setup({
                 n = {
                     ['t'] = { '<C-w>' },
                     ['ff'] = { '<cmd>lua require("jascha030.utils.fs").file_picker()<cr>' },
-                    -- ['ff'] = { '<cmd>require("telescope.builtin").find_files()<cr>' },
                     ['<C-p>'] = { '<cmd>lua require("telescope.builtin").git_files()<cr>' },
                     ['fg'] = { '<cmd>lua require("telescope.builtin").live_grep()<cr>' },
                     ['<C-f>'] = { '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>' },
@@ -139,7 +138,7 @@ require('lazy').setup({
                     ['<C-n>'] = { '<cmd>Neotree toggle focus<cr>' },
                     ['N'] = { '<cmd>Neotree focus<cr>' },
                     ['<C-t>'] = { '<cmd>Telescope<cr>' },
-                    ['<Tab><Tab>'] = { '<cmd>HopWord<cr>' },
+                    ['<leader><Tab><Tab>'] = { '<cmd>HopWord<cr>' },
                     ['sR'] = {
                         '<cmd>source $MYVIMRC<cr>',
                         {
@@ -147,7 +146,7 @@ require('lazy').setup({
                             silent = true,
                         },
                     },
-                    ['m'] = { '<cmd>Mason<cr>' },
+                    ['<leader>m'] = { '<cmd>Mason<cr>' },
                     ['<C-/>'] = { '<cmd>CommentToggle<cr>' },
                     ['<C-_>'] = { '<cmd>CommentToggle<cr>' },
                     ['<leader>CP'] = { '<cmd>PickColor<cr>' },
