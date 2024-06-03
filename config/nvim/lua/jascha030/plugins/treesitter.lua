@@ -1,16 +1,36 @@
 ---@type LazyPluginSpec
 local M = {
     'nvim-treesitter/nvim-treesitter',
-    -- event = { 'BufReadPost', 'BufNewFile' },
-    -- event = 'VeryLazy',
     build = ':TSUpdate',
     dependencies = {
-        { 'nvim-treesitter/nvim-treesitter-context', config = true },
-        { 'p00f/nvim-ts-rainbow',                    lazy = true },
-        { 'theHamsta/nvim-treesitter-commonlisp' },
-        { 'nvim-treesitter/playground',              cmd = 'TSPlaygroundToggle' },
-        { 'bleksak/treesitter-neon',                 lazy = true },
-        'nvim-treesitter/nvim-treesitter-textobjects',
+        {
+            'nvim-treesitter/nvim-treesitter-textobjects',
+            event = 'VeryLazy',
+        },
+        {
+            'nvim-treesitter/nvim-treesitter-context',
+            config = true,
+        },
+        {
+            'p00f/nvim-ts-rainbow',
+            lazy = true,
+        },
+        {
+            'theHamsta/nvim-treesitter-commonlisp',
+            ft = 'query',
+        },
+        {
+            'nvim-treesitter/playground',
+            cmd = 'TSPlaygroundToggle',
+        },
+        {
+            'bleksak/treesitter-neon',
+            lazy = true,
+        },
+        {
+            'MTDL9/vim-log-highlighting',
+            ft = 'log',
+        },
     },
     opts = {
         ensure_installed = {
@@ -82,35 +102,35 @@ local M = {
             ['ac'] = '@class.outer',
             ['ic'] = '@class.inner',
         },
-        -- move = {
-        --     enable = true,
-        --     set_jumps = true,
-        --     goto_next_start = {
-        --         [']m'] = '@function.outer',
-        --         [']]'] = '@class.outer',
-        --     },
-        --     goto_next_end = {
-        --         [']M'] = '@function.outer',
-        --         [']['] = '@class.outer',
-        --     },
-        --     goto_previous_start = {
-        --         ['[m'] = '@function.outer',
-        --         ['[['] = '@class.outer',
-        --     },
-        --     goto_previous_end = {
-        --         ['[M'] = '@function.outer',
-        --         ['[]'] = '@class.outer',
-        --     },
-        -- },
-        -- swap = {
-        --     enable = true,
-        --     swap_next = {
-        --         ['<leader>a'] = '@parameter.inner',
-        --     },
-        --     swap_previous = {
-        --         ['<leader>A'] = '@parameter.inner',
-        --     },
-        -- },
+        move = {
+            enable = true,
+            set_jumps = true,
+            goto_next_start = {
+                [']m'] = '@function.outer',
+                [']]'] = '@class.outer',
+            },
+            goto_next_end = {
+                [']M'] = '@function.outer',
+                [']['] = '@class.outer',
+            },
+            goto_previous_start = {
+                ['[m'] = '@function.outer',
+                ['[['] = '@class.outer',
+            },
+            goto_previous_end = {
+                ['[M'] = '@function.outer',
+                ['[]'] = '@class.outer',
+            },
+        },
+        swap = {
+            enable = true,
+            swap_next = {
+                ['<leader>a'] = '@parameter.inner',
+            },
+            swap_previous = {
+                ['<leader>A'] = '@parameter.inner',
+            },
+        },
     },
 }
 
