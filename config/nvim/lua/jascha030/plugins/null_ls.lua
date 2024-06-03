@@ -90,6 +90,8 @@ function M.opts()
                         '--config=' .. fb_conf_path(
                             cwd() .. '/.php-cs-fixer.dist.php',
                             cwd() .. '/.php-cs-fixer.php',
+                            cwd() .. '/app/public/.php-cs-fixer.dist.php',
+                            cwd() .. '/app/public/.php-cs-fixer.php',
                             config_dir .. '/.php-cs-fixer.dist.php'
                         ),
                         'fix',
