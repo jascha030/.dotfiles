@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 DIR=/usr/local/etc/php/"$(gum choose --height=15 "7.4" "8.0" "8.1" "8.2")"/conf.d/99-xdebug.ini
 

@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+function git-migrate() {
+	bb2gh mv -o "WP-Brothers" -c "jascha030"
+	git add .
+	git commit -m "CODEOWNERS"
+	git push
+	git push origin --tags
+}
+
+git-migrate

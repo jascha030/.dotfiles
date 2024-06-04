@@ -1,9 +1,0 @@
-#!/usr/bin/env zsh
-
-if ! (( ${+FPM_LOG_DIR} )); then
-    export FPM_LOG_DIR="${HOME}"/.config/valet/Log
-fi
-
-if [ -f "${FPM_LOG_DIR}/php-fpm.log" ]; then
-    tail -f -72 "${FPM_LOG_DIR}/php-fpm.log" | bat --paging=never -l log
-fi

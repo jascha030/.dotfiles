@@ -61,10 +61,14 @@ export DOT_AFTER_INIT_SOURCES=(
     ${HOME}/.bun/_bun
 )
 
+BREW_HOME=/opt/homebrew/opt
+
 path=(
-    /opt/homebrew/opt/gnu-sed/libexec/gnubin
-    /opt/homebrew/opt/openjdk/bin
-    /opt/homebrew/opt/openssl@1.1/bin
+    ${BREW_HOME}/gnu-sed/libexec/gnubin
+    ${BREW_HOME}/openjdk/bin
+    ${BREW_HOME}/openssl@1.1/bin
+    ${XDG_CONFIG_HOME}/bash/bin
+    ${XDG_CONFIG_HOME}/zsh/bin
     ${HOME}/bin
     ${HOME}/tools
     ${HOME}/.composer/vendor/bin
