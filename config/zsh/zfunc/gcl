@@ -2,6 +2,7 @@
 
 function gcl {
     typeset -A shortcuts
+
     shortcuts=(
         ["sb-starter"]="git@bitbucket.org:socialbrothers/wordpress-starter-theme.git"
         ["wp"]="git@github.com:wordpress/wordpress"

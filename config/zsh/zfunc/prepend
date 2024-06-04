@@ -1,9 +1,8 @@
 #!/usr/bin/env zsh
 
-function __prepend() {
-	local prefix="$1"
-	shift
-	"$@" > >(sed "s/^/$prefix /") 2> >(sed "s/^/$prefix (error): /" >&2)
-}
+function prepend() {
+    local prefix="$1"
+    shift
 
-__prepend "$@"
+    "$@" > >(sed "s/^/$prefix /") 2> >(sed "s/^/$prefix \x1b[1;31m  /" >&2)
+}
