@@ -3,4 +3,3 @@
 function in_neovim {
     (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )) && echo 1 || echo 0
 }
-
