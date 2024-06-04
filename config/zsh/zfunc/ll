@@ -1,16 +1,10 @@
 #!/usr/bin/env zsh
 
-function ll() {
-    local ls_cmd='ls'
+function __ll() {
+    local ls_cmd=${LS_OVERRIDE:-${'ls'}}
     local ls_args=${LS_DEFAULT_ARGS:-${'-Ahl'}}
 
-    if (( ${+LS_OVERRIDE} )); then
-        ls_cmd=$LS_OVERRIDE
-    fi
-
-    if (( ${+LS_DEFAULT_ARGS} )); then
-        ls_args=$LS_DEFAULT_ARGS
-    fi
-
-    prepend "  " < <(eval "$ls_cmd" "$ls_args")
+    prepend "  " < <(eval $ls_cmd $ls_args)
 }
+
+__ll "$@"

@@ -1,17 +1,9 @@
 #!/usr/bin/env zsh
 
 function __prepend() {
-	local prepended=$1
-	local str=''
-
-	while read line; do
-		str="${str}"'\n'"${prepended} ${line}"
-	done
-    
-    echo "${str}"
+	local prefix="$1"
+	shift
+	"$@" > >(sed "s/^/$prefix /") 2> >(sed "s/^/$prefix (error): /" >&2)
 }
 
-tag=$1
-shift
-
-"$@" > >(__prepend "$tag") 2> >(__prepend "$tag" 1>&2)
+__prepend "$@"
