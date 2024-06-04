@@ -122,6 +122,8 @@ require('lazy').setup({
             keymaps = {
                 n = {
                     ['t'] = { '<C-w>' },
+                    ['H'] = { '<C-w>h', desc = 'navigate to the previous buffer'},
+                    ['L'] = { '<C-w>l', desc = 'navigate to the next buffer' },
                     ['ff'] = { '<cmd>lua require("jascha030.utils.fs").file_picker()<cr>' },
                     ['<C-p>'] = { '<cmd>lua require("telescope.builtin").git_files()<cr>' },
                     ['fg'] = { '<cmd>lua require("telescope.builtin").live_grep()<cr>' },
