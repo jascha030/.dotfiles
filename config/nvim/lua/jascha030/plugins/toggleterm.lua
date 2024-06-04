@@ -24,7 +24,7 @@ function M.config(_, opts)
     local map = vim.keymap.set
     local toggleterm = require('toggleterm')
     local Terminal = require('toggleterm.terminal').Terminal
-    local fpmlog, terminal, lazygit = nil, nil, nil
+    local fpmlog, terms, lazygit = nil, {}, nil
 
     local function create(cmd, direction, dir)
         direction = direction or 'float'
@@ -44,12 +44,14 @@ function M.config(_, opts)
         return Terminal:new(term_opts)
     end
 
-    function _G.tterm_terminal()
-        if terminal == nil then
-            terminal = create('/bin/zsh --login')
+    function _G.tterm_terminal(direction)
+        direction = direction or 'float'
+
+        if terms[direction] == nil then
+            terms[direction] = create('/bin/zsh --login', direction)
         end
 
-        terminal:toggle()
+        terms[direction]:toggle()
     end
 
     function _G.tterm_lazygit()
@@ -78,8 +80,15 @@ function M.config(_, opts)
 
     vim.cmd([[autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()]])
 
-    map('n', '<leader>t', [[<cmd>lua tterm_terminal()<CR>]], silent_opts)
-    map('n', '<C-t>', [[<cmd>lua tterm_terminal()<CR>]], silent_opts)
+    map('n', '<leader>tf', function()
+        tterm_terminal('float')
+    end, silent_opts)
+
+    map('n', '<leader>tb', function()
+        tterm_terminal('horizontal')
+    end, silent_opts)
+
+    -- map('n', '<C-t>', [[<cmd>lua tterm_terminal()<CR>]], silent_opts)
     map('n', '<leader>fl', [[<cmd>lua tterm_fpmlog()<CR>]], silent_opts)
     map('n', '<leader>g', [[<cmd>lua tterm_lazygit()<CR>]], silent_opts)
 end
