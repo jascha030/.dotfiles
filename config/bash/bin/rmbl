@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+cmd=${0##*/}
+version='1.0.0'
+
+__rmbl-echo() {
+    command printf %b\\n "$*" 2>/dev/null
+}
+
+__rmbl-usage() {
+    __rmbl-echo 'RMBL - Remove all files and directories in a directory'
+    __rmbl-echo "Version: ${version}"
+    __rmbl-echo ''
+    __rmbl-echo 'Usage:'
+    __rmbl-echo "    \e[0;92m${cmd}\e[0m \e[0;36m[-h|--help]\e[0m \e[0;92m<dirpath>\e[0m"
+    __rmbl-echo ''
+}
+
+__rmbl-rm() {
+    if ! command -v fd &>/dev/null; then
+        __rmbl-echo '\e[0;31mError: `fd` not found\e[0m'
+        exit 1
+    fi
+
+    local dir
+
+    if [[ $# -eq 0 ]]; then
+        dir=${PWD}
+    else
+        dir=$1
+    fi
+
+    if [[ -d $dir ]]; then
+        __rmbl-echo '\e[0;31mERROR: Invalid directory specified\e[0m'
+        __rmbl-usage
+        return 1
+    fi
+
+    fd -tl -L "$dir" -X rm
+}
+
+rmbl() {
+    local i
+    for i in "$@"; do
+        case $i in
+        --) break ;;
+        '-h' | '--help' | 'help')
+            __rmbl-usage
+            return 0
+            ;;
+        esac
+    done
+
+
+    __rmbl-rm "$@"
+}
+
+rmbl "$@"
