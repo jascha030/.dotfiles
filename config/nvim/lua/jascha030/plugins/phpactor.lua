@@ -8,7 +8,7 @@ local M = {
     },
     opts = {
         install = {
-            php_bin = vim.fn.stdpath('data') .. '/opt/homebrew/bin/php',
+            php_bin = '/opt/homebrew/bin/php',
             bin = vim.fn.expand('~/tools/phpactor'),
         },
     },
