@@ -84,6 +84,7 @@ require('lazy').setup({
                     tabstop = 4,
                     shiftwidth = 4,
                     updatetime = 1000,
+                    autoindent = true,
                     mouse = 'nvi',
                     colorcolumn = '120',
                     backspace = 'indent,eol,start',
