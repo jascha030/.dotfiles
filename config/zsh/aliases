@@ -29,7 +29,7 @@ alias checkitalics="echo -e '\e[3mitalic\e[23m'"
 alias checkbold="echo -e '\e[1mbold\e[22m'"
 alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
 #- Utilities ---------------------------------------------------------------------------------------------------------#
-(( ${+commands[nvim]} )) && { alias vim=nvim; alias n=nvim; }
+(( ${+commands[nvim]} )) && { alias vim=nvim; alias n=nvim; alias rn='root && n'; }
 alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
 alias cargoup='cargo install-update --all'
 alias kraken='$(open gitkraken://repo/${PWD})'
