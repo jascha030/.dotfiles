@@ -157,6 +157,7 @@ require('lazy').setup({
                         '<cmd>lua require("jascha030.lsp.menu").show()<cr>',
                         { desc = 'Context aware menu' },
                     },
+                    ['<leader>e'] = { '<cmd>e<cr>' },
                     ['<leader>p'] = { '<cmd>InspectTree<cr>' },
                     ['<leader>pc'] = { '<cmd>lua vim.show_pos()<cr>' },
                     ['<leader>fh'] = { '<cmd>Telescope help_tags<cr>' },
