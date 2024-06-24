@@ -2,7 +2,6 @@
 local M = {
     'folke/noice.nvim',
     event = 'VeryLazy',
-    -- cond = false,
     dependencies = {
         'MunifTanjim/nui.nvim',
         'rcarriga/nvim-notify',

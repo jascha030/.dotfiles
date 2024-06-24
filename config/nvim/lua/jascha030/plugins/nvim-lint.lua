@@ -2,6 +2,7 @@
 local M = {
     'mfussenegger/nvim-lint',
     event = { 'BufReadPre', 'BufNewFile' },
+    cond = false,
     opts = {
         linters_by_ft = {
             php = { 'phpstan' },

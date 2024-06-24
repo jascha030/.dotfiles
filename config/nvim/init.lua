@@ -123,7 +123,7 @@ require('lazy').setup({
             keymaps = {
                 n = {
                     ['t'] = { '<C-w>' },
-                    ['H'] = { '<C-w>h', desc = 'navigate to the previous buffer'},
+                    ['H'] = { '<C-w>h', desc = 'navigate to the previous buffer' },
                     ['L'] = { '<C-w>l', desc = 'navigate to the next buffer' },
                     ['ff'] = { '<cmd>lua require("jascha030.utils.fs").file_picker()<cr>' },
                     ['<C-p>'] = { '<cmd>lua require("telescope.builtin").git_files()<cr>' },
@@ -142,13 +142,7 @@ require('lazy').setup({
                     ['N'] = { '<cmd>Neotree focus<cr>' },
                     ['<C-t>'] = { '<cmd>Telescope<cr>' },
                     ['<leader><Tab><Tab>'] = { '<cmd>HopWord<cr>' },
-                    ['sR'] = {
-                        '<cmd>source $MYVIMRC<cr>',
-                        {
-                            noremap = true,
-                            silent = true,
-                        },
-                    },
+                    ['sR'] = { '<cmd>source $MYVIMRC<cr>', { noremap = true, silent = true } },
                     ['<leader>m'] = { '<cmd>Mason<cr>' },
                     ['<C-/>'] = { '<cmd>CommentToggle<cr>' },
                     ['<C-_>'] = { '<cmd>CommentToggle<cr>' },
