@@ -22,14 +22,21 @@ return function()
     ---@type lspconfig.options.lua_ls
     local lua_ls = {
         settings = {
-            Lua = { workspace = { checkThirdParty = false },
+            Lua = {
+                workspace = {
+                    checkThirdParty = true,
+                },
                 hint = {
                     enable = true,
                     setType = true,
                     arrayIndex = 'Disable',
                 },
-                format = { enable = false },
-                telemetry = { enable = false },
+                format = {
+                    enable = false,
+                },
+                telemetry = {
+                    enable = false,
+                },
                 diagnostics = {
                     globals = globals(),
                 },
