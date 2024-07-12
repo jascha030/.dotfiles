@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+function mariadblog() {
+    local dir=${MARIADB_LOG_DIR:-/opt/homebrew/var/mysql}
+
+    if [ -f "${dir}/Jaschas MacBook Pro.err" ]; then
+        tail -f -72 "${dir}/Jaschas MacBook Pro.err" | bat --paging=never -l log
+    fi
+}
+
+mariadblog "$@"
