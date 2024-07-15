@@ -12,6 +12,10 @@ function M.get_config(k)
 end
 
 function M.setup(opts)
+    if opts.debug == true then
+        vim.lsp.set_log_level('debug')
+    end
+
     local function add_env_paths(paths)
         paths = paths or {}
         for _, path in pairs(paths) do
