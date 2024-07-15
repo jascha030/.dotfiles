@@ -2,6 +2,9 @@ local M = {}
 
 function M.defaults()
     --- @class ConfigOptions
+    --- @field colorscheme? boolean | string
+    --- @field polyglot? table
+    --- @field keymaps? table
     local defaults = {
         colorscheme = false,
         polyglot = {
