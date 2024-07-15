@@ -74,31 +74,31 @@ function M.opts()
                     fb_conf_path(cwd() .. '/stylua.toml', config_dir .. '/stylua.toml'),
                 },
             }),
-            nls.builtins.formatting.phpcsfixer.with({
-                condition = function(utils)
-                    if utils.root_has_file({ '.php-cs-fixer.dist.php', '.php-cs-fixer.php' }) then
-                        return true
-                    end
-
-                    local ok, _ = pcall(fb_conf_path, config_dir .. '/.php-cs-fixer.dist.php')
-
-                    return ok
-                end,
-                extra_args = function()
-                    return {
-                        '--no-interaction',
-                        '--config=' .. fb_conf_path(
-                            cwd() .. '/.php-cs-fixer.dist.php',
-                            cwd() .. '/.php-cs-fixer.php',
-                            cwd() .. '/app/public/.php-cs-fixer.dist.php',
-                            cwd() .. '/app/public/.php-cs-fixer.php',
-                            config_dir .. '/.php-cs-fixer.dist.php'
-                        ),
-                        'fix',
-                        '$FILENAME',
-                    }
-                end,
-            }),
+            -- nls.builtins.formatting.phpcsfixer.with({
+            --     condition = function(utils)
+            --         if utils.root_has_file({ '.php-cs-fixer.dist.php', '.php-cs-fixer.php' }) then
+            --             return true
+            --         end
+            --        
+            --         local ok, _ = pcall(fb_conf_path, config_dir .. '/.php-cs-fixer.dist.php')
+            --        
+            --         return ok
+            --     end,
+            --     extra_args = function()
+            --         return {
+            --             '--no-interaction',
+            --             '--config=' .. fb_conf_path(
+            --                 cwd() .. '/.php-cs-fixer.dist.php',
+            --                 cwd() .. '/.php-cs-fixer.php',
+            --                 cwd() .. '/app/public/.php-cs-fixer.dist.php',
+            --                 cwd() .. '/app/public/.php-cs-fixer.php',
+            --                 config_dir .. '/.php-cs-fixer.dist.php'
+            --             ),
+            --             'fix',
+            --             '$FILENAME',
+            --         }
+            --     end,
+            -- }),
         },
     }
     -- stylua: ignore end
