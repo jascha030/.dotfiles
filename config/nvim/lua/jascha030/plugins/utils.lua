@@ -60,24 +60,6 @@ return {
         event = { 'VeryLazy' },
     },
     {
-        'folke/which-key.nvim',
-        event = { 'VeryLazy' },
-        config = function(_, _)
-            local keymaps = require('jascha030.core.config').options.keymaps
-            local wk = require('which-key')
-
-            for mtype, tmaps in pairs(keymaps) do
-                local results = {}
-
-                for kmap, args in pairs(tmaps) do
-                    results[kmap] = { args[1], args[1] }
-                end
-
-                wk.register(results, { nowait = true, mode = mtype })
-            end
-        end,
-    },
-    {
         'ziontee113/icon-picker.nvim',
         cond = false,
     },
