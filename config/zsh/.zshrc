@@ -80,6 +80,7 @@ path=(
     ${HOME}/tools
     ${HOME}/.local/share/rtx/shims
     ${HOME}/.local/share/nvim/mason/bin
+    ${HOME}/.development/Projects/Php/Wordpress/vip/allegion-cli/bin
     ${path[@]}
 ); typeset -aU path
 
