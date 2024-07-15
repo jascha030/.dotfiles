@@ -19,17 +19,16 @@
 /zsh/.zsh_history
 /zsh/.zcompcache
 
-## Other
-/config/lazygit/state.yml
-/gitconfig
-*.log
-**.cache
-
 ## Secret
 /.gitsecret/keys/random_seed
 !*.secret
-tem.txt
-lol.txt
-SPEEDLOG.md
+
+## Other
+/config/lazygit/state.yml
+/gitconfig
+/SPEEDLOG.md
+/*.txt
+*.log
+**.cache
 **.BAK
 **.bak
