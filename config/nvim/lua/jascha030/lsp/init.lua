@@ -122,14 +122,6 @@ function M.format(client, bufnr)
 
     vim.lsp.buf.format({
         bufnr = bufnr,
-        -- filter = function(c)
-        --     ---@diagnostic disable-next-line: undefined-field
-        --     if #require('null-ls.sources').get_available(vim.bo[bufnr].filetype, 'NULL_LS_FORMATTING') > 0 then
-        --         return c.name == 'null-ls'
-        --     end
-        --
-        --     return c.name ~= 'null-ls'
-        -- end,
     })
 end
 
@@ -173,6 +165,11 @@ function M.setup(opts)
     local on_attach = function(client, buffer)
         if client.server_capabilities.completionProvider then
             vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = buffer })
+        end
+
+        if client.name == 'intelephense' then
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
         end
 
         if client.name == 'phpactor' then

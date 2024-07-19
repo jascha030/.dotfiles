@@ -87,10 +87,11 @@ function M.on_attach(client, bufnr)
     self:map('<leader>a', vim.lsp.buf.code_action, { desc = 'Code Action', mode = { 'n', 'v' }, has = 'codeAction' })
     self:map('<leader>r', M.rename, { expr = true, desc = 'Rename', has = 'rename' })
 
-    -- stylua: ignore
-    self:map('<C-l>', function()
-        require('jascha030.lsp').format(client, bufnr)
-    end, { desc = 'Format Document', has = 'documentFormatting' })
+    if client.supports_method('textDocument/formatting') then
+        self:map('<C-l>', function()
+            require('jascha030.lsp').format(client, bufnr)
+        end, { desc = 'Format Document', has = 'documentFormatting' })
+    end
 end
 
 -- end
