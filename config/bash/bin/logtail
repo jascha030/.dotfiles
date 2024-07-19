@@ -16,7 +16,7 @@ __logtail-tail() {
 		bin="${bin} --paging=never -l log"
 	fi
 
-	tail -f -72 "$@" | "$bin"
+	tail -f -72 "$@" | $bin
 }
 
 __logtail-header() {
