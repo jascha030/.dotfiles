@@ -120,9 +120,7 @@ function M.format(client, bufnr)
         return
     end
 
-    vim.lsp.buf.format({
-        bufnr = bufnr,
-    })
+    vim.lsp.buf.format({ bufnr = bufnr, id = client.id })
 end
 
 function M.get_signature_help_handler()
