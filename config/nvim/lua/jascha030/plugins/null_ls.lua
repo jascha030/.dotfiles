@@ -61,6 +61,7 @@ function M.opts()
             require('none-ls.formatting.jq'),
             require('none-ls.formatting.eslint_d').with({ condition = function(utils) return utils.root_has_file('node_modules/.bin/eslint') end, }),
             require('none-ls-ecs.formatting').with({ condition = function(utils) return utils.root_has_file('ecs.php') end, }),
+            nls.builtins.formatting.markdownlint,
             nls.builtins.formatting.black,
             nls.builtins.formatting.blade_formatter,
             nls.builtins.formatting.isort,
@@ -68,37 +69,7 @@ function M.opts()
             nls.builtins.formatting.shfmt.with({ filetypes = { 'sh', 'zsh', 'bash' } }),
             nls.builtins.formatting.yamlfix,
             nls.builtins.formatting.yamlfmt.with({ filetypes = { 'yaml' } }),
-            nls.builtins.formatting.stylua.with({
-                extra_args = {
-                    '--config-path',
-                    fb_conf_path(cwd() .. '/stylua.toml', config_dir .. '/stylua.toml'),
-                },
-            }),
-            -- nls.builtins.formatting.phpcsfixer.with({
-            --     condition = function(utils)
-            --         if utils.root_has_file({ '.php-cs-fixer.dist.php', '.php-cs-fixer.php' }) then
-            --             return true
-            --         end
-            --        
-            --         local ok, _ = pcall(fb_conf_path, config_dir .. '/.php-cs-fixer.dist.php')
-            --        
-            --         return ok
-            --     end,
-            --     extra_args = function()
-            --         return {
-            --             '--no-interaction',
-            --             '--config=' .. fb_conf_path(
-            --                 cwd() .. '/.php-cs-fixer.dist.php',
-            --                 cwd() .. '/.php-cs-fixer.php',
-            --                 cwd() .. '/app/public/.php-cs-fixer.dist.php',
-            --                 cwd() .. '/app/public/.php-cs-fixer.php',
-            --                 config_dir .. '/.php-cs-fixer.dist.php'
-            --             ),
-            --             'fix',
-            --             '$FILENAME',
-            --         }
-            --     end,
-            -- }),
+            nls.builtins.formatting.stylua.with({ extra_args = { '--config-path', fb_conf_path(cwd() .. '/stylua.toml', config_dir .. '/stylua.toml'), }, }),
         },
     }
     -- stylua: ignore end
