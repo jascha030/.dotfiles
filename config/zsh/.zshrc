@@ -64,6 +64,7 @@ export DOT_AFTER_INIT_SOURCES=(
 BREW_HOME=/opt/homebrew/opt
 
 path=(
+    ${BREW_HOME}/ncurses/bin
     ${BREW_HOME}/gnu-sed/libexec/gnubin
     ${BREW_HOME}/openjdk/bin
     ${BREW_HOME}/openssl@1.1/bin
