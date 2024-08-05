@@ -102,9 +102,9 @@ function M.inlay_hints(opts)
         return
     end
 
-    M.lsp_attach(function(client, buffer)
+    M.lsp_attach(function(client, _)
         if client.server_capabilities.inlayHintProvider then
-            vim.lsp.inlay_hint.enable(buffer, true)
+            vim.lsp.inlay_hint.enable(true)
         end
     end)
 
