@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+mariadb-clean-corruption () {
+    brew remove mariadb
+
+    rm -rf /opt/homebrew/etc/{my.cnf,my.cnf.d,my.cnf.default,mecabrc} /opt/homebrew/var/mysql/
+
+    brew install mariadb
+}
+
+mariadb-clean-corruption "@"
