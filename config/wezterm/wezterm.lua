@@ -47,8 +47,8 @@ return {
         button_hover_fg = colors.background,
         button_hover_bg = colors.foreground,
     },
-    enable_kitty_keyboard = true,
-    enable_csi_u_key_encoding = false,
+    enable_kitty_keyboard = false,
+    enable_csi_u_key_encoding = true,
     allow_win32_input_mode = false,
     enable_tab_bar = true,
     use_fancy_tab_bar = false,
@@ -76,4 +76,6 @@ return {
         'liga', -- (default) ligatures
         'clig', -- (default) contextual ligatures
     },
+    send_composed_key_when_left_alt_is_pressed = true,
+    send_composed_key_when_right_alt_is_pressed = true,
 }
