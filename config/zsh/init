@@ -89,6 +89,7 @@ fi
 
 __fpath_add "${ZDOTDIR}/zfunc" "${ZDOTDIR}/completions"
 __autoload "${ZDOTDIR}/zfunc"
+__fpath_add "/opt/homebrew/share/zsh/site-functions"
 
 # Source files that are required early.
 (( ${+DOT_SOURCES} )) && safe_source "${DOT_SOURCES[@]}"
