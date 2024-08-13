@@ -71,3 +71,7 @@ if (( ${+commands[nvim]} )); then
 
     autoload -Uz nn
 fi
+
+function ppgrep() { pgrep "$@" | xargs ps -f -p; }
+
+autoload -Uz ppgrep
