@@ -13,31 +13,31 @@
 
 # Isolated php and composer
 if (( ${+commands[valet]} )); then
-    function __iphp {
-        if [[ -f "${PWD}/composer.json" ]]; then
-            ${HOME}/.composer/vendor/bin/valet php "$@"
-        else
-            export PHP_VERSION="${$(/opt/homebrew/bin/php -r 'echo PHP_VERSION;')[1,3]}"
-
-            /opt/homebrew/bin/php "$@"
-        fi
-    }
-
-    function __icomposer {
-        if [[ -f "${PWD}/composer.json" ]]; then
-            ${HOME}/.composer/vendor/bin/valet composer "$@"
-        else
-            if [[ -f "${PWD}/app/public/composer.json" ]]; then
-                /opt/homebrew/bin/valet composer --working-dir="${PWD}/app/public" "$@"
-            else
-                /Users/jaschavanaalst/tools/composer "$@"
-            fi
-        fi
-    }
-
-    autoload -Uz __iphp __icomposer
-    alias php='__iphp'
-    alias composer='__icomposer'
+    # function __iphp {
+    #     if [[ -f "${PWD}/composer.json" ]]; then
+    #         ${HOME}/.composer/vendor/bin/valet php "$@"
+    #     else
+    #         export PHP_VERSION="${$(/opt/homebrew/bin/php -r 'echo PHP_VERSION;')[1,3]}"
+    #
+    #         /opt/homebrew/bin/php "$@"
+    #     fi
+    # }
+    #
+    # function __icomposer {
+    #     if [[ -f "${PWD}/composer.json" ]]; then
+    #         ${HOME}/.composer/vendor/bin/valet composer "$@"
+    #     else
+    #         if [[ -f "${PWD}/app/public/composer.json" ]]; then
+    #             /opt/homebrew/bin/valet composer --working-dir="${PWD}/app/public" "$@"
+    #         else
+    #             /Users/jaschavanaalst/tools/composer "$@"
+    #         fi
+    #     fi
+    # }
+    #
+    # autoload -Uz __iphp __icomposer
+    # alias php='__iphp'
+    # alias composer='__icomposer'
 fi
 
 if (( ${+LAZYGIT_CONFIG} )); then
