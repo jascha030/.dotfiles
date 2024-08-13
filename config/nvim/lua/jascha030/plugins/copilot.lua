@@ -1,13 +1,17 @@
 ---@type LazyPluginSpec
 local M = {
     'zbirenbaum/copilot.lua',
-    cmd = 'InsertEnter',
+    cmd = 'Copilot',
     dependencies = 'nvim-lspconfig',
     opts = {
-        panel = { enabled = false },
-        filetypes = { markdown = true },
+        panel = {
+            enabled = false,
+        },
+        filetypes = {
+            markdown = true,
+        },
     },
-    event = 'VimEnter',
+    event = { 'InsertEnter' },
 }
 
 function M.config(_, opts)

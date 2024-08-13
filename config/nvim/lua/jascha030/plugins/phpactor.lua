@@ -6,13 +6,11 @@ local M = {
         'nvim-lua/plenary.nvim',
         'neovim/nvim-lspconfig',
     },
-    opts = {
-        install = {
-            php_bin = '/opt/homebrew/bin/php',
-            bin = vim.fn.stdpath('data') .. '/mason/bin/phpactor'
-        },
-    },
 }
+
+function M.config(_, opts)
+    require('phpactor').setup(opts)
+end
 
 function M.build()
     require('phpactor.handler.update')()
