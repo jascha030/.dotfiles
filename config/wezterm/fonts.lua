@@ -14,13 +14,14 @@ local defaults = {
     },
 }
 
+---@class WezFontConfig
 local M = { options = {} }
 
 local function table_merge(t1, t2)
     for k, v in pairs(t2) do
         if type(v) == 'table' then
             if type(t1[k] or false) == 'table' then
-                M.table_merge(t1[k] or {}, t2[k] or {})
+                table_merge(t1[k] or {}, t2[k] or {})
             else
                 t1[k] = v
             end
