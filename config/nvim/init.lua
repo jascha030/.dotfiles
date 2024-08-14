@@ -151,7 +151,6 @@ require('lazy').setup({
                         opts = { noremap = true, silent = true },
                     },
                     { '<leader>m', '<cmd>Mason<cr>' },
-                    { '<C-/>', '<cmd>CommentToggle<cr>' },
                     { '<C-_>', '<cmd>CommentToggle<cr>' },
                     { '<leader>CP', '<cmd>PickColor<cr>' },
                     {
@@ -185,6 +184,7 @@ require('lazy').setup({
                     },
                     { '<C-c>', ':OSCYankVisual<cr>' },
                     { '<C-_>', ":'<,'>CommentToggle<cr>" },
+                    { '<C-/>', '<cmd>CommentToggle<cr>' },
                 },
                 t = {
                     { '<M-[>', '<Esc>' },
