@@ -21,7 +21,7 @@ function M:get_app_name()
 end
 
 function M:get_instance()
-    return hs.application.get(self:get_app_name())
+    return hs.application.find(self:get_app_name(), true)
 end
 
 function M:get_observer(app_watcher, space)
@@ -39,17 +39,19 @@ function M:get_observer(app_watcher, space)
     end
 end
 
+local function isFrontmost(app)
+    local isFront, ok = pcall(app.isFrontmost, app)
+
+    return ok and isFront
+end
+
 function M:toggle()
     local app_name = self:get_app_name()
     local instance = self:get_instance()
 
-    if instance ~= nil and instance:isFrontmost() then
+    if instance ~= nil and isFrontmost(instance) then
         instance:hide()
     else
-        -- if instance ~= nil and instance:isHidden() then
-        --     instance:unhide()
-        -- end
-
         local main_screen = hs.mouse.getCurrentScreen()
         local space = hs.spaces.activeSpaceOnScreen(main_screen)
 
