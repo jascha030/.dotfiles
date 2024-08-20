@@ -3,7 +3,7 @@ local M = {
     'folke/trouble.nvim',
     name = 'trouble',
     keys = {
-        { 'TT', '<cmd>Trouble<cr>', mode = 'n', desc = 'Toggle Trouble'  },
+        { 'TT', '<cmd>Trouble toggle diagnostics<cr>', mode = 'n', desc = 'Toggle Trouble'  },
     },
     cmd = {
         'Trouble',
