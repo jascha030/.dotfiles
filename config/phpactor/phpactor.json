@@ -21,6 +21,7 @@
         "/vendor/**/tests/**/*",
         "/.var/cache/**/*",
         "/var/cache/**/*",
-        "/vendor-bin/**/vendor/php-stubs/wordpress-stubs/wordpress-stubs.php"
+        "/vendor-bin/**/vendor/php-stubs/wordpress-stubs/wordpress-stubs.php",
+        "app/public/vendor-bin/**/vendor/php-stubs/wordpress-stubs/wordpress-stubs.php"
     ]
 }
