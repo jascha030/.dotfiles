@@ -56,12 +56,14 @@ export DOT_SOURCES=(
 
 export DOT_AFTER_INIT_SOURCES=(
     ${ZDOTDIR}/.ls-colors
+    /opt/homebrew/etc/grc.zsh
     ${ZDOTDIR}/overrides
     ${ZDOTDIR}/fzf
     ${HOME}/.bun/_bun
 )
 
 BREW_HOME=/opt/homebrew/opt
+export HOMEBREW_NO_INSTALL_FROM_API=1
 
 path=(
     ${BREW_HOME}/ncurses/bin
