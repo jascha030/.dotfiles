@@ -6,6 +6,11 @@ local M = {
         'nvim-lua/plenary.nvim',
         'neovim/nvim-lspconfig',
     },
+    opts = {
+        install = {
+            bin = vim.fn.expand('~/tools/phpactor'),
+        },
+    },
 }
 
 function M.config(_, opts)
