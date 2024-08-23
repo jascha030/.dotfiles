@@ -187,8 +187,8 @@ require('lazy').setup({
                     { '<C-/>', '<cmd>CommentToggle<cr>' },
                 },
                 t = {
-                    { '<M-[>', '<Esc>' },
-                    { '<C-v><Esc>', '<Esc>' },
+                    -- { '<M-[>', '<Esc>' },
+                    -- { '<C-v><Esc>', '<Esc>' },
                 },
                 i = {},
             },

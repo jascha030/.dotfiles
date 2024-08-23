@@ -11,12 +11,9 @@ local silent_opts = {
 }
 
 function M.keys(_, _)
-    local map_opts = { noremap = true, buffer = 0 }
-
     return {
-        { 't', '<C-t>', [[<C-\><C-n>]], map_opts },
-        { 't', '<C-w>', [[:close<CR>]], map_opts },
-        { 'n', 'q', [[:close<CR>]], map_opts },
+        { mode = 't', '<C-t>', [[<C-\><C-n>]], noremap = true, buffer = 0, desc = "Leave terminal mode" },
+        { mode = 't', '<C-w>', [[:close<CR>]], noremap = true, buffer = 0, desc = "Close terminal" },
     }
 end
 
@@ -35,6 +32,11 @@ function M.config(_, opts)
             dir = dir,
             direction = direction,
             hidden = true,
+            on_open = function(term)
+                vim.cmd('startinsert!')
+                map('t', '<esc><esc>', [[<C-\><C-n>]], { noremap = true, buffer = term.bufnr })
+                map('n', 'q', [[<cmd>close<CR>]], { noremap = true, buffer = term.bufnr })
+            end
         }
 
         if direction == 'float' then
@@ -72,14 +74,6 @@ function M.config(_, opts)
 
     toggleterm.setup(opts)
 
-    function _G.set_terminal_keymaps()
-        map('t', '<esc><esc>', [[<C-\><C-n>]], { noremap = true, buffer = 0 })
-        map('t', '<C-w>', [[:close<CR>]], { noremap = true, buffer = 0 })
-        map('n', 'q', [[:close<CR>]], { noremap = true, buffer = 0 })
-    end
-
-    vim.cmd([[autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()]])
-
     map('n', '<leader>tf', function()
         tterm_terminal('float')
     end, silent_opts)
@@ -88,6 +82,10 @@ function M.config(_, opts)
         tterm_terminal('horizontal')
     end, silent_opts)
 
+    map('n', '<leader>t', [[<cmd>lua tterm_terminal()<CR>]], silent_opts)
+    map('n', '<C-t>', [[<cmd>lua tterm_terminal()<CR>]], silent_opts)
+    map('n', '<leader>fl', [[<cmd>lua tterm_fpmlog()<CR>]], silent_opts)
+    map('n', '<leader>g', [[<cmd>lua tterm_lazygit()<CR>]], silent_opts)
     -- map('n', '<C-t>', [[<cmd>lua tterm_terminal()<CR>]], silent_opts)
     map('n', '<leader>fl', [[<cmd>lua tterm_fpmlog()<CR>]], silent_opts)
     map('n', '<leader>g', [[<cmd>lua tterm_lazygit()<CR>]], silent_opts)
