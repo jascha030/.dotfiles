@@ -22,12 +22,7 @@ local function eq_pad(size, alt, cell)
     cell = cell or false
 
     if cell == false then
-        return {
-            top = size,
-            right = alt,
-            bottom = size,
-            left = alt,
-        }
+        return { top = size, right = alt, bottom = size, left = alt, }
     end
 
     return {
@@ -78,6 +73,7 @@ config.harfbuzz_features = {
     'liga', -- (default) ligatures
     'clig', -- (default) contextual ligatures
 }
+config.audible_bell = "Disabled"
 config.hyperlink_rules = {
     -- Linkify things that look like URLs and the host has a TLD name.
     { regex = '\\b\\w+://[\\w.-]+\\.[a-z]{2,15}\\S*\\b', format = '$0' },
