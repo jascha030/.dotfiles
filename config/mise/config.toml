@@ -1,0 +1,8 @@
+[tools]
+bun = "latest"
+node = "lts"
+pnpm = "latest"
+
+[settings]
+cargo_binstall = true
+trusted_config_paths = ["~/.development/Projects/"]
