@@ -13,11 +13,13 @@
 BORDER = 'rounded'
 BORDERS = { border = BORDER }
 
-vim.loader.enable()
+if vim.loader then
+    vim.loader.enable()
+end
+
 vim.g.mapleader = ' '
 
 local lazy_path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
-local conf_path = vim.fn.stdpath('config') --[[@as string]]
 local lreq = require('jascha030.lreq')
 
 _G.lreq = lreq
@@ -57,7 +59,7 @@ require('lazy').setup({
     {
         name = 'jascha030.init',
         main = 'jascha030',
-        dir = conf_path,
+        dir = vim.fn.stdpath('config') --[[@as string]],
         lazy = false,
         priority = 10000,
         opts = {
@@ -145,11 +147,6 @@ require('lazy').setup({
                     { 'N', '<cmd>Neotree focus<cr>' },
                     { '<C-t>', '<cmd>Telescope<cr>' },
                     { '<leader><Tab><Tab>', '<cmd>HopWord<cr>' },
-                    {
-                        'sR',
-                        '<cmd>source $MYVIMRC<cr>',
-                        opts = { noremap = true, silent = true },
-                    },
                     { '<leader>m', '<cmd>Mason<cr>' },
                     { '<C-_>', '<cmd>CommentToggle<cr>' },
                     { '<leader>CP', '<cmd>PickColor<cr>' },
