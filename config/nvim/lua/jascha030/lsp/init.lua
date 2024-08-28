@@ -103,7 +103,7 @@ function M.inlay_hints(opts)
     end
 
     M.lsp_attach(function(client, _)
-        if client.server_capabilities.inlayHintProvider then
+        if client.server_capabilities.inlayHintProvider ~= nil then
             vim.lsp.inlay_hint.enable(true)
         end
     end)
@@ -116,10 +116,6 @@ function M.inlay_hints(opts)
 end
 
 function M.format(client, bufnr)
-    if not client.server_capabilities.documentFormattingProvider then
-        return
-    end
-
     vim.lsp.buf.format({ bufnr = bufnr, id = client.id })
 end
 
