@@ -62,6 +62,7 @@ return {
     { key = 'G', mods = 'LEADER', action = wezterm.action.PaneSelect({ mode = 'SwapWithActive' }) },
     { key = 'Space', mods = 'LEADER', action = wezterm.action.PaneSelect({ mode = 'SwapWithActive' }) },
     { key = 'f', mods = 'LEADER', action = wezterm.action.PaneSelect({ mode = 'SwapWithActive' }) },
+    { key = 'z', mods = 'LEADER', action = wezterm.action.TogglePaneZoomState },
     {
         key = 'f',
         mods = 'LEADER',
