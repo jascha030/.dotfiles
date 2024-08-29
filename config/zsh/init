@@ -141,6 +141,7 @@ _evalcache teleport-dir init
 _evalcache symfony-autocomplete composer
 _evalcache symfony-autocomplete valet
 _evalcache symfony-autocomplete phpactor
+_evalcache opam env
 _evalcache op completion zsh
 _evalcache mise activate zsh --shims
 
