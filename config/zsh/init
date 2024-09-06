@@ -156,9 +156,9 @@ compdef _op op
 source ${ZDOTDIR}/aliases
 
 #- Display flashy, painstakingly crafted intro screen ----------------------------------------------------------------#
-[ -f "${HOME}/.lolmsgrc" ] && . "${HOME}/.lolmsgrc" || echo 'export LOLMSGRC_ENABLED=1' > "${HOME}/.lolmsgrc"
-if [[ "$LOLMSGRC_ENABLED" -eq 1 ]]; then
-    lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
+if [[ -o login ]] && [[ -t 0 ]]; then 
+    [ -f "${HOME}/.lolmsgrc" ] && . "${HOME}/.lolmsgrc" || echo 'export LOLMSGRC_ENABLED=1' > "${HOME}/.lolmsgrc"
+    [[ "$LOLMSGRC_ENABLED" -eq 1 ]] && lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
 fi
 
 #- Load flashy, painstakingly crafted shell prompt -------------------------------------------------------------------#
@@ -167,5 +167,8 @@ source ${ZDOTDIR}/prompt/prompt
 #- Init mcfly history last -------------------------------------------------------------------------------------------#
 _evalcache mcfly init zsh
 
-#- And finally, unfunc evalcache -------------------------------------------------------------------------------------#
+#- And finally, unfunc locally used functions ------------------------------------------------------------------------#
 unfunction _evalcache
+unfunction __fpath_add
+unfunction __path_add 
+unfunction __autoload 
