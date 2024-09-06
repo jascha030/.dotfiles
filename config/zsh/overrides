@@ -48,7 +48,7 @@ if (( ${+LAZYGIT_CONFIG} )); then
             local config=${LAZYGIT_CONFIG}/config_dark.yml
         fi
 
-        lazygit -ucf "$config"
+        lazygit -ucf "$config" "$@"
     }
 
     autoload -Uz __lazygit
