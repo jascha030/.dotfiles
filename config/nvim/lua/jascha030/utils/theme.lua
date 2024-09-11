@@ -1,12 +1,10 @@
---- @class ThemeUtil
-local M = {}
-
+local darkmode = lreq('darkmode')
 local DARK = 'dark'
 local LIGHT = 'light'
 
+--- @class ThemeUtil
+local M = {}
 local loaded = false
-
-local darkmode = lreq('darkmode')
 
 local function do_update_autocmd()
     vim.cmd([[doautocmd <nomodeline> User NitePalUpdateScheme]])
@@ -53,10 +51,11 @@ function M.init()
         return
     end
 
-    loaded = true
+    loaded = true;
 
     (function()
         vim.opt.runtimepath:prepend(os.getenv('XDG_CONFIG_HOME'))
+
         vim.keymap.set('n', 'CS', M.toggle, { noremap = true })
 
         -- Auto change colorscheme on MacOS Light/Darkmode change.
