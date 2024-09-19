@@ -56,6 +56,8 @@ alias wpenv:user:create='wp-env run cli wp user create "jascha@socialbrothers.nl
 alias wpenv:user:update='wp-env run cli wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
 alias wpconfig:new='wp-config-new-db'
 alias wpmail:disable='wp --skip-plugins --skip-themes plugin install disable-emails --activate'
+alias wpc='wp wc'
+alias=wpsc='wp --skip-themes --skip-plugins wc'
 
 alias wpb:codeowners='mkdir .github && echo "* @jascha030 @ismetozkanSB" >> .github/CODEOWNERS'
 #- Fix for Nu-shell and @antfu/ni:nu confusion -----------------------------------------------------------------------#
