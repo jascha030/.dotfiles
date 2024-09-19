@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+function _grepkill {
+    local q
+    for q in "$@"; do
+        pgrep "$q" | xargs kill -KILL
+    done
+}
+
+_grepkill "$@"
