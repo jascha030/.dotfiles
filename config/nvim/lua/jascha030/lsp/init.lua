@@ -156,6 +156,7 @@ function M.setup(opts)
     vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(diagnostic_handler, diagnostics)
 
     -- Default on_attach handlers
+    ---@param client vim.lsp.Client
     local on_attach = function(client, buffer)
         if client.server_capabilities.completionProvider then
             vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = buffer })
@@ -168,6 +169,7 @@ function M.setup(opts)
 
         if client.name == 'phpactor' then
             client.server_capabilities.hoverProvider = false
+            client.server_capabilities.referencesProvider = false
         end
 
         if client.name == 'yamlls' then
