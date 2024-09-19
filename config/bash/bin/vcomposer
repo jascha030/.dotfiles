@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+cmd=${0##*/}
+
+dot_php_bin=${DOT_PHP_BIN:-$(which php)}
+dot_valet_bin=${DOT_VALET_BIN:-$(which php)}
+dot_composer_bin=${DOT_COMPOSER_BIN:-$(which composer)}
+
+function vcomposer() {
+    local _cwd="${PWD}"
+
+    if [ -z "$dot_php_bin" ]; then
+        echo "PHP not found"
+        exit 1
+    fi
+
+    if [ -z "$dot_composer_bin" ]; then
+        echo "Composer not found"
+        exit 1
+    fi
+
+    while test $# -gt 0; do
+        case "$1" in
+            --working-dir|-d)
+                _cwd="$1"
+                echo "${_cwd}"
+                exit 0
+                ;;
+            *)
+                break
+                ;;
+        esac
+        shift
+    done
+
+    if [[ -f "${_cwd}/composer.json" ]]; then
+        $dot_valet_bin composer "$@"
+    else
+        if [[ -f "${_cwd}/app/public/composer.json" ]]; then
+            $dot_valet_bin composer --working-dir="${_cwd}/app/public" "$@"
+        else
+            $dot_composer_bin "$@"
+        fi
+    fi
+}
+
+$cmd "$@"

@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+
+dot_php_bin=${DOT_PHP_BIN:-$(which php)}
+dot_valet_bin=${DOT_VALET_BIN:-$(which php)}
+dot_composer_bin=${DOT_COMPOSER_BIN:-$(which composer)}
+
+function vcomposer () {
+    if [[ -f "${PWD}/composer.json" ]]; then
+        $dot_valet_bin php "$@"
+    else
+        export PHP_VERSION="${$(/opt/homebrew/bin/php -r 'echo PHP_VERSION;')[1,3]}"
+
+        $dot_php_bin "$@"
+    fi
+}
+
+vcomposer "$@"

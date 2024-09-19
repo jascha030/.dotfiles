@@ -13,31 +13,16 @@
 
 # Isolated php and composer
 if (( ${+commands[valet]} )); then
-    # function __iphp {
-    #     if [[ -f "${PWD}/composer.json" ]]; then
-    #         ${HOME}/.composer/vendor/bin/valet php "$@"
-    #     else
-    #         export PHP_VERSION="${$(/opt/homebrew/bin/php -r 'echo PHP_VERSION;')[1,3]}"
-    #
-    #         /opt/homebrew/bin/php "$@"
-    #     fi
-    # }
-    #
-    # function __icomposer {
-    #     if [[ -f "${PWD}/composer.json" ]]; then
-    #         ${HOME}/.composer/vendor/bin/valet composer "$@"
-    #     else
-    #         if [[ -f "${PWD}/app/public/composer.json" ]]; then
-    #             /opt/homebrew/bin/valet composer --working-dir="${PWD}/app/public" "$@"
-    #         else
-    #             /Users/jaschavanaalst/tools/composer "$@"
-    #         fi
-    #     fi
-    # }
-    #
-    # autoload -Uz __iphp __icomposer
-    # alias php='__iphp'
-    # alias composer='__icomposer'
+    export DOT_VALET_BIN="$(which valet)"
+    export DOT_COMPOSER_BIN="$(which composer)"
+
+    if (( ${+commands[vphp]} )); then
+        alias php='vphp'
+    fi
+
+    if (( ${+commands[vcomposer]} )); then
+        alias composer='vcomposer'
+    fi 
 fi
 
 if (( ${+LAZYGIT_CONFIG} )); then
@@ -55,23 +40,8 @@ if (( ${+LAZYGIT_CONFIG} )); then
     alias lazygit='__lazygit'
 fi
 
-if (( ${+commands[nvim]} )); then
-    # export DOT_NVIM_CFGS=('new' 'test')
-    #
-    # function nn() {
-    #     select config in ${DOT_NVIM_CFGS[@]}; do
-    #         NVIM_APPNAME=nvim-$config nvim $@
-    #         break
-    #     done
-    # }
-
-    function nn() {
-        NVIM_APPNAME=nvim-new nvim "$@"
-    }
-
-    autoload -Uz nn
-fi
-
-function ppgrep() { pgrep "$@" | xargs ps -f -p; }
+function ppgrep() { 
+    pgrep "$@" | xargs ps -f -p; 
+}
 
 autoload -Uz ppgrep
