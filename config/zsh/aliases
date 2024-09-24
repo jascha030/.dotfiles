@@ -49,6 +49,7 @@ alias buggregator='docker run --pull always -p 8000:8000 -p 1025:1025 -p 9912:99
 alias valetrm='rm ${HOME}/.config/valet/*.sock'
 alias valetr='valetrm && valet restart'
 alias vo='valet open'
+alias cpconf:bamarni="composer config extra.bamarni-bin.bin-links --json true && vomposer config extra.bamarni-bin.forward-command --json true"
 #- WP Development ----------------------------------------------------------------------------------------------------#
 alias wpuser:create='wp --skip-plugins --skip-themes user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpuser:update='wp --skip-plugins --skip-themes user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
