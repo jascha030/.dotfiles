@@ -146,6 +146,7 @@ function M.config(_, opts)
         },
     })
 
+    ---@diagnostic disable-next-line: inject-field
     parser_config.blade = {
         install_info = {
             url = 'https://github.com/EmranMR/tree-sitter-blade',
@@ -155,6 +156,7 @@ function M.config(_, opts)
         filetype = 'blade',
     }
 
+    ---@diagnostic disable-next-line: inject-field
     parser_config.neon = {
         install_info = {
             url = vim.fn.expand('$HOME/.local/share/nvim/lazy/treesitter-neon'),
@@ -165,10 +167,10 @@ function M.config(_, opts)
         filetype = 'neon',
     }
 
-    local ft_to_lang = parsers.ft_to_lang
-    parsers.ft_to_lang = function(ft)
-        return ft_to_lang(ft)
-    end
+    -- local ft_to_lang = parsers.ft_to_lang
+    -- parsers.ft_to_lang = function(ft)
+    --     return ft_to_lang(ft)
+    -- end
 end
 
 return M
