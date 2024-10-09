@@ -150,7 +150,7 @@ if (( ${+DOT_AFTER_INIT_SOURCES} )); then
     safe_source "${DOT_AFTER_INIT_SOURCES[@]}"
 fi
 
-compdef _composer __icomposer
+compdef _composer __icomposer vcomposer
 compdef _op op
 
 source ${ZDOTDIR}/aliases

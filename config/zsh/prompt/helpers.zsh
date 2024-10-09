@@ -11,6 +11,13 @@ export PS1_B_TOP_R='╗'
 export PS1_B_BOT_R='╝'
 export PS1_B_BOT_L='╚'
 
+# export PS1_B_X='─'
+# export PS1_B_Y='│'
+# export PS1_B_TOP_L='┌'
+# export PS1_B_TOP_R='┐'
+# export PS1_B_BOT_R='┘'
+# export PS1_B_BOT_L='└'
+
 # Fill
 # PS1_F(ill)C(haracter)
 export PS1_FC="${PS1_B_X}"
