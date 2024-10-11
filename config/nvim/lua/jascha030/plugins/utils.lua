@@ -31,21 +31,7 @@ return {
     },
     { 'chr4/nginx.vim', ft = 'nginx' },
     { 'b0o/schemastore.nvim', ft = { 'json', 'yaml', 'yml' } },
-    {
-        'simrat39/rust-tools.nvim',
-        ft = 'rs',
-        dependencies = { 'rust-lang/rust.vim' },
-        lazy = true,
-    },
-    {
-        'nvimdev/lspsaga.nvim',
-        dependencies = { 'nvim-treesitter/nvim-treesitter' },
-        lazy = true,
-        opts = {
-            ui = { border = BORDER },
-            lightbulb = { enable = false },
-        },
-    },
+
     {
         'ojroques/vim-oscyank',
         cmd = {
