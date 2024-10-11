@@ -1,47 +1,97 @@
 #!/usr/bin/env bash
 
+# shellcheck disable=2086
+
 cmd=${0##*/}
 
 dot_php_bin=${DOT_PHP_BIN:-$(which php)}
 dot_valet_bin=${DOT_VALET_BIN:-$(which php)}
 dot_composer_bin=${DOT_COMPOSER_BIN:-$(which composer)}
 
-function vcomposer() {
-    local _cwd="${PWD}"
-
-    if [ -z "$dot_php_bin" ]; then
-        echo "PHP not found"
-        exit 1
-    fi
-
-    if [ -z "$dot_composer_bin" ]; then
-        echo "Composer not found"
-        exit 1
-    fi
-
-    while test $# -gt 0; do
-        case "$1" in
-            --working-dir|-d)
-                _cwd="$1"
-                echo "${_cwd}"
-                exit 0
-                ;;
-            *)
-                break
-                ;;
-        esac
-        shift
-    done
-
-    if [[ -f "${_cwd}/composer.json" ]]; then
-        $dot_valet_bin composer "$@"
-    else
-        if [[ -f "${_cwd}/app/public/composer.json" ]]; then
-            $dot_valet_bin composer --working-dir="${_cwd}/app/public" "$@"
-        else
-            $dot_composer_bin "$@"
-        fi
-    fi
+function __line__echo() {
+	command printf %b\\n "$*" 2>/dev/null
 }
 
-$cmd "$@"
+# TODO: check if jq and sed are available.
+function vcomposer() {
+	local _cwd="$PWD"
+	local _hard_update=0
+	local _dev=0
+
+	if [ "$dot_php_bin" = "" ]; then
+		echo "PHP not found"
+		exit 1
+	fi
+
+	if [ "$dot_composer_bin" = "" ]; then
+		echo "Composer not found"
+		exit 1
+	fi
+
+	while test $# -gt 0; do
+		case "$1" in
+		--hard)
+			_hard_update=1
+			;;
+		-*)
+			full_args+=("$1")
+			;;
+		*)
+			full_args+=("$1")
+			args+=("$1")
+			;;
+		esac
+		shift
+	done
+
+	if [[ $_hard_update -eq 1 ]] && [[ "${args[0]}" == "update" ]]; then
+		for i in "${full_args[@]}"; do
+			case "$i" in
+			--dev)
+				_dev=1
+				;;
+			esac
+		done
+
+		local _packages
+
+		if [[ $_dev -eq 1 ]]; then
+			_packages=$(\composer show -s --format=json | jq '.devRequires | keys | map(.+" ") | add' -r | sed s:roave/security-advisories::)
+		else
+			_packages=$(\composer show -s --format=json | jq '.requires | keys | map(.+" ") | add' -r | sed 's/\bphp\b//' | sed 's/  */ /g; s/^ //; s/ $//')
+		fi
+
+		if [[ -f "${_cwd}/composer.json" ]]; then
+			if [[ $_dev -eq 1 ]]; then
+				"$dot_valet_bin" composer require --dev $_packages
+			else
+				"$dot_valet_bin" composer require $_packages
+			fi
+		else
+			if [[ $_dev -eq 1 ]]; then
+				"$dot_composer_bin" require --dev $_packages
+			else
+				"$dot_composer_bin" require $_packages
+			fi
+		fi
+	else
+		for i in "${full_args[@]}"; do
+			case "$i" in
+			--working-dir | -d) _cwd="$i" ;;
+			-* | *)         cargs+=("$i") ;;
+			esac
+		done
+
+		if [[ -f "${_cwd}/composer.json" ]]; then
+			"$dot_valet_bin" composer "${cargs[@]}"
+		else
+			if [[ -f "${_cwd}/app/public/composer.json" ]]; then
+				"$dot_valet_bin" composer --working-dir="${_cwd}/app/public" "${cargs[@]}"
+			else
+				"$dot_composer_bin" "${cargs[@]}"
+			fi
+		fi
+	fi
+}
+
+"$cmd" "$@"
