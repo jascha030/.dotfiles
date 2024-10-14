@@ -55,10 +55,10 @@ function M.setup(opts)
     require('jascha030.core.keymaps').set_keymaps(Config.get('keymaps'))
     require('jascha030.core.options').set_opts(Config.get('opts'))
 
-    -- vim.cmd([[
-		-- let &t_TI = "\<Esc>[>4;2m"
-		-- let &t_TE = "\<Esc>[>4;m"
-	-- ]])
+    vim.cmd([[
+		let &t_TI = "\<Esc>[>4;2m"
+		let &t_TE = "\<Esc>[>4;m"
+	]])
 end
 
 return M

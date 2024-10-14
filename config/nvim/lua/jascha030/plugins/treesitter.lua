@@ -1,7 +1,30 @@
+local uis = vim.api.nvim_list_uis()
+local has_uis = #uis > 0
+
+---@type table<string, string>
+local FT_TO_LANG_ALIASES = {
+    zsh = 'bash',
+    dotenv = 'bash',
+}
+
+---@type string[]
+local HIGHLIGHTING_DISABLED = {
+    'zsh',
+}
+
+---@type string[]
+local HIGHLIGHTING_ADD_VIM_REGEX = {
+    'zsh',
+}
+
 ---@type LazyPluginSpec
+--- Check Runtime files :echo nvim_get_runtime_file('parser', v:true)
 local M = {
     'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
+    build = function()
+        require('nvim-treesitter.install').update({ with_sync = true })
+    end,
+    cond = has_uis,
     dependencies = {
         {
             'nvim-treesitter/nvim-treesitter-textobjects',
@@ -25,7 +48,7 @@ local M = {
         },
         {
             'bleksak/treesitter-neon',
-            lazy = true,
+            ft = 'neon',
         },
         {
             'MTDL9/vim-log-highlighting',
@@ -33,6 +56,8 @@ local M = {
         },
     },
     opts = {
+        auto_install = has_uis,
+        sync_install = true,
         ensure_installed = {
             'bash',
             -- 'comment',
@@ -64,21 +89,22 @@ local M = {
             'yaml',
             'blade',
         },
-        playground = {
-            enable = true,
-        },
+        playground = { enable = true },
         query_linter = {
             enable = true,
             use_virtual_text = true,
         },
-        indent = {
-            enable = true,
-        },
+        indent = { enable = true },
         highlight = {
             enable = true,
+            disable = function(lang, bufnr)
+                return (
+                    require('jascha030.utils.buffer').is_huge({ bufnr = bufnr })
+                    or vim.tbl_contains(HIGHLIGHTING_DISABLED, lang)
+                )
+            end,
             use_languagetree = true,
-            additional_vim_regex_highlighting = { 'zsh' },
-            disable = { 'zsh' },
+            additional_vim_regex_highlighting = HIGHLIGHTING_ADD_VIM_REGEX,
         },
         rainbow = {
             enable = false,
@@ -140,11 +166,8 @@ function M.config(_, opts)
 
     local parser_config = parsers.get_parser_configs()
 
-    vim.filetype.add({
-        pattern = {
-            ['.*%.blade%.php'] = 'blade',
-        },
-    })
+    --- @module "jascha030.core.filetypes"
+    require('jascha030.core.filetypes').setup()
 
     ---@diagnostic disable-next-line: inject-field
     parser_config.blade = {
@@ -167,10 +190,18 @@ function M.config(_, opts)
         filetype = 'neon',
     }
 
-    -- local ft_to_lang = parsers.ft_to_lang
-    -- parsers.ft_to_lang = function(ft)
-    --     return ft_to_lang(ft)
-    -- end
+    -- Old way of registering parsers to langs
+    --
+    --
+    -- ```lua
+    --  local ft_to_lang = parsers.ft_to_lang
+    --  parsers.ft_to_lang = function(ft) return ft_to_lang(ft) end
+    -- ``
+
+    -- Newer way of registering parsers to langs
+    for ft, parser in pairs(FT_TO_LANG_ALIASES) do
+        vim.treesitter.language.register(parser, ft)
+    end
 end
 
 return M
