@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+
+cmd=${0##*/}
+version='1.0.0'
+
+__valetlog-echo() {
+    command printf %b\\n "$*" 2>/dev/null
+}
+
+__valetlog-tail() {
+    local bin
+    local valet_bin
+
+    bin=$(which cat)
+    valet_bin=$(which valet)
+
+    if [ -z "$valet_bin" ]; then
+        __valetlog-echo "\e[0;31mERROR: valet not found\e[0m"
+        exit 1
+    fi
+
+    if command -v bat &>/dev/null; then
+        bin=$(which bat)
+        bin="${bin} --paging=never -l log"
+    fi
+    
+    $valet_bin log "$@" | $bin
+}
+
+__valetlog-pass-empty() {
+    local valet_bin
+    valet_bin=$(which valet)
+    
+    if [ -z "$valet_bin" ]; then
+        __valetlog-echo "\e[0;31mERROR: valet not found\e[0m"
+        exit 1
+    fi
+
+    __valetlog-echo "\e[0;33m\`valet log\` output:\e[0m"
+
+    $valet_bin log
+}
+
+__valetlog-header() {
+    __valetlog-echo "\e[0;92mvaletlog\e[0m"
+
+    __valetlog-echo ""
+    __valetlog-echo "\e[0;36mv${version}\e[0m"
+    __valetlog-echo ""
+
+    __valetlog-echo "A wrapper using \e[0;33mvalet log\e[0m and \e[0;33mbat\e[0m to monitor log-files with sensible default options."
+    __valetlog-echo ""
+}
+
+__valetlog-usage() {
+    __valetlog-echo "Usage:"
+    __valetlog-echo "    \e[0;92m${cmd}\e[0m \e[0;92m<log-key>\e[0m (e.g. \e[0;92mnginx\e[0m, \e[0;92mphp-fpm\e[0m)"
+    __valetlog-echo ""
+}
+
+valetlog() {
+    if [[ $# -eq 0 ]]; then
+        __valetlog-usage
+        __valetlog-pass-empty
+        return
+    fi
+
+    local i
+    for i in "$@"; do
+        case $i in
+        --) break ;;
+        '-h' | '--help' | 'help')
+            # Print full help info with CLI header.
+            __valetlog-header
+            __valetlog-usage
+            return 0
+            ;;
+        esac
+    done
+
+    __valetlog-tail "$@"
+}
+
+valetlog "$@"
