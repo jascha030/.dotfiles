@@ -9,21 +9,21 @@ local M = {
         'ray-x/lsp_signature.nvim',
         'folke/neodev.nvim',
         'folke/neoconf.nvim',
-    {
-        'nvimdev/lspsaga.nvim',
-        dependencies = { 'nvim-treesitter/nvim-treesitter' },
-        lazy = true,
-        opts = {
-            ui = { border = BORDER },
-            lightbulb = { enable = false },
+        {
+            'nvimdev/lspsaga.nvim',
+            dependencies = { 'nvim-treesitter/nvim-treesitter' },
+            lazy = true,
+            opts = {
+                ui = { border = BORDER },
+                lightbulb = { enable = false },
+            },
         },
-    },
-    {
-        'simrat39/rust-tools.nvim',
-        ft = 'rs',
-        dependencies = { 'rust-lang/rust.vim' },
-        lazy = true,
-    },
+        {
+            'simrat39/rust-tools.nvim',
+            ft = 'rs',
+            dependencies = { 'rust-lang/rust.vim' },
+            lazy = true,
+        },
     },
     opts = {
         diagnostics = {
