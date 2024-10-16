@@ -17,6 +17,7 @@ local M = {
             prompt_prefix = '   ',
             color_devicons = true,
             use_less = true,
+            scroll_strategy = 'limit',
         },
         pickers = {
             find_files = {

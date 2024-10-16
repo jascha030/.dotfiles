@@ -55,6 +55,8 @@ function M.setup(opts)
     require('jascha030.core.keymaps').set_keymaps(Config.get('keymaps'))
     require('jascha030.core.options').set_opts(Config.get('opts'))
 
+    vim.keymap.set('', '<Esc>', '<cmd>noh<cr>', { desc = "clears search highlights", noremap = true, silent = true })
+
     vim.cmd([[
 		let &t_TI = "\<Esc>[>4;2m"
 		let &t_TE = "\<Esc>[>4;m"
