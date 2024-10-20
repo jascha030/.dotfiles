@@ -171,7 +171,7 @@ $excludeDirs = [
 /**
  * Root directory.
  */
-$root = __DIR__;
+$root = getcwd();
 
 /**
  * Cache dir and file location.
@@ -182,7 +182,7 @@ $cacheFile      = "{$cacheDirectory}/.php-cs-fixer.cache";
 /**
  * Create a .cache dir if not already present.
  */
-if (!file_exists($cacheDirectory) && !mkdir($cacheDirectory, 0700, true) && !is_dir($cacheDirectory)) {
+if (! file_exists($cacheDirectory) && !mkdir($cacheDirectory, 0700, true) && !is_dir($cacheDirectory)) {
     throw new RuntimeException(sprintf('Directory "%s" was not created', $cacheDirectory));
 }
 
