@@ -2,6 +2,7 @@
 bun = "latest"
 node = "lts"
 pnpm = "9"
+usage = "latest"
 
 [settings]
 cargo_binstall = true
