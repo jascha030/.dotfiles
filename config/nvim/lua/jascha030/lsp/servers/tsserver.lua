@@ -17,6 +17,7 @@ return function()
         includeInlayEnumMemberValueHints = true,
     }
 
+    ---@type lspconfig.options.tsserver
     return {
         root_dir = function(filename, _)
             return util.find_git_ancestor(filename)
