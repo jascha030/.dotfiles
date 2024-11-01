@@ -14,7 +14,6 @@ local M = {
                 'black',
                 'blade-formatter',
                 'css-lsp',
-                'eslint-lsp',
                 'eslint_d',
                 'flake8',
                 'html-lsp',
