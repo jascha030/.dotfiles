@@ -60,7 +60,7 @@ export DOT_AFTER_INIT_SOURCES=(
     ${ZDOTDIR}/overrides
     ${ZDOTDIR}/fzf
     ${HOME}/.bun/_bun
-    ${HOME}"/.env.local"
+    ${HOME}"/env.local"
 )
 
 BREW_HOME=/opt/homebrew/opt
