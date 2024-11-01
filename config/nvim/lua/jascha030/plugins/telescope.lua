@@ -1,10 +1,12 @@
+local actions = lreq('telescope.actions')
+
 ---@type LazyPluginSpec
 local M = {
     'nvim-telescope/telescope.nvim',
     dependencies = {
         { 'nvim-lua/popup.nvim' },
         { 'nvim-lua/plenary.nvim' },
-        { 'nvim-telescope/telescope-fzy-native.nvim', build = 'make' },
+        { 'nvim-telescope/telescope-fzy-native.nvim',  build = 'make' },
         { 'nvim-telescope/telescope-ui-select.nvim' },
         { 'nvim-telescope/telescope-file-browser.nvim' },
         { 'nvim-telescope/telescope-fzy-native.nvim' },
@@ -18,6 +20,35 @@ local M = {
             color_devicons = true,
             use_less = true,
             scroll_strategy = 'limit',
+            mappings = {
+                i = {
+                    ["<C-j>"] = {
+                        actions.move_selection_next,
+                        type = "action",
+                        opts = { nowait = true, silent = true }
+                    },
+                    ['<C-k>'] = {
+                        actions.move_selection_previous,
+                        type = "action",
+                        opts = { nowait = true, silent = true }
+                    },
+                    ['<C-p>'] = require('telescope.actions.layout').toggle_preview
+                },
+                n = {
+                    ["<C-j>"] = {
+                        actions.preview_scrolling_down,
+                        type = "action",
+                        opts = { nowait = true, silent = true }
+                    },
+                    ['<C-k>'] = {
+                        actions.preview_scrolling_up,
+                        type = "action",
+                        opts = { nowait = true, silent = true }
+                    },
+                    ['pp'] = require('telescope.actions.layout').toggle_preview
+                    -- ['<C-k>'] = require('telescope.actions').prev,
+                },
+            },
         },
         pickers = {
             find_files = {
@@ -65,11 +96,6 @@ function M.config(_, opts)
     opts.defaults.file_previewer = require('telescope.previewers').vim_buffer_cat.new
     opts.defaults.grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new
     opts.defaults.qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new
-
-    opts.defaults.mappings = {
-        n = { ['pp'] = layout.toggle_preview },
-        i = { ['<C-p>'] = layout.toggle_preview },
-    }
 
     telescope.setup(opts)
 
