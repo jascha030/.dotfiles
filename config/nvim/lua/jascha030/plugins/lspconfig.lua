@@ -10,6 +10,13 @@ local M = {
         'folke/neodev.nvim',
         'folke/neoconf.nvim',
         {
+            'yioneko/nvim-vtsls',
+            opts = {},
+            config = function(_, opts)
+                require('vtsls').config(opts)
+            end,
+        },
+        {
             'nvimdev/lspsaga.nvim',
             dependencies = { 'nvim-treesitter/nvim-treesitter' },
             lazy = true,
