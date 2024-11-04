@@ -14,6 +14,7 @@ local M = {
         },
         contrast = true,
     },
+    priority = 1000,
 }
 
 function M.config(_, opts)
