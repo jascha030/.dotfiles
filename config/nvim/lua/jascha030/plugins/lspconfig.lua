@@ -106,6 +106,9 @@ function M.config(_, opts)
                     },
                 })
             end,
+            ts_ls = function()
+                return true
+            end,
             vtsls = function()
                 require('lspconfig.configs').vtsls = require('vtsls').lspconfig
 

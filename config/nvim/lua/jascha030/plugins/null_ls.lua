@@ -13,8 +13,6 @@ local M = {
         'gbprod/none-ls-psalm.nvim',
         'gbprod/none-ls-ecs.nvim',
     },
-    -- event = { 'BufReadPre', 'BufNewFile' }, -- to enable uncomment this
-    -- lazy = true,
 }
 
 function M.opts()
@@ -47,9 +45,9 @@ function M.opts()
     return {
         debug = false,
         sources = {
-            require('none-ls.diagnostics.eslint_d'),
             nls.builtins.completion.spell,
             -- Diagnostics
+            require('none-ls.diagnostics.eslint_d'),
             require('none-ls-luacheck.diagnostics.luacheck').with({
                 condition = function(utils)
                     return utils.root_has_file({ '.luacheckrc' })
@@ -75,10 +73,12 @@ function M.opts()
                     return { '--config=' .. cwd() .. '/.twig-cs-fixer.php', 'lint', '$FILENAME' }
                 end,
             }),
+            require('none-ls-shellcheck.diagnostics'),
             -- Formatting
             require('none-ls.formatting.jq'),
             require('none-ls.formatting.eslint_d'),
             nls.builtins.formatting.stylua.with({
+                -- .with({ extra_args = { '--config-path', fb_conf_path(cwd() .. '/stylua.toml', config_dir .. '/stylua.toml'), }, }),
                 condition = function()
                     return true
                 end,
@@ -91,8 +91,7 @@ function M.opts()
             nls.builtins.formatting.shfmt.with({ filetypes = { 'sh', 'bash' } }),
             nls.builtins.formatting.yamlfix,
             nls.builtins.formatting.yamlfmt.with({ filetypes = { 'yaml' } }),
-            -- .with({ extra_args = { '--config-path', fb_conf_path(cwd() .. '/stylua.toml', config_dir .. '/stylua.toml'), }, }),
-            require('none-ls-shellcheck.diagnostics'),
+            require('none-ls.code_actions.eslint_d'),
             require('none-ls-shellcheck.code_actions'),
         },
     }

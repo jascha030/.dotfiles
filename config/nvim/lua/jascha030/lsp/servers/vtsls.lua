@@ -13,11 +13,6 @@ return function()
 
     ---@type lspconfig.options.vtsls
     local vtsls = {
-        root_dir = function(filename, _)
-            return util.find_git_ancestor(filename)
-                or util.root_pattern('package.json', 'tsconfig.json', 'jsconfig.json')(filename)
-        end,
-
         single_file_support = false,
         settings = {
             vtsls = {
