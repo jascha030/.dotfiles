@@ -89,7 +89,7 @@ function M.on_attach(client, bufnr)
 
     if client.supports_method('textDocument/formatting') then
         self:map('<C-l>', function()
-            vim.print(client)
+            vim.print(client.name)
             require('jascha030.lsp').format(client, bufnr)
         end, { desc = 'Format Document', has = 'documentFormatting' })
     end
