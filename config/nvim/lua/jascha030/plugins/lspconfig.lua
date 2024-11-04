@@ -2,7 +2,6 @@
 ---@type LazyPluginSpec
 local M = {
     'neovim/nvim-lspconfig',
-    -- event = { 'BufReadPre' },
     priority = 70,
     lazy = false,
     dependencies = {
@@ -21,7 +20,6 @@ local M = {
         {
             'nvimdev/lspsaga.nvim',
             dependencies = { 'nvim-treesitter/nvim-treesitter' },
-            lazy = true,
             opts = {
                 ui = { border = BORDER },
                 lightbulb = { enable = false },
@@ -34,26 +32,35 @@ local M = {
             lazy = true,
         },
     },
-    opts = {
-        diagnostics = {
-            signs = true,
-            underline = true,
-            update_in_insert = false,
-            severity_sort = true,
-            virtual_text = {
-                spacing = 4,
-                source = 'if_many',
-                prefix = '●',
+    opts = function(_, opts)
+        ---@class PluginLspOpt
+        local lsp_config = {
+            -- ---@type lspconfig.options
+            -- servers = {
+            --     tsserver = { enabled = false },
+            -- },
+            diagnostics = {
+                signs = true,
+                underline = true,
+                update_in_insert = false,
+                severity_sort = true,
+                virtual_text = {
+                    spacing = 4,
+                    source = 'if_many',
+                    prefix = '●',
+                },
             },
-        },
-        format = {
-            formatting_options = nil,
-            timeout_ms = 10000,
-        },
-        inlay_hints = {
-            enabled = true,
-        },
-    },
+            format = {
+                formatting_options = nil,
+                timeout_ms = 10000,
+            },
+            inlay_hints = {
+                enabled = vim.fn.has('nvim-0.10') == 1,
+            },
+        }
+
+        return lsp_config
+    end,
 }
 
 function M.config(_, opts)
@@ -98,6 +105,11 @@ function M.config(_, opts)
                         },
                     },
                 })
+            end,
+            vtsls = function()
+                require('lspconfig.configs').vtsls = require('vtsls').lspconfig
+
+                lspconfig.vtsls.setup(get_server_config('vtsls'))
             end,
         },
     })

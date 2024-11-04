@@ -1,5 +1,4 @@
 return function()
-    require("lspconfig.configs").vtsls = require("vtsls").lspconfig
     local util = require('lspconfig.util')
 
     ---@type _.lspconfig.settings.vtsls.InlayHints

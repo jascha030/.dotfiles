@@ -23,28 +23,31 @@ return function()
     local lua_ls = {
         settings = {
             Lua = {
-                workspace = {
-                    checkThirdParty = true,
+                completion = {
+                    callSnippet = 'Replace',
                 },
-                hint = {
-                    enable = true,
-                    setType = true,
-                    arrayIndex = 'Disable',
-                },
-                format = {
-                    enable = false,
-                },
-                telemetry = {
-                    enable = false,
-                },
-                diagnostics = {
-                    globals = globals(),
-                },
-                runtime = {
-                    special = {
-                        ['lreq'] = 'require',
-                    },
-                },
+                -- workspace = {
+                --     checkThirdParty = true,
+                -- },
+                -- hint = {
+                --     enable = true,
+                --     setType = true,
+                --     arrayIndex = 'Disable',
+                -- },
+                -- format = {
+                --     enable = false,
+                -- },
+                -- telemetry = {
+                --     enable = false,
+                -- },
+                -- diagnostics = {
+                --     globals = globals(),
+                -- },
+                -- runtime = {
+                --     special = {
+                --         ['lreq'] = 'require',
+                --     },
+                -- },
             },
         },
     }
