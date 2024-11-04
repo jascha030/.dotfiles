@@ -1,6 +1,8 @@
 ---@type LazyPluginSpec
 local M = {
     'folke/neodev.nvim',
+    priority = 10,
+    lazy = false,
     config = function()
         local util = require('neodev.util')
         require('neodev').setup({

@@ -1,8 +1,10 @@
+---@diagnostic disable: missing-fields
 ---@type LazyPluginSpec
 local M = {
     'neovim/nvim-lspconfig',
     -- event = { 'BufReadPre' },
-    after = { 'neoconf' },
+    priority = 70,
+    lazy = false,
     dependencies = {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
