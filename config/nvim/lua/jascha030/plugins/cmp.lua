@@ -5,11 +5,14 @@ local M = {
     dependencies = {
         'neovim/nvim-lspconfig',
         'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-nvim-lsp-document-symbol',
+        'hrsh7th/cmp-nvim-lsp-signature-help',
         'hrsh7th/cmp-path',
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-vsnip',
         'hrsh7th/cmp-cmdline',
         'hrsh7th/cmp-nvim-lua',
+        'JMarkin/cmp-diag-codes',
         'ray-x/cmp-treesitter',
         'saadparwaiz1/cmp_luasnip',
         'ncm2/ncm2',
@@ -32,6 +35,7 @@ local M = {
             { name = 'treesitter', priority_weight = 80 },
             { name = 'luasnip', priority_weight = 60 },
             { name = 'buffer', max_item_count = 3, priority_weight = 60 },
+            { name = 'diag-codes', priority_weight = 50, option = { in_comment = true } },
         },
     },
 }
@@ -121,6 +125,13 @@ function M.config(_, opts)
         experimental = {
             ghost_text = false,
             native_menu = false,
+        },
+    })
+
+    cmp.setup.cmdline('/', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+            { name = 'buffer' },
         },
     })
 end
