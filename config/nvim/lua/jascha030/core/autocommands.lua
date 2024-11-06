@@ -23,7 +23,7 @@ function M.nvim_create_augroups_legacy(definitions)
         vim.api.nvim_command('autocmd!')
 
         for _, def in ipairs(definition) do
-            local command = table.concat(vim.tbl_flatten({ 'autocmd', def }), ' ')
+            local command = table.concat(vim.iter({ 'autocmd', def }):flatten():totable(), ' ')
             vim.api.nvim_command(command)
         end
 
