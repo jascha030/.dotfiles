@@ -85,6 +85,7 @@ path=(
     ${HOME}/.local/share/rtx/shims
     ${HOME}/.local/share/nvim/mason/bin
     ${HOME}/.development/Projects/Php/Wordpress/vip/allegion-cli/bin
+    /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp
     ${path[@]}
 ); typeset -aU path
 

@@ -1,3 +1,16 @@
+local SERVERS = {
+    'angularls',
+    'bashls',
+    'intelephense',
+    'jsonls',
+    'lua_ls',
+    'marksman',
+    'phpactor',
+    'rust_analyzer',
+    -- 'sourcekit',
+    'tailwindcss',
+}
+
 ---@diagnostic disable: missing-fields
 ---@type LazyPluginSpec
 local M = {
@@ -36,9 +49,24 @@ local M = {
         ---@class PluginLspOpt
         local lsp_config = {
             -- ---@type lspconfig.options
-            -- servers = {
-            --     tsserver = { enabled = false },
-            -- },
+            ensure_installed = SERVERS,
+            servers = {
+                sourcekit = function()
+                    local lspconfig = require('lspconfig')
+                    lspconfig.sourcekit.setup({
+                        cmd = { 'xcrun', 'sourcekit-lsp' },
+                        filetypes = { 'swift', 'c', 'cpp', 'objective-c', 'objective-cpp' },
+                        root_dir = require('lspconfig/util').root_pattern('Package.swift', '.git'),
+                        capabilities = {
+                            workspace = {
+                                didChangeWatchedFiles = {
+                                    dynamicRegistration = true,
+                                },
+                            },
+                        },
+                    })
+                end,
+            },
             diagnostics = {
                 signs = true,
                 underline = true,
@@ -67,20 +95,13 @@ function M.config(_, opts)
     local lspconfig = require('lspconfig')
     local get_server_config = require('jascha030.lsp.config').get_server_config
 
+    -- For some reason this one is not available through Mason, so we have to do it manually.
+    opts.servers.sourcekit()
+
     require('lspconfig.ui.windows').default_options.border = BORDER
     require('mason-lspconfig').setup({
         automatic_installation = true,
-        ensure_installed = {
-            'angularls',
-            'bashls',
-            'intelephense',
-            'jsonls',
-            'lua_ls',
-            'marksman',
-            'phpactor',
-            'rust_analyzer',
-            'tailwindcss',
-        },
+        ensure_installed = SERVERS,
         handlers = {
             function(server)
                 -- Resolve before calling setup, enables pre-setup logic to run if server_config returns function.
