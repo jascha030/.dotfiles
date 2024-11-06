@@ -214,6 +214,3 @@ require('lazy').setup({
     },
     { import = 'jascha030.plugins' },
 }, lazy_opts)
-
--- Fix for the fact that n is bound to q, and I can't seem to find the source of this... :thinking_emoji:
-vim.keymap.set('n', 'n', 'n')
