@@ -43,10 +43,6 @@ local M = {
             ft = 'query',
         },
         {
-            'nvim-treesitter/playground',
-            cmd = 'TSPlaygroundToggle',
-        },
-        {
             'bleksak/treesitter-neon',
             ft = 'neon',
         },
@@ -60,13 +56,14 @@ local M = {
         sync_install = true,
         ensure_installed = {
             'bash',
+            'blade',
             -- 'comment',
             'commonlisp',
             'css',
-            'gitattributes',
             'git_config',
-            'gitignore',
+            'gitattributes',
             'gitcommit',
+            'gitignore',
             'javascript',
             'json',
             'json5',
@@ -87,9 +84,7 @@ local M = {
             'vim',
             'vimdoc',
             'yaml',
-            'blade',
         },
-        playground = { enable = true },
         query_linter = {
             enable = true,
             use_virtual_text = true,
@@ -98,10 +93,9 @@ local M = {
         highlight = {
             enable = true,
             disable = function(lang, bufnr)
-                return (
-                    require('jascha030.utils.buffer').is_huge({ bufnr = bufnr })
-                    or vim.tbl_contains(HIGHLIGHTING_DISABLED, lang)
-                )
+                local is_huge = require('jascha030.utils.buffer').is_huge
+
+                return (vim.tbl_contains(HIGHLIGHTING_DISABLED, lang) or is_huge({ bufnr = bufnr }))
             end,
             use_languagetree = true,
             additional_vim_regex_highlighting = HIGHLIGHTING_ADD_VIM_REGEX,
