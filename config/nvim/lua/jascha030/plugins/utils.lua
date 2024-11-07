@@ -1,7 +1,7 @@
-return {
-    'wakatime/vim-wakatime',
-    'f-person/git-blame.nvim',
-    { 'gbprod/phpactor.nvim', ft = 'php' },
+---@type LazyPluginSpec[]
+local M = {
+    { 'wakatime/vim-wakatime' },
+    { 'f-person/git-blame.nvim' },
     {
         'lvimuser/lsp-inlayhints.nvim',
         opts = {
@@ -31,7 +31,6 @@ return {
     },
     { 'chr4/nginx.vim', ft = 'nginx' },
     { 'b0o/schemastore.nvim', ft = { 'json', 'yaml', 'yml' } },
-
     {
         'ojroques/vim-oscyank',
         cmd = {
@@ -94,4 +93,7 @@ return {
         'ziontee113/icon-picker.nvim',
         cond = false,
     },
+    { 'justinsgithub/wezterm-types' },
 }
+
+return M
