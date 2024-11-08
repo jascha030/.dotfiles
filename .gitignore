@@ -32,4 +32,5 @@
 **.cache
 **.BAK
 **.bak
-SOURCES.md
+/*.md
+!/README.md
