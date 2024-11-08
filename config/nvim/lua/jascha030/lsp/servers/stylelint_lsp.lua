@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 return {
     filetypes = {
         'css',
@@ -12,6 +13,7 @@ return {
         -- 'typescriptreact',
     },
     settings = {
+        ---@type _.lspconfig.settings.stylelint_lsp.Stylelintplus
         stylelintplus = {},
     },
 }

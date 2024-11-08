@@ -19,7 +19,7 @@ return function()
         return ret
     end
 
-    ---@type lspconfig.options.lua_ls
+    ---@type lspconfig.settings.lua_ls
     local lua_ls = {
         settings = {
             Lua = {
