@@ -25,10 +25,7 @@ local M = {
         'folke/neoconf.nvim',
         {
             'yioneko/nvim-vtsls',
-            opts = {},
-            config = function(_, opts)
-                require('vtsls').config(opts)
-            end,
+            -- config = true,
         },
         {
             'nvimdev/lspsaga.nvim',
@@ -54,9 +51,18 @@ local M = {
                 sourcekit = function()
                     local lspconfig = require('lspconfig')
                     lspconfig.sourcekit.setup({
-                        cmd = { 'xcrun', 'sourcekit-lsp' },
-                        filetypes = { 'swift', 'c', 'cpp', 'objective-c', 'objective-cpp' },
-                        root_dir = require('lspconfig/util').root_pattern('Package.swift', '.git'),
+                        cmd = {
+                            'xcrun',
+                            'sourcekit-lsp',
+                        },
+                        filetypes = {
+                            'swift',
+                            'c',
+                            'cpp',
+                            'objective-c',
+                            'objective-cpp',
+                        },
+                        root_dir = require('lspconfig.util').root_pattern('Package.swift', '.git'),
                         capabilities = {
                             workspace = {
                                 didChangeWatchedFiles = {
@@ -66,6 +72,11 @@ local M = {
                         },
                     })
                 end,
+            },
+            setup = {
+                -- tsserver = function()
+                --     return true
+                -- end,
             },
             diagnostics = {
                 signs = true,
@@ -78,10 +89,10 @@ local M = {
                     prefix = '●',
                 },
             },
-            format = {
-                formatting_options = nil,
-                timeout_ms = 10000,
-            },
+            -- format = {
+            --     formatting_options = nil,
+            --     timeout_ms = 10000,
+            -- },
             inlay_hints = {
                 enabled = vim.fn.has('nvim-0.10') == 1,
             },
@@ -97,6 +108,7 @@ function M.config(_, opts)
 
     -- For some reason this one is not available through Mason, so we have to do it manually.
     opts.servers.sourcekit()
+    require('lspconfig.configs').vtsls = require('vtsls').lspconfig
 
     require('lspconfig.ui.windows').default_options.border = BORDER
     require('mason-lspconfig').setup({
@@ -127,14 +139,9 @@ function M.config(_, opts)
                     },
                 })
             end,
-            ts_ls = function()
-                return true
-            end,
-            vtsls = function()
-                require('lspconfig.configs').vtsls = require('vtsls').lspconfig
-
-                lspconfig.vtsls.setup(get_server_config('vtsls'))
-            end,
+            -- vtsls = function()
+            --     lspconfig.vtsls.setup(get_server_config('vtsls'))
+            -- end,
         },
     })
 
