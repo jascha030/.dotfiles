@@ -1,4 +1,6 @@
-return {
+---@diagnostic disable: missing-fields
+---@type lspconfig.options.bashls
+local bashls = {
     filetypes = {
         'bash',
         'sh',
@@ -6,3 +8,5 @@ return {
     },
     single_file_support = true,
 }
+
+return bashls

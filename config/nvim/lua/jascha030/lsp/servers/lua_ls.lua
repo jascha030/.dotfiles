@@ -19,7 +19,7 @@ return function()
         return ret
     end
 
-    ---@type lspconfig.settings.lua_ls
+    ---@type lspconfig.options.lua_ls
     local lua_ls = {
         settings = {
             Lua = {
@@ -43,11 +43,11 @@ return function()
                 -- diagnostics = {
                 --     globals = globals(),
                 -- },
-                -- runtime = {
-                --     special = {
-                --         ['lreq'] = 'require',
-                --     },
-                -- },
+                runtime = {
+                    special = {
+                        ['lreq'] = 'require',
+                    },
+                },
             },
         },
     }

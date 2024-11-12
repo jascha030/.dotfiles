@@ -1,5 +1,6 @@
 ---@diagnostic disable: missing-fields
-return {
+---@type lspconfig.options.stylelint_lsp
+local stylelint_lsp = {
     filetypes = {
         'css',
         'less',
@@ -7,13 +8,11 @@ return {
         'sugarss',
         'vue',
         'wxss',
-        -- 'javascript',
-        -- 'javascriptreact',
-        -- 'typescript',
-        -- 'typescriptreact',
     },
+    ---@type lspconfig.settings.stylelint_lsp
     settings = {
-        ---@type _.lspconfig.settings.stylelint_lsp.Stylelintplus
         stylelintplus = {},
     },
 }
+
+return stylelint_lsp
