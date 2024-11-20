@@ -72,6 +72,10 @@ function M.opts()
                     return { '--config=' .. cwd() .. '/.twig-cs-fixer.php', 'lint', '$FILENAME' }
                 end,
             }),
+            nls.builtins.formatting.prettier.with({
+                extra_filetypes = { 'svelte' },
+                extra_args = { '--tab-width', '2' },
+            }),
             require('none-ls-shellcheck.diagnostics').with({
                 filetypes = { 'bash' },
             }),
