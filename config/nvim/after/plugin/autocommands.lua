@@ -13,7 +13,6 @@ vim.cmd([[
     autocmd BufRead,BufNewFile gitignore_global,*.*ignore set ft=gitignore
     autocmd BufRead,BufNewFile *.gitattributes set ft=gitattributes
     autocmd BufRead,BufNewFile *.gitconfig,gitconfig set ft=gitconfig
-    " autocmd BufRead,BufNewFile *.md set ft=markdown
     " JSON
     autocmd BufRead,BufNewFile Deployfile set ft=json
     autocmd BufRead,BufNewFile *.json.dist set ft=json
@@ -25,11 +24,13 @@ vim.cmd([[
     autocmd BufRead,BufNewFile */.config/valet/Nginx/* set ft=nginx
     " ZSH
     autocmd BufRead,BufNewFile *.antigenrc set ft=zsh
-    autocmd BufRead,BufNewFile .zsh* set ft=zsh 
+    autocmd BufRead,BufNewFile .zsh* set ft=zsh
     " Neon
     autocmd BufRead,BufNewFile *.neon,*.neon.dist set ft=neon
     " INI
     autocmd BufRead,BufNewFile *.ini set ft=ini
+    " PHP 
     autocmd BufRead,BufNewFile composer.json,.phpactor.json set tabstop=4 | set shiftwidth=4 | set expandtab | set softtabstop=4
+    autocmd BufRead,BufNewFile composer.lock set ft=json
   augroup end
 ]])
