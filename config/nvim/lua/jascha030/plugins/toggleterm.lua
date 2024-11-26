@@ -94,10 +94,6 @@ function M.config(_, opts)
     map('n', '<leader>fl', function()
         tterm_fpmlog()
     end, silent_opts)
-
-    map('n', '<leader>g', function()
-        tterm_lazygit()
-    end, silent_opts)
 end
 
 return M
