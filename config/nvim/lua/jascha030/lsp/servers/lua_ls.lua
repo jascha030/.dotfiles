@@ -34,9 +34,9 @@ return function()
                 --     setType = true,
                 --     arrayIndex = 'Disable',
                 -- },
-                -- format = {
-                --     enable = false,
-                -- },
+                format = {
+                    enable = false,
+                },
                 -- telemetry = {
                 --     enable = false,
                 -- },
