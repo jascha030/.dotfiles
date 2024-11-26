@@ -73,6 +73,7 @@ function M.opts()
                 end,
             }),
             nls.builtins.formatting.prettier.with({
+                filetypes = { 'typescript', 'javascript' },
                 extra_filetypes = { 'svelte' },
                 extra_args = { '--tab-width', '2' },
             }),
