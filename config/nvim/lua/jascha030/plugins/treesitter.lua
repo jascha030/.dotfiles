@@ -51,107 +51,115 @@ local M = {
             ft = 'log',
         },
     },
-    opts = {
-        auto_install = has_uis,
-        sync_install = true,
-        ensure_installed = {
-            'bash',
-            'blade',
-            -- 'comment',
-            'commonlisp',
-            'css',
-            'git_config',
-            'gitattributes',
-            'gitcommit',
-            'gitignore',
-            'javascript',
-            'json',
-            'json5',
-            'jsonc',
-            'lua',
-            'markdown',
-            'markdown_inline',
-            'ocaml',
-            'ocaml_interface',
-            'php',
-            'phpdoc',
-            'python',
-            'query',
-            'regex',
-            'swift',
-            'toml',
-            'typescript',
-            'vim',
-            'vimdoc',
-            'yaml',
-        },
-        query_linter = {
-            enable = true,
-            use_virtual_text = true,
-        },
-        indent = { enable = true },
-        highlight = {
-            enable = true,
-            disable = function(lang, bufnr)
-                local is_huge = require('jascha030.utils.buffer').is_huge
+    opts = function()
+        ---@type TSConfig
+        local ts_config = {
+            auto_install = has_uis,
+            sync_install = true,
+            ensure_installed = {
+                'bash',
+                'blade',
+                'comment',
+                'commonlisp',
+                'css',
+                'git_config',
+                'gitattributes',
+                'gitcommit',
+                'gitignore',
+                'javascript',
+                'json',
+                'json5',
+                'jsonc',
+                'lua',
+                'markdown',
+                'markdown_inline',
+                'ocaml',
+                'ocaml_interface',
+                'php',
+                'phpdoc',
+                'python',
+                'query',
+                'regex',
+                'swift',
+                'html',
+                'xml',
+                'scss',
+                'toml',
+                'typescript',
+                'vim',
+                'vimdoc',
+                'yaml',
+            },
+            query_linter = {
+                enable = true,
+                use_virtual_text = true,
+            },
+            indent = { enable = true },
+            highlight = {
+                enable = true,
+                disable = function(lang, bufnr)
+                    local is_huge = require('jascha030.utils.buffer').is_huge
 
-                return (vim.tbl_contains(HIGHLIGHTING_DISABLED, lang) or is_huge({ bufnr = bufnr }))
-            end,
-            use_languagetree = true,
-            additional_vim_regex_highlighting = HIGHLIGHTING_ADD_VIM_REGEX,
-        },
-        rainbow = {
-            enable = false,
-            extended_mode = true,
-            max_file_lines = 1000,
-        },
-        incremental_selection = {
-            enable = true,
-            keymaps = {
-                init_selection = '<cr>',
-                node_incremental = '<cr>',
-                scope_incremental = false,
-                node_decremental = '<bs>',
+                    return (is_huge({ bufnr = bufnr }) or vim.tbl_contains(HIGHLIGHTING_DISABLED, lang))
+                end,
+                use_languagetree = true,
+                additional_vim_regex_highlighting = HIGHLIGHTING_ADD_VIM_REGEX,
             },
-        },
-        textobjects = {
-            ['aa'] = '@parameters.outer',
-            ['ia'] = '@parameters.inner',
-            ['af'] = '@function.outer',
-            ['if'] = '@function.inner',
-            ['ac'] = '@class.outer',
-            ['ic'] = '@class.inner',
-        },
-        move = {
-            enable = true,
-            set_jumps = true,
-            goto_next_start = {
-                [']m'] = '@function.outer',
-                [']]'] = '@class.outer',
+            rainbow = {
+                enable = false,
+                extended_mode = true,
+                max_file_lines = 1000,
             },
-            goto_next_end = {
-                [']M'] = '@function.outer',
-                [']['] = '@class.outer',
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = '<cr>',
+                    node_incremental = '<cr>',
+                    scope_incremental = false,
+                    node_decremental = '<bs>',
+                },
             },
-            goto_previous_start = {
-                ['[m'] = '@function.outer',
-                ['[['] = '@class.outer',
+            textobjects = {
+                ['aa'] = '@parameters.outer',
+                ['ia'] = '@parameters.inner',
+                ['af'] = '@function.outer',
+                ['if'] = '@function.inner',
+                ['ac'] = '@class.outer',
+                ['ic'] = '@class.inner',
             },
-            goto_previous_end = {
-                ['[M'] = '@function.outer',
-                ['[]'] = '@class.outer',
+            move = {
+                enable = true,
+                set_jumps = true,
+                goto_next_start = {
+                    [']m'] = '@function.outer',
+                    [']]'] = '@class.outer',
+                },
+                goto_next_end = {
+                    [']M'] = '@function.outer',
+                    [']['] = '@class.outer',
+                },
+                goto_previous_start = {
+                    ['[m'] = '@function.outer',
+                    ['[['] = '@class.outer',
+                },
+                goto_previous_end = {
+                    ['[M'] = '@function.outer',
+                    ['[]'] = '@class.outer',
+                },
             },
-        },
-        swap = {
-            enable = true,
-            swap_next = {
-                ['<leader>a'] = '@parameter.inner',
+            swap = {
+                enable = true,
+                swap_next = {
+                    ['<leader>a'] = '@parameter.inner',
+                },
+                swap_previous = {
+                    ['<leader>A'] = '@parameter.inner',
+                },
             },
-            swap_previous = {
-                ['<leader>A'] = '@parameter.inner',
-            },
-        },
-    },
+        }
+
+        return ts_config;
+    end,
 }
 
 function M.config(_, opts)
