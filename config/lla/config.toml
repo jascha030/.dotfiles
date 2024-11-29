@@ -1,0 +1,5 @@
+default_sort = "name"
+default_format = "default"
+enabled_plugins = []
+plugins_dir = "/Users/jaschavanaalst/.config/lla/plugins"
+default_depth = 3
