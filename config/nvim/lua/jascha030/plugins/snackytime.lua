@@ -1,3 +1,7 @@
+local NOTIFICATION_FILTERS = {
+    '[Neo-tree INFO]',
+}
+
 ---@type LazyPluginSpec
 local M = {
     'folke/snacks.nvim',
@@ -7,12 +11,11 @@ local M = {
     opts = {
         dashboard = { enabled = false },
         bigfile = { enabled = true },
-        notifier = { enabled = true },
+        notifier = { enabled = false },
         quickfile = { enabled = true },
         words = { enabled = false },
         statuscolumn = { enabled = false },
     },
-    --- stylua: ignore-start
     keys = {
         {
             '<leader>un',
@@ -29,7 +32,7 @@ local M = {
             desc = 'Delete Buffer',
         },
         {
-            '<leader>g',
+            '<leader>lg',
             function()
                 Snacks.lazygit()
             end,
@@ -73,9 +76,7 @@ local M = {
         {
             '<leader>tf',
             function()
-                Snacks.terminal({
-                    cmd = '/bin/zsh --login',
-                })
+                Snacks.terminal({ cmd = '/bin/zsh --login' })
             end,
             desc = 'Toggle Terminal',
         },
@@ -116,8 +117,42 @@ local M = {
             end,
         },
     },
-    --- stylua: ignore-end
 }
+
+function M.config(_, opts)
+    local vim_notify = vim.notify
+    require('snacks').setup(opts)
+
+    local function _notify_filter(msg)
+        for i = 1, #NOTIFICATION_FILTERS do
+            -- stylua: ignore
+            if string.find(msg, NOTIFICATION_FILTERS[i]) then return true end
+        end
+
+        return false
+    end
+
+    -- Custom vim.notify override
+    ---@param msg string
+    ---@param lvl number
+    ---@param o table
+    ---@see vim.notify
+    local function _custom_notify(msg, lvl, o)
+        vim.notify = Snacks.notifier.notify
+
+        if lvl == vim.log.levels.INFO then
+            return vim_notify(msg, lvl, o)
+        end
+
+        if _notify_filter(msg) then
+            return vim_notify(msg, lvl, o)
+        end
+
+        return Snacks.notifier.notify(msg, lvl, o)
+    end
+
+    vim.notify = _custom_notify
+end
 
 function M.init()
     vim.api.nvim_create_autocmd('User', {
