@@ -76,9 +76,23 @@ local M = {
         {
             '<leader>tf',
             function()
-                Snacks.terminal({ cmd = '/bin/zsh --login' })
+                Snacks.terminal('/bin/zsh --login', {
+                    win = {
+                        position = 'float',
+                        border = BORDER,
+                    },
+                })
             end,
-            desc = 'Toggle Terminal',
+            desc = 'Toggle Terminal (Float)',
+        },
+        {
+            '<leader>tb',
+            function()
+                Snacks.terminal('/bin/zsh --login', {
+                    win = { position = 'bottom' },
+                })
+            end,
+            desc = 'Toggle terminal (Bottom)',
         },
         {
             '<c-_>',
