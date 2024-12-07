@@ -195,23 +195,3 @@ function M.init()
 end
 
 return M
-
--- return M({
---     'folke/snacks.nvim',
---     priority = 1000,
---     lazy = false,
---     opts = {
---         notifier = {
---             enabled = true,
---             timeout = 3000,
---         },
---         quickfile = { enabled = true },
---         statuscolumn = { enabled = true },
---         words = { enabled = true },
---         styles = {
---             notification = {
---                 wo = { wrap = true }, -- Wrap notifications
---             },
---         },
---     },
--- })
