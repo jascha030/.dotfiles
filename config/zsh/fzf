@@ -4,18 +4,8 @@
 
 export _FZF_DEFAULT_OPTS="--info=inline --border --padding=1 --margin=2"
 export FZF_COMPLETION_OPTS="--info=inline --border --padding=1 --margin=2"
-
-export __FZF_DARK=$_FZF_DEFAULT_OPTS'
---color=fg:#c8d3f5,hl:#5f5fec
---color=fg+:#fffcfc,bg+:#32466e,hl+:#0083f7
---color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00
---color=marker:#ea1479,spinner:#5f5fec,header:#465182,border:#c8d3f5'
-
-export __FZF_LIGHT=$_FZF_DEFAULT_OPTS'
---color=fg:#444a73,hl:#5f5fec
---color=fg+:#fffcfc,bg+:#c8d3f5,hl+:#0083f7
---color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00
---color=marker:#ea1479,spinner:#5f5fec,header:#0083f7,border:#444a73'
+export __FZF_DARK=$_FZF_DEFAULT_OPTS' --color=fg:#c8d3f5,hl:#5f5fec --color=fg+:#fffcfc,bg+:#32466e,hl+:#0083f7 --color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00 --color=marker:#ea1479,spinner:#5f5fec,header:#465182,border:#c8d3f5'
+export __FZF_LIGHT=$_FZF_DEFAULT_OPTS' --color=fg:#444a73,hl:#5f5fec --color=fg+:#fffcfc,bg+:#c8d3f5,hl+:#0083f7 --color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00 --color=marker:#ea1479,spinner:#5f5fec,header:#0083f7,border:#444a73'
 
 __fzf_update_theme() {
     if [[ "$(is_dark)" -eq 1 ]]; then
@@ -26,6 +16,7 @@ __fzf_update_theme() {
 }
 
 export FZF_DEFAULT_OPTS=$(__fzf_update_theme)
+export FZF_COMPLETION_OPTS=$(__fzf_update_theme)
 
 # Setup fzf
 if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then

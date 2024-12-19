@@ -25,8 +25,12 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*:git-checkout:*' sort false                                # disable sort on `git checkout`
 zstyle ':completion:*:descriptions' format '[%d]'                               # set descr fmt to enable group support
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}                           # set enable filename colorizing
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'   # preview dir content with exa for cd
-zstyle ':fzf-tab:*' switch-group ',' '.'                                        # switch group using `,` and `.`
+zstyle ':completion:*' menu no                                                  # force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'   # preview dir content with exa for cd
+zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2                                # --bind=tab:accept
+zstyle ':fzf-tab:*' use-fzf-default-opts yes                                    # To make fzf-tab follow FZF_DEFAULT_OPTS.
+zstyle ':fzf-tab:*' switch-group ',' '.'
+# zstyle ':fzf-tab:*' switch-group '<' '>'                                      # switch group using `,` and `.`
 
 export ZSH_HIGHLIGHT_STYLES
 typeset -A ZSH_HIGHLIGHT_STYLES=(
