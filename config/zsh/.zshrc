@@ -12,7 +12,7 @@ fi
 
 #- FIX: If term is not nvim, apply Hacky fix when first window of wezterm messes up lolmsg placement.-----------------#
 if ! (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )); then
-    [[ "$TERM_PROGRAM" == "WezTerm" ]] && (( LINES == 24 )) && { until (( LINES > 24 )); do exec zsh -l; done; }
+    [[ "$TERM_PROGRAM" == "WezTerm" ]] && (( LINES == 24 )) && { until (( LINES >= 24 )); do exec zsh -l; done; }
 fi
 
 #- Dotfiles start here. ----------------------------------------------------------------------------------------------#
