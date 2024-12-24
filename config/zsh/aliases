@@ -51,8 +51,10 @@ alias valetr='valetrm && valet restart'
 alias vo='valet open'
 alias cpconf:bamarni="composer config extra.bamarni-bin.bin-links --json true && vomposer config extra.bamarni-bin.forward-command --json true"
 #- WP Development ----------------------------------------------------------------------------------------------------#
-alias wpuser:create='wp --skip-plugins --skip-themes user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
-alias wpuser:update='wp --skip-plugins --skip-themes user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
+# alias wpuser:create='wp --skip-plugins --skip-themes user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
+alias wpuser:create='wpuser create'
+# alias wpuser:update='wp --skip-plugins --skip-themes user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
+alias wpuser:update='wpuser update'
 alias wpenv:user:create='wp-env run cli wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpenv:user:update='wp-env run cli wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
 alias wpconfig:new='wp-config-new-db'

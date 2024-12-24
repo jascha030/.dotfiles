@@ -1,0 +1,169 @@
+#!/usr/bin/env bash
+
+cmd=${0##*/}
+version='1.0.0'
+
+USER_EMAIL="${WP_USER_DEFAULT_EMAIL:-'admin@admin.test'}"
+USER_PASSWORD="${WP_USER_DEFAULT_PASSWORD:-test123}"
+
+__wpuser_echo() {
+    command printf %b\\n "$*" 2>/dev/null
+}
+
+__wpuser_help() {
+    if [ -z "$1" ]; then
+        __wpuser_header
+        __wpuser_usage
+        return
+    fi
+
+    case $1 in
+    'create')
+        __wpuser_echo "Create a wp admin on the current environment using wp cli."
+        __wpuser_echo ""
+        __wpuser_echo "Usage:"
+        __wpuser_echo "${cmd} \e[0;36mcreate\e[0m"
+        __wpuser_echo ""
+        __wpuser_echo "Options:"
+        __wpuser_echo "  \e[0;92m-u <USER>\e[0m The email address of the user to create."
+        __wpuser_echo "  \e[0;92m-p <PASSWORD>\e[0m The password for the user to create."
+        __wpuser_echo "  \e[0;92m-n\e[0m Disable fallback to wpuser create when an error occurs."
+        ;;
+    'update')
+        __wpuser_echo "Update a wp admin on the current environment using wp cli."
+        __wpuser_echo ""
+        __wpuser_echo "Usage:"
+        __wpuser_echo "${cmd} \e[0;36mupdate\e[0m"
+        __wpuser_echo ""
+        __wpuser_echo "Options:"
+        __wpuser_echo "  \e[0;92m-u <USER>\e[0m The email address of the user to update."
+        __wpuser_echo "  \e[0;92m-p <PASSWORD>\e[0m The password for the user to update."
+        __wpuser_echo "  \e[0;92m-n\e[0m Disable fallback to wpuser create when an error occurs."
+        ;;
+    *)
+        __wpuser_echo "\e[0;31mERROR: ${cmd} $1 is not a valid command\e[0m"
+        __wpuser_usage
+        ;;
+    esac
+}
+__wpuser_usage() {
+    __wpuser_echo "Usage:"
+    __wpuser_echo "${cmd} \e[0;36m[-h|--help]\e[0m \e[0;92m<command>\e[0m"
+    __wpuser_echo ""
+    __wpuser_echo "Commands:"
+    __wpuser_echo "  \e[0;92mhelp\e[0m   Show this help message."
+    __wpuser_echo "  \e[0;92mcreate\e[0m Create default user."
+    __wpuser_echo "  \e[0;92mupdate\e[0m Update default user password and role."
+}
+
+__wpuser_header() {
+    __wpuser_echo "\e[0;35m___      _________     ____  _____________________ \e[0m"
+    __wpuser_echo "\e[0;35m__ | /| / /__  __ \    _  / / /_  ___/  _ \_  ___/ \e[0m"
+    __wpuser_echo "\e[0;35m__ |/ |/ /__  /_/ /    / /_/ /_(__  )/  __/  /     \e[0m"
+    __wpuser_echo "\e[0;35m____/|__/ _  .___/     \__,_/ /____/ \___//_/      \e[0m"
+    __wpuser_echo "\e[0;35m          /_/                                      \e[0m"
+    __wpuser_echo ""
+    __wpuser_echo "\e[0;36mv${version}\e[0m"
+    __wpuser_echo ""
+    __wpuser_echo "A CLI utility for working with \e[0;32mWPEngine\e[0m environments."
+    __wpuser_echo ""
+}
+
+wpuser__create() {
+    local user="${USER_EMAIL}"
+    local password="${USER_PASSWORD}"
+    local update=1
+
+    while getopts 'u:p:n' flag; do
+        case $flag in
+        'u') user="$OPTARG" ;;
+        'p') password="$OPTARG" ;;
+        'n') update=0 ;;
+        *) ;;
+        esac
+    done
+
+    if wp --skip-plugins --skip-themes \
+        user create "$user" "$user" \
+        --role=administrator \
+        --user_pass="$password"; then
+        __wpuser_echo "\e[0;32mUser: ${user} created successfully!\e[0m"
+    else
+        if [[ $update -eq 0 ]]; then
+            __wpuser_echo "\e[0;31mERROR: User creation failed.\e[0m"
+            return 1
+        fi
+
+        __wpuser_echo "\e[0;31mERROR: User creation failed, trying to update user instead...\e[0m"
+        wpuser__update -u "$user" -p "$password" -n
+    fi
+}
+
+wpuser__update() {
+    local user="${USER_EMAIL}"
+    local password="${USER_PASSWORD}"
+    local create=1
+
+    while getopts 'u:p:n' flag; do
+        case $flag in
+        'u') user="$OPTARG" ;;
+        'p') password="$OPTARG" ;;
+        'n') create=0 ;;
+        *) ;;
+        esac
+    done
+
+    if wp --skip-plugins --skip-themes \
+        user update "$user" \
+        --role=administrator \
+        --user_pass="$password"; then
+        __wpuser_echo "\e[0;32mUser: ${user} updated successfully!\e[0m"
+    else
+        if [[ $create -eq 0 ]]; then
+            __wpuser_echo "\e[0;31mERROR: User update failed.\e[0m"
+            return 1
+        fi
+
+        __wpuser_echo "\e[0;31mERROR: User creation failed, trying to create new user instead...\e[0m"
+
+        wpuser__update -u "$user" -p "$password" -n
+    fi
+}
+
+wpuser() {
+    if [[ $# -eq 0 ]]; then
+        __wpuser_usage
+        return
+    fi
+
+    local i
+    for i in "$@"; do
+        case $i in
+        --) break ;;
+        '-h' | '--help' | 'help')
+            if [[ $# -eq 2 ]]; then
+                __wpuser_help "$1"
+                return
+            fi
+
+            # Print full help info with CLI header.
+            __wpuser_help
+            return 0
+            ;;
+        esac
+    done
+
+    if declare -f "${cmd}__$1" >/dev/null 2>&1; then
+        func="${cmd}__$1"
+        shift
+        "$func" "$@"
+    else
+        __wpuser_echo "\e[0;31mERROR: ${cmd} $1 is not a valid command\e[0m"
+
+        # Print usage help info without CLI header.
+        __wpuser_usage
+        exit 1
+    fi
+}
+
+wpuser "$@"
