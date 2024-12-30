@@ -149,6 +149,27 @@ local function diagnostic_handler(_, result, ctx, config)
     vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx, config)
 end
 
+-- Disable capabilities for certain clients
+---@todo: maybe just do this per client instead of capability.
+local DISABLED_CAPABILITIES_CLIENTS = {
+    ['documentFormattingProvider'] = {
+        'intelephense',
+        'jsonls',
+        'lua_ls',
+    },
+    ['documentRangeFormattingProvider'] = {
+        'intelephense',
+        'jsonls',
+        'lua_ls',
+    },
+    ['hoverProvider'] = {
+        'phpactor',
+    },
+    ['referencesProvider'] = {
+        'phpactor',
+    },
+}
+
 function M.setup(opts)
     opts = opts or {}
 
@@ -176,14 +197,10 @@ function M.setup(opts)
             vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = buffer })
         end
 
-        if client.name == 'intelephense' then
-            client.server_capabilities.documentFormattingProvider = false
-            client.server_capabilities.documentRangeFormattingProvider = false
-        end
-
-        if client.name == 'phpactor' then
-            client.server_capabilities.hoverProvider = false
-            client.server_capabilities.referencesProvider = false
+        for capability, clients in pairs(DISABLED_CAPABILITIES_CLIENTS) do
+            if vim.tbl_contains(clients, client.name) then
+                client.server_capabilities[capability] = false
+            end
         end
 
         if client.name == 'yamlls' then
