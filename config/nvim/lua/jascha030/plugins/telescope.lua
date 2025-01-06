@@ -6,13 +6,13 @@ local M = {
     dependencies = {
         { 'nvim-lua/popup.nvim' },
         { 'nvim-lua/plenary.nvim' },
-        { 'nvim-telescope/telescope-fzy-native.nvim',  build = 'make' },
+        { 'nvim-telescope/telescope-fzy-native.nvim', build = 'make' },
         { 'nvim-telescope/telescope-ui-select.nvim' },
         { 'nvim-telescope/telescope-file-browser.nvim' },
         { 'nvim-telescope/telescope-fzy-native.nvim' },
         { 'nvim-telescope/telescope-ui-select.nvim' },
     },
-    cmd = 'Telescope',
+    cmd = { 'Telescope' },
     opts = {
         defaults = {
             set_env = { ['COLORTERM'] = 'truecolor' },
@@ -22,30 +22,30 @@ local M = {
             scroll_strategy = 'limit',
             mappings = {
                 i = {
-                    ["<C-j>"] = {
+                    ['<C-j>'] = {
                         actions.move_selection_next,
-                        type = "action",
-                        opts = { nowait = true, silent = true }
+                        type = 'action',
+                        opts = { nowait = true, silent = true },
                     },
                     ['<C-k>'] = {
                         actions.move_selection_previous,
-                        type = "action",
-                        opts = { nowait = true, silent = true }
+                        type = 'action',
+                        opts = { nowait = true, silent = true },
                     },
-                    ['<C-p>'] = require('telescope.actions.layout').toggle_preview
+                    ['<C-p>'] = require('telescope.actions.layout').toggle_preview,
                 },
                 n = {
-                    ["<C-j>"] = {
+                    ['<C-j>'] = {
                         actions.preview_scrolling_down,
-                        type = "action",
-                        opts = { nowait = true, silent = true }
+                        type = 'action',
+                        opts = { nowait = true, silent = true },
                     },
                     ['<C-k>'] = {
                         actions.preview_scrolling_up,
-                        type = "action",
-                        opts = { nowait = true, silent = true }
+                        type = 'action',
+                        opts = { nowait = true, silent = true },
                     },
-                    ['pp'] = require('telescope.actions.layout').toggle_preview
+                    ['pp'] = require('telescope.actions.layout').toggle_preview,
                     -- ['<C-k>'] = require('telescope.actions').prev,
                 },
             },
@@ -67,9 +67,6 @@ local M = {
 
 function M.config(_, opts)
     local telescope = require('telescope')
-    local actions = require('telescope.actions')
-    local layout = require('telescope.actions.layout')
-
     local extension = telescope.load_extension
     local fb_actions = telescope.extensions.file_browser.actions
 
