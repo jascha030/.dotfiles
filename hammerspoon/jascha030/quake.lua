@@ -1,15 +1,27 @@
+---@diagnostic disable: undefined-doc-name
+
+---@class JSpoon.QuakeModule
+---@field app_name string
+---@field get_app_name fun(self): string
+---@field get_instance fun(self): hs.application
+---@field get_observer fun(self, app_watcher: hs.application.watcher, space: hs.screen.space): fun(name: string, event: number, app: hs.application)
+---@field toggle fun(self)
+---@field set fun(app: table)
 local M = {}
 local window = {}
+local alt_active = false
 
-window = setmetatable(window, { __index = function(_, k)
-    local next = next
+window = setmetatable(window, {
+    __index = function(_, k)
+        local next = next
 
-    if next(window) == nil then
-        window = require('jascha030').window
-    end
+        if next(window) == nil then
+            window = require('jascha030').window
+        end
 
-    return window[k]
-end})
+        return window[k]
+    end,
+})
 
 function M.new(app_name)
     return setmetatable({ app_name = app_name }, { __index = M })
@@ -58,6 +70,7 @@ function M:toggle()
         if instance == nil and hs.application.launchOrFocus(app_name) then
             local app_watcher = nil
 
+            ---@diagnostic disable-next-line: param-type-mismatch
             app_watcher = hs.application.watcher.new(self:get_observer(app_watcher, space))
             app_watcher:start()
         end
@@ -68,12 +81,32 @@ function M:toggle()
     end
 end
 
-function M.set(app)
-    local instance = M.new(app)
+local function handler_factory(app_name, alt_app_name)
+    local instance = M.new(app_name)
+    local alt_instance = M.new(alt_app_name)
 
-    require('jascha030.tap').action = function()
-        instance:toggle()
+    return function()
+        if alt_active then
+            alt_instance:toggle()
+        else
+            instance:toggle()
+        end
     end
+end
+
+function M.toggle_alt()
+    alt_active = not alt_active
+
+    if alt_active then
+        hs.alert('Alt quake')
+    else
+        hs.alert('Main quake')
+    end
+end
+
+---@param apps table{main: string, alt: string}
+function M.set(apps)
+    require('jascha030.tap').action = handler_factory(apps.main, apps.alt)
 end
 
 return M

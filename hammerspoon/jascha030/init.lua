@@ -1,4 +1,12 @@
 local M = {}
+local quake = require('jascha030.quake')
+
+---@class JSpoon.Config
+---@field term_app table{main: string, alt: string}
+---@field spoons table{load: string[]}
+---@field hotkeys table{system: table<string, function>, control: table<string, function>, apps: table<string, string>}
+
+---@type boolean
 local loaded = false
 
 function M.fn(f, ...)
@@ -26,12 +34,22 @@ function M.toggle_darkmode()
     ]])
 end
 
+function M.toggle_term_app()
+    if not quake then
+        error('Dafuq did you do?')
+    end
+
+    quake.toggle_alt()
+end
+
+---@param config JSpoon.Config
 function M.setup(config)
     if loaded == true then
         return
     end
 
     loaded = true
+
     require('hs.ipc')
 
     hs.ipc.cliInstall()
@@ -45,8 +63,9 @@ function M.setup(config)
     spoon.SpoonInstall:andUse('RoundedCorners', { start = true, config = { radius = 8 } })
     spoon.ReloadConfiguration:start()
 
-    require('jascha030.quake').set(config.term_app)
+    quake.set(config.term_app)
     require('jascha030.hotkey').setup(config.hotkeys)
+
     hs.alert.show('🔨🥄 load done.')
 end
 

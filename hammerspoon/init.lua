@@ -2,7 +2,10 @@ local JSpoon = require('jascha030')
 local fn = JSpoon.fn
 
 JSpoon.setup({
-    term_app = 'WezTerm',
+    term_app = {
+        main = 'WezTerm',
+        alt = 'Ghostty',
+    },
     spoons = {
         load = {
             'EmmyLua',
@@ -13,6 +16,7 @@ JSpoon.setup({
     hotkeys = {
         system = {
             ['d'] = fn(JSpoon.toggle_darkmode),
+            ['t'] = fn(JSpoon.toggle_term_app),
         },
         control = {
             ['h'] = fn(JSpoon.window.left),
