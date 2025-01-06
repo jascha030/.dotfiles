@@ -1,0 +1,9 @@
+theme = nitepal
+shell-integration = zsh 
+font-family = "Nonicons"
+font-family = "Cascadia Code"
+font-family-italic = "Dank Mono"
+font-size = 16
+macos-icon-frame = chrome
+cursor-style = block
+adjust-cell-height = 18
