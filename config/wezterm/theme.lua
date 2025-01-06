@@ -12,7 +12,7 @@ function M.scheme_from_colors(colors, tab_bar)
     local scheme = {
         background = colors.background,
         foreground = colors.foreground,
-        cursor_bg = colors.yellow,
+        cursor_bg = colors.bright_yellow,
         cursor_fg = colors.background,
         ansi = {
             colors.black,
