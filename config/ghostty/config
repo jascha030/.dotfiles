@@ -1,10 +1,19 @@
-adjust-cell-height = 18
+adjust-cell-height = 100%
+background-blur-radius = 20
+background-opacity = 0.9
 cursor-style = block
-font-family = "Cascadia Code"
 font-family = "Nonicons"
+font-family = "Cascadia Code Nerd Font Mono"
+font-family = "CaskaydiaCove Nerd Font"
+font-family = "Cascadia Code"
+font-family = "PragmataPro Liga"
+font-family = "PragmataPro Mono Liga"
+font-family = "Noto Color Emoji"
+font-family = "JetBrains Mono"
 font-family-italic = "Dank Mono"
 font-size = 16
-macos-icon-frame = chrome
+macos-titlebar-style = "tabs"
 shell-integration = zsh 
-shell-integration-features = sudo
+shell-integration-features = true
 theme = nitepal
+
