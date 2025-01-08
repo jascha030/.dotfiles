@@ -69,5 +69,3 @@ alias nu="$HOME/.cargo/bin/nu"
 #- Suffix Aliases ----------------------------------------------------------------------------------------------------#
 alias -s php=pstorm
 alias -s {.zshrc,zsh,sh,json,yaml,.env,cs,ts,html}=vim
-
-
