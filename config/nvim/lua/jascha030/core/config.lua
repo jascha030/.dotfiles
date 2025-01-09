@@ -1,39 +1,51 @@
+---@alias jascha030.core.config.PathConfigOption string[]|table{path: string, prepend: boolean}
+---@alias jascha030.core.config.PathConfigOptionType "env"|"rtp" 
+
+---@class jascha030.core.config.PathConfigOptions
+---@field env? jascha030.core.config.PathConfigOption[]
+---@field rtp? jascha030.core.config.PathConfigOption[]
+
+---@class jascha030.core.config.VimConfigOptions
+---@field g? table
+---@field o? table
+---@field opt? table
+
+---@class jascha030.core.config.KeymapConfigOptions
+---@field i? table
+---@field n? table
+---@field t? table
+---@field v? table
+
+---@class jascha030.core.config.ConfigOptions
+---@field colorscheme? boolean | string
+---@field debug? boolean
+---@field keymaps? jascha030.core.config.KeymapConfigOptions
+---@field opts? jascha030.core.config.VimConfigOptions
+---@field path? jascha030.core.config.PathConfigOptions 
+---@field polyglot? table
+---@field augroups? table
+
 local M = {}
 
+---@return jascha030.core.config.ConfigOptions
 function M.defaults()
-    --- @class ConfigOptions
-    --- @field colorscheme? boolean | string
-    --- @field polyglot? table
-    --- @field keymaps? table
-    local defaults = {
+    return {
         colorscheme = false,
-        polyglot = {
-            enabled = false,
-            languages = {},
-        },
-        keymaps = {
-            n = {},
-            v = {},
-            t = {},
-            i = {},
-        },
-        opts = {
-            g = {
-                mapleader = [[ ]],
-            },
-            opt = {},
-        },
+        debug = false,
+        keymaps = { n = {}, v = {}, t = {}, i = {}, },
+        opts = { g = { mapleader = [[ ]], }, opt = {}, o = {}, },
+        path = { env = {}, rtp = {}, },
+        polyglot = { enabled = false, languages = {}, },
+        augroups = {},
     }
-
-    return defaults
 end
 
---- @type ConfigOptions
+---@type jascha030.core.config.ConfigOptions 
 M.options = {}
 
 function M.extend(options)
     if type(options) == 'table' then
-        M.options = vim.tbl_deep_extend('force', M.options(), options)
+        M.options = vim.tbl_deep_extend('force', M.options, options)
     end
 end
 
