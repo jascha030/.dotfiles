@@ -98,9 +98,9 @@ function M.toggle_alt()
     alt_active = not alt_active
 
     if alt_active then
-        hs.alert('Alt quake')
+        hs.alert('Quake mapped to: Ghostty')
     else
-        hs.alert('Main quake')
+        hs.alert('Quake mapped to: WezTerm')
     end
 end
 
