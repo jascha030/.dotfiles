@@ -48,6 +48,7 @@ function M.fallback_font(main, alt)
         'nonicons',
         { family = main, italic = false, weight = 600 },
         { family = alt, italic = false, weight = 600 },
+        'CaskaydiaCove Nerd Font',
         M.options.fallback_font,
     })
 end

@@ -1,18 +1,23 @@
-adjust-cell-height = 95%
-background-blur-radius = 20
-background-opacity = 0.975
-cursor-style = block
 font-family = "Nonicons"
-font-family = "Cascadia Code Nerd Font Mono"
-font-family = "CaskaydiaCove Nerd Font"
 font-family = "Cascadia Code"
+font-family = "CaskaydiaCove Nerd Font Mono"
+font-family = "CaskaydiaCove Nerd Font"
 font-family = "PragmataPro Liga"
 font-family = "PragmataPro Mono Liga"
 font-family = "Noto Color Emoji"
 font-family = "JetBrains Mono"
-font-family-italic = "Cascadia Code"
+
+font-thicken = false
+minimum-contrast = 1.1
+
+adjust-cell-height = 95%
+
 font-size = 16
-macos-titlebar-style = "tabs"
-shell-integration-features = true
-theme = nitepal
+
+background-blur-radius = 20
+background-opacity = 0.975
+cursor-style = block
 macos-option-as-alt = true
+window-decoration = true
+shell-integration-features = true
+theme = light:litepal,dark:nitepal
