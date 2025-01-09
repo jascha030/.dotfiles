@@ -29,7 +29,7 @@ zstyle ':completion:*' menu no                                                  
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'   # preview dir content with exa for cd
 zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2                                # --bind=tab:accept
 zstyle ':fzf-tab:*' use-fzf-default-opts yes                                    # To make fzf-tab follow FZF_DEFAULT_OPTS.
-zstyle ':fzf-tab:*' switch-group ',' '.'
+zstyle ':fzf-tab:*' switch-group '[' ']'
 # zstyle ':fzf-tab:*' switch-group '<' '>'                                      # switch group using `,` and `.`
 
 export ZSH_HIGHLIGHT_STYLES
