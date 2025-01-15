@@ -1,7 +1,7 @@
 font-family = "Nonicons"
-font-family = "Cascadia Code"
-font-family = "CaskaydiaCove Nerd Font Mono"
 font-family = "CaskaydiaCove Nerd Font"
+font-family = "CaskaydiaCove Nerd Font Mono"
+font-family = "Caskadia Code"
 font-family = "PragmataPro Liga"
 font-family = "PragmataPro Mono Liga"
 font-family = "Noto Color Emoji"
@@ -9,8 +9,8 @@ font-family = "JetBrains Mono"
 
 font-thicken = false
 minimum-contrast = 1.1
-
 adjust-cell-height = 95%
+adjust-cursor-height = 65%
 
 font-size = 16
 
