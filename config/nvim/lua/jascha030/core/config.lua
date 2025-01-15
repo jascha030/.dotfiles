@@ -1,5 +1,5 @@
 ---@alias jascha030.core.config.PathConfigOption string[]|table{path: string, prepend: boolean}
----@alias jascha030.core.config.PathConfigOptionType "env"|"rtp" 
+---@alias jascha030.core.config.PathConfigOptionType "env"|"rtp"
 
 ---@class jascha030.core.config.PathConfigOptions
 ---@field env? jascha030.core.config.PathConfigOption[]
@@ -21,7 +21,7 @@
 ---@field debug? boolean
 ---@field keymaps? jascha030.core.config.KeymapConfigOptions
 ---@field opts? jascha030.core.config.VimConfigOptions
----@field path? jascha030.core.config.PathConfigOptions 
+---@field path? jascha030.core.config.PathConfigOptions
 ---@field polyglot? table
 ---@field augroups? table
 
@@ -32,15 +32,15 @@ function M.defaults()
     return {
         colorscheme = false,
         debug = false,
-        keymaps = { n = {}, v = {}, t = {}, i = {}, },
-        opts = { g = { mapleader = [[ ]], }, opt = {}, o = {}, },
-        path = { env = {}, rtp = {}, },
-        polyglot = { enabled = false, languages = {}, },
+        keymaps = { n = {}, v = {}, t = {}, i = {} },
+        opts = { g = { mapleader = [[ ]] }, opt = {}, o = {} },
+        path = { env = {}, rtp = {} },
+        polyglot = { enabled = false, languages = {} },
         augroups = {},
     }
 end
 
----@type jascha030.core.config.ConfigOptions 
+---@type jascha030.core.config.ConfigOptions
 M.options = {}
 
 function M.extend(options)

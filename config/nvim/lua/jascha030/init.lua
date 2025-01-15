@@ -38,16 +38,16 @@ function M.setup(opts)
 
     ---@param p jascha030.core.config.PathConfigOption
     function path_helper.prepend(p)
-        return type(p) == "table" and p.prepend ~= nil and p.prepend == true
+        return type(p) == 'table' and p.prepend ~= nil and p.prepend == true
     end
 
     ---@param p jascha030.core.config.PathConfigOption
     function path_helper.get_path_string(p)
-        if type(p) == "string" then
+        if type(p) == 'string' then
             return p
         end
 
-        if type(p) == "table" then
+        if type(p) == 'table' then
             return p.path
         end
 
@@ -80,9 +80,9 @@ function M.setup(opts)
     local function add_paths(paths)
         paths = paths or {}
         for type, type_paths in pairs(paths) do
-			for _, path in pairs(type_paths) do
-				path_helper.add(path, type)
-			end
+            for _, path in pairs(type_paths) do
+                path_helper.add(path, type)
+            end
         end
     end
 

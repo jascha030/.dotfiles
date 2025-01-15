@@ -1,6 +1,6 @@
 return {
     ['Brewfile'] = {
-        icon = ''
+        icon = '',
     },
     ['.gitattributes'] = {
         -- color = '#959da5',

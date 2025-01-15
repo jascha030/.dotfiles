@@ -37,7 +37,6 @@ local function move_right(win)
         return
     end
 
-
     state = win:frame()
     win:moveOneScreenEast()
 

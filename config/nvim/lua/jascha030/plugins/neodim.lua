@@ -1,7 +1,7 @@
 ---@type LazyPluginSpec
 local M = {
     'zbirenbaum/neodim',
-    event = "LspAttach",
+    event = 'LspAttach',
     config = true,
 }
 

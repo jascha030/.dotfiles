@@ -10,7 +10,7 @@ function M.new(builtin_screen, builtin_w_factor, default_w_factor)
         width_factor = {
             builtin = builtin_w_factor,
             default = default_w_factor,
-        }
+        },
     }, { __index = M })
 end
 
@@ -59,7 +59,7 @@ function M.right_half(frame, margin)
     local half = margin / 2
 
     return {
-        x = (frame.x + frame.w / 2) + (half /2),
+        x = (frame.x + frame.w / 2) + (half / 2),
         y = frame.y + half,
         w = (frame.w / 2) - (margin - (half / 2)),
         h = frame.h - margin,
@@ -74,7 +74,7 @@ function M.maximized(frame, margin)
         x = frame.x + half,
         y = frame.y + half,
         w = frame.w - margin,
-        h = frame.h - margin
+        h = frame.h - margin,
     }
 end
 

@@ -1,2 +1,1 @@
-vim.o.commentstring = "; %s"
-
+vim.o.commentstring = '; %s'

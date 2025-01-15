@@ -72,9 +72,9 @@ require('lazy').setup({
                 rtp = {
                     {
                         path = '/Applications/Ghostty.app/Contents/Resources/vim/vimfiles',
-                        prepend = true
+                        prepend = true,
                     },
-                }
+                },
             },
             colorscheme = 'nitepal',
             polyglot = {
@@ -158,6 +158,7 @@ require('lazy').setup({
                     { '<leader><Tab><Tab>', '<cmd>HopWord<cr>' },
                     { '<leader>m', '<cmd>Mason<cr>' },
                     { '<C-_>', '<cmd>CommentToggle<cr>' },
+                    { '<C-/>', '<cmd>CommentToggle<cr>' },
                     { '<leader>CP', '<cmd>PickColor<cr>' },
                     {
                         '<leader>c',
