@@ -34,5 +34,6 @@
 **.bak
 /*.md
 !/README.md
+!/articles.md
 /.ssh/*
 !/.ssh/*.secret
