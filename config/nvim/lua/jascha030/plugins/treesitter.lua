@@ -3,7 +3,7 @@ local has_uis = #uis > 0
 
 ---@type table<string, string>
 local FT_TO_LANG_ALIASES = {
-    zsh = 'bash',
+    -- zsh = 'bash',
     dotenv = 'bash',
 }
 
@@ -53,6 +53,7 @@ local M = {
     },
     opts = function()
         ---@type TSConfig
+        ---@diagnostic disable-next-line: missing-fields
         local ts_config = {
             auto_install = has_uis,
             sync_install = true,
@@ -97,10 +98,11 @@ local M = {
             indent = { enable = true },
             highlight = {
                 enable = true,
-                disable = function(lang, bufnr)
-                    local is_huge = require('jascha030.utils.buffer').is_huge
+                disable = function(lang, buf)
+                    local max_filesize = 100 * 1024 -- 100 KB
+                    local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
 
-                    return (is_huge({ bufnr = bufnr }) or vim.tbl_contains(HIGHLIGHTING_DISABLED, lang))
+                    return ((ok and stats and stats.size > max_filesize) or vim.tbl_contains(HIGHLIGHTING_DISABLED, lang))
                 end,
                 use_languagetree = true,
                 additional_vim_regex_highlighting = HIGHLIGHTING_ADD_VIM_REGEX,
@@ -158,12 +160,13 @@ local M = {
             },
         }
 
-        return ts_config;
+        return ts_config
     end,
 }
 
 function M.config(_, opts)
     local parsers = require('nvim-treesitter.parsers')
+
     require('nvim-treesitter.configs').setup(opts)
 
     local parser_config = parsers.get_parser_configs()

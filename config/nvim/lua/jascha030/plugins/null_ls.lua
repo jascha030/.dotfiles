@@ -83,8 +83,7 @@ function M.opts()
             -- Formatting
             require('none-ls.formatting.jq'),
             require('none-ls.formatting.eslint_d'),
-            -- stylua: ignore
-            nls.builtins.formatting.stylua.with({ condition = function() return true end }),
+            nls.builtins.formatting.stylua,
             nls.builtins.formatting.markdownlint,
             nls.builtins.formatting.black,
             nls.builtins.formatting.blade_formatter,
