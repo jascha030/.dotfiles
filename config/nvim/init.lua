@@ -191,7 +191,7 @@ require('lazy').setup({
                     },
                     { '<C-c>', ':OSCYankVisual<cr>' },
                     { '<C-_>', ":'<,'>CommentToggle<cr>" },
-                    { '<C-/>', '<cmd>CommentToggle<cr>' },
+                    { '<C-/>', ":'<,'>CommentToggle<cr>" },
                 },
                 t = {
                     -- { '<M-[>', '<Esc>' },
