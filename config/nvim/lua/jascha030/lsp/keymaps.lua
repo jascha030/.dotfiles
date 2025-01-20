@@ -86,13 +86,6 @@ function M.on_attach(client, bufnr)
     self:map('<C-a>', vim.lsp.buf.code_action, { desc = 'Code Action', mode = { 'n', 'v' }, has = 'codeAction' })
     self:map('<leader>a', vim.lsp.buf.code_action, { desc = 'Code Action', mode = { 'n', 'v' }, has = 'codeAction' })
     self:map('<leader>r', M.rename, { expr = true, desc = 'Rename', has = 'rename' })
-
-    self:map('<C-l>', function()
-        if client.supports_method('textDocument/formatting') then
-            vim.print(client.name)
-            require('jascha030.lsp').format(client, bufnr)
-        end
-    end, { desc = 'Format Document', has = 'documentFormatting' })
 end
 
 return M

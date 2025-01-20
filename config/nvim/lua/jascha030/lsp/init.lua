@@ -115,24 +115,6 @@ function M.inlay_hints(opts)
     end
 end
 
-function M.format(client, bufnr)
-    if not client.server_capabilities.documentFormattingProvider then
-        return
-    end
-
-    vim.lsp.buf.format({
-        bufnr = bufnr,
-        filter = function(c)
-            ---@diagnostic disable-next-line: undefined-field
-            if #require('null-ls.sources').get_available(vim.bo[bufnr].filetype, 'NULL_LS_FORMATTING') > 0 then
-                return c.name == 'null-ls'
-            end
-
-            return c.name ~= 'null-ls'
-        end,
-    })
-end
-
 function M.get_signature_help_handler()
     if utils.has_plugin('noice.nvim') then
         return nil

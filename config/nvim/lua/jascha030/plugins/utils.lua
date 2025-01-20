@@ -4,6 +4,7 @@ local M = {
     { 'f-person/git-blame.nvim' },
     {
         'lvimuser/lsp-inlayhints.nvim',
+        -- cond = false,
         opts = {
             inlay_hints = {
                 parameter_hints = {
@@ -33,23 +34,12 @@ local M = {
     { 'b0o/schemastore.nvim', ft = { 'json', 'yaml', 'yml' } },
     {
         'ojroques/vim-oscyank',
-        cmd = {
-            'OSCYank',
-            'OSCYankReg',
-            'OSCYankRegister',
-            'OSCYankVisual',
-        },
+        cmd = { 'OSCYank', 'OSCYankReg', 'OSCYankRegister', 'OSCYankVisual' },
     },
-    {
-        'nvim-lua/plenary.nvim',
-        lazy = true,
-    },
+    { 'nvim-lua/plenary.nvim', lazy = true },
     {
         'ziontee113/color-picker.nvim',
-        cmd = {
-            'PickColor',
-            'PickColorInsert',
-        },
+        cmd = { 'PickColor', 'PickColorInsert' },
     },
     {
         'windwp/nvim-autopairs',
@@ -70,17 +60,9 @@ local M = {
         name = 'indent_blankline',
         main = 'ibl',
         opts = {
-            indent = {
-                char = '│',
-            },
-            exclude = {
-                filetypes = {
-                    'dashboard',
-                },
-            },
-            scope = {
-                enabled = true,
-            },
+            indent = { char = '│' },
+            exclude = { filetypes = { 'dashboard' } },
+            scope = { enabled = true },
         },
     },
     {
@@ -94,6 +76,12 @@ local M = {
         cond = false,
     },
     { 'justinsgithub/wezterm-types' },
+    {
+        'stevearc/conform.nvim',
+        config = function(_, _)
+            require('jascha030.core.formatting')
+        end,
+    },
 }
 
 return M

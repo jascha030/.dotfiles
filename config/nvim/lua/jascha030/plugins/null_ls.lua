@@ -1,5 +1,3 @@
-local nls = lreq('null-ls')
-
 ---@type LazyPluginSpec
 local M = {
     'nvimtools/none-ls.nvim',
@@ -13,37 +11,15 @@ local M = {
         'gbprod/none-ls-psalm.nvim',
         'gbprod/none-ls-ecs.nvim',
     },
+    cond = false,
 }
 
 function M.opts()
-    local function fb_conf_path(...)
-        local arg = { ... }
-
-        for _, path in ipairs(arg) do
-            -- handle potential tables with recursion.
-            if type(path) == 'table' then
-                local ok, res = pcall(fb_conf_path, path)
-
-                if ok then
-                    return res
-                end
-            end
-
-            if type(path) == 'string' then
-                if vim.fn.filereadable(path) == 1 then
-                    return path
-                end
-            end
-        end
-
-        error('fb_conf_path (null_ls): No path or fallback paths could be read.')
-    end
-
+    local nls = require('null-ls')
     local config_dir = os.getenv('XDG_CONFIG_HOME')
     local cwd = vim.fn.getcwd
-
     return {
-        debug = false,
+        debug = true,
         sources = {
             nls.builtins.completion.spell,
             -- Diagnostics
@@ -96,6 +72,10 @@ function M.opts()
             -- require('none-ls-shellcheck.code_actions'),
         },
     }
+end
+
+function M.config(_, opts)
+    require('null-ls').setup(opts)
 end
 
 return M

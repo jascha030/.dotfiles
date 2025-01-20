@@ -141,6 +141,7 @@ require('lazy').setup({
                     { '<C-p>', '<cmd>lua require("telescope.builtin").git_files()<cr>' },
                     { 'fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>' },
                     { '<C-f>', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>' },
+                    { '<C-l>', "<cmd>lua require'conform'.format()<cr>", desc = 'Format using conform.' },
                     {
                         '<leader>hl',
                         '<cmd>lua require("telescope.builtin").highlights()<cr>',
@@ -187,16 +188,14 @@ require('lazy').setup({
                     {
                         '<leader>sw',
                         '<esc><cmd>lua require("spectre").open_visual()<CR>',
-                        -- desc = 'Search current word',
+                        desc = 'Search current word',
                     },
-                    { '<C-c>', ':OSCYankVisual<cr>' },
+                    { '<C-l>', "<cmd>lua require'conform'.format()<cr>", desc = 'Format using conform.' },
+                    { '<C-c>', '<cmd>OSCYankVisual<cr>' },
                     { '<C-_>', ":'<,'>CommentToggle<cr>" },
                     { '<C-/>', ":'<,'>CommentToggle<cr>" },
                 },
-                t = {
-                    -- { '<M-[>', '<Esc>' },
-                    -- { '<C-v><Esc>', '<Esc>' },
-                },
+                t = {},
                 i = {},
             },
             augroups = {
