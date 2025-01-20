@@ -1,28 +1,28 @@
 {
-    "$schema": "/Users/jaschavanaalst/tools/phpactor-repo/phpactor.schema.json",
-    "language_server_phpstan.enabled": true,
-    "language_server_phpstan.bin": "%project_root%/vendor/bin/phpstan",
-    "language_server_phpstan.config": "%project_root%/phpstan.neon.dist",
-    "language_server_php_cs_fixer.enabled": true,
-    "language_server_php_cs_fixer.bin": "%project_root%/vendor/bin/php-cs-fixer",
-    "language_server_php_cs_fixer.config": "%project_root%/.php-cs-fixer.dist.php",
-    "language_server_php_cs_fixer.show_diagnostics": true,
-    "language_server_worse_reflection.inlay_hints.enable": true,
-    "language_server_worse_reflection.inlay_hints.params": true,
-    "language_server_worse_reflection.inlay_hints.types": false,
-    "phpunit.enabled": true,
-    "composer.autoloader_path": [
-        "%project_root%/vendor/autoload.php",
-        "%project_root%/app/public/vendor/autoload.php"
-    ],
-    "completion.dedupe": true,
-    "completion.dedupe_match_fqn": true,
-    "indexer.exclude_patterns": [
-        "/vendor/**/Tests/**/*",
-        "/vendor/**/tests/**/*",
-        "/.var/cache/**/*",
-        "/var/cache/**/*",
-        "/vendor-bin/**/vendor/php-stubs/wordpress-stubs/wordpress-stubs.php",
-        "app/public/vendor-bin/**/vendor/php-stubs/wordpress-stubs/wordpress-stubs.php"
-    ]
+  "$schema": "/Users/jaschavanaalst/tools/phpactor-repo/phpactor.schema.json",
+  "language_server_phpstan.enabled": true,
+  "language_server_phpstan.bin": "%project_root%/vendor/bin/phpstan",
+  "language_server_phpstan.config": "%project_root%/phpstan.neon.dist",
+  "language_server_php_cs_fixer.enabled": true,
+  "language_server_php_cs_fixer.bin": "%project_root%/vendor/bin/php-cs-fixer",
+  "language_server_php_cs_fixer.config": "%project_root%/.php-cs-fixer.dist.php",
+  "language_server_php_cs_fixer.show_diagnostics": true,
+  "language_server_worse_reflection.inlay_hints.enable": true,
+  "language_server_worse_reflection.inlay_hints.params": true,
+  "language_server_worse_reflection.inlay_hints.types": false,
+  "phpunit.enabled": true,
+  "composer.autoloader_path": [
+    "%project_root%/vendor/autoload.php",
+    "%project_root%/app/public/vendor/autoload.php"
+  ],
+  "completion.dedupe": true,
+  "completion.dedupe_match_fqn": true,
+  "indexer.exclude_patterns": [
+    "/vendor/**/Tests/**/*",
+    "/vendor/**/tests/**/*",
+    "/.var/cache/**/*",
+    "/var/cache/**/*",
+    "/vendor-bin/**/vendor/php-stubs/wordpress-stubs/wordpress-stubs.php",
+    "app/public/vendor-bin/**/vendor/php-stubs/wordpress-stubs/wordpress-stubs.php"
+  ]
 }
