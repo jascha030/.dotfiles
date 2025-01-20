@@ -1,5 +1,5 @@
 font-family = "Nonicons"
-font-family = "CaskaydiaCove Nerd Font"
+font-family = "CaskaydiaCove Nerd Font" 
 font-family = "CaskaydiaCove Nerd Font Mono"
 font-family = "Caskadia Code"
 font-family = "PragmataPro Liga"
@@ -14,8 +14,11 @@ adjust-cursor-height = 65%
 
 font-size = 16
 
-background-blur-radius = 20
-background-opacity = 0.975
+# background-opacity = 0.975
+# background-blur-radius = 20
+background-opacity = 0.92
+background-blur-radius = 100
+
 cursor-style = block
 macos-option-as-alt = true
 window-decoration = true
