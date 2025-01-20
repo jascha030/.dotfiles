@@ -1,4 +1,5 @@
 {
+    "$schema": "/Users/jaschavanaalst/tools/phpactor-repo/phpactor.schema.json",
     "language_server_phpstan.enabled": true,
     "language_server_phpstan.bin": "%project_root%/vendor/bin/phpstan",
     "language_server_phpstan.config": "%project_root%/phpstan.neon.dist",
