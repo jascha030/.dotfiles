@@ -36,6 +36,7 @@ local M = {
     {
         'ziontee113/color-picker.nvim',
         cmd = { 'PickColor', 'PickColorInsert' },
+        lazy = true,
     },
     {
         'windwp/nvim-autopairs',
