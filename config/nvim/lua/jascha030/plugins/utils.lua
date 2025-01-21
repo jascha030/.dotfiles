@@ -32,10 +32,6 @@ local M = {
     },
     { 'chr4/nginx.vim', ft = 'nginx' },
     { 'b0o/schemastore.nvim', ft = { 'json', 'yaml', 'yml' } },
-    {
-        'ojroques/vim-oscyank',
-        cmd = { 'OSCYank', 'OSCYankReg', 'OSCYankRegister', 'OSCYankVisual' },
-    },
     { 'nvim-lua/plenary.nvim', lazy = true },
     {
         'ziontee113/color-picker.nvim',

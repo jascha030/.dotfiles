@@ -188,13 +188,13 @@ require('lazy').setup({
                     },
                 },
                 v = {
+                    { '<C-c>', '"+y', desc = 'Yank to OS ClipBoard' },
                     {
                         '<leader>sw',
                         '<esc><cmd>lua require("spectre").open_visual()<CR>',
                         desc = 'Search current word',
                     },
                     { '<C-l>', "<cmd>lua require'conform'.format()<cr>", desc = 'Format using conform.' },
-                    { '<C-c>', '<cmd>OSCYankVisual<cr>' },
                     { '<C-_>', ":'<,'>CommentToggle<cr>" },
                     { '<C-/>', ":'<,'>CommentToggle<cr>" },
                 },
