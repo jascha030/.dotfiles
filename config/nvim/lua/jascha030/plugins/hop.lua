@@ -1,7 +1,7 @@
 ---@type LazyPluginSpec
 local M = {
-    'phaazon/hop.nvim',
-    branch = 'v2',
+    'smoka7/hop.nvim',
+    version = "*",
     name = 'hop',
     cmd = {
         'HopWord',
