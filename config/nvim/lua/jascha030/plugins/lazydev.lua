@@ -3,7 +3,6 @@ local M = {
     {
         'folke/lazydev.nvim',
         ft = 'lua', -- only load on lua files
-        -- cond = vim.fn.has('nvim-0.10') == 1,
         cond = false,
         opts = {
             debug = true,

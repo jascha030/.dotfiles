@@ -23,10 +23,7 @@ local M = {
         'ray-x/lsp_signature.nvim',
         'folke/neodev.nvim',
         'folke/neoconf.nvim',
-        {
-            'yioneko/nvim-vtsls',
-            -- config = true,
-        },
+        'yioneko/nvim-vtsls',
         {
             'nvimdev/lspsaga.nvim',
             dependencies = { 'nvim-treesitter/nvim-treesitter' },
@@ -73,11 +70,6 @@ local M = {
                     })
                 end,
             },
-            setup = {
-                -- tsserver = function()
-                --     return true
-                -- end,
-            },
             diagnostics = {
                 signs = true,
                 underline = true,
@@ -89,13 +81,7 @@ local M = {
                     prefix = '●',
                 },
             },
-            -- format = {
-            --     formatting_options = nil,
-            --     timeout_ms = 10000,
-            -- },
-            inlay_hints = {
-                enabled = vim.fn.has('nvim-0.10') == 1,
-            },
+            inlay_hints = { enabled = vim.fn.has('nvim-0.10') == 1 },
         }
 
         return lsp_config
@@ -139,9 +125,6 @@ function M.config(_, opts)
                     },
                 })
             end,
-            -- vtsls = function()
-            --     lspconfig.vtsls.setup(get_server_config('vtsls'))
-            -- end,
         },
     })
 
