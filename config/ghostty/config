@@ -16,7 +16,7 @@ font-size = 16
 
 # background-opacity = 0.975
 # background-blur-radius = 20
-background-opacity = 0.92
+background-opacity = 0.9
 background-blur-radius = 100
 
 cursor-style = block
