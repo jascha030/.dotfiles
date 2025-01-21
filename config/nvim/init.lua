@@ -13,6 +13,9 @@
 BORDER = 'rounded'
 BORDERS = { border = BORDER }
 
+-- Temporary fix: https://github.com/neovim/neovim/issues/31675
+vim.hl = vim.highlight
+
 if vim.loader then
     vim.loader.enable()
 end
