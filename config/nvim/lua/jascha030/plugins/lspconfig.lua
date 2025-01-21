@@ -17,6 +17,7 @@ local M = {
     'neovim/nvim-lspconfig',
     priority = 70,
     lazy = false,
+    version = '*',
     dependencies = {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
