@@ -11,10 +11,20 @@ local M = {
 }
 
 function M.opts()
+    ---@type snacks.Config
+    local opts = {
+        bigfile = { enabled = true },
+        notifier = { enabled = false },
+        quickfile = { enabled = true },
+        words = { enabled = true },
+        input = { enabled = true },
+        indent = { enabled = true },
+        statuscolumn = { enabled = true },
+    }
+
     ---@type snacks.dashboard.Config
     local dashboard_config = {
         enabled = true,
-        -- pane_gap = 2,
         preset = {
             keys = {
                 { title = 'Actions' },
@@ -91,15 +101,7 @@ function M.opts()
         },
     }
 
-    ---@type snacks.Config
-    local opts = {
-        dashboard = dashboard_config,
-        bigfile = { enabled = true },
-        notifier = { enabled = false },
-        quickfile = { enabled = true },
-        words = { enabled = false },
-        statuscolumn = { enabled = false },
-    }
+    opts.dashboard = dashboard_config
 
     return opts
 end
