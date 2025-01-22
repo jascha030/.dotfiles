@@ -25,6 +25,7 @@ local M = {
             build = 'make install_jsregexp',
         },
     },
+    cond = false,
     opts = {
         sources = {
             -- { name = 'lazydev', group_index = 0, priority_weight = 130 },

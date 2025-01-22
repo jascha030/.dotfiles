@@ -22,8 +22,7 @@ local M = {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
         'ray-x/lsp_signature.nvim',
-        'folke/neodev.nvim',
-        'folke/neoconf.nvim',
+        'folke/lazydev.nvim',
         'yioneko/nvim-vtsls',
         {
             'nvimdev/lspsaga.nvim',
