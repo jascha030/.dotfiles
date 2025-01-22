@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 local NOTIFICATION_FILTERS = {
     '[Neo-tree INFO]',
 }
@@ -7,16 +8,104 @@ local M = {
     'folke/snacks.nvim',
     priority = 1000,
     lazy = false,
+}
+
+function M.opts()
+    ---@type snacks.dashboard.Config
+    local dashboard_config = {
+        enabled = true,
+        -- pane_gap = 2,
+        preset = {
+            keys = {
+                { title = 'Actions' },
+                {
+                    icon = ' ',
+                    key = 'n',
+                    desc = 'New File',
+                    action = ':ene | startinsert',
+                },
+                {
+                    icon = ' ',
+                    key = 'f',
+                    desc = 'Find File',
+                    action = ":lua Snacks.dashboard.pick('files')",
+                },
+                {
+                    icon = ' ',
+                    key = 'g',
+                    desc = 'Find Text',
+                    action = ":lua Snacks.dashboard.pick('live_grep')",
+                    padding = 1,
+                },
+                { title = 'Utils' },
+                {
+                    icon = '󰒲 ',
+                    key = 'L',
+                    desc = 'Lazy',
+                    action = ':Lazy',
+                    enabled = package.loaded.lazy ~= nil,
+                },
+                {
+                    icon = ' ',
+                    key = 'M',
+                    desc = 'Mason',
+                    action = ':Mason',
+                },
+                {
+                    icon = ' ',
+                    key = 's',
+                    desc = 'Restore Session',
+                    section = 'session',
+                },
+                {
+                    icon = ' ',
+                    key = 'q',
+                    desc = 'Quit',
+                    action = ':q',
+                    padding = 1,
+                },
+            },
+        },
+        sections = {
+            {
+                pane = 1,
+                pane_gap = 4,
+                {
+                    section = 'terminal',
+                    cmd = 'fortune -s | cowsay',
+                    hl = 'header',
+                    padding = 1,
+                    height = 10,
+                },
+                { section = 'keys' },
+                { section = 'startup' },
+            },
+            {
+                pane = 2,
+                pane_gap = 4,
+                { title = 'MRU' },
+                { section = 'recent_files', limit = 8, padding = 1 },
+                { title = 'MRU ', file = vim.fn.fnamemodify('.', ':~') },
+                { section = 'recent_files', cwd = true, limit = 8, padding = 1 },
+            },
+        },
+    }
+
     ---@type snacks.Config
-    opts = {
-        dashboard = { enabled = false },
+    local opts = {
+        dashboard = dashboard_config,
         bigfile = { enabled = true },
         notifier = { enabled = false },
         quickfile = { enabled = true },
         words = { enabled = false },
         statuscolumn = { enabled = false },
-    },
-    keys = {
+    }
+
+    return opts
+end
+
+function M.keys()
+    return {
         {
             '<leader>un',
             function()
@@ -130,8 +219,8 @@ local M = {
                 })
             end,
         },
-    },
-}
+    }
+end
 
 function M.config(_, opts)
     local vim_notify = vim.notify
