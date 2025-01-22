@@ -23,6 +23,16 @@ local M = {
             },
         },
     },
+    { -- optional cmp completion source for require statements and module annotations
+        'hrsh7th/nvim-cmp',
+        opts = function(_, opts)
+            opts.sources = opts.sources or {}
+            table.insert(opts.sources, {
+                name = 'lazydev',
+                group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+            })
+        end,
+    },
     {
         'saghen/blink.compat',
         version = '*',
@@ -56,6 +66,9 @@ local M = {
             },
         },
         opts = {
+            appearance = {
+                use_nvim_cmp_as_default = true,
+            },
             keymap = {
                 ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
                 ['<C-e>'] = { 'hide' },
@@ -64,9 +77,6 @@ local M = {
                 ['<Tab>'] = { 'snippet_forward', 'select_next', 'fallback' },
                 ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
                 ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
-                cmdline = {
-                    preset = 'default',
-                },
             },
             completion = {
                 list = { selection = { preselect = false, auto_insert = false } },
