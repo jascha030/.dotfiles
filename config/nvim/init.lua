@@ -137,24 +137,19 @@ require('lazy').setup({
             -- wip (field name: (identifier) @id (#match? @id "keymaps") value: (table_constructor (field value: (table_constructor) @t) @f))
             keymaps = {
                 n = {
-                    { 't', '<C-w>' },
-                    { 'H', '<C-w>h', desc = 'navigate to the previous buffer' },
-                    { 'L', '<C-w>l', desc = 'navigate to the next buffer' },
+                    { 't', '<C-w>', desc = 'Navigate buffers' },
+                    { 'H', '<C-w>h', desc = 'Navigate to the previous buffer' },
+                    { 'L', '<C-w>l', desc = 'Navigate to the next buffer' },
                     { 'ff', '<cmd>lua require("jascha030.utils.fs").file_picker()<cr>' },
                     { '<C-p>', '<cmd>lua require("telescope.builtin").git_files()<cr>' },
                     { 'fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>' },
                     { '<C-f>', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>' },
-                    { '<C-l>', "<cmd>lua require'conform'.format()<cr>", desc = 'Format using conform.' },
                     {
                         '<leader>hl',
                         '<cmd>lua require("telescope.builtin").highlights()<cr>',
                         desc = 'Show available highlights in ui.',
                     },
-                    {
-                        '<S-Tab>',
-                        '<Plug>(cokeline-focus-next)',
-                        opts = { silent = true },
-                    },
+                    { '<S-Tab>', '<Plug>(cokeline-focus-next)', opts = { silent = true } },
                     { '<C-w><C-c>', '<cmd>close<cr>' },
                     { '<C-n>', '<cmd>Neotree toggle focus<cr>' },
                     { 'N', '<cmd>Neotree focus<cr>' },
@@ -175,26 +170,9 @@ require('lazy').setup({
                     { '<leader>fh', '<cmd>Telescope help_tags<cr>' },
                     { '<leader>fc', '<cmd>Telescope git_bcommits<cr>' },
                     { '<leader>lz', '<cmd>Lazy<cr>' },
-                    { '<leader>fs', '<cmd>lua require("spectre").toggle()<CR>', desc = 'Toggle Spectre' },
-                    {
-                        '<leader>sw',
-                        '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
-                        desc = 'Search current word',
-                    },
-                    {
-                        '<leader>sp',
-                        '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
-                        desc = 'Search on current file',
-                    },
                 },
                 v = {
                     { '<C-c>', '"+y', desc = 'Yank to OS ClipBoard' },
-                    {
-                        '<leader>sw',
-                        '<esc><cmd>lua require("spectre").open_visual()<CR>',
-                        desc = 'Search current word',
-                    },
-                    { '<C-l>', "<cmd>lua require'conform'.format()<cr>", desc = 'Format using conform.' },
                     { '<C-_>', ":'<,'>CommentToggle<cr>" },
                     { '<C-/>', ":'<,'>CommentToggle<cr>" },
                 },
