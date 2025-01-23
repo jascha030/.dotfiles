@@ -3,6 +3,9 @@ local M = {
     {
         'folke/lazydev.nvim',
         ft = 'lua', -- only load on lua files
+        build = function(plugin)
+            local obj = vim.system({ 'cargo', 'build', '--release' }, { cwd = plugin.dir }):wait()
+        end,
         ---@type lazydev.Config
         opts = {
             library = {
