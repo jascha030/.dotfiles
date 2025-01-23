@@ -2,5 +2,9 @@
   "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
   "format": {
     "enable": false
-  }
+  },
+    "diagnostics.disable": [
+        "duplicate-doc-field",
+        "duplicate-doc-alias"
+    ]
 }
