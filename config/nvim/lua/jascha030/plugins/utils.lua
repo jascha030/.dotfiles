@@ -53,24 +53,10 @@ local M = {
         lazy = true,
     },
     {
-        'lukas-reineke/indent-blankline.nvim',
-        name = 'indent_blankline',
-        main = 'ibl',
-        opts = {
-            indent = { char = '│' },
-            exclude = { filetypes = { 'dashboard' } },
-            scope = { enabled = true },
-        },
-    },
-    {
         'terrortylor/nvim-comment',
         name = 'nvim_comment',
         config = true,
         event = { 'VeryLazy' },
-    },
-    {
-        'ziontee113/icon-picker.nvim',
-        cond = false,
     },
     { 'justinsgithub/wezterm-types' },
     {
@@ -78,6 +64,49 @@ local M = {
         config = function(_, _)
             require('jascha030.core.formatting')
         end,
+        keys = {
+            {
+                '<C-l>',
+                function()
+                    require('conform').format()
+                end,
+                mode = { 'n', 'v' },
+                desc = 'Format using conform.',
+            },
+        },
+    },
+    {
+        'iamcco/markdown-preview.nvim',
+        build = 'cd app && yarn install',
+        init = function()
+            vim.g.mkdp_filetypes = { 'markdown' }
+        end,
+        cmd = {
+            'MarkdownPreviewToggle',
+            'MarkdownPreview',
+            'MarkdownPreviewStop',
+        },
+        ft = { 'markdown' },
+        keys = {
+            {
+                '<leader><leader>mp',
+                '<Plug>MarkdownPreview<CR>',
+                ft = 'markdown',
+                desc = 'Toggle markdown preview',
+            },
+            {
+                '<leader><leader>mt',
+                '<Plug>MarkdownPreviewToggle<CR>',
+                ft = 'markdown',
+                desc = 'Toggle markdown preview',
+            },
+            {
+                '<leader><leader>mq',
+                '<Plug>MarkdownPreviewStop<CR>',
+                ft = 'markdown',
+                desc = 'Stop markdown preview',
+            },
+        },
     },
 }
 
