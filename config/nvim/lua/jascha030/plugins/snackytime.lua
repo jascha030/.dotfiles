@@ -27,76 +27,83 @@ function M.opts()
         enabled = true,
         preset = {
             keys = {
-                { title = 'Actions' },
                 {
-                    icon = ' ',
-                    key = 'n',
-                    desc = 'New File',
-                    action = ':ene | startinsert',
+                    pane = 1,
+                    { title = 'Actions' },
+                    {
+                        icon = ' ',
+                        key = 'n',
+                        desc = 'New File',
+                        action = ':ene | startinsert',
+                    },
+                    {
+                        icon = ' ',
+                        key = 'ff',
+                        desc = 'Find File',
+                        action = ":lua Snacks.dashboard.pick('files')",
+                    },
+                    {
+                        icon = ' ',
+                        key = 'fg',
+                        desc = 'Find Text',
+                        action = ":lua Snacks.dashboard.pick('live_grep')",
+                        padding = 1,
+                    },
                 },
                 {
-                    icon = ' ',
-                    key = 'f',
-                    desc = 'Find File',
-                    action = ":lua Snacks.dashboard.pick('files')",
-                },
-                {
-                    icon = ' ',
-                    key = 'g',
-                    desc = 'Find Text',
-                    action = ":lua Snacks.dashboard.pick('live_grep')",
-                    padding = 1,
-                },
-                { title = 'Utils' },
-                {
-                    icon = '󰒲 ',
-                    key = 'L',
-                    desc = 'Lazy',
-                    action = ':Lazy',
-                    enabled = package.loaded.lazy ~= nil,
-                },
-                {
-                    icon = ' ',
-                    key = 'M',
-                    desc = 'Mason',
-                    action = ':Mason',
-                },
-                {
-                    icon = ' ',
-                    key = 's',
-                    desc = 'Restore Session',
-                    section = 'session',
-                },
-                {
-                    icon = ' ',
-                    key = 'q',
-                    desc = 'Quit',
-                    action = ':q',
-                    padding = 1,
+                    pane = 2,
+                    { title = 'Utils' },
+                    {
+                        icon = '󰒲 ',
+                        key = 'L',
+                        desc = 'Lazy',
+                        action = ':Lazy',
+                        enabled = package.loaded.lazy ~= nil,
+                    },
+                    {
+                        icon = ' ',
+                        key = 'M',
+                        desc = 'Mason',
+                        action = ':Mason',
+                    },
+                    -- { icon = ' ', key = 's', desc = 'Restore Session', section = 'session' },
+                    {
+                        icon = ' ',
+                        key = 'q',
+                        desc = 'Quit',
+                        action = ':q',
+                        padding = 1,
+                    },
                 },
             },
         },
         sections = {
             {
                 pane = 1,
+                height = 2,
+                padding = 1,
+                section = 'startup',
+            },
+            {
+                pane = 2,
+                height = 1,
+                padding = 1,
+                section = 'terminal',
+                cmd = 'fortune -s',
+                hl = 'header',
+            },
+            { section = 'keys', pane_gap = 4 },
+            {
+                pane = 1,
                 pane_gap = 4,
-                {
-                    section = 'terminal',
-                    cmd = 'fortune -s | cowsay',
-                    hl = 'header',
-                    padding = 1,
-                    height = 10,
-                },
-                { section = 'keys' },
-                { section = 'startup' },
+                { title = 'MRU ', file = vim.fn.fnamemodify('.', ':~') },
+                { section = 'recent_files', cwd = true, limit = 8, padding = 1 },
             },
             {
                 pane = 2,
                 pane_gap = 4,
                 { title = 'MRU' },
                 { section = 'recent_files', limit = 8, padding = 1 },
-                { title = 'MRU ', file = vim.fn.fnamemodify('.', ':~') },
-                { section = 'recent_files', cwd = true, limit = 8, padding = 1 },
             },
         },
     }
@@ -221,6 +228,14 @@ function M.keys()
                 })
             end,
         },
+        {
+            '<leader><leader>D',
+            function()
+                Snacks.dashboard()
+            end,
+            mode = 'n',
+            desc = 'Open dashboard (snacks)',
+        },
     }
 end
 
@@ -264,9 +279,12 @@ function M.init()
         pattern = 'VeryLazy',
         callback = function()
             -- Setup some globals for debugging (lazy-loaded)
+            ---@diagnostic disable-next-line: duplicate-set-field
             _G.dd = function(...)
                 Snacks.debug.inspect(...)
             end
+
+            ---@diagnostic disable-next-line: duplicate-set-field
             _G.bt = function()
                 Snacks.debug.backtrace()
             end
