@@ -28,7 +28,7 @@ vim.cmd([[
     " Neon
     autocmd BufRead,BufNewFile *.neon,*.neon.dist set ft=neon
     " INI
-    autocmd BufRead,BufNewFile *.ini set ft=ini
+    autocmd BufRead,BufNewFile *.ini* set ft=ini
     " PHP 
     autocmd BufRead,BufNewFile composer.json,.phpactor.json set tabstop=4 | set shiftwidth=4 | set expandtab | set softtabstop=4
     autocmd BufRead,BufNewFile composer.lock set ft=json
