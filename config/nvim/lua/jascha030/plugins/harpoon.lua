@@ -3,7 +3,6 @@ local M = {
     'ThePrimeagen/harpoon',
     dependencies = { 'nvim-lua/plenary.nvim' },
     lazy = true,
-    cond = false,
 }
 
 function M.keys(_, _)
