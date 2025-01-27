@@ -1,4 +1,5 @@
 ---@diagnostic disable: missing-fields
+
 local NOTIFICATION_FILTERS = {
     '[Neo-tree INFO]',
 }
@@ -14,12 +15,16 @@ function M.opts()
     ---@type snacks.Config
     local opts = {
         bigfile = { enabled = true },
-        notifier = { enabled = false },
+        notifier = {
+            enabled = false,
+            style = 'minimal',
+        },
         quickfile = { enabled = true },
         words = { enabled = true },
         input = { enabled = true },
         indent = { enabled = true },
         statuscolumn = { enabled = true },
+        dim = { enabled = true },
     }
 
     ---@type snacks.dashboard.Config
@@ -29,7 +34,7 @@ function M.opts()
             keys = {
                 {
                     pane = 1,
-                    { title = 'Actions' },
+                    { title = 'Actions', padding = 1 },
                     {
                         icon = ' ',
                         key = 'n',
@@ -52,7 +57,7 @@ function M.opts()
                 },
                 {
                     pane = 2,
-                    { title = 'Utils' },
+                    { title = 'Utils', padding = 1 },
                     {
                         icon = '󰒲 ',
                         key = 'L',
@@ -79,30 +84,27 @@ function M.opts()
         },
         sections = {
             {
-                pane = 1,
-                height = 2,
-                padding = 1,
                 section = 'startup',
+                pane = 1,
+                padding = 1,
             },
             {
+                title = '',
                 pane = 2,
-                height = 1,
                 padding = 1,
-                section = 'terminal',
-                cmd = 'fortune -s',
-                hl = 'header',
             },
+            -- { section = 'terminal', pane = 2, padding = 1, cmd = 'echo -n ${TERM}', hl = 'header' },
             { section = 'keys', pane_gap = 4 },
             {
                 pane = 1,
                 pane_gap = 4,
-                { title = 'MRU ', file = vim.fn.fnamemodify('.', ':~') },
+                { title = 'MRU ', file = vim.fn.fnamemodify('.', ':~'), padding = 1 },
                 { section = 'recent_files', cwd = true, limit = 8, padding = 1 },
             },
             {
                 pane = 2,
                 pane_gap = 4,
-                { title = 'MRU' },
+                { title = 'MRU', padding = 1 },
                 { section = 'recent_files', limit = 8, padding = 1 },
             },
         },
@@ -288,6 +290,7 @@ function M.init()
             _G.bt = function()
                 Snacks.debug.backtrace()
             end
+
             vim.print = _G.dd -- Override print to use snacks for `:=` command
             -- Snacks.toggle.option('spell', { name = 'Spelling' }):map('<leader>us')
             -- Snacks.toggle.option('wrap', { name = 'Wrap' }):map('<leader>uw')
