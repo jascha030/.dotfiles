@@ -102,7 +102,9 @@ local M = {
                     local max_filesize = 100 * 1024 -- 100 KB
                     local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
 
-                    return ((ok and stats and stats.size > max_filesize) or vim.tbl_contains(HIGHLIGHTING_DISABLED, lang))
+                    return (
+                        (ok and stats and stats.size > max_filesize) or vim.tbl_contains(HIGHLIGHTING_DISABLED, lang)
+                    )
                 end,
                 use_languagetree = true,
                 additional_vim_regex_highlighting = HIGHLIGHTING_ADD_VIM_REGEX,
@@ -196,7 +198,6 @@ function M.config(_, opts)
     }
 
     -- Old way of registering parsers to langs
-    --
     --
     -- ```lua
     --  local ft_to_lang = parsers.ft_to_lang
