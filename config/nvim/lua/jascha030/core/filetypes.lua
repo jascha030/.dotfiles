@@ -7,6 +7,8 @@ function M.setup()
         return
     end
 
+    M.initialized = true
+
     vim.filetype.add({
         extension = {
             env = 'dotenv',
@@ -19,8 +21,6 @@ function M.setup()
             ['.*%.blade%.php'] = 'blade',
         },
     })
-
-    M.initialized = true
 end
 
 return M

@@ -16,16 +16,10 @@
 ---@field t? table
 ---@field v? table
 
----@class jascha030.core.config.ConfigOptions
----@field colorscheme? boolean | string
----@field debug? boolean
----@field keymaps? jascha030.core.config.KeymapConfigOptions
----@field opts? jascha030.core.config.VimConfigOptions
----@field path? jascha030.core.config.PathConfigOptions
----@field polyglot? table
----@field augroups? table
-
-local M = {}
+---@class jascha030.core.config
+---@field options jascha030.core.config.ConfigOptions
+---@diagnostic disable-next-line: missing-fields
+local M = { options = {} }
 
 ---@return jascha030.core.config.ConfigOptions
 function M.defaults()
@@ -39,9 +33,6 @@ function M.defaults()
         augroups = {},
     }
 end
-
----@type jascha030.core.config.ConfigOptions
-M.options = {}
 
 function M.extend(options)
     if type(options) == 'table' then

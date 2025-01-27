@@ -65,6 +65,7 @@ require('lazy').setup({
         dir = vim.fn.stdpath('config') --[[@as string]],
         lazy = false,
         priority = 10000,
+        ---@diagnostic disable-next-line: undefined-doc-name
         ---@type jascha030.core.config.ConfigOptions
         opts = {
             debug = false,
