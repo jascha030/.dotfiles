@@ -51,13 +51,13 @@ keybind = ctrl+d>eight=goto_tab:8
 keybind = alt+equal=equalize_splits
 # keybind = super+left_bracket=goto_split:previous
 # keybind = super+right_bracket=goto_split:next
-keybind = alt+h=goto_split:left
+# keybind = alt+h=goto_split:left
 keybind = alt+left=goto_split:left
-keybind = alt+k=goto_split:top
+# keybind = alt+k=goto_split:top
 keybind = alt+up=goto_split:top
-keybind = alt+l=goto_split:right
+# keybind = alt+l=goto_split:right
 keybind = alt+right=goto_split:right
-keybind = alt+j=goto_split:bottom
+# keybind = alt+j=goto_split:bottom
 keybind = alt+down=goto_split:bottom
 
 # keybind = super+ctrl+down=resize_split:down,10
