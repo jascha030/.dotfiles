@@ -55,8 +55,9 @@ local opts = {
             'prettier',
         },
         twig = {
-            stop_after_first = true,
+            stop_after_first = false,
             'twig-cs-fixer',
+            'prettier',
         },
         json = {
             stop_after_first = true,
