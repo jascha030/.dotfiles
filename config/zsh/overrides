@@ -40,6 +40,19 @@ if (( ${+LAZYGIT_CONFIG} )); then
     alias lazygit='__lazygit'
 fi
 
+if (( ${+commands[mycli]} )); then 
+    function __mysql_cli {
+        if [[ $# -eq 0 ]]; then
+            mycli
+        else
+            \mariadb "$@"
+        fi
+    }
+
+    autoload -Uz __mysql_cli
+    alias {mariadb,mysql}='__mysql_cli'
+fi
+
 function ppgrep() { 
     pgrep "$@" | xargs ps -f -p; 
 }

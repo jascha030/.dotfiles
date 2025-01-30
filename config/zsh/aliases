@@ -3,8 +3,8 @@
 alias c='clear-screen'
 alias e='echo -n'
 alias h='cd $HOME'
-alias kk='ll' # Rotating 3 keyboards, created 50/50 chance I type 'kk' instead of 'll'.
-alias l='ll'
+# Rotating 3 keyboards, created 50/50 chance I type 'kk' instead of 'll'.
+alias {kk,l}='ll' 
 alias lg='lazygit'
 alias llc='ls | wc -l'
 alias lll='ll | lolcrab'
@@ -26,18 +26,19 @@ alias cpd='copy-dir-path'
 alias raycast='open /Applications/Raycast.app'
 #- Debuggingz --------------------------------------------------------------------------------------------------------#
 alias zbench="$HOME/zsh-bench/zsh-bench | cat"
-alias checkitalics="echo -e '\e[3mitalic\e[23m'"
-alias checkbold="echo -e '\e[1mbold\e[22m'"
-alias displaycolors="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
+alias {checkitalics,check:italics}="echo -e '\e[3mitalic\e[23m'"
+alias {checkbold,check:bold}="echo -e '\e[1mbold\e[22m'"
+alias {displaycolors,check:colors}="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
 #- Utilities ---------------------------------------------------------------------------------------------------------#
 # alias nd='nvim "+lua vim.lsp.set_log_level(\"debug\")"'; 
-(( ${+commands[nvim]} )) && { alias vim=nvim; alias n=nvim; alias rn='root && n'; }
+(( ${+commands[nvim]} )) && { alias {vim,n}=nvim; alias rn='root && n'; }
 
 alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
 alias cargoup='cargo install-update --all'
 alias kraken='$(open gitkraken://repo/${PWD})'
 alias gh:codeowners='mkdir .github/ && echo "* @jascha030" > .github/CODEOWNERS'
 alias lspath="echo ${PATH} | tr ':' '\n';"
+alias lsfpath="echo ${fpath} | tr ' ' '\n';"
 #- Copy stuff to pastaboard ------------------------------------------------------------------------------------------#
 alias cp:fontawesome='cat $HOME/.development/Projects/Php/Wordpress/sites/sbtweema/.npmrc | pbcopy' 
 alias cp:ghauth='echo -e "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" | pbcopy'
@@ -50,22 +51,27 @@ alias valetrm='rm ${HOME}/.config/valet/*.sock'
 alias valetr='valetrm && valet restart'
 alias vo='valet open'
 alias cpconf:bamarni="composer config extra.bamarni-bin.bin-links --json true && vomposer config extra.bamarni-bin.forward-command --json true"
+
 #- WP Development ----------------------------------------------------------------------------------------------------#
-alias wpuser:create='wpuser create'
-alias wpuser:update='wpuser update'
-# alias wpuser:update='wp --skip-plugins --skip-themes user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
-# alias wpuser:create='wp --skip-plugins --skip-themes user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
+alias wpuser:create='wp --skip-plugins --skip-themes user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
+alias wpuser:update='wp --skip-plugins --skip-themes user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
+# alias wpuser:create='wpuser create'
+# alias wpuser:update='wpuser update'
+
 alias wpenv:user:create='wp-env run cli wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpenv:user:update='wp-env run cli wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
+
 alias wpconfig:new='wp-config-new-db'
 alias wpmail:disable='wp --skip-plugins --skip-themes plugin install disable-emails --activate'
+
 alias wpc='wp wc'
 alias=wpsc='wp --skip-themes --skip-plugins wc'
-
 alias wpb:codeowners='mkdir .github && echo "* @jascha030 @ismetozkanSB" >> .github/CODEOWNERS'
+
 #- Fix for Nu-shell and @antfu/ni:nu confusion -----------------------------------------------------------------------#
 alias nup="$(which nu)"
 alias nu="$HOME/.cargo/bin/nu"
+
 #- Suffix Aliases ----------------------------------------------------------------------------------------------------#
 alias -s php=pstorm
 alias -s {.zshrc,zsh,sh,json,yaml,.env,cs,ts,html}=vim
