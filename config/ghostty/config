@@ -23,8 +23,10 @@ theme = light:litepal,dark:nitepal
 minimum-contrast = 1.1
 background-opacity = 0.9
 background-blur-radius = 80
+
 # window-decoration = true
-window-theme = system
+window-theme = ghostty
+window-save-state = always
 
 # Other
 shell-integration-features = true
