@@ -138,6 +138,8 @@ require('lazy').setup({
             -- wip (field name: (identifier) @id (#match? @id "keymaps") value: (table_constructor (field value: (table_constructor) @t) @f))
             keymaps = {
                 n = {
+                    { '[b', '<cmd>bprevious<cr>', desc = 'Cycle to previous buffer' },
+                    { ']b', '<cmd>bnext<cr>', desc = 'Cycle to next buffer' },
                     { 't', '<C-w>', desc = 'Navigate buffers' },
                     { 'H', '<C-w>h', desc = 'Navigate to the previous buffer' },
                     { 'L', '<C-w>l', desc = 'Navigate to the next buffer' },
