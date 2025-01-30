@@ -54,6 +54,10 @@ local opts = {
             'markdownlint',
             'prettier',
         },
+        twig = {
+            stop_after_first = true,
+            'twig-cs-fixer',
+        },
         json = {
             stop_after_first = true,
             'jq',
