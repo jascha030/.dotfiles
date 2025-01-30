@@ -55,6 +55,9 @@ alias cpconf:bamarni="composer config extra.bamarni-bin.bin-links --json true &&
 #- WP Development ----------------------------------------------------------------------------------------------------#
 alias wpuser:create='wp --skip-plugins --skip-themes user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpuser:update='wp --skip-plugins --skip-themes user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
+
+alias cp:wpuser:create="echo $'wp --skip-plugins --skip-themes user create \"jascha@socialbrothers.nl\" \"jascha@socialbrothers.nl\" --role=administrator --user_pass=\"test123\"' | pbcopy"
+alias cp:wpuser:update="echo $'wp --skip-plugins --skip-themes user update jascha@socialbrothers.nl --role=administrator --user_pass=\"test123\"' | pbcopy"
 # alias wpuser:create='wpuser create'
 # alias wpuser:update='wpuser update'
 
