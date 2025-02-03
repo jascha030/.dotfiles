@@ -3,9 +3,6 @@ local M = {
     {
         'folke/lazydev.nvim',
         ft = 'lua', -- only load on lua files
-        build = function(plugin)
-            local obj = vim.system({ 'cargo', 'build', '--release' }, { cwd = plugin.dir }):wait()
-        end,
         ---@type lazydev.Config
         opts = {
             library = {
@@ -44,6 +41,9 @@ local M = {
     },
     { -- optional blink completion source for require statements and module annotations
         'saghen/blink.cmp',
+        build = function(plugin)
+            local obj = vim.system({ 'cargo', 'build', '--release' }, { cwd = plugin.dir }):wait()
+        end,
         event = 'InsertEnter',
         dependencies = {
             'neovim/nvim-lspconfig',
