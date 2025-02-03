@@ -4,7 +4,7 @@ font-size = 16
 font-thicken = false
 
 ## Font Family
-font-family = "Nonicons"
+# font-family = "Nonicons"
 font-family = "CaskaydiaCove Nerd Font" 
 font-family = "CaskaydiaCove Nerd Font Mono"
 font-family = "Caskadia Code"
@@ -20,9 +20,9 @@ mouse-hide-while-typing = true
 
 # Theme
 theme = light:litepal,dark:nitepal
+background-blur-radius = 80
 minimum-contrast = 1.1
 background-opacity = 0.9
-background-blur-radius = 80
 
 # window-decoration = true
 window-theme = ghostty
@@ -31,6 +31,8 @@ window-save-state = always
 # Other
 shell-integration-features = true
 macos-option-as-alt = true
+# auto-update = 
+auto-update-channel = tip
 
 # Keybindings
 keybind = clear
@@ -50,7 +52,9 @@ keybind = ctrl+d>six=goto_tab:6
 keybind = ctrl+d>seven=goto_tab:7
 keybind = ctrl+d>eight=goto_tab:8
 
+keybind = ctrl+d>equal=equalize_splits
 keybind = alt+equal=equalize_splits
+
 # keybind = super+left_bracket=goto_split:previous
 # keybind = super+right_bracket=goto_split:next
 # keybind = alt+h=goto_split:left
