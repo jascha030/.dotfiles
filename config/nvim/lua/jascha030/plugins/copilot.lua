@@ -2,8 +2,10 @@
 local M = {
     'zbirenbaum/copilot.lua',
     cmd = 'Copilot',
-    dependencies = 'nvim-lspconfig',
+    build = '<cmd>Copilot auth',
+    event = { 'InsertEnter' },
     opts = {
+        enabled = true,
         panel = {
             enabled = false,
         },
@@ -11,7 +13,6 @@ local M = {
             markdown = true,
         },
     },
-    event = { 'InsertEnter' },
 }
 
 function M.config(_, opts)
