@@ -2,6 +2,7 @@
 
 local NOTIFICATION_FILTERS = {
     '[Neo-tree INFO]',
+    'Neo-tree INFO',
 }
 
 ---@type LazyPluginSpec
@@ -14,10 +15,16 @@ local M = {
 function M.opts()
     ---@type snacks.Config
     local opts = {
+        styles = {
+            minimal = {
+                relative = 'editor',
+                border = 'solid',
+            },
+        },
         bigfile = { enabled = true },
         notifier = {
             enabled = false,
-            style = 'minimal',
+            -- style = 'minimal',
         },
         quickfile = { enabled = true },
         words = { enabled = true },
@@ -260,17 +267,8 @@ function M.config(_, opts)
     ---@param o table
     ---@see vim.notify
     local function _custom_notify(msg, lvl, o)
-        vim.notify = Snacks.notifier.notify
-
-        if lvl == vim.log.levels.INFO then
-            return vim_notify(msg, lvl, o)
-        end
-
-        if _notify_filter(msg) then
-            return vim_notify(msg, lvl, o)
-        end
-
-        return Snacks.notifier.notify(msg, lvl, o)
+        return (lvl == vim.log.levels.INFO or _notify_filter(msg)) and vim_notify(msg, lvl, o)
+            or Snacks.notifier.notify(msg, lvl, o)
     end
 
     vim.notify = _custom_notify
@@ -302,8 +300,70 @@ function M.init()
                 :map('<leader>uc')
             Snacks.toggle.treesitter():map('<leader>uT')
             Snacks.toggle.inlay_hints():map('<leader>uh')
+
+            ---@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
+            local progress = vim.defaulttable()
+            vim.api.nvim_create_autocmd('LspProgress', {
+                ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
+                callback = function(ev)
+                    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+                    local value = ev.data.params.value --[[@as {percentage?: number, title?: string, message?: string, kind: "begin" | "report" | "end"}]]
+                    if not client or type(value) ~= 'table' then
+                        return
+                    end
+                    local p = progress[client.id]
+
+                    for i = 1, #p + 1 do
+                        if i == #p + 1 or p[i].token == ev.data.params.token then
+                            p[i] = {
+                                token = ev.data.params.token,
+                                msg = ('[%3d%%] %s%s'):format(
+                                    value.kind == 'end' and 100 or value.percentage or 100,
+                                    value.title or '',
+                                    value.message and (' **%s**'):format(value.message) or ''
+                                ),
+                                done = value.kind == 'end',
+                            }
+                            break
+                        end
+                    end
+
+                    local msg = {} ---@type string[]
+                    progress[client.id] = vim.tbl_filter(function(v)
+                        return table.insert(msg, v.msg) or not v.done
+                    end, p)
+
+                    local spinner = { '⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏' }
+                    Snacks.notifier.notify(table.concat(msg, '\n'), 'info', {
+                        id = 'lsp_progress',
+                        title = client.name,
+                        opts = function(notif)
+                            notif.icon = #progress[client.id] == 0 and ' '
+                                or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+                        end,
+                        style = 'minimal',
+                        top_down = false,
+                        history = false,
+                    })
+                end,
+            })
         end,
     })
 end
+
+-- vim.api.nvim_create_autocmd('LspProgress', {
+--     ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
+--     callback = function(ev)
+--         local spinner = { '⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏' }
+--         Snacks.notifier.notify(vim.lsp.status(), 'info', {
+--             id = 'lsp_progress',
+--             title = 'LSP Progress',
+--             opts = function(notif)
+--                 notif.icon = ev.data.params.value.kind == 'end' and ' '
+--                     or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+--             end,
+--         })
+--     end,
+-- })
 
 return M
