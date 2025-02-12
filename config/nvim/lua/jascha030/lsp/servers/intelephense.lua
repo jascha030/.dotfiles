@@ -1,13 +1,17 @@
 return function()
     return {
-        -- root_dir = lspconfig.util.root_pattern('composer.json', '.git'),
-        trace = 'verbose',
         handlers = {
-            -- Disable diagnostics provider for intelephense.
+            -- Disable providers for intelephense.
             ['textDocument/publishDiagnostics'] = function() end,
         },
         settings = {
             intelephense = {
+                format = {
+                    enable = false,
+                },
+                diagnostics = {
+                    enable = false,
+                },
                 -- "aerospike", "dio", "zmq", "zookeeper", "yar", "yaf", "xcache", "xxtea", "wddx", "uopz", "stomp", "suhosin", "snmp", "solr", "SaxonC", "rpminfo", "judy", "ming",
                 stubs = {
                     'Core',
@@ -175,7 +179,6 @@ return function()
                     'zlib',
                     'zstd',
                 },
-                diagnostics = { enable = true },
                 files = {
                     maxSize = 5000000,
                 },
