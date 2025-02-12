@@ -58,8 +58,6 @@ alias wpuser:update='wp --skip-plugins --skip-themes user update jascha@socialbr
 
 alias cp:wpuser:create="echo $'wp --skip-plugins --skip-themes user create \"jascha@socialbrothers.nl\" \"jascha@socialbrothers.nl\" --role=administrator --user_pass=\"test123\"' | pbcopy"
 alias cp:wpuser:update="echo $'wp --skip-plugins --skip-themes user update jascha@socialbrothers.nl --role=administrator --user_pass=\"test123\"' | pbcopy"
-# alias wpuser:create='wpuser create'
-# alias wpuser:update='wpuser update'
 
 alias wpenv:user:create='wp-env run cli wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpenv:user:update='wp-env run cli wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
