@@ -3,25 +3,30 @@ local M = {
     {
         'folke/lazydev.nvim',
         ft = 'lua', -- only load on lua files
+        dependencies = {
+            'Bilal2453/luvit-meta', -- type defs for vim.uv
+        },
         ---@type lazydev.Config
         opts = {
             library = {
                 'annotations',
-                'lazydev.nvim',
+                'luvit-meta/library',
+                vim.env.VIMRUNTIME,
                 'lazy.nvim',
-                'nvim-treesitter',
+                'lazydev.nvim',
                 'nvim-lspconfig',
-                'snacks.nvim',
-                { path = 'wezterm-types', mods = { 'wezterm' } },
-                { path = 'luvit-meta/library', words = { 'vim%.uv', 'vim%.loop' } },
-                { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
-                { path = 'LazyVim', words = { 'LazyVim' } },
+                'nvim-treesitter',
+                unpack(vim.api.nvim_get_runtime_file('lua/vim', true)),
             },
             integrations = {
                 cmp = true,
                 lsp = true,
+                lspconfig = true,
             },
         },
+        -- config = function(_, opts)
+        --     require('snacks.debug').inspect(opts.library)
+        -- end,
     },
     { -- optional cmp completion source for require statements and module annotations
         'hrsh7th/nvim-cmp',
@@ -39,7 +44,8 @@ local M = {
         lazy = true,
         opts = { impersonate_nvim_cmp = true },
     },
-    { -- optional blink completion source for require statements and module annotations
+    {
+        -- optional blink completion source for require statements and module annotations
         'saghen/blink.cmp',
         build = function(plugin)
             local obj = vim.system({ 'cargo', 'build', '--release' }, { cwd = plugin.dir }):wait()
