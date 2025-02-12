@@ -68,7 +68,8 @@ require('lazy').setup({
         ---@diagnostic disable-next-line: undefined-doc-name
         ---@type jascha030.core.config.ConfigOptions
         opts = {
-            debug = false,
+            -- debug = false,
+            debug = true,
             path = {
                 env = {
                     vim.env.HOME .. '/.local/share/mise/shims',
@@ -143,8 +144,12 @@ require('lazy').setup({
                     { 't', '<C-w>', desc = 'Navigate buffers' },
                     { 'H', '<C-w>h', desc = 'Navigate to the previous buffer' },
                     { 'L', '<C-w>l', desc = 'Navigate to the next buffer' },
-                    { 'ff', '<cmd>lua require("jascha030.utils.fs").file_picker()<cr>' },
-                    { '<C-p>', '<cmd>lua require("telescope.builtin").git_files()<cr>' },
+                    { '<C-p>', '<cmd>lua require("telescope.builtin").find_files()<cr>', desc = 'Find files in cwd' },
+                    {
+                        'ff',
+                        '<cmd>lua require("telescope.builtin").git_files()<cr>',
+                        desc = 'Find files included in current git repo',
+                    },
                     { 'fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>' },
                     { '<C-f>', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>' },
                     {
