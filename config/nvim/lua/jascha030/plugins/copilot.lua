@@ -2,8 +2,20 @@
 local M = {
     'zbirenbaum/copilot.lua',
     cmd = 'Copilot',
-    build = '<cmd>Copilot auth',
+    build = '<cmd>Copilot auth<cr>',
     event = { 'InsertEnter' },
+    keys = {
+        {
+            '<leader>uC',
+            function()
+                if require('copilot.client').is_disabled() then
+                    require('copilot.command').enable()
+                else
+                    require('copilot.command').disable()
+                end
+            end,
+        },
+    },
     opts = {
         enabled = true,
         panel = {
