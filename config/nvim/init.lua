@@ -68,8 +68,8 @@ require('lazy').setup({
         ---@diagnostic disable-next-line: undefined-doc-name
         ---@type jascha030.core.config.ConfigOptions
         opts = {
-            -- debug = false,
-            debug = true,
+            debug = false,
+            -- debug = true,
             path = {
                 env = {
                     vim.env.HOME .. '/.local/share/mise/shims',

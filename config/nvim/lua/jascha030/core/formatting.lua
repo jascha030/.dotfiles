@@ -43,6 +43,7 @@ local opts = {
         },
         scss = {
             stop_after_first = true,
+            'stylelint',
             'prettier',
         },
         html = {
