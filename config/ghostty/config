@@ -22,7 +22,7 @@ theme = light:litepal,dark:nitepal
 # theme = nitepal
 background-blur-radius = 80
 # minimum-contrast = 1.1
-background-opacity = 0.875
+background-opacity = 0.95
 
 window-theme = ghostty 
 window-save-state = always
