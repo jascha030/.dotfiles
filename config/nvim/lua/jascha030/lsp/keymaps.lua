@@ -66,12 +66,6 @@ function M.on_attach(client, bufnr)
     self:map('<leader>cl', 'LspInfo', { desc = 'Lsp Info' })
     self:map('<leader>xd', 'Telescope diagnostics', { desc = 'Telescope Diagnostics' })
 
-    self:map('gd', 'Telescope lsp_definitions', { desc = 'Goto Definition' })
-    self:map('gr', 'Telescope lsp_references', { desc = 'References' })
-    self:map('gD', 'Telescope lsp_declarations', { desc = 'Goto Declaration' })
-    self:map('gI', 'Telescope lsp_implementations', { desc = 'Goto Implementation' })
-    self:map('gt', 'Telescope lsp_type_definitions', { desc = 'Goto Type Definition' })
-
     self:map('K', vim.lsp.buf.hover, { desc = 'Hover' })
     self:map('gK', vim.lsp.buf.signature_help, { desc = 'Signature Help', has = 'signatureHelp' })
     self:map('<C-k>', vim.lsp.buf.signature_help, { mode = 'i', desc = 'Signature Help', has = 'signatureHelp' })

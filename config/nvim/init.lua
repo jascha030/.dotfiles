@@ -144,13 +144,6 @@ require('lazy').setup({
                     { 't', '<C-w>', desc = 'Navigate buffers' },
                     { 'H', '<C-w>h', desc = 'Navigate to the previous buffer' },
                     { 'L', '<C-w>l', desc = 'Navigate to the next buffer' },
-                    { '<C-p>', '<cmd>lua require("telescope.builtin").find_files()<cr>', desc = 'Find files in cwd' },
-                    {
-                        'ff',
-                        '<cmd>lua require("telescope.builtin").git_files()<cr>',
-                        desc = 'Find files included in current git repo',
-                    },
-                    { 'fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>' },
                     { '<C-f>', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>' },
                     {
                         '<leader>hl',
@@ -166,11 +159,6 @@ require('lazy').setup({
                     { '<leader>m', '<cmd>Mason<cr>' },
                     { '<C-_>', '<cmd>CommentToggle<cr>' },
                     { '<C-/>', '<cmd>CommentToggle<cr>' },
-                    {
-                        '<leader>c',
-                        '<cmd>lua require("jascha030.lsp.menu").show()<cr>',
-                        desc = 'Context aware menu',
-                    },
                     { '<leader>e', '<cmd>e<cr>' },
                     { '<leader>p', '<cmd>InspectTree<cr>' },
                     { '<leader>pc', '<cmd>lua vim.show_pos()<cr>' },
