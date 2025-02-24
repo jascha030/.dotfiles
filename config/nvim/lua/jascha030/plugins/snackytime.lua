@@ -22,10 +22,7 @@ function M.opts()
             },
         },
         bigfile = { enabled = true },
-        notifier = {
-            enabled = false,
-            -- style = 'minimal',
-        },
+        notifier = { enabled = false },
         quickfile = { enabled = true },
         words = { enabled = true },
         input = { enabled = true },
@@ -173,6 +170,7 @@ function M.keys()
 
         { "<C-p>", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
         { "fg", function() Snacks.picker.grep() end, desc = "Grep" },
+        { "<leader>gg", function() Snacks.picker.grep() end, desc = "Grep" },
         { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
         { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
         { '<leader>s/', function() Snacks.picker.search_history() end, desc = "Search History" },
