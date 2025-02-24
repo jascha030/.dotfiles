@@ -1,6 +1,9 @@
 ## JetBrains IDE's
 .idea/
 
+## VSCode
+.vscode/
+
 ## Caches
 .cache/
 **.cache
@@ -13,3 +16,7 @@
 .pm.toml
 TODO.md
 
+## Backup files
+**.bak
+**.BAK
+**.swp
