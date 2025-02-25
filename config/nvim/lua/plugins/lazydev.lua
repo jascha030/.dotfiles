@@ -24,9 +24,6 @@ local M = {
                 lspconfig = true,
             },
         },
-        -- config = function(_, opts)
-        --     require('snacks.debug').inspect(opts.library)
-        -- end,
     },
     { -- optional cmp completion source for require statements and module annotations
         'hrsh7th/nvim-cmp',

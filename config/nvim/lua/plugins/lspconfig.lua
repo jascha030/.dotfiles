@@ -38,6 +38,16 @@ local M = {
             dependencies = { 'rust-lang/rust.vim' },
             lazy = true,
         },
+        {
+            'j-hui/fidget.nvim',
+            name = 'fidget',
+            tag = 'legacy',
+            opts = {
+                text = { spinner = 'dots' },
+                window = { relative = 'editor', blend = 0, zindex = nil },
+                sources = { phpactor = { ignore = true } },
+            },
+        },
     },
     opts = function(_, opts)
         ---@class PluginLspOpt
