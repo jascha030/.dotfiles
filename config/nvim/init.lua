@@ -188,5 +188,5 @@ require('lazy').setup({
             require('jascha030').setup(opts)
         end,
     },
-    { import = 'jascha030.plugins' },
+    { import = 'plugins' },
 }, lazy_opts)

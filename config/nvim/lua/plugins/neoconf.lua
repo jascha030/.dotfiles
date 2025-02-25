@@ -2,8 +2,7 @@
 local M = {
     'folke/neoconf.nvim',
     config = true,
-    lazy = false,
-    cmd = 'Neoconf',
+    cmd = { 'Neoconf' },
 }
 
 return M
