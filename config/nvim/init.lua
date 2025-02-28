@@ -160,7 +160,7 @@ require('lazy').setup({
                     { '<C-_>', '<cmd>CommentToggle<cr>' },
                     { '<C-/>', '<cmd>CommentToggle<cr>' },
                     { '<leader>e', '<cmd>e<cr>' },
-                    { '<leader>p', '<cmd>InspectTree<cr>' },
+                    { '<leader><leader>p', '<cmd>InspectTree<cr>' },
                     { '<leader>pc', '<cmd>lua vim.show_pos()<cr>' },
                     { '<leader>fh', '<cmd>Telescope help_tags<cr>' },
                     { '<leader>fc', '<cmd>Telescope git_bcommits<cr>' },
