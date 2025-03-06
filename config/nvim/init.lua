@@ -1,4 +1,4 @@
--- stylua: ignore-start
+-- stylua: ignore
 --[[========================== Jascha030's =============================--
 --   __  __  __  __  ______                __       __  __  ______      --
 --  /\ \/\ \/\ \/\ \/\__  _\   /'\_/`\    /\ \     /\ \/\ \/\  _  \     --
@@ -8,7 +8,7 @@
 --     \ \_\ \_\ `\___/ /\_____\\ \_\\ \_\   \ \____/ \ \_____\ \_\ \_\ --
 --      \/_/\/_/`\/__/  \/_____/ \/_/ \/_/    \/___/   \/_____/\/_/\/_/ --
 --[[================ beep-beep-Config-2.0-beep-boop ====================]]
--- stylua: ignore-end
+-- stylua: ignore end
 
 BORDER = 'rounded'
 BORDERS = { border = BORDER }
@@ -162,7 +162,6 @@ require('lazy').setup({
                     { '<leader>e', '<cmd>e<cr>' },
                     { '<leader><leader>p', '<cmd>InspectTree<cr>' },
                     { '<leader>pc', '<cmd>lua vim.show_pos()<cr>' },
-                    { '<leader>fh', '<cmd>Telescope help_tags<cr>' },
                     { '<leader>fc', '<cmd>Telescope git_bcommits<cr>' },
                     { '<leader>lz', '<cmd>Lazy<cr>' },
                 },

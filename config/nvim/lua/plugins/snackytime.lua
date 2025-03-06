@@ -1,8 +1,11 @@
 ---@diagnostic disable: missing-fields
 
+-- Patterns to filter out notifications, these will use the normal vim.notify.
 local NOTIFICATION_FILTERS = {
     'Neo-tree INFO',
+    'Config Change Detected.',
 }
+
 
 ---@type LazyPluginSpec
 local M = {
@@ -87,7 +90,7 @@ function M.opts()
         },
         formats = {
             key = function(item)
-                return { { "[", hl = "special" }, { item.key, hl = "key" }, { "]", hl = "special" } }
+                return { { '[', hl = 'special' }, { item.key, hl = 'key' }, { ']', hl = 'special' } }
             end,
         },
         sections = {
@@ -122,8 +125,8 @@ function M.opts()
     return opts
 end
 
+-- stylua: ignore 
 function M.keys()
--- stylua: ignore-start
     return {
         { "<leader><leader>f", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
         { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
@@ -141,7 +144,7 @@ function M.keys()
         { '[[', function() Snacks.words.jump(-vim.v.count1) end, desc = 'Prev Reference', mode = { 'n', 't' }, },
 
         {
-            '<leader>N',
+            '<leader><leader>N',
             desc = 'Neovim News',
             function()
                 Snacks.win({
@@ -155,10 +158,12 @@ function M.keys()
         },
 
         { '<leader><leader>D', function() Snacks.dashboard() end, mode = 'n', desc = 'Open dashboard (snacks)', },
+
+        -- GIT
         { '<leader>lg', function() Snacks.lazygit() end, desc = 'Lazygit', },
         { '<leader>gb', function() Snacks.git.blame_line() end, desc = 'Git Blame Line', },
         { '<leader>gB', function() Snacks.gitbrowse() end, desc = 'Git Browse', },
-        { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File" },
+        { '<leader>gf', function() Snacks.picker.git_log_file() end, desc = "Git Log File" },
         { '<leader>gl', function() Snacks.lazygit.log() end, desc = 'Lazygit Log (cwd)', },
         { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
         { "<leader>gL", function() Snacks.picker.git_log_line() end, desc = "Git Log Line" },
@@ -169,7 +174,7 @@ function M.keys()
         { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
         { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
         { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
-        { "ff", function() Snacks.picker.files() end, desc = "Find Files" },
+        { '<leader>ff', function() Snacks.picker.files() end, desc = "Find Files" },
         { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
         { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
 
@@ -185,7 +190,7 @@ function M.keys()
         { "<leader>sC", function() Snacks.picker.commands() end, desc = "Commands" },
         { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
         { "<leader>sD", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
-        { "<leader>sh", function() Snacks.picker.help() end, desc = "Help Pages" },
+        { "<leader>fh", function() Snacks.picker.help() end, desc = "Help Pages" },
         { "<leader>sH", function() Snacks.picker.highlights() end, desc = "Highlights" },
         { "<leader>si", function() Snacks.picker.icons() end, desc = "Icons" },
         { "<leader>sj", function() Snacks.picker.jumps() end, desc = "Jumps" },
@@ -199,6 +204,7 @@ function M.keys()
         { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
         { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
 
+        -- LSP
         { 'gd', function() Snacks.picker.lsp_definitions() end, desc = 'Goto Definition', },
         { 'gD', function() Snacks.picker.lsp_declarations() end, desc = 'Goto Declaration', },
         { 'gr', function() Snacks.picker.lsp_references() end, nowait = true, desc = 'References', },
@@ -207,8 +213,8 @@ function M.keys()
         { '<leader>ss', function() Snacks.picker.lsp_symbols() end, desc = 'LSP Symbols', },
         { '<leader>sS', function() Snacks.picker.lsp_workspace_symbols() end, desc = 'LSP Workspace Symbols', },
     }
--- stylua: ignore-end
 end
+-- stylua: ignore end
 
 function M.config(_, opts)
     local vim_notify = vim.notify
@@ -229,8 +235,11 @@ function M.config(_, opts)
     ---@param o table
     ---@see vim.notify
     local function _custom_notify(msg, lvl, o)
-        return (lvl == vim.log.levels.INFO or _notify_filter(msg)) and vim_notify(msg, lvl, o)
-            or Snacks.notifier.notify(msg, lvl, o)
+        if lvl == vim.log.levels.INFO or _notify_filter(msg) then
+            return vim_notify(msg, lvl, o)
+        end
+
+        return Snacks.notifier.notify(msg, lvl, o)
     end
 
     vim.notify = _custom_notify
