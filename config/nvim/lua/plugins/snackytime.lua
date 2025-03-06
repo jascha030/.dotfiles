@@ -1,7 +1,6 @@
 ---@diagnostic disable: missing-fields
 
 local NOTIFICATION_FILTERS = {
-    '[Neo-tree INFO]',
     'Neo-tree INFO',
 }
 
@@ -86,6 +85,11 @@ function M.opts()
                 },
             },
         },
+        formats = {
+            key = function(item)
+                return { { "[", hl = "special" }, { item.key, hl = "key" }, { "]", hl = "special" } }
+            end,
+        },
         sections = {
             {
                 section = 'startup',
@@ -149,6 +153,7 @@ function M.keys()
                 })
             end,
         },
+
         { '<leader><leader>D', function() Snacks.dashboard() end, mode = 'n', desc = 'Open dashboard (snacks)', },
         { '<leader>lg', function() Snacks.lazygit() end, desc = 'Lazygit', },
         { '<leader>gb', function() Snacks.git.blame_line() end, desc = 'Git Blame Line', },
