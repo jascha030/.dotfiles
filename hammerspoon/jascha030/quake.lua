@@ -62,20 +62,32 @@ function M:toggle()
     local instance = self:get_instance()
 
     if instance ~= nil and isFrontmost(instance) then
-        instance:hide()
+        if not (self:get_app_name() == 'Ghostty' and #instance:allWindows() == 0) then
+            instance:hide()
+            return
+        end
+
+        hs.eventtap.keyStroke({ 'cmd' }, 'n', nil, instance)
     else
         local main_screen = hs.mouse.getCurrentScreen()
         local space = hs.spaces.activeSpaceOnScreen(main_screen)
 
+        -- This is just when the app is not running.
         if instance == nil and hs.application.launchOrFocus(app_name) then
             local app_watcher = nil
 
             ---@diagnostic disable-next-line: param-type-mismatch
             app_watcher = hs.application.watcher.new(self:get_observer(app_watcher, space))
             app_watcher:start()
+
+            return
         end
 
         if instance ~= nil then
+            if #instance:allWindows() == 0 then
+                hs.eventtap.keyStroke({ 'cmd' }, 'n', nil, instance)
+            end
+
             window.move(instance, space)
         end
     end
@@ -98,9 +110,9 @@ function M.toggle_alt()
     alt_active = not alt_active
 
     if alt_active then
-        hs.alert('Quake mapped to: Ghostty')
-    else
         hs.alert('Quake mapped to: WezTerm')
+    else
+        hs.alert('Quake mapped to: Ghostty')
     end
 end
 
