@@ -156,7 +156,6 @@ require('lazy').setup({
                     { 'N', '<cmd>Neotree focus<cr>' },
                     { '<C-t>', '<cmd>Telescope<cr>' },
                     { '<leader><Tab><Tab>', '<cmd>HopWord<cr>' },
-                    { '<leader>m', '<cmd>Mason<cr>' },
                     { '<C-_>', '<cmd>CommentToggle<cr>' },
                     { '<C-/>', '<cmd>CommentToggle<cr>' },
                     { '<leader>e', '<cmd>e<cr>' },

@@ -90,7 +90,10 @@ M.opts = function()
             icons_enabled = true,
             component_separators = { left = '', right = '' },
             section_separators = { left = '', right = '' },
-            disabled_filetypes = { 'neo-tree' },
+            disabled_filetypes = {
+                'neo-tree',
+                'snacks_dashboard',
+            },
         },
         sections = {
             lualine_a = { 'mode' },
