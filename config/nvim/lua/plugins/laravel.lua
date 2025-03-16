@@ -1,7 +1,7 @@
 ---@type LazyPluginSpec
 local M = {
     'adalessa/laravel.nvim',
-    cond = false,
+    cond = false, -- @todo: add condition
     dependencies = {
         'nvim-telescope/telescope.nvim',
         'tpope/vim-dotenv',
