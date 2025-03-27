@@ -35,6 +35,8 @@ macos-option-as-alt = true
 shell-integration = zsh
 shell-integration-features = true
 
+# custom-shader = "/Users/jaschavanaalst/.config/ghostty-shaders/in-game-crt.glsl"
+
 # Keybindings
 keybind = clear
 keybind = ctrl+d>c=new_tab
