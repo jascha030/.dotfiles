@@ -6,7 +6,6 @@ local NOTIFICATION_FILTERS = {
     'Config Change Detected.',
 }
 
-
 ---@type LazyPluginSpec
 local M = {
     'folke/snacks.nvim',
@@ -177,6 +176,7 @@ function M.keys()
         { '<leader>ff', function() Snacks.picker.files() end, desc = "Find Files" },
         { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
         { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
+        { '<leader>fm', function() Snacks.notifier.show_history() end, desc = "Message history" },
 
         { "<C-p>", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
         { "fg", function() Snacks.picker.grep() end, desc = "Grep" },
