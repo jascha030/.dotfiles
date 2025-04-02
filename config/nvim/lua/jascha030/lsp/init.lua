@@ -3,11 +3,14 @@
 ---@class jascha030.lsp.Module
 ---@field public keymaps jascha030.lsp.Keymaps
 ---@field public config jascha030.lsp.Config
----@field public menu jascha030.lsp.ContextAwareMenu
 local M = {}
 local utils = require('jascha030.utils')
 
 M = setmetatable({}, { __index = utils.create_submod_loader('jascha030.lsp', true) })
+
+vim.lsp.config('*', {
+    capabilities = require('jascha030.lsp.capabilities').make_capabilities(),
+})
 
 -- Adds extra inline highlights to the given buffer.
 ---@param buf integer

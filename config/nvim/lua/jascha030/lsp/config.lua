@@ -8,29 +8,7 @@ local function config_error(server, message, level)
     error('Failed to load config for ' .. server .. ' ' .. message, level)
 end
 
--- Server client capabilities
----@return table
-function M.client_capabilities()
-    local caps = { vim.lsp.protocol.make_client_capabilities() }
-
-    local ok, cmp = pcall(require, 'cmp_nvim_lsp')
-    if ok then
-        table.insert(caps, cmp.default_capabilities())
-    end
-
-    table.insert(caps, {
-        workspace = {
-            didChangeWatchedFiles = {
-                dynamicRegistration = false,
-            },
-        },
-    })
-
-    return vim.tbl_deep_extend('force', unpack(caps))
-end
-
 local defaults = {
-    capabilities = M.client_capabilities(),
     flags = { debounce_text = 150 },
 }
 
