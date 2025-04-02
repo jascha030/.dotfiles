@@ -120,20 +120,12 @@ function M.inlay_hints(opts)
     end
 end
 
-function M.get_signature_help_handler()
-    if utils.has_plugin('noice.nvim') then
-        return nil
-    end
-
-    return vim.lsp.with(vim.lsp.handlers.signature_help, BORDERS)
-end
-
 local function diagnostic_handler(_, result, ctx, config)
     result.diagnostics = vim.tbl_filter(function(diagnostic)
         return diagnostic.source ~= 'phpactor'
     end, result.diagnostics)
 
-    vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx, config)
+    vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx)
 end
 
 -- Disable capabilities for certain clients
@@ -166,16 +158,7 @@ function M.setup(opts)
         vim.fn.sign_define(icon.name, { text = icon.text, texthl = icon.name, numhl = icon.name })
     end
 
-    local diagnostics = vim.deepcopy(opts.diagnostics)
-    vim.diagnostic.config(diagnostics)
-
-    local signature_help = M.get_signature_help_handler()
-    if signature_help ~= nil then
-        vim.lsp.handlers['textDocument/signatureHelp'] = signature_help
-    end
-
-    vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { silent = true, border = BORDER })
-    vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(diagnostic_handler, diagnostics)
+    vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
 
     -- Default on_attach handlers
     ---@param client vim.lsp.Client

@@ -66,8 +66,30 @@ function M.on_attach(client, bufnr)
     self:map('<leader>cl', 'LspInfo', { desc = 'Lsp Info' })
     self:map('<leader>xd', 'Telescope diagnostics', { desc = 'Telescope Diagnostics' })
 
-    self:map('K', vim.lsp.buf.hover, { desc = 'Hover' })
-    self:map('gK', vim.lsp.buf.signature_help, { desc = 'Signature Help', has = 'signatureHelp' })
+    self:map('K', function()
+        vim.lsp.buf.hover({
+            focusable = true,
+            close_events = {
+                'CursorMoved',
+                'InsertEnter',
+                'FocusLost',
+            },
+            border = BORDER,
+        })
+    end, { desc = 'Hover' })
+
+    self:map('gK', function()
+        vim.lsp.buf.signature_help({
+            focusable = true,
+            close_events = {
+                'CursorMoved',
+                'InsertEnter',
+                'FocusLost',
+            },
+            border = BORDER,
+        })
+    end, { desc = 'Signature Help', has = 'signatureHelp' })
+
     self:map('<C-k>', vim.lsp.buf.signature_help, { mode = 'i', desc = 'Signature Help', has = 'signatureHelp' })
 
     self:map(']d', diagnostic_goto(true), { desc = 'Next Diagnostic' })
