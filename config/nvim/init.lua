@@ -15,30 +15,19 @@ BORDERS = { border = BORDER }
 
 -- Temporary fix: https://github.com/neovim/neovim/issues/31675
 vim.hl = vim.highlight
-
-if vim.loader then
-    vim.loader.enable()
-end
-
 vim.g.mapleader = ' '
 
-local lazy_path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
-local lreq = require('jascha030.lreq')
+local lreq = require('lreq')
+local install_pkgs = require('jascha030.core.bootstrap').install_packages
 
+BORDER = 'rounded'
+BORDERS = { border = BORDER }
 _G.lreq = lreq
 
-if not vim.loop.fs_stat(lazy_path) then
-    vim.fn.system({
-        'git',
-        'clone',
-        '--filter=blob:none',
-        '--single-branch',
-        'https://github.com/folke/lazy.nvim.git',
-        lazy_path,
-    })
-end
-
-vim.opt.runtimepath:prepend(lazy_path)
+-- Install required packages, if not already installed.
+install_pkgs({
+    'folke/lazy.nvim',
+})
 
 local lazy_opts = {
     -- Idea taken from `willothy/nvim-config` (https://github.com/willothy/nvim-config/blob/main/init.lua).
@@ -55,6 +44,10 @@ local lazy_opts = {
     },
     { import = 'plugins' },
 }
+
+if vim.loader then
+    vim.loader.enable()
+end
 
 require('lazy').setup(lazy_opts, {
     concurrency = 5,
