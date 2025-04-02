@@ -19,9 +19,11 @@ mouse-hide-while-typing = true
 
 # Theme
 theme = light:litepal,dark:nitepal
+# theme = nitepal
 background-blur-radius = 80
 # minimum-contrast = 1.1
-background-opacity = 0.95
+# background-opacity = 0.95
+background-opacity = 0.92
 
 window-theme = ghostty 
 window-save-state = always
