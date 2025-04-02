@@ -11,6 +11,9 @@ local M = {
             'HopChar2',
             'HopPattern',
         },
+        keys = {
+            { '<leader><Tab><Tab>', '<cmd>HopWord<cr>', desc = 'Hop Word' },
+        },
         opts = {
             keys = 'etovxqpdygfblzhckisuran',
             jump_on_sole_occurrence = false,
