@@ -1,33 +1,16 @@
 ---@type LazyPluginSpec
 local M = {
     'folke/noice.nvim',
-    event = 'VeryLazy',
+    event = { 'VeryLazy' },
     dependencies = {
+        'folke/snacks.nvim',
         'MunifTanjim/nui.nvim',
         'rcarriga/nvim-notify',
     },
     opts = {
-        routes = {
-            {
-                filter = {
-                    event = 'msg_show',
-                    kind = '',
-                    find = 'written',
-                },
-                opts = {
-                    skip = true,
-                },
-            },
-        },
-        notify = {
-            enabled = false,
-        },
+        routes = {},
+        notify = { enabled = false },
         lsp = {
-            hover = {
-                enabled = true,
-                silent = true, -- set to true to not show a message if hover is not available
-                opts = {}, -- merged with defaults from documentation
-            },
             progress = {
                 enabled = false,
             },
@@ -40,15 +23,25 @@ local M = {
                 ['cmp.entry.get_documentation'] = true,
             },
             signature = {
-                enabled = false,
+                enabled = true,
+                auto_open = {
+                    enabled = true,
+                    trigger = true,
+                    throttle = 50,
+                },
+                opts = {},
+            },
+            hover = {
+                silent = true,
+                enabled = true,
+                border = {
+                    style = BORDER,
+                    padding = { 0, 0 },
+                },
             },
         },
         cmdline = {
             enabled = true,
-            -- opts = {
-            --     enter = false,
-            --     replace = true,
-            -- },
         },
         messages = {
             enabled = false, -- enables the Noice messages UI
@@ -63,11 +56,31 @@ local M = {
         presets = {
             bottom_search = true, -- use a classic bottom cmdline for search
             command_palette = true, -- position the cmdline and popupmenu together
-            -- long_message_to_split = true, -- long messages will be sent to a split
+            long_message_to_split = true, -- long messages will be sent to a split
             -- inc_rename = true, -- enables an input dialog for inc-rename.nvim
-            -- lsp_doc_border = true, -- add a border to hover docs and signature help
+            lsp_doc_border = true, -- add a border to hover docs and signature help
         },
-        views = {},
+        views = {
+            cmdline_popup = {
+                position = {
+                    row = '35%',
+                    col = '50%',
+                },
+                border = {
+                    style = BORDER,
+                    padding = { 0, 0 },
+                },
+                win_options = {
+                    winhighlight = {
+                        Normal = 'NormalFloat',
+                    },
+                },
+                size = {
+                    width = 'auto',
+                    height = 'auto',
+                },
+            },
+        },
     },
 }
 
