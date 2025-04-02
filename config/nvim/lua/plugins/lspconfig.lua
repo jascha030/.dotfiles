@@ -18,37 +18,6 @@ local M = {
     priority = 70,
     lazy = false,
     version = '*',
-    dependencies = {
-        'williamboman/mason.nvim',
-        'williamboman/mason-lspconfig.nvim',
-        'ray-x/lsp_signature.nvim',
-        'folke/lazydev.nvim',
-        'yioneko/nvim-vtsls',
-        {
-            'nvimdev/lspsaga.nvim',
-            dependencies = { 'nvim-treesitter/nvim-treesitter' },
-            opts = {
-                ui = { border = BORDER },
-                lightbulb = { enable = false },
-            },
-        },
-        {
-            'simrat39/rust-tools.nvim',
-            ft = 'rs',
-            dependencies = { 'rust-lang/rust.vim' },
-            lazy = true,
-        },
-        {
-            'j-hui/fidget.nvim',
-            name = 'fidget',
-            tag = 'legacy',
-            opts = {
-                text = { spinner = 'dots' },
-                window = { relative = 'editor', blend = 0, zindex = nil },
-                sources = { phpactor = { ignore = true } },
-            },
-        },
-    },
     opts = function(_, opts)
         ---@class PluginLspOpt
         local lsp_config = {
@@ -105,23 +74,17 @@ function M.config(_, opts)
     -- For some reason this one is not available through Mason, so we have to do it manually.
     opts.servers.sourcekit()
     require('lspconfig.configs').vtsls = require('vtsls').lspconfig
-
     require('lspconfig.ui.windows').default_options.border = BORDER
     require('mason-lspconfig').setup({
         automatic_installation = true,
         ensure_installed = SERVERS,
         handlers = {
             function(server)
-                -- Resolve before calling setup, enables pre-setup logic to run if server_config returns function.
-                local config = get_server_config(server)
-
-                lspconfig[server].setup(config)
+                lspconfig[server].setup(get_server_config(server))
             end,
             ['rust_analyzer'] = function()
-                local server = get_server_config('rust_analyzer')
-
                 require('rust-tools').setup({
-                    server = server,
+                    server = get_server_config('rust_analyzer'),
                     tools = {
                         runnables = {
                             use_telescope = true,
