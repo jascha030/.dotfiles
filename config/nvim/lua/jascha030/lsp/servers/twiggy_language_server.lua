@@ -40,8 +40,8 @@ return function()
             twiggy = {
                 autoInsertSpaces = true,
                 framework = 'twig',
-                phpExecutable = '/opt/homebrew/bin/php',
-                vanillaTwigEnvironmentPath = '/Users/jaschavanaalst/.development/Projects/Php/Wordpress/sites/zon-en-leven/wp-content/themes/socialbrothers/inc/twig.php',
+                -- phpExecutable = '/opt/homebrew/bin/php',
+                -- vanillaTwigEnvironmentPath = '/Users/jaschavanaalst/.development/Projects/Php/Wordpress/sites/zon-en-leven/wp-content/themes/socialbrothers/inc/twig.php',
                 diagnostics = {
                     twigCsFixer = true,
                 },

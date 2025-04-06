@@ -6,5 +6,6 @@ return function()
             'wp-config.php',
             'composer.json'
         ),
+        single_file_support = true,
     }
 end
