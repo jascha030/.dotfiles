@@ -1,6 +1,5 @@
 ---@class CmpPluginSpec: LazyPluginSpec
 local M = {
-    'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
     dependencies = {
         'neovim/nvim-lspconfig',
@@ -25,7 +24,6 @@ local M = {
             build = 'make install_jsregexp',
         },
     },
-    cond = false,
     opts = {
         sources = {
             -- { name = 'lazydev', group_index = 0, priority_weight = 130 },
@@ -151,4 +149,5 @@ function M.config(_, opts)
     })
 end
 
-return M
+return {}
+-- return M

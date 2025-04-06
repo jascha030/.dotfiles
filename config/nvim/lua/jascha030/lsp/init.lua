@@ -140,11 +140,7 @@ end
 function M.setup(opts)
     opts = opts or {}
 
-    local lspconfig = require('lspconfig')
-    local get_server_config = require('jascha030.lsp.config').get_server_config
-
-    -- For some reason this one is not available through Mason, so we have to do it manually.
-    opts.servers.sourcekit()
+    vim.diagnostic.config(opts.diagnostics)
 
     vim.lsp.config('*', {
         capabilities = require('jascha030.lsp.capabilities').make_capabilities(),
@@ -152,6 +148,12 @@ function M.setup(opts)
             -- ['textDocument/publishDiagnostics'] = diagnostic_handler,
         },
     })
+
+    local lspconfig = require('lspconfig')
+    local get_server_config = require('jascha030.lsp.config').get_server_config
+
+    -- For some reason this one is not available through Mason, so we have to do it manually.
+    opts.servers.sourcekit()
 
     require('lspconfig.configs').vtsls = require('vtsls').lspconfig
     require('lspconfig.ui.windows').default_options.border = BORDER
@@ -180,7 +182,6 @@ function M.setup(opts)
             end,
         },
     })
-
 
     -- Default on_attach handlers
     ---@param client vim.lsp.Client

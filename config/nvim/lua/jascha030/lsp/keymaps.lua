@@ -5,12 +5,7 @@ local M = {}
 
 ---@return jascha030.lsp.Keymaps
 function M.new(client, buffer)
-    return setmetatable({
-        client = client,
-        buffer = buffer,
-    }, {
-        __index = M,
-    })
+    return setmetatable({ client = client, buffer = buffer }, { __index = M })
 end
 
 function M:has(cap)
@@ -41,20 +36,12 @@ function M.rename()
 end
 
 function M.diagnostic_goto(next, severity)
-    local args = {}
-
-    if severity ~= nil then
-        args.severity = severity and vim.diagnostic.severity[severity]
-    else
-        args.serverity = nil
-    end
-
     return function()
-        if next then
-            vim.diagnostic.goto_next(args)
-        else
-            vim.diagnostic.goto_prev(args)
-        end
+        vim.diagnostic.jump({
+            float = true,
+            severity = vim.diagnostic.severity[severity] or nil,
+            count = next and 1 or -1,
+        })
     end
 end
 
@@ -66,30 +53,8 @@ function M.on_attach(client, bufnr)
     self:map('<leader>cl', 'LspInfo', { desc = 'Lsp Info' })
     self:map('<leader>xd', 'Telescope diagnostics', { desc = 'Telescope Diagnostics' })
 
-    self:map('K', function()
-        vim.lsp.buf.hover({
-            focusable = true,
-            close_events = {
-                'CursorMoved',
-                'InsertEnter',
-                'FocusLost',
-            },
-            border = BORDER,
-        })
-    end, { desc = 'Hover' })
-
-    self:map('gK', function()
-        vim.lsp.buf.signature_help({
-            focusable = true,
-            close_events = {
-                'CursorMoved',
-                'InsertEnter',
-                'FocusLost',
-            },
-            border = BORDER,
-        })
-    end, { desc = 'Signature Help', has = 'signatureHelp' })
-
+    self:map('K', vim.lsp.buf.hover, { desc = 'Hover' })
+    self:map('gK', vim.lsp.buf.signature_help, { desc = 'Signature Help', has = 'signatureHelp' })
     self:map('<C-k>', vim.lsp.buf.signature_help, { mode = 'i', desc = 'Signature Help', has = 'signatureHelp' })
 
     self:map(']d', diagnostic_goto(true), { desc = 'Next Diagnostic' })
