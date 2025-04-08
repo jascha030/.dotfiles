@@ -10,23 +10,24 @@
 --[[================ beep-beep-Config-2.0-beep-boop ====================]]
 -- stylua: ignore end
 
-BORDER = 'rounded'
-BORDERS = { border = BORDER }
-
 -- Temporary fix: https://github.com/neovim/neovim/issues/31675
 vim.hl = vim.highlight
 vim.g.mapleader = ' '
 
+BORDER = 'rounded'
+BORDERS = { border = BORDER }
+
+vim.o.winborder = BORDER
+
 local lreq = require('lreq')
 local install_pkgs = require('jascha030.core.bootstrap').install_packages
 
-BORDER = 'rounded'
-BORDERS = { border = BORDER }
 _G.lreq = lreq
 
 -- Install required packages, if not already installed.
 install_pkgs({
     'folke/lazy.nvim',
+    'rktjmp/hotpot.nvim',
 })
 
 local lazy_opts = {
@@ -47,6 +48,12 @@ local lazy_opts = {
 
 if vim.loader then
     vim.loader.enable()
+
+    if pcall(require, 'hotpot') then
+        require('hotpot').setup({})
+    end
+
+    table.insert(lazy_opts, 1, { 'rktjmp/hotpot.nvim' })
 end
 
 require('lazy').setup(lazy_opts, {
