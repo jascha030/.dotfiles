@@ -1,4 +1,17 @@
-require('jascha030.core.autocommands').nvim_create_augroups(require('jascha030').get_config('augroups'))
+-- Load all autocommands defined in 'jascha030' config.lua
+require('jascha030.core.autocommands').nvim_create_augroups(require('jascha030').get_config('augroups') --[[@as table]])
+
+-- Detect filetype on files with no extension after saving the file.
+vim.api.nvim_create_autocmd('BufWritePost', {
+    pattern = '*',
+    group = vim.api.nvim_create_augroup('FileDetect', {}),
+    desc = 'Detect filetype on files with no extension after saving the file',
+    callback = function()
+        if vim.bo.filetype == '' then
+            vim.cmd('filetype detect')
+        end
+    end,
+})
 
 -- I was too lazy to do everything lua hehehehe.
 vim.cmd([[
