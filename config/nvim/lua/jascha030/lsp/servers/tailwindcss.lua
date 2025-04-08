@@ -1,5 +1,5 @@
 ---@diagnostic disable: missing-fields
----@type lspconfig.options.tailwindcss
+---@type vim.lsp.ClientConfig
 local tailwindcss = {
     filetypes = {
         'aspnetcorerazor',

@@ -1,5 +1,5 @@
 ---@diagnostic disable: missing-fields
----@type lspconfig.options.bashls
+---@type vim.lsp.ClientConfig
 local bashls = {
     filetypes = {
         'bash',

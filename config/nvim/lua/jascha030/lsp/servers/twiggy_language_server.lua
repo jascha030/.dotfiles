@@ -32,7 +32,6 @@
 
 return function()
     return {
-        -- cmd = { 'twiggy-language-server', '--stdio' },
         filetypes = { 'twig' },
         root_dir = require('lspconfig.util').root_pattern('composer.json', '.git'),
         single_file_support = true,
@@ -42,9 +41,7 @@ return function()
                 framework = 'twig',
                 -- phpExecutable = '/opt/homebrew/bin/php',
                 -- vanillaTwigEnvironmentPath = '/Users/jaschavanaalst/.development/Projects/Php/Wordpress/sites/zon-en-leven/wp-content/themes/socialbrothers/inc/twig.php',
-                diagnostics = {
-                    twigCsFixer = true,
-                },
+                diagnostics = { twigCsFixer = true },
             },
         },
     }

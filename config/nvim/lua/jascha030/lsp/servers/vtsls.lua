@@ -23,10 +23,11 @@ local inlayHints = {
     },
 }
 
----@type lspconfig.options.vtsls
+---@type vim.lsp.ClientConfig
 local vtsls = {
+    ---@diagnostic disable-next-line: assign-type-mismatch
     root_dir = function(filename, _)
-        return util.find_git_ancestor(filename)
+        return vim.fs.dirname(vim.fs.find('.git', { path = filename, upward = true })[1])
             or util.root_pattern('.git', 'package.json', 'tsconfig.json', 'jsconfig.json')(filename)
     end,
     single_file_support = false,

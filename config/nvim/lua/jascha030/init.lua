@@ -98,7 +98,7 @@ function M.setup(opts)
     end
 
     require('jascha030.core.keymaps').set_keymaps(Config.get('keymaps'))
-    require('jascha030.core.options').set_opts(Config.get('opts'))
+    require('jascha030.core.options').set_opts(Config.get('opts') --[[@as table]])
 
     vim.keymap.set(
         '',

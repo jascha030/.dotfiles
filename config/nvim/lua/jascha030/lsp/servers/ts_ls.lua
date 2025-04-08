@@ -1,4 +1,5 @@
 ---@diagnostic disable: missing-fields
+---@return vim.lsp.ClientConfig
 return function()
     local util = require('lspconfig.util')
 
@@ -18,10 +19,11 @@ return function()
         includeInlayEnumMemberValueHints = true,
     }
 
-    ---@type lspconfig.options.ts_ls
+    ---@type vim.lsp.ClientConfig
     local ts_ls = {
+        ---@diagnostic disable-next-line: assign-type-mismatch
         root_dir = function(filename, _)
-            return util.find_git_ancestor(filename)
+            return vim.fs.dirname(vim.fs.find('.git', { path = filename, upward = true })[1])
                 or util.root_pattern('.git', 'package.json', 'tsconfig.json', 'jsconfig.json')(filename)
         end,
         settings = {

@@ -2,6 +2,7 @@
 return function()
     local utils = require('jascha030.utils')
 
+    ---@diagnostic disable-next-line: unused-function, unused-local
     local function globals()
         local ret = {}
 
@@ -19,7 +20,7 @@ return function()
         return ret
     end
 
-    ---@type lspconfig.options.lua_ls
+    ---@type vim.lsp.ClientConfig
     local lua_ls = {
         settings = {
             Lua = {
