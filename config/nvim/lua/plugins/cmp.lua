@@ -16,13 +16,6 @@ local M = {
         'saadparwaiz1/cmp_luasnip',
         'ncm2/ncm2',
         'onsails/Lspkind-nvim',
-        {
-            'L3MON4D3/LuaSnip',
-            config = function(_, _)
-                require('luasnip/loaders/from_vscode').lazy_load()
-            end,
-            build = 'make install_jsregexp',
-        },
     },
     opts = {
         sources = {
