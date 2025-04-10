@@ -1,0 +1,137 @@
+#!/usr/bin/env bash
+
+cmd=${0##*/}
+version='1.0.0'
+
+__lhost_print() {
+    command printf %b\\n "$*" 2>/dev/null
+}
+
+__lhost_echo() {
+    if [[ $# -eq 0 ]]; then
+        __lhost_print "\e[0;31mERROR: No arguments provided.\e[0m"
+        exit 1
+    fi
+
+    if [[ $# -eq 1 ]]; then
+        __lhost_print "$1"
+    elif [[ $# -eq 2 ]]; then
+        local color="$2"
+
+        if [[ $color == "red" ]]; then
+            __lhost_print "\e[0;31m$1\e[0m"
+        elif [[ $color == "green" ]]; then
+            __lhost_print "\e[0;32m$1\e[0m"
+        elif [[ $color == "yellow" ]]; then
+            __lhost_print "\e[0;33m$1\e[0m"
+        elif [[ $color == "blue" ]]; then
+            __lhost_print "\e[0;34m$1\e[0m"
+        elif [[ $color == "purple" ]]; then
+            __lhost_print "\e[0;35m$1\e[0m"
+        elif [[ $color == "cyan" ]]; then
+            __lhost_print "\e[0;36m$1\e[0m"
+        else
+            __lhost_print "$1"
+        fi
+    elif [[ $# -gt 2 ]]; then
+        __lhost_print "\e[0;31mERROR: Too many arguments provided.\e[0m"
+        exit 1
+    fi
+}
+
+__lhost_usage() {
+    __lhost_echo "Usage:"
+    __lhost_echo "${cmd} \e[0;36m[-h|--help]\e[0m \e[0;92m<command>\e[0m"
+    __lhost_echo ""
+    __lhost_echo "Commands:"
+    __lhost_echo "  \e[0;92mhelp\e[0m                            Show this help message."
+    __lhost_echo "  \e[0;92mvalet\e[0m                           Enable valet as local host, disables vip dev-env."
+    __lhost_echo "  \e[0;92mvip\e[0m \e[0;92m<slug>\e[0m                      Enable vip dev-env, disables valet and dnsmasq."
+}
+
+__lhost_header() {
+    __lhost_echo "\e[0;35mlhost\e[0m"
+    __lhost_echo ""
+    __lhost_echo "\e[0;36mv${version}\e[0m"
+    __lhost_echo ""
+    __lhost_echo "Quickly switch between \e[0;32mvalet\e[0m and \e[0;32mvip dev-env\e[0m."
+    __lhost_echo ""
+}
+
+__lhost_validate() {
+    if ! command -v valet &>/dev/null; then
+        __lhost_echo "\e[0;31mERROR: valet could not be found in PATH.\e[0m"
+        exit 1
+    fi
+
+    if ! command -v dnsmasq &>/dev/null; then
+        __lhost_echo "\e[0;31mERROR: dnsmasq could not be found in PATH.\e[0m"
+        exit 1
+    fi
+
+    if ! command -v vip &>/dev/null; then
+        __lhost_echo "\e[0;31mERROR: vip could not be found in PATH.\e[0m"
+        exit 1
+    fi
+}
+
+lhost__help() {
+    __lhost_header
+    __lhost_usage
+}
+
+lhost__valet() {
+    __lhost_validate
+
+    __lhost_echo "Disabling vip..." "cyan"
+    vip dev-env stop --all
+
+    __lhost_echo "Enabling valet..." "cyan"
+    valet start && valet start dnsmasq
+
+    __lhost_echo "Valet is now enabled as local host."
+}
+
+lhost__vip() {
+    __lhost_validate
+
+    local slug="$1"
+
+    __lhost_echo "Disabling valet..." "cyan"
+    valet stop all
+
+    __lhost_echo "Enabling vip dev-env..." "cyan"
+    vip dev-env start --slug="$slug"
+
+    __lhost_echo "VIP dev-env is now enabled as local host." "green"
+}
+
+lhost() {
+    if [[ $# -eq 0 ]]; then
+        __lhost_usage
+        return
+    fi
+
+    local i; for i in "$@"; do
+        case $i in
+            --) break ;;
+            '-h'|'--help'|'help')
+                # Print full help info with CLI header.
+                lhost__help
+                return 0;
+                ;;
+        esac
+    done
+
+    if declare -f "${cmd}__${1}" >/dev/null 2>&1; then
+        func="${cmd}__${1}"
+        shift
+        "$func" "$@"
+    else
+        "__${cmd}_echo" "\e[0;31mERROR: ${cmd} $1 is not a valid command.\e[0m"
+        "__${cmd}_usage"
+        exit 1
+    fi
+}
+
+lhost "$@"
