@@ -58,7 +58,46 @@ local M = {
                     pattern = 'function',
                     hl = '@keyword.function',
                 },
+                {
+                    filter = { filetype = 'php' },
+                    pattern = '%s*%*+%s*(@[^%s][^%s]*)',
+                    hl = '@attribute.phpdoc',
+                },
+                {
+                    filter = { filetype = 'php' },
+                    pattern = '%s*%*+%s*@noinspection%s*([^%s][^%s]*)',
+                    hl = '@type.phpdoc',
+                },
+                {
+                    filter = { filetype = 'php' },
+                    pattern = '%s*%*+%s*@phpstan%-[^%s][^%s]*%s*([^%s][^%s]*)',
+                    hl = '@type.phpdoc',
+                },
+                {
+                    filter = { filetype = 'php' },
+                    pattern = '%s*%*+%s*@phpstan%-[^%s][^%s]*%s*[^%s][^%s]*%s*(%$)',
+                    hl = '@keyword.phpdoc',
+                },
+                                {
+                    filter = { filetype = 'php' },
+                    pattern = '%s*%*+%s*@phpstan%-[^%s][^%s]*%s*[^%s][^%s]*%s*%$(%w+)',
+                    hl = '@variable.parameter.phpdoc',
+                },
             },
+        },
+    },
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        ft = 'markdown',
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter',
+            'echasnovski/mini.nvim',
+        },
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {
+            preset = 'lazy',
+            completions = { blink = { enabled = true } },
         },
     },
 }
