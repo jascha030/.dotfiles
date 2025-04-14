@@ -128,7 +128,7 @@ local M = {
             },
             window = {
                 position = 'right',
-                auto_expand_width = false,
+                auto_expand_width = true,
                 mapping_options = { noremap = true, nowait = true },
                 mappings = {
                     ['<space>'] = { 'toggle_node', nowait = false },
@@ -172,17 +172,11 @@ local M = {
                     show_hidden_count = false,
                     hide_dotfiles = false,
                     hide_gitignored = true,
-                    hide_by_name = {
-                        'thumbs.db',
-                    },
-                    never_show = {
-                        '.DS_Store',
-                    },
+                    hide_by_name = { 'thumbs.db' },
+                    never_show = { '.DS_Store' },
                 },
                 group_empty_dirs = false, -- when true, empty folders will be grouped together
-                follow_current_file = {
-                    enabled = true,
-                },
+                follow_current_file = { enabled = true },
                 hijack_netrw_behavior = 'open_default', -- netrw disabled, opening a directory opens neo-tree
             },
             nesting_rules = require('neotree-file-nesting-config').nesting_rules,
