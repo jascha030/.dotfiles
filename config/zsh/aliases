@@ -29,6 +29,7 @@ alias zbench="$HOME/zsh-bench/zsh-bench | cat"
 alias {checkitalics,check:italics}="echo -e '\e[3mitalic\e[23m'"
 alias {checkbold,check:bold}="echo -e '\e[1mbold\e[22m'"
 alias {displaycolors,check:colors}="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
+alias {ansicolors,bashcolors}="open https://gist.github.com/JBlond/2fea43a3049b38287e5e9cefc87b2124"
 #- Utilities ---------------------------------------------------------------------------------------------------------#
 # alias nd='nvim "+lua vim.lsp.set_log_level(\"debug\")"'; 
 (( ${+commands[nvim]} )) && { alias {vim,n}=nvim; alias rn='root && n'; }
