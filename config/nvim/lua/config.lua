@@ -100,6 +100,8 @@ return {
             { '<C-c>', '"+y', desc = 'Yank to OS ClipBoard' },
             { '<C-_>', ":'<,'>CommentToggle<cr>" },
             { '<C-/>', ":'<,'>CommentToggle<cr>" },
+            { '<C-J>', ":m '>+1<CR>gv=gv", desc = 'Move selected lines down' },
+            { '<C-K>', ":m '<-2<CR>gv=gv", desc = 'Move selected lines up' },
         },
         t = {},
         i = {},
