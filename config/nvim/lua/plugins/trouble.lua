@@ -31,7 +31,7 @@ local M = {
     opts = function(_, opts)
         return vim.tbl_deep_extend('force', opts or {}, {
             position = 'bottom',
-            -- win_config = { border = BORDER },
+            win_config = { border = BORDER },
             use_diagnostic_signs = true,
             picker = {
                 actions = require('trouble.sources.snacks').actions,

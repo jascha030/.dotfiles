@@ -18,8 +18,9 @@ local M = {
             set_env = { ['COLORTERM'] = 'truecolor' },
             prompt_prefix = '   ',
             color_devicons = true,
-            use_less = true,
+            use_less = false,
             scroll_strategy = 'limit',
+            border = true,
             mappings = {
                 i = {
                     ['<C-j>'] = {

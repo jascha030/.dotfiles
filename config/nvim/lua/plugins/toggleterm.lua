@@ -39,7 +39,7 @@ function M.config(_, opts)
         end
 
         if term_opts.direction == 'float' then
-            term_opts.float_opts = BORDERS
+            term_opts.float_opts = { border = BORDER }
         end
 
         return Terminal:new(term_opts)

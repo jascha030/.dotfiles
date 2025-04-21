@@ -48,13 +48,25 @@ end
 function M.on_attach(client, bufnr)
     local self = M.new(client, bufnr)
     local diagnostic_goto = M.diagnostic_goto
+    local float_opts = { border = BORDER }
 
     self:map('<leader>cd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
     self:map('<leader>cl', 'LspInfo', { desc = 'Lsp Info' })
     self:map('<leader>xd', 'Telescope diagnostics', { desc = 'Telescope Diagnostics' })
 
-    self:map('K', vim.lsp.buf.hover, { desc = 'Hover' })
-    self:map('gK', vim.lsp.buf.signature_help, { desc = 'Signature Help', has = 'signatureHelp' })
+    self:map('K', function()
+        vim.lsp.buf.hover(float_opts)
+    end, {
+        desc = 'Hover',
+    })
+
+    self:map('gK', function()
+        vim.lsp.buf.signature_help(float_opts)
+    end, {
+        desc = 'Signature Help',
+        has = 'signatureHelp',
+    })
+
     self:map('<C-k>', vim.lsp.buf.signature_help, { mode = 'i', desc = 'Signature Help', has = 'signatureHelp' })
 
     self:map(']d', diagnostic_goto(true), { desc = 'Next Diagnostic' })

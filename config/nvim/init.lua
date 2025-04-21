@@ -15,9 +15,7 @@ vim.hl = vim.highlight
 vim.g.mapleader = ' '
 
 BORDER = 'rounded'
-BORDERS = { border = BORDER }
-
-vim.o.winborder = BORDER
+-- vim.o.winborder = BORDER
 
 local lreq = require('lreq')
 local install_pkgs = require('jascha030.core.bootstrap').install_packages
@@ -70,5 +68,5 @@ require('lazy').setup(lazy_opts, {
             },
         },
     },
-    ui = BORDERS,
+    ui = { border = BORDER },
 })

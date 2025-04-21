@@ -31,7 +31,7 @@ local M = {
                 silent = true,
                 enabled = false,
                 border = {
-                    style = 'none',
+                    style = BORDER,
                     padding = { 0, 0 },
                 },
             },
@@ -54,13 +54,20 @@ local M = {
             lsp_doc_border = true, -- add a border to hover docs and signature help
         },
         views = {
+            cmdline = {
+                backend = 'popup',
+                -- border = {
+                --     style = BORDER,
+                --     padding = { 0, 1 },
+                -- },
+            },
             cmdline_popup = {
                 position = {
                     row = '35%',
                     col = '50%',
                 },
                 border = {
-                    style = 'none',
+                    style = BORDER,
                     padding = { 0, 0 },
                 },
                 win_options = {
@@ -69,12 +76,28 @@ local M = {
                     },
                 },
                 size = {
+                    -- width = math.floor(vim.api.nvim_win_get_width(0) / 2),
                     width = 'auto',
                     height = 'auto',
                 },
             },
         },
     },
+    -- config = function(_, opts)
+    --     require('noice').setup(opts)
+    --     -- require('noice')
+    --
+    --     vim.api.nvim_create_autocmd('VimResized', {
+    --         pattern = '*',
+    --
+    --         callback = function()
+    --             opts.views.cmdline.size.width = vim.api.nvim_win_get_width(0) - 2
+    --             print(vim.api.nvim_win_get_width(0) - 2)
+    --
+    --             require('noice').setup(opts --[[@as table]])
+    --         end,
+    --     })
+    -- end,
 }
 
 return M

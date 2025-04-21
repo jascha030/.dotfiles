@@ -115,7 +115,6 @@ local function add_inline_highlights(buf)
     end
 end
 
-
 -- HACK: Override `vim.lsp.util.stylize_markdown` to use Treesitter.
 ---@param bufnr integer
 ---@param contents string[]
