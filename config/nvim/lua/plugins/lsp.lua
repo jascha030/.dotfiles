@@ -7,7 +7,6 @@ SERVERS = {
     'marksman',
     'phpactor',
     'rust_analyzer',
-    -- 'sourcekit',
     'tailwindcss',
 }
 
@@ -37,14 +36,6 @@ return {
                 lsp = true,
                 lspconfig = true,
             },
-        },
-    },
-    {
-        'nvimdev/lspsaga.nvim',
-        dependencies = { 'nvim-treesitter/nvim-treesitter' },
-        opts = {
-            ui = { border = BORDER },
-            lightbulb = { enable = false },
         },
     },
     {
@@ -79,7 +70,7 @@ return {
                 window = {
                     normal_hl = 'Comment', -- Base highlight group in the notification window
                     winblend = 0, -- Background color opacity in the notification window
-                    border = 'none', -- Border around the notification window
+                    border = BORDER, -- Border around the notification window
                     zindex = 45, -- Stacking priority of the notification window
                     max_width = 0, -- Maximum width of the notification window
                     max_height = 0, -- Maximum height of the notification window
@@ -167,7 +158,7 @@ return {
                 'yamlfmt',
             }
 
-            opts.ui = BORDERS
+            opts.ui = { border = BORDER }
 
             return opts
         end,

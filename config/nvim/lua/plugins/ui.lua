@@ -1,8 +1,8 @@
+---@diagnostic disable-next-line: unused-local
 local theme = lreq('jascha030.utils.theme')
 
 ---@type LazyPluginSpec[]
 local M = {
-    -- { 'norcalli/nvim-colorizer.lua', lazy = true, name = 'colorizer' },
     {
         'brenoprata10/nvim-highlight-colors',
         name = 'nvim-highlight-colors',
@@ -78,7 +78,7 @@ local M = {
                     pattern = '%s*%*+%s*@phpstan%-[^%s][^%s]*%s*[^%s][^%s]*%s*(%$)',
                     hl = '@keyword.phpdoc',
                 },
-                                {
+                {
                     filter = { filetype = 'php' },
                     pattern = '%s*%*+%s*@phpstan%-[^%s][^%s]*%s*[^%s][^%s]*%s*%$(%w+)',
                     hl = '@variable.parameter.phpdoc',
@@ -99,6 +99,19 @@ local M = {
             preset = 'lazy',
             completions = { blink = { enabled = true } },
         },
+    },
+    {
+        'Bekaboo/dropbar.nvim',
+        dependencies = {
+            'nvim-telescope/telescope-fzf-native.nvim',
+            build = 'make',
+        },
+        config = function()
+            local dropbar_api = require('dropbar.api')
+            vim.keymap.set('n', '<Leader>;', dropbar_api.pick, { desc = 'Pick symbols in winbar' })
+            vim.keymap.set('n', '[;', dropbar_api.goto_context_start, { desc = 'Go to start of current context' })
+            vim.keymap.set('n', '];', dropbar_api.select_next_context, { desc = 'Select next context' })
+        end,
     },
 }
 
