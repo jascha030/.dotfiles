@@ -35,3 +35,9 @@ DELETE wp_posts, wp_postmeta, wp_woocommerce_order_items, wp_woocommerce_order_i
     WHERE wp_posts.post_type = "shop_order" 
         AND wp_posts.post_date < '2024-11-01';
 ```
+
+## Docker
+
+### Docker vmnet issue
+
+- [https://github.com/docker/for-mac/issues/6677](https://github.com/docker/for-mac/issues/6677)
