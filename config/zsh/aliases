@@ -3,6 +3,9 @@
 alias c='clear-screen'
 alias e='echo -n'
 alias h='cd $HOME'
+
+alias {configdir,xdghome}='cd $XDG_CONFIG_HOME'
+
 # Rotating 3 keyboards, created 50/50 chance I type 'kk' instead of 'll'.
 alias {kk,l}='ll' 
 alias lg='lazygit'
