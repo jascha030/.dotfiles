@@ -143,7 +143,8 @@ _evalcache symfony-autocomplete valet
 _evalcache symfony-autocomplete phpactor
 _evalcache opam env
 _evalcache op completion zsh
-_evalcache mise activate zsh --shims
+
+$(mise activate zsh --shims)
 
 #- Source late files like aliases etc --------------------------------------------------------------------------------#
 if (( ${+DOT_AFTER_INIT_SOURCES} )); then
