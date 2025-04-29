@@ -1,0 +1,40 @@
+icons = true
+human = true
+
+[ls]
+hidden = true
+human = true
+icons = true
+level = 1
+long = true
+prune = true
+suppress-size = true
+
+[ll]
+hidden = true
+human = true
+icons = true
+level = 1
+long = true
+no-ignore = true
+prune = false
+suppress-size = true
+
+[tree]
+hidden = true
+human = true
+icons = true
+level = 1
+long = true
+no-ignore = true
+prune = false
+suppress-size = true
+
+[du]
+disk_usage = "block"
+hidden = true
+icons = true
+layout = "flat"
+level = 1
+no-git = true
+no-ignore = true
