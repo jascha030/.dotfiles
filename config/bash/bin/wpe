@@ -62,6 +62,12 @@ wpe__cp-plugins() {
     scp -rO "$1":sites/"${usr}"/wp-content/plugins/ "${PWD}"/wp-content/plugins/
 }
 
+wpe__ssh() {
+    local usr="$1"
+
+    ssh "${usr}"@"${usr}".ssh.wpengine.net
+}
+
 wpe() {
     if [[ $# -eq 0 ]]; then
         __wpe_usage
