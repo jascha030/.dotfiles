@@ -131,6 +131,7 @@ return {
                 'blade-formatter',
                 'css-lsp',
                 'eslint_d',
+                'fennel-ls',
                 'flake8',
                 'html-lsp',
                 'intelephense',
