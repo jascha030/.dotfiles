@@ -132,6 +132,7 @@ return {
                 'css-lsp',
                 'eslint_d',
                 'fennel-ls',
+                'fennel-language-server',
                 'flake8',
                 'html-lsp',
                 'intelephense',

@@ -28,3 +28,5 @@
 ---@class jascha030.core.config
 ---@field options jascha030.core.config.ConfigOptions
 ---@diagnostic disable-next-line: missing-fields
+
+---@alias jascha030.core.options.Scope "g"|"o"|"b"|"bo"|"w"|"wo"|"opt"
