@@ -12,7 +12,96 @@ SERVERS = {
 
 ---@type LazyPluginSpec[]|string[]
 return {
-    'williamboman/mason-lspconfig.nvim',
+    {
+        'neovim/nvim-lspconfig',
+        dependencies = { 'williamboman/mason.nvim' },
+        priority = 70,
+        lazy = false,
+        version = '*',
+        opts = function(_, _)
+            -- Disable capabilities for certain clients
+            ---@todo: maybe just do this per client instead of capability.
+            local DISABLED_CAPABILITIES_CLIENTS = {
+                ['documentFormattingProvider'] = {
+                    'intelephense',
+                    'jsonls',
+                    'lua_ls',
+                },
+                ['documentRangeFormattingProvider'] = {
+                    'intelephense',
+                    'jsonls',
+                    'lua_ls',
+                },
+                ['hoverProvider'] = {
+                    'phpactor',
+                },
+                ['referencesProvider'] = {
+                    'phpactor',
+                },
+            }
+
+            ---@class PluginLspOpt
+            return {
+                ---@type lspconfig.Config
+                ensure_installed = SERVERS,
+                disabled_capabilities = DISABLED_CAPABILITIES_CLIENTS,
+                ---@type vim.diagnostic.Opts
+                diagnostics = {
+                    severity_sort = true,
+                    signs = { text = require('jascha030.core.icons').get_icons().diagnostics },
+                    underline = true,
+                    update_in_insert = false,
+                    virtual_text = { spacing = 4, source = 'if_many', prefix = '●' },
+                },
+                inlay_hints = { enabled = vim.fn.has('nvim-0.10') == 1 },
+            }
+        end,
+        config = function(_, opts)
+            opts = opts or {}
+            local lsp = require('jascha030.lsp')
+            local registry = require('mason-registry')
+
+            -- For some reason this one is not available through Mason, so we have to do it manually.
+            require('jascha030.lsp.servers.sourcekit')()
+            require('lspconfig.configs').vtsls = require('vtsls').lspconfig
+
+            vim.diagnostic.config(opts.diagnostics)
+
+            lsp.lsp_attach(function(client, buffer)
+                for capability, clients in pairs(opts.disabled_capabilities) do
+                    if vim.tbl_contains(clients, client.name) then
+                        client.server_capabilities[capability] = false
+                    end
+                end
+
+                if client.server_capabilities.completionProvider then
+                    vim.bo[buffer].omnifunc = 'v:lua.vim.lsp.omnifunc'
+                end
+
+                if client.server_capabilities.definitionProvider then
+                    vim.bo[buffer].tagfunc = 'v:lua.vim.lsp.tagfunc'
+                end
+
+                if client.name == 'yamlls' then
+                    client.server_capabilities.documentFormattingProvider = true
+                end
+            end)
+
+            lsp.lsp_attach(lsp.keymaps.on_attach)
+            lsp.inlay_hints(opts)
+            lsp.virtual_text(opts)
+
+            vim.iter(registry.get_installed_package_names()):each(function(server_name)
+                local config = lsp.config.get(server_name)
+
+                if config then
+                    vim.lsp.config(server_name, config)
+                end
+
+                vim.lsp.enable(server_name)
+            end)
+        end,
+    },
     'ray-x/lsp_signature.nvim',
     'yioneko/nvim-vtsls',
     {
@@ -61,11 +150,7 @@ return {
         name = 'fidget',
         event = { 'LspAttach' },
         opts = {
-            progress = {
-                ignore = {
-                    -- 'phpactor',
-                },
-            },
+            progress = { ignore = {} },
             notification = {
                 window = {
                     normal_hl = 'Comment', -- Base highlight group in the notification window
@@ -119,9 +204,7 @@ return {
     {
         'williamboman/mason.nvim',
         cmd = { 'Mason' },
-        keys = {
-            { '<leader><leader>m', '<cmd>Mason<cr>', desc = 'Mason' },
-        },
+        keys = { { '<leader><leader>m', '<cmd>Mason<cr>', desc = 'Mason' } },
         opts = function(_, opts)
             opts.ensure_installed = {
                 'angular-language-server',
@@ -183,39 +266,6 @@ return {
             else
                 ensure_installed()
             end
-
-            for _, tool in ipairs(opts.ensure_installed) do
-                local p = registry.get_package(tool)
-                if not p:is_installed() then
-                    p:install()
-                end
-            end
-        end,
-    },
-    {
-        'neovim/nvim-lspconfig',
-        priority = 70,
-        lazy = false,
-        version = '*',
-        opts = function(_, _)
-            ---@class PluginLspOpt
-            return {
-                ---@type lspconfig.Config
-                ensure_installed = SERVERS,
-                servers = { sourcekit = require('jascha030.lsp.servers.sourcekit') },
-                ---@type vim.diagnostic.Opts
-                diagnostics = {
-                    severity_sort = true,
-                    signs = { text = require('jascha030.core.icons').get_icons().diagnostics },
-                    underline = true,
-                    update_in_insert = false,
-                    virtual_text = { spacing = 4, source = 'if_many', prefix = '●' },
-                },
-                inlay_hints = { enabled = vim.fn.has('nvim-0.10') == 1 },
-            }
-        end,
-        config = function(_, opts)
-            require('jascha030.lsp').setup(opts)
         end,
     },
 }
