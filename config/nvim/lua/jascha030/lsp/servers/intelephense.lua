@@ -1,6 +1,11 @@
 ---@type vim.lsp.ClientConfig
 return {
-
+    root_markers = {
+        '.git',
+        'wp-config-sample.php',
+        'wp-config.php',
+        'composer.json',
+    },
     handlers = {
         -- Disable providers for intelephense.
         ['textDocument/publishDiagnostics'] = function() end,
