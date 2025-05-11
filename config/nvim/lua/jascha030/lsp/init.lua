@@ -41,8 +41,8 @@ function M.virtual_text(opts)
     end
 end
 
-function M.inlay_hints(opts)
-    if not opts.inlay_hints.enabled then
+function M.inlay_hints()
+    if not vim.fn.has('nvim-0.10') == 1 then
         return
     end
 

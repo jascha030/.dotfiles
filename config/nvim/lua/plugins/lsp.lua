@@ -1,109 +1,42 @@
-SERVERS = {
-    'angularls',
-    'bashls',
+ENSURE_INSTALLED = {
+    'angular-language-server',
+    'bash-language-server',
+    'beautysh',
+    'black',
+    'blade-formatter',
+    'css-lsp',
+    'eslint_d',
+    'fennel-ls',
+    'fennel-language-server',
+    'flake8',
+    'html-lsp',
     'intelephense',
-    'jsonls',
-    'lua_ls',
+    'isort',
+    'json-lsp',
+    'lua-language-server',
+    'luacheck',
+    'markdownlint',
     'marksman',
     'phpactor',
-    'rust_analyzer',
-    'tailwindcss',
+    'phpstan',
+    'psalm',
+    'rust-analyzer',
+    'shellcheck',
+    'shfmt',
+    'stylelint',
+    'stylelint-lsp',
+    'stylua',
+    'svelte-language-server',
+    'tailwindcss-language-server',
+    'taplo',
+    'typescript-language-server',
+    'yaml-language-server',
+    'yamlfix',
+    'yamlfmt',
 }
 
 ---@type LazyPluginSpec[]|string[]
 return {
-    {
-        'neovim/nvim-lspconfig',
-        dependencies = { 'williamboman/mason.nvim' },
-        priority = 70,
-        lazy = false,
-        version = '*',
-        opts = function(_, _)
-            -- Disable capabilities for certain clients
-            ---@todo: maybe just do this per client instead of capability.
-            local DISABLED_CAPABILITIES_CLIENTS = {
-                ['documentFormattingProvider'] = {
-                    'intelephense',
-                    'jsonls',
-                    'lua_ls',
-                },
-                ['documentRangeFormattingProvider'] = {
-                    'intelephense',
-                    'jsonls',
-                    'lua_ls',
-                },
-                ['hoverProvider'] = {
-                    'phpactor',
-                },
-                ['referencesProvider'] = {
-                    'phpactor',
-                },
-            }
-
-            ---@class PluginLspOpt
-            return {
-                ---@type lspconfig.Config
-                ensure_installed = SERVERS,
-                disabled_capabilities = DISABLED_CAPABILITIES_CLIENTS,
-                ---@type vim.diagnostic.Opts
-                diagnostics = {
-                    severity_sort = true,
-                    signs = { text = require('jascha030.core.icons').get_icons().diagnostics },
-                    underline = true,
-                    update_in_insert = false,
-                    virtual_text = { spacing = 4, source = 'if_many', prefix = '●' },
-                },
-                inlay_hints = { enabled = vim.fn.has('nvim-0.10') == 1 },
-            }
-        end,
-        config = function(_, opts)
-            opts = opts or {}
-            local lsp = require('jascha030.lsp')
-            local registry = require('mason-registry')
-
-            -- For some reason this one is not available through Mason, so we have to do it manually.
-            require('jascha030.lsp.servers.sourcekit')()
-            require('lspconfig.configs').vtsls = require('vtsls').lspconfig
-
-            vim.diagnostic.config(opts.diagnostics)
-
-            lsp.lsp_attach(function(client, buffer)
-                for capability, clients in pairs(opts.disabled_capabilities) do
-                    if vim.tbl_contains(clients, client.name) then
-                        client.server_capabilities[capability] = false
-                    end
-                end
-
-                if client.server_capabilities.completionProvider then
-                    vim.bo[buffer].omnifunc = 'v:lua.vim.lsp.omnifunc'
-                end
-
-                if client.server_capabilities.definitionProvider then
-                    vim.bo[buffer].tagfunc = 'v:lua.vim.lsp.tagfunc'
-                end
-
-                if client.name == 'yamlls' then
-                    client.server_capabilities.documentFormattingProvider = true
-                end
-            end)
-
-            lsp.lsp_attach(lsp.keymaps.on_attach)
-            lsp.inlay_hints(opts)
-            lsp.virtual_text(opts)
-
-            vim.iter(registry.get_installed_package_names()):each(function(server_name)
-                local config = lsp.config.get(server_name)
-
-                if config then
-                    vim.lsp.config(server_name, config)
-                end
-
-                vim.lsp.enable(server_name)
-            end)
-        end,
-    },
-    'ray-x/lsp_signature.nvim',
-    'yioneko/nvim-vtsls',
     {
         'folke/lazydev.nvim',
         ft = 'lua', -- only load on lua files
@@ -127,6 +60,119 @@ return {
             },
         },
     },
+    {
+        'neovim/nvim-lspconfig',
+        dependencies = {
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
+            'folke/lazydev.nvim',
+        },
+        opts = function(_, _)
+            return {
+                ensure_installed = {
+                    'angularls',
+                    'bashls',
+                    'intelephense',
+                    'jsonls',
+                    'lua_ls',
+                    'marksman',
+                    'phpactor',
+                    'rust_analyzer',
+                    'tailwindcss',
+                },
+                ---@todo: maybe just do this per client instead of capability.
+                disabled_capabilities = {
+                    ['documentFormattingProvider'] = {
+                        'intelephense',
+                        'jsonls',
+                        'lua_ls',
+                    },
+                    ['documentRangeFormattingProvider'] = {
+                        'intelephense',
+                        'jsonls',
+                        'lua_ls',
+                    },
+                    ['hoverProvider'] = {
+                        'phpactor',
+                    },
+                    ['referencesProvider'] = {
+                        'phpactor',
+                    },
+                },
+                -- inlay_hints = { enabled =  },
+            }
+        end,
+        config = function(_, opts)
+            opts = opts or {}
+            local lsp = require('jascha030.lsp')
+
+            vim.diagnostic.config({
+                severity_sort = true,
+                signs = { text = require('jascha030.core.icons').get_icons().diagnostics },
+                underline = true,
+                update_in_insert = false,
+                virtual_text = { spacing = 4, source = 'if_many', prefix = '●' },
+            })
+
+            lsp.lsp_attach(function(client, buffer)
+                for capability, clients in pairs(opts.disabled_capabilities) do
+                    if vim.tbl_contains(clients, client.name) then
+                        client.server_capabilities[capability] = false
+                    end
+                end
+
+                if client.server_capabilities.completionProvider then
+                    vim.bo[buffer].omnifunc = 'v:lua.vim.lsp.omnifunc'
+                end
+
+                if client.server_capabilities.definitionProvider then
+                    vim.bo[buffer].tagfunc = 'v:lua.vim.lsp.tagfunc'
+                end
+
+                if client.name == 'yamlls' then
+                    client.server_capabilities.documentFormattingProvider = true
+                end
+            end)
+
+            lsp.lsp_attach(lsp.keymaps.on_attach)
+            lsp.inlay_hints()
+
+            local function init()
+                vim.iter(vim.api.nvim_get_runtime_file('lua/jascha030/lsp/servers/*.lua', true))
+                    :map(function(server_config_path)
+                        return vim.fs.basename(server_config_path):match('^(.*)%.lua$')
+                    end)
+                    :each(vim.schedule_wrap(function(server_name)
+                        local config = lsp.config.get(server_name)
+
+                        if config then
+                            vim.lsp.config(server_name, config)
+                        end
+
+                        vim.lsp.enable(server_name)
+                    end))
+            end
+
+            if vim.g.did_very_lazy then
+                vim.schedule(init)
+            else
+                vim.api.nvim_create_autocmd('User', {
+                    pattern = 'VeryLazy',
+                    once = true,
+                    callback = vim.schedule_wrap(init),
+                })
+            end
+
+            require('lspconfig.configs').vtsls = require('vtsls').lspconfig
+            require('mason-lspconfig').setup({
+                automatic_enable = true,
+                automatic_installation = true,
+                ensure_installed = opts.ensure_installed,
+            })
+        end,
+    },
+    'ray-x/lsp_signature.nvim',
+    'yioneko/nvim-vtsls',
     {
         'simrat39/rust-tools.nvim',
         dependencies = { 'rust-lang/rust.vim' },
@@ -206,43 +252,7 @@ return {
         cmd = { 'Mason' },
         keys = { { '<leader><leader>m', '<cmd>Mason<cr>', desc = 'Mason' } },
         opts = function(_, opts)
-            opts.ensure_installed = {
-                'angular-language-server',
-                'bash-language-server',
-                'beautysh',
-                'black',
-                'blade-formatter',
-                'css-lsp',
-                'eslint_d',
-                'fennel-ls',
-                'fennel-language-server',
-                'flake8',
-                'html-lsp',
-                'intelephense',
-                'isort',
-                'json-lsp',
-                'lua-language-server',
-                'luacheck',
-                'markdownlint',
-                'marksman',
-                'phpactor',
-                'phpstan',
-                'psalm',
-                'rust-analyzer',
-                'shellcheck',
-                'shfmt',
-                'stylelint',
-                'stylelint-lsp',
-                'stylua',
-                'svelte-language-server',
-                'tailwindcss-language-server',
-                'taplo',
-                'typescript-language-server',
-                'yaml-language-server',
-                'yamlfix',
-                'yamlfmt',
-            }
-
+            opts.ensure_installed = ENSURE_INSTALLED
             opts.ui = { border = BORDER }
 
             return opts
