@@ -58,7 +58,7 @@ local function make_capabilities()
 end
 
 ---@return vim.lsp.ClientConfig
-local function extend(config)
+function M.extend(config)
     local merge = { {}, {
         capabilities = make_capabilities(),
         flags = { debounce_text = 150 },
@@ -89,14 +89,14 @@ function M.get(server)
             config_error(server, 'provided callback should be a table, got ' .. type(config) .. ' instead', 2)
         end
 
-        return extend(config)
+        return M.extend(config)
     end
 
     if type(config) ~= 'table' then
         config_error(server, 'a table was expected, got ' .. type(config) .. ' instead', 2)
     end
 
-    return extend(config)
+    return M.extend(config)
 end
 
 return M
