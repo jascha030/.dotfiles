@@ -1,4 +1,4 @@
-return {
+return require('jascha030.lsp').config.extend({
     settings = {
         yaml = {
             schemaStore = {
@@ -11,4 +11,4 @@ return {
             schemas = require('schemastore').yaml.schemas(),
         },
     },
-}
+})

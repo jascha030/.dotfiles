@@ -1,4 +1,4 @@
-return {
+return require('jascha030.lsp').config.extend({
     settings = {
         ['rust-analyzer'] = {
             assist = {
@@ -17,4 +17,4 @@ return {
             },
         },
     },
-}
+})

@@ -1,5 +1,5 @@
 ---@type vim.lsp.ClientConfig
-return {
+return require('jascha030.lsp').config.extend({
     root_markers = {
         '.git',
         'wp-config-sample.php',
@@ -184,4 +184,4 @@ return {
             files = { maxSize = 5000000 },
         },
     },
-}
+})

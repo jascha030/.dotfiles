@@ -97,8 +97,7 @@ local tailwindcss = {
     },
 }
 
-return tailwindcss
-
+return require('jascha030.lsp').config.extend(tailwindcss)
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
 --

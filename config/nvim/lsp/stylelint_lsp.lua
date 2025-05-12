@@ -15,4 +15,4 @@ local stylelint_lsp = {
     },
 }
 
-return stylelint_lsp
+return require('jascha030.lsp').config.extend(stylelint_lsp)

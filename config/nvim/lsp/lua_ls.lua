@@ -1,5 +1,5 @@
 ---@diagnostic disable: missing-fields
-return function()
+return (function()
     local utils = require('jascha030.utils')
 
     ---@diagnostic disable-next-line: unused-function, unused-local
@@ -53,5 +53,5 @@ return function()
         },
     }
 
-    return lua_ls
-end
+    return require('jascha030.lsp').config.extend(lua_ls)
+end)()

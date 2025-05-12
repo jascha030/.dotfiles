@@ -1,4 +1,4 @@
-return {
+return require('jascha030.lsp').config.extend({
     filetypes = {
         'css',
         'eruby',
@@ -12,4 +12,4 @@ return {
         'typescriptreact',
         'php',
     },
-}
+})

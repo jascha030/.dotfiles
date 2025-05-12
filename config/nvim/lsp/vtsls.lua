@@ -65,4 +65,4 @@ local vtsls = {
     },
 }
 
-return vtsls
+return require('jascha030.lsp').config.extend(vtsls)

@@ -77,16 +77,16 @@ return {
             lsp.inlay_hints()
 
             local function init()
-                vim.iter(vim.api.nvim_get_runtime_file('lua/jascha030/lsp/servers/*.lua', true))
+                vim.iter(vim.api.nvim_get_runtime_file('lsp/*.lua', true))
                     :map(function(server_config_path)
                         return vim.fs.basename(server_config_path):match('^(.*)%.lua$')
                     end)
                     :each(vim.schedule_wrap(function(server_name)
-                        local config = lsp.config.get(server_name)
+                        -- local config = lsp.config.get(server_name)
 
-                        if config then
-                            vim.lsp.config(server_name, config)
-                        end
+                        -- if config then
+                        --     vim.lsp.config(server_name, config)
+                        -- end
 
                         vim.lsp.enable(server_name)
                     end))

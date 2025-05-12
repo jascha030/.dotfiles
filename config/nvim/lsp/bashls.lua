@@ -9,4 +9,4 @@ local bashls = {
     single_file_support = true,
 }
 
-return bashls
+return require('jascha030.lsp').config.extend(bashls)

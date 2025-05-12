@@ -1,6 +1,6 @@
 ---@diagnostic disable: missing-fields
 ---@return vim.lsp.ClientConfig
-return function()
+return (function()
     local util = require('lspconfig.util')
 
     local inlayHints = {
@@ -64,5 +64,5 @@ return function()
         },
     }
 
-    return ts_ls
-end
+    return require('jascha030.lsp').config.extend(ts_ls)
+end)()
