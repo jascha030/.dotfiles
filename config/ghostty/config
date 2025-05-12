@@ -1,7 +1,7 @@
 # Fonts
 adjust-cell-height = 95%
 # font-size = 16 
-font-size = 18
+font-size = 15
 
 ## Font Family
 font-family = "CaskaydiaCove Nerd Font" 
@@ -19,10 +19,10 @@ cursor-style = block
 mouse-hide-while-typing = true
 
 # Theme
-# theme = nitepal
-theme = light:litepal,dark:nitepal
+theme = nitepal
+# theme = light:litepal,dark:nitepal
 background-blur-radius = 95
-background-opacity = 0.92
+background-opacity = 1
 
 window-theme = ghostty 
 window-save-state = always
