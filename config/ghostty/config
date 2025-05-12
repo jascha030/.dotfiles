@@ -22,7 +22,7 @@ mouse-hide-while-typing = true
 theme = nitepal
 # theme = light:litepal,dark:nitepal
 background-blur-radius = 95
-background-opacity = 1
+background-opacity = 0.95
 
 window-theme = ghostty 
 window-save-state = always
