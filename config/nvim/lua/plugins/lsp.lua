@@ -105,6 +105,11 @@ return {
             require('lspconfig.configs').vtsls = require('vtsls').lspconfig
             require('mason-lspconfig').setup({
                 automatic_enable = true,
+                automatic_installation = {
+                    exclude = {
+                        'psalm',
+                    },
+                },
                 ensure_installed = opts.ensure_installed,
             })
         end,
