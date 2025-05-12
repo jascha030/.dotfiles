@@ -1,5 +1,35 @@
-default_sort = "name"
-default_format = "default"
+# Essential Behaviors
+default_sort = "name"   # name, size, or date
+default_format = "long" # default, long, tree, etc.
+show_icons = true       # Enable file icons
+include_dirs = true     # Show directory sizes
+theme = "default"       # Your chosen theme
+default_depth = 1       # Directory traversal depth
+
 enabled_plugins = []
 plugins_dir = "/Users/jaschavanaalst/.config/lla/plugins"
-default_depth = 3
+
+# Visual Organization
+[sort]
+dirs_first = true      # Directories before files
+case_sensitive = false # Case-sensitive sorting
+natural = true         # Smart number sorting
+
+# Search Preferences
+[filter]
+case_sensitive = false # Case-sensitive search
+no_dotfiles = false    # Hide hidden files
+
+# Grid formatter configuration
+[formatters.grid]
+ignore_width = false # Whether to ignore terminal width by default
+max_width = 200      # Maximum width for grid view when ignore_width is true
+
+[listers.fuzzy]
+ignore_patterns = [ # Fuzzy search exclusions
+  "node_modules",
+  "target",
+  ".git",
+  ".idea",
+  ".vscode",
+]
