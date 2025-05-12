@@ -1,70 +1,10 @@
-ENSURE_INSTALLED = {
-    'angular-language-server',
-    'bash-language-server',
-    'beautysh',
-    'black',
-    'blade-formatter',
-    'css-lsp',
-    'eslint_d',
-    'fennel-ls',
-    'fennel-language-server',
-    'flake8',
-    'html-lsp',
-    'intelephense',
-    'isort',
-    'json-lsp',
-    'lua-language-server',
-    'luacheck',
-    'markdownlint',
-    'marksman',
-    'phpactor',
-    'phpstan',
-    'psalm',
-    'rust-analyzer',
-    'shellcheck',
-    'shfmt',
-    'stylelint',
-    'stylelint-lsp',
-    'stylua',
-    'svelte-language-server',
-    'tailwindcss-language-server',
-    'taplo',
-    'typescript-language-server',
-    'yaml-language-server',
-    'yamlfix',
-    'yamlfmt',
-}
-
 ---@type LazyPluginSpec[]|string[]
 return {
     {
-        'folke/lazydev.nvim',
-        ft = 'lua', -- only load on lua files
-        dependencies = { 'Bilal2453/luvit-meta' },
-        ---@type lazydev.Config
-        opts = {
-            library = {
-                'annotations',
-                'luvit-meta/library',
-                vim.env.VIMRUNTIME,
-                'lazy.nvim',
-                'lazydev.nvim',
-                'nvim-lspconfig',
-                'nvim-treesitter',
-                unpack(vim.api.nvim_get_runtime_file('lua/vim', true)),
-            },
-            integrations = {
-                cmp = true,
-                lsp = true,
-                lspconfig = true,
-            },
-        },
-    },
-    {
         'neovim/nvim-lspconfig',
         dependencies = {
-            'williamboman/mason.nvim',
-            'williamboman/mason-lspconfig.nvim',
+            'mason-org/mason.nvim',
+            'mason-org/mason-lspconfig.nvim',
             'folke/lazydev.nvim',
         },
         opts = function(_, _)
@@ -99,7 +39,6 @@ return {
                         'phpactor',
                     },
                 },
-                -- inlay_hints = { enabled =  },
             }
         end,
         config = function(_, opts)
@@ -111,7 +50,7 @@ return {
                 signs = { text = require('jascha030.core.icons').get_icons().diagnostics },
                 underline = true,
                 update_in_insert = false,
-                virtual_text = { spacing = 4, source = 'if_many', prefix = '●' },
+                virtual_lines = true,
             })
 
             lsp.lsp_attach(function(client, buffer)
@@ -166,13 +105,36 @@ return {
             require('lspconfig.configs').vtsls = require('vtsls').lspconfig
             require('mason-lspconfig').setup({
                 automatic_enable = true,
-                automatic_installation = true,
                 ensure_installed = opts.ensure_installed,
             })
         end,
     },
     'ray-x/lsp_signature.nvim',
     'yioneko/nvim-vtsls',
+    {
+        'folke/lazydev.nvim',
+        ft = 'lua',
+        dependencies = { 'Bilal2453/luvit-meta' },
+        ---@type lazydev.Config
+        ---@diagnostic disable-next-line: missing-fields
+        opts = {
+            library = {
+                'annotations',
+                'luvit-meta/library',
+                vim.env.VIMRUNTIME,
+                'lazy.nvim',
+                'lazydev.nvim',
+                'nvim-lspconfig',
+                'nvim-treesitter',
+                unpack(vim.api.nvim_get_runtime_file('lua/vim', true)),
+            },
+            integrations = {
+                cmp = true,
+                lsp = true,
+                lspconfig = true,
+            },
+        },
+    },
     {
         'simrat39/rust-tools.nvim',
         dependencies = { 'rust-lang/rust.vim' },
@@ -248,11 +210,46 @@ return {
         },
     },
     {
-        'williamboman/mason.nvim',
+        'mason-org/mason.nvim',
         cmd = { 'Mason' },
         keys = { { '<leader><leader>m', '<cmd>Mason<cr>', desc = 'Mason' } },
         opts = function(_, opts)
-            opts.ensure_installed = ENSURE_INSTALLED
+            opts.ensure_installed = {
+                'angular-language-server',
+                'bash-language-server',
+                'beautysh',
+                'black',
+                'blade-formatter',
+                'css-lsp',
+                'eslint_d',
+                'fennel-ls',
+                'fennel-language-server',
+                'flake8',
+                'html-lsp',
+                'intelephense',
+                'isort',
+                'json-lsp',
+                'lua-language-server',
+                'luacheck',
+                'markdownlint',
+                'marksman',
+                'phpactor',
+                'phpstan',
+                'psalm',
+                'rust-analyzer',
+                'shellcheck',
+                'shfmt',
+                'stylelint',
+                'stylelint-lsp',
+                'stylua',
+                'svelte-language-server',
+                'tailwindcss-language-server',
+                'taplo',
+                'typescript-language-server',
+                'yaml-language-server',
+                'yamlfix',
+                'yamlfmt',
+            }
             opts.ui = { border = BORDER }
 
             return opts
