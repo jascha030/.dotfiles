@@ -3,8 +3,8 @@
   "format": {
     "enable": false
   },
-    "diagnostics.disable": [
-        "duplicate-doc-field",
-        "duplicate-doc-alias"
-    ]
+  "diagnostics.disable": [
+    "duplicate-doc-field",
+    "duplicate-doc-alias"
+  ]
 }
