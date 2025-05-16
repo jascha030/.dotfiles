@@ -81,6 +81,7 @@ path=(
     ${HOME}/tools
     ${HOME}/.composer/vendor/bin
     ${HOME}/.bun/bin
+    ${HOME}/.cache/.bun/bin
     ${HOME}/.yarn/bin
     ${HOME}/.gem/ruby/2.6.0/bin
     ${HOME}/.cargo/bin
