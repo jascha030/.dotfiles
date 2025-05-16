@@ -1,0 +1,17 @@
+# Configuration
+home: ~/.nap
+default_language: php
+# theme: nord
+
+# Colors
+background: "0"
+foreground: "7"
+primary_color: "#3d59a1"
+primary_color_subdued: "#467CDA"
+green: "#2da44e"
+bright_green: "#8fd742"
+bright_red: "#f47cb4"
+red: "#ea1479"
+black: "#32466e"
+gray: "#969ac9"
+white: "##fffcfc"
