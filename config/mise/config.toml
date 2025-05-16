@@ -7,3 +7,4 @@ usage = "latest"
 [settings]
 cargo_binstall = true
 trusted_config_paths = ["~/.development/Projects/"]
+idiomatic_version_file_enable_tools = ["node"]
