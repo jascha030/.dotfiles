@@ -1,10 +1,46 @@
 #!/usr/bin/env zsh
 
+if (( $+commands[lsd] )); then
+    function __ll_lsd() {
+        prepend " " < <(lsd -Ahl --group-directories-first --color=always)
+    }
+fi
+
+if (( $+commands[eza] )); then
+    function __ll_eza() {
+        prepend " " < <(eza -Ahl \
+                --colour=always \
+                --group-directories-first \
+                --icons=always \
+                --no-user \
+                --sort=Name \
+                --time-style=+'%d-%m-%y %H:%M' \
+                --color-scale=age \
+                --ignore-glob='*.DS_Store|.php-cs-fixer.cache|.phpunit.result.cache|.wakatime*|.*history|.*hst*|.yarnrc|hushlogin|.hushlogin|.rnd|.fasd|.viminfo|.Xauthority|.z|mysqladmin|.CFUserTextEncoding|.angular-config.json|.zprofrc|.lolmsgrc')
+    }
+fi
+
+
+if (( $+command[lla] )); then 
+    function __ll_lla() {
+        prepend " " < <(lla -Ahl --group-directories-first --color=always)
+    }
+fi
+
 function __ll() {
     local ls_cmd=${LS_OVERRIDE:-${'ls'}}
     local ls_args=${LS_DEFAULT_ARGS:-${'-Ahl'}}
 
-    prepend "  " < <(eval $ls_cmd $ls_args)
+
+    if [[ "$ls_cmd" == 'lsd' ]]; then
+        __ll_lsd
+    elif [[ "$ls_cmd" == 'eza' ]]; then
+        __ll_eza
+    elif [[ "$ls_cmd" == 'lla' ]]; then
+        __ll_lla
+    else
+        prepend "  " < <(eval $ls_cmd $ls_args)
+    fi
 }
 
 __ll "$@"
