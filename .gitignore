@@ -23,6 +23,9 @@
 /.gitsecret/keys/random_seed
 !*.secret
 
+## Uncompressed PNG's
+/img/source/
+
 ## Other
 /config/lazygit/state.yml
 /config/.var/
