@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/jascha030/.dotfiles/blob/main/img/NVIM-PAK.png?raw=true" alt="Dotfiles, not even once.">
+</p>
+
 # Jascha030's dotfiles
 
 [My](https://github.com/jascha030) personal Dotfiles repository, a collection of configuration files that are used to personalize and configure my development environment and applications.
