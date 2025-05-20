@@ -1,5 +1,7 @@
 # Neovim Config
 
+![Neovim](https://github.com/jascha030/.dotfiles/blob/main/img/nvim-header.png?raw=true)
+
 ## Key features
 
 - 🌕 Uses a lot of [Lua](https://www.lua.org/) and a little bit of [fennel](https://fennel-lang.org/) for configuration.
