@@ -1,6 +1,6 @@
 # Configuration
 home: ~/.nap
-default_language: php
+default_language: sh
 # theme: nord
 
 # Colors
