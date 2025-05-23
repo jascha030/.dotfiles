@@ -65,8 +65,8 @@ conform.setup({
         },
         json = {
             stop_after_first = true,
-            'jq',
             'prettierd',
+            'jq',
         },
         toml = {
             stop_after_first = true,
