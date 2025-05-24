@@ -17,13 +17,11 @@ vim.g.mapleader = ' '
 BORDER = 'rounded'
 -- vim.o.winborder = BORDER
 
-local lreq = require('lreq')
-local install_pkgs = require('jascha030.core.bootstrap').install_packages
-
-_G.lreq = lreq
+-- local lreq = require('lreq')
+require('jascha030.globals')
 
 -- Install required packages, if not already installed.
-install_pkgs({
+require('jascha030.core.bootstrap').install_packages({
     'folke/lazy.nvim',
     'rktjmp/hotpot.nvim',
 })
