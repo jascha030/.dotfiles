@@ -64,5 +64,5 @@ return (function()
         },
     }
 
-    return require('jascha030.lsp').config.extend(ts_ls)
+    return Jascha030.lsp.config_extend(ts_ls)
 end)()

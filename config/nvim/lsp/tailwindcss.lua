@@ -1,6 +1,5 @@
 ---@diagnostic disable: missing-fields
----@type vim.lsp.ClientConfig
-local tailwindcss = {
+return Jascha030.lsp.config_extend({
     filetypes = {
         'aspnetcorerazor',
         'astro',
@@ -56,7 +55,7 @@ local tailwindcss = {
         'svelte',
         'templ',
     },
-    root_dir = require('lspconfig').util.root_pattern(
+    root_markers = {
         'tailwind.config.js',
         'tailwind.config.cjs',
         'tailwind.config.mjs',
@@ -64,8 +63,8 @@ local tailwindcss = {
         'postcss.config.js',
         'postcss.config.cjs',
         'postcss.config.mjs',
-        'postcss.config.ts'
-    ),
+        'postcss.config.ts',
+    },
     settings = {
         tailwindCSS = {
             validate = true,
@@ -95,9 +94,7 @@ local tailwindcss = {
             },
         },
     },
-}
-
-return require('jascha030.lsp').config.extend(tailwindcss)
+})
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
 --

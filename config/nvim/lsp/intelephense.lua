@@ -1,5 +1,5 @@
----@type vim.lsp.ClientConfig
-return require('jascha030.lsp').config.extend({
+---@diagnostic disable: missing-fields
+return Jascha030.lsp.config_extend({
     root_markers = {
         '.git',
         'wp-config-sample.php',

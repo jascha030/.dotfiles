@@ -1,7 +1,6 @@
 ---@diagnostic disable: missing-fields
 local util = require('lspconfig.util')
 
----@type _.lspconfig.settings.vtsls.InlayHints
 local inlayHints = {
     parameterNames = {
         enabled = 'all',
@@ -30,10 +29,10 @@ local vtsls = {
     --         or util.root_pattern('.git', 'package.json', 'tsconfig.json', 'jsconfig.json')(filename)
     -- end,
     root_markers = {
-        '.git',
-        'package.json',
         'tsconfig.json',
         'jsconfig.json',
+        'package.json',
+        '.git',
     },
     single_file_support = false,
     settings = {
@@ -70,4 +69,4 @@ local vtsls = {
     },
 }
 
-return require('jascha030.lsp').config.extend(vtsls)
+return Jascha030.lsp.config_extend(vtsls)
