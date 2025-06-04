@@ -27,6 +27,7 @@ function M.opts()
         quickfile = { enabled = true },
         words = { enabled = true },
         input = { enabled = true },
+        image = { enabled = true },
         indent = { enabled = true },
         statuscolumn = { enabled = true },
         dim = { enabled = true },

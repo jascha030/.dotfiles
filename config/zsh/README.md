@@ -1,6 +1,8 @@
 # 💾 ZShell (ZSH) Config
 
-![ZSH Prompt](https://github.com/jascha030/.dotfiles/blob/main/img/ZSH_Prompt.png?raw=true)
+<p align="center">
+  <img src="https://github.com/jascha030/.dotfiles/blob/main/img/ZSH_Prompt.png?raw=true" alt="ZSH Prompt">
+</p>
 
 ## Key features
 
