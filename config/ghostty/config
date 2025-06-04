@@ -19,8 +19,8 @@ cursor-style = block
 mouse-hide-while-typing = true
 
 # Theme
-theme = nitepal
-# theme = light:litepal,dark:nitepal
+# theme = nitepal
+theme = light:litepal,dark:nitepal
 background-blur-radius = 95
 background-opacity = 0.98
 
