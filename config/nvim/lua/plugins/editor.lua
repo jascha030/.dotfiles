@@ -1,22 +1,13 @@
 ---@type LazyPluginSpec[]
 local M = {
     { 'f-person/git-blame.nvim' },
-    {
-        'nvim-lua/plenary.nvim',
-        lazy = true,
-    },
-    {
-        'petertriho/nvim-scrollbar',
-        config = true,
-    },
-    {
-        'luukvbaal/stabilize.nvim',
-        config = true,
-    },
+    { 'nvim-lua/plenary.nvim', lazy = true },
+    { 'petertriho/nvim-scrollbar', config = true },
+    { 'luukvbaal/stabilize.nvim', config = true },
     {
         'kylechui/nvim-surround',
         config = true,
-        event = 'VeryLazy',
+        event = { 'VeryLazy' },
     },
     {
         'terrortylor/nvim-comment',
@@ -49,22 +40,6 @@ local M = {
                 return vim.ui.input(...)
             end
         end,
-    },
-    {
-        'stevearc/conform.nvim',
-        config = function(_, _)
-            require('jascha030.core.formatting')
-        end,
-        keys = {
-            {
-                '<C-l>',
-                function()
-                    require('conform').format()
-                end,
-                mode = { 'n', 'v' },
-                desc = 'Format using conform.',
-            },
-        },
     },
     {
         'ziontee113/color-picker.nvim',

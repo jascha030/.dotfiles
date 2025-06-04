@@ -8,14 +8,7 @@ local M = {
         'MunifTanjim/nui.nvim',
     },
     event = { 'VeryLazy' },
-    cmd = {
-        'Sail',
-        'Artisan',
-        'Composer',
-        'Npm',
-        'Yarn',
-        'Laravel',
-    },
+    cmd = { 'Sail', 'Artisan', 'Composer', 'Npm', 'Yarn', 'Laravel' },
     keys = {
         {
             '<leader>lt',

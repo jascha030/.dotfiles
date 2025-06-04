@@ -50,9 +50,7 @@ return {
                 signs = { text = require('jascha030.core.icons').get_icons().diagnostics },
                 underline = true,
                 update_in_insert = false,
-                virtual_lines = {
-                    current_line = true,
-                },
+                virtual_lines = { current_line = true },
             })
 
             lsp.lsp_attach(function(client, buffer)
@@ -78,11 +76,7 @@ return {
             lsp.lsp_attach(lsp.keymaps.on_attach)
             lsp.inlay_hints()
 
-            local disabled_clients = {
-                'psalm',
-                'ts_ls',
-                'ast_grep',
-            }
+            local disabled_clients = { 'psalm', 'ts_ls', 'ast_grep' }
 
             local function init()
                 vim.iter(vim.api.nvim_get_runtime_file('lsp/*.lua', true))
@@ -90,10 +84,6 @@ return {
                         return vim.fs.basename(server_config_path):match('^(.*)%.lua$')
                     end)
                     :each(vim.schedule_wrap(function(server_name)
-                        -- local config = lsp.config.get(server_name)
-                        -- if config then
-                        --     vim.lsp.config(server_name, config)
-                        -- end
                         if not vim.tbl_contains(disabled_clients, server_name) then
                             vim.lsp.enable(server_name)
                         end
@@ -112,23 +102,14 @@ return {
 
             require('lspconfig.configs').vtsls = require('vtsls').lspconfig
             require('mason-lspconfig').setup({
-                automatic_enable = {
-                    exclude = disabled_clients,
-                },
+                automatic_enable = { exclude = disabled_clients },
                 automatic_installation = true,
                 ensure_installed = opts.ensure_installed,
             })
         end,
     },
-
     { 'ray-x/lsp_signature.nvim' },
     { 'yioneko/nvim-vtsls' },
-    -- Otter.nvim provides lsp features for code embedded in other documents (markdown)
-    {
-        'jmbuhr/otter.nvim',
-        dependencies = { 'nvim-treesitter/nvim-treesitter' },
-        opts = {},
-    },
     {
         'folke/lazydev.nvim',
         ft = 'lua',
@@ -162,10 +143,7 @@ return {
     {
         'gbprod/phpactor.nvim',
         ft = { 'php' },
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-            'neovim/nvim-lspconfig',
-        },
+        dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
         build = function()
             require('phpactor.handler.update')()
         end,
@@ -193,6 +171,12 @@ return {
                 },
             },
         },
+    },
+    -- Otter.nvim provides lsp features for code embedded in other documents (markdown)
+    {
+        'jmbuhr/otter.nvim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
+        opts = {},
     },
     {
         'smjonas/inc-rename.nvim',
