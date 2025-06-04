@@ -50,6 +50,11 @@ local M = {
             'MTDL9/vim-log-highlighting',
             ft = 'log',
         },
+        {
+            'folke/ts-comments.nvim',
+            opts = {},
+            event = 'VeryLazy',
+        },
     },
     opts = function()
         ---@type TSConfig
@@ -197,14 +202,6 @@ function M.config(_, opts)
         filetype = 'neon',
     }
 
-    -- Old way of registering parsers to langs
-    --
-    -- ```lua
-    --  local ft_to_lang = parsers.ft_to_lang
-    --  parsers.ft_to_lang = function(ft) return ft_to_lang(ft) end
-    -- ``
-
-    -- Newer way of registering parsers to langs
     for ft, parser in pairs(FT_TO_LANG_ALIASES) do
         vim.treesitter.language.register(parser, ft)
     end
