@@ -120,8 +120,15 @@ return {
             })
         end,
     },
-    'ray-x/lsp_signature.nvim',
-    'yioneko/nvim-vtsls',
+
+    { 'ray-x/lsp_signature.nvim' },
+    { 'yioneko/nvim-vtsls' },
+    -- Otter.nvim provides lsp features for code embedded in other documents (markdown)
+    {
+        'jmbuhr/otter.nvim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
+        opts = {},
+    },
     {
         'folke/lazydev.nvim',
         ft = 'lua',
