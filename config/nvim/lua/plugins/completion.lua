@@ -1,9 +1,3 @@
-local function blink_build(plugin)
-    local ret = vim.system({ 'cargo', 'build', '--release' }, { cwd = plugin.dir }):wait()
-
-    vim.notify(ret.code == 0 and '[blink.cmp] build success!' or '[blink.cmp] build failed!')
-end
-
 ---@type LazyPluginSpec[]
 local M = {
     {
@@ -13,7 +7,11 @@ local M = {
             'xzbdmw/colorful-menu.nvim',
             'giuxtaposition/blink-cmp-copilot',
         },
-        build = blink_build,
+        build = function(plugin)
+            local ret = vim.system({ 'cargo', 'build', '--release' }, { cwd = plugin.dir }):wait()
+
+            vim.notify(ret.code == 0 and '[blink.cmp] build success!' or '[blink.cmp] build failed!')
+        end,
         ---@module "blink.cmp"
         ---@type blink.cmp.Config
         opts = {

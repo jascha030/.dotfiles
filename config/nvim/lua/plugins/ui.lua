@@ -6,10 +6,8 @@ local M = {
     {
         'brenoprata10/nvim-highlight-colors',
         name = 'nvim-highlight-colors',
-        event = 'VeryLazy',
-        opts = {
-            render = 'first_column',
-        },
+        event = { 'VeryLazy' },
+        opts = { render = 'first_column' },
     },
     {
         'm-demare/hlargs.nvim',
