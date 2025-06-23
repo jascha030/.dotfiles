@@ -32,4 +32,5 @@ ignore_patterns = [ # Fuzzy search exclusions
   ".git",
   ".idea",
   ".vscode",
+  ".var",
 ]
