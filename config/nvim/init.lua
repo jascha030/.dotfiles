@@ -17,7 +17,6 @@ vim.g.mapleader = ' '
 BORDER = 'rounded'
 -- vim.o.winborder = BORDER
 
--- local lreq = require('lreq')
 require('jascha030.globals')
 
 -- Install required packages, if not already installed.
