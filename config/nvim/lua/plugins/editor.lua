@@ -73,6 +73,10 @@ local M = {
             },
         },
     },
+    {
+        'sheerun/vim-polyglot',
+        -- cond = false,
+    },
 }
 
 return M
