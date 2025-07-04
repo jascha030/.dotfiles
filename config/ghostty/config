@@ -1,9 +1,13 @@
+working-directory = home
+quit-after-last-window-closed = true
+
 # Fonts
 adjust-cell-height = 95%
+bold-is-bright = false
 # font-size = 16 
 font-size = 15
 
-## Font Family
+# Font Family
 font-family = "CaskaydiaCove Nerd Font" 
 font-family = "CaskaydiaCove Nerd Font Mono"
 font-family = "Caskadia Code"
@@ -22,12 +26,19 @@ mouse-hide-while-typing = true
 # theme = nitepal
 theme = light:litepal,dark:nitepal
 background-blur-radius = 95
-background-opacity = 0.98
+background-opacity = 0.95
 
-window-theme = ghostty 
-window-save-state = always
+# macos-icon = (`official`, `blueprint`, ` chalkboard`, ` microchip`, ` glass`, ` holographic`, ` paper`, ` retro`, `xray`).
+macos-icon = holographic 
+macos-icon-frame = aluminum
+
+
+window-inherit-working-directory = true
 window-padding-x = 8
 window-padding-y = 8
+window-save-state = always
+window-theme = ghostty 
+window-vsync = true
 
 # Other
 auto-update-channel = tip
