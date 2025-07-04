@@ -46,6 +46,6 @@ vim.cmd([[
     autocmd BufRead,BufNewFile composer.json,.phpactor.json set tabstop=4 | set shiftwidth=4 | set expandtab | set softtabstop=4
     autocmd BufRead,BufNewFile composer.lock set ft=json
     " Ghostty
-    autocmd BufRead,BufNewFile **/.*/**/ghostty/config set ft=ghostty
+    autocmd BufRead,BufNewFile **/.*/**/ghostty/config,**/ghostty/themes/* set ft=ghostty
   augroup end
 ]])
