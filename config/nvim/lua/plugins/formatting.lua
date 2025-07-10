@@ -36,6 +36,7 @@ local M = {
             ['typescript'] = { 'prettierd' },
             ['typescriptreact'] = { 'prettierd' },
             ['yaml'] = { 'prettierd' },
+            ['zsh'] = { 'shfmt', 'shellharden' },
         },
         default_format_opts = { lsp_format = 'fallback' },
     },
