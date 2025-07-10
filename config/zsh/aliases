@@ -16,6 +16,7 @@ alias rr="exec ${SHELL} -l"
 alias rrscr='rr && rscr'
 alias rscr='tput rmcup'
 alias x='exit'
+alias ghosttydocs="ghostty +show-config --default --docs | nvim +Man!"
 
 alias dev="cd ${DEV}"
 alias df="cd ${DOTFILES}"
