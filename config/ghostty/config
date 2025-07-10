@@ -1,51 +1,52 @@
+# Behaviour
+auto-update-channel = tip
 working-directory = home
 quit-after-last-window-closed = true
 
+# MacOS
+# macos-icon = (`official`, `blueprint`, ` chalkboard`, ` microchip`, ` glass`, ` holographic`, ` paper`, ` retro`, `xray`).
+macos-icon = holographic 
+macos-icon-frame = aluminum
+macos-window-buttons = hidden
+macos-option-as-alt = true
+
 # Fonts
-adjust-cell-height = 95%
-bold-is-bright = false
-# font-size = 16 
 font-size = 15
 
 # Font Family
-font-family = "CaskaydiaCove Nerd Font" 
-font-family = "CaskaydiaCove Nerd Font Mono"
-font-family = "Caskadia Code"
+font-family = "" 
+font-family = "CaskaydiaCove Nerd Font"
 font-family = "PragmataPro Liga"
 font-family = "PragmataPro Mono Liga"
 font-family = "Noto Color Emoji"
 font-family = "JetBrains Mono"
-font-codepoint-map = U+F101-U+F25C = nonicons
+font-codepoint-map = U+F101-U+F25C=nonicons
+font-feature = +calt,+liga,+kern,+zero,+dlig
+font-shaping-break = cursor
+
+adjust-cell-height = 33
+adjust-cursor-height = 0
+adjust-icon-height = 40
 
 # Mouse
-adjust-cursor-height = 35%
 cursor-style = block
 mouse-hide-while-typing = true
 
 # Theme
-# theme = nitepal
 theme = light:litepal,dark:nitepal
-background-blur-radius = 95
-background-opacity = 0.95
-
-# macos-icon = (`official`, `blueprint`, ` chalkboard`, ` microchip`, ` glass`, ` holographic`, ` paper`, ` retro`, `xray`).
-macos-icon = holographic 
-macos-icon-frame = aluminum
-
+background-opacity = 0.92
+background-blur-radius = 20
 
 window-inherit-working-directory = true
-window-padding-x = 8
+window-padding-x = 15
 window-padding-y = 8
-window-save-state = always
-window-theme = ghostty 
 window-vsync = true
+window-theme = system
 
 # Other
-auto-update-channel = tip
-command = "/opt/homebrew/bin/zsh"
-macos-option-as-alt = true
+command = "/opt/homebrew/bin/zsh -l"
 shell-integration = zsh
-shell-integration-features = true
+shell-integration-features = cursor,sudo
 
 # custom-shader = "/Users/jaschavanaalst/.config/ghostty-shaders/in-game-crt.glsl"
 
