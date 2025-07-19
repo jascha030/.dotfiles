@@ -1,19 +1,32 @@
 # Behaviour
 auto-update-channel = tip
-working-directory = home
+command = "/opt/homebrew/bin/zsh -l"
 quit-after-last-window-closed = true
+shell-integration = zsh
+shell-integration-features = cursor,sudo
+working-directory = home
 
-# MacOS
-# macos-icon = (`official`, `blueprint`, ` chalkboard`, ` microchip`, ` glass`, ` holographic`, ` paper`, ` retro`, `xray`).
-macos-icon = holographic 
-macos-icon-frame = aluminum
-macos-window-buttons = hidden
-macos-option-as-alt = true
+# Window
+window-height = 12
+window-width = 280
+window-inherit-working-directory = true
+window-padding-x = 15
+window-padding-y = 8
+window-vsync = true
+window-theme = system
+
+# Theme
+theme = light:litepal,dark:nitepal
+background-opacity = 0.98
+background-blur-radius = 20
+
+# Graphics
+adjust-cell-height = 95%
+adjust-cursor-height = 0
+adjust-icon-height = 40
 
 # Fonts
 font-size = 15
-
-# Font Family
 font-family = "" 
 font-family = "CaskaydiaCove Nerd Font"
 font-family = "PragmataPro Liga"
@@ -24,29 +37,16 @@ font-codepoint-map = U+F101-U+F25C=nonicons
 font-feature = +calt,+liga,+kern,+zero,+dlig
 font-shaping-break = cursor
 
-adjust-cell-height = 95%
-adjust-cursor-height = 0
-adjust-icon-height = 40
-
 # Mouse
 cursor-style = block
 mouse-hide-while-typing = true
 
-# Theme
-theme = light:litepal,dark:nitepal
-background-opacity = 0.98
-background-blur-radius = 20
-
-window-inherit-working-directory = true
-window-padding-x = 15
-window-padding-y = 8
-window-vsync = true
-window-theme = system
-
-# Other
-command = "/opt/homebrew/bin/zsh -l"
-shell-integration = zsh
-shell-integration-features = cursor,sudo
+# MacOS
+# macos-icon = (`official`, `blueprint`, ` chalkboard`, ` microchip`, ` glass`, ` holographic`, ` paper`, ` retro`, `xray`).
+macos-icon = holographic 
+macos-icon-frame = aluminum
+macos-window-buttons = hidden
+macos-option-as-alt = true
 
 # custom-shader = "/Users/jaschavanaalst/.config/ghostty-shaders/in-game-crt.glsl"
 
@@ -71,21 +71,10 @@ keybind = ctrl+d>eight=goto_tab:8
 keybind = ctrl+d>equal=equalize_splits
 keybind = alt+equal=equalize_splits
 
-# keybind = super+left_bracket=goto_split:previous
-# keybind = super+right_bracket=goto_split:next
-# keybind = alt+h=goto_split:left
 keybind = alt+left=goto_split:left
-# keybind = alt+k=goto_split:top
 keybind = alt+up=goto_split:top
-# keybind = alt+l=goto_split:right
 keybind = alt+right=goto_split:right
-# keybind = alt+j=goto_split:bottom
 keybind = alt+down=goto_split:bottom
-
-# keybind = super+ctrl+down=resize_split:down,10
-# keybind = super+ctrl+left=resize_split:left,10
-# keybind = super+ctrl+right=resize_split:right,10
-# keybind = super+ctrl+up=resize_split:up,10
 
 keybind = super+equal=increase_font_size:1
 keybind = super+plus=increase_font_size:1
@@ -98,8 +87,6 @@ keybind = super+alt+shift+j=write_scrollback_file:open
 keybind = super+shift+j=write_scrollback_file:paste
 keybind = super+k=clear_screen
 
-# keybind = alt+left=esc:b
-# keybind = alt+right=esc:f
 keybind = super+backspace=esc:
 keybind = super+left=text:\x01
 keybind = super+right=text:\x05

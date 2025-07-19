@@ -1,6 +1,8 @@
+---@module 'jascha030.lsp.keymaps'
 ---@class jascha030.lsp.Keymaps
 ---@field client table
 ---@field buffer integer
+
 local M = {}
 
 ---@return jascha030.lsp.Keymaps
@@ -50,34 +52,24 @@ function M.on_attach(client, bufnr)
     local diagnostic_goto = M.diagnostic_goto
     local float_opts = { border = BORDER }
 
-    self:map('<leader>cd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
-    self:map('<leader>cl', 'LspInfo', { desc = 'Lsp Info' })
-    self:map('<leader>xd', 'Telescope diagnostics', { desc = 'Telescope Diagnostics' })
-
     self:map('K', function()
         vim.lsp.buf.hover(float_opts)
-    end, {
-        desc = 'Hover',
-    })
+    end, { desc = 'Hover' })
 
     self:map('gK', function()
         vim.lsp.buf.signature_help(float_opts)
-    end, {
-        desc = 'Signature Help',
-        has = 'signatureHelp',
-    })
+    end, { desc = 'Signature Help', has = 'signatureHelp' })
 
+    self:map('<leader>cd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
+    self:map('<leader>cl', 'LspInfo', { desc = 'Lsp Info' })
+    self:map('<leader>xd', 'Telescope diagnostics', { desc = 'Telescope Diagnostics' })
     self:map('<C-k>', vim.lsp.buf.signature_help, { mode = 'i', desc = 'Signature Help', has = 'signatureHelp' })
-
     self:map(']d', diagnostic_goto(true), { desc = 'Next Diagnostic' })
     self:map('[d', diagnostic_goto(false), { desc = 'Prev Diagnostic' })
     self:map(']e', diagnostic_goto(true, 'ERROR'), { desc = 'Next Error' })
     self:map('[e', diagnostic_goto(false, 'ERROR'), { desc = 'Prev Error' })
     self:map(']w', diagnostic_goto(true, 'WARNING'), { desc = 'Next Warning' })
     self:map('[w', diagnostic_goto(false, 'WARNING'), { desc = 'Prev Warning' })
-
-    self:map('<C-a>', vim.lsp.buf.code_action, { desc = 'Code Action', mode = { 'n', 'v' }, has = 'codeAction' })
-    self:map('<leader>a', vim.lsp.buf.code_action, { desc = 'Code Action', mode = { 'n', 'v' }, has = 'codeAction' })
     self:map('<leader>r', M.rename, { expr = true, desc = 'Rename', has = 'rename' })
 end
 
