@@ -22,6 +22,15 @@ return {
                 },
                 ---@todo: maybe just do this per client instead of capability.
                 disabled_capabilities = {
+                    ['codeActionProvider'] = {
+                        'intelephense',
+                    },
+                    ['documentSymbolProvider'] = {
+                        'intelephense',
+                    },
+                    ['definitionProvider'] = {
+                        'intelephense',
+                    },
                     ['documentFormattingProvider'] = {
                         'intelephense',
                         'jsonls',
@@ -147,7 +156,7 @@ return {
         build = function()
             require('phpactor.handler.update')()
         end,
-        config = true,
+        config = false,
     },
     {
         'j-hui/fidget.nvim',
@@ -276,5 +285,28 @@ return {
                 ensure_installed()
             end
         end,
+    },
+    {
+        'rachartier/tiny-code-action.nvim',
+        dependencies = {
+            { 'nvim-lua/plenary.nvim' },
+            { 'nvim-telescope/telescope.nvim' },
+            { 'ibhagwan/fzf-lua' },
+            {
+                'folke/snacks.nvim',
+                opts = { terminal = {} },
+            },
+        },
+        keys = {
+            {
+                '<leader>a',
+                function()
+                    require('tiny-code-action').code_action()
+                end,
+                desc = 'Code Action',
+            },
+        },
+        event = { 'LspAttach' },
+        opts = {},
     },
 }
