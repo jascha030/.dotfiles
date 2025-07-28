@@ -7,7 +7,7 @@ shell-integration-features = cursor,sudo
 working-directory = home
 
 # Window
-window-height = 12
+window-height = 25
 window-width = 280
 window-inherit-working-directory = true
 window-padding-x = 15
