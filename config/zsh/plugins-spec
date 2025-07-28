@@ -1,49 +1,48 @@
 #!/usr/bin/env zsh
 
-fpath+=( ${ZDOTDIR}/plugins/** )
-path+=( ${ZDOTDIR}/plugins/** )
+fpath+=("$ZDOTDIR"/plugins/**)
+path+=("$ZDOTDIR"/plugins/**)
 
 export Z_PLUGINS=()
 
 function zcompile-many() {
-    local f
-    for f; do zcompile -R -- "$f".zwc "$f"; done
+	local f
+	for f; do zcompile -R -- "$f".zwc "$f"; done
 }
 
 function zsh_add_plugin {
-    local plugin_name=${1##*/}
+	local plugin_name=${1##*/}
 
-    if [ ! -d "$ZDOTDIR/plugins/$plugin_name" ]; then
-        git clone "git@github.com:$1.git" "$ZDOTDIR/plugins/$plugin_name"
-    else
-        _plugin_dir="$ZDOTDIR/plugins/$plugin_name"
+	if [ ! -d "$ZDOTDIR/plugins/$plugin_name" ]; then
+		git clone "git@github.com:$1.git" "$ZDOTDIR/plugins/$plugin_name"
+	else
+		_plugin_dir="$ZDOTDIR/plugins/$plugin_name"
 
-        if [ $# -eq 2 ] && [ -f "$_plugin_dir/$2" ]; then
-            source "$_plugin_dir/$2";
-            Z_PLUGINS+=$_plugin_dir
+		if [ $# -eq 2 ] && [ -f "$_plugin_dir/$2" ]; then
+			source "$_plugin_dir/$2"
+			Z_PLUGINS+=$_plugin_dir
 
-            return
-        fi
+			return
+		fi
 
-        [ -f "$_plugin_dir/$plugin_name.plugin.zsh" ] \
-            && source "$_plugin_dir/$plugin_name.plugin.zsh" \
-            || source "$_plugin_dir/$plugin_name.zsh"
-    fi
+		[ -f "$_plugin_dir/$plugin_name.plugin.zsh" ] &&
+			source "$_plugin_dir/$plugin_name.plugin.zsh" ||
+			source "$_plugin_dir/$plugin_name.zsh"
+	fi
 
-    Z_PLUGINS+=$_plugin_dir
+	Z_PLUGINS+=$_plugin_dir
 }
 
 function zcompile_plugins() {
-    for _curr_plugin_dir in $Z_PLUGINS[@]
-    do
-        if [ "$_curr_plugin_dir" = "$ZDOTDIR/plugins/zsh-syntax-highlighting" ]; then
-            continue
-        fi
+	for _curr_plugin_dir in "$Z_PLUGINS"[@]; do
+		if [ "$_curr_plugin_dir" = "$ZDOTDIR/plugins/zsh-syntax-highlighting" ]; then
+			continue
+		fi
 
-        if [ -e "$_curr_plugin_dir" ]; then
-            zcompile-many "$_curr_plugin_dir"/**/*.zsh
-        fi
-    done
+		if [ -e "$_curr_plugin_dir" ]; then
+			zcompile-many "$_curr_plugin_dir"/**/*.zsh
+		fi
+	done
 }
 
 zsh_add_plugin Aloxaf/fzf-tab
