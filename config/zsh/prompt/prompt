@@ -66,7 +66,6 @@ function top-prompt {
     local right='%F{011}   %w %b |   %T   %f'
 
     fill-line $left $right ' '
-    # fill-line $left $right ' ' $((${#TERM_PRETTY}-${#TERM}))
 
     typeset -g top=$REPLY
 }
@@ -148,11 +147,24 @@ function TRAPWINCH () {
     clear-screen-zle
 }
 
+function combined-precmd {
+    emulate -L zsh
+    
+    if [[ -d .git ]] || git rev-parse --git-dir >/dev/null 2>&1; then
+        gitstatus_prompt_update
+    else
+        GITSTATUS_PROMPT=""
+        GITSTATUS_PROMPT_LEN=0
+    fi
+    
+    set-prompt
+}
+
 () {
     emulate -L zsh
 
     add-zsh-hook preexec position-prompt-bottom
-    add-zsh-hook precmd set-prompt
+    add-zsh-hook precmd combined-precmd
 
     zle -N zle-line-init
 
