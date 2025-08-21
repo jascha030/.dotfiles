@@ -3,6 +3,8 @@
 ---@class jascha030.lsp.Module
 ---@field public keymaps jascha030.lsp.Keymaps
 ---@field public config jascha030.lsp.Config
+---@field public lsp_attach fun(on_attach: fun(client, buffer), group: string|nil)
+---@field public virtual_text fun(opts: jascha030.lsp.Config)
 local M = {}
 
 ---@param on_attach fun(client, buffer)
@@ -98,20 +100,20 @@ end
 ---@param opts table
 ---@return string[]
 ---@diagnostic disable-next-line: duplicate-set-field
-vim.lsp.util.stylize_markdown = function(bufnr, contents, opts)
-    contents = vim.lsp.util._normalize_markdown(contents, {
-        width = vim.lsp.util._make_floating_popup_size(contents, opts),
-    })
-
-    ---@diagnostic disable-next-line: inject-field
-    vim.bo[bufnr].filetype = 'markdown'
-    vim.treesitter.start(bufnr)
-    vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, contents)
-
-    add_inline_highlights(bufnr)
-
-    return contents
-end
+-- vim.lsp.util.stylize_markdown = function(bufnr, contents, opts)
+--     contents = vim.lsp.util._normalize_markdown(contents, {
+--         width = vim.lsp.util._make_floating_popup_size(contents, opts),
+--     })
+--
+--     ---@diagnostic disable-next-line: inject-field
+--     vim.bo[bufnr].filetype = 'markdown'
+--     vim.treesitter.start(bufnr)
+--     vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, contents)
+--
+--     add_inline_highlights(bufnr)
+--
+--     return contents
+-- end
 
 return setmetatable(M, {
     __index = require('jascha030.utils').create_submod_loader('jascha030.lsp', true),

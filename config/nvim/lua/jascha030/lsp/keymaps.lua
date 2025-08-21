@@ -1,8 +1,6 @@
----@module 'jascha030.lsp.keymaps'
 ---@class jascha030.lsp.Keymaps
 ---@field client table
 ---@field buffer integer
-
 local M = {}
 
 ---@return jascha030.lsp.Keymaps
