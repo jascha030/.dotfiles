@@ -1,103 +1,109 @@
----@type LazyPluginSpec
+---@type LazyPluginSpec[]
 local M = {
-    'folke/noice.nvim',
-    event = { 'VeryLazy' },
-    dependencies = {
-        'folke/snacks.nvim',
-        'MunifTanjim/nui.nvim',
+    {
         'rcarriga/nvim-notify',
+        opts = {},
     },
-    opts = {
-        routes = {},
-        notify = { enabled = false },
-        lsp = {
-            progress = { enabled = false },
-            message = { enabled = false },
-            override = {
-                ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
-                ['vim.lsp.util.stylize_markdown'] = true,
-                ['cmp.entry.get_documentation'] = true,
-            },
-            signature = {
-                enabled = true,
-                auto_open = {
+    {
+        'folke/noice.nvim',
+        event = { 'VeryLazy' },
+        dependencies = {
+            'folke/snacks.nvim',
+            'MunifTanjim/nui.nvim',
+            'rcarriga/nvim-notify',
+        },
+        opts = {
+            routes = {},
+            notify = { enabled = false },
+            lsp = {
+                progress = { enabled = false },
+                message = { enabled = false },
+                override = {
+                    ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
+                    ['vim.lsp.util.stylize_markdown'] = true,
+                    ['cmp.entry.get_documentation'] = true,
+                },
+                signature = {
                     enabled = true,
-                    trigger = true,
-                    throttle = 50,
+                    auto_open = {
+                        enabled = true,
+                        trigger = true,
+                        throttle = 50,
+                    },
+                    opts = {},
                 },
-                opts = {},
-            },
-            hover = {
-                silent = true,
-                enabled = false,
-                border = {
-                    style = BORDER,
-                    padding = { 0, 0 },
-                },
-            },
-        },
-        messages = {
-            enabled = false, -- enables the Noice messages UI
-            view = 'cmdline',
-            -- view = 'cmdline', -- default view for messages
-            view_error = 'mini', -- view for errors
-            view_warn = 'mini', -- view for warnings
-            view_history = 'messages', -- view for :messages
-            view_search = 'virtualtext', -- view for search count messages. Set to `false` to disable
-        },
-        redirect = {},
-        presets = {
-            bottom_search = true, -- use a classic bottom cmdline for search
-            command_palette = true, -- position the cmdline and popupmenu together
-            long_message_to_split = true, -- long messages will be sent to a split
-            inc_rename = true, -- enables an input dialog for inc-rename.nvim
-            lsp_doc_border = true, -- add a border to hover docs and signature help
-        },
-        views = {
-            cmdline = {
-                backend = 'popup',
-                -- border = {
-                --     style = BORDER,
-                --     padding = { 0, 1 },
-                -- },
-            },
-            cmdline_popup = {
-                position = {
-                    row = '35%',
-                    col = '50%',
-                },
-                border = {
-                    style = BORDER,
-                    padding = { 0, 0 },
-                },
-                win_options = {
-                    winhighlight = {
-                        Normal = 'NormalFloat',
+                hover = {
+                    silent = true,
+                    enabled = false,
+                    border = {
+                        style = BORDER,
+                        padding = { 0, 0 },
                     },
                 },
-                size = {
-                    -- width = math.floor(vim.api.nvim_win_get_width(0) / 2),
-                    width = 'auto',
-                    height = 'auto',
+            },
+            messages = {
+                enabled = false, -- enables the Noice messages UI
+                view = 'cmdline',
+                -- view = 'cmdline', -- default view for messages
+                view_error = 'mini', -- view for errors
+                view_warn = 'mini', -- view for warnings
+                view_history = 'messages', -- view for :messages
+                view_search = 'virtualtext', -- view for search count messages. Set to `false` to disable
+            },
+            redirect = {},
+            presets = {
+                bottom_search = true, -- use a classic bottom cmdline for search
+                command_palette = true, -- position the cmdline and popupmenu together
+                long_message_to_split = true, -- long messages will be sent to a split
+                inc_rename = true, -- enables an input dialog for inc-rename.nvim
+                lsp_doc_border = true, -- add a border to hover docs and signature help
+            },
+            views = {
+                cmdline = {
+                    backend = 'popup',
+                    -- border = {
+                    --     style = BORDER,
+                    --     padding = { 0, 1 },
+                    -- },
+                },
+                cmdline_popup = {
+                    position = {
+                        row = '35%',
+                        col = '50%',
+                    },
+                    border = {
+                        style = BORDER,
+                        padding = { 0, 0 },
+                    },
+                    win_options = {
+                        winhighlight = {
+                            Normal = 'NormalFloat',
+                        },
+                    },
+                    size = {
+                        -- width = math.floor(vim.api.nvim_win_get_width(0) / 2),
+                        width = 'auto',
+                        height = 'auto',
+                    },
                 },
             },
         },
+        -- config = function(_, opts)
+        --     require('noice').setup(opts)
+        --     -- require('noice')
+        --
+        --     vim.api.nvim_create_autocmd('VimResized', {
+        --         pattern = '*',
+        --
+        --         callback = function()
+        --             opts.views.cmdline.size.width = vim.api.nvim_win_get_width(0) - 2
+        --             print(vim.api.nvim_win_get_width(0) - 2)
+        --
+        --             require('noice').setup(opts --[[@as table]])
+        --         end,
+        --     })
+        -- end,
     },
-    -- config = function(_, opts)
-    --     require('noice').setup(opts)
-    --     -- require('noice')
-    --
-    --     vim.api.nvim_create_autocmd('VimResized', {
-    --         pattern = '*',
-    --
-    --         callback = function()
-    --             opts.views.cmdline.size.width = vim.api.nvim_win_get_width(0) - 2
-    --             print(vim.api.nvim_win_get_width(0) - 2)
-    --
-    --             require('noice').setup(opts --[[@as table]])
-    --         end,
-    --     })
-    -- end,
 }
 
 return M
