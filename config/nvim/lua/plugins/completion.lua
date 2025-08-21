@@ -62,10 +62,10 @@ local M = {
                 ghost_text = { enabled = true },
             },
             sources = {
-                default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
+                default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
                 providers = {
                     lazydev = {
-                        name = 'LazyDev',
+                        name = 'lazydev',
                         module = 'lazydev.integrations.blink',
                         score_offset = 100,
                     },
@@ -77,7 +77,7 @@ local M = {
                     copilot = {
                         name = 'copilot',
                         module = 'blink-cmp-copilot',
-                        score_offset = 100,
+                        score_offset = 50,
                         async = true,
                         transform_items = function(_, items)
                             local CompletionItemKind = require('blink.cmp.types').CompletionItemKind
@@ -151,3 +151,4 @@ local M = {
 }
 
 return M
+
