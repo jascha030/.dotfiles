@@ -14,14 +14,10 @@ local M = {
 }
 
 function M.opts()
+    ---@module 'snacks'
     ---@type snacks.Config
     local opts = {
-        styles = {
-            minimal = {
-                relative = 'editor',
-                border = 'solid',
-            },
-        },
+        styles = { minimal = { border = 'solid' } },
         bigfile = { enabled = true },
         notifier = { enabled = false },
         quickfile = { enabled = true },
@@ -217,9 +213,161 @@ function M.keys()
 end
 -- stylua: ignore end
 
+-- function M.config(_, opts)
+--     local vim_notify = vim.notify
+--     require('snacks').setup(opts)
+--
+--     local function _notify_filter(msg)
+--         for i = 1, #NOTIFICATION_FILTERS do
+--             -- stylua: ignore
+--             if string.find(msg, NOTIFICATION_FILTERS[i]) then return true end
+--         end
+--
+--         return false
+--     end
+--
+--     -- Custom vim.notify override
+--     ---@param msg string
+--     ---@param lvl number
+--     ---@param o table
+--     ---@see vim.notify
+--     local function _custom_notify(msg, lvl, o)
+--         if lvl == vim.log.levels.INFO or _notify_filter(msg) then
+--             return vim_notify(msg, lvl, o)
+--         end
+--
+--         return Snacks.notifier.notify(msg, lvl, o)
+--     end
+--
+--     vim.notify = _custom_notify
+-- end
+--
 function M.config(_, opts)
     local vim_notify = vim.notify
     require('snacks').setup(opts)
+
+    -- MONKEY PATCH: Position notifications on the left
+    local function patch_notifier_left()
+        local notifier_module = require('snacks.notifier')
+
+        -- Get the internal notifier class through the module's metatable or direct access
+        local N = getmetatable(notifier_module).__index or notifier_module
+
+        -- If that doesn't work, try accessing through the global Snacks object
+        if not N or not N.layout then
+            N = require('snacks').notifier
+        end
+
+        -- Still no luck? Try getting it through the notifier instance
+        if not N or not N.layout then
+            -- Access the notifier instance through the closure
+            local original_notify = notifier_module.notify
+            local info = debug.getinfo(original_notify, 'u')
+            for i = 1, info.nups do
+                local name, value = debug.getupvalue(original_notify, i)
+                if name == 'notifier' and value and type(value) == 'table' and value.layout then
+                    N = getmetatable(value).__index or value
+                    break
+                end
+            end
+        end
+
+        if N and N.layout then
+            -- Store the original layout function
+            local original_layout = N.layout
+
+            -- Override the layout function
+            N.layout = function(self)
+                local layout = self:new_layout()
+                local wins_updated = 0
+                local wins_created = 0
+                local update = {} ---@type snacks.win[]
+
+                for _, notif in ipairs(assert(self.sorted)) do
+                    if layout.free < (self.opts.height.min + 2) then -- not enough space
+                        if notif.win then
+                            notif.shown = nil
+                            notif.win:hide()
+                        end
+                    else
+                        local prev_layout = notif.layout
+                            and { top = notif.layout.top, height = notif.layout.height, width = notif.layout.width }
+
+                        if
+                            not notif.win
+                            or notif.dirty
+                            or not notif.win:buf_valid()
+                            or type(notif.opts) == 'function'
+                        then
+                            notif.dirty = true
+                            self:render(notif)
+                            notif.dirty = false
+                            notif.layout = notif.win:size()
+                            notif.layout.top = prev_layout and prev_layout.top
+                            prev_layout = nil -- always re-render since opts might've changed
+                        end
+
+                        notif.layout.top = layout.find(notif.layout.height, notif.layout.top)
+
+                        if notif.layout.top then
+                            layout.mark(notif.layout.top, notif.layout.height, false)
+
+                            if not vim.deep_equal(prev_layout, notif.layout) then
+                                if notif.win:win_valid() then
+                                    wins_updated = wins_updated + 1
+                                else
+                                    wins_created = wins_created + 1
+                                end
+                                update[#update + 1] = notif.win
+
+                                -- HIERO MANBROER, IS BELANGRIJK, INSHALLAH.
+                                --
+                                notif.win.opts.row = (notif.layout.top - 1) + 3 -- die 3 is extra marginionio 4 statousjlijn
+                                --
+                                -- Original: notif.win.opts.col = vim.o.columns - notif.layout.width - self.opts.margin.right
+                                -- Custom attempt 1: Position on LEFT instead of right | Which turned out to be F-ing stupid...*facepalm*
+                                -- notif.win.opts.col = self.opts.margin.left or 1
+
+                                notif.win.opts.col = math.floor((vim.o.columns - notif.layout.width) / 2)
+
+                                -- Get timestamp
+                                local uv = vim.uv or vim.loop
+                                notif.shown = notif.shown
+                                    or (function()
+                                        if uv.clock_gettime then
+                                            local ret = assert(uv.clock_gettime('realtime'))
+                                            return ret.sec + ret.nsec / 1e9
+                                        end
+                                        local sec, usec = uv.gettimeofday()
+                                        return sec + usec / 1e6
+                                    end)()
+
+                                notif.win:show()
+                            end
+                        elseif notif.win then
+                            notif.shown = nil
+                            notif.win:hide()
+                        end
+                    end
+                end
+
+                if #update > 0 and not self.in_search() then
+                    if vim.api.nvim__redraw then
+                        for _, win in ipairs(update) do
+                            win:redraw()
+                        end
+                    else
+                        vim.cmd.redraw()
+                    end
+                end
+            end
+        else
+            vim.notify('Failed to patch snacks notifier - could not find layout function', vim.log.levels.WARN)
+        end
+    end
+
+    -- Apply the patch
+    patch_notifier_left()
 
     local function _notify_filter(msg)
         for i = 1, #NOTIFICATION_FILTERS do
@@ -272,70 +420,8 @@ function M.init()
                 :map('<leader>uc')
             Snacks.toggle.treesitter():map('<leader>uT')
             Snacks.toggle.inlay_hints():map('<leader>uh')
-
-            ---@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
-            local progress = vim.defaulttable()
-            vim.api.nvim_create_autocmd('LspProgress', {
-                ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
-                callback = function(ev)
-                    local client = vim.lsp.get_client_by_id(ev.data.client_id)
-                    local value = ev.data.params.value --[[@as {percentage?: number, title?: string, message?: string, kind: "begin" | "report" | "end"}]]
-                    if not client or type(value) ~= 'table' then
-                        return
-                    end
-                    local p = progress[client.id]
-
-                    for i = 1, #p + 1 do
-                        if i == #p + 1 or p[i].token == ev.data.params.token then
-                            p[i] = {
-                                token = ev.data.params.token,
-                                msg = ('[%3d%%] %s%s'):format(
-                                    value.kind == 'end' and 100 or value.percentage or 100,
-                                    value.title or '',
-                                    value.message and (' **%s**'):format(value.message) or ''
-                                ),
-                                done = value.kind == 'end',
-                            }
-                            break
-                        end
-                    end
-
-                    local msg = {} ---@type string[]
-                    progress[client.id] = vim.tbl_filter(function(v)
-                        return table.insert(msg, v.msg) or not v.done
-                    end, p)
-
-                    local spinner = { '⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏' }
-                    Snacks.notifier.notify(table.concat(msg, '\n'), 'info', {
-                        id = 'lsp_progress',
-                        title = client.name,
-                        opts = function(notif)
-                            notif.icon = #progress[client.id] == 0 and ' '
-                                or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
-                        end,
-                        style = 'minimal',
-                        top_down = false,
-                        history = false,
-                    })
-                end,
-            })
         end,
     })
 end
-
--- vim.api.nvim_create_autocmd('LspProgress', {
---     ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
---     callback = function(ev)
---         local spinner = { '⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏' }
---         Snacks.notifier.notify(vim.lsp.status(), 'info', {
---             id = 'lsp_progress',
---             title = 'LSP Progress',
---             opts = function(notif)
---                 notif.icon = ev.data.params.value.kind == 'end' and ' '
---                     or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
---             end,
---         })
---     end,
--- })
 
 return M
