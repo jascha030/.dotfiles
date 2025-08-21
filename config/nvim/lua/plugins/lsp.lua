@@ -142,6 +142,10 @@ return {
                 lspconfig = true,
             },
         },
+        config = function(_, opts)
+            require('lazydev').setup(opts)
+            vim.lsp.enable('lua_ls')
+        end,
     },
     {
         'simrat39/rust-tools.nvim',
