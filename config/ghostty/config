@@ -17,8 +17,8 @@ window-theme = system
 
 # Theme
 theme = light:litepal,dark:nitepal
-background-opacity = 0.98
-background-blur-radius = 20
+background-opacity = 0.99
+background-blur-radius = 15
 
 # Graphics
 adjust-cell-height = 95%

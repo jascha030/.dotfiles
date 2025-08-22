@@ -1,10 +1,10 @@
 [tools]
 bun = "latest"
 node = "lts"
-pnpm = "9"
+# pnpm = "9"
 usage = "latest"
 
 [settings]
-cargo_binstall = true
-trusted_config_paths = ["~/.development/Projects/"]
-idiomatic_version_file_enable_tools = ["node"]
+# cargo_binstall = true
+# trusted_config_paths = ["~/.development/Projects/"]
+# idiomatic_version_file_enable_tools = ["node"]
