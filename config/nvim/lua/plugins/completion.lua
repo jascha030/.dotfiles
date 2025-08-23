@@ -25,7 +25,7 @@ local M = {
                 ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
             },
             completion = {
-                accept = { auto_brackets = { enable = true } },
+                accept = { auto_brackets = { enabled = true } },
                 menu = {
                     border = BORDER,
                     draw = {
@@ -126,12 +126,8 @@ local M = {
 
                 return true
             end,
-            suggestion = {
-                enabled = false,
-            },
-            panel = {
-                enabled = false,
-            },
+            suggestion = { enabled = false },
+            panel = { enabled = false },
         },
     },
     {
@@ -151,4 +147,3 @@ local M = {
 }
 
 return M
-

@@ -1,4 +1,6 @@
 ---@class jascha030.lsp.Config
+---@field extend fun(config: vim.lsp.ClientConfig): vim.lsp.ClientConfig
+---@field get fun(server: string): vim.lsp.ClientConfig
 local M = {}
 
 ---@param server string LSP server name
@@ -57,6 +59,7 @@ local function make_capabilities()
     return require('blink.cmp').get_lsp_capabilities(capabilities, true)
 end
 
+---@param config vim.lsp.ClientConfig
 ---@return vim.lsp.ClientConfig
 function M.extend(config)
     local merge = { {}, {

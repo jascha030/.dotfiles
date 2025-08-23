@@ -92,7 +92,6 @@ function M.setup(opts)
     local path = Config.get('path') or {}
     add_paths(path)
 
-    ---@diagnostic disable-next-line
     if Config.get('polyglot').enabled then
         set_polyglot_lang_disables(Config.get('polyglot').languages) ---@diagnostic disable-line
     end
