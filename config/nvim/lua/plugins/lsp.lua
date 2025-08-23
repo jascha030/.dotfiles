@@ -135,6 +135,8 @@ return {
                 'nvim-lspconfig',
                 'nvim-treesitter',
                 unpack(vim.api.nvim_get_runtime_file('lua/vim', true)),
+                vim.fn.expand('~/.dotfiles/hammerspoon'),
+                vim.fn.expand('~/.hammerspoon/Spoons/EmmyLua.spoon/annotations'),
             },
             integrations = {
                 cmp = true,
