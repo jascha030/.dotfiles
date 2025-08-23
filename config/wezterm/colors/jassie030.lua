@@ -44,12 +44,16 @@ local M = {
     },
     variants = {
         light = {
-            background = '#e7e9ee',
+            background = '#e0e1eb',
             foreground = '#40456d',
+            selection_bg = '#c8c3ff',
+            selection_fg = '#e7e9ee',
         },
         dark = {
             background = '#1e2030',
             foreground = '#c8d3f5',
+            selection_bg = '#364A82',
+            selection_fg = '#c8d3f5',
         },
     },
 }

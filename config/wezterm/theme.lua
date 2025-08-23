@@ -14,6 +14,8 @@ function M.scheme_from_colors(colors, tab_bar)
         foreground = colors.foreground,
         cursor_bg = colors.bright_yellow,
         cursor_fg = colors.background,
+        selection_bg = colors.selection_bg,
+        selection_fg = colors.selection_fg,
         ansi = {
             colors.black,
             colors.red,
