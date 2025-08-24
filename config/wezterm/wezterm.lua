@@ -5,9 +5,11 @@ local handlers = require('handlers')
 local colors = theme.get_scheme('Dark', true)
 
 font.extend({
-    main = 'Cascadia Code',
+    -- main = 'Cascadia Code',
+    main = 'CaskaydiaCove Nerd Font',
     alt = 'Dank Mono',
-    italic = 'Cascadia Code',
+    -- italic = 'Cascadia Code',
+    italic = 'CaskaydiaCove Nerd Font',
 })
 
 handlers.setup()
@@ -35,47 +37,50 @@ end
 
 local config = require('wezterm').config_builder()
 
+config.allow_win32_input_mode = false
+config.audible_bell = 'Disabled'
+config.colors = theme.get_scheme('Dark', true)
+config.cursor_blink_ease_in = 'Ease'
+config.cursor_blink_ease_out = 'Ease'
+config.cursor_blink_rate = 250
+config.cursor_thickness = '150%'
+config.default_cursor_style = 'BlinkingBlock'
 config.default_prog = { '/bin/zsh', '--login' }
+config.disable_default_key_bindings = true
+config.enable_tab_bar = true
+-- config.font_rules = font.get_rules()
+config.unicode_version = 14
+config.warn_about_missing_glyphs = false -- This will help identify missing characters
+config.font_shaper = 'Harfbuzz' -- Ensure proper text shaping
+config.harfbuzz_features = {
+    'zero', -- Use a slashed zero '0' (instead of dotted)
+    'kern', -- kerning
+    'liga', -- ligatures
+    'clig', -- contextual ligatures
+    'calt=1', -- Contextual alternates
+}
+config.font_size = font.options.size
+config.font_rules = font.get_rules(false)
+config.hide_tab_bar_if_only_one_tab = true
+config.inactive_pane_hsb = { saturation = 0.98, brightness = 0.9 }
+config.keys = require('keymap')
+config.leader = { key = 'd', mods = 'CTRL' }
+config.line_height = font.options.line_height
+config.macos_window_background_blur = 75
+config.send_composed_key_when_left_alt_is_pressed = false
+config.send_composed_key_when_right_alt_is_pressed = false
+config.show_tab_index_in_tab_bar = true
+config.tab_bar_at_bottom = true
+config.use_fancy_tab_bar = false
+config.window_background_opacity = theme.get_opacity('Dark')
 config.window_decorations = 'NONE | RESIZE'
-config.window_padding = eq_pad(0.1, 1, true)
 config.window_frame = {
     button_fg = colors.foreground,
     button_bg = colors.background,
     button_hover_fg = colors.background,
     button_hover_bg = colors.foreground,
 }
-config.allow_win32_input_mode = false
-config.enable_tab_bar = true
-config.use_fancy_tab_bar = false
-config.tab_bar_at_bottom = true
-config.show_tab_index_in_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = true
-config.default_cursor_style = 'BlinkingBlock'
-config.cursor_blink_rate = 250
-config.cursor_blink_ease_in = 'Ease'
-config.cursor_blink_ease_out = 'Ease'
-config.cursor_thickness = '150%'
-config.line_height = font.options.line_height
-config.font_size = font.options.size
-config.font_rules = font.get_rules(false)
-config.colors = theme.get_scheme('Dark', true)
-config.inactive_pane_hsb = { saturation = 0.98, brightness = 0.9 }
-config.window_background_opacity = theme.get_opacity('Dark')
-config.macos_window_background_blur = 75
-config.keys = require('keymap')
-config.disable_default_key_bindings = true
-config.leader = { key = 'd', mods = 'CTRL' }
-config.send_composed_key_when_left_alt_is_pressed = false
-config.send_composed_key_when_right_alt_is_pressed = false
-config.harfbuzz_features = {
-    'zero', -- Use a slashed zero '0' (instead of dotted)
-    'kern', -- (default) kerning (todo check what is really is)
-    'liga', -- (default) ligatures
-    'clig', -- (default) contextual ligatures
-    -- 'ss01',
-    -- 'cv05',
-}
-config.audible_bell = 'Disabled'
+config.window_padding = eq_pad(0.1, 1, true)
 config.hyperlink_rules = {
     -- Linkify things that look like URLs and the host has a TLD name.
     { regex = '\\b\\w+://[\\w.-]+\\.[a-z]{2,15}\\S*\\b', format = '$0' },

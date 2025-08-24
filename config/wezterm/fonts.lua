@@ -1,4 +1,5 @@
 local wezterm = require('wezterm')
+
 local DEFAULT = 'Jetbrains Mono'
 
 local defaults = {
@@ -7,11 +8,7 @@ local defaults = {
     main = DEFAULT,
     alt = DEFAULT,
     italic = DEFAULT,
-    fallback_font = {
-        family = 'Jetbrains Mono',
-        italic = false,
-        weight = 600,
-    },
+    fallback_font = 'Jetbrains Mono'
 }
 
 ---@class WezFontConfig
@@ -40,19 +37,6 @@ function M.extend(options)
     M.options = table_merge(M.options or defaults, options or {})
 end
 
-function M.fallback_font(main, alt)
-    main = main or M.options.main
-    alt = alt or M.options.alt
-
-    return wezterm.font_with_fallback({
-        'nonicons',
-        { family = main, italic = false, weight = 600 },
-        { family = alt, italic = false, weight = 600 },
-        'CaskaydiaCove Nerd Font',
-        M.options.fallback_font,
-    })
-end
-
 function M.should_show_full_scale(window)
     local dimensions = window:get_dimensions()
     local is_lg_dpi = window:get_dimensions().dpi > 100
@@ -67,17 +51,21 @@ function M.get_scaled_size(window)
     return M.should_show_full_scale(window) and M.options.size or (M.options.size - 2)
 end
 
-function M.get_rules(alt)
-    local font = M.fallback_font()
-
-    if alt == true then
-        font = M.fallback_font('Dank Mono', 'Dank Mono')
-    end
+function M.get_rules()
+    local font = wezterm.font_with_fallback({
+        'nonicons',
+        'CaskaydiaCove Nerd Font',
+        'PragmataPro Liga',
+        'PragmataPro Mono Liga',
+        'Noto Color Emoji',
+        'JetBrains Mono',
+        M.options.fallback_font,
+    })
 
     return {
-        { italic = false, intensity = 'Normal', font = font },
+        { italic = false, intensity = 'Normal', font = font},
         { italic = true, intensity = 'Bold', font = font },
-        { italic = true, intensity = 'Normal', font = wezterm.font(M.options.italic, { italic = true }) },
+        { italic = true, intensity = 'Normal', font = font },
     }
 end
 
