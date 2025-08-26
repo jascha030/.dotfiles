@@ -36,7 +36,13 @@ local function eq_pad(size, alt, cell)
 end
 
 local config = require('wezterm').config_builder()
-
+for _, gpu in ipairs(require('wezterm').gui.enumerate_gpus()) do
+  if gpu.backend == 'Metal' then
+    config.webgpu_preferred_adapter = gpu
+    config.front_end = 'WebGpu'
+    break
+  end
+end
 config.allow_win32_input_mode = false
 config.audible_bell = 'Disabled'
 config.colors = theme.get_scheme('Dark', true)
@@ -51,21 +57,23 @@ config.enable_tab_bar = true
 -- config.font_rules = font.get_rules()
 config.unicode_version = 14
 config.warn_about_missing_glyphs = false -- This will help identify missing characters
+config.front_end = 'WebGpu'
 config.font_shaper = 'Harfbuzz' -- Ensure proper text shaping
-config.harfbuzz_features = {
-    'zero', -- Use a slashed zero '0' (instead of dotted)
-    'kern', -- kerning
-    'liga', -- ligatures
-    'clig', -- contextual ligatures
-    'calt=1', -- Contextual alternates
-}
+-- config.harfbuzz_features = {
+--     'zero', -- Use a slashed zero '0' (instead of dotted)
+--     'kern', -- kerning
+--     'liga', -- ligatures
+--     'clig', -- contextual ligatures
+--     'calt=1', -- Contextual alternates
+-- }
 config.font_size = font.options.size
-config.font_rules = font.get_rules(false)
+config.font_rules = font.get_rules()
 config.hide_tab_bar_if_only_one_tab = true
 config.inactive_pane_hsb = { saturation = 0.98, brightness = 0.9 }
 config.keys = require('keymap')
 config.leader = { key = 'd', mods = 'CTRL' }
 config.line_height = font.options.line_height
+config.term = 'xterm-256color'
 config.macos_window_background_blur = 75
 config.send_composed_key_when_left_alt_is_pressed = false
 config.send_composed_key_when_right_alt_is_pressed = false
