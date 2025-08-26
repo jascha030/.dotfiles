@@ -6,6 +6,9 @@ return {
                     ['lreq'] = 'require',
                 },
             },
+            diagnostics = {
+                globals = { 'hs', 'spoon', 'vim' },
+            },
         },
     },
 }
