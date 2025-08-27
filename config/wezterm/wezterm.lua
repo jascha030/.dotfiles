@@ -1,15 +1,20 @@
 ---@type WezThemeConfig theme
 local theme = require('theme')
-local font = require('fonts')
 local handlers = require('handlers')
 local colors = theme.get_scheme('Dark', true)
+local font = require('fonts')
 
 font.extend({
-    -- main = 'Cascadia Code',
-    main = 'CaskaydiaCove Nerd Font',
-    alt = 'Dank Mono',
-    -- italic = 'Cascadia Code',
-    italic = 'CaskaydiaCove Nerd Font',
+    font_list = {
+        -- { family = 'Cascadia Code', weight = 'Book' },
+        'Cascadia Code',
+        'nonicons',
+        'CaskaydiaCove Nerd Font',
+        'PragmataPro Liga',
+        'PragmataPro Mono Liga',
+        'Noto Color Emoji',
+        'JetBrains Mono',
+    },
 })
 
 handlers.setup()
@@ -36,13 +41,21 @@ local function eq_pad(size, alt, cell)
 end
 
 local config = require('wezterm').config_builder()
+config = font.extend_config(config)
+
 for _, gpu in ipairs(require('wezterm').gui.enumerate_gpus()) do
-  if gpu.backend == 'Metal' then
-    config.webgpu_preferred_adapter = gpu
-    config.front_end = 'WebGpu'
-    break
-  end
+    if gpu.backend == 'Metal' then
+        config.webgpu_preferred_adapter = gpu
+        config.front_end = 'WebGpu'
+        break
+    end
 end
+
+config.font_shaper = 'Harfbuzz'
+config.harfbuzz_features = { 'zero', 'calt', 'liga', 'kern', 'dlig', 'ss02', 'ss03', 'ss05', 'ss09' }
+config.freetype_load_target = 'Normal'
+config.freetype_render_target = 'Light'
+config.freetype_load_flags = 'NO_HINTING|FORCE_AUTOHINT'
 config.allow_win32_input_mode = false
 config.audible_bell = 'Disabled'
 config.colors = theme.get_scheme('Dark', true)
@@ -54,29 +67,16 @@ config.default_cursor_style = 'BlinkingBlock'
 config.default_prog = { '/bin/zsh', '--login' }
 config.disable_default_key_bindings = true
 config.enable_tab_bar = true
--- config.font_rules = font.get_rules()
 config.unicode_version = 14
 config.warn_about_missing_glyphs = false -- This will help identify missing characters
-config.front_end = 'WebGpu'
-config.font_shaper = 'Harfbuzz' -- Ensure proper text shaping
--- config.harfbuzz_features = {
---     'zero', -- Use a slashed zero '0' (instead of dotted)
---     'kern', -- kerning
---     'liga', -- ligatures
---     'clig', -- contextual ligatures
---     'calt=1', -- Contextual alternates
--- }
-config.font_size = font.options.size
-config.font_rules = font.get_rules()
 config.hide_tab_bar_if_only_one_tab = true
 config.inactive_pane_hsb = { saturation = 0.98, brightness = 0.9 }
 config.keys = require('keymap')
 config.leader = { key = 'd', mods = 'CTRL' }
-config.line_height = font.options.line_height
 config.term = 'xterm-256color'
 config.macos_window_background_blur = 75
 config.send_composed_key_when_left_alt_is_pressed = false
-config.send_composed_key_when_right_alt_is_pressed = false
+config.send_composed_key_when_right_alt_is_pressed = true
 config.show_tab_index_in_tab_bar = true
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false

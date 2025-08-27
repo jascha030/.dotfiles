@@ -5,10 +5,10 @@ local DEFAULT = 'Jetbrains Mono'
 local defaults = {
     size = 16.3,
     line_height = 1.7,
-    main = DEFAULT,
-    alt = DEFAULT,
-    italic = DEFAULT,
-    fallback_font = 'Jetbrains Mono'
+    main = nil,
+    bold = nil,
+    italic = nil,
+    font_list = { DEFAULT },
 }
 
 ---@class WezFontConfig
@@ -52,21 +52,38 @@ function M.get_scaled_size(window)
 end
 
 function M.get_rules()
-    local font = wezterm.font_with_fallback({
-        'nonicons',
-        'CaskaydiaCove Nerd Font',
-        'PragmataPro Liga',
-        'PragmataPro Mono Liga',
-        'Noto Color Emoji',
-        'JetBrains Mono',
-        M.options.fallback_font,
-    })
+    local font = wezterm.font_with_fallback(M.options.font_list)
+
+    local normal = font
+    local bold = font
+    local italic = font
+
+    if M.options.main ~= nil then
+        normal = M.options.main
+    end
+
+    if M.options.bold ~= nil then
+        bold = M.options.bold
+    end
+
+    if M.options.italic ~= nil then
+        italic = M.options.italic
+    end
 
     return {
-        { italic = false, intensity = 'Normal', font = font},
-        { italic = true, intensity = 'Bold', font = font },
-        { italic = true, intensity = 'Normal', font = font },
+        { italic = false, intensity = 'Normal', font = normal },
+        { italic = true, intensity = 'Bold', font = bold },
+        { italic = true, intensity = 'Normal', font = italic },
+        { italic = true, intensity = 'Bold', font = italic },
     }
+end
+
+function M.extend_config(config)
+    config.font = wezterm.font_with_fallback(M.options.font_list)
+    config.font_size = M.options.size
+    config.line_height = M.options.line_height
+
+    return config
 end
 
 M.setup()

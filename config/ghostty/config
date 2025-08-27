@@ -28,6 +28,7 @@ adjust-icon-height = 40
 # Fonts
 font-size = 15
 font-family = "" 
+font-family = "Caskadia Code" 
 font-family = "CaskaydiaCove Nerd Font"
 font-family = "PragmataPro Liga"
 font-family = "PragmataPro Mono Liga"
