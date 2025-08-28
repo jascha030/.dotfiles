@@ -51,6 +51,9 @@ for _, gpu in ipairs(require('wezterm').gui.enumerate_gpus()) do
     end
 end
 
+config.max_fps = 120
+
+
 config.font_shaper = 'Harfbuzz'
 config.harfbuzz_features = { 'zero', 'calt', 'liga', 'kern', 'dlig', 'ss02', 'ss03', 'ss05', 'ss09' }
 config.freetype_load_target = 'Normal'

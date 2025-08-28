@@ -16,7 +16,8 @@ window-vsync = true
 window-theme = system
 
 # Theme
-theme = light:litepal,dark:nitepal
+# theme = light:litepal,dark:nitepal
+theme = light:litepa11y,dark:nitepa11y
 background-opacity = 0.99
 background-blur-radius = 15
 
