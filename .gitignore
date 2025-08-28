@@ -37,6 +37,7 @@
 **.BAK
 **.bak
 /*.md
+!/GEMINI.md
 !/README.md
 !/articles.md
 /.ssh/*
