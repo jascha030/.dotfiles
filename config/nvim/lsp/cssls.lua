@@ -5,8 +5,18 @@ return Jascha030.lsp.config_extend({
     root_markers = { 'package.json', '.git' },
     init_options = { provideFormatter = false },
     settings = {
-        css = { validate = true },
-        less = { validate = true },
+        css = {
+            validate = true,
+            lint = {
+                unknownAtRules = 'ignore',
+            },
+        },
+        less = {
+            validate = true,
+            lint = {
+                unknownAtRules = 'ignore',
+            },
+        },
         scss = {
             validate = false,
             lint = {

@@ -9,6 +9,9 @@ return Jascha030.lsp.config_extend({
         'wxss',
     },
     settings = {
-        stylelintplus = {},
+        stylelintplus = {
+            autoFixOnFormat = false,
+            autoFixOnSave = false,
+        },
     },
 })

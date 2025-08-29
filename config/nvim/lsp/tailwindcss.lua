@@ -92,6 +92,12 @@ return Jascha030.lsp.config_extend({
                 eruby = 'erb',
                 rust = 'html',
             },
+            experimental = {
+                classRegex = {
+                    { 'cva\\(([^)]*)\\)', '["\'`]([^"\']*)["\'`]' },
+                    { 'cx\\(([^)]*)\\)', '(?:\'|"|`)([^\']*)(?:\'|"|`)' },
+                },
+            },
         },
     },
 })

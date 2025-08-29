@@ -89,6 +89,22 @@ local M = {
                             return items
                         end,
                     },
+                    lsp = {
+                        name = 'lsp',
+                        module = 'blink.cmp.sources.lsp',
+                        transform_items = function(_, items)
+                            -- Filter out items with newlines to prevent blink.cmp errors
+                            return vim.tbl_filter(function(item)
+                                if item.insertText and type(item.insertText) == 'string' then
+                                    return not string.find(item.insertText, '\n')
+                                end
+                                if item.label and type(item.label) == 'string' then
+                                    return not string.find(item.label, '\n')
+                                end
+                                return true
+                            end, items)
+                        end,
+                    },
                 },
             },
         },
