@@ -6,11 +6,13 @@
 
 ## Key features
 
-- $ Unique painstakingly hand-crafted shell [prompt](https://github.com/jascha030/.dotfiles/blob/main/config/zsh/prompt/prompt).
+- $ Unique painstakingly hand-crafted shell [prompt](https://github.com/jascha030/.dotfiles/blob/main/config/zsh/prompt/prompt) with git status, current directory, and custom icons.
 - 🚀 Uses **NO** [oh-my-zsh](https://ohmyz.sh/) or any other 🐌 framework, is fully and autisticly handcrafted by me.
 - 📼 Alternating [startup screens](https://github.com/jascha030/lolmsg) that are shown when starting new sessions (which can be disabled).
-- 🧩 Includes custom bare bones plugin management.
+- 🧩 Includes custom bare bones plugin management with lazy loading.
 - 🤷🏻‍♂️ Has robbed me of hours upon hours of my time on this earth and fully destroyed my social life.
+- ⚡ Fast startup with optimized path management and completion.
+- 🎨 Syntax highlighting and fuzzy completion with fzf-tab integration.
 
 ### Intro screens
 
