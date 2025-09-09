@@ -3,10 +3,10 @@ local fn = JSpoon.fn
 
 JSpoon.setup({
     term_app = {
-        -- main = 'Ghostty',
-        -- alt = 'WezTerm',
-        main = 'WezTerm',
-        alt = 'Ghostty',
+        main = 'Ghostty',
+        alt = 'WezTerm',
+        -- main = 'WezTerm',
+        -- alt = 'Ghostty',
     },
     spoons = {
         load = {

@@ -79,7 +79,7 @@ config.leader = { key = 'd', mods = 'CTRL' }
 config.term = 'xterm-256color'
 config.macos_window_background_blur = 75
 config.send_composed_key_when_left_alt_is_pressed = false
-config.send_composed_key_when_right_alt_is_pressed = true
+config.send_composed_key_when_right_alt_is_pressed = false
 config.show_tab_index_in_tab_bar = true
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
