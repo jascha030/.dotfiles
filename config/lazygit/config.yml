@@ -37,3 +37,9 @@ gui:
     defaultFgColor: [default]
 # os:
 # editPreset: "nvim-remote"
+
+git:
+  paging:
+    colorArg: always
+    # pager: delta --detect-dark-light=always --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+    pager: delta --detect-dark-light=always --paging=never --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
