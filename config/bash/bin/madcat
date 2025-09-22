@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # For real madlads.
-function __madcat() {
+__madcat() {
     local _path="$1"
     local bin
 
@@ -17,7 +17,17 @@ function __madcat() {
         fi
     fi
 
-    "$bin" "$@"
+    if [[ $(file --mime-type -b "$_path" 2>/dev/null) == image/* ]]; then
+        if which chafa >/dev/null; then
+            bin=$(which chafa)
+        fi
+
+        if [[ "$TERM_PROGRAM" == 'WezTerm' ]]; then
+            bin="$(which wezterm) imgcat"
+        fi
+    fi
+
+    $bin "$@"
 }
 
 __madcat "$@"

@@ -23,14 +23,14 @@ __valetlog-tail() {
         bin=$(which bat)
         bin="${bin} --paging=never -l log"
     fi
-    
+
     $valet_bin log "$@" | $bin
 }
 
 __valetlog-pass-empty() {
     local valet_bin
     valet_bin=$(which valet)
-    
+
     if [ -z "$valet_bin" ]; then
         __valetlog-echo "\e[0;31mERROR: valet not found\e[0m"
         exit 1

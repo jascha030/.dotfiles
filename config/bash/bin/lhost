@@ -112,14 +112,15 @@ lhost() {
         return
     fi
 
-    local i; for i in "$@"; do
+    local i
+    for i in "$@"; do
         case $i in
-            --) break ;;
-            '-h'|'--help'|'help')
-                # Print full help info with CLI header.
-                lhost__help
-                return 0;
-                ;;
+        --) break ;;
+        '-h' | '--help' | 'help')
+            # Print full help info with CLI header.
+            lhost__help
+            return 0
+            ;;
         esac
     done
 

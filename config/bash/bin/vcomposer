@@ -78,7 +78,7 @@ function vcomposer() {
 		for i in "${full_args[@]}"; do
 			case "$i" in
 			--working-dir | -d) _cwd="$i" ;;
-			-* | *)         cargs+=("$i") ;;
+			-* | *) cargs+=("$i") ;;
 			esac
 		done
 

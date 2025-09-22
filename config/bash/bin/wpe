@@ -35,7 +35,7 @@ __wpe_header() {
 _wpe_sitename() {
     local in="$1"
     local parts
-    IFS='@' read -ra parts <<< "$in"
+    IFS='@' read -ra parts <<<"$in"
 
     echo "${parts[0]}"
 }
@@ -74,20 +74,22 @@ wpe() {
         return
     fi
 
-    local i; for i in "$@"; do
+    local i
+    for i in "$@"; do
         case $i in
-            --) break ;;
-            '-h'|'--help'|'help')
-                # Print full help info with CLI header.
-                __wpe_header
-                __wpe_usage
-                return 0;
-                ;;
+        --) break ;;
+        '-h' | '--help' | 'help')
+            # Print full help info with CLI header.
+            __wpe_header
+            __wpe_usage
+            return 0
+            ;;
         esac
     done
 
     if declare -f "${cmd}__$1" >/dev/null 2>&1; then
-        func="${cmd}__$1"; shift
+        func="${cmd}__$1"
+        shift
         "$func" "$@"
     else
         __wpe_echo "\e[0;31mERROR: ${cmd} $1 is not a valid command\e[0m"

@@ -22,18 +22,18 @@ alias dev="cd ${DEV}"
 alias df="cd ${DOTFILES}"
 alias root='cd $(git rev-parse --show-toplevel)'
 alias vsites="cd ${XDG_CONFIG_HOME}/valet/Sites/"
-alias wplugins="cd ${DEV}/Php/Wordpress/plugins/"
-alias wsites="cd ${DEV}/Php/Wordpress/sites/"
 
 alias cpc='copy-to-pasteboard'
 alias cpd='copy-dir-path'
 alias raycast='open /Applications/Raycast.app'
+
 #- Debuggingz --------------------------------------------------------------------------------------------------------#
 alias zbench="$HOME/zsh-bench/zsh-bench | cat"
 alias {checkitalics,check:italics}="echo -e '\e[3mitalic\e[23m'"
 alias {checkbold,check:bold}="echo -e '\e[1mbold\e[22m'"
 alias {displaycolors,check:colors}="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
 alias {ansicolors,bashcolors}="open https://gist.github.com/JBlond/2fea43a3049b38287e5e9cefc87b2124"
+
 #- Utilities ---------------------------------------------------------------------------------------------------------#
 # alias nd='nvim "+lua vim.lsp.set_log_level(\"debug\")"'; 
 (( ${+commands[nvim]} )) && { alias {vim,n}=nvim; alias rn='root && n'; }
@@ -44,32 +44,28 @@ alias kraken='$(open gitkraken://repo/${PWD})'
 alias gh:codeowners='mkdir .github/ && echo "* @jascha030" > .github/CODEOWNERS'
 alias lspath="echo ${PATH} | tr ':' '\n';"
 alias lsfpath="echo ${fpath} | tr ' ' '\n';"
+
 #- Copy stuff to pastaboard ------------------------------------------------------------------------------------------#
-alias cp:fontawesome='cat $HOME/.development/Projects/Php/Wordpress/sites/sbtweema/.npmrc | pbcopy' 
-alias cp:ghauth='echo -e "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" | pbcopy'
 alias cp:composerauth='cp $HOME/.composer/auth.json ./'
-alias cp:broodje='echo -e "38. WITTE ITALIAANSE BOL GEROOKTE KIP, AVOCADO MAYONAISE, EUR 6.75" | pbcopy'
 alias cp:shrug='echo -e "¯\_(ツ)_/¯" | pbcopy'
+
 #- PHP ---------------------------------------------------------------------------------------------------------------#
 alias buggregator='docker run --pull always -p 8000:8000 -p 1025:1025 -p 9912:9912 -p 9913:9913 ghcr.io/buggregator/server:latest'
 alias valetrm='rm ${HOME}/.config/valet/*.sock'
 alias valetr='valetrm && valet restart'
 alias vo='valet open'
-alias cpconf:bamarni="composer config extra.bamarni-bin.bin-links --json true && vomposer config extra.bamarni-bin.forward-command --json true"
+alias composer:bamarni='composer config extra.bamarni-bin.bin-links --json true && composer config extra.bamarni-bin.forward-command --json true;'
 
 #- WP Development ----------------------------------------------------------------------------------------------------#
 alias wpuser:create='wp --skip-plugins --skip-themes user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpuser:update='wp --skip-plugins --skip-themes user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
-
 alias cp:wpuser:create="echo $'wp --skip-plugins --skip-themes user create \"jascha@socialbrothers.nl\" \"jascha@socialbrothers.nl\" --role=administrator --user_pass=\"test123\"' | pbcopy"
 alias cp:wpuser:update="echo $'wp --skip-plugins --skip-themes user update jascha@socialbrothers.nl --role=administrator --user_pass=\"test123\"' | pbcopy"
-
 alias wpenv:user:create='wp-env run cli wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
 alias wpenv:user:update='wp-env run cli wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
-
-alias wpconfig:new='wp-config-new-db'
 alias wpmail:disable='wp --skip-plugins --skip-themes plugin install disable-emails --activate'
-alias wpb:codeowners='mkdir .github && echo "* @jascha030 @ismetozkanSB" >> .github/CODEOWNERS'
+
+alias gen:codeowners='mkdir -p .github && echo "* @jascha030" >> .github/CODEOWNERS'
 
 #- Fix for Nu-shell and @antfu/ni:nu confusion -----------------------------------------------------------------------#
 alias nup="$(which nu)"
