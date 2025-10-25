@@ -119,7 +119,7 @@ local M = {
     {
         'zbirenbaum/copilot.lua',
         cmd = 'Copilot',
-        build = '<cmd>Copilot auth<cr>',
+        -- build = '<cmd>Copilot auth<cr>',
         event = { 'InsertEnter' },
         keys = {
             {
@@ -155,10 +155,12 @@ local M = {
     },
     {
         'L3MON4D3/LuaSnip',
-        config = function(_, _)
-            require('luasnip/loaders/from_vscode').lazy_load()
-        end,
+        version = 'v2.*', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
         build = 'make install_jsregexp',
+        -- config = function(_, _)
+        --     require('luasnip/loaders/from_vscode').lazy_load()
+        -- end,
+        -- build = 'make install_jsregexp',
     },
 }
 
