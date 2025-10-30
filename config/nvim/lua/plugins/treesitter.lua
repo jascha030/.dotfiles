@@ -2,20 +2,13 @@ local uis = vim.api.nvim_list_uis()
 local has_uis = #uis > 0
 
 ---@type table<string, string>
-local FT_TO_LANG_ALIASES = {
-    -- zsh = 'bash',
-    dotenv = 'bash',
-}
+local FT_TO_LANG_ALIASES = { dotenv = 'bash' }
 
 ---@type string[]
-local HIGHLIGHTING_DISABLED = {
-    'zsh',
-}
+local HIGHLIGHTING_DISABLED = { 'zsh' }
 
 ---@type string[]
-local HIGHLIGHTING_ADD_VIM_REGEX = {
-    'zsh',
-}
+local HIGHLIGHTING_ADD_VIM_REGEX = { 'zsh' }
 
 ---@type LazyPluginSpec
 --- Check Runtime files :echo nvim_get_runtime_file('parser', v:true)

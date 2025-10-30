@@ -1,5 +1,0 @@
-#!/usr/bin/env zsh
-
-if (( ${+COMPOSER_SERVER_SSH} )); then
-    ssh $COMPOSER_SERVER_SSH -t sh /var/www/update/update.sh | tee /tmp/satis_remote_output.txt
-fi

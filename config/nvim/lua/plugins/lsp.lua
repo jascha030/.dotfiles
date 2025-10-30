@@ -162,7 +162,6 @@ return {
         build = function()
             require('phpactor.handler.update')()
         end,
-        config = false,
     },
     {
         'j-hui/fidget.nvim',
@@ -307,7 +306,7 @@ return {
             {
                 '<leader>a',
                 function()
-                    require('tiny-code-action').code_action()
+                    require('tiny-code-action').code_action({})
                 end,
                 desc = 'Code Action',
             },
