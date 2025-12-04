@@ -37,6 +37,7 @@ alias {ansicolors,bashcolors}="open https://gist.github.com/JBlond/2fea43a3049b3
 #- Utilities ---------------------------------------------------------------------------------------------------------#
 # alias nd='nvim "+lua vim.lsp.set_log_level(\"debug\")"'; 
 (( ${+commands[nvim]} )) && { alias {vim,n}=nvim; alias rn='root && n'; }
+(( ${+commands[lla]} )) && alias {sizemap,sm}='lla --sizemap'
 
 alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
 alias cargoup='cargo install-update --all'
