@@ -1,68 +1,3 @@
----IntelliJ-like smart backspace
----
----@param cmp blink.cmp.API
----@return boolean | nil
-local function smart_backspace(cmp)
-    local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-
-    if row == 1 and col == 0 then
-        return
-    end
-
-    if cmp.is_visible() then
-        cmp.hide()
-    end
-
-    local ts = require('nvim-treesitter.indent')
-    local ok, indent = pcall(ts.get_indent, row)
-    if not ok then
-        indent = 0
-    end
-
-    local line = vim.api.nvim_buf_get_lines(0, row - 1, row, true)[1]
-    if vim.fn.strcharpart(line, indent - 1, col - indent + 1):gsub('%s+', '') ~= '' then
-        return
-    end
-
-    if indent > 0 and col > indent then
-        local new_line = vim.fn.strcharpart(line, 0, indent) .. vim.fn.strcharpart(line, col)
-        vim.schedule(function()
-            vim.api.nvim_buf_set_lines(0, row - 1, row, true, {
-                new_line,
-            })
-            vim.api.nvim_win_set_cursor(0, { row, math.min(indent or 0, vim.fn.strcharlen(new_line)) })
-        end)
-        return true
-    elseif row > 1 and (indent > 0 and col + 1 > indent) then
-        local prev_line = vim.api.nvim_buf_get_lines(0, row - 2, row - 1, true)[1]
-        if vim.trim(prev_line) == '' then
-            local prev_indent = ts.get_indent(row - 1) or 0
-            local new_line = vim.fn.strcharpart(line, 0, prev_indent) .. vim.fn.strcharpart(line, col)
-            vim.schedule(function()
-                vim.api.nvim_buf_set_lines(0, row - 2, row, true, {
-                    new_line,
-                })
-
-                vim.api.nvim_win_set_cursor(0, {
-                    row - 1,
-                    math.max(0, math.min(prev_indent, vim.fn.strcharlen(new_line))),
-                })
-            end)
-            return true
-        else
-            local len = vim.fn.strcharlen(prev_line)
-            local new_line = prev_line .. vim.fn.strcharpart(line, col)
-            vim.schedule(function()
-                vim.api.nvim_buf_set_lines(0, row - 2, row, true, {
-                    new_line,
-                })
-                vim.api.nvim_win_set_cursor(0, { row - 1, math.max(0, len) })
-            end)
-            return true
-        end
-    end
-end
-
 ---@type LazyPluginSpec[]
 local M = {
     {
@@ -91,10 +26,6 @@ local M = {
                             return require('copilot-lsp.nes').apply_pending_nes()
                         end
                     end,
-                    'fallback',
-                },
-                ['<BS>'] = {
-                    smart_backspace,
                     'fallback',
                 },
                 ['<C-h>'] = { 'show', 'show_documentation', 'hide_documentation' },
@@ -126,17 +57,19 @@ local M = {
                 menu = {
                     border = BORDER,
                     draw = {
-                        -- treesitter = { 'lsp', 'copilot' },
                         padding = 1,
                         gap = 1,
-                        columns = {
-                            { 'kind_icon' },
-                            { 'label', gap = 1 },
-                            { 'kind' },
-                        },
+                        columns = function(ctx)
+                            return {
+                                { 'kind_icon' },
+                                { 'label', gap = 1 },
+                                { 'kind' },
+                            }
+                        end,
                         components = {
                             kind_icon = {
                                 text = function(ctx)
+                                    -- Snacks.debug.inspect(ctx, 'kind_icon ctx')
                                     local icon = ctx.kind_icon
                                     if vim.tbl_contains({ 'Path' }, ctx.source_name) then
                                         local dev_icon, _ = require('nvim-web-devicons').get_icon(ctx.label)
@@ -196,12 +129,6 @@ local M = {
                     auto_show_delay_ms = 100,
                     treesitter_highlighting = true,
                 },
-                -- list = {
-                --     selection = {
-                --         preselect = false,
-                --         auto_insert = false,
-                --     },
-                -- },
                 ghost_text = { enabled = true },
             },
             sources = {
@@ -221,7 +148,6 @@ local M = {
                         name = 'Crates',
                         module = 'blink.compat.source',
                         score_offset = 2,
-                        -- async = true,
                     },
                     copilot = {
                         name = 'Copilot',
@@ -239,12 +165,84 @@ local M = {
                     },
                 },
             },
+            appearance = {
+                -- use_nvim_cmp_as_default = true,
+                -- nerd_font_variant = 'normal',
+                ---@diagnostic disable-next-line: assign-type-mismatch
+                kind_icons = Jascha030.icons.get_icons().cmp_icons,
+            },
         },
-        appearance = {
-            use_nvim_cmp_as_default = true,
-            -- nerd_font_variant = 'normal',
-            kind_icons = Jascha030.icons.get_icons().cmp_icons,
-        },
+        config = function(_, opts)
+            local cmp = require('blink.cmp')
+
+            --- Check if Noice popup cmdline is enabled.
+            local function has_noice_popup_cmdline()
+                local ok, config = pcall(require, 'noice.config')
+                return ok
+                    and (config.options.cmdline or {}).enabled ~= false
+                    and ((config.options.views or {}).cmdline_popup or {}).backend ~= 'split'
+            end
+
+            if not has_noice_popup_cmdline() then
+                cmp.setup(opts)
+            else
+                -- Override the cmdline_position function to align with Noice popup cmdline.
+                opts.completion.menu.cmdline_position = function()
+                    if vim.g.ui_cmdline_pos ~= nil then
+                        local pos = vim.g.ui_cmdline_pos -- (1, 0)-indexed
+
+                        -- If bottom cmdline instead of floating cmdline, move menu 1 up.
+                        local vert = pos[1] + 1 == vim.o.lines and pos[1] - 1 or pos[1]
+
+                        return { vert, pos[2] }
+                    end
+
+                    local height = (vim.o.cmdheight == 0) and 1 or vim.o.cmdheight
+                    return { vim.o.lines - height, 0 }
+                end
+
+                cmp.setup(opts)
+
+                ---Get win width for buffer number.
+                ---
+                ---@param buf_num number
+                ---@return number|nil
+                local function get_buffer_width(buf_num)
+                    for _, win in ipairs(vim.api.nvim_list_wins()) do
+                        if vim.api.nvim_win_get_buf(win) == buf_num then
+                            return vim.api.nvim_win_get_width(win)
+                        end
+                    end
+
+                    return nil
+                end
+
+                local menu = require('blink.cmp.completion.windows.menu')
+                local config = require('blink.cmp.config').completion.menu
+                local original_update_position = menu.update_position
+
+                --- Override the update_position method to render the menu with the same width as Noice popup cmdline.
+                ---@diagnostic disable-next-line: duplicate-set-field
+                menu.update_position = function()
+                    -- Check the context mode for the current menu instance
+                    local _cmdtype = vim.fn.getcmdtype()
+                    if menu.context and menu.context.mode == 'cmdline' and (_cmdtype ~= '/' and _cmdtype ~= '?') then
+                        local Cmdline = require('noice.ui.cmdline')
+                        local width = get_buffer_width(Cmdline.position.buf)
+
+                        if width ~= nil then
+                            menu.win.config.min_width = width
+                            menu.win.config.max_width = width
+                        end
+                    else
+                        menu.win.config.min_width = config.min_width
+                        menu.win.config.max_width = config.max_width
+                    end
+
+                    original_update_position()
+                end
+            end
+        end,
     },
     {
         'zbirenbaum/copilot.lua',
