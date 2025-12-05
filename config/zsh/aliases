@@ -46,6 +46,8 @@ alias gh:codeowners='mkdir .github/ && echo "* @jascha030" > .github/CODEOWNERS'
 alias lspath="echo ${PATH} | tr ':' '\n';"
 alias lsfpath="echo ${fpath} | tr ' ' '\n';"
 
+alias {git:optimize,git:cleanup}='git gc --aggressive --prune=now'
+
 #- Copy stuff to pastaboard ------------------------------------------------------------------------------------------#
 alias cp:composerauth='cp $HOME/.composer/auth.json ./'
 alias cp:shrug='echo -e "¯\_(ツ)_/¯" | pbcopy'
