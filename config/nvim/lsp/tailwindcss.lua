@@ -64,6 +64,8 @@ return Jascha030.lsp.config_extend({
         'postcss.config.cjs',
         'postcss.config.mjs',
         'postcss.config.ts',
+        'vite.config.js',
+        'vite.config.ts',
     },
     settings = {
         tailwindCSS = {
@@ -95,7 +97,7 @@ return Jascha030.lsp.config_extend({
             experimental = {
                 classRegex = {
                     { 'cva\\(([^)]*)\\)', '["\'`]([^"\']*)["\'`]' },
-                    { 'cx\\(([^)]*)\\)', '(?:\'|"|`)([^\']*)(?:\'|"|`)' },
+                    { 'cx\\(([^)]*)\\)', "(?:'|\"|`)([^']*)(?:'|\"|`)" },
                 },
             },
         },

@@ -11,11 +11,26 @@ return {
                 },
             },
             diagnostics = {
+                enable = true,
                 globals = {
                     'hs',
                     'spoon',
                     'vim',
                 },
+            },
+            completion = {
+                autoRequire = true,
+                callSnippet = 'Disable',
+                displayContext = 2,
+            },
+            hint = {
+                enable = true,
+                setType = true,
+                arrayIndex = 'Disable',
+                await = true,
+                paramName = 'All',
+                paramType = true,
+                semicolon = 'SameLine',
             },
         },
     },
