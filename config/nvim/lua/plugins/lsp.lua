@@ -85,33 +85,11 @@ return {
             lsp.lsp_attach(lsp.keymaps.on_attach)
             lsp.inlay_hints()
 
-            local disabled_clients = { 'psalm', 'ts_ls', 'ast_grep' }
-
-            local function init()
-                vim.iter(vim.api.nvim_get_runtime_file('lsp/*.lua', true))
-                    :map(function(server_config_path)
-                        return vim.fs.basename(server_config_path):match('^(.*)%.lua$')
-                    end)
-                    :each(vim.schedule_wrap(function(server_name)
-                        if not vim.tbl_contains(disabled_clients, server_name) then
-                            vim.lsp.enable(server_name)
-                        end
-                    end))
-            end
-
-            if vim.g.did_very_lazy then
-                vim.schedule(init)
-            else
-                vim.api.nvim_create_autocmd('User', {
-                    pattern = 'VeryLazy',
-                    once = true,
-                    callback = vim.schedule_wrap(init),
-                })
-            end
-
             require('lspconfig.configs').vtsls = require('vtsls').lspconfig
             require('mason-lspconfig').setup({
-                automatic_enable = { exclude = disabled_clients },
+                -- stylua: ignore
+                handlers = { function(name) vim.lsp.enable(name) end },
+                automatic_enable = { exclude = { 'psalm', 'ts_ls', 'ast_grep' } },
                 automatic_installation = true,
                 ensure_installed = opts.ensure_installed,
             })
