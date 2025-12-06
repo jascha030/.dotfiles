@@ -3,6 +3,7 @@ local M = {}
 
 M.cmd = [[echo $(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 'dark' || echo 'light')]]
 
+---@return boolean
 function M.enabled()
     return (shell.shell_exec(M.cmd)):find('dark') ~= nil
 end

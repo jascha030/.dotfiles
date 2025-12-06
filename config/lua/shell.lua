@@ -1,5 +1,7 @@
 local M = {}
 
+---@param input string
+---@return string[], boolean
 function M.shell_exec_multiline(input)
     local output = {}
     local c = 1
@@ -18,6 +20,8 @@ function M.shell_exec_multiline(input)
     return output, status[3]
 end
 
+---@param input string
+---@return string, boolean
 function M.shell_exec(input)
     io.stdout:setvbuf('no')
 
