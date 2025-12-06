@@ -3,10 +3,12 @@ local M = {}
 local position = require('jascha030.position')
 local pos = position.new('Built-in Retina Display', 3, 2)
 
+---@return hs.window
 local function get_focused_win()
     return hs.window.focusedWindow()
 end
 
+---@param win hs.window
 local function move_left(win)
     local frame = win:screen():frame()
     local state = win:frame()
@@ -28,6 +30,7 @@ local function move_left(win)
     win:setFrame(pos.right_half(frame))
 end
 
+---@param win hs.window
 local function move_right(win)
     local frame = win:screen():frame()
     local state = win:frame()
@@ -64,6 +67,8 @@ function M.center()
     win:setFrame(pos:centered(win, spaceScreen))
 end
 
+---@param application hs.application
+---@param space number
 function M.move(application, space)
     local win = nil
     local spaceScreen = hs.screen.find(hs.spaces.spaceDisplay(space))
@@ -93,6 +98,7 @@ function M.move(application, space)
     win:focus()
 end
 
+---@param win hs.window
 local function maximize(win)
     win:setFrame(pos.maximized(win:screen():frame()))
 end

@@ -23,6 +23,8 @@ window = setmetatable(window, {
     end,
 })
 
+---@param app_name string
+---@return JSpoon.QuakeModule
 function M.new(app_name)
     return setmetatable({ app_name = app_name }, { __index = M })
 end
@@ -32,10 +34,13 @@ function M:get_app_name()
     return self.app_name
 end
 
+---@return hs.application?
 function M:get_instance()
     return hs.application.find(self:get_app_name(), true)
 end
 
+---@param app_watcher hs.application.watcher
+---@param space hs.screen.space
 function M:get_observer(app_watcher, space)
     local app_name = self:get_app_name()
 
@@ -51,6 +56,8 @@ function M:get_observer(app_watcher, space)
     end
 end
 
+---@param app hs.application
+---@return boolean
 local function isFrontmost(app)
     local isFront, ok = pcall(app.isFrontmost, app)
 
@@ -93,6 +100,8 @@ function M:toggle()
     end
 end
 
+---@param app_name string
+---@param alt_app_name string
 local function handler_factory(app_name, alt_app_name)
     local instance = M.new(app_name)
     local alt_instance = M.new(alt_app_name)
@@ -109,11 +118,7 @@ end
 function M.toggle_alt()
     alt_active = not alt_active
 
-    if alt_active then
-        hs.alert('Quake mapped to: WezTerm')
-    else
-        hs.alert('Quake mapped to: Ghostty')
-    end
+    hs.alert(alt_active and 'Quake mapped to: Ghostty' or 'Quake mapped to: WezTerm')
 end
 
 ---@param apps table{main: string, alt: string}

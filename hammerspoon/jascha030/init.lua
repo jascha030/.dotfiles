@@ -9,6 +9,9 @@ local quake = require('jascha030.quake')
 ---@type boolean
 local loaded = false
 
+---@param f function|any
+---@param ... any
+---@return function
 function M.fn(f, ...)
     local v = { ... }
 

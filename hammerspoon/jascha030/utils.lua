@@ -1,11 +1,16 @@
 local M = {}
 
+---@param tbl table
+---@return boolean
 function M.tbl_empty(tbl)
     local next = next
 
     return next(tbl) == nil
 end
 
+---@param callback function
+---@param args any
+---@return any
 function M.alert(callback, args)
     args = args or nil
 
@@ -22,6 +27,8 @@ function M.alert(callback, args)
     end
 end
 
+---@param path string
+---@return boolean
 function M.file_exists(path)
     local f = io.open(path, 'r')
 

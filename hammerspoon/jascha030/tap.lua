@@ -55,6 +55,8 @@ M.eventWatcher = eventtap
                 timeFirstControl, firstDown, secondDown = 0, false, false
             elseif only_cmd(event) and not firstDown then
                 firstDown = true
+
+                ---@diagnostic disable-next-line: cast-local-type
                 timeFirstControl = timer.secondsSinceEpoch()
             elseif only_cmd(event) and firstDown then
                 secondDown = true

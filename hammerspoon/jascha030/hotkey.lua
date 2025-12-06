@@ -3,7 +3,10 @@ local M = {}
 local types = {
     apps = {
         name = 'Apps',
-        mods = { 'shift', 'alt' },
+        mods = {
+            'shift',
+            'alt',
+        },
         handler = function(mod, key, app)
             hs.hotkey.bind(mod, key, function()
                 require('jascha030').quake.toggle(app)
@@ -13,14 +16,24 @@ local types = {
     control = {
         name = 'App controls',
         description = 'Bindings mapped to various actions related to specific apps and the window/layout system.',
-        mods = { 'ctrl', 'alt' },
+        mods = {
+            'ctrl',
+            'alt',
+        },
     },
     system = {
         name = 'System bindings',
-        mods = { 'ctrl', 'alt', 'cmd' },
+        mods = {
+            'ctrl',
+            'alt',
+            'cmd',
+        },
     },
 }
 
+---@param mod string[]
+---@param key string
+---@return string
 function M.visualize(mod, key)
     local key_msg = nil
 
@@ -33,6 +46,10 @@ function M.visualize(mod, key)
     return '[ ' .. key_msg .. ' ] + ' .. key .. '.'
 end
 
+---@param mod string[]
+---@param key string
+---@param arg any
+---@return nil
 local function default_handler(mod, key, arg)
     if arg == nil then
         return
@@ -52,6 +69,7 @@ local function default_handler(mod, key, arg)
     end)
 end
 
+---@param bindings table<string, table<string, any>>
 function M.setup(bindings)
     for t, values in pairs(bindings) do
         if types[t] ~= nil then

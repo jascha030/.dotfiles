@@ -1,12 +1,11 @@
 local JSpoon = require('jascha030')
 local fn = JSpoon.fn
 
+---@diagnostic disable-next-line: missing-fields
 JSpoon.setup({
     term_app = {
-        main = 'Ghostty',
-        alt = 'WezTerm',
-        -- main = 'WezTerm',
-        -- alt = 'Ghostty',
+        main = 'WezTerm',
+        alt = 'Ghostty',
     },
     spoons = {
         load = {
