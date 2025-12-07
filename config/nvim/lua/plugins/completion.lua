@@ -278,10 +278,6 @@ local M = {
         'L3MON4D3/LuaSnip',
         version = 'v2.*', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
         build = 'make install_jsregexp',
-        -- config = function(_, _)
-        --     require('luasnip/loaders/from_vscode').lazy_load()
-        -- end,
-        -- build = 'make install_jsregexp',
     },
 }
 
