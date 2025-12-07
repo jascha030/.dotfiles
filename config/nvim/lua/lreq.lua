@@ -1,3 +1,7 @@
+-- Lazy require: returns a proxy table that loads the module on first access
+--
+---@param module string Module name to lazy load
+---@return table Proxy table for the module
 return function(module)
     local mod = nil
 

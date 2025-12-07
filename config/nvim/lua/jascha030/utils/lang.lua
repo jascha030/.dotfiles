@@ -3,6 +3,7 @@ local M = {}
 local langs = nil
 local langs_indexed = nil
 
+---@return string[]
 local function get_langs_indexed()
     if nil ~= langs_indexed then
         return langs_indexed
@@ -860,6 +861,7 @@ local function get_langs_indexed()
     return langs_indexed
 end
 
+---@return table<string, string[]>
 local function get_langs()
     if nil ~= langs then
         return langs
@@ -874,6 +876,8 @@ local function get_langs()
     return langs
 end
 
+---@param with_keys boolean
+---@return table<string, string[]>
 function M.get_langs(with_keys)
     return with_keys == true and get_langs_indexed() or get_langs()
 end

@@ -17,11 +17,7 @@ local function make_capabilities()
         dynamicRegistration = false,
         lineFoldingOnly = true,
     }
-
-    capabilities.textDocument.formatting = {
-        dynamicRegistration = false,
-    }
-
+    capabilities.textDocument.formatting = { dynamicRegistration = false }
     capabilities.textDocument.semanticTokens.augmentsSyntaxTokens = false
     capabilities.textDocument.completion.completionItem = {
         contextSupport = true,
@@ -36,7 +32,10 @@ local function make_capabilities()
             },
         },
         labelDetailsSupport = true,
-        documentationFormat = { 'markdown', 'plaintext' },
+        documentationFormat = {
+            'markdown',
+            'plaintext',
+        },
     }
 
     capabilities.experimental = {

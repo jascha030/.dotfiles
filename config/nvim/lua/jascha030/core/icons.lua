@@ -102,6 +102,7 @@ local default = {
 
 M.icons = {}
 
+---@param options table?
 function M.extend(options)
     if type(options) ~= 'table' and type(options) ~= 'nil' then
         return

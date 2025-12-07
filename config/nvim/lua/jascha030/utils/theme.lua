@@ -1,3 +1,4 @@
+---@diagnostic disable: duplicate-set-field
 local darkmode = lreq('darkmode')
 local DARK = 'dark'
 local LIGHT = 'light'
@@ -10,10 +11,12 @@ local function do_update_autocmd()
     vim.cmd([[doautocmd <nomodeline> User NitePalUpdateScheme]])
 end
 
+---@return boolean
 function M.is_dark()
     return vim.o.background == DARK
 end
 
+---@param mode string
 function M.update(mode)
     local cs = require('jascha030.core.config').options.colorscheme
 

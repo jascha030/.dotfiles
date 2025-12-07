@@ -5,10 +5,12 @@ local M = {}
 
 ---@param def table
 ---@param group string|integer
+---@return table
 local function build_opts(def, group)
     local opts = vim.deepcopy(def)
     opts.event = nil
     opts.group = group or nil
+
     return opts
 end
 

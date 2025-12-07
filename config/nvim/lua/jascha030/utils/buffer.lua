@@ -1,6 +1,5 @@
-local M = {}
-
 -- https://github.com/davidosomething/dotfiles/blob/04cccb6d81a0d9f7a50a7a59834c1c6f7393272d/nvim/lua/dko/utils/buffer.lua
+local M = {}
 local HIGHLIGHTING_MAX_FILESIZE = 300 * 1024 -- 300 KB
 
 ---@param query string|table can be a filename or a { bufnr }

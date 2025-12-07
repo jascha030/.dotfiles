@@ -1,3 +1,5 @@
+BORDER = 'rounded'
+
 _G.lreq = require('lreq')
 
 local lsp = lreq('jascha030.lsp')

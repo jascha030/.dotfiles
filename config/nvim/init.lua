@@ -14,9 +14,6 @@
 vim.hl = vim.highlight
 vim.g.mapleader = ' '
 
-BORDER = 'rounded'
--- vim.o.winborder = BORDER
-
 require('jascha030.globals')
 
 -- Install required packages, if not already installed.

@@ -1,6 +1,9 @@
+---@diagnostic disable: duplicate-set-field
 --- @class TableHelpers
 local M = {}
 
+---@param table table
+---@return integer
 function M.tbl_count(table)
     local _count = 0
 
@@ -11,6 +14,8 @@ function M.tbl_count(table)
     return _count
 end
 
+---@param t table|nil
+---@return integer
 function M.tbl_length(t)
     assert(t == nil or type(t) == 'table', 'bad parameter #1: must be of type table or nil.')
 

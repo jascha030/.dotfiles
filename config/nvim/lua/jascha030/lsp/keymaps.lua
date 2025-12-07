@@ -1,17 +1,26 @@
+---@diagnostic disable: duplicate-set-field
+---
 ---@class jascha030.lsp.Keymaps
 ---@field client table
 ---@field buffer integer
 local M = {}
 
+---@param client vim.lsp.Client
+---@param buffer integer
 ---@return jascha030.lsp.Keymaps
 function M.new(client, buffer)
     return setmetatable({ client = client, buffer = buffer }, { __index = M })
 end
 
+---@param cap string
+---@return boolean
 function M:has(cap)
     return self.client.server_capabilities[cap .. 'Provider']
 end
 
+---@param lhs string
+---@param rhs string|fun()
+---@param opts table?
 function M:map(lhs, rhs, opts)
     opts = opts or {}
 
@@ -27,6 +36,7 @@ function M:map(lhs, rhs, opts)
     })
 end
 
+---@returns string|nil
 function M.rename()
     if pcall(require, 'inc_rename') then
         return ':IncRename ' .. vim.fn.expand('<cword>')
@@ -35,6 +45,8 @@ function M.rename()
     end
 end
 
+---@param next boolean
+---@param severity string?
 function M.diagnostic_goto(next, severity)
     return function()
         vim.diagnostic.jump({
@@ -45,6 +57,8 @@ function M.diagnostic_goto(next, severity)
     end
 end
 
+---@param client vim.lsp.Client
+---@param bufnr integer
 function M.on_attach(client, bufnr)
     local self = M.new(client, bufnr)
     local diagnostic_goto = M.diagnostic_goto

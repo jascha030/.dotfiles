@@ -1,7 +1,8 @@
+---@diagnostic disable: duplicate-set-field
+---
 --- @class Utils
 --- @field public fs FilesystemHelpers
 --- @field public keymaps KeymapsUtil
---- @field public opts OptsUtil
 --- @field public tbl TableHelpers
 --- @field public theme ThemeUtil
 local M = {}
@@ -32,6 +33,9 @@ function M.has_plugin(plugin)
     return require('lazy.core.config').spec.plugins[plugin] ~= nil
 end
 
+---@param fnc function|string
+---@param ... any
+---@return function
 function M.wrap(fnc, ...)
     local params = { ... }
 
@@ -46,10 +50,13 @@ function M.wrap(fnc, ...)
     end
 end
 
+---@param m string
 local function safe_load(m)
     return pcall(require, m)
 end
 
+---@param list string[]
+---@return boolean, string[]|string
 function M.check_deps(list)
     for _, v in ipairs(list) do
         if not safe_load(v) then
@@ -60,6 +67,9 @@ function M.check_deps(list)
     return true, list
 end
 
+---@param list string[]
+---@param where string
+---@return boolean
 function M.validate(list, where)
     local ok, v = M.check_deps(list)
     if not ok then
@@ -69,6 +79,9 @@ function M.validate(list, where)
     return ok
 end
 
+---@param delimiter string
+---@param p string
+---@return string[]
 function M.str_explode(delimiter, p)
     local tbl, position = {}, 0
 
@@ -91,10 +104,12 @@ function M.str_explode(delimiter, p)
     return tbl
 end
 
+---@return integer
 function M.get_width()
     return vim.api.nvim_list_uis()[1].width
 end
 
+---@return integer
 function M.get_height()
     return vim.api.nvim_list_uis()[1].height
 end

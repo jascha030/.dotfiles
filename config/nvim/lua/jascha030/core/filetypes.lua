@@ -10,12 +10,8 @@ function M.setup()
     M.initialized = true
 
     vim.filetype.add({
-        extension = {
-            env = 'dotenv',
-        },
-        filename = {
-            ['.env'] = 'dotenv',
-        },
+        extension = { env = 'dotenv' },
+        filename = { ['.env'] = 'dotenv' },
         pattern = {
             ['%.env%.[%w_.-]+'] = 'dotenv',
             ['.*%.blade%.php'] = 'blade',

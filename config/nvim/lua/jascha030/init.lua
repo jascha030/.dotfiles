@@ -2,6 +2,7 @@ local Config = require('jascha030.core.config')
 
 local M = {}
 
+---@param languages string[]
 local function set_polyglot_lang_disables(languages)
     local disabled = {}
     local all = vim.deepcopy(require('jascha030.utils.lang').get_langs(true))
@@ -29,6 +30,7 @@ function M.get_config(k)
 end
 
 ---@param opts jascha030.core.config.ConfigOptions
+---@return nil|string|table
 function M.setup(opts)
     if opts.debug == true then
         vim.lsp.set_log_level('debug')

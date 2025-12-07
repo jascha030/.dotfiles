@@ -4,8 +4,6 @@ local lazy_path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 ---@param name string
 ---@param alias string?
 local function install_package(name, alias)
-   -- print(string.format('Installing pkg: "%s"...', name))
-
     ---@type unknown, unknown, string, string
     local _, _, owner, repo = name:find([[(.+)/(.+)]])
     local path = ('%s/%s'):format(lazy_path, alias or repo)
