@@ -1,4 +1,4 @@
----@diagnostic disable: missing-fields
+---@diagnostic disable: missing-fields, undefined-field
 
 -- Patterns to filter out notifications, these will use the normal vim.notify.
 local NOTIFICATION_FILTERS = {
@@ -59,7 +59,10 @@ function M.opts()
                 },
                 {
                     pane = 2,
-                    { title = 'Utils', padding = 1 },
+                    {
+                        title = 'Utils',
+                        padding = 1,
+                    },
                     {
                         icon = '󰒲 ',
                         key = 'L',
@@ -73,7 +76,6 @@ function M.opts()
                         desc = 'Mason',
                         action = ':Mason',
                     },
-                    -- { icon = ' ', key = 's', desc = 'Restore Session', section = 'session' },
                     {
                         icon = ' ',
                         key = 'q',
@@ -100,7 +102,10 @@ function M.opts()
                 pane = 2,
                 padding = 1,
             },
-            { section = 'keys', pane_gap = 4 },
+            {
+                section = 'keys',
+                pane_gap = 4,
+            },
             {
                 pane = 1,
                 pane_gap = 4,
@@ -213,35 +218,8 @@ function M.keys()
 end
 -- stylua: ignore end
 
--- function M.config(_, opts)
---     local vim_notify = vim.notify
---     require('snacks').setup(opts)
---
---     local function _notify_filter(msg)
---         for i = 1, #NOTIFICATION_FILTERS do
---             -- stylua: ignore
---             if string.find(msg, NOTIFICATION_FILTERS[i]) then return true end
---         end
---
---         return false
---     end
---
---     -- Custom vim.notify override
---     ---@param msg string
---     ---@param lvl number
---     ---@param o table
---     ---@see vim.notify
---     local function _custom_notify(msg, lvl, o)
---         if lvl == vim.log.levels.INFO or _notify_filter(msg) then
---             return vim_notify(msg, lvl, o)
---         end
---
---         return Snacks.notifier.notify(msg, lvl, o)
---     end
---
---     vim.notify = _custom_notify
--- end
---
+---@param _ any
+---@param opts snacks.Config
 function M.config(_, opts)
     local vim_notify = vim.notify
     require('snacks').setup(opts)
@@ -277,6 +255,7 @@ function M.config(_, opts)
             local original_layout = N.layout
 
             -- Override the layout function
+            ---@diagnostic disable-next-line: inject-field
             N.layout = function(self)
                 local layout = self:new_layout()
                 local wins_updated = 0
