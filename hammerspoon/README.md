@@ -1,9 +1,5 @@
 # 🔨 Hammerspoon Configuration
 
-<div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Hammerspoon_Icon.png/240px-Hammerspoon_Icon.png" alt="Hammerspoon Logo" width="120" />
-</div>
-
 ## 📖 Overview
 
 This directory contains Lua scripts for [Hammerspoon](https://www.hammerspoon.org/), the powerful automation tool for macOS. My configuration focuses on window management, application toggling, and system workflows.
