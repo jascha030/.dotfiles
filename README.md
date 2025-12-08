@@ -1,46 +1,107 @@
-<p align="center">
-  <img src="https://github.com/jascha030/.dotfiles/blob/main/img/NVIM-PAK.png?raw=true" alt="Dotfiles, not even once.">
-</p>
+<div align="center">
 
-# Jascha030's dotfiles
+  <img src="https://github.com/jascha030/.dotfiles/blob/main/img/NVIM-PAK.png?raw=true" alt="Dotfiles Logo" width="600" />
 
-[My](https://github.com/jascha030) personal Dotfiles repository, a collection of configuration files that are used to personalize and configure my development environment and applications.
+  <h1>Jascha030's Dotfiles</h1>
 
-## Includes but not limited to
+  <p>
+    <a href="https://github.com/jascha030/.dotfiles/search?l=lua"><img src="https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white" alt="Lua" /></a>
+    <a href="https://github.com/jascha030/.dotfiles/search?l=shell"><img src="https://img.shields.io/badge/Shell_Script-121011?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Shell" /></a>
+    <a href="https://neovim.io/"><img src="https://img.shields.io/badge/Neovim-57A143?style=for-the-badge&logo=neovim&logoColor=white" alt="Neovim" /></a>
+    <a href="https://brew.sh/"><img src="https://img.shields.io/badge/Homebrew-FBB040?style=for-the-badge&logo=homebrew&logoColor=white" alt="Homebrew" /></a>
+    <a href="https://www.hammerspoon.org/"><img src="https://img.shields.io/badge/Hammerspoon-7C7C7C?style=for-the-badge&logo=lua&logoColor=white" alt="Hammerspoon" /></a>
+  </p>
 
-- 📝 [Neovim Config](https://github.com/jascha030/.dotfiles/blob/main/config/nvim/README.md) - My daily driver editor with Lua, Fennel, and custom plugins
-- 💾 [ZShell (ZSH) Config](https://github.com/jascha030/.dotfiles/blob/main/config/zsh/README.md) - Handcrafted shell with custom prompt and startup screens
-- 📦 Package management for MacOS using [Homebrew](https://brew.sh/) - 300+ packages, casks, and VSCode extensions
-- 🥄 Automation, hotkeys and custom window management for MacOS using [Hammerspoon](https://www.hammerspoon.org/) - Window management and app switching
-- 💽 Configs for multiple terminal emulators
-  - ⚡ WezTerm - GPU-accelerated with custom themes and keybindings
-  - 👻 Ghostty - Modern terminal with holographic icons and custom shaders
-- 🪄 Many scripts for making my life easier, scaring my colleagues and making my friends believe I am a _Hackerman_.
-- 💩 Absolutely not a single tool for managing symlinks like [stow](https://www.gnu.org/software/stow/), instead I just `ln -s` by hand because I f-d up once, and now I have trust issues.
+  <p><strong>"Dotfiles, not even once."</strong></p>
 
-## What makes this setup special?
+  <p>
+    My personal configuration repository. A manifestation of my refusal to do things the easy way.<br>
+    Built for <strong>macOS</strong>, powered by <strong>Lua</strong>, and obsessed with <strong>aesthetic</strong>.
+  </p>
 
-- **Custom color schemes**: [nitepal.nvim](https://github.com/jascha030/nitepal.nvim) - My ongoing colorscheme project
-- **Terminal aesthetics**: Carefully crafted themes, fonts, and animations
-- **Development workflow**: PHP, JavaScript, Lua, and more with LSP, DAP, and testing
-- **MacOS integration**: System defaults, automation, and productivity enhancements
-- **Security**: Encrypted secrets management with git-secret
-- **Version management**: Multiple PHP, Node, and Python versions with rtx
+</div>
 
-## Quick setup (if you're brave enough)
+---
+
+## 📸 Showcase
+
+<div align="center">
+  <img src="https://github.com/jascha030/.dotfiles/blob/main/img/term.gif?raw=true" alt="Terminal Demo" width="100%" />
+</div>
+
+<br>
+
+| Neovim PHP | Terminal Intro |
+|:---:|:---:|
+| <img src="https://github.com/jascha030/.dotfiles/blob/main/img/nvim_php.png?raw=true" alt="Neovim PHP" /> | <img src="https://github.com/jascha030/.dotfiles/blob/main/img/termintro.gif?raw=true" alt="Terminal Intro" /> |
+
+---
+
+## 🧰 The Arsenal
+
+### 📝 [Neovim Config](./config/nvim/README.md)
+My pride and joy. A fully Lua-configured editor that makes VS Code look like Notepad.
+- **Plugin Manager**: `lazy.nvim` (30+ plugins)
+- **LSP**: Native `vim.lsp` with `mason.nvim`
+- **Theme**: Custom `nitepal.nvim`
+
+### 💾 [ZShell (ZSH) Config](./config/zsh/README.md)
+Handcrafted shell experience. No frameworks, just pure obsession.
+- **Prompt**: Custom git status, icons, and anxiety-inducing detail.
+- **Startup**: Alternating intro screens to distract me from work.
+
+### 🔨 [Hammerspoon](./hammerspoon/README.md)
+Lua scripting for macOS.
+- **Window Management**: Zero-latency tiling.
+- **Quake Mode**: Drop-down terminal toggle for WezTerm/Ghostty (`Cmd` + `Cmd` in theory, actually mapped to `Ctrl+Alt+Cmd+T`).
+
+### 🖥️ Terminal Emulators
+- **[WezTerm](./config/wezterm/README.md)**: GPU-accelerated, Lua-configured.
+- **[Ghostty](./config/ghostty/README.md)**: The new kid on the block. Custom shaders and holographic icons.
+
+---
+
+## 🏗️ Philosophy
+
+> "I absolutely do not use a single tool for managing symlinks like `stow`, instead I just `ln -s` by hand because I f-d up once, and now I have trust issues."
+
+This repository is a collection of my personal settings. It is designed to be:
+1.  **Portable-ish**: It works on my machine.
+2.  **Fast**: Bloat is the enemy (except for the 50 neovim plugins).
+3.  **Beautiful**: If it doesn't look good, I can't code in it.
+
+## 🚀 Quick(ish) Setup
+
+If you are brave enough to try this:
 
 ```bash
-# Clone the repo
+# 1. Clone the repo
 git clone https://github.com/jascha030/.dotfiles.git ~/.dotfiles
 
-# Install packages
+# 2. Install dependencies (grab a coffee ☕)
 brew bundle --file ~/.dotfiles/Brewfile
 
-# Apply macOS defaults (careful, this changes system settings!)
+# 3. Apply macOS defaults (⚠️ This changes system settings!)
 ~/.dotfiles/.macos
 
-# Symlink configs (or do it manually like I do)
-# ... your preferred method here
+# 4. Link files (The manual way, as god intended)
+# Example: Linking Neovim
+ln -s ~/.dotfiles/config/nvim ~/.config/nvim
+
+# Example: Linking Zsh
+ln -s ~/.dotfiles/config/zsh/.zshrc ~/.zshrc
 ```
 
-*Disclaimer: These configs are highly personalized. Use at your own risk, and don't blame me if your setup becomes too awesome.*
+## 📂 Directory Structure
+
+- **`/config`**: The meat. XDG-compliant config files (nvim, zsh, wezterm, etc.).
+- **`/bin`**: Custom scripts added to `$PATH`.
+- **`/hammerspoon`**: macOS automation scripts.
+- **`.macos`**: Shell script to set sensible macOS defaults.
+- **`Brewfile`**: List of all installed system packages.
+
+---
+
+<div align="center">
+  <sub>Configured with ❤️ and too much ☕ by <a href="https://github.com/jascha030">jascha030</a></sub>
+</div>
