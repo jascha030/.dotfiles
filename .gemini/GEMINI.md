@@ -4,104 +4,96 @@ This document provides essential context for AI models interacting with this pro
 
 ## 1. Project Overview & Purpose
 
-- **Primary Goal:** This project is a collection of personal dotfiles for configuring a development environment on macOS. It automates the setup and customization of shells (Zsh, Bash, Nu), editors (Neovim), terminal emulators (Wezterm, Ghostty), and various development tools. The main purpose is to create a consistent, personalized, and efficient development environment that can be easily replicated.
-    
-- **Business Domain:** Developer Tools and Environment Management.
-    
+*   **Primary Goal:** This is a comprehensive personal configuration repository ("dotfiles") for macOS. It manages the configuration for the user's shell, editor, terminal, and window management environment. It is designed to be aesthetically pleasing ("obsessed with aesthetic"), highly customized, and portable across the user's machines.
+*   **Business Domain:** Personal Development Environment (PDE) / System Administration / Developer Productivity.
+*   **Key Philosophy:**
+    *   **Manual Control:** The user explicitly avoids automated symlink managers like `stow` in favor of manual `ln -s` commands to maintain absolute control and avoid "trust issues."
+    *   **Lua-First:** Heavily relies on Lua for configuration (Neovim, WezTerm, Hammerspoon).
+    *   **Performance:** Prioritizes speed and "bloat" reduction (with a stated exception for Neovim plugins).
 
 ## 2. Core Technologies & Stack
 
-- **Languages:** Lua, Shell script (Bash, Zsh), PHP, Fennel, Nu Shell.
-    
-- **Frameworks & Runtimes:** Neovim, Hammerspoon.
-    
-- **Databases:** None explicitly defined, but `my.cnf` suggests usage of MySQL/MariaDB.
-    
-- **Key Libraries/Dependencies:** The `Brewfile` indicates a heavy reliance on Homebrew for package management. Key tools installed via Brew include `git`, `php`, `composer`, `node`, `rust`, `go`, various terminal tools, and Neovim plugins.
-    
-- **Package Manager(s):** Homebrew, Composer.
-    
+*   **Languages:**
+    *   **Lua:** Primary configuration language for Neovim, WezTerm, and Hammerspoon.
+    *   **Shell (Zsh):** Primary shell scripting language.
+    *   **Fennel:** Used in specific Neovim configurations (`flsproject.fnl`).
+    *   **PHP:** Supported environment (referenced in `php-cs-fixer`, `phpactor`).
+*   **Frameworks & Runtimes:**
+    *   **Neovim Runtime:** `vim.cmd`, `vim.api`, etc.
+    *   **Hammerspoon:** macOS automation engine.
+*   **Tools & Utilities:**
+    *   **Neovim:** The core text editor.
+    *   **WezTerm / Ghostty:** Terminal emulators.
+    *   **Homebrew:** System package manager.
+    *   **Zsh:** The interactive shell.
+    *   **Lazy.nvim:** Neovim plugin manager.
+*   **Package Manager(s):**
+    *   `Homebrew` (via `Brewfile`) for system packages.
+    *   `Lazy.nvim` for Neovim plugins.
+    *   `Mason.nvim` for LSP servers and linters.
 
 ## 3. Architectural Patterns
 
-- **Overall Architecture:** Configuration Management. The project is structured as a centralized repository of configuration files.
-    
-- **Directory Structure Philosophy:** The structure is organized by application/tool, with a top-level `config` directory containing subdirectories for each application.
-    
-    - `/config`: Contains all primary configuration files, organized by application (e.g., `nvim`, `zsh`, `wezterm`).
-        
-    - `/bin`: Contains executable scripts.
-        
-    - `/git`: Contains git-related configuration files.
-        
-    - `/hammerspoon`: Contains configuration for the Hammerspoon automation tool.
-        
-    - `/.github`: Contains GitHub-specific files like `CODEOWNERS`.
-        
-    - `/.ssh`: Contains placeholder files for SSH keys, which are encrypted.
-        
+*   **Overall Architecture:** Centralized Configuration Repository. The repository mimics the structure of the home directory (or XDG config directory) and uses symbolic links to map files to their actual system locations.
+*   **Directory Structure Philosophy:**
+    *   `/config`: Contains XDG-compliant configuration directories (e.g., `nvim`, `zsh`, `wezterm`). This is the core of the repo.
+    *   `/bin`: Custom executable scripts added to the `$PATH`.
+    *   `/hammerspoon`: macOS automation scripts.
+    *   `/.macos`: Shell script for setting macOS system defaults.
+    *   `/Brewfile`: Defines all system dependencies.
+    *   `/git`, `/.ssh`, `/.github`: Specific tool configurations.
 
 ## 4. Coding Conventions & Style Guide
 
-- **Formatting:**
-    
-    - **Lua:** The `stylua.toml` and `.luarc.json` files define the formatting rules. It uses 2 spaces for indentation.
-        
-    - **PHP:** The `.php-cs-fixer.dist.php` file enforces PSR-12 coding standards.
-        
-    - **General:** The `.editorconfig` file specifies universal settings like `utf-8` charset, `lf` line endings, and trimming trailing whitespace.
-        
-- **Naming Conventions:** (Inferred from file and directory names)
-    
-    - **files & directories:** kebab-case or snake_case (e.g., `neo-tree.lua`, `gitstatus.prompt.zsh`).
-        
-    - **Lua variables/functions:** snake_case is prevalent in the Neovim configuration.
-        
-- **API Design:** Not applicable.
-    
-- **Error Handling:** Inferred from shell scripts, error handling is done via checking exit codes and using conditional statements.
-    
+*   **Formatting:**
+    *   Defined in `.editorconfig`.
+    *   **General:** 2 spaces indentation, LF line endings, `charset = utf-8`.
+    *   **Lua, PHP, JSON, XML:** **4 spaces** indentation (Overrides the general rule).
+*   **Naming Conventions:**
+    *   **Lua Files:** snake_case (e.g., `init.lua`, `fonts.lua`, `hotkey.lua`).
+    *   **Shell Scripts:** kebab-case or short lowercase (e.g., `nvim-dark-mode`, `fixdb`).
+    *   **Functions/Variables:** Follows language idioms (snake_case for Lua/Python, camelCase/snake_case for Shell depending on context).
+*   **Lua Style (Neovim):**
+    *   Modular configuration: `require('jascha030.globals')`.
+    *   Uses `vim.g.mapleader = ' '`.
+    *   Prefers `lazy.nvim` specs for plugins.
+    *   Use `-- stylua: ignore` comments for ASCII art or specific blocks.
+*   **Shell Style (Zsh):**
+    *   Shebang: `#!/usr/bin/env zsh`.
+    *   Directives: Uses `shellcheck` comments (e.g., `# shellcheck disable=...`).
+    *   Modularization: Breaks config into `aliases`, `init`, `env`, etc.
 
 ## 5. Key Files & Entrypoints
 
-- **Main Entrypoint(s):**
-    
-    - Shell: `config/zsh/.zshrc` and `config/bash/.bashrc`.
-        
-    - Neovim: `config/nvim/init.lua`.
-        
-    - Hammerspoon: `hammerspoon/init.lua`.
-        
-- **Configuration:**
-    
-    - `.env`: For environment variables.
-        
-    - `Brewfile`: Defines Homebrew dependencies.
-        
-    - `stylua.toml`: Lua formatter configuration.
-        
-    - `.php-cs-fixer.dist.php`: PHP coding standards configuration.
-        
-- **CI/CD Pipeline:** None detected.
-    
+*   **Main Entrypoint(s):**
+    *   **Zsh:** `config/zsh/.zshrc` (sources `config/zsh/init`).
+    *   **Neovim:** `config/nvim/init.lua` (bootstraps `jascha030` module).
+    *   **Hammerspoon:** `hammerspoon/init.lua`.
+*   **Configuration:**
+    *   `Brewfile`: The source of truth for installed software.
+    *   `.macos`: System preferences automation.
+    *   `.editorconfig`: Code style definitions.
+*   **CI/CD Pipeline:** None detected (`.github/workflows` is present but empty).
 
 ## 6. Development & Testing Workflow
 
-- **Local Development Environment:** The `README.md` implies that setup involves cloning the repository and running a setup script (though the script itself is not explicitly named). The `Brewfile` is key to installing all necessary tools.
-    
-- **Testing:** No formal testing framework or test files were detected.
-    
-- **CI/CD Process:** Not applicable.
-    
+*   **Local Development Environment:**
+    1.  Clone repository to `~/.dotfiles`.
+    2.  Install dependencies via `brew bundle --file ~/.dotfiles/Brewfile`.
+    3.  Run `.macos` script for system defaults.
+    4.  **Manually** symlink configurations (e.g., `ln -s ~/.dotfiles/config/nvim ~/.config/nvim`).
+*   **Testing:**
+    *   There is no automated test suite.
+    *   Testing is manual: Apply changes, reload shell (`source ~/.zshrc`) or restart Neovim, and verify behavior.
+*   **Dependency Management:**
+    *   Add system tools to `Brewfile`.
+    *   Add Neovim plugins via `lua/plugins/*.lua` (Lazy.nvim).
 
 ## 7. Specific Instructions for AI Collaboration
 
-- **Contribution Guidelines:** The `.github/CODEOWNERS` file indicates that the repository owner (`@jascha030`) is responsible for all files. While there's no formal `CONTRIBUTING.md`, any changes should be discussed with the owner.
-    
-- **Infrastructure (IaC):** No Infrastructure as Code (IaC) was detected.
-    
-- **Security:** This repository contains encrypted files managed by `git-secret` (e.g., in the `/.ssh` directory). **Never commit unencrypted secrets.** Any modifications to files ending in `.secret` must be done through `git-secret`.
-    
-- **Dependencies:** New software dependencies should be added to the `Brewfile`.
-    
-- **Commit Messages:** (Inferred from general best practices, no specific standard found) It is recommended to follow the Conventional Commits specification (e.g., `feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `test:`, `chore:`).
+*   **Symlinking:** **NEVER** suggest using `stow` or automated link managers. Always provide instructions for manual `ln -s` linking if a new config file needs to be installed.
+*   **Lua Formatting:** STRICTLY adhere to the **4-space indentation** for Lua files as defined in `.editorconfig`. Do not mix 2-space and 4-space indents.
+*   **Neovim Configuration:** When modifying Neovim config, respect the `lazy.nvim` structure. Do not add raw `use` or `Plug` commands; use the `lazy` table syntax.
+*   **Shell Scripts:** Ensure scripts are POSIX compliant or explicitly target Zsh (`#!/usr/bin/env zsh`). Use `shellcheck` directives if suppressing warnings is necessary.
+*   **Context Awareness:** When editing a file, always check for local imports (e.g., `require(...)` or `source ...`) to understand where variables might be defined.
+*   **Safety:** Do not overwrite private keys or secrets. Note that secrets seem to be managed via `git-secret` (presence of `.gitsecret` directory), so be careful not to commit plain-text secrets.
