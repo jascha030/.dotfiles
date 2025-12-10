@@ -69,7 +69,7 @@ return {
         action = wezterm.action.SpawnCommandInNewTab({
             label = 'Spawn tab in dotfiles dir.',
             args = { 'zsh', '-l' },
-            cwd = '/Users/jaschavanaalst/.dotfiles/',
+            cwd = os.getenv('HOME') .. '/.dotfiles/',
         }),
     },
     M.split_nav('move', 'ALT', 'LeftArrow', 'h', 'Left'),

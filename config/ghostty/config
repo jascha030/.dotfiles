@@ -50,7 +50,7 @@ macos-icon-frame = aluminum
 macos-window-buttons = hidden
 macos-option-as-alt = true
 
-# custom-shader = "/Users/jaschavanaalst/.config/ghostty-shaders/in-game-crt.glsl"
+# custom-shader = "~/.config/ghostty-shaders/in-game-crt.glsl"
 
 # Keybindings
 keybind = clear

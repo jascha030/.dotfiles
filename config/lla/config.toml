@@ -7,7 +7,7 @@ theme = "default"       # Your chosen theme
 default_depth = 1       # Directory traversal depth
 
 enabled_plugins = []
-plugins_dir = "/Users/jaschavanaalst/.config/lla/plugins"
+plugins_dir = "~/.config/lla/plugins"
 
 # Visual Organization
 [sort]
