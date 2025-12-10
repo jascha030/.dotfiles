@@ -40,6 +40,17 @@ _wpe_sitename() {
     echo "${parts[0]}"
 }
 
+__wpe_open() {
+    if command -v open >/dev/null 2>&1; then
+        open "$@"
+    elif command -v xdg-open >/dev/null 2>&1; then
+        xdg-open "$@"
+    else
+        echo "Error: No tool found to open URL." >&2
+        return 1
+    fi
+}
+
 wpe__dump() {
     local in="$1"
     local usr
@@ -51,7 +62,7 @@ wpe__dump() {
 }
 
 wpe__open() {
-    open "https://my.wpengine.com/#all"
+    __wpe_open "https://my.wpengine.com/#all"
 }
 
 wpe__cp-plugins() {

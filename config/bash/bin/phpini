@@ -6,13 +6,34 @@ version='1.0.0'
 #TODO: Dynamically get installed versions.
 php_versions=('7.4' '8.0' '8.1' '8.2' '8.3' '8.4')
 
-brew_prefix=${HOMEBREW_PREFIX:-$(brew --prefix)}
-php_ini_basedir="${brew_prefix}/etc/php/"
+brew_prefix=${HOMEBREW_PREFIX:-$(command -v brew >/dev/null && brew --prefix)}
+if [[ -d "${brew_prefix}/etc/php/" ]]; then
+    php_ini_basedir="${brew_prefix}/etc/php/"
+elif [[ -d "/etc/php/" ]]; then
+    php_ini_basedir="/etc/php/"
+else
+    php_ini_basedir=""
+fi
 
 fallback_editor='vi'
 
 __phpini_echo() {
     command printf %b\\n "$*" 2>/dev/null
+}
+
+__phpini_clipboard() {
+    if command -v pbcopy >/dev/null 2>&1; then
+        pbcopy
+    elif command -v wl-copy >/dev/null 2>&1; then
+        wl-copy
+    elif command -v xclip >/dev/null 2>&1; then
+        xclip -selection clipboard
+    elif command -v xsel >/dev/null 2>&1; then
+        xsel --clipboard --input
+    else
+        __phpini_echo "\e[0;31mERROR: No clipboard utility found (pbcopy, wl-copy, xclip, xsel).\e[0m" >&2
+        return 1
+    fi
 }
 
 __phpini_usage() {
@@ -56,7 +77,7 @@ phpini__print() {
 }
 
 phpini__cp() {
-    phpini__print | pbcopy
+    phpini__print | __phpini_clipboard
 }
 
 phpini__edit() {

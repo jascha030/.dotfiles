@@ -15,8 +15,34 @@ __valetlog-tail() {
     valet_bin=$(which valet)
 
     if [ -z "$valet_bin" ]; then
-        __valetlog-echo "\e[0;31mERROR: valet not found\e[0m"
-        exit 1
+        # Fallback for Linux/Non-Valet environments
+        local linux_log_dirs=("/var/log/nginx" "/var/log/apache2" "/var/log/httpd")
+        local found_logs=()
+        
+        for dir in "${linux_log_dirs[@]}"; do
+            if [ -d "$dir" ]; then
+                found_logs+=($(find "$dir" -name "*.log" -type f 2>/dev/null))
+            fi
+        done
+        
+        # Check for PHP-FPM logs
+        if [ -d "/var/log" ]; then
+             found_logs+=($(find "/var/log" -name "php*-fpm.log" -type f 2>/dev/null))
+        fi
+
+        if [ ${#found_logs[@]} -eq 0 ]; then
+             __valetlog-echo "\e[0;31mERROR: valet not found and no standard logs found in /var/log.\e[0m"
+             exit 1
+        fi
+        
+        __valetlog-echo "\e[0;33mValet not found. Tailing found system logs...\e[0m"
+        
+        if command -v bat &>/dev/null; then
+             tail -f "${found_logs[@]}" | bat --paging=never -l log
+        else
+             tail -f "${found_logs[@]}"
+        fi
+        return
     fi
 
     if command -v bat &>/dev/null; then
