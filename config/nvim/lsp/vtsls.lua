@@ -10,15 +10,6 @@ local inlayHints = {
 
 ---@type vim.lsp.Config
 return Jascha030.lsp.config_extend({
-    filetypes = {
-        'javascript',
-        'javascriptreact',
-        'javascript.jsx',
-        'typescript',
-        'typescriptreact',
-        'typescript.tsx',
-        'svelte',
-    },
     root_markers = {
         'tsconfig.json',
         'jsconfig.json',

@@ -1,3 +1,4 @@
+---@diagnostic disable: duplicate-set-field
 ---@class jascha030.lsp.Module
 ---@field public keymaps jascha030.lsp.Keymaps
 ---@field public config jascha030.lsp.Config

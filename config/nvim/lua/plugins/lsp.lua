@@ -85,18 +85,16 @@ return {
             lsp.lsp_attach(lsp.keymaps.on_attach)
             lsp.inlay_hints()
 
-            require('lspconfig.configs').vtsls = require('vtsls').lspconfig
             require('mason-lspconfig').setup({
-                -- stylua: ignore
-                handlers = { function(name) vim.lsp.enable(name) end },
-                automatic_enable = { exclude = { 'psalm', 'ts_ls', 'ast_grep' } },
+                automatic_enable = {
+                    exclude = { 'psalm', 'ts_ls', 'ast_grep' },
+                },
                 automatic_installation = true,
                 ensure_installed = opts.ensure_installed,
             })
         end,
     },
     { 'ray-x/lsp_signature.nvim' },
-    { 'yioneko/nvim-vtsls' },
     {
         'folke/lazydev.nvim',
         ft = 'lua',
