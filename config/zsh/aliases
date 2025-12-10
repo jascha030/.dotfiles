@@ -69,6 +69,7 @@ alias wpenv:user:update='wp-env run cli wp user update jascha@socialbrothers.nl 
 alias wpmail:disable='wp --skip-plugins --skip-themes plugin install disable-emails --activate'
 
 alias gen:codeowners='mkdir -p .github && echo "* @jascha030" >> .github/CODEOWNERS'
+alias prompt:gemini='cat $HOME/.dotfiles/PROMPT.md | pbcopy'
 
 #- Fix for Nu-shell and @antfu/ni:nu confusion -----------------------------------------------------------------------#
 alias nup="$(which nu)"
