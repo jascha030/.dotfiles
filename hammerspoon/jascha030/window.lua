@@ -67,14 +67,18 @@ function M.center()
     win:setFrame(pos:centered(win, spaceScreen))
 end
 
----@param application hs.application
+---@param app_or_win hs.application|hs.window
 ---@param space number
-function M.move(application, space)
-    local win = nil
+function M.move(app_or_win, space)
+    local win = app_or_win
     local spaceScreen = hs.screen.find(hs.spaces.spaceDisplay(space))
 
-    while win == nil do
-        win = application:mainWindow()
+    if type(win.mainWindow) == 'function' then
+        win = win:mainWindow()
+    end
+
+    if win == nil then
+        return
     end
 
     local windowSpaces = hs.spaces.windowSpaces(win)

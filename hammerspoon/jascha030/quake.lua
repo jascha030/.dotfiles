@@ -47,7 +47,15 @@ function M:get_observer(app_watcher, space)
     return function(name, event, app)
         if event == hs.application.watcher.launched and name == app_name then
             app:hide()
-            window.move(app, space)
+            hs.timer.waitUntil(
+                function()
+                    return app:mainWindow()
+                end,
+                function()
+                    window.move(app, space)
+                end,
+                0.1
+            )
 
             if app_watcher ~= nil then
                 app_watcher:stop()
@@ -93,9 +101,19 @@ function M:toggle()
         if instance ~= nil then
             if #instance:allWindows() == 0 then
                 hs.eventtap.keyStroke({ 'cmd' }, 'n', nil, instance)
-            end
 
-            window.move(instance, space)
+                hs.timer.waitUntil(
+                    function()
+                        return instance:mainWindow()
+                    end,
+                    function()
+                        window.move(instance, space)
+                    end,
+                    0.1
+                )
+            else
+                window.move(instance, space)
+            end
         end
     end
 end
