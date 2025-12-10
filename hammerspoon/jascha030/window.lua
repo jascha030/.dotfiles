@@ -85,6 +85,7 @@ function M.move(app_or_win, space)
     local currentWindowSpace = windowSpaces ~= nil and windowSpaces[0] or nil
 
     if currentWindowSpace ~= space then
+        ---@diagnostic disable-next-line: param-type-mismatch
         if true ~= pos.frame_eq_screen(win) then
             win:moveToScreen(spaceScreen)
             hs.spaces.moveWindowToSpace(win:id(), space)
@@ -96,6 +97,7 @@ function M.move(app_or_win, space)
 
     -- Center window if not snapped left or right
     if max.x ~= f.x and max.y ~= f.y and max.x2 ~= f.x2 and max.y2 ~= f.y2 then
+        ---@diagnostic disable-next-line: param-type-mismatch
         win:setFrame(pos:centered(win, spaceScreen))
     end
 
