@@ -1,9 +1,6 @@
 ---@diagnostic disable: duplicate-set-field
 ---
 --- @class Utils
---- @field public fs FilesystemHelpers
---- @field public keymaps KeymapsUtil
---- @field public tbl TableHelpers
 --- @field public theme ThemeUtil
 local M = {}
 
