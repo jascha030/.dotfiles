@@ -27,6 +27,7 @@ function M.config()
         },
     }, neotest_ns)
 
+    ---@diagnostic disable-next-line: missing-fields
     require('neotest').setup({
         adapters = {
             require('neotest-phpunit')({

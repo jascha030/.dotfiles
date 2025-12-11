@@ -1,9 +1,6 @@
 ---@type LazyPluginSpec[]
 local M = {
-    {
-        'rcarriga/nvim-notify',
-        opts = {},
-    },
+    { 'rcarriga/nvim-notify', opts = {} },
     {
         'folke/noice.nvim',
         event = { 'VeryLazy' },
@@ -44,7 +41,6 @@ local M = {
             messages = {
                 enabled = false, -- enables the Noice messages UI
                 view = 'cmdline',
-                -- view = 'cmdline', -- default view for messages
                 view_error = 'mini', -- view for errors
                 view_warn = 'mini', -- view for warnings
                 view_history = 'messages', -- view for :messages
@@ -59,13 +55,7 @@ local M = {
                 lsp_doc_border = true, -- add a border to hover docs and signature help
             },
             views = {
-                cmdline = {
-                    backend = 'popup',
-                    -- border = {
-                    --     style = BORDER,
-                    --     padding = { 0, 1 },
-                    -- },
-                },
+                cmdline = { backend = 'popup' },
                 cmdline_popup = {
                     position = {
                         row = '35%',
@@ -88,21 +78,6 @@ local M = {
                 },
             },
         },
-        -- config = function(_, opts)
-        --     require('noice').setup(opts)
-        --     -- require('noice')
-        --
-        --     vim.api.nvim_create_autocmd('VimResized', {
-        --         pattern = '*',
-        --
-        --         callback = function()
-        --             opts.views.cmdline.size.width = vim.api.nvim_win_get_width(0) - 2
-        --             print(vim.api.nvim_win_get_width(0) - 2)
-        --
-        --             require('noice').setup(opts --[[@as table]])
-        --         end,
-        --     })
-        -- end,
     },
 }
 

@@ -20,7 +20,6 @@ function M.opts()
     for mode, tmaps in pairs(keymaps) do ---@diagnostic disable-line: param-type-mismatch
         for _, args in pairs(tmaps) do
             local opts = args.opts or {}
-
             local map = { args[1], args[2], desc = args.desc or args[2], mode = mode }
 
             for _, v in pairs({
@@ -45,12 +44,9 @@ function M.opts()
 
             table.insert(results, map)
         end
-        -- wk.add(results, { nowait = true })
     end
 
-    return {
-        spec = results,
-    }
+    return { spec = results }
 end
 
 return M

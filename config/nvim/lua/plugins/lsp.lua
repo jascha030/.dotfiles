@@ -6,6 +6,7 @@ return {
             'mason-org/mason.nvim',
             'mason-org/mason-lspconfig.nvim',
             'folke/lazydev.nvim',
+            'b0o/schemastore.nvim',
         },
         opts = function(_, _)
             return {
@@ -292,10 +293,7 @@ return {
     },
     {
         'copilotlsp-nvim/copilot-lsp',
-        dependencies = {
-            'fang2hou/blink-copilot',
-        },
-        -- dir = "~/projects/lua/copilot-lsp",
+        dependencies = { 'fang2hou/blink-copilot' },
         init = function()
             vim.g.copilot_nes_debounce = 250
             vim.lsp.enable('copilot_ls')
