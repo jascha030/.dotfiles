@@ -97,11 +97,9 @@ local M = {
             highlight = {
                 enable = true,
                 disable = function(lang, buf)
-                    local max_filesize = 100 * 1024 -- 100 KB
-                    local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-
                     return (
-                        (ok and stats and stats.size > max_filesize) or vim.tbl_contains(HIGHLIGHTING_DISABLED, lang)
+                        require('jascha030.utils.buffer').is_huge({ bufnr = buf })
+                        or vim.tbl_contains(HIGHLIGHTING_DISABLED, lang)
                     )
                 end,
                 use_languagetree = true,
