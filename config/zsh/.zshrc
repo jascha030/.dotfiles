@@ -79,7 +79,6 @@ export DOT_PATH_VAR=(
     "$XDG_CONFIG_HOME"/zsh/bin
     "$HOME"/bin
     "$HOME"/tools
-    "$HOME"/.composer/vendor/bin
     "$HOME"/.bun/bin
     "$HOME"/.cache/.bun/bin
     "$HOME"/.yarn/bin

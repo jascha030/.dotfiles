@@ -143,6 +143,7 @@ _evalcache opam env
 path=(
     "${DOT_PATH_VAR[@]}"
     "${path[@]}"
+    "$HOME"/.composer/vendor/bin
 ); typeset -aU path
 
 
