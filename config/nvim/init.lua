@@ -19,7 +19,7 @@ require('jascha030.globals')
 -- Install required packages, if not already installed.
 require('jascha030.core.bootstrap').install_packages({
     'folke/lazy.nvim',
-    'rktjmp/hotpot.nvim',
+    -- 'rktjmp/hotpot.nvim',
 })
 
 local lazy_opts = {
@@ -41,11 +41,11 @@ local lazy_opts = {
 if vim.loader then
     vim.loader.enable()
 
-    if pcall(require, 'hotpot') then
-        require('hotpot').setup({})
-    end
-
-    table.insert(lazy_opts, 1, { 'rktjmp/hotpot.nvim' })
+    -- if pcall(require, 'hotpot') then
+    --     require('hotpot').setup({})
+    -- end
+    --
+    -- table.insert(lazy_opts, 1, { 'rktjmp/hotpot.nvim' })
 end
 
 require('lazy').setup(lazy_opts, {
