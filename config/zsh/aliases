@@ -43,10 +43,15 @@ alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew d
 alias cargoup='cargo install-update --all'
 alias kraken='$(open gitkraken://repo/${PWD})'
 alias gh:codeowners='mkdir .github/ && echo "* @jascha030" > .github/CODEOWNERS'
-alias lspath="echo ${PATH} | tr ':' '\n';"
-alias lsfpath="echo ${fpath} | tr ' ' '\n';"
 
 alias {git:optimize,git:cleanup}='git gc --aggressive --prune=now'
+
+alias ls:path="echo ${PATH} | tr ':' '\n';"
+alias ls:fpath="echo ${fpath} | tr ' ' '\n';"
+alias ls:brew="brew list"
+alias ls:ideas="cat ${DOTFILES}/IDEAS.md"
+
+alias ideas="nvim ${DOTFILES}/IDEAS.md"
 
 #- Copy stuff to pastaboard ------------------------------------------------------------------------------------------#
 alias cp:composerauth='cp $HOME/.composer/auth.json ./'
