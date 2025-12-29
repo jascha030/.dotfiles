@@ -129,7 +129,6 @@ end
 -- stylua: ignore 
 function M.keys()
     return {
-        { "<leader><leader>f", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
         { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
         { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
         { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
@@ -158,8 +157,6 @@ function M.keys()
             end,
         },
 
-        { '<leader><leader>D', function() Snacks.dashboard() end, mode = 'n', desc = 'Open dashboard (snacks)', },
-
         -- GIT
         { '<leader>lg', function() Snacks.lazygit() end, desc = 'Lazygit', },
         { '<leader>gb', function() Snacks.git.blame_line() end, desc = 'Git Blame Line', },
@@ -171,7 +168,6 @@ function M.keys()
         { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git Status" },
         { "<leader>gS", function() Snacks.picker.git_stash() end, desc = "Git Stash" },
         { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
-
         { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
         { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
         { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
@@ -181,13 +177,10 @@ function M.keys()
         { '<leader>fm', function() Snacks.notifier.show_history() end, desc = "Message history" },
 
         { "<C-p>", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
-        { "fg", function() Snacks.picker.grep() end, desc = "Grep" },
-        { "<leader>gg", function() Snacks.picker.grep() end, desc = "Grep" },
         { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
         { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
         { '<leader>s/', function() Snacks.picker.search_history() end, desc = "Search History" },
         { "<leader>sa", function() Snacks.picker.autocmds() end, desc = "Autocmds" },
-        { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
         { "<leader>sc", function() Snacks.picker.command_history() end, desc = "Command History" },
         { "<leader>sC", function() Snacks.picker.commands() end, desc = "Commands" },
         { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
@@ -252,7 +245,7 @@ function M.config(_, opts)
 
         if N and N.layout then
             -- Store the original layout function
-            local original_layout = N.layout
+            -- local original_layout = N.layout
 
             -- Override the layout function
             ---@diagnostic disable-next-line: inject-field

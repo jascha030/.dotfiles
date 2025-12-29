@@ -72,9 +72,6 @@ function M.on_attach(client, bufnr)
         vim.lsp.buf.signature_help(float_opts)
     end, { desc = 'Signature Help', has = 'signatureHelp' })
 
-    self:map('<leader>cd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
-    self:map('<leader>cl', 'LspInfo', { desc = 'Lsp Info' })
-    self:map('<leader>xd', 'Telescope diagnostics', { desc = 'Telescope Diagnostics' })
     self:map('<C-k>', vim.lsp.buf.signature_help, { mode = 'i', desc = 'Signature Help', has = 'signatureHelp' })
     self:map(']d', diagnostic_goto(true), { desc = 'Next Diagnostic' })
     self:map('[d', diagnostic_goto(false), { desc = 'Prev Diagnostic' })
@@ -83,6 +80,9 @@ function M.on_attach(client, bufnr)
     self:map(']w', diagnostic_goto(true, 'WARNING'), { desc = 'Next Warning' })
     self:map('[w', diagnostic_goto(false, 'WARNING'), { desc = 'Prev Warning' })
     self:map('<leader>r', M.rename, { expr = true, desc = 'Rename', has = 'rename' })
+
+    -- self:map('<leader>cd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
+    -- self:map('<leader>xd', 'Telescope diagnostics', { desc = 'Telescope Diagnostics' })
 end
 
 return M
