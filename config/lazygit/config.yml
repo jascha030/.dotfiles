@@ -1,4 +1,3 @@
----
 gui:
   nerdFontsVersion: "3"
   theme:
@@ -14,9 +13,8 @@ gui:
     markedBaseCommitBgColor: [yellow]
     unstagedChangesColor: [red]
     defaultFgColor: [default]
-
 git:
-  paging:
-    colorArg: always
-    # pager: delta --detect-dark-light=always --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
-    pager: delta --detect-dark-light=always --paging=never --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+  pagers:
+    - colorArg: always
+      # pager: delta --detect-dark-light=always --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+      pager: delta --detect-dark-light=always --paging=never --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
