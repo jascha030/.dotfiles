@@ -91,6 +91,8 @@ return {
             { '<leader>e', '<cmd>e<cr>' },
             { '<leader>fc', '<cmd>Telescope git_bcommits<cr>' },
             { '<leader><leader>l', '<cmd>Lazy<cr>' },
+            { '<leader><leader>t', '<cmd>InspectTree<cr>' },
+            { '<leader><leader>p', '<cmd>lua vim.show_pos()<cr>' },
         },
         v = {
             { '<C-c>', '"+y', desc = 'Yank to OS ClipBoard' },

@@ -72,6 +72,7 @@ function M.on_attach(client, bufnr)
         vim.lsp.buf.signature_help(float_opts)
     end, { desc = 'Signature Help', has = 'signatureHelp' })
 
+    self:map('<leader><leader>I', 'LspInfo', { desc = 'Lsp Info' })
     self:map('<C-k>', vim.lsp.buf.signature_help, { mode = 'i', desc = 'Signature Help', has = 'signatureHelp' })
     self:map(']d', diagnostic_goto(true), { desc = 'Next Diagnostic' })
     self:map('[d', diagnostic_goto(false), { desc = 'Prev Diagnostic' })

@@ -247,7 +247,6 @@ local M = {
     {
         'zbirenbaum/copilot.lua',
         cmd = 'Copilot',
-        -- build = '<cmd>Copilot auth<cr>',
         event = { 'InsertEnter' },
         keys = {
             {
@@ -259,6 +258,7 @@ local M = {
                         require('copilot.command').disable()
                     end
                 end,
+                desc = 'Toggle Copilot',
             },
         },
         opts = {
