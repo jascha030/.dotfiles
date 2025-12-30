@@ -162,6 +162,10 @@ fi
 compdef _composer __icomposer vcomposer
 compdef _op op
 
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^x' edit-command-line
+
 source "$ZDOTDIR"/aliases
 
 #- Display flashy, painstakingly crafted intro screen ----------------------------------------------------------------#

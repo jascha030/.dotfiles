@@ -83,3 +83,10 @@ alias nu="$HOME/.cargo/bin/nu"
 #- Suffix Aliases ----------------------------------------------------------------------------------------------------#
 alias -s php=pstorm
 alias -s {.zshrc,zsh,sh,json,yaml,.env,cs,ts,html}=vim
+
+#- Global Aliases -----------------------------------------------------------------------------------------------------#
+alias -g NS='1>/dev/null'
+alias -g NE='2>/dev/null'
+alias -g NA='&>/dev/null'
+
+alias -g C='| pbcopy'
