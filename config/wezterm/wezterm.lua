@@ -14,6 +14,8 @@ font.extend({
         'PragmataPro Mono Liga',
         'Noto Color Emoji',
         'JetBrains Mono',
+        'Apple SD Gothic Neo', -- macOS system font with CJK
+        'Hiragino Sans', -- Another macOS CJK font
     },
 })
 
@@ -52,7 +54,6 @@ for _, gpu in ipairs(require('wezterm').gui.enumerate_gpus()) do
 end
 
 config.max_fps = 120
-
 
 config.font_shaper = 'Harfbuzz'
 config.harfbuzz_features = { 'zero', 'calt', 'liga', 'kern', 'dlig', 'ss02', 'ss03', 'ss05', 'ss09' }
