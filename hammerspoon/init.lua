@@ -18,6 +18,7 @@ JSpoon.setup({
         system = {
             ['d'] = fn(JSpoon.toggle_darkmode),
             ['t'] = fn(JSpoon.toggle_term_app),
+            ['a'] = fn(JSpoon.route_audio_to_live),
         },
         control = {
             ['h'] = fn(JSpoon.window.left),
@@ -33,13 +34,6 @@ JSpoon.setup({
         apps = {
             ['i'] = 'Music',
             ['s'] = 'Spotify',
-            ['p'] = 'PhpStorm',
-            ['l'] = 'Ableton Live 11 Suite',
-            ['c'] = 'Chrome',
-            ['k'] = 'GitKraken',
-            ['n'] = 'Notes',
-            ['w'] = 'Chromium',
-            ['a'] = 'Safari',
         },
     },
 })
