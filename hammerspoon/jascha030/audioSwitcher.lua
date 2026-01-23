@@ -5,6 +5,7 @@ audioSwitcher.currentIndex = 1
 audioSwitcher.isActive = false
 audioSwitcher.modal = nil
 audioSwitcher.alert = nil
+audioSwitcher.modifierTap = nil
 
 local function get_output_devices()
     local devices = hs.audiodevice.allOutputDevices()
@@ -58,7 +59,7 @@ function audioSwitcher:start()
     self.isActive = true
     self.modal = hs.hotkey.modal.new()
 
-    self.modal:bind({}, "a", function()
+    self.modal:bind({ 'cmd', 'alt' }, 'a', function()
         self.currentIndex = (self.currentIndex % #self.devices) + 1
         self:showPreview()
     end)
@@ -67,7 +68,19 @@ function audioSwitcher:start()
         self:cancel()
     end)
 
+    self.modifierTap = hs.eventtap.new({ hs.eventtap.event.types.flagsChanged }, function(event)
+        local flags = event:getFlags()
+        local pressed = flags.cmd or flags.alt
+
+        if not pressed then
+            self:finish()
+        end
+
+        return not pressed
+    end)
+
     self.modal:enter()
+    self.modifierTap:start()
     self:showPreview()
 end
 
@@ -101,6 +114,11 @@ function audioSwitcher:cleanup()
     if self.modal then
         self.modal:exit()
         self.modal = nil
+    end
+
+    if self.modifierTap then
+        self.modifierTap:stop()
+        self.modifierTap = nil
     end
 
     if self.alert then
