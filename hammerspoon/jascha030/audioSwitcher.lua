@@ -7,6 +7,20 @@ audioSwitcher.modal = nil
 audioSwitcher.alert = nil
 audioSwitcher.modifierTap = nil
 
+-- local default_style = {
+    -- strokeWidth = 2,
+    -- strokeColor = { white = 1, alpha = 1 },
+    -- fillColor = { white = 0, alpha = 0.75 },
+    -- textColor = { white = 1, alpha = 1 },
+    -- textFont = '.AppleSystemUIFont',
+    -- textSize = 27,
+    -- radius = 27,
+    -- atScreenEdge = 0,
+    -- fadeInDuration = 0.15,
+    -- fadeOutDuration = 0.15,
+    -- padding = nil,
+-- }
+
 local function get_output_devices()
     local devices = hs.audiodevice.allOutputDevices()
 
@@ -43,7 +57,15 @@ function audioSwitcher:showPreview()
         end
 
         local message = table.concat(deviceList, '\n')
-        self.alert = hs.alert.show(message, 999)
+
+        local styledText = hs.styledtext.new(message, {
+            font = { name = 'Menlo', size = 14 }, -- or "Monaco", "SF Mono", etc.
+            color = { white = 1.0 },
+            backgroundColor = nil,
+            paragraphStyle = { alignment = 'left' },
+        })
+
+        self.alert = hs.alert.show(styledText)
     end
 end
 

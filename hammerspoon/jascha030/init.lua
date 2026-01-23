@@ -113,6 +113,10 @@ function M.setup(config)
     end
 
     spoon.SpoonInstall:andUse('RoundedCorners', { start = true, config = { radius = 8 } })
+    hs.alert.defaultStyle.fadeInDuration = 0
+    hs.alert.defaultStyle.fadeOutDuration = 0
+    hs.alert.defaultStyle.radius = 13
+
     spoon.ReloadConfiguration:start()
 
     quake.set(config.term_app)
