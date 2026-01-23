@@ -42,7 +42,7 @@ function audioSwitcher:showPreview()
         end
 
         local message = table.concat(deviceList, '\n')
-        self.alert = hs.alert.show(message, 999) -- Show until manually closed
+        self.alert = hs.alert.show(message, 999)
     end
 end
 
@@ -58,21 +58,11 @@ function audioSwitcher:start()
     self.isActive = true
     self.modal = hs.hotkey.modal.new()
 
-    local next = function()
+    self.modal:bind({}, "a", function()
         self.currentIndex = (self.currentIndex % #self.devices) + 1
         self:showPreview()
-    end
+    end)
 
-    local prev = function()
-        local prev = self.currentIndex - 1
-        self.currentIndex = prev < 1 and #self.devices or prev
-        self:showPreview()
-    end
-
-    self.modal:bind({}, 'tab', next)
-    self.modal:bind({}, 'down', next)
-    self.modal:bind({ 'shift' }, 'tab', prev)
-    self.modal:bind({}, 'up', prev)
     self.modal:bind({}, 'escape', function()
         self:cancel()
     end)
