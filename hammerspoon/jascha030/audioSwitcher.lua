@@ -59,7 +59,7 @@ function audioSwitcher:start()
     self.isActive = true
     self.modal = hs.hotkey.modal.new()
 
-    self.modal:bind({ 'cmd', 'alt' }, 'a', function()
+    self.modal:bind({ 'ctrl', 'alt' }, 'a', function()
         self.currentIndex = (self.currentIndex % #self.devices) + 1
         self:showPreview()
     end)

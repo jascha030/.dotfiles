@@ -30,6 +30,11 @@ JSpoon.setup({
             ['up'] = fn(JSpoon.window.center),
             ['down'] = fn(JSpoon.window.min),
             ['return'] = fn(JSpoon.window.max),
+            ['a'] = function()
+                if not JSpoon.audioSwitcher.isActive then
+                    JSpoon.audioSwitcher:start()
+                end
+            end,
         },
         apps = {
             ['i'] = 'Music',
