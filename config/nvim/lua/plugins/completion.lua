@@ -77,9 +77,7 @@ local M = {
                                             icon = dev_icon
                                         end
                                     else
-                                        icon = require('lspkind').symbolic(ctx.kind, {
-                                            mode = 'symbol',
-                                        })
+                                        icon = require('lspkind').symbolic(ctx.kind)
                                     end
 
                                     return icon .. ctx.icon_gap
@@ -236,6 +234,7 @@ local M = {
                         end
                     else
                         menu.win.config.min_width = config.min_width
+                        ---@diagnostic disable-next-line: undefined-field
                         menu.win.config.max_width = config.max_width
                     end
 

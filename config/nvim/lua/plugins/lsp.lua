@@ -135,10 +135,10 @@ return {
     {
         'gbprod/phpactor.nvim',
         ft = { 'php' },
-        dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-        build = function()
-            require('phpactor.handler.update')()
-        end,
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'neovim/nvim-lspconfig',
+        },
     },
     {
         'j-hui/fidget.nvim',
