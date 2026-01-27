@@ -15,12 +15,8 @@ vim.hl = vim.highlight
 vim.g.mapleader = ' '
 
 require('jascha030.globals')
-
--- Install required packages, if not already installed.
-require('jascha030.core.bootstrap').install_packages({
-    'folke/lazy.nvim',
-    -- 'rktjmp/hotpot.nvim',
-})
+require('jascha030.core.bootstrap').install_packages({ 'folke/lazy.nvim' }) -- Install required packages, if not already installed.
+require('jascha030.core.filetypes')
 
 local lazy_opts = {
     -- Idea taken from `willothy/nvim-config` (https://github.com/willothy/nvim-config/blob/main/init.lua).

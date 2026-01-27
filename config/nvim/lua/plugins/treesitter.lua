@@ -169,9 +169,6 @@ function M.config(_, opts)
 
     local parser_config = parsers.get_parser_configs()
 
-    --- @module "jascha030.core.filetypes"
-    require('jascha030.core.filetypes').setup()
-
     ---@diagnostic disable-next-line: inject-field
     parser_config.blade = {
         install_info = {
