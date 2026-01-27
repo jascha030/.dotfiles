@@ -30,6 +30,7 @@ local M = {
             ['proto'] = { stop_after_first = true, 'buf', 'protolint' },
             ['rust'] = { 'rustfmt' },
             ['scss'] = { stop_after_first = true, 'stylelint', 'prettierd' },
+            ['swift'] = { 'swift' },
             ['toml'] = { stop_after_first = true, 'taplo', 'prettierd' },
             ['tsx'] = { 'prettierd' },
             ['twig'] = { stop_after_first = true, 'twig-cs-fixer', 'prettierd' },
