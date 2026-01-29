@@ -46,7 +46,7 @@ local M = {
                 completion = { menu = { auto_show = true } },
                 keymap = {
                     preset = 'none',
-                    ['<CR>'] = { 'select_and_accept', 'fallback' },
+                    -- ['<CR>'] = { 'select_and_accept', 'fallback' },
                     ['<Tab>'] = { 'select_next', 'fallback' },
                     ['<S-Tab>'] = { 'select_prev', 'fallback' },
                     ['<Up>'] = { 'select_prev', 'fallback' },
