@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["opencode-gemini-auth@latest"],
+  "plugin": ["opencode-gemini-auth@latest", "opencode-wakatime"],
   "mcp": {
     "gh_grep": {
       "type": "remote",
