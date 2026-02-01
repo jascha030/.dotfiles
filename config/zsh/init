@@ -77,6 +77,17 @@ function _evalcache_clear () {
 }
 
 #- Init --------------------------------------------------------------------------------------------------------------#
+
+# Homebrew environment
+_evalcache /opt/homebrew/bin/brew shellenv
+
+path=(
+    "${DOT_PATH_VAR[@]}"
+    "${path[@]}"
+    "$HOME/.composer/vendor/bin"
+)
+typeset -aU path
+
 if (( ${+DOT_COMP_DIRS} )); then
     __fpath_add "${DOT_COMP_DIRS[@]}"
 fi
@@ -123,23 +134,12 @@ fi
 
 # Load plugins.
 safe_source "$ZDOTDIR"/plugins-spec
-[[ ${ZDOTDIR}/.zcompdump.zwc -nt ${ZDOTDIR}/.zcompdump ]] || zcompile_many "$ZDOTDIR"/.zcompdump
+[[ "$ZDOTDIR"/.zcompdump.zwc -nt "$ZDOTDIR"/.zcompdump ]] || zcompile_many "$ZDOTDIR"/.zcompdump
 unfunction zcompile_many
 
 export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 #- Application init evaluations --------------------------------------------------------------------------------------#
-
-# eval "$(mise activate zsh)"
-_evalcache /opt/homebrew/bin/brew shellenv
-_evalcache opam env
-
-path=(
-    "${DOT_PATH_VAR[@]}"
-    "${path[@]}"
-    "$HOME"/.composer/vendor/bin
-); typeset -aU path
-
 
 _evalcache zoxide init zsh
 _evalcache teleport-dir init
@@ -147,8 +147,10 @@ _evalcache symfony-autocomplete composer
 _evalcache symfony-autocomplete valet
 _evalcache symfony-autocomplete phpactor
 _evalcache op completion zsh
+_evalcache opam env
 
 #- Source late files like aliases etc --------------------------------------------------------------------------------#
+
 if (( ${+DOT_AFTER_INIT_SOURCES} )); then
     safe_source "${DOT_AFTER_INIT_SOURCES[@]}"
 fi
@@ -163,19 +165,24 @@ bindkey '^x' edit-command-line
 source "$ZDOTDIR"/aliases
 
 #- Display flashy, painstakingly crafted intro screen ----------------------------------------------------------------#
-if [[ -o login ]] && [[ -t 0 ]]; then 
-    [ -f "${HOME}/.lolmsgrc" ] && . "${HOME}/.lolmsgrc" || echo 'export LOLMSGRC_ENABLED=1' > "${HOME}/.lolmsgrc"
+
+if [[ -o login ]] && [[ -t 0 ]]; then
+    [ -f "$HOME"/.lolmsgrc ] && . "$HOME"/.lolmsgrc || echo 'export LOLMSGRC_ENABLED=1' > "$HOME"/.lolmsgrc
     [[ "$LOLMSGRC_ENABLED" -eq 1 ]] && lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
 fi
 
 #- Load flashy, painstakingly crafted shell prompt -------------------------------------------------------------------#
+
 source "$ZDOTDIR"/prompt/prompt
 
 #- Init mcfly history last -------------------------------------------------------------------------------------------#
+
 _evalcache mcfly init zsh
 
 #- And finally, unfunc locally used functions ------------------------------------------------------------------------#
+
 unfunction _evalcache
 unfunction __fpath_add
-unfunction __path_add 
-unfunction __autoload 
+unfunction __path_add
+unfunction __autoload
+
