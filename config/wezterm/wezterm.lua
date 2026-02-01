@@ -111,4 +111,7 @@ config.hyperlink_rules = {
     { regex = [["([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)"]], format = 'https://www.github.com/$1/$3' },
 }
 
+config.initial_cols = 157
+config.initial_rows = 35
+
 return config
