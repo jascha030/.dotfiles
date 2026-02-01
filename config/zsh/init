@@ -5,18 +5,12 @@
 # By Jascha030                                                                  https://github.io/jascha030/.dotfiles #
 #---------------------------------------------------------------------------------------------------------------------#
 
-# Alternative dir for histfiles
-! (( ${+DOT_DATA_DIR} )) && export DOT_DATA_DIR="$XDG_CONFIG_HOME"/datafiles
-# Prompt height in lines
-! (( DOT_PROMPT_HEIGHT )) && export DOT_PROMPT_HEIGHT=2
-# Conditionals, if current term is in neovim .
-if (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )); then
-    export _IS_VIMTERM=true
-    export LOL_MSG="$DOT_NEOVIM_LOL_MSG"
-else
-    export _IS_VIMTERM=false
-    export LOL_MSG="$DOT_DEFAULT_LOL_MSG"
-fi
+(( ${+DOT_DATA_DIR} )) || export DOT_DATA_DIR=${XDG_CONFIG_HOME}/datafiles
+(( DOT_PROMPT_HEIGHT )) || export DOT_PROMPT_HEIGHT=2
+
+(( ${+MYVIMRC} )) && export LOL_MSG=$DOT_NEOVIM_LOL_MSG || export LOL_MSG=$DOT_DEFAULT_LOL_MSG
+
+# export LOL_MSG=$(( ${+MYVIMRC} ? ${DOT_NEOVIM_LOL_MSG} : ${DOT_DEFAULT_LOL_MSG} ))
 
 #- Internally used functions -----------------------------------------------------------------------------------------#
 
