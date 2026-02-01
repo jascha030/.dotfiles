@@ -129,8 +129,8 @@ fi
 
 # Load plugins.
 safe_source "$ZDOTDIR"/plugins-spec
-[[ ${ZDOTDIR}/.zcompdump.zwc -nt ${ZDOTDIR}/.zcompdump ]] || zcompile-many "$ZDOTDIR"/.zcompdump
-unfunction zcompile-many
+[[ ${ZDOTDIR}/.zcompdump.zwc -nt ${ZDOTDIR}/.zcompdump ]] || zcompile_many "$ZDOTDIR"/.zcompdump
+unfunction zcompile_many
 
 export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 

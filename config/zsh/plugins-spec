@@ -5,7 +5,7 @@ path+=("$ZDOTDIR"/plugins/**)
 
 export Z_PLUGINS=()
 
-function zcompile-many() {
+function zcompile_many() {
 	local f
 	for f; do zcompile -R -- "$f".zwc "$f"; done
 }
@@ -34,15 +34,15 @@ function zsh_add_plugin {
 }
 
 function zcompile_plugins() {
-	for _curr_plugin_dir in "$Z_PLUGINS"[@]; do
-		if [ "$_curr_plugin_dir" = "$ZDOTDIR/plugins/zsh-syntax-highlighting" ]; then
-			continue
-		fi
+    for _curr_plugin_dir in "${Z_PLUGINS[@]}"; do
+        if [[ $_curr_plugin_dir == "$ZDOTDIR/plugins/zsh-syntax-highlighting" ]]; then
+            continue
+        fi
 
-		if [ -e "$_curr_plugin_dir" ]; then
-			zcompile-many "$_curr_plugin_dir"/**/*.zsh
-		fi
-	done
+        if [[ -e $_curr_plugin_dir ]]; then
+            zcompile_many "$_curr_plugin_dir"/**/*.zsh
+        fi
+    done
 }
 
 zsh_add_plugin Aloxaf/fzf-tab
