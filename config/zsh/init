@@ -76,6 +76,7 @@ function _evalcache_clear () {
     rm -i "$ZSH_EVALCACHE_DIR"/init-*.sh
 }
 
+
 #- Init --------------------------------------------------------------------------------------------------------------#
 
 # Homebrew environment
@@ -96,17 +97,26 @@ __fpath_add "${ZDOTDIR}/zfunc" "${ZDOTDIR}/completions"
 __autoload "${ZDOTDIR}/zfunc"
 __fpath_add "/opt/homebrew/share/zsh/site-functions"
 
+# Run (bash)compinit for completions.
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR:-~}/.zcompdump(#qN.mh+24) ]]; then
+    compinit -i
+else
+    compinit -C -i
+fi
+#
 # Source files that are required early.
 (( ${+DOT_SOURCES} )) && safe_source "${DOT_SOURCES[@]}"
 
-#- Lazyload functions ------------------------------------------------------------------------------------------------#
+autoload -U +X bashcompinit && bashcompinit
+if (( ${+DOT_BASH_COMPLETIONS})); then
+    safe_source "${DOT_BASH_COMPLETIONS[@]}"
+fi
 
-function merge_arrays {
-    # undefined
-    builtin autoload -X
-}
-
-#- Init --------------------------------------------------------------------------------------------------------------#
+# Load plugins.
+safe_source "$ZDOTDIR"/plugins-spec
+[[ "$ZDOTDIR"/.zcompdump.zwc -nt "$ZDOTDIR"/.zcompdump ]] || zcompile_many "$ZDOTDIR"/.zcompdump
+unfunction zcompile_many
 
 # Assure required dirs and files exist.
 assert_dirs "$DOT_DATA_DIR"
@@ -119,23 +129,6 @@ fi
 if (( ${+DOT_REQUIRED_FILES} )); then
     assert_files "${DOT_REQUIRED_FILES[@]}"
 fi
-
-# Run (bash)compinit for completions.
-autoload -Uz compinit
-for dump in "$ZDOTDIR"/.zcompdump(N.mh+24); do
-    compinit
-done
-compinit -C
-
-autoload -U +X bashcompinit && bashcompinit
-if (( ${+DOT_BASH_COMPLETIONS})); then
-    safe_source "${DOT_BASH_COMPLETIONS[@]}"
-fi
-
-# Load plugins.
-safe_source "$ZDOTDIR"/plugins-spec
-[[ "$ZDOTDIR"/.zcompdump.zwc -nt "$ZDOTDIR"/.zcompdump ]] || zcompile_many "$ZDOTDIR"/.zcompdump
-unfunction zcompile_many
 
 export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 

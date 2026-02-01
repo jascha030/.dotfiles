@@ -164,7 +164,9 @@ function combined-precmd {
     emulate -L zsh
 
     add-zsh-hook preexec position-prompt-bottom
-    add-zsh-hook precmd combined-precmd
+    if (( ! $DOT_PROMPT_BETTER_GIT_STATUS )); then
+        add-zsh-hook precmd combined-precmd
+    fi
 
     zle -N zle-line-init
 
@@ -179,7 +181,7 @@ function combined-precmd {
 
     set-prompt
 
-    if [[ "$LOLMSGRC_ENABLED" -eq 1 ]]; then
+    if (( $LOLMSGRC_ENABLED )); then
         clear-screen && autoload -Uz clear-screen-zle
     fi
 }
