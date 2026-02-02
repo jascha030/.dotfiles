@@ -1,7 +1,11 @@
 [tools]
+"npm:neovim" = "latest"
+"npm:ocx" = "latest"
+"npm:opensrc" = "latest"
+"npm:skills" = "latest"
+"npm:taze" = "latest"
 bun = "latest"
 node = "lts"
-# pnpm = "9"
 usage = "latest"
 
 [settings]
