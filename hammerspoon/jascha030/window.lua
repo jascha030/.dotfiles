@@ -31,6 +31,17 @@ local function move_left(win)
 end
 
 ---@param win hs.window
+---@param frame hs.geometry
+local function set_frame(win, frame)
+    if type(win._setFrame) == 'function' then
+        win:_setFrame(frame)
+        return
+    end
+
+    win:setFrame(frame)
+end
+
+---@param win hs.window
 local function move_right(win)
     local frame = win:screen():frame()
     local state = win:frame()
@@ -57,7 +68,7 @@ function M.center()
     local space = hs.spaces.activeSpaceOnScreen(hs.screen.mainScreen())
     local spaceScreen = hs.screen.find(hs.spaces.spaceDisplay(space))
     local windowSpaces = hs.spaces.windowSpaces(win)
-    local firstSpace = windowSpaces ~= nil and windowSpaces[0] or nil
+    local firstSpace = windowSpaces ~= nil and windowSpaces[1] or nil
 
     if firstSpace ~= space then
         win:moveToScreen(spaceScreen)
@@ -82,7 +93,7 @@ function M.move(app_or_win, space)
     end
 
     local windowSpaces = hs.spaces.windowSpaces(win)
-    local currentWindowSpace = windowSpaces ~= nil and windowSpaces[0] or nil
+    local currentWindowSpace = windowSpaces ~= nil and windowSpaces[1] or nil
 
     if currentWindowSpace ~= space then
         ---@diagnostic disable-next-line: param-type-mismatch
@@ -98,7 +109,7 @@ function M.move(app_or_win, space)
     -- Center window if not snapped left or right
     if max.x ~= f.x and max.y ~= f.y and max.x2 ~= f.x2 and max.y2 ~= f.y2 then
         ---@diagnostic disable-next-line: param-type-mismatch
-        win:setFrame(pos:centered(win, spaceScreen))
+        set_frame(win, pos:centered(win, spaceScreen))
     end
 
     win:focus()
