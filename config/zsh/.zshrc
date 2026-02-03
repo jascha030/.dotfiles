@@ -51,7 +51,7 @@ export DOT_COMP_DIRS=(
 )
 
 export DOT_BASH_COMPLETIONS=(
-    ${HOME}/.bash.d/*
+    # ${HOME}/.bash.d/*
     ${DOTFILES}/config/bash/bash_completion.d/*
     /opt/homebrew/Cellar/wp-cli-completion/**/etc/bash_completion.d/*
 )
