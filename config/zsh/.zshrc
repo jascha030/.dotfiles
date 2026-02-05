@@ -20,7 +20,6 @@ fi
 setopt autocd extendedglob nomatch menucomplete traps_async
 unsetopt BEEP
 
-
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*:git-checkout:*' sort false
@@ -88,7 +87,6 @@ export DOT_PATH_VAR=(
     ${HOME}/go/bin
     ${HOME}/.local/share/rtx/shims
     ${HOME}/.local/share/nvim/mason/bin
-    ${HOME}/.development/Projects/Php/Wordpress/vip/allegion-cli/bin
     ${HOME}/.local/bin
     /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp
 )
