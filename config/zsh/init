@@ -1,16 +1,10 @@
 #!/usr/bin/env zsh
 
 #---------------------------------------------------------------------------------------------------------------------#
-#                                                    Dotfiles                                                         #
-# By Jascha030                                                                  https://github.io/jascha030/.dotfiles #
+# By Jascha030                                       Dotfiles                   https://github.io/jascha030/.dotfiles #
 #---------------------------------------------------------------------------------------------------------------------#
 
 (( ${+DOT_DATA_DIR} )) || export DOT_DATA_DIR=${XDG_CONFIG_HOME}/datafiles
-(( DOT_PROMPT_HEIGHT )) || export DOT_PROMPT_HEIGHT=2
-
-(( ${+MYVIMRC} )) && export LOL_MSG=$DOT_NEOVIM_LOL_MSG || export LOL_MSG=$DOT_DEFAULT_LOL_MSG
-
-# export LOL_MSG=$(( ${+MYVIMRC} ? ${DOT_NEOVIM_LOL_MSG} : ${DOT_DEFAULT_LOL_MSG} ))
 
 #- Internally used functions -----------------------------------------------------------------------------------------#
 
@@ -71,11 +65,9 @@ function _evalcache () {
     fi
 }
 
-# Taken from https://github.com/mroth/evalcache
 function _evalcache_clear () {
     rm -i "$ZSH_EVALCACHE_DIR"/init-*.sh
 }
-
 
 #- Init --------------------------------------------------------------------------------------------------------------#
 
@@ -104,7 +96,7 @@ if [[ -n ${ZDOTDIR:-~}/.zcompdump(#qN.mh+24) ]]; then
 else
     compinit -C -i
 fi
-#
+
 # Source files that are required early.
 (( ${+DOT_SOURCES} )) && safe_source "${DOT_SOURCES[@]}"
 
@@ -142,31 +134,30 @@ _evalcache symfony-autocomplete phpactor
 _evalcache op completion zsh
 _evalcache opam env
 
+compdef _composer __icomposer vcomposer
+compdef _op op
+
 #- Source late files like aliases etc --------------------------------------------------------------------------------#
 
 if (( ${+DOT_AFTER_INIT_SOURCES} )); then
     safe_source "${DOT_AFTER_INIT_SOURCES[@]}"
 fi
 
-compdef _composer __icomposer vcomposer
-compdef _op op
-
-autoload -Uz edit-command-line
-zle -N edit-command-line
-bindkey '^x' edit-command-line
-
-source "$ZDOTDIR"/aliases
-
-#- Display flashy, painstakingly crafted intro screen ----------------------------------------------------------------#
+#- Display flashy, painstakingly crafted intro screen & Prompt -------------------------------------------------------#
 
 if [[ -o login ]] && [[ -t 0 ]]; then
+    (( DOT_PROMPT_HEIGHT )) || export DOT_PROMPT_HEIGHT=2
+    (( ${+MYVIMRC} )) && export LOL_MSG=$DOT_NEOVIM_LOL_MSG || export LOL_MSG=$DOT_DEFAULT_LOL_MSG
     [ -f "$HOME"/.lolmsgrc ] && . "$HOME"/.lolmsgrc || echo 'export LOLMSGRC_ENABLED=1' > "$HOME"/.lolmsgrc
     [[ "$LOLMSGRC_ENABLED" -eq 1 ]] && lolmsg "$LOL_MSG" "$DOT_PROMPT_HEIGHT"
 fi
 
-#- Load flashy, painstakingly crafted shell prompt -------------------------------------------------------------------#
+source ${ZDOTDIR}/aliases
+source ${ZDOTDIR}/prompt/prompt
 
-source "$ZDOTDIR"/prompt/prompt
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^x' edit-command-line
 
 #- Init mcfly history last -------------------------------------------------------------------------------------------#
 

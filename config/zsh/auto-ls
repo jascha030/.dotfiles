@@ -19,5 +19,5 @@ function auto-ls-jassies-ls {
 # Add based on custom config
 export AUTO_LS_COMMANDS=(
     jassies-ls
-    git-status
+    # git-status
 )
