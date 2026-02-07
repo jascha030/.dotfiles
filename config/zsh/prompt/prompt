@@ -31,7 +31,6 @@ source ${ZDOTDIR}/prompt/helpers.zsh
 # Use https://github.com/romkatv/gitstatus/tree/master?tab=readme-ov-file for gitstatus if available
 if [[ -f "${HOME}/tools/gitstatus/gitstatus.plugin.zsh" ]]; then
     source ${ZDOTDIR}/prompt/gitstatus.prompt.zsh
-
     export DOT_PROMPT_BETTER_GIT_STATUS=1
 else
     autoload -Uz vcs_info
@@ -169,7 +168,6 @@ function combined-precmd {
     fi
 
     zle -N zle-line-init
-
     zle -N block-empty-tab
     bindkey '^I' block-empty-tab
 

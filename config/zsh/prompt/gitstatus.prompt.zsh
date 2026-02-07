@@ -1,38 +1,19 @@
-# Simple Zsh prompt with Git status.
+# Simple Zsh prompt with Git status (Async version).
 
 # Source gitstatus.plugin.zsh from $GITSTATUS_DIR or from the same directory
 # in which the current script resides if the variable isn't set.
 source "${GITSTATUS_DIR:-${${(%):-%x}:h}}/gitstatus.plugin.zsh" || return
 
-# Sets GITSTATUS_PROMPT to reflect the state of the current git repository. Empty if not
-# in a git repository. In addition, sets GITSTATUS_PROMPT_LEN to the number of columns
-# $GITSTATUS_PROMPT will occupy when printed.
-#
-# Example:
-#
-#   GITSTATUS_PROMPT='master ⇣42⇡42 ⇠42⇢42 *42 merge ~42 +42 !42 ?42'
-#   GITSTATUS_PROMPT_LEN=39
-#
-#   master  current branch
-#      ⇣42  local branch is 42 commits behind the remote
-#      ⇡42  local branch is 42 commits ahead of the remote
-#      ⇠42  local branch is 42 commits behind the push remote
-#      ⇢42  local branch is 42 commits ahead of the push remote
-#      *42  42 stashes
-#    merge  merge in progress
-#      ~42  42 merge conflicts
-#      +42  42 staged changes
-#      !42  42 unstaged changes
-#      ?42  42 untracked files
-function gitstatus_prompt_update() {
+typeset -g GITSTATUS_INITIALIZED=0
+
+# Callback function that will be called when git status is ready
+function gitstatus_prompt_callback() {
     emulate -L zsh
     typeset -g  GITSTATUS_PROMPT=''
     typeset -gi GITSTATUS_PROMPT_LEN=0
 
-    # Call gitstatus_query synchronously. Note that gitstatus_query can also be called
-    # asynchronously; see documentation in gitstatus.plugin.zsh.
-    gitstatus_query 'MY'                  || return 1  # error
-    [[ $VCS_STATUS_RESULT == 'ok-sync' ]] || return 0  # not a git repo
+    # Check the result from the async call
+    [[ $VCS_STATUS_RESULT == 'ok-async' ]] || return 0  # not a git repo
 
     local      clean='%76F'   # green foreground
     local   modified='%178F'  # yellow foreground
@@ -53,7 +34,7 @@ function gitstatus_prompt_update() {
     fi
 
     (( $#where > 32 )) && where[13,-13]="…"  # truncate long branch names and tags
-    p+="${clean}${where//\%/%%}"             # escape %
+    p+="${clean}${where//\\%/%%}"             # escape %
 
     # ⇣42 if behind the remote.
     (( VCS_STATUS_COMMITS_BEHIND )) && p+=" ${clean}⇣${VCS_STATUS_COMMITS_BEHIND}"
@@ -81,13 +62,36 @@ function gitstatus_prompt_update() {
     GITSTATUS_PROMPT="| ${p}%f"
 
     # The length of GITSTATUS_PROMPT after removing %f and %F.
-    GITSTATUS_PROMPT_LEN="${(m)#${${GITSTATUS_PROMPT//\%\%/x}//\%(f|<->F)}}"
+    GITSTATUS_PROMPT_LEN="${(m)#${${GITSTATUS_PROMPT//\\%\\%/x}//\\%(f|<->F)}}"
+    
+    # Redraw the prompt with the new git status
+    zle && zle reset-prompt
+}
+
+function gitstatus_prompt_update() {
+    emulate -L zsh
+    typeset -g  GITSTATUS_PROMPT=''
+    typeset -gi GITSTATUS_PROMPT_LEN=0
+
+    # Quick check if we're in a git repo
+    if ! git rev-parse --git-dir &>/dev/null; then
+        return 0
+    fi
+
+    # Initialize on first git repo encounter
+    if (( ! GITSTATUS_INITIALIZED )); then
+        gitstatus_stop 'MY' && gitstatus_start -s -1 -u -1 -c -1 -d -1 'MY'
+        GITSTATUS_INITIALIZED=1
+    fi
+
+    # Call gitstatus_query asynchronously
+    gitstatus_query -d $PWD -c gitstatus_prompt_callback -t 0 'MY' || return 1
 }
 
 # Start gitstatusd instance with name "MY". The same name is passed to
 # gitstatus_query in gitstatus_prompt_update. The flags with -1 as values
 # enable staged, unstaged, conflicted and untracked counters.
-gitstatus_stop 'MY' && gitstatus_start -s -1 -u -1 -c -1 -d -1 'MY'
+# gitstatus_stop 'MY' && gitstatus_start -s -1 -u -1 -c -1 -d -1 'MY'
 
 # On every prompt, fetch git status and set GITSTATUS_PROMPT.
 autoload -Uz add-zsh-hook
@@ -109,3 +113,4 @@ PROMPT+='%39F%$((-GITSTATUS_PROMPT_LEN-1))<…<%~%<<%f'  # blue current working 
 PROMPT+='${GITSTATUS_PROMPT:+ $GITSTATUS_PROMPT}'      # git status
 PROMPT+=$'\n'                                          # new line
 PROMPT+='%F{%(?.76.196)}%#%f '                         # %/# (normal/root); green/red (ok/error)
+
