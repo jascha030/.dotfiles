@@ -23,6 +23,8 @@ vim.cmd([[
     autocmd BufReadPost *.kdl set ft=kdl
     autocmd BufReadPost *Brewfile set ft=ruby
     autocmd BufReadPost *.mdc set ft=markdown
+    " NUShell
+    autocmd BufRead,BufNewFile *.nu set ft=nu
     " Git
     autocmd BufRead,BufNewFile gitignore_global,*.*ignore set ft=gitignore
     autocmd BufRead,BufNewFile *.gitattributes set ft=gitattributes
