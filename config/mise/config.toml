@@ -6,6 +6,7 @@
 "npm:taze" = "latest"
 bun = "latest"
 node = "lts"
+pnpm = "latest"
 usage = "latest"
 
 [settings]
