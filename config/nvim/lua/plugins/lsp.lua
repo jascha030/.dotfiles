@@ -81,6 +81,11 @@ return {
                 if client.name == 'yamlls' then
                     client.server_capabilities.documentFormattingProvider = true
                 end
+
+                if client.name == 'bashls' then
+                    client.server_capabilities.documentFormattingProvider = false
+                    client.server_capabilities.documentRangeFormattingProvider = false
+                end
             end)
 
             lsp.lsp_attach(lsp.keymaps.on_attach)

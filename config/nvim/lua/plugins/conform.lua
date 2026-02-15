@@ -14,6 +14,7 @@ local M = {
     opts = {
         formatters_by_ft = {
             ['asm'] = { 'asmfmt' },
+            ['bash'] = { 'shfmt_bash' },
             ['c'] = { stop_after_first = true, 'uncrustify', 'clang_format' },
             ['cpp'] = { 'clang_format' },
             ['css'] = { 'prettierd' },
@@ -30,6 +31,7 @@ local M = {
             ['proto'] = { stop_after_first = true, 'buf', 'protolint' },
             ['rust'] = { 'rustfmt' },
             ['scss'] = { stop_after_first = true, 'stylelint', 'prettierd' },
+            ['sh'] = { 'shfmt_posix' },
             ['swift'] = { 'swift' },
             ['toml'] = { stop_after_first = true, 'taplo', 'prettierd' },
             ['tsx'] = { 'prettierd' },
@@ -37,7 +39,12 @@ local M = {
             ['typescript'] = { 'prettierd' },
             ['typescriptreact'] = { 'prettierd' },
             ['yaml'] = { 'prettierd' },
-            ['zsh'] = {},
+            ['zsh'] = { 'shfmt_zsh' },
+        },
+        formatters = {
+            shfmt_bash = { command = 'shfmt' }, -- no -ln flag = default bash
+            shfmt_zsh = { command = 'shfmt', prepend_args = { '-ln', 'zsh' } },
+            shfmt_posix = { command = 'shfmt', prepend_args = { '-ln', 'posix' } },
         },
         default_format_opts = { lsp_format = 'fallback' },
     },
