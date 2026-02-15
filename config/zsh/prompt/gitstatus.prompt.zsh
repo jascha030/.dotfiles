@@ -73,11 +73,6 @@ function gitstatus_prompt_update() {
     typeset -g  GITSTATUS_PROMPT=''
     typeset -gi GITSTATUS_PROMPT_LEN=0
 
-    # Quick check if we're in a git repo
-    if ! git rev-parse --git-dir &>/dev/null; then
-        return 0
-    fi
-
     # Initialize on first git repo encounter
     if (( ! GITSTATUS_INITIALIZED )); then
         gitstatus_stop 'MY' && gitstatus_start -s -1 -u -1 -c -1 -d -1 'MY'
