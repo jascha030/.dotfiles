@@ -22,7 +22,7 @@ function M.fn(f, ...)
     end
 
     return function()
-        local ok, res = pcall(f, v)
+        local ok, res = pcall(f, table.unpack(v))
         return ok and res
     end
 end
