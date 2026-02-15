@@ -21,24 +21,23 @@ JSpoon.setup({
             ['a'] = fn(JSpoon.system.route_audio_to_live),
         },
         control = {
-            ['h'] = fn(JSpoon.window.left),
-            ['left'] = fn(JSpoon.window.left),
-            ['l'] = fn(JSpoon.window.right),
-            ['right'] = fn(JSpoon.window.right),
-            ['j'] = fn(JSpoon.window.center),
-            ['k'] = fn(JSpoon.window.center),
-            ['up'] = fn(JSpoon.window.center),
-            ['down'] = fn(JSpoon.window.min),
-            ['return'] = fn(JSpoon.window.max),
             ['a'] = function()
                 if not JSpoon.audioSwitcher.isActive then
                     JSpoon.audioSwitcher:start()
                 end
             end,
+            ['n'] = fn(JSpoon.system.finder_cleanup_by, 'Name'),
+            ['t'] = fn(JSpoon.system.finder_cleanup_by, 'Kind'),
+            ['down'] = fn(JSpoon.window.min),
+            ['h'] = fn(JSpoon.window.left),
+            ['j'] = fn(JSpoon.window.center),
+            ['k'] = fn(JSpoon.window.center),
+            ['l'] = fn(JSpoon.window.right),
+            ['left'] = fn(JSpoon.window.left),
+            ['return'] = fn(JSpoon.window.max),
+            ['right'] = fn(JSpoon.window.right),
+            ['up'] = fn(JSpoon.window.center),
         },
-        apps = {
-            ['i'] = 'Music',
-            ['s'] = 'Spotify',
-        },
+        apps = {},
     },
 })
