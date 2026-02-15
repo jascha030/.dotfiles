@@ -16,9 +16,9 @@ JSpoon.setup({
     },
     hotkeys = {
         system = {
-            ['d'] = fn(JSpoon.toggle_darkmode),
+            ['d'] = fn(JSpoon.system.toggle_darkmode),
             ['t'] = fn(JSpoon.toggle_term_app),
-            ['a'] = fn(JSpoon.route_audio_to_live),
+            ['a'] = fn(JSpoon.system.route_audio_to_live),
         },
         control = {
             ['h'] = fn(JSpoon.window.left),
