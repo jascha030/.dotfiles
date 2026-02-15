@@ -59,4 +59,14 @@ function M.toggle_darkmode()
     ]])
 end
 
+function M.finder_cleanup_by(type)
+    type = type or 'Name'
+
+    local app = hs.application.frontmostApplication()
+
+    if app:name() == 'Finder' then
+        app:selectMenuItem({ 'View', 'Clean Up By', type })
+    end
+end
+
 return M
