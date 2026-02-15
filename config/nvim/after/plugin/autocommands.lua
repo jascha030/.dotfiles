@@ -39,8 +39,8 @@ vim.cmd([[
     autocmd BufRead,BufNewFile *.nginx set ft=nginx
     autocmd BufRead,BufNewFile */.config/valet/Nginx/* set ft=nginx
     " ZSH
-    autocmd BufRead,BufNewFile *.antigenrc set ft=zsh
-    autocmd BufRead,BufNewFile .zsh* set ft=zsh
+    autocmd BufRead,BufNewFile *.antigenrc setfiletype zsh
+    autocmd BufRead,BufNewFile .zsh* setfiletype zsh
     " Neon
     autocmd BufRead,BufNewFile *.neon,*.neon.dist set ft=neon
     " INI
