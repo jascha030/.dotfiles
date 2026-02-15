@@ -25,7 +25,6 @@ fi
 # fi
 # export TERM_PRETTY="$(builtin echo -n ${TERM})"
 export TERM_PRETTY=${TERM_PRETTY:-$TERM}
-
 source ${ZDOTDIR}/prompt/helpers.zsh
 
 # Use https://github.com/romkatv/gitstatus/tree/master?tab=readme-ov-file for gitstatus if available
@@ -146,40 +145,27 @@ function TRAPWINCH () {
     clear-screen-zle
 }
 
-function combined-precmd {
-    emulate -L zsh
-    
-    if [[ -d .git ]] || git rev-parse --git-dir >/dev/null 2>&1; then
-        gitstatus_prompt_update
-    else
-        GITSTATUS_PROMPT=""
-        GITSTATUS_PROMPT_LEN=0
-    fi
-    
-    set-prompt
-}
-
 () {
     emulate -L zsh
 
     add-zsh-hook preexec position-prompt-bottom
-    if (( ! $DOT_PROMPT_BETTER_GIT_STATUS )); then
-        add-zsh-hook precmd combined-precmd
+
+    if (( DOT_PROMPT_BETTER_GIT_STATUS )); then
+        add-zsh-hook precmd gitstatus_prompt_update
     fi
 
     zle -N zle-line-init
     zle -N block-empty-tab
-    bindkey '^I' block-empty-tab
-
     zle -N magic-enter
-    bindkey "^M" magic-enter
-
     zle -N bracketed-paste-force
+
+    bindkey '^I' block-empty-tab
+    bindkey "^M" magic-enter
     bindkey '^[[118;6u' bracketed-paste-force
 
     set-prompt
 
-    if (( $LOLMSGRC_ENABLED )); then
+    if (( LOLMSGRC_ENABLED )); then
         clear-screen && autoload -Uz clear-screen-zle
     fi
 }

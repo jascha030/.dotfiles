@@ -89,8 +89,8 @@ function gitstatus_prompt_update() {
 # gitstatus_stop 'MY' && gitstatus_start -s -1 -u -1 -c -1 -d -1 'MY'
 
 # On every prompt, fetch git status and set GITSTATUS_PROMPT.
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd gitstatus_prompt_update
+# autoload -Uz add-zsh-hook
+# add-zsh-hook precmd gitstatus_prompt_update
 
 # Enable/disable the right prompt options.
 setopt no_prompt_bang prompt_percent prompt_subst
