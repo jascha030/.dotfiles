@@ -3,10 +3,7 @@ local M = {}
 local types = {
     apps = {
         name = 'Apps',
-        mods = {
-            'shift',
-            'alt',
-        },
+        mods = { 'shift', 'alt' },
         handler = function(mod, key, app)
             hs.hotkey.bind(mod, key, function()
                 require('jascha030').quake.toggle(app)
@@ -16,18 +13,11 @@ local types = {
     control = {
         name = 'App controls',
         description = 'Bindings mapped to various actions related to specific apps and the window/layout system.',
-        mods = {
-            'ctrl',
-            'alt',
-        },
+        mods = { 'ctrl', 'alt' },
     },
     system = {
         name = 'System bindings',
-        mods = {
-            'ctrl',
-            'alt',
-            'cmd',
-        },
+        mods = { 'ctrl', 'alt', 'cmd' },
     },
 }
 
