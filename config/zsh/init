@@ -87,6 +87,7 @@ fi
 
 __fpath_add "${ZDOTDIR}/zfunc" "${ZDOTDIR}/completions"
 __autoload "${ZDOTDIR}/zfunc"
+
 __fpath_add "/opt/homebrew/share/zsh/site-functions"
 
 # Run (bash)compinit for completions.
@@ -101,9 +102,7 @@ fi
 (( ${+DOT_SOURCES} )) && safe_source "${DOT_SOURCES[@]}"
 
 autoload -U +X bashcompinit && bashcompinit
-if (( ${+DOT_BASH_COMPLETIONS})); then
-    safe_source "${DOT_BASH_COMPLETIONS[@]}"
-fi
+(( ${+DOT_BASH_COMPLETIONS})) && safe_source "${DOT_BASH_COMPLETIONS[@]}"
 
 # Load plugins.
 safe_source "$ZDOTDIR"/plugins-spec
@@ -114,18 +113,14 @@ unfunction zcompile_many
 assert_dirs "$DOT_DATA_DIR"
 assert_files "${DOT_DATA_DIR}/.zsh_history" "${DOT_DATA_DIR}/.mysql_history"
 
-if (( ${+DOT_REQUIRED_DIRS} )); then
-    assert_dirs "${DOT_REQUIRED_DIRS[@]}"
-fi
-
-if (( ${+DOT_REQUIRED_FILES} )); then
-    assert_files "${DOT_REQUIRED_FILES[@]}"
-fi
+(( ${+DOT_REQUIRED_DIRS} )) && assert_dirs "${DOT_REQUIRED_DIRS[@]}"
+(( ${+DOT_REQUIRED_FILES} )) && assert_files "${DOT_REQUIRED_FILES[@]}"
 
 export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 #- Application init evaluations --------------------------------------------------------------------------------------#
 
+# _evalcache teleport-dir init
 _evalcache zoxide init zsh
 _evalcache teleport-dir init
 _evalcache symfony-autocomplete composer
@@ -137,11 +132,9 @@ _evalcache opam env
 compdef _composer __icomposer vcomposer
 compdef _op op
 
-#- Source late files like aliases etc --------------------------------------------------------------------------------#
+#- Source late files --------------------------------------------------------------------------------------------------#
 
-if (( ${+DOT_AFTER_INIT_SOURCES} )); then
-    safe_source "${DOT_AFTER_INIT_SOURCES[@]}"
-fi
+(( ${+DOT_AFTER_INIT_SOURCES} )) && safe_source "${DOT_AFTER_INIT_SOURCES[@]}"
 
 #- Display flashy, painstakingly crafted intro screen & Prompt -------------------------------------------------------#
 
