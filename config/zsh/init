@@ -122,14 +122,42 @@ export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 # _evalcache teleport-dir init
 _evalcache zoxide init zsh
-_evalcache teleport-dir init
-_evalcache symfony-autocomplete composer
-_evalcache symfony-autocomplete valet
-_evalcache symfony-autocomplete phpactor
 _evalcache op completion zsh
-_evalcache opam env
 
-compdef _composer __icomposer vcomposer
+__auto_opam_env() {
+    if [[ -f opam ]] && [[ -z "$OPAM_SWITCH_PREFIX" ]]; then
+        _evalcache opam env
+    fi
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook chpwd __auto_opam_env
+
+if command -v symfony-autocomplete >/dev/null 2>&1; then
+    __lazy_symfony_composer() {
+        unfunction __lazy_symfony_composer
+        _evalcache symfony-autocomplete composer                    # Load cached completion
+        compdef _composer composer __icomposer vcomposer            # Attach real completion to all commands
+    }
+
+    __lazy_symfony_valet() {
+        unfunction __lazy_symfony_valet
+        _evalcache symfony-autocomplete valet
+        compdef _valet valet
+    }
+
+    __lazy_symfony_phpactor() {
+        unfunction __lazy_symfony_phpactor
+        _evalcache symfony-autocomplete phpactor
+        compdef _phpactor phpactor
+    }
+
+    # Temporary stub completion for all
+    compdef __lazy_symfony_composer composer __icomposer vcomposer  
+    compdef __lazy_symfony_valet valet
+    compdef __lazy_symfony_phpactor phpactor
+fi
+
 compdef _op op
 
 #- Source late files --------------------------------------------------------------------------------------------------#
