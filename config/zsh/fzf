@@ -27,8 +27,23 @@ fi
 # Auto-completion
 [[ $- == *i* ]] && source "/opt/homebrew/opt/fzf/shell/completion.zsh" 2> /dev/null
 
-# Key bindings
-source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
+# ------------------------------------------------------------------------------------------------------------------
+# Lazy-load FZF keybindings
+# ------------------------------------------------------------------------------------------------------------------
+
+__fzf_keybindings_loaded=0
+
+__load_fzf_keybindings() {
+    (( __fzf_keybindings_loaded )) && return
+    __fzf_keybindings_loaded=1
+    source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
+}
+
+# Wrap fzf so keybindings load on first use
+fzf() {
+    __load_fzf_keybindings
+    command fzf "$@"
+}
 
 __themed_fzf() {
     export FZF_DEFAULT_OPTS=$(__fzf_update_theme)
