@@ -15,8 +15,9 @@ __fzf_update_theme() {
     fi
 }
 
-export FZF_DEFAULT_OPTS=$(__fzf_update_theme)
-export FZF_COMPLETION_OPTS=$(__fzf_update_theme)
+__FZF_THEME="$(__fzf_update_theme)"
+export FZF_DEFAULT_OPTS="$__FZF_THEME"
+export FZF_COMPLETION_OPTS="$__FZF_THEME"
 
 # Setup fzf
 if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
