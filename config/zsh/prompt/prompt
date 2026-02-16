@@ -141,8 +141,10 @@ function zle-line-init {
 
 function TRAPWINCH () {
     set-prompt
-    zle .reset-prompt
-    clear-screen-zle
+    if [[ -o zle ]]; then
+        zle .reset-prompt 2>/dev/null
+        zle clear-screen 2>/dev/null
+    fi
 }
 
 () {
