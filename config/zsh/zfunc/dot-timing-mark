@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+
+# Records a named checkpoint in the current timing session.
+# Stores both the delta from the previous mark and the total elapsed since start.
+#
+# Usage: dot-timing-mark "label"
+
+function dot-timing-mark {
+    (( DOT_TIMING_ENABLED )) || return 0
+
+    local now=$EPOCHREALTIME
+    local -F delta=$(( (now - __DOT_TIMING_PREV) * 1000 ))
+    local -F total=$(( (now - __DOT_TIMING_START) * 1000 ))
+
+    __DOT_TIMING_MARKS+=("$(printf '%-32s %7.3fms  (total: %7.3fms)' "$1" "$delta" "$total")")
+    __DOT_TIMING_PREV=$now
+}

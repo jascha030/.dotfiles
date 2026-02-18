@@ -1,0 +1,156 @@
+#!/usr/bin/env zsh
+
+# Per-command cycle timing instrumentation.
+# Toggle with: toggle-timing && exec zsh -l
+#
+# Wraps precmd/preexec hooks and prompt functions with checkpoints.
+# Output: table of elapsed times printed to stderr after each prompt render.
+
+(( DOT_TIMING_ENABLED )) || return 0
+
+zmodload zsh/datetime
+
+# ── Hook functions ─────────────────────────────────────────────────────────────
+
+# Starts timing at the beginning of the precmd cycle.
+__dot_timing_precmd_start() {
+    dot-timing-start
+    dot-timing-mark "precmd:start"
+}
+
+# Reports timing at the end of the precmd cycle (after all other precmd hooks).
+__dot_timing_precmd_report() {
+    dot-timing-mark "precmd:end"
+    dot-timing-report
+}
+
+# ── Register hooks: start FIRST, report LAST ──────────────────────────────────
+
+precmd_functions=(__dot_timing_precmd_start "${precmd_functions[@]}" __dot_timing_precmd_report)
+
+# ── Wrap precmd hooks with timing ──────────────────────────────────────────────
+
+if (( ${+functions[gitstatus_prompt_update]} )); then
+    __orig_gitstatus_prompt_update() { ; }
+    functions[__orig_gitstatus_prompt_update]=$functions[gitstatus_prompt_update]
+
+    gitstatus_prompt_update() {
+        dot-timing-mark "precmd:gitstatus (before)"
+        __orig_gitstatus_prompt_update "$@"
+        dot-timing-mark "precmd:gitstatus (after)"
+    }
+fi
+
+if (( ${+functions[_zsh_autosuggest_start]} )); then
+    __orig_zsh_autosuggest_start() { ; }
+    functions[__orig_zsh_autosuggest_start]=$functions[_zsh_autosuggest_start]
+
+    _zsh_autosuggest_start() {
+        dot-timing-mark "precmd:autosuggest (before)"
+        __orig_zsh_autosuggest_start "$@"
+        dot-timing-mark "precmd:autosuggest (after)"
+    }
+fi
+
+if (( ${+functions[_zsh_highlight_main__precmd_hook]} )); then
+    __orig_zsh_highlight_precmd() { ; }
+    functions[__orig_zsh_highlight_precmd]=$functions[_zsh_highlight_main__precmd_hook]
+
+    _zsh_highlight_main__precmd_hook() {
+        dot-timing-mark "precmd:syntax-hl (before)"
+        __orig_zsh_highlight_precmd "$@"
+        dot-timing-mark "precmd:syntax-hl (after)"
+    }
+fi
+
+if (( ${+functions[mcfly_prompt_command]} )); then
+    __orig_mcfly_prompt_command() { ; }
+    functions[__orig_mcfly_prompt_command]=$functions[mcfly_prompt_command]
+
+    mcfly_prompt_command() {
+        dot-timing-mark "precmd:mcfly (before)"
+        __orig_mcfly_prompt_command "$@"
+        dot-timing-mark "precmd:mcfly (after)"
+    }
+fi
+
+# ── Wrap chpwd hooks (only fire on directory change) ───────────────────────────
+
+if (( ${+functions[__zoxide_hook]} )); then
+    __orig_zoxide_hook() { ; }
+    functions[__orig_zoxide_hook]=$functions[__zoxide_hook]
+
+    __zoxide_hook() {
+        dot-timing-mark "chpwd:zoxide (before)"
+        __orig_zoxide_hook "$@"
+        dot-timing-mark "chpwd:zoxide (after)"
+    }
+fi
+
+# ── Wrap ZLE accept-line (auto-ls overrides this) ─────────────────────────────
+
+if (( ${+functions[auto-ls]} )); then
+    __orig_auto_ls() { ; }
+    functions[__orig_auto_ls]=$functions[auto-ls]
+
+    auto-ls() {
+        dot-timing-mark "zle:auto-ls (before)"
+        __orig_auto_ls "$@"
+        dot-timing-mark "zle:auto-ls (after)"
+    }
+
+    zle -N auto-ls
+    zle -N accept-line auto-ls
+fi
+
+# ── Wrap preexec hooks ─────────────────────────────────────────────────────────
+
+if (( ${+functions[position-prompt-bottom]} )); then
+    __orig_position_prompt_bottom() { ; }
+    functions[__orig_position_prompt_bottom]=$functions[position-prompt-bottom]
+
+    position-prompt-bottom() {
+        dot-timing-mark "preexec:pos-prompt-bottom (before)"
+        __orig_position_prompt_bottom "$@"
+        dot-timing-mark "preexec:pos-prompt-bottom (after)"
+    }
+fi
+
+if (( ${+functions[_zsh_highlight_preexec_hook]} )); then
+    __orig_zsh_highlight_preexec() { ; }
+    functions[__orig_zsh_highlight_preexec]=$functions[_zsh_highlight_preexec_hook]
+
+    _zsh_highlight_preexec_hook() {
+        dot-timing-mark "preexec:syntax-hl (before)"
+        __orig_zsh_highlight_preexec "$@"
+        dot-timing-mark "preexec:syntax-hl (after)"
+    }
+fi
+
+# ── Wrap zle-line-init (transient prompt / recursive-edit) ─────────────────────
+
+if (( ${+functions[zle-line-init]} )); then
+    __orig_zle_line_init() { ; }
+    functions[__orig_zle_line_init]=$functions[zle-line-init]
+
+    zle-line-init() {
+        dot-timing-mark "zle-line-init (before)"
+        __orig_zle_line_init "$@"
+        dot-timing-mark "zle-line-init (after)"
+    }
+
+    zle -N zle-line-init
+fi
+
+# ── Wrap set-prompt (only runs on init + TRAPWINCH, not per-command) ───────────
+
+if (( ${+functions[set-prompt]} )); then
+    __orig_set_prompt() { ; }
+    functions[__orig_set_prompt]=$functions[set-prompt]
+
+    set-prompt() {
+        dot-timing-mark "set-prompt (before)"
+        __orig_set_prompt "$@"
+        dot-timing-mark "set-prompt (after)"
+    }
+fi

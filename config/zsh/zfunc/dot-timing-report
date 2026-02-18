@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+
+# Prints the accumulated timing marks to stderr and resets.
+# Call this at the very end of the command cycle (e.g. end of set-prompt or zle-line-init).
+
+function dot-timing-report {
+    (( DOT_TIMING_ENABLED )) || return 0
+    (( ${#__DOT_TIMING_MARKS} )) || return 0
+
+    local -F total=$(( (EPOCHREALTIME - __DOT_TIMING_START) * 1000 ))
+
+    {
+        print ''
+        print "\e[2m--- dot-timing ──────────────────────────────────────────\e[0m"
+        local m; for m in "${__DOT_TIMING_MARKS[@]}"; do
+            print "  $m"
+        done
+        print "\e[2m────────────────────────────────────────────────────────"
+        printf "  %-32s %7.3fms\n" "TOTAL" "$total"
+        print "────────────────────────────────────────────────────────\e[0m"
+    } >&2
+
+    __DOT_TIMING_MARKS=()
+}

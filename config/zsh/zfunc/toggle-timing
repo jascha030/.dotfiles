@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+function toggle-timing {
+    if [[ "$DOT_TIMING_ENABLED" -eq 0 ]]; then
+        echo 'export DOT_TIMING_ENABLED=1' > "${HOME}/.ztimingrc"
+        echo 'timing enabled (exec zsh -l to apply)'
+    else
+        echo 'export DOT_TIMING_ENABLED=0' > "${HOME}/.ztimingrc"
+        echo 'timing disabled (exec zsh -l to apply)'
+    fi
+}

@@ -10,6 +10,14 @@ if (( ZPROF_ENABLED )); then
     zmodload zsh/zprof
 fi
 
+#- Logic required to easily toggle per-command timing ----------------------------------------------------------------#
+[[ -f ${HOME}/.ztimingrc ]] || print -r -- 'export DOT_TIMING_ENABLED=0' > ${HOME}/.ztimingrc
+source ${HOME}/.ztimingrc
+
+if (( DOT_TIMING_ENABLED )); then
+    zmodload zsh/datetime
+fi
+
 #- Dotfiles start here. ----------------------------------------------------------------------------------------------#
 
 setopt autocd extendedglob nomatch menucomplete traps_async
@@ -97,3 +105,6 @@ fi
 
 # bun completions
 [ -s "/Users/jaschavanaalst/.bun/_bun" ] && source "/Users/jaschavanaalst/.bun/_bun"
+
+#- Per-command timing instrumentation (must be last to wrap all hooks) ------------------------------------------------#
+source ${ZDOTDIR}/timing

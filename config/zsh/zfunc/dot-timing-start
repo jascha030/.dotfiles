@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+
+# Starts a timing session for the current command cycle.
+# Records the epoch start time and resets the checkpoint list.
+#
+# Usage: call at the very beginning of the precmd cycle.
+# Then call `dot-timing-mark <label>` at each checkpoint.
+# Finally call `dot-timing-report` to print elapsed times to stderr.
+
+function dot-timing-start {
+    (( DOT_TIMING_ENABLED )) || return 0
+
+    typeset -gF __DOT_TIMING_START=$EPOCHREALTIME
+    typeset -gF __DOT_TIMING_PREV=$EPOCHREALTIME
+    typeset -ga __DOT_TIMING_MARKS=()
+}
