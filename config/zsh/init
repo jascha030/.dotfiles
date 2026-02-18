@@ -184,6 +184,26 @@ bindkey '^x' edit-command-line
 
 _evalcache mcfly init zsh
 
+# Override mcfly's precmd to background the expensive `mcfly add` binary invocation.
+# The exit code capture and fc -W stay synchronous (cheap), only the database write is deferred.
+if (( ${+functions[mcfly_prompt_command]} )); then
+    mcfly_prompt_command() {
+        local exit_code=$?
+
+        if [[ ! -f "${MCFLY_HISTORY}" ]]; then
+            export MCFLY_HISTORY=$(command mktemp ${TMPDIR:-/tmp}/mcfly.XXXXXXXX)
+            command tail -n100 "${MCFLY_HISTFILE}" >| ${MCFLY_HISTORY}
+        fi
+
+        fc -W "${MCFLY_HISTORY}"
+
+        # Background the expensive binary call — database write doesn't need to block the prompt.
+        $MCFLY_PATH --history_format $MCFLY_HISTORY_FORMAT add --exit ${exit_code} &!
+
+        return ${exit_code}
+    }
+fi
+
 #- And finally, unfunc locally used functions ------------------------------------------------------------------------#
 
 unfunction _evalcache
