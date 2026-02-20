@@ -20,9 +20,17 @@ __dot_timing_precmd_start() {
 
 # Reports timing at the end of the precmd cycle (after all other precmd hooks).
 __dot_timing_precmd_report() {
-    dot-timing-mark "precmd:end"
+    dot-timing-mark "precmd:end (prompt eval next)"
     dot-timing-report
 }
+
+# Starts a fresh timing session on preexec to capture the accept-line → precmd gap.
+__dot_timing_preexec_start() {
+    dot-timing-start
+    dot-timing-mark "preexec:start"
+}
+
+preexec_functions=(__dot_timing_preexec_start "${preexec_functions[@]}")
 
 # ── Register hooks: start FIRST, report LAST ──────────────────────────────────
 
@@ -105,15 +113,21 @@ fi
 
 # ── Wrap preexec hooks ─────────────────────────────────────────────────────────
 
+# position-prompt-bottom is autoloaded — can't copy the stub.
+# Wrap by triggering autoload first, then replacing.
 if (( ${+functions[position-prompt-bottom]} )); then
-    __orig_position_prompt_bottom() { ; }
-    functions[__orig_position_prompt_bottom]=$functions[position-prompt-bottom]
+    position-prompt-bottom 2>/dev/null  # trigger autoload resolution
 
-    position-prompt-bottom() {
-        dot-timing-mark "preexec:pos-prompt-bottom (before)"
-        __orig_position_prompt_bottom "$@"
-        dot-timing-mark "preexec:pos-prompt-bottom (after)"
-    }
+    if [[ "${functions[position-prompt-bottom]}" != *"builtin autoload"* ]]; then
+        __orig_position_prompt_bottom() { ; }
+        functions[__orig_position_prompt_bottom]=$functions[position-prompt-bottom]
+
+        position-prompt-bottom() {
+            dot-timing-mark "preexec:pos-prompt-bottom (before)"
+            __orig_position_prompt_bottom "$@"
+            dot-timing-mark "preexec:pos-prompt-bottom (after)"
+        }
+    fi
 fi
 
 if (( ${+functions[_zsh_highlight_preexec_hook]} )); then
@@ -127,16 +141,47 @@ if (( ${+functions[_zsh_highlight_preexec_hook]} )); then
     }
 fi
 
-# ── Wrap zle-line-init (transient prompt / recursive-edit) ─────────────────────
+# ── Wrap zle-line-init with fine-grained transient prompt timing ────────────────
 
 if (( ${+functions[zle-line-init]} )); then
-    __orig_zle_line_init() { ; }
-    functions[__orig_zle_line_init]=$functions[zle-line-init]
-
     zle-line-init() {
-        dot-timing-mark "zle-line-init (before)"
-        __orig_zle_line_init "$@"
-        dot-timing-mark "zle-line-init (after)"
+        emulate -L zsh
+
+        [[ $CONTEXT == start ]] || return 0
+
+        while true; do
+            zle .recursive-edit
+            local -i ret=$?
+            [[ $ret == 0 && $KEYS == $'\4' ]] || break
+            [[ -o ignore_eof ]] || exit 0
+        done
+
+        # ── Transient prompt timing (this is the gap zsh-bench captures) ──
+        dot-timing-start
+        dot-timing-mark "zle-line-init:post-edit"
+
+        local saved_prompt=$PROMPT
+        local saved_rprompt=$RPROMPT
+
+        set-compact-prompt
+        dot-timing-mark "zle-line-init:set-compact-prompt"
+
+        zle .reset-prompt
+        dot-timing-mark "zle-line-init:.reset-prompt"
+
+        PROMPT=$saved_prompt
+        RPROMPT=$saved_rprompt
+
+        if (( ret )); then
+            zle .send-break
+        else
+            zle .accept-line
+        fi
+
+        dot-timing-mark "zle-line-init:accept-line"
+        dot-timing-report "zle-line-init"
+
+        return ret
     }
 
     zle -N zle-line-init

@@ -1,24 +1,42 @@
 #!/usr/bin/env zsh
 
-# Prints the accumulated timing marks to stderr and resets.
-# Call this at the very end of the command cycle (e.g. end of set-prompt or zle-line-init).
+# Prints accumulated timing marks and resets.
+# Also appends to /tmp/zsh-timing.log so ZLE-context reports aren't lost.
+# Pass an optional label arg to distinguish phases (e.g. "zle-line-init").
 
 function dot-timing-report {
     (( DOT_TIMING_ENABLED )) || return 0
     (( ${#__DOT_TIMING_MARKS} )) || return 0
 
     local -F total=$(( (EPOCHREALTIME - __DOT_TIMING_START) * 1000 ))
+    local label=${1:-precmd}
+    local header="dot-timing [${label}]"
+    local separator='────────────────────────────────────────────────────────'
 
     {
         print ''
-        print "\e[2m--- dot-timing ──────────────────────────────────────────\e[0m"
+        print -- "\e[2m${separator}\e[0m"
+        print -- "  ${header}"
+        print -- "\e[2m${separator}\e[0m"
         local m; for m in "${__DOT_TIMING_MARKS[@]}"; do
-            print "  $m"
+            print -- "  $m"
         done
-        print "\e[2m────────────────────────────────────────────────────────"
+        print -- "\e[2m${separator}"
         printf "  %-32s %7.3fms\n" "TOTAL" "$total"
-        print "────────────────────────────────────────────────────────\e[0m"
+        print -- "${separator}\e[0m"
     } >&2
+
+    # Also append to log file so ZLE-context reports aren't lost.
+    {
+        print -- "${separator}"
+        print -- "  ${header}"
+        print -- "${separator}"
+        local m; for m in "${__DOT_TIMING_MARKS[@]}"; do
+            print -- "  $m"
+        done
+        printf "  %-32s %7.3fms\n" "TOTAL" "$total"
+        print -- "${separator}"
+    } >> /tmp/zsh-timing.log
 
     __DOT_TIMING_MARKS=()
 }
