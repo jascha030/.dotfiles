@@ -103,5 +103,5 @@ ln -s ~/.dotfiles/config/zsh/.zshrc ~/.zshrc
 ---
 
 <div align="center">
-  <sub>Configured with ❤️ and too much ☕ by <a href="https://github.com/jascha030">jascha030</a></sub>
+  <sub>Configured with 🩸 and too much 🚬 by <a href="https://github.com/jascha030">jascha030</a></sub>
 </div>
