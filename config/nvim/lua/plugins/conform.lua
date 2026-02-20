@@ -39,11 +39,11 @@ local M = {
             ['typescript'] = { 'prettierd' },
             ['typescriptreact'] = { 'prettierd' },
             ['yaml'] = { 'prettierd' },
-            ['zsh'] = { 'shfmt_zsh' },
+            ['zsh'] = {},
         },
         formatters = {
             shfmt_bash = { command = 'shfmt' }, -- no -ln flag = default bash
-            shfmt_zsh = { command = 'shfmt', prepend_args = { '-ln', 'zsh' } },
+            -- shfmt_zsh = { command = 'shfmt', prepend_args = { '-ln', 'zsh' } },
             shfmt_posix = { command = 'shfmt', prepend_args = { '-ln', 'posix' } },
         },
         default_format_opts = { lsp_format = 'fallback' },
