@@ -56,32 +56,46 @@ function block-empty-tab {
     # zle expand-or-complete-prefix
 }
 
-function top-prompt {
-    emulate -L zsh
+# ── fill-line cache ────────────────────────────────────────────────────────────
+# All fill-line inputs are static per $COLUMNS. Cache results and invalidate on resize.
 
-    local REPLY
-    local left="%F{012}    ${${SHELL/#\/bin\//}:u} |   ${TERM_PROGRAM} | %f${TERM_PRETTY}"
-    local right='%F{011}   %w %b |   %T   %f'
+typeset -gi __PROMPT_CACHED_COLS=0
+typeset -g  __PROMPT_CACHE_TOP=''
+typeset -g  __PROMPT_CACHE_MID=''
+typeset -g  __PROMPT_CACHE_COMPACT=''
 
-    fill-line $left $right ' '
-
-    typeset -g top=$REPLY
+function __prompt_cache_invalidate {
+    __PROMPT_CACHED_COLS=0
 }
 
-function mid-prompt {
-    emulate -L zsh
+function __prompt_cache_rebuild {
+    (( COLUMNS == __PROMPT_CACHED_COLS )) && return 0
 
-    local REPLY; fill-line $PS1_TL $PS1_TR
-    typeset -g mid=$REPLY
+    local REPLY
+
+    # top-prompt
+    local left="%F{012}    ${${SHELL/#\/bin\//}:u} |   ${TERM_PROGRAM} | %f${TERM_PRETTY}"
+    local right='%F{011}   %w %b |   %T   %f'
+    fill-line $left $right ' '
+    __PROMPT_CACHE_TOP=$REPLY
+
+    # mid-prompt
+    fill-line $PS1_TL $PS1_TR
+    __PROMPT_CACHE_MID=$REPLY
+
+    # compact-prompt
+    fill-line "  ╔" ""
+    __PROMPT_CACHE_COMPACT=$REPLY
+
+    __PROMPT_CACHED_COLS=$COLUMNS
 }
 
 function set-prompt {
     emulate -L zsh
 
-    # Render functional elements
+    __prompt_cache_rebuild
+
     local php_wgt; php-ver
-    local mid; mid-prompt
-    local top; top-prompt
 
     local prompt_dir='%(5~|%-1~/…/%3~|%4~)'
     local git_prompt=
@@ -91,21 +105,19 @@ function set-prompt {
         git_prompt='%F{08}${vcs_info_msg_0_}%f'
     fi
 
-    # Render layout elements
     local bot_left="${PS1_BL} %F{08} ${prompt_dir}%f ${git_prompt} "
     local bot_right="${php_wgt} ${PS1_BR}"
 
-    PROMPT=$'\n'${top}$'\n'${mid}$'\n'${bot_left}
+    PROMPT=$'\n'${__PROMPT_CACHE_TOP}$'\n'${__PROMPT_CACHE_MID}$'\n'${bot_left}
     RPROMPT=$bot_right
 }
 
 function set-compact-prompt {
     emulate -L zsh
 
-    local REPLY
-    fill-line "  ╔" ""
+    __prompt_cache_rebuild
 
-    PROMPT="%F{00}${REPLY}"$'\n'"  ╚   %f"
+    PROMPT="%F{00}${__PROMPT_CACHE_COMPACT}"$'\n'"  ╚   %f"
     RPROMPT=''
 }
 
@@ -140,6 +152,7 @@ function zle-line-init {
 }
 
 function TRAPWINCH () {
+    __prompt_cache_invalidate
     set-prompt
     if [[ -o zle ]]; then
         zle .reset-prompt 2>/dev/null
