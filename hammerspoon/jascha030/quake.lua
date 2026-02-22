@@ -46,11 +46,15 @@ function M:get_observer(app_watcher, space)
 
     return function(name, event, app)
         if event == hs.application.watcher.launched and name == app_name then
-            local wf = hs.window.filter.new(app_name)
-            wf:subscribe(hs.window.filter.windowCreated, function(win)
-                window.move(win, space)
-                wf:unsubscribeAll()
-            end)
+            hs.timer.waitUntil(
+                function()
+                    return app:mainWindow()
+                end,
+                function()
+                    window.move(app, space)
+                end,
+                0.1
+            )
 
             if app_watcher ~= nil then
                 app_watcher:stop()
@@ -84,10 +88,13 @@ function M:toggle()
 
         -- This is just when the app is not running.
         if instance == nil then
-            local app = hs.application.open(app_name, 5, true)
-            if app ~= nil then
-                window.move(app, space)
-            end
+            hs.application.launchOrFocus(app_name)
+
+            local app_watcher = nil
+
+            ---@diagnostic disable-next-line: param-type-mismatch
+            app_watcher = hs.application.watcher.new(self:get_observer(app_watcher, space))
+            app_watcher:start()
 
             return
         end
@@ -139,3 +146,4 @@ function M.set(apps)
 end
 
 return M
+
