@@ -46,12 +46,16 @@ local M = {
     variants = {
         light = {
             background = '#e0e1eb',
+            background_tab = '#d0d2e1', -- Darkened from background
+            foreground_tab = '#3a4f7a', -- @black
             foreground = '#40456d',
             selection_bg = '#c8c3ff',
             selection_fg = '#e7e9ee',
         },
         dark = {
             background = '#1e2030',
+            background_tab = '#2d3049', -- Brightened from background
+            foreground_tab = '#969ac9', -- @white
             foreground = '#c8d3f5',
             selection_bg = '#364A82',
             selection_fg = '#c8d3f5',

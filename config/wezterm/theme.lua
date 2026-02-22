@@ -42,13 +42,22 @@ function M.scheme_from_colors(colors, tab_bar)
 
     if tab_bar ~= false then
         scheme.tab_bar = {
-            background = colors.background,
+            background = colors.background_tab,
             active_tab = {
-                bg_color = colors.foreground,
-                fg_color = colors.background,
+                bg_color = colors.background,
+                fg_color = colors.foreground_tab,
+                italic = true,
+            },
+            inactive_tab = {
+                bg_color = colors.background_tab,
+                fg_color = colors.foreground_tab,
+            },
+            inactive_tab_hover = {
+                fg_color = colors.red,
+                bg_color = colors.background,
             },
             new_tab = {
-                bg_color = colors.background,
+                bg_color = colors.background_tab,
                 fg_color = colors.foreground,
             },
             new_tab_hover = {
@@ -87,7 +96,7 @@ function M.get_scheme(scheme, enable_tab_bar)
 end
 
 function M.get_opacity(scheme)
-    return is_dark(scheme) and 0.95 or 1
+    return is_dark(scheme) and 0.98 or 1
 end
 
 function M.setup(config)

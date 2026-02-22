@@ -181,7 +181,7 @@ function M.setup()
         ['editor-mode'] = M.editor_mode,
         ['font-size-down'] = M.font_size_down,
         ['font-size-up'] = M.font_size_up,
-        ['format-tab-title'] = M.format_tab_title,
+        -- ['format-tab-title'] = M.format_tab_title,
         ['line-height-down'] = M.line_height_down,
         ['line-height-up'] = M.line_height_up,
         ['opacity-down'] = M.opacity_down,
