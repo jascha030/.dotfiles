@@ -1,10 +1,6 @@
 ---@diagnostic disable: undefined-doc-name
-
----@class JSpoon.QuakeModule
----@field app_name string
----@field get_app_name fun(self): string
+---@class JSpoon.QuakeModule @field app_name string @field get_app_name fun(self): string
 ---@field get_instance fun(self): hs.application
----@field get_observer fun(self, app_watcher: hs.application.watcher, space: hs.screen.space): fun(name: string, event: number, app: hs.application)
 ---@field toggle fun(self)
 ---@field set fun(app: table)
 local M = {}
@@ -23,6 +19,40 @@ window = setmetatable(window, {
     end,
 })
 
+local launch_pollers = {}
+
+local function stop_pending_launch_poller(app_name)
+    local existingTimer = launch_pollers[app_name]
+    if existingTimer then
+        existingTimer:stop()
+        launch_pollers[app_name] = nil
+    end
+end
+
+local function move_when_window_exists(app_name, target_space_id, move_callback)
+    stop_pending_launch_poller(app_name)
+
+    local deadlineEpochSeconds = hs.timer.secondsSinceEpoch() + 1.0
+
+    local pollTimer = hs.timer.doEvery(0.02, function()
+        local applicationObject = hs.application.get(app_name)
+        local windowObject = applicationObject and (applicationObject:focusedWindow() or applicationObject:mainWindow())
+
+        if windowObject then
+            stop_pending_launch_poller(app_name)
+            move_callback(windowObject, target_space_id)
+
+            return
+        end
+
+        if hs.timer.secondsSinceEpoch() > deadlineEpochSeconds then
+            stop_pending_launch_poller(app_name)
+        end
+    end)
+
+    launch_pollers[app_name] = pollTimer
+end
+
 ---@param app_name string
 ---@return JSpoon.QuakeModule
 function M.new(app_name)
@@ -39,30 +69,6 @@ function M:get_instance()
     return hs.application.find(self:get_app_name(), true)
 end
 
----@param app_watcher hs.application.watcher
----@param space hs.screen.space
-function M:get_observer(app_watcher, space)
-    local app_name = self:get_app_name()
-
-    return function(name, event, app)
-        if event == hs.application.watcher.launched and name == app_name then
-            hs.timer.waitUntil(
-                function()
-                    return app:mainWindow()
-                end,
-                function()
-                    window.move(app, space)
-                end,
-                0.1
-            )
-
-            if app_watcher ~= nil then
-                app_watcher:stop()
-            end
-        end
-    end
-end
-
 ---@param app hs.application
 ---@return boolean
 local function isFrontmost(app)
@@ -74,6 +80,9 @@ end
 function M:toggle()
     local app_name = self:get_app_name()
     local instance = self:get_instance()
+    local function move_policy(windowObject, targetSpaceId)
+        window.move(windowObject, targetSpaceId)
+    end
 
     if instance ~= nil and isFrontmost(instance) then
         if not (self:get_app_name() == 'Ghostty' and #instance:allWindows() == 0) then
@@ -90,11 +99,7 @@ function M:toggle()
         if instance == nil then
             hs.application.launchOrFocus(app_name)
 
-            local app_watcher = nil
-
-            ---@diagnostic disable-next-line: param-type-mismatch
-            app_watcher = hs.application.watcher.new(self:get_observer(app_watcher, space))
-            app_watcher:start()
+            move_when_window_exists(app_name, space, move_policy)
 
             return
         end
@@ -103,15 +108,11 @@ function M:toggle()
             if #instance:allWindows() == 0 then
                 hs.eventtap.keyStroke({ 'cmd' }, 'n', nil, instance)
 
-                hs.timer.waitUntil(
-                    function()
-                        return instance:mainWindow()
-                    end,
-                    function()
-                        window.move(instance, space)
-                    end,
-                    0.1
-                )
+                hs.timer.waitUntil(function()
+                    return instance:mainWindow()
+                end, function()
+                    window.move(instance, space)
+                end, 0.1)
             else
                 window.move(instance, space)
             end
@@ -146,4 +147,3 @@ function M.set(apps)
 end
 
 return M
-
