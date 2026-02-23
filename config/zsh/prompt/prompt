@@ -151,26 +151,26 @@ function zle-line-init {
     return ret
 }
 
-clear-screen-zle () {
+bottom-redisplay() {
     emulate -L zsh
 
-    clear-screen
-    zle .redisplay
+    echoti clear
+
+    position-prompt-bottom
+
+    zle -R
 }
 
-zle -N clear-screen-zle
+zle -N bottom-redisplay
 
 function TRAPWINCH () {
+    emulate -L zsh
     __prompt_cache_invalidate
-
     set-prompt
 
     if [[ -o zle ]]; then
-        zle .reset-prompt
-        zle clear-screen-zle
-
-        clear-screen
-        zle .redisplay
+        zle -I
+        zle bottom-redisplay
     fi
 }
 
