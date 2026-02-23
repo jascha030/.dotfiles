@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-bracketed-paste-force() {
+bracketed-paste-force () {
 	local clipboard_content=$(pbpaste)
 
 	LBUFFER+=$'\e[200~'"$clipboard_content"$'\e[201~'

@@ -192,8 +192,5 @@ function TRAPWINCH () {
     bindkey '^[[118;6u' bracketed-paste-force
 
     set-prompt
-
-    if (( LOLMSGRC_ENABLED )); then
-        clear-screen
-    fi
+    clear-screen
 }

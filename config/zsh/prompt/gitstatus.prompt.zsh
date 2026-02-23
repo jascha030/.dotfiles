@@ -7,8 +7,9 @@ source "${GITSTATUS_DIR:-${${(%):-%x}:h}}/gitstatus.plugin.zsh" || return
 typeset -g GITSTATUS_INITIALIZED=0
 
 # Callback function that will be called when git status is ready
-function gitstatus_prompt_callback() {
+gitstatus_prompt_callback () {
     emulate -L zsh
+
     typeset -g  GITSTATUS_PROMPT=''
     typeset -gi GITSTATUS_PROMPT_LEN=0
 
@@ -68,8 +69,9 @@ function gitstatus_prompt_callback() {
     zle && zle reset-prompt
 }
 
-function gitstatus_prompt_update() {
+gitstatus_prompt_update () {
     emulate -L zsh
+
     typeset -g  GITSTATUS_PROMPT=''
     typeset -gi GITSTATUS_PROMPT_LEN=0
 

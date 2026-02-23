@@ -2,7 +2,7 @@
 
 # Discard line buffer when empty.
 # Prevents unnecessary movement on enter or tab.
-function magic-enter {
+magic-enter () {
 	if [[ -z ${BUFFER//[[:space:]]/} ]]; then
 		return
 	fi

@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-function position-prompt-bottom {
+position-prompt-bottom () {
     emulate -L zsh
 
     local -i t_lines=${LINES}

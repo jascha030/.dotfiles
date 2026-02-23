@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-
-function clean-prompt-output {
-    position-prompt-bottom
-
-    repeat ${DOT_PROMPT_HEIGHT} { echoti cuu1 && echoti dl1 }
-}
-
