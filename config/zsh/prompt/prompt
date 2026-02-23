@@ -155,9 +155,7 @@ bottom-redisplay() {
     emulate -L zsh
 
     echoti clear
-
     position-prompt-bottom
-
     zle -R
 }
 
@@ -165,6 +163,7 @@ zle -N bottom-redisplay
 
 function TRAPWINCH () {
     emulate -L zsh
+
     __prompt_cache_invalidate
     set-prompt
 

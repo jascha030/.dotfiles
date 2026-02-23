@@ -4,7 +4,6 @@ function position-prompt-bottom {
     emulate -L zsh
 
     local -i t_lines=${LINES}
-
     echoti cup $(( ${t_lines}-1 )) 0
 }
 
