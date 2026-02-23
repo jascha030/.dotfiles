@@ -1,15 +1,7 @@
-#!/usr/bin/env zsh
+emulate -L zsh
 
-function _clear-screen {
-    emulate -L zsh
-    echoti clear
+echoti clear
+
+if (( ${+functions[position-prompt-bottom]} )); then
     position-prompt-bottom
-}
-
-function clear-screen-zle {
-    emulate -L zsh
-    _clear-screen
-    zle && zle redisplay
-}
-
-clear-screen-zle "$@"
+fi
