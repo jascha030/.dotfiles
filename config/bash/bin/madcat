@@ -12,8 +12,8 @@ __madcat() {
     fi
 
     if [[ $_path == *md ]]; then
-        if which mdcat >/dev/null; then
-            bin=$(which mdcat)
+        if which glow >/dev/null; then
+            bin=$(which glow)
         fi
     fi
 
