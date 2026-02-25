@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-function assert_dirs {
+assert_dirs() {
 	local p
 
 	for p in "$@"; do

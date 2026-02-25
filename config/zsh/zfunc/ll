@@ -1,13 +1,13 @@
 #!/usr/bin/env zsh
 
 if (( $+commands[lsd] )); then
-    function __ll_lsd() {
+    __ll_lsd() {
         prepend " " < <(lsd -Ahl --group-directories-first --color=always)
     }
 fi
 
 if (( $+commands[eza] )); then
-    function __ll_eza() {
+    __ll_eza() {
         prepend " " < <(eza -Ahl \
                 --colour=always \
                 --group-directories-first \
@@ -22,12 +22,12 @@ fi
 
 
 if (( $+command[lla] )); then 
-    function __ll_lla() {
+    __ll_lla() {
         prepend " " < <(lla -Ahl --group-directories-first --color=always)
     }
 fi
 
-function __ll() {
+__ll() {
     local ls_cmd=${LS_OVERRIDE:-${'ls'}}
     local ls_args=${LS_DEFAULT_ARGS:-${'-Ahl'}}
 

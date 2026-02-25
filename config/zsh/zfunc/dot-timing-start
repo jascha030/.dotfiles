@@ -7,7 +7,7 @@
 # Then call `dot-timing-mark <label>` at each checkpoint.
 # Finally call `dot-timing-report` to print elapsed times to stderr.
 
-function dot-timing-start {
+dot-timing-start() {
     (( DOT_TIMING_ENABLED )) || return 0
 
     typeset -gF __DOT_TIMING_START=$EPOCHREALTIME

@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
 
-function is_neovim {
+is_neovim() {
     (( ${+VIM} && ${+VIMRUNTIME} && ${+MYVIMRC} )) && echo 1 || echo 0
 }

@@ -5,7 +5,7 @@
 #
 # Usage: dot-timing-mark "label"
 
-function dot-timing-mark {
+dot-timing-mark() {
     (( DOT_TIMING_ENABLED )) || return 0
 
     local now=$EPOCHREALTIME

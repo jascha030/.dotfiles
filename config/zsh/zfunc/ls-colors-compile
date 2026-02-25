@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-function ls-colors-compile {
+ls-colors-compile() {
     local default_theme='jassie030'
     local out_path="${1:-$ZDOTDIR/.ls-colors}"
     local theme="${2:-$default_theme}"

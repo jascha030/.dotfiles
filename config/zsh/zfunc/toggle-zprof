@@ -1,12 +1,12 @@
 #!/usr/bin/env zsh
 
-function toggle-zprof {
-    if [[ "$ZPROF_ENABLED" -eq 0 ]]; then
+toggle-zprof() {
+    if (( ZPROF_ENABLED == 0 )); then
         echo 'export ZPROF_ENABLED=1' > "${HOME}/.zprofrc"
         echo 'zprof enabled'
     fi
 
-    if [[ "$ZPROF_ENABLED" -eq 1 ]]; then
+    if (( ZPROF_ENABLED == 1 )); then
         echo 'export ZPROF_ENABLED=0' > "${HOME}/.zprofrc"
         echo 'zprof disabled'
     fi

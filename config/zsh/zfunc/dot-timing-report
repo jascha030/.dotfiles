@@ -4,7 +4,7 @@
 # Also appends to /tmp/zsh-timing.log so ZLE-context reports aren't lost.
 # Pass an optional label arg to distinguish phases (e.g. "zle-line-init").
 
-function dot-timing-report {
+dot-timing-report() {
     (( DOT_TIMING_ENABLED )) || return 0
     (( ${#__DOT_TIMING_MARKS} )) || return 0
 
