@@ -1,7 +1,8 @@
+local wezterm = require('wezterm')
 ---@type WezThemeConfig theme
 local theme = require('theme')
 local handlers = require('handlers')
-local colors = theme.get_scheme('Dark', true)
+local colors = theme.get_scheme(wezterm.gui.get_appearance(), true)
 local font = require('fonts')
 
 font.extend({
@@ -42,10 +43,10 @@ local function eq_pad(size, alt, cell)
     }
 end
 
-local config = require('wezterm').config_builder()
+local config = wezterm.config_builder()
 config = font.extend_config(config)
 
-for _, gpu in ipairs(require('wezterm').gui.enumerate_gpus()) do
+for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
     if gpu.backend == 'Metal' then
         config.webgpu_preferred_adapter = gpu
         config.front_end = 'WebGpu'
