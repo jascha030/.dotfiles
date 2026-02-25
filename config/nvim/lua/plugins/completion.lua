@@ -60,7 +60,7 @@ local M = {
                     draw = {
                         padding = 1,
                         gap = 1,
-                        columns = function(ctx)
+                        columns = function(_)
                             return {
                                 { 'kind_icon' },
                                 { 'label', gap = 1 },
