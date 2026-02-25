@@ -43,13 +43,11 @@ typeset -A ZSH_HIGHLIGHT_STYLES=(
     bracket-level-2 'fg=10,bold'
 )
 
-export BREW_HOME=/opt/homebrew/opt
-export HOMEBREW_NO_INSTALL_FROM_API=1
-
 export DOT_COMP_DIRS=(
     ${HOME}/.bun
     ${HOME}/.config/tabtab/zsh
     ${HOME}/tools/eza/completions/zsh
+    ${ZDOTDIR}/completions
 )
 
 export DOT_BASH_COMPLETIONS=(
@@ -66,10 +64,8 @@ export DOT_SOURCES=(
 
 export DOT_AFTER_INIT_SOURCES=(
     ${ZDOTDIR}/.ls-colors
-    /opt/homebrew/etc/grc.zsh
     ${ZDOTDIR}/overrides
     ${ZDOTDIR}/fzf
-    ${HOME}/.bun/_bun
     ${HOME}/env.local
 )
 
@@ -102,9 +98,6 @@ source ${ZDOTDIR}/init
 if (( ZPROF_ENABLED )); then
     zprof
 fi
-
-# bun completions
-[ -s "/Users/jaschavanaalst/.bun/_bun" ] && source "/Users/jaschavanaalst/.bun/_bun"
 
 #- Per-command timing instrumentation (must be last to wrap all hooks) ------------------------------------------------#
 source ${ZDOTDIR}/timing
