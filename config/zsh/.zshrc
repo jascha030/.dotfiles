@@ -59,7 +59,7 @@ export DOT_BASH_COMPLETIONS=(
 export DOT_SOURCES=(
     ${ZDOTDIR}/auto-ls
     ${HOME}/.cargo/env
-    ${HOME}/LS_COLORS/lscolors.sh
+    ${HOME}/.development/LS_COLORS/lscolors.sh
 )
 
 export DOT_AFTER_INIT_SOURCES=(
