@@ -1,9 +1,0 @@
-{
-  "$schema": "https://charm.land/crush.json",
-  "mcp": {
-    "Figma Dev Mode MCP": {
-      "type": "http",
-      "url": "http://127.0.0.1:3845/mcp"
-    }
-  }
-}
