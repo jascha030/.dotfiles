@@ -1,35 +1,43 @@
 #!/usr/bin/env zsh
 
-#--------------------------------------------------------- FZF -------------------------------------------------------#
+# -------------------------------------------------------- FZF --------------------------------------------------------
 
-export _FZF_DEFAULT_OPTS="--info=inline --padding=1 --margin=2"
-export FZF_COMPLETION_OPTS="--info=inline --padding=1 --margin=2"
-export __FZF_DARK=$_FZF_DEFAULT_OPTS' --color=fg:#c8d3f5,hl:#5f5fec --color=fg+:#fffcfc,bg+:#32466e,hl+:#0083f7 --color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00 --color=marker:#ea1479,spinner:#5f5fec,header:#465182,border:#c8d3f5'
-export __FZF_LIGHT=$_FZF_DEFAULT_OPTS' --color=fg:#444a73,hl:#5f5fec --color=fg+:#fffcfc,bg+:#c8d3f5,hl+:#0083f7 --color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00 --color=marker:#ea1479,spinner:#5f5fec,header:#0083f7,border:#444a73'
+_FZF_BASE_OPTS="--info=inline --padding=1 --margin=2"
 
+__FZF_DARK="${_FZF_BASE_OPTS} \
+--color=fg:#c8d3f5,hl:#5f5fec \
+--color=fg+:#fffcfc,bg+:#32466e,hl+:#0083f7 \
+--color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00 \
+--color=marker:#ea1479,spinner:#5f5fec,header:#465182,border:#c8d3f5"
+
+__FZF_LIGHT="${_FZF_BASE_OPTS} \
+--color=fg:#444a73,hl:#5f5fec \
+--color=fg+:#fffcfc,bg+:#c8d3f5,hl+:#0083f7 \
+--color=info:#6183bb,prompt:#ea1479,pointer:#ffcc00 \
+--color=marker:#ea1479,spinner:#5f5fec,header:#0083f7,border:#444a73"
+
+# Update theme dynamically based on macOS appearance
 __fzf_update_theme() {
-    if [[ "$(is_dark)" -eq 1 ]]; then
-        echo "$__FZF_DARK"
+    if is_dark; then
+        FZF_DEFAULT_OPTS="$__FZF_DARK"
     else
-        echo "$__FZF_LIGHT"
+        FZF_DEFAULT_OPTS="$__FZF_LIGHT"
     fi
+
+    export FZF_DEFAULT_OPTS
+    export FZF_COMPLETION_OPTS="$FZF_DEFAULT_OPTS"
 }
 
-__FZF_THEME="$(__fzf_update_theme)"
-export FZF_DEFAULT_OPTS="$__FZF_THEME"
-export FZF_COMPLETION_OPTS="$__FZF_THEME"
-
-# Setup fzf
-if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
-    PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
+if (( ! ${path[(Ie)/opt/homebrew/opt/fzf/bin]} )); then
+    path+=/opt/homebrew/opt/fzf/bin
 fi
 
-# Auto-completion
-[[ $- == *i* ]] && source "/opt/homebrew/opt/fzf/shell/completion.zsh" 2> /dev/null
+# Load completion only in interactive shells
+if [[ $- == *i* ]]; then
+    source "/opt/homebrew/opt/fzf/shell/completion.zsh" 2> /dev/null
+fi
 
-# ------------------------------------------------------------------------------------------------------------------
-# Lazy-load FZF keybindings
-# ------------------------------------------------------------------------------------------------------------------
+# Lazy-load FZF keybindings -------------------------------------------------------------------------------------------
 
 __fzf_keybindings_loaded=0
 
@@ -39,21 +47,17 @@ __load_fzf_keybindings() {
     source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 }
 
-# Wrap fzf so keybindings load on first use
+# Main wrapper: lazy loads, updates theme, then calls real fzf
 fzf() {
     __load_fzf_keybindings
+    __fzf_update_theme
     command fzf "$@"
 }
 
-__themed_fzf() {
-    export FZF_DEFAULT_OPTS=$(__fzf_update_theme)
-
-    fzf "$@"
-}
+# Completion integration with dynamic theme refresh -------------------------------------------------------------------
 
 _fzf_compgen_dir() {
-    export FZF_DEFAULT_OPTS=$(__fzf_update_theme)
-
+    __fzf_update_theme
     fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
@@ -61,14 +65,21 @@ _fzf_comprun() {
     local command=$1
     shift
 
-    export FZF_DEFAULT_OPTS=$(__fzf_update_theme)
+    __fzf_update_theme
 
     case "$command" in
-        cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
-        export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
-        ssh)          fzf "$@" --preview 'dig {}' ;;
-        *)            fzf "$@" ;;
+        cd)
+            fzf "$@" --preview 'tree -C {} | head -200'
+            ;;
+        export|unset)
+            fzf "$@" --preview "eval 'echo \$$'{}"
+            ;;
+        ssh)
+            fzf "$@" --preview 'dig {}'
+            ;;
+        *)
+            fzf "$@"
+            ;;
     esac
 }
 
-alias fzf="__themed_fzf"
