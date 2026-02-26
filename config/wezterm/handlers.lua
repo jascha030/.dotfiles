@@ -1,7 +1,7 @@
 local wezterm = require('wezterm')
 local font = require('fonts')
 local theme = require('theme')
-local colorscheme = theme.get_scheme('Dark', true)
+local colors = theme.get_scheme(wezterm.gui.get_appearance(), true)
 
 local M = {}
 
@@ -25,11 +25,11 @@ function M.on_config_reloaded(window, _)
     local overrides = window:get_config_overrides() or {}
     local prev_state = M.options.colors
 
-    colorscheme = theme.get_scheme(current, true)
+    colors = theme.get_scheme(current, true)
     M.set_colors(current)
 
     if prev_state ~= current then
-        overrides.colors = colorscheme
+        overrides.colors = colors
         overrides.window_background_opacity = theme.get_opacity(current)
         window:set_config_overrides(overrides)
     end
@@ -46,17 +46,17 @@ function M.format_tab_title(tab)
     local first = tab.tab_index == 0
 
     local c = {
-        fg = tab.is_active and colorscheme.foreground or colorscheme.background,
-        bg = tab.is_active and colorscheme.background or colorscheme.foreground,
+        fg = tab.is_active and colors.foreground or colors.background,
+        bg = tab.is_active and colors.background or colors.foreground,
     }
 
     return not first
             and {
-                { Foreground = { Color = colorscheme.background } },
-                { Background = { Color = colorscheme.foreground } },
+                { Foreground = { Color = colors.background } },
+                { Background = { Color = colors.foreground } },
                 { Text = ' ' },
-                { Foreground = { Color = colorscheme.background } },
-                { Background = { Color = colorscheme.foreground } },
+                { Foreground = { Color = colors.background } },
+                { Background = { Color = colors.foreground } },
                 { Text = ' ' },
                 { Foreground = { Color = c.fg } },
                 { Background = { Color = c.bg } },
@@ -168,7 +168,7 @@ function M.editor_mode(window, _)
 
     overrides.font_size = 19
     overrides.line_height = 2
-    overrides.font_rules = font.get_rules(current)
+    overrides.font_rules = font.get_rules()
     M.options.alt_font_active = current
 
     window:set_config_overrides(overrides)
