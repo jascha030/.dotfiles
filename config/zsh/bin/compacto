@@ -2,12 +2,18 @@
 
 set -eo pipefail
 
+typeset -g _INFO_PRINTED=0
+
 _error() {
     print -P "%F{red}Error:%f $*" >&2
 }
 
 _info() {
-    print -P "%F{cyan}$*%f"
+    if (( _INFO_PRINTED )); then
+        printf "\r\033[K"
+    fi
+    print -Pn "%F{cyan}$*%f"
+    _INFO_PRINTED=1
 }
 
 if ! command -v xz >/dev/null 2>&1; then
@@ -29,30 +35,27 @@ fi
 
 BASENAME="$(basename "$INPUT_PATH")"
 
-# Fully filename-safe locale date
+# Locale-aware, filename-safe timestamp
 DATE_PART=$(date +"%x" | tr -cd '[:digit:]')
 TIME_PART=$(date +"%H%M%S")
 TIMESTAMP="${DATE_PART}_${TIME_PART}"
-
 TAR_FILE="${BASENAME}_${TIMESTAMP}.tar"
 FINAL_FILE="${TAR_FILE}.xz"
 
-if [[ -e "$FINAL_FILE" ]]; then
-    _error "Output file '$FINAL_FILE' already exists."
+if [[ -e "$FINAL_FILE" || -e "$TAR_FILE" ]]; then
+    _error "Output file already exists."
     exit 1
 fi
 
 # Get uncompressed size in bytes (macOS compatible)
 SIZE=$(du -sk "$INPUT_PATH" | awk '{print $1 * 1024}')
-
-_info "Creating and compressing archive with maximum LZMA2..."
-
 START_TIME=$(date +%s)
 
-_info "Creating tar archive..."
+_info "[1/2] Creating tar archive..."
 tar -cf "$TAR_FILE" "$INPUT_PATH"
 
-_info "Compressing with maximum LZMA2..."
+_info "[2/2] Compressing with maximum LZMA2..."
+printf "\n"
 xz -9 -e -T0 -v "$TAR_FILE"
 
 END_TIME=$(date +%s)
