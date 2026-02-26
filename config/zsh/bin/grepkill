@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-function _grepkill {
+_grepkill() {
     local q
     for q in "$@"; do
         pgrep "$q" | xargs kill -KILL

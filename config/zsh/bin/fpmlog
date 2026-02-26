@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-function fpmlog() {
+fpmlog() {
     if ! (( ${+FPM_LOG_DIR} )); then
         export FPM_LOG_DIR="${HOME}"/.config/valet/Log
     fi

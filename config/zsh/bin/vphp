@@ -4,7 +4,7 @@ dot_php_bin=${DOT_PHP_BIN:-$(which php)}
 dot_valet_bin=${DOT_VALET_BIN:-$(which php)}
 dot_composer_bin=${DOT_COMPOSER_BIN:-$(which composer)}
 
-function vcomposer () {
+vcomposer() {
     if [[ -f "${PWD}/composer.json" ]]; then
         $dot_valet_bin php "$@"
     else

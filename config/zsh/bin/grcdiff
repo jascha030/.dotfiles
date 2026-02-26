@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-function __grc_diff () {
+__grc_diff() {
     grc diff "$@"
 }
 

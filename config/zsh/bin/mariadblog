@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-function mariadblog() {
+mariadblog() {
     local dir=${MARIADB_LOG_DIR:-/opt/homebrew/var/mysql}
 
     if [ -f "${dir}/Jaschas MacBook Pro.err" ]; then
