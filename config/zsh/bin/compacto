@@ -1,0 +1,75 @@
+#!/usr/bin/env zsh
+
+set -eo pipefail
+
+_error() {
+    print -P "%F{red}Error:%f $*" >&2
+}
+
+_info() {
+    print -P "%F{cyan}$*%f"
+}
+
+if ! command -v xz >/dev/null 2>&1; then
+    _error "xz is not installed. Install it with: brew install xz"
+    exit 1
+fi
+
+if (( $# != 1 )); then
+    echo "Usage: $0 <folder-path>"
+    exit 1
+fi
+
+INPUT_PATH="${1%/}"
+
+if [[ ! -d "$INPUT_PATH" ]]; then
+    _error "'$INPUT_PATH' is not a valid directory."
+    exit 1
+fi
+
+BASENAME="$(basename "$INPUT_PATH")"
+
+# Fully filename-safe locale date
+DATE_PART=$(date +"%x" | tr -cd '[:digit:]')
+TIME_PART=$(date +"%H%M%S")
+TIMESTAMP="${DATE_PART}_${TIME_PART}"
+
+FINAL_FILE="${BASENAME}_${TIMESTAMP}.tar.xz"
+
+if [[ -e "$FINAL_FILE" ]]; then
+    _error "Output file '$FINAL_FILE' already exists."
+    exit 1
+fi
+
+# Get uncompressed size in bytes (macOS compatible)
+SIZE=$(du -sk "$INPUT_PATH" | awk '{print $1 * 1024}')
+
+_info "Creating and compressing archive with maximum LZMA2..."
+
+START_TIME=$(date +%s)
+
+if command -v pv >/dev/null 2>&1; then
+    tar -cf - "$INPUT_PATH" \
+    | pv -s "$SIZE" \
+    | xz -9 -e -T0 \
+    > "$FINAL_FILE"
+else
+    # _info "pv not found — running without progress bar."
+    tar -cf - "$INPUT_PATH" \
+    | xz -9 -e -T0 \
+    > "$FINAL_FILE"
+fi
+
+END_TIME=$(date +%s)
+ELAPSED=$(( END_TIME - START_TIME ))
+
+COMPRESSED_SIZE=$(stat -f%z "$FINAL_FILE")
+
+# Calculate compression ratio
+RATIO=$(awk "BEGIN { printf \"%.2f\", $COMPRESSED_SIZE / $SIZE * 100 }")
+
+printf "\n✅ Done: %s\n" "$FINAL_FILE"
+printf "Original size:   %.2f MB\n" "$(awk "BEGIN {print $SIZE/1024/1024}")"
+printf "Compressed size: %.2f MB\n" "$(awk "BEGIN {print $COMPRESSED_SIZE/1024/1024}")"
+printf "Compression:     %s%% of original\n" "$RATIO"
+printf "Time elapsed:    %ds\n" "$ELAPSED"
