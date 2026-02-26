@@ -34,7 +34,8 @@ DATE_PART=$(date +"%x" | tr -cd '[:digit:]')
 TIME_PART=$(date +"%H%M%S")
 TIMESTAMP="${DATE_PART}_${TIME_PART}"
 
-FINAL_FILE="${BASENAME}_${TIMESTAMP}.tar.xz"
+TAR_FILE="${BASENAME}_${TIMESTAMP}.tar"
+FINAL_FILE="${TAR_FILE}.xz"
 
 if [[ -e "$FINAL_FILE" ]]; then
     _error "Output file '$FINAL_FILE' already exists."
@@ -48,21 +49,14 @@ _info "Creating and compressing archive with maximum LZMA2..."
 
 START_TIME=$(date +%s)
 
-if command -v pv >/dev/null 2>&1; then
-    tar -cf - "$INPUT_PATH" \
-    | pv -s "$SIZE" \
-    | xz -9 -e -T0 \
-    > "$FINAL_FILE"
-else
-    # _info "pv not found — running without progress bar."
-    tar -cf - "$INPUT_PATH" \
-    | xz -9 -e -T0 \
-    > "$FINAL_FILE"
-fi
+_info "Creating tar archive..."
+tar -cf "$TAR_FILE" "$INPUT_PATH"
+
+_info "Compressing with maximum LZMA2..."
+xz -9 -e -T0 -v "$TAR_FILE"
 
 END_TIME=$(date +%s)
 ELAPSED=$(( END_TIME - START_TIME ))
-
 COMPRESSED_SIZE=$(stat -f%z "$FINAL_FILE")
 
 # Calculate compression ratio
