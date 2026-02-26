@@ -4,19 +4,17 @@
 # By Jascha030                                       Dotfiles                   https://github.io/jascha030/.dotfiles #
 #---------------------------------------------------------------------------------------------------------------------#
 
-(( ${+DOT_DATA_DIR} )) || export DOT_DATA_DIR=${XDG_CONFIG_HOME}/datafiles
-
 #- Internally used functions -----------------------------------------------------------------------------------------#
 
-function __fpath_add {
+__fpath_add() {
     fpath=( "$@" "${fpath[@]}" )
 }
 
-function __path_add {
+__path_add() {
     path=( "$@" "${path[@]}" )
 }
 
-function __autoload {
+__autoload() {
     local a
 
     for a in "$@"; do
@@ -24,9 +22,8 @@ function __autoload {
     done
 }
 
-#- All credits to: https://github.com/mroth/evalcache ----------------------------------------------------------------#
-
-function _evalcache () {
+# Credits to: https://github.com/mroth/evalcache
+_evalcache() {
     local data name cmdHash="nohash"
     data="$*"
 
@@ -74,7 +71,7 @@ function _evalcache () {
     fi
 }
 
-function _evalcache_clear () {
+_evalcache_clear() {
     rm -i "$ZSH_EVALCACHE_DIR"/init-*.sh
 }
 
@@ -96,7 +93,6 @@ fi
 
 __fpath_add "${ZDOTDIR}/zfunc" "${ZDOTDIR}/completions"
 __autoload "${ZDOTDIR}/zfunc"
-
 __fpath_add "/opt/homebrew/share/zsh/site-functions"
 
 # Run (bash)compinit for completions.
@@ -119,9 +115,6 @@ safe_source "$ZDOTDIR"/plugins-spec
 unfunction zcompile_many
 
 # Assure required dirs and files exist.
-assert_dirs "$DOT_DATA_DIR"
-assert_files "${DOT_DATA_DIR}/.zsh_history" "${DOT_DATA_DIR}/.mysql_history"
-
 (( ${+DOT_REQUIRED_DIRS} )) && assert_dirs "${DOT_REQUIRED_DIRS[@]}"
 (( ${+DOT_REQUIRED_FILES} )) && assert_files "${DOT_REQUIRED_FILES[@]}"
 
@@ -131,59 +124,12 @@ export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 _evalcache zoxide init zsh
 _evalcache op completion zsh
-# _evalcache mise activate zsh
-
-__auto_opam_env() {
-    if [[ -f opam ]] && [[ -z "$OPAM_SWITCH_PREFIX" ]]; then
-        _evalcache opam env
-    fi
-}
-
-autoload -Uz add-zsh-hook
-add-zsh-hook chpwd __auto_opam_env
-
-if [[ -r /opt/homebrew/etc/grc.zsh ]]; then
-    __grc_lazy_preexec() {
-        local cmd=${1%% *}
-
-        case $cmd in
-            (as|ant|blkid|cc|configure|curl|cvs|df|diff|dig|dnf|docker|docker-compose|docker-machine|du|env|fdisk|findmnt|free|g++|gas|gcc|getfacl|getsebool|gmake|id|ifconfig|iostat|ip|iptables|iwconfig|journalctl|kubectl|last|ldap|lolcat|ld|ls|lsattr|lsblk|lsmod|lsof|lspci|make|mount|mtr|mvn|netstat|nmap|ntpdate|php|ping|ping6|proftpd|ps|sar|semanage|sensors|showmount|sockstat|ss|stat|sysctl|systemctl|tcpdump|traceroute|traceroute6|tune2fs|ulimit|uptime|vmstat|wdiff|whois)
-                source /opt/homebrew/etc/grc.zsh
-                add-zsh-hook -d preexec __grc_lazy_preexec
-                unfunction __grc_lazy_preexec
-            ;;
-        esac
-    }
-
-    add-zsh-hook preexec __grc_lazy_preexec
-fi
-
-if command -v symfony-autocomplete >/dev/null 2>&1; then
-    __lazy_symfony_composer() {
-        unfunction __lazy_symfony_composer
-        _evalcache symfony-autocomplete composer                    # Load cached completion
-        compdef _composer composer __icomposer vcomposer            # Attach real completion to all commands
-    }
-
-    __lazy_symfony_valet() {
-        unfunction __lazy_symfony_valet
-        _evalcache symfony-autocomplete valet
-        compdef _valet valet
-    }
-
-    __lazy_symfony_phpactor() {
-        unfunction __lazy_symfony_phpactor
-        _evalcache symfony-autocomplete phpactor
-        compdef _phpactor phpactor
-    }
-
-    # Temporary stub completion for all
-    compdef __lazy_symfony_composer composer __icomposer vcomposer  
-    compdef __lazy_symfony_valet valet
-    compdef __lazy_symfony_phpactor phpactor
-fi
 
 compdef _op op
+
+#- Lazy-load comp/cmd/env's that aren't often required but add a lot to start-up time --------------------------------#
+
+source ${ZDOTDIR}/lazyfunctions
 
 #- Source late files --------------------------------------------------------------------------------------------------#
 
@@ -200,10 +146,6 @@ fi
 
 source ${ZDOTDIR}/aliases
 source ${ZDOTDIR}/prompt/prompt
-
-autoload -Uz edit-command-line
-zle -N edit-command-line
-bindkey '^x' edit-command-line
 
 #- Init mcfly history last -------------------------------------------------------------------------------------------#
 

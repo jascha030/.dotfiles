@@ -3,7 +3,7 @@
 # This file is used by auto-ls, which is installed as zsh plugin.
 #
 # Default opts for ls
-if ! (( ${+LS_DEFAULT_ARGS} )); then
+if (( ! ${+LS_DEFAULT_ARGS} )); then
     export LS_DEFAULT_ARGS='-Ahl --color=always'
 fi
 
@@ -11,7 +11,7 @@ fi
 # export `LS_OVERRIDE` to use other prefered command (e.g. lsd, colorls).
 # export `LS_DEFAULT_ARGS` to override default args `-Ahl --color`.
 # Command that is added to AUTO_LS_COMMANDS.
-function auto-ls-jassies-ls {
+auto-ls-jassies-ls() {
     ll
     echo ''
 }

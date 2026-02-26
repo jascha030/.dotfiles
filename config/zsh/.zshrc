@@ -43,11 +43,21 @@ typeset -A ZSH_HIGHLIGHT_STYLES=(
     bracket-level-2 'fg=10,bold'
 )
 
+export DOT_REQUIRED_DIRS=(
+    ${DOT_DATA_DIR:-${XDG_CONFIG_HOME}/datafiles}
+)
+
+export DOT_REQUIRED_FILES=(
+    ${DOT_DATA_DIR:-${XDG_CONFIG_HOME}/datafiles}/.zsh_history
+    ${DOT_DATA_DIR:-${XDG_CONFIG_HOME}/datafiles}/.mysql_history
+)
+
 export DOT_COMP_DIRS=(
     ${HOME}/.bun
-    ${HOME}/.config/tabtab/zsh
     ${HOME}/tools/eza/completions/zsh
+    ${XDG_CONFIG_HOME}/tabtab/zsh
     ${ZDOTDIR}/completions
+    /opt/homebrew/share/zsh/site-functions
 )
 
 export DOT_BASH_COMPLETIONS=(

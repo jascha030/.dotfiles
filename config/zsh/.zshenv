@@ -20,6 +20,7 @@ export DOT_NEOVIM_LOL_MSG="NVIM 030"
 
 export PHP_VERSION="${$(/opt/homebrew/bin/php -r 'echo PHP_VERSION;')[1,3]}"
 export GITSTATUS_DIR=${HOME}/tools/gitstatus
+export ZSH_EVALCACHE_DIR=${ZSH_EVALCACHE_DIR:-${ZDOTDIR}/.zsh-evalcache}
+
 export BREW_HOME=/opt/homebrew/opt
 export HOMEBREW_NO_INSTALL_FROM_API=1
-export ZSH_EVALCACHE_DIR=${ZSH_EVALCACHE_DIR:-"$ZDOTDIR/.zsh-evalcache"}

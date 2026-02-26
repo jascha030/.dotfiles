@@ -1,0 +1,61 @@
+#!/usr/bin/env zsh
+
+if (( ! ${+functions[_evalcache]} )); then
+    print -P "%F{red}Error: _evalcache not loaded%f"
+    return
+fi
+
+autoload -Uz add-zsh-hook
+
+if command -v opam >/dev/null 2>&1; then
+    __auto_opam_env() {
+        if [[ -f opam ]] && [[ -z "$OPAM_SWITCH_PREFIX" ]]; then
+            _evalcache opam env
+        fi
+    }
+
+    add-zsh-hook chpwd __auto_opam_env
+fi
+
+if [[ -r /opt/homebrew/etc/grc.zsh ]]; then
+    __grc_lazy_preexec() {
+        local cmd=${1%% *}
+
+        case $cmd in
+            (as|ant|blkid|cc|configure|curl|cvs|df|diff|dig|dnf|docker|docker-compose|docker-machine|du|env|fdisk|findmnt|free|g++|gas|gcc|getfacl|getsebool|gmake|id|ifconfig|iostat|ip|iptables|iwconfig|journalctl|kubectl|last|ldap|lolcat|ld|ls|lsattr|lsblk|lsmod|lsof|lspci|make|mount|mtr|mvn|netstat|nmap|ntpdate|php|ping|ping6|proftpd|ps|sar|semanage|sensors|showmount|sockstat|ss|stat|sysctl|systemctl|tcpdump|traceroute|traceroute6|tune2fs|ulimit|uptime|vmstat|wdiff|whois)
+                source /opt/homebrew/etc/grc.zsh
+                add-zsh-hook -d preexec __grc_lazy_preexec
+                unfunction __grc_lazy_preexec
+            ;;
+        esac
+    }
+
+    add-zsh-hook preexec __grc_lazy_preexec
+fi
+
+# Lazy-loads symfony-autocomplete compdef's for composer and other global php package commands.
+if command -v symfony-autocomplete >/dev/null 2>&1; then
+    __lazy_symfony_composer() {
+        unfunction __lazy_symfony_composer
+        _evalcache symfony-autocomplete composer                    # Load cached completion
+        compdef _composer composer __icomposer vcomposer            # Attach real completion to all commands
+    }
+
+    __lazy_symfony_valet() {
+        unfunction __lazy_symfony_valet
+        _evalcache symfony-autocomplete valet
+        compdef _valet valet
+    }
+
+    __lazy_symfony_phpactor() {
+        unfunction __lazy_symfony_phpactor
+        _evalcache symfony-autocomplete phpactor
+        compdef _phpactor phpactor
+    }
+
+    # Temporary stub completion for all
+    compdef __lazy_symfony_composer composer __icomposer vcomposer  
+    compdef __lazy_symfony_valet valet
+    compdef __lazy_symfony_phpactor phpactor
+fi
+
