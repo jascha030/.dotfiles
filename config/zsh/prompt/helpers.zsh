@@ -1,9 +1,8 @@
 #!/usr/bin/env zsh
 
-# -------- LAYOUT ELEMENTS --------- #
+# ---- LAYOUT ELEMENTS ------------------------------------------------------------------
 
-# Borders
-# PS1_B(order)
+# PS1_B(orders)
 export PS1_B_X='═'
 export PS1_B_Y='║'
 export PS1_B_TOP_L='╔'
@@ -11,19 +10,9 @@ export PS1_B_TOP_R='╗'
 export PS1_B_BOT_R='╝'
 export PS1_B_BOT_L='╚'
 
-# export PS1_B_X='─'
-# export PS1_B_Y='│'
-# export PS1_B_TOP_L='┌'
-# export PS1_B_TOP_R='┐'
-# export PS1_B_BOT_R='┘'
-# export PS1_B_BOT_L='└'
-
 # Fill
-# PS1_F(ill)C(haracter)
-export PS1_FC="${PS1_B_X}"
-
-# Height in lines
-export PS1_HEIGHT=4
+export PS1_FC="${PS1_B_X}" # PS1_F(ill)C(haracter)
+export PS1_HEIGHT=4 # Height in lines
 
 # PS1_L(eft)R(ight)_MARG(in) - Repeat $PS1_FC amt. of times.
 export PS1_LR_MARG=${(pl.$(( ${#PS1_FC}*2 ))..$PS1_FC.)}
@@ -36,7 +25,7 @@ export PS1_BR=${PS1_LR_MARG}''${PS1_B_BOT_R}' '
 
 export PROMPT_FUNCTIONS_PATH="${ZDOTDIR}/prompt/functions"
 
-function prompt-length() {
+prompt-length() {
     emulate -L zsh
 
     local -i COLUMNS=${2:-COLUMNS}
@@ -57,7 +46,7 @@ function prompt-length() {
     typeset -g REPLY=$x
 }
 
-function fill-line {
+fill-line() {
     emulate -L zsh
 
     if [ $# -eq 4 ]; then
@@ -82,14 +71,14 @@ function fill-line {
     fi
 }
 
-function term-variable {
+term-variable() {
     emulate -L zsh
 
     local colored_output="${$(echo -n ${TERM} | lolcrab)[1,#TERM]}"
     typeset -g TERM_DISPLAY=$colored_output
 }
 
-function php-ver {
+php-ver() {
     emulate -L zsh
 
     if (( ${+PHP_VERSION} )); then
