@@ -2,7 +2,11 @@
 
 set -eo pipefail
 
+autoload -Uz colors
+colors
+
 typeset -g _INFO_PRINTED=0
+typeset -g _ABORTED=0
 
 _error() {
     print -P "%F{red}Error:%f $*" >&2
@@ -15,6 +19,24 @@ _info() {
     print -Pn "%F{cyan}$*%f"
     _INFO_PRINTED=1
 }
+
+_cleanup() {
+    echoti cnorm 2>/dev/null || true
+    if (( _ABORTED )); then
+        print -P "\n%F{yellow}Aborted.%f"
+    fi
+}
+
+_abort() {
+    _ABORTED=1
+    exit 130
+}
+
+# Hide cursor
+echoti civis 2>/dev/null || true
+
+trap _cleanup EXIT
+trap _abort INT TERM
 
 if ! command -v xz >/dev/null 2>&1; then
     _error "xz is not installed. Install it with: brew install xz"
@@ -39,6 +61,7 @@ BASENAME="$(basename "$INPUT_PATH")"
 DATE_PART=$(date +"%x" | tr -cd '[:digit:]')
 TIME_PART=$(date +"%H%M%S")
 TIMESTAMP="${DATE_PART}_${TIME_PART}"
+
 TAR_FILE="${BASENAME}_${TIMESTAMP}.tar"
 FINAL_FILE="${TAR_FILE}.xz"
 
@@ -58,15 +81,21 @@ _info "[2/2] Compressing with maximum LZMA2..."
 printf "\n"
 xz -9 -e -T0 -v "$TAR_FILE"
 
+for (( i=0; i<3; i++ )); do
+    echoti cuu1 2>/dev/null || printf "\033[1A"
+    echoti el 2>/dev/null  || printf "\033[K"
+done
+
 END_TIME=$(date +%s)
 ELAPSED=$(( END_TIME - START_TIME ))
-COMPRESSED_SIZE=$(stat -f%z "$FINAL_FILE")
 
 # Calculate compression ratio
+COMPRESSED_SIZE=$(stat -f%z "$FINAL_FILE")
 RATIO=$(awk "BEGIN { printf \"%.2f\", $COMPRESSED_SIZE / $SIZE * 100 }")
 
-printf "\n✅ Done: %s\n" "$FINAL_FILE"
+printf "✅ Done: %s\n" "$FINAL_FILE"
 printf "Original size:   %.2f MB\n" "$(awk "BEGIN {print $SIZE/1024/1024}")"
 printf "Compressed size: %.2f MB\n" "$(awk "BEGIN {print $COMPRESSED_SIZE/1024/1024}")"
 printf "Compression:     %s%% of original\n" "$RATIO"
 printf "Time elapsed:    %ds\n" "$ELAPSED"
+
