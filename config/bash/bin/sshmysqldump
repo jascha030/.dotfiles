@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-ssh "$1" mysqldump -u "$2" -p "$3" >"${PWD}/${3}.sql"
