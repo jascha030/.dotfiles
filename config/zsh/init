@@ -10,8 +10,12 @@ __fpath_add() {
     fpath=( "$@" "${fpath[@]}" )
 }
 
-__path_add() {
-    path=( "$@" "${path[@]}" )
+__safe_source() {
+  local p 
+  
+  for p in "$@" ; do 
+    [[ -f "$p" ]] && source "$p"
+  done
 }
 
 __autoload() {
@@ -85,6 +89,7 @@ path=(
     "${path[@]}"
     "$HOME/.composer/vendor/bin"
 )
+
 typeset -aU path
 
 if (( ${+DOT_COMP_DIRS} )); then
@@ -93,7 +98,8 @@ fi
 
 __fpath_add "${ZDOTDIR}/zfunc" "${ZDOTDIR}/completions"
 __autoload "${ZDOTDIR}/zfunc"
-__fpath_add "/opt/homebrew/share/zsh/site-functions"
+
+typeset -U fpath
 
 # Run (bash)compinit for completions.
 autoload -Uz compinit
@@ -104,13 +110,13 @@ else
 fi
 
 # Source files that are required early.
-(( ${+DOT_SOURCES} )) && safe_source "${DOT_SOURCES[@]}"
+(( ${+DOT_SOURCES} )) && __safe_source "${DOT_SOURCES[@]}"
 
 autoload -U +X bashcompinit && bashcompinit
-(( ${+DOT_BASH_COMPLETIONS})) && safe_source "${DOT_BASH_COMPLETIONS[@]}"
+(( ${+DOT_BASH_COMPLETIONS})) && __safe_source "${DOT_BASH_COMPLETIONS[@]}"
 
 # Load plugins.
-safe_source "$ZDOTDIR"/plugins-spec
+__safe_source "$ZDOTDIR"/plugins-spec
 [[ "$ZDOTDIR"/.zcompdump.zwc -nt "$ZDOTDIR"/.zcompdump ]] || zcompile_many "$ZDOTDIR"/.zcompdump
 unfunction zcompile_many
 
@@ -133,7 +139,7 @@ source ${ZDOTDIR}/lazyfunctions
 
 #- Source late files --------------------------------------------------------------------------------------------------#
 
-(( ${+DOT_AFTER_INIT_SOURCES} )) && safe_source "${DOT_AFTER_INIT_SOURCES[@]}"
+(( ${+DOT_AFTER_INIT_SOURCES} )) && __safe_source "${DOT_AFTER_INIT_SOURCES[@]}"
 
 #- Display flashy, painstakingly crafted intro screen & Prompt -------------------------------------------------------#
 
@@ -175,5 +181,5 @@ fi
 
 unfunction _evalcache
 unfunction __fpath_add
-unfunction __path_add
+unfunction __safe_source
 unfunction __autoload
