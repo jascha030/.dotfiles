@@ -16,7 +16,7 @@ if (( $+commands[eza] )); then
                 --sort=Name \
                 --time-style=+'%d-%m-%y %H:%M' \
                 --color-scale=age \
-                --ignore-glob='*.DS_Store|.php-cs-fixer.cache|.phpunit.result.cache|.wakatime*|.*history|.*hst*|.yarnrc|hushlogin|.hushlogin|.rnd|.fasd|.viminfo|.Xauthority|.z|mysqladmin|.CFUserTextEncoding|.angular-config.json|.zprofrc|.lolmsgrc')
+                --ignore-glob='*.DS_Store|.php-cs-fixer.cache|.phpunit.result.cache|.wakatime*|.*history|.*hst*|.yarnrc|hushlogin|.hushlogin|.rnd|.fasd|.viminfo|.Xauthority|.z|mysqladmin|.CFUserTextEncoding|.angular-config.json|.zprofrc|.lolmsgrc|.ztimingrc')
     }
 fi
 

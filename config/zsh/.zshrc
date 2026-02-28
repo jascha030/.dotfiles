@@ -98,6 +98,27 @@ export DOT_PATH_VAR=(
     /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp
 )
 
+typeset -ga _DOT_ZCOMP_FILES=(
+  ${ZDOTDIR}/init
+  ${ZDOTDIR}/lazyfunctions
+  ${ZDOTDIR}/overrides
+  ${ZDOTDIR}/plugins-spec
+)
+
+__conditional_zcompile() {
+    local file zwc
+    for file in "$@"; do
+        zwc="${file}.zwc"
+
+        if [[ ! -f "$zwc" || "$file" -nt "$zwc" || "$zwc"(#qN.mh+24) ]]; then
+            zcompile "$file"
+        fi
+    done
+}
+
+__conditional_zcompile "${_DOT_ZCOMP_FILES[@]}"
+unfunction __conditional_zcompile
+
 [[ -r ${HOME}/.opam/opam-init/init.zsh ]] && source ${HOME}/.opam/opam-init/init.zsh &>/dev/null
 
 #- Initialization - This is where most of the magic actually happens -------------------------------------------------#

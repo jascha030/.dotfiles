@@ -1,0 +1,6 @@
+#!/usr/var/env zsh
+
+clean-zcomp() {
+    rm -f ${ZDOTDIR}/.zcompdump* 2>/dev/null
+    rm -f ${ZDOTDIR}/*.zwc 2>/dev/null
+}
