@@ -1,13 +1,3 @@
---[[
--- Alternative [b]ackgrounds/[f]oregrounds
-    [b] "#e7e9ef",
-    [b] "#D8DEE9",
-    [b] '#DFE1E8',
-    [b] '#c9c9e9',
-    [b] "#f0e9e9",
-    [f] "#444a73",
-    [f] '#40456D',
---]]
 local M = {
     colors = {
         black = '#32466e',
