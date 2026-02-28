@@ -1,40 +1,43 @@
 colors:
-  bg: '1e2030'              # #1e2030 
-  fg: 'c8d3f5'              # #c8d3f5 
-  black: '444a73'           # #444a73 
-  # black1: '252d53'          # #252d53 
-  black1: '252d53'          # #252d53 
-  red: 'ea1479'             # #ea1479 
-  green: '8fd742'           # #8fd742 
-  # yellow: 'ffcc00'          # #ffcc00 
-  yellow: 'ffae31'          # #ffae31 
-  blue: '0083f7'            # #0083f7 
-  magenta: '6f42c1'         # #6f42c1 
-  cyan: '8494FF'            # #8494FF 
-  white: '969ac9'           # #969ac9 
-  gray: '40495d'            # #40495d 
-  bright_black: '465a82'    # #465a82 
-  bright_red: 'f47cb4'      # #f47cb4 
-  # bright_green: 'd4eb70'    # #d4eb70 
-  bright_green: '9ece6a'    # #9ece6a 
-  # bright_yellow: 'e7c547'   # #e7c547 
-  bright_yellow: 'ffcc00'   # #ffcc00 
-  # bright_blue: '6183bb'     # #6183bb 
-  bright_blue: '8494FF'     # #8494FF 
-  bright_cyan: '1abc9c'     # #1abc9c 
-  # bright_magenta: 'bb9af7'  # #bb9af7 
-  bright_magenta: 'A59BFF'  # #A59BFF 
-  bright_white: 'e9e9ec'    # #e9e9ec 
-  orange: 'ff8000'          # #ff8000
-  browngray: 'bfb49f'       #'#bfb49f'
+  bg: "1e2030"              # #1e2030
+  fg: "c8d3f5"              # #c8d3f5
+  black1: "252d53"          # #252d53
+  black: "444a73"           # #444a73
+  blue: "2090ff"            # #2090ff
+  bright_black: "4f6490"    # #4f6490
+  bright_blue: "8494FF"     # #8494FF
+  bright_cyan: "1abc9c"     # #1abc9c
+  bright_green: "85c55a"    # #85c55a
+  bright_magenta: "7070ff"  # #7070ff
+  bright_red: "f070a8"      # #f070a8
+  bright_white: "e8e8e8"    # #e8e8e8
+  bright_yellow: "f0c000"   # #ffaa00
+  browngray: "bfb49f"       #'#bfb09f'
+  cyan: "0d7a8f"            # #0d7a8f
+  gray: "40495d"            # #40495d
+  green: "7acc35"           # #7acc35
+  magenta: "8052d4"         # #8052d4
+  orange: "ff8000"          # #ff8000
+  red: "ea1479"             # #ea1479
+  white: "969ac9"           # #969ac9
+  yellow: "ffaa00"          # #ffcc00
 
+  # blue: "0083f7"            # #0083f7
+  # bright_black: "465a82"    # #465a82
+  # bright_magenta: "A59BFF"  # #A59BFF
+  # bright_red: "f47cb4"      # #f47cb4
+  # bright_white: "e9e9ec"    # #e9e9e9
+  # bright_green: "9ece6a"    # #9ece6a
+  # green: "8fd742"           # #8fd742
+  # magenta: "6f42c1"         # #6f42c1
+  # cyan: "8494FF"            # #8494FF
 
 core:
   normal_text: {}
   regular_file: {}
   reset_to_normal: {}
   multi_hard_link: {}
- 
+
   directory:
     foreground: bright_blue
 
@@ -110,53 +113,53 @@ markup:
 
 programming:
   source:
-    foreground: cyan 
+    foreground: cyan
 
   project:
-    dotfiles: 
+    dotfiles:
       foreground: green
 
     environment:
       foreground: yellow
 
-    tooling: 
-      testing: 
+    tooling:
+      testing:
         foreground: green
         font-style: underline
       analysis:
         foreground: bright_magenta
         font-style: underline
-      style: 
+      style:
         foreground: bright_magenta
         font-style: underline
-      output: 
+      output:
         foreground: white
 
-    ignore: 
+    ignore:
       foreground: magenta
-          
-    dependencies: 
-      config: 
+
+    dependencies:
+      config:
         foreground: red
         font-style: underline
-        
-      secondary: 
+
+      secondary:
         foreground: red
 
   tooling:
     foreground: bright_magenta
 
-    documentation: 
-      project: 
+    documentation:
+      project:
         background: fg
         foreground: bg
 
-      doxygen: 
-        background: fg 
+      doxygen:
+        background: fg
         foreground: bg
 
     continuous-integration:
-      foreground: yellow 
+      foreground: yellow
 
 media:
   foreground: orange
@@ -174,4 +177,3 @@ executable:
 
 unimportant:
   foreground: white
-
