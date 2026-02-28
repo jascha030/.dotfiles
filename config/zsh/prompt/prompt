@@ -156,7 +156,7 @@ TRAPWINCH() {
     __prompt_cache_invalidate
     set-prompt
 
-    if [[ -o zle ]]; then
+    if zle; then
         zle -I
         zle bottom-redisplay
     fi
