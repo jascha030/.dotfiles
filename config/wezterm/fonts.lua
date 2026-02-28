@@ -3,7 +3,6 @@ local wezterm = require('wezterm')
 local DEFAULT = 'Jetbrains Mono'
 
 local defaults = {
-    -- size = 16.3,
     size = 14.5,
     line_height = 1.7,
     main = nil,
@@ -27,6 +26,7 @@ local function table_merge(t1, t2)
             t1[k] = v
         end
     end
+
     return t1
 end
 

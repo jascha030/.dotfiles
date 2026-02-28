@@ -16,8 +16,8 @@ M.options = {
     },
 }
 
-function M.set_colors(colors)
-    M.options.colors = colors
+function M.set_colors(c)
+    M.options.colors = c
 end
 
 function M.on_config_reloaded(window, _)
@@ -133,7 +133,7 @@ function M.toggle_font(window, _)
     local overrides = window:get_config_overrides() or {}
     local current = not M.options.alt_font_active
 
-    overrides.font_rules = font.get_rules(current)
+    overrides.font_rules = font.get_rules()
     M.options.alt_font_active = current
 
     window:set_config_overrides(overrides)
