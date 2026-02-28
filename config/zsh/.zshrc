@@ -89,8 +89,6 @@ export DOT_PATH_VAR=(
     ${HOME}/bin
     ${HOME}/tools
     ${HOME}/.bun/bin
-    ${HOME}/.cache/.bun/bin
-    ${HOME}/.yarn/bin
     ${HOME}/.gem/ruby/2.6.0/bin
     ${HOME}/.cargo/bin
     ${HOME}/go/bin
