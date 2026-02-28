@@ -13,7 +13,7 @@ fi
 # Command that is added to AUTO_LS_COMMANDS.
 auto-ls-jassies-ls() {
     ll
-    echo ''
+    # echo ''
 }
 
 # Add based on custom config
