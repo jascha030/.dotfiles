@@ -2,6 +2,7 @@ local M = {}
 local quake = require('jascha030.quake')
 
 ---@class JSpoon.Config
+---@field deadlines table{enabled: boolean}
 ---@field term_app table{main: string, alt: string}
 ---@field spoons table{load: string[]}
 ---@field hotkeys table{system: table<string, function>, control: table<string, function>, apps: table<string, string>}
@@ -62,6 +63,10 @@ function M.setup(config)
 
     quake.set(config.term_app)
     require('jascha030.hotkey').setup(config.hotkeys)
+
+    if config.deadlines.enabled then
+        require('jascha030.deadline').init()
+    end
 
     hs.alert.show('🔨🥄 load done.')
 end

@@ -3,6 +3,9 @@ local fn = JSpoon.fn
 
 ---@diagnostic disable-next-line: missing-fields
 JSpoon.setup({
+    deadlines = {
+        enabled = true,
+    },
     term_app = {
         main = 'WezTerm',
         alt = 'Ghostty',
