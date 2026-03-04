@@ -3,7 +3,7 @@ colors:
   fg: "c8d3f5"              # #c8d3f5
   black1: "252d53"          # #252d53
   black: "444a73"           # #444a73
-  blue: "2090ff"            # #2090ff
+  blue: "2089ff"            # #2090ff
   bright_black: "4f6490"    # #4f6490
   bright_blue: "8494FF"     # #8494FF
   bright_cyan: "1abc9c"     # #1abc9c
