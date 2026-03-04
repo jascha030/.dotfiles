@@ -29,14 +29,69 @@ end
 
 ---@param path string
 ---@return boolean
-function M.file_exists(path)
-    local f = io.open(path, 'r')
+function M.path_exists(path)
+    local attr, _ = hs.fs.attributes(path)
 
-    if f == nil then
-        return false
+    return attr ~= nil
+end
+
+---@param path string
+---@return boolean
+function M.is_file(path)
+    local attr, _ = hs.fs.attributes(path)
+
+    return attr ~= nil and attr.mode == 'file'
+end
+
+---@param path string
+---@return boolean
+function M.is_dir(path)
+    local attr, _ = hs.fs.attributes(path)
+
+    return attr ~= nil and attr.mode == 'directory'
+end
+
+---@return string
+function M.read_file(path)
+    if not M.is_file(path) then
+        error('The provided path is not a file: ' .. path)
     end
 
-    io.close(f)
+    local file = io.open(path, 'r')
+
+    if not file then
+        error('Failed to open file: ' .. path)
+    end
+
+    local content = file:read('*a')
+    file:close()
+
+    return content
+end
+
+---@param path string
+---@param content string
+---@param append? boolean
+---@return boolean
+function M.write_file(path, content, append)
+    local mode = append and 'a' or 'w'
+
+    if not M.is_file(path) then
+        local ok, err = hs.fs.touch(path)
+
+        if not ok then
+            print('Error:', err)
+        end
+    end
+
+    local file = io.open(path, mode)
+
+    if file == nil then
+        error('Failed to open file for writing: ' .. path)
+    end
+
+    file:write(content)
+    file:close()
 
     return true
 end
