@@ -103,6 +103,9 @@ typeset -ga _DOT_ZCOMP_FILES=(
   ${ZDOTDIR}/lazyfunctions
   ${ZDOTDIR}/overrides
   ${ZDOTDIR}/plugins-spec
+  ${ZDOTDIR}/prompt/gitstatus.prompt.zsh
+  ${ZDOTDIR}/prompt/helpers.zsh
+  ${ZDOTDIR}/prompt/prompt
 )
 
 __conditional_zcompile() {
