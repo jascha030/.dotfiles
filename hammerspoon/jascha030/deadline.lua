@@ -28,7 +28,9 @@ local function days_until(date_str)
     return math.floor((deadline - os.time()) / 86400)
 end
 
-local function updateMenu()
+local M = {}
+function M.updateMenu()
+    print('updateing deadlines menu')
     local deadlines = load_deadlines()
 
     table.sort(deadlines, function(a, b)
@@ -64,14 +66,15 @@ local function updateMenu()
 end
 
 local init = false
+local timer = nil
 
-return {
-    init = function()
-        if not init then
-            updateMenu()
-            hs.timer.doEvery(3600, updateMenu)
+function M.init()
+    if not init then
+        M.updateMenu()
+        timer = hs.timer.doEvery(600, M.updateMenu)
 
-            init = true
-        end
-    end,
-}
+        init = true
+    end
+end
+
+return M

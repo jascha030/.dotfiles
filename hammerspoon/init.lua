@@ -29,6 +29,7 @@ JSpoon.setup({
                     JSpoon.audioSwitcher:start()
                 end
             end,
+            ['d'] = fn(JSpoon.deadline.updateMenu),
             ['n'] = fn(JSpoon.system.finder_cleanup_by, 'Name'),
             ['t'] = fn(JSpoon.system.finder_cleanup_by, 'Kind'),
             ['down'] = fn(JSpoon.window.min),
