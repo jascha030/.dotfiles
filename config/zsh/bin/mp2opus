@@ -1,0 +1,41 @@
+#!/usr/bin/env zsh
+
+set -eo pipefail
+
+autoload -Uz colors
+colors
+
+_error() {
+    print -P "%F{red}Error:%f $*" >&2
+}
+
+if ! command -v ffmpeg >/dev/null 2>&1; then
+    _error "ffmpeg is not installed. Install it with: brew install ffmpeg"
+    exit 1
+fi
+
+if (( $# != 1 )); then
+    echo "Usage: $0 <path>"
+    exit 1
+fi
+
+INPUT_PATH="${1%/}"
+
+if [[ ! -d "$INPUT_PATH" ]] && [[ ! -f "$INPUT_PATH" ]]; then
+    _error "'$INPUT_PATH' is not a valid file or directory."
+    exit 1
+fi
+
+if [[ -d "$INPUT_PATH" ]]; then
+    for f in ${INPUT_PATH}/*.mp3; do
+        ffmpeg -hide_banner -loglevel error -stats -i "$f" \
+            -vn -c:a libopus -b:a 56k -vbr on -ac 2 -ar 48000 -application audio -compression_level 10 \
+            -map_metadata 0 "${f%.*}.opus"; 
+    done
+fi
+
+if [[ -f "$INPUT_PATH" ]]; then
+    ffmpeg -hide_banner -loglevel error -stats -i "$INPUT_PATH" \
+        -vn -c:a libopus -b:a 56k -vbr on -ac 2 -ar 48000 -application audio -compression_level 10 \
+        -map_metadata 0 "${INPUT_PATH%.*}.opus";
+fi
