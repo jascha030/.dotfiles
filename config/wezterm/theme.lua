@@ -4,10 +4,13 @@ local M = {}
 local default = require('colors.jassiea11y').get_scheme()
 local color_scheme = nil
 
+---@param scheme string
 local function is_dark(scheme)
     return scheme == 'Dark'
 end
 
+---@param colors table
+---@param tab_bar boolean|nil whether to include tab bar colors in the scheme.
 function M.scheme_from_colors(colors, tab_bar)
     local scheme = {
         background = colors.background,
@@ -69,6 +72,9 @@ function M.scheme_from_colors(colors, tab_bar)
     return scheme
 end
 
+---@param module string 
+---@param color_overrides table<string, string>?
+---@return table|nil
 function M.scheme_from_module(module, color_overrides)
     color_overrides = color_overrides or nil
 
@@ -86,6 +92,9 @@ function M.scheme_from_module(module, color_overrides)
     return M.scheme_from_colors(scheme_colors)
 end
 
+---@param scheme string
+---@param enable_tab_bar boolean|nil whether to include tab bar colors in the scheme.
+---@return table
 function M.get_scheme(scheme, enable_tab_bar)
     if color_scheme == nil then
         color_scheme = default
@@ -94,10 +103,13 @@ function M.get_scheme(scheme, enable_tab_bar)
     return M.scheme_from_colors(is_dark(scheme) and color_scheme.dark or color_scheme.light, enable_tab_bar)
 end
 
+---@param scheme string
+---@return number
 function M.get_opacity(scheme)
     return is_dark(scheme) and 0.98 or 1
 end
 
+---@param config table
 function M.setup(config)
     config = config or {}
 

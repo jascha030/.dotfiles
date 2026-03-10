@@ -40,6 +40,7 @@ local function icon(process_name)
         or M.options.proc_icons['default']
 end
 
+---@TODO: Fix color handling based on current theme (dark/light) and active/inactive state of the tab.
 function M.format_tab_title(tab)
     local title_icon = icon(tab.active_pane.title)
     local title = ' ' .. tab.tab_index + 1 .. ': ' .. title_icon .. tab.active_pane.title .. ' '
@@ -72,7 +73,7 @@ function M.format_tab_title(tab)
         }
 end
 
--- TODO: extract common code in opacity_* font_size_* and line_height_*
+---@TODO: extract common code in opacity_* font_size_* and line_height_*
 function M.opacity_up(window, _)
     local overrides = window:get_config_overrides() or {}
     local current = overrides.window_background_opacity or M.options.opacity

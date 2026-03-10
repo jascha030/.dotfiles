@@ -6,6 +6,7 @@ local wezterm = require('wezterm')
 ---@param mods string
 ---@param key string
 ---@param dir string 'Right' | 'Left' | 'Up' | 'Down'
+---@diagnostic disable-next-line: unused-local
 function M.split_nav(resize_or_move, mods, key, vimKey, dir)
     local event = 'SplitNav_' .. resize_or_move .. '_' .. dir
 
