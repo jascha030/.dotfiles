@@ -29,7 +29,7 @@ local M = {
             ['nix'] = { 'nixpkgs_fmt' },
             ['php'] = { stop_after_first = true, lsp_format = 'first', 'php_cs_fixer' },
             ['proto'] = { stop_after_first = true, 'buf', 'protolint' },
-            ['rust'] = { 'rustfmt' },
+            ['rust'] = { 'rustfmt', fallback = 'lsp_format' },
             ['scss'] = { stop_after_first = true, 'stylelint', 'prettierd' },
             ['sh'] = { 'shfmt_posix' },
             ['swift'] = { 'swift' },
