@@ -1,6 +1,19 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["opencode-gemini-auth@latest", "opencode-wakatime"],
+  "agent": {
+    "plan": {
+      "permission": {
+        "external_directory": "allow"
+      }
+    }
+  },
+  "autoupdate": "notify",
+  "lsp": {
+    "lua-language-server": {
+      "command": ["lua-language-server"],
+      "extensions": [".lua"]
+    }
+  },
   "mcp": {
     "gh_grep": {
       "type": "remote",
@@ -9,9 +22,7 @@
     "context7": {
       "url": "https://mcp.context7.com/mcp",
       "type": "remote",
-      "headers": {
-        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
-      }
+      "headers": { "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}" }
     },
     "websearch-exa": {
       "type": "remote",
@@ -19,16 +30,7 @@
       "enabled": true
     }
   },
-  "lsp": {
-    "lua-language-server": {
-      "command": ["lua-language-server"],
-      "extensions": [".lua"]
-    }
-  },
-  "permission": {
-    "skill": {
-      "*": "allow"
-    }
-  },
+  "permission": {},
+  "plugin": ["opencode-gemini-auth@latest", "opencode-wakatime"],
   "username": "Jascha030"
 }
