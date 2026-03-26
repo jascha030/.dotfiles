@@ -1,5 +1,5 @@
 ---@type vim.lsp.Config
-local vtsls = {
+local tsls = {
     single_file_support = false,
     filetypes = {
         'javascript',
@@ -10,43 +10,30 @@ local vtsls = {
         'typescript.tsx',
     },
 
-    -- root_markers = {
-    --     'tsconfig.json',
-    --     'jsconfig.json',
-    --     'package.json',
-    --     'vite.config.js',
-    --     'vite.config.ts',
-    --     '.git',
-    -- },
-
-    ---@type lspconfig.settings.vtsls
+    ---@type lspconfig.settings.tsgo
     settings = {
-        vtsls = {
-            experimental = { enableProjectDiagnostics = true },
-            enableMoveToFileCodeAction = true,
-            autoUseWorkspaceTsdk = true,
-        },
         typescript = {
-            updateImportsOnFileMove = {
-                enabled = 'always',
+            experimental = {
+                useTsgo = true,
             },
-            implementationsCodeLens = {
-                enabled = true,
-                showOnAllClassMethods = true,
-                showOnInterfaceMethods = true,
+            workspaceSymbols = {
+                excludeLibrarySymbols = true,
+                scope = 'allOpenProjects',
             },
+            updateImportsOnFileMove = { enabled = 'always' },
             suggest = {
                 completeFunctionCalls = true,
             },
-            format = {
-                enable = false,
-            },
+            format = { enable = false },
             preferences = {
                 useAliasesForRenames = true,
                 preferTypeOnlyAutoImports = true,
             },
             tsserver = {
                 maxTsServerMemory = 8192,
+                experimental = {
+                    enableProjectDiagnostics = true,
+                },
             },
             referencesCodeLens = {
                 showOnAllFunctions = true,
@@ -64,6 +51,6 @@ local vtsls = {
     },
 }
 
-vtsls.settings.javascript = vim.tbl_deep_extend('force', {}, vtsls.settings.typescript, vtsls.settings.javascript or {})
+tsls.settings.javascript = vim.tbl_deep_extend('force', {}, tsls.settings.typescript, tsls.settings.javascript or {})
 
-return Jascha030.lsp.config_extend(vtsls)
+return tsls

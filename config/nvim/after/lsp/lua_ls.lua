@@ -4,11 +4,10 @@
 return Jascha030.lsp.config_extend({
     settings = {
         Lua = {
-            runtime = {
-                version = 'LuaJIT',
-                special = {
-                    ['lreq'] = 'require',
-                },
+            completion = {
+                autoRequire = true,
+                callSnippet = 'Disable',
+                displayContext = 2,
             },
             diagnostics = {
                 enable = true,
@@ -18,10 +17,8 @@ return Jascha030.lsp.config_extend({
                     'vim',
                 },
             },
-            completion = {
-                autoRequire = true,
-                callSnippet = 'Disable',
-                displayContext = 2,
+            doc = {
+                privateName = { '^_' },
             },
             hint = {
                 enable = true,
@@ -31,6 +28,15 @@ return Jascha030.lsp.config_extend({
                 paramName = 'All',
                 paramType = true,
                 semicolon = 'SameLine',
+            },
+            runtime = {
+                version = 'LuaJIT',
+                special = {
+                    ['lreq'] = 'require',
+                },
+            },
+            telemetry = {
+                enable = false,
             },
         },
     },
