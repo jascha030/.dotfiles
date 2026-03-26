@@ -1,46 +1,75 @@
 #!/bin/sh
 
+# shellcheck disable=SC2016
+
 HOME_DIR=${HOME:?}
 DOTFILES_DIR="$HOME_DIR/.dotfiles"
 OUT_SCRIPT="./restore-dotfile-symlinks.sh"
+TMP_FILE=$(mktemp)
+
+to_home_expr() {
+	case $1 in
+	"$HOME_DIR")
+		printf '%s\n' '$HOME'
+		;;
+	"$HOME_DIR"/*)
+		printf '$HOME/%s\n' "${1#"$HOME_DIR"/}"
+		;;
+	*)
+		return 1
+		;;
+	esac
+}
 
 {
-    printf '%s\n' '#!/bin/sh'
-    printf '%s\n' ''
-    printf '%s\n' 'HOME_DIR=${HOME:?}'
-    printf '%s\n' ''
-} > "$OUT_SCRIPT"
+	printf '%s\n' '#!/bin/sh'
+	printf '%s\n' ''
+	printf '%s\n' ': "${HOME:?}"'
+	printf '%s\n' ''
+} >"$OUT_SCRIPT"
 
-find "$HOME_DIR" -path "$DOTFILES_DIR" -prune -o -type l -print |
+find "$HOME_DIR" -mindepth 1 -maxdepth 1 -type l -print >"$TMP_FILE"
+
+if [ -d "$HOME_DIR/.config" ]; then
+	find "$HOME_DIR/.config" -type l -print >>"$TMP_FILE"
+fi
+
 while IFS= read -r link; do
-    target=$(readlink "$link") || continue
-    [ -n "$target" ] || continue
+	target=$(readlink "$link") || continue
+	[ -n "$target" ] || continue
 
-    link_dir=$(dirname "$link")
+	link_dir=$(dirname "$link")
 
-    case $target in
-        /*)
-            resolved_target=$target
-            ;;
-        *)
-            resolved_target=$(cd "$link_dir" 2>/dev/null && cd "$(dirname "$target")" 2>/dev/null && pwd)/$(basename "$target") || continue
-            ;;
-    esac
+	case $target in
+	/*)
+		resolved_target=$target
+		;;
+	*)
+		resolved_target=$(
+			cd "$link_dir" 2>/dev/null &&
+				cd "$(dirname "$target")" 2>/dev/null &&
+				pwd
+		)/$(basename "$target") || continue
+		;;
+	esac
 
-    case $resolved_target in
-        "$DOTFILES_DIR"/*)
-            printf 'mkdir -p %s\n' "$(printf "%s" "$(dirname "$link")" | sed "s/'/'\\\\''/g; s/.*/'&'/")" >> "$OUT_SCRIPT"
-            printf 'if [ ! -e %s ] && [ ! -L %s ]; then ln -s %s %s; fi\n' \
-                "$(printf "%s" "$link" | sed "s/'/'\\\\''/g; s/.*/'&'/")" \
-                "$(printf "%s" "$link" | sed "s/'/'\\\\''/g; s/.*/'&'/")" \
-                "$(printf "%s" "$target" | sed "s/'/'\\\\''/g; s/.*/'&'/")" \
-                "$(printf "%s" "$link" | sed "s/'/'\\\\''/g; s/.*/'&'/")" \
-                >> "$OUT_SCRIPT"
-            ;;
-    esac
-done
+	case $resolved_target in
+	"$DOTFILES_DIR"/*)
+		portable_link=$(to_home_expr "$link") || continue
+		portable_parent=$(to_home_expr "$(dirname "$link")") || continue
+		portable_target=$(to_home_expr "$resolved_target") || continue
 
+		printf 'mkdir -p "%s"\n' "$portable_parent" >>"$OUT_SCRIPT"
+		printf 'if [ ! -e "%s" ] && [ ! -L "%s" ]; then ln -s "%s" "%s"; fi\n' \
+			"$portable_link" \
+			"$portable_link" \
+			"$portable_target" \
+			"$portable_link" \
+			>>"$OUT_SCRIPT"
+		;;
+	esac
+done <"$TMP_FILE"
+
+rm -f "$TMP_FILE"
 chmod +x "$OUT_SCRIPT"
-
 printf 'Wrote %s\n' "$OUT_SCRIPT"
-
