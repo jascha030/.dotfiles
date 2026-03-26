@@ -1,0 +1,46 @@
+#!/bin/sh
+
+HOME_DIR=${HOME:?}
+DOTFILES_DIR="$HOME_DIR/.dotfiles"
+OUT_SCRIPT="./restore-dotfile-symlinks.sh"
+
+{
+    printf '%s\n' '#!/bin/sh'
+    printf '%s\n' ''
+    printf '%s\n' 'HOME_DIR=${HOME:?}'
+    printf '%s\n' ''
+} > "$OUT_SCRIPT"
+
+find "$HOME_DIR" -path "$DOTFILES_DIR" -prune -o -type l -print |
+while IFS= read -r link; do
+    target=$(readlink "$link") || continue
+    [ -n "$target" ] || continue
+
+    link_dir=$(dirname "$link")
+
+    case $target in
+        /*)
+            resolved_target=$target
+            ;;
+        *)
+            resolved_target=$(cd "$link_dir" 2>/dev/null && cd "$(dirname "$target")" 2>/dev/null && pwd)/$(basename "$target") || continue
+            ;;
+    esac
+
+    case $resolved_target in
+        "$DOTFILES_DIR"/*)
+            printf 'mkdir -p %s\n' "$(printf "%s" "$(dirname "$link")" | sed "s/'/'\\\\''/g; s/.*/'&'/")" >> "$OUT_SCRIPT"
+            printf 'if [ ! -e %s ] && [ ! -L %s ]; then ln -s %s %s; fi\n' \
+                "$(printf "%s" "$link" | sed "s/'/'\\\\''/g; s/.*/'&'/")" \
+                "$(printf "%s" "$link" | sed "s/'/'\\\\''/g; s/.*/'&'/")" \
+                "$(printf "%s" "$target" | sed "s/'/'\\\\''/g; s/.*/'&'/")" \
+                "$(printf "%s" "$link" | sed "s/'/'\\\\''/g; s/.*/'&'/")" \
+                >> "$OUT_SCRIPT"
+            ;;
+    esac
+done
+
+chmod +x "$OUT_SCRIPT"
+
+printf 'Wrote %s\n' "$OUT_SCRIPT"
+
