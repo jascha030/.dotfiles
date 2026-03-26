@@ -29,7 +29,6 @@ prompt-length() {
     emulate -L zsh
 
     local -i COLUMNS=${2:-COLUMNS}
-
     local -i x y=${#1} m
 
     if (( y )); then
@@ -69,13 +68,6 @@ fill-line() {
         local pad=${(pl.$pad_len..$fill.)}
         typeset -g REPLY=${1}${pad}${2}
     fi
-}
-
-term-variable() {
-    emulate -L zsh
-
-    local colored_output="${$(echo -n ${TERM} | lolcrab)[1,#TERM]}"
-    typeset -g TERM_DISPLAY=$colored_output
 }
 
 php-ver() {
