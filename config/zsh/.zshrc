@@ -20,8 +20,13 @@ fi
 
 #- Dotfiles start here. ----------------------------------------------------------------------------------------------#
 
-setopt autocd extendedglob nomatch menucomplete traps_async
 unsetopt BEEP
+
+setopt autocd
+setopt extendedglob
+setopt nomatch
+setopt menucomplete
+setopt traps_async
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
