@@ -1,15 +1,22 @@
 ---@type LazyPluginSpec
 return {
     'NickvanDyke/opencode.nvim',
-    dependencies = { { 'folke/snacks.nvim' } },
+    dependencies = { 'folke/snacks.nvim' },
+    event = 'VeryLazy',
     config = function()
         ---@type opencode.Opts
         vim.g.opencode_opts = {
             provider = {
                 enabled = 'wezterm',
+                wezterm = {
+                    direction = 'right',
+                    percent = 35,
+                },
+            },
+            lsp = {
+                enabled = true,
             },
         }
-
         vim.o.autoread = true
     end,
     keys = {

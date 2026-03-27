@@ -100,7 +100,6 @@ return {
             })
         end,
     },
-    { 'ray-x/lsp_signature.nvim' },
     {
         'folke/lazydev.nvim',
         ft = 'lua',

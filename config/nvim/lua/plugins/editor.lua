@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 ---@type LazyPluginSpec[]
 local M = {
     {
@@ -10,6 +11,14 @@ local M = {
     { 'nvim-lua/plenary.nvim', lazy = true },
     { 'petertriho/nvim-scrollbar', config = true },
     { 'luukvbaal/stabilize.nvim', config = true },
+    {
+        'lewis6991/gitsigns.nvim',
+        ---@module 'gitsigns'
+        ---@type Gitsigns.Config
+        opts = {
+            current_line_blame = true,
+        },
+    },
     {
         'kylechui/nvim-surround',
         config = true,
