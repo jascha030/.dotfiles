@@ -7,7 +7,6 @@
       }
     }
   },
-  "autoupdate": "notify",
   "lsp": {
     "lua-language-server": {
       "command": ["lua-language-server"],
