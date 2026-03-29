@@ -98,6 +98,8 @@ return {
                 automatic_installation = true,
                 ensure_installed = opts.ensure_installed,
             })
+
+            vim.lsp.enable('zsh_local')
         end,
     },
     {
