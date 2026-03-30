@@ -36,12 +36,6 @@ local lazy_opts = {
 
 if vim.loader then
     vim.loader.enable()
-
-    -- if pcall(require, 'hotpot') then
-    --     require('hotpot').setup({})
-    -- end
-    --
-    -- table.insert(lazy_opts, 1, { 'rktjmp/hotpot.nvim' })
 end
 
 require('lazy').setup(lazy_opts, {
