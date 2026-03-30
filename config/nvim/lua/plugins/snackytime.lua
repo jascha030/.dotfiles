@@ -34,10 +34,19 @@ function M.opts()
             },
             sources = {
                 explorer = {
-                    hidden = false,
+                    hidden = true,
                     ignored = false,
                     git_untracked = false,
-                    exclude = { '.DS_Store', 'thumbs.db', 'Thumbs.db', '**/.DS_Store', '**/thumbs.db', '**/Thumbs.db' },
+                    exclude = {
+                        '.DS_Store',
+                        'thumbs.db',
+                        'Thumbs.db',
+                        '*.zwc',
+                        '**/*.zwc',
+                        '**/.DS_Store',
+                        '**/thumbs.db',
+                        '**/Thumbs.db',
+                    },
                     layout = {
                         preset = 'sidebar',
                         preview = false,
@@ -54,6 +63,8 @@ function M.opts()
                                 ['<c-n>'] = 'cancel',
                                 ['s'] = 'edit_vsplit',
                                 ['S'] = 'edit_split',
+                                ['H'] = 'toggle_ignored',
+                                ['I'] = 'toggle_ignored',
                             },
                         },
                     },
