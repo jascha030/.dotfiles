@@ -34,8 +34,9 @@ function M.opts()
             },
             sources = {
                 explorer = {
-                    hidden = true,
+                    hidden = false,
                     ignored = false,
+                    git_untracked = false,
                     exclude = { '.DS_Store', 'thumbs.db', 'Thumbs.db', '**/.DS_Store', '**/thumbs.db', '**/Thumbs.db' },
                     layout = {
                         preset = 'sidebar',
