@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+
+toggle-promptcache() {
+    if (( ${DOT_PROMPT_CACHE_ENABLED:-1} == 0 )); then
+        export DOT_PROMPT_CACHE_ENABLED=1
+        print -r -- 'export DOT_PROMPT_CACHE_ENABLED=1' > "${HOME}/.zpromptcacherc"
+        print -r -- 'prompt cache enabled'
+    else
+        export DOT_PROMPT_CACHE_ENABLED=0
+        print -r -- 'export DOT_PROMPT_CACHE_ENABLED=0' > "${HOME}/.zpromptcacherc"
+        print -r -- 'prompt cache disabled'
+    fi
+
+    (( ${+__PROMPT_CACHE_ENABLED} )) && __PROMPT_CACHE_ENABLED=$DOT_PROMPT_CACHE_ENABLED
+    (( ${+functions[__prompt_cache_invalidate]} )) && __prompt_cache_invalidate
+    (( ${+functions[set-prompt]} )) && set-prompt
+}

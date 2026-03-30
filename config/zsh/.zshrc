@@ -18,6 +18,10 @@ if (( DOT_TIMING_ENABLED )); then
     zmodload zsh/datetime
 fi
 
+#- Logic required to easily toggle prompt fill-line caching -----------------------------------------------------------#
+[[ -f ${HOME}/.zpromptcacherc ]] || print -r -- 'export DOT_PROMPT_CACHE_ENABLED=1' > ${HOME}/.zpromptcacherc
+source ${HOME}/.zpromptcacherc
+
 #- Dotfiles start here. ----------------------------------------------------------------------------------------------#
 
 unsetopt BEEP

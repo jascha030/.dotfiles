@@ -48,6 +48,7 @@ block-empty-tab() {
 
 # ── fill-line cache ────────────────────────────────────────────────────────────
 # All fill-line inputs are static per $COLUMNS. Cache results and invalidate on resize.
+typeset -gi __PROMPT_CACHE_ENABLED=${DOT_PROMPT_CACHE_ENABLED:-1}
 typeset -gi __PROMPT_CACHED_COLS=0
 typeset -g  __PROMPT_CACHE_TOP=''
 typeset -g  __PROMPT_CACHE_MID=''
@@ -58,7 +59,7 @@ __prompt_cache_invalidate() {
 }
 
 __prompt_cache_rebuild() {
-    (( COLUMNS == __PROMPT_CACHED_COLS )) && return 0
+    (( __PROMPT_CACHE_ENABLED && COLUMNS == __PROMPT_CACHED_COLS )) && return 0
 
     local REPLY
 
@@ -76,7 +77,11 @@ __prompt_cache_rebuild() {
     fill-line "  ╔" ""
     __PROMPT_CACHE_COMPACT=$REPLY
 
-    __PROMPT_CACHED_COLS=$COLUMNS
+    if (( __PROMPT_CACHE_ENABLED )); then
+        __PROMPT_CACHED_COLS=$COLUMNS
+    else
+        __PROMPT_CACHED_COLS=0
+    fi
 }
 
 set-prompt() {
