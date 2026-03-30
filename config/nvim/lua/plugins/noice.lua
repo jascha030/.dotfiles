@@ -78,6 +78,20 @@ local M = {
                 },
             },
         },
+        config = function(_, opts)
+            require('noice').setup(opts)
+
+            local noice_treesitter = require('noice.text.treesitter')
+            local original_has_lang = noice_treesitter.has_lang
+
+            noice_treesitter.has_lang = function(lang)
+                if lang == 'markdown' or lang == 'markdown_inline' then
+                    return false
+                end
+
+                return original_has_lang(lang)
+            end
+        end,
     },
 }
 

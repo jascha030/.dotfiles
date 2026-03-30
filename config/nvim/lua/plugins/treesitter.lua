@@ -164,8 +164,33 @@ local M = {
 
 function M.config(_, opts)
     local parsers = require('nvim-treesitter.parsers')
+    local ts_query = require('vim.treesitter.query')
+
+    local info_string_aliases = {
+        ex = 'elixir',
+        pl = 'perl',
+        sh = 'bash',
+        ts = 'typescript',
+        uxn = 'uxntal',
+    }
 
     require('nvim-treesitter.configs').setup(opts)
+
+    ts_query.add_directive('set-lang-from-info-string!', function(match, _, bufnr, pred, metadata)
+        local node = match[pred[2]]
+        if not node then
+            return
+        end
+
+        local ok, text = pcall(vim.treesitter.get_node_text, node, bufnr)
+        if not ok or text == '' then
+            return
+        end
+
+        local injection_alias = text:lower()
+        local filetype = vim.filetype.match({ filename = 'a.' .. injection_alias })
+        metadata['injection.language'] = filetype or info_string_aliases[injection_alias] or injection_alias
+    end, { force = true, all = false })
 
     local parser_config = parsers.get_parser_configs()
 
