@@ -82,7 +82,7 @@ function M.on_attach(client, bufnr)
     self:map('[w', diagnostic_goto(false, 'WARNING'), { desc = 'Prev Warning' })
     self:map('<leader>r', M.rename, { expr = true, desc = 'Rename', has = 'rename' })
     -- self:map('<leader>cd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
-    -- self:map('<leader>xd', 'Telescope diagnostics', { desc = 'Telescope Diagnostics' })
+    -- self:map('<leader>xd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
 end
 
 return M

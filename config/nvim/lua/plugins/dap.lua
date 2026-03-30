@@ -28,7 +28,6 @@ local M = {
         },
         { 'jayp0521/mason-nvim-dap.nvim', lazy = true },
         { 'theHamsta/nvim-dap-virtual-text', lazy = true },
-        { 'nvim-telescope/telescope-dap.nvim', lazy = true },
     },
 }
 

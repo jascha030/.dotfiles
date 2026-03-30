@@ -3,7 +3,6 @@ local M = {
     'adalessa/laravel.nvim',
     cond = false, -- @todo: add condition
     dependencies = {
-        'nvim-telescope/telescope.nvim',
         'tpope/vim-dotenv',
         'MunifTanjim/nui.nvim',
     },
@@ -24,7 +23,6 @@ local M = {
     },
     config = function(_, opts)
         require('laravel').setup(opts)
-        require('telescope').load_extension('laravel')
     end,
 }
 

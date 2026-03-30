@@ -69,7 +69,7 @@ function M.opts()
                 filetypes = '.macos',
             },
             Fzf = {
-                icon = 'telescope',
+                icon = 'picker',
                 filetypes = 'fzf',
             },
             Hushlogin = {
