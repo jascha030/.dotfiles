@@ -2,7 +2,6 @@
 
 -- Patterns to filter out notifications, these will use the normal vim.notify.
 local NOTIFICATION_FILTERS = {
-    'Neo-tree INFO',
     'Config Change Detected.',
 }
 
@@ -19,7 +18,45 @@ function M.opts()
     local opts = {
         styles = { minimal = { border = 'solid' } },
         bigfile = { enabled = true },
+        explorer = {
+            enabled = true,
+            replace_netrw = true,
+            trash = true,
+        },
         notifier = { enabled = false },
+        picker = {
+            icons = {
+                files = {
+                    dir = ' ',
+                    dir_open = ' ',
+                    file = ' ',
+                },
+            },
+            sources = {
+                explorer = {
+                    hidden = true,
+                    ignored = false,
+                    exclude = { '.DS_Store', 'thumbs.db', 'Thumbs.db', '**/.DS_Store', '**/thumbs.db', '**/Thumbs.db' },
+                    layout = {
+                        preset = 'sidebar',
+                        preview = false,
+                        layout = { position = 'right' },
+                    },
+                    win = {
+                        input = {
+                            keys = {
+                                ['<c-n>'] = { 'cancel', mode = { 'n', 'i' } },
+                            },
+                        },
+                        list = {
+                            keys = {
+                                ['<c-n>'] = 'cancel',
+                            },
+                        },
+                    },
+                },
+            },
+        },
         quickfile = { enabled = true },
         words = { enabled = true },
         input = { enabled = true },
@@ -132,7 +169,18 @@ function M.keys()
         { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
         { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
         { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
-        { "<leader>fe", function() Snacks.explorer() end, desc = "File Explorer" },
+        {
+            '<leader>fe',
+            function()
+                local picker = Snacks.picker.get({ source = 'explorer' })[1]
+                if picker then
+                    picker:close()
+                else
+                    Snacks.explorer()
+                end
+            end,
+            desc = 'File Explorer',
+        },
 
         { '<leader>un', function() Snacks.notifier.hide() end, desc = 'Dismiss All Notifications', },
         { '<leader>bd', function() Snacks.bufdelete() end, desc = 'Delete Buffer', },
@@ -221,6 +269,42 @@ end
 function M.config(_, opts)
     local vim_notify = vim.notify
     require('snacks').setup(opts)
+
+    local snacks_util = require('snacks.util')
+    local original_icon = snacks_util.icon
+
+    --- Prefer custom `nvim-web-devicons` overrides over MiniIcons.
+    ---@param name string
+    ---@param cat? string
+    ---@param icon_opts? { fallback?: { dir?: string, file?: string } }
+    snacks_util.icon = function(name, cat, icon_opts)
+        icon_opts = icon_opts or {}
+        icon_opts.fallback = icon_opts.fallback or {}
+
+        if cat == 'directory' then
+            return icon_opts.fallback.dir or ' ', 'Directory'
+        end
+
+        local ok, devicons = pcall(require, 'nvim-web-devicons')
+        if ok then
+            local icon, hl
+
+            if cat == 'filetype' then
+                icon, hl = devicons.get_icon_by_filetype(name, { default = false })
+            elseif cat == 'file' then
+                local ext = name:match('%.(%w+)$')
+                icon, hl = devicons.get_icon(name, ext, { default = false })
+            elseif cat == 'extension' then
+                icon, hl = devicons.get_icon(nil, name, { default = false })
+            end
+
+            if icon then
+                return icon, hl
+            end
+        end
+
+        return original_icon(name, cat, icon_opts)
+    end
 
     -- MONKEY PATCH: Position notifications on the left
     local function patch_notifier_left()

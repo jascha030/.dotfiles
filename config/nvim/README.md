@@ -15,7 +15,7 @@ A highly customized, performance-oriented Neovim configuration built completely 
 - **🚀 Plugin Management**: Powered by [lazy.nvim](https://github.com/folke/lazy.nvim) for blazing fast startup times.
 - **🧠 LSP**: Native `vim.lsp` configuration enhanced with [mason.nvim](https://github.com/mason-org/mason.nvim) to easily install servers, linters, and formatters.
 - **🔮 Completion**: Ultra-fast completion using [blink.cmp](https://github.com/saghen/blink.cmp) and snippet support via [LuaSnip](https://github.com/L3MON4D3/LuaSnip).
-- **🌲 File Explorer**: [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) for visual file management.
+- **🌲 File Explorer**: [snacks.nvim](https://github.com/folke/snacks.nvim) explorer on the right sidebar with custom icons.
 - **🔭 Fuzzy Finding**: [snacks.nvim](https://github.com/folke/snacks.nvim) pickers for files, grep, git history, and more.
 - **🎨 Theme**: Custom [nitepal.nvim](https://github.com/jascha030/nitepal.nvim) colorscheme (Work In Progress).
 - **🐘 PHP Support**: Specialized setup for PHP development (DAP, PHPActor, Code Sniffer).
@@ -45,7 +45,7 @@ The **Leader Key** is set to `<Space>`.
 
 | Mode | Key | Action |
 | :--- | :--- | :--- |
-| **Normal** | `<Space>e` | Toggle File Explorer (Neo-tree) |
+| **Normal** | `<Space>fe` | Toggle File Explorer (Snacks) |
 | **Normal** | `<Space>ff` | Find Files (Snacks) |
 | **Normal** | `<Space>fg` | Live Grep (Snacks) |
 | **Normal** | `<Space>fb` | Find Buffers |

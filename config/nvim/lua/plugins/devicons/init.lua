@@ -1,8 +1,8 @@
 local M = {
     -- 'nvim-tree/nvim-web-devicons',
     'yamatsum/nvim-nonicons',
-    -- lazy = false,
-    event = 'VeryLazy',
+    lazy = false,
+    priority = 1100,
     dependencies = {
         { 'nvim-tree/nvim-web-devicons' },
     },

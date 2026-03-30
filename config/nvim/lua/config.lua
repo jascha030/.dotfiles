@@ -83,8 +83,11 @@ return {
             },
             { '<S-Tab>', '<Plug>(cokeline-focus-next)', opts = { silent = true } },
             { '<C-w><C-c>', '<cmd>close<cr>' },
-            { '<C-n>', '<cmd>Neotree toggle focus<cr>' },
-            { 'N', '<cmd>Neotree focus<cr>' },
+            {
+                '<C-n>',
+                '<cmd>lua local p = Snacks.picker.get({ source = "explorer" })[1]; if p then p:close() else Snacks.explorer() end<cr>',
+            },
+            { 'N', '<cmd>lua local p = Snacks.explorer.reveal(); if p then p:focus() end<cr>' },
             { '<C-t>', '<cmd>lua Snacks.picker()<cr>' },
             { '<C-_>', '<cmd>CommentToggle<cr>' },
             { '<C-/>', '<cmd>CommentToggle<cr>' },
