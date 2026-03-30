@@ -270,6 +270,30 @@ function M.config(_, opts)
     local vim_notify = vim.notify
     require('snacks').setup(opts)
 
+    local picker_preview = require('snacks.picker.core.preview')
+
+    -- Work around a Neovim 0.12 markdown Tree-sitter crash in picker previews.
+    picker_preview.markdown = function(self)
+        if not self.win:valid() then
+            return
+        end
+
+        local buf = self.win.buf
+        local ft = vim.bo[buf].filetype
+
+        if not ft:find('^markdown') then
+            ft = ft:gsub('%.?markdown%.?', '')
+
+            local ei = vim.o.eventignore
+            vim.o.eventignore = 'all'
+            vim.bo[buf].filetype = table.concat({ 'markdown', ft ~= '' and ft or '' }, '.')
+            vim.o.eventignore = ei
+        end
+
+        vim.treesitter.stop(buf)
+        vim.bo[buf].syntax = 'markdown'
+    end
+
     local snacks_util = require('snacks.util')
     local original_icon = snacks_util.icon
 
