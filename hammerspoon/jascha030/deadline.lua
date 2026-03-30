@@ -66,11 +66,14 @@ function M.updateMenu()
 end
 
 local init = false
+---@diagnostic disable-next-line: unused-local
 local timer = nil
 
 function M.init()
     if not init then
         M.updateMenu()
+
+        ---@diagnostic disable-next-line: unused-local
         timer = hs.timer.doEvery(600, M.updateMenu)
 
         init = true
