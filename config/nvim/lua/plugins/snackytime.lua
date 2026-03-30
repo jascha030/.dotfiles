@@ -51,6 +51,8 @@ function M.opts()
                         list = {
                             keys = {
                                 ['<c-n>'] = 'cancel',
+                                ['s'] = 'edit_vsplit',
+                                ['S'] = 'edit_split',
                             },
                         },
                     },
