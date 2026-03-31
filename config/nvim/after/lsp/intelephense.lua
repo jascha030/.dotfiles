@@ -1,5 +1,9 @@
 ---@diagnostic disable: missing-fields
 return Jascha030.lsp.config_extend({
+    init_options = {
+        licenseKey = vim.fn.expand('~/.config/intelephense/license.txt'),
+        globalStoragePath = vim.fn.expand('~/.config/intelephense/'),
+    },
     root_markers = {
         '.git',
         'wp-config-sample.php',
