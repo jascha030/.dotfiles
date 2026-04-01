@@ -62,7 +62,6 @@ export DOT_REQUIRED_FILES=(
 )
 
 export DOT_COMP_DIRS=(
-    ${HOME}/.bun
     ${HOME}/tools/eza/completions/zsh
     ${XDG_CONFIG_HOME}/tabtab/zsh
     ${ZDOTDIR}/completions
@@ -89,6 +88,7 @@ export DOT_AFTER_INIT_SOURCES=(
 )
 
 export DOT_PATH_VAR=(
+    /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp
     ${BREW_HOME}/ncurses/bin
     ${BREW_HOME}/gnu-sed/libexec/gnubin
     ${BREW_HOME}/openjdk/bin
@@ -97,14 +97,12 @@ export DOT_PATH_VAR=(
     ${XDG_CONFIG_HOME}/zsh/bin
     ${HOME}/bin
     ${HOME}/tools
-    ${HOME}/.bun/bin
     ${HOME}/.gem/ruby/2.6.0/bin
     ${HOME}/.cargo/bin
     ${HOME}/go/bin
-    ${HOME}/.local/share/rtx/shims
     ${HOME}/.local/share/nvim/mason/bin
+    ${HOME}/.local/share/mise/shims
     ${HOME}/.local/bin
-    /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp
 )
 
 typeset -ga _DOT_ZCOMP_FILES=(
