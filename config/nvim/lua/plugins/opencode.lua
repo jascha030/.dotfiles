@@ -6,13 +6,6 @@ return {
     config = function()
         ---@type opencode.Opts
         vim.g.opencode_opts = {
-            provider = {
-                enabled = 'wezterm',
-                wezterm = {
-                    direction = 'right',
-                    percent = 35,
-                },
-            },
             lsp = {
                 enabled = true,
             },

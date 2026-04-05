@@ -160,6 +160,7 @@ local M = {
         name = 'nvim-highlight-colors',
         event = { 'VeryLazy' },
         opts = { render = 'first_column' },
+        cond = false,
     },
     {
         'm-demare/hlargs.nvim',
