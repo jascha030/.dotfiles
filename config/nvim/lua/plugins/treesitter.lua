@@ -331,163 +331,221 @@ return {
             -- Disable entire built-in ftplugin mappings to avoid conflicts
             vim.g.no_plugin_maps = true
         end,
-        config = function()
+        keys = function()
             local select = require('nvim-treesitter-textobjects.select')
             local move = require('nvim-treesitter-textobjects.move')
             local swap = require('nvim-treesitter-textobjects.swap')
             local ts_repeat_move = require('nvim-treesitter-textobjects.repeatable_move')
 
-            -- Configuration
-            require('nvim-treesitter-textobjects').setup({
-                select = {
-                    enable = true,
-                    lookahead = true,
-                    selection_modes = {
-                        ['@parameter.outer'] = 'v', -- charwise
-                        ['@function.outer'] = 'V', -- linewise
-                        ['@class.outer'] = '<c-v>', -- blockwise
-                    },
-                    include_surrounding_whitespace = false,
+            return {
+                -- SELECT KEYMAPS (Visual and Operator-pending modes)
+                {
+                    'aa',
+                    function()
+                        select.select_textobject('@parameter.outer', 'textobjects')
+                    end,
+                    mode = { 'x', 'o' },
+                    desc = 'Select outer parameter/argument',
                 },
-                move = { enable = true, set_jumps = true },
-                swap = { enable = true },
-            })
-
-            ---@todo: move to lazy keymap
-
-            -- SELECT KEYMAPS (Visual and Operator-pending modes)
-
-            -- Parameters / Arguments
-            vim.keymap.set({ 'x', 'o' }, 'aa', function()
-                select.select_textobject('@parameter.outer', 'textobjects')
-            end, { desc = 'Select outer parameter/argument' })
-
-            vim.keymap.set({ 'x', 'o' }, 'ia', function()
-                select.select_textobject('@parameter.inner', 'textobjects')
-            end, { desc = 'Select inner parameter/argument' })
-
-            -- Functions
-            vim.keymap.set({ 'x', 'o' }, 'af', function()
-                select.select_textobject('@function.outer', 'textobjects')
-            end, { desc = 'Select outer function' })
-
-            vim.keymap.set({ 'x', 'o' }, 'if', function()
-                select.select_textobject('@function.inner', 'textobjects')
-            end, { desc = 'Select inner function' })
-
-            -- Classes
-            vim.keymap.set({ 'x', 'o' }, 'ac', function()
-                select.select_textobject('@class.outer', 'textobjects')
-            end, { desc = 'Select outer class' })
-
-            vim.keymap.set({ 'x', 'o' }, 'ic', function()
-                select.select_textobject('@class.inner', 'textobjects')
-            end, { desc = 'Select inner class' })
-
-            -- Scopes (from locals.scm)
-            vim.keymap.set({ 'x', 'o' }, 'as', function()
-                select.select_textobject('@local.scope', 'locals')
-            end, { desc = 'Select local scope' })
-
-            -- SWAP KEYMAPS (Normal mode)
-
-            -- Swap parameter with next
-            vim.keymap.set('n', '<leader>a', function()
-                swap.swap_next('@parameter.inner')
-            end, { desc = 'Swap parameter with next' })
-
-            -- Swap parameter with previous
-            vim.keymap.set('n', '<leader>A', function()
-                swap.swap_previous('@parameter.outer')
-            end, { desc = 'Swap parameter with previous' })
-
-            -- MOVE KEYMAPS (Normal, Visual, Operator-pending modes)
-
-            -- Next function start
-            vim.keymap.set({ 'n', 'x', 'o' }, ']m', function()
-                move.goto_next_start('@function.outer', 'textobjects')
-            end, { desc = 'Go to next function start' })
-
-            -- Next class start
-            vim.keymap.set({ 'n', 'x', 'o' }, ']]', function()
-                move.goto_next_start('@class.outer', 'textobjects')
-            end, { desc = 'Go to next class start' })
-
-            -- Next function end
-            vim.keymap.set({ 'n', 'x', 'o' }, ']M', function()
-                move.goto_next_end('@function.outer', 'textobjects')
-            end, { desc = 'Go to next function end' })
-
-            -- Next class end
-            vim.keymap.set({ 'n', 'x', 'o' }, '][', function()
-                move.goto_next_end('@class.outer', 'textobjects')
-            end, { desc = 'Go to next class end' })
-
-            -- Previous function start
-            vim.keymap.set({ 'n', 'x', 'o' }, '[m', function()
-                move.goto_previous_start('@function.outer', 'textobjects')
-            end, { desc = 'Go to previous function start' })
-
-            -- Previous class start
-            vim.keymap.set({ 'n', 'x', 'o' }, '[[', function()
-                move.goto_previous_start('@class.outer', 'textobjects')
-            end, { desc = 'Go to previous class start' })
-
-            -- Previous function end
-            vim.keymap.set({ 'n', 'x', 'o' }, '[M', function()
-                move.goto_previous_end('@function.outer', 'textobjects')
-            end, { desc = 'Go to previous function end' })
-
-            -- Previous class end
-            vim.keymap.set({ 'n', 'x', 'o' }, '[]', function()
-                move.goto_previous_end('@class.outer', 'textobjects')
-            end, { desc = 'Go to previous class end' })
-
-            -- REPEATABLE MOVE KEYMAPS (with ; and ,)
-
-            -- Repeat last move forward
-            vim.keymap.set(
-                { 'n', 'x', 'o' },
-                ';',
-                ts_repeat_move.repeat_last_move_next,
-                { desc = 'Repeat last move forward' }
-            )
-
-            -- Repeat last move backward
-            vim.keymap.set(
-                { 'n', 'x', 'o' },
-                ',',
-                ts_repeat_move.repeat_last_move_previous,
-                { desc = 'Repeat last move backward' }
-            )
-
-            -- Make builtin f, F, t, T repeatable with ; and ,
-            vim.keymap.set(
-                { 'n', 'x', 'o' },
-                'f',
-                ts_repeat_move.builtin_f_expr,
-                { expr = true, desc = 'Find forward' }
-            )
-            vim.keymap.set(
-                { 'n', 'x', 'o' },
-                'F',
-                ts_repeat_move.builtin_F_expr,
-                { expr = true, desc = 'Find backward' }
-            )
-
-            vim.keymap.set(
-                { 'n', 'x', 'o' },
-                't',
-                ts_repeat_move.builtin_t_expr,
-                { expr = true, desc = 'Till forward' }
-            )
-            vim.keymap.set(
-                { 'n', 'x', 'o' },
-                'T',
-                ts_repeat_move.builtin_T_expr,
-                { expr = true, desc = 'Till backward' }
-            )
+                {
+                    'ia',
+                    function()
+                        select.select_textobject('@parameter.inner', 'textobjects')
+                    end,
+                    mode = { 'x', 'o' },
+                    desc = 'Select inner parameter/argument',
+                },
+                {
+                    'af',
+                    function()
+                        select.select_textobject('@function.outer', 'textobjects')
+                    end,
+                    mode = { 'x', 'o' },
+                    desc = 'Select outer function',
+                },
+                {
+                    'if',
+                    function()
+                        select.select_textobject('@function.inner', 'textobjects')
+                    end,
+                    mode = { 'x', 'o' },
+                    desc = 'Select inner function',
+                },
+                {
+                    'ac',
+                    function()
+                        select.select_textobject('@class.outer', 'textobjects')
+                    end,
+                    mode = { 'x', 'o' },
+                    desc = 'Select outer class',
+                },
+                {
+                    'ic',
+                    function()
+                        select.select_textobject('@class.inner', 'textobjects')
+                    end,
+                    mode = { 'x', 'o' },
+                    desc = 'Select inner class',
+                },
+                {
+                    'as',
+                    function()
+                        select.select_textobject('@local.scope', 'locals')
+                    end,
+                    mode = { 'x', 'o' },
+                    desc = 'Select local scope',
+                },
+                -- SWAP KEYMAPS (Normal mode)
+                {
+                    '<leader>a',
+                    function()
+                        swap.swap_next('@parameter.inner')
+                    end,
+                    mode = 'n',
+                    desc = 'Swap parameter with next',
+                },
+                {
+                    '<leader>A',
+                    function()
+                        swap.swap_previous('@parameter.outer')
+                    end,
+                    mode = 'n',
+                    desc = 'Swap parameter with previous',
+                },
+                -- MOVE KEYMAPS (Normal, Visual, Operator-pending modes)
+                {
+                    ']m',
+                    function()
+                        move.goto_next_start('@function.outer', 'textobjects')
+                    end,
+                    mode = { 'n', 'x', 'o' },
+                    desc = 'Go to next function start',
+                },
+                {
+                    ']]',
+                    function()
+                        move.goto_next_start('@class.outer', 'textobjects')
+                    end,
+                    mode = { 'n', 'x', 'o' },
+                    desc = 'Go to next class start',
+                },
+                {
+                    ']M',
+                    function()
+                        move.goto_next_end('@function.outer', 'textobjects')
+                    end,
+                    mode = { 'n', 'x', 'o' },
+                    desc = 'Go to next function end',
+                },
+                {
+                    '][',
+                    function()
+                        move.goto_next_end('@class.outer', 'textobjects')
+                    end,
+                    mode = { 'n', 'x', 'o' },
+                    desc = 'Go to next class end',
+                },
+                {
+                    '[m',
+                    function()
+                        move.goto_previous_start('@function.outer', 'textobjects')
+                    end,
+                    mode = { 'n', 'x', 'o' },
+                    desc = 'Go to previous function start',
+                },
+                {
+                    '[[',
+                    function()
+                        move.goto_previous_start('@class.outer', 'textobjects')
+                    end,
+                    mode = { 'n', 'x', 'o' },
+                    desc = 'Go to previous class start',
+                },
+                {
+                    '[M',
+                    function()
+                        move.goto_previous_end('@function.outer', 'textobjects')
+                    end,
+                    mode = { 'n', 'x', 'o' },
+                    desc = 'Go to previous function end',
+                },
+                {
+                    '[]',
+                    function()
+                        move.goto_previous_end('@class.outer', 'textobjects')
+                    end,
+                    mode = { 'n', 'x', 'o' },
+                    desc = 'Go to previous class end',
+                },
+                -- REPEATABLE MOVE KEYMAPS (with ; and ,)
+                {
+                    ';',
+                    function()
+                        ts_repeat_move.repeat_last_move_next()
+                    end,
+                    mode = { 'n', 'x', 'o' },
+                    desc = 'Repeat last move forward',
+                },
+                {
+                    ',',
+                    function()
+                        ts_repeat_move.repeat_last_move_previous()
+                    end,
+                    mode = { 'n', 'x', 'o' },
+                    desc = 'Repeat last move backward',
+                },
+                {
+                    'f',
+                    function()
+                        return ts_repeat_move.builtin_f_expr()
+                    end,
+                    mode = { 'n', 'x', 'o' },
+                    expr = true,
+                    desc = 'Find forward',
+                },
+                {
+                    'F',
+                    function()
+                        return ts_repeat_move.builtin_F_expr()
+                    end,
+                    mode = { 'n', 'x', 'o' },
+                    expr = true,
+                    desc = 'Find backward',
+                },
+                {
+                    't',
+                    function()
+                        return ts_repeat_move.builtin_t_expr()
+                    end,
+                    mode = { 'n', 'x', 'o' },
+                    expr = true,
+                    desc = 'Till forward',
+                },
+                {
+                    'T',
+                    function()
+                        return ts_repeat_move.builtin_T_expr()
+                    end,
+                    mode = { 'n', 'x', 'o' },
+                    expr = true,
+                    desc = 'Till backward',
+                },
+            }
         end,
+        opts = {
+            select = {
+                enable = true,
+                lookahead = true,
+                selection_modes = {
+                    ['@parameter.outer'] = 'v',
+                    ['@function.outer'] = 'V',
+                    ['@class.outer'] = '<c-v>',
+                },
+                include_surrounding_whitespace = false,
+            },
+            move = { enable = true, set_jumps = true },
+            swap = { enable = true },
+        },
     },
     {
         'nvim-treesitter/nvim-treesitter-context',
