@@ -1,3 +1,4 @@
+---@module "lazy.types"
 ---@type LazyPluginSpec[]
 local M = {
     {
@@ -15,7 +16,7 @@ local M = {
 
             vim.notify(ret.code == 0 and '[blink.cmp] build success!' or '[blink.cmp] build failed!')
         end,
-        ---@module "blink.cmp"
+        ---@module 'blink.cmp'
         ---@type blink.cmp.Config
         opts = {
             keymap = {
@@ -43,14 +44,15 @@ local M = {
             },
             cmdline = {
                 enabled = true,
-                completion = { menu = { auto_show = true } },
+                completion = {
+                    menu = { auto_show = true },
+                    list = { selection = { preselect = false } },
+                },
                 keymap = {
                     preset = 'none',
-                    -- ['<CR>'] = { 'select_and_accept', 'fallback' },
+                    ['<CR>'] = { 'accept_and_enter', 'fallback' },
                     ['<Tab>'] = { 'select_next', 'fallback' },
                     ['<S-Tab>'] = { 'select_prev', 'fallback' },
-                    ['<Up>'] = { 'select_prev', 'fallback' },
-                    ['<Down>'] = { 'select_next', 'fallback' },
                 },
             },
             completion = {
@@ -131,22 +133,49 @@ local M = {
                 ghost_text = { enabled = true },
             },
             sources = {
-                default = { 'buffer', 'snippets', 'path', 'lsp', 'copilot' },
-                per_filetype = {
-                    toml = { 'buffer', 'snippets', 'copilot', 'path', 'lsp', 'crates' },
-                    lua = { 'buffer', 'snippets', 'path', 'lsp', 'lazydev', 'copilot' },
-                },
+                default = function()
+                    local success, node = pcall(vim.treesitter.get_node)
+
+                    if
+                        success
+                        and node
+                        and vim.tbl_contains({
+                            'comment',
+                            'line_comment',
+                            'block_comment',
+                        }, node:type())
+                    then
+                        return { 'buffer', 'path' }
+                    end
+
+                    local sources = {
+                        'lsp',
+                        'path',
+                        'snippets',
+                        'buffer',
+                        'copilot',
+                    }
+
+                    if vim.bo.filetype == 'lua' then
+                        table.insert(sources, 'lazydev')
+                    end
+
+                    if vim.bo.filetype == 'toml' then
+                        table.insert(sources, 'crates')
+                    end
+
+                    return sources
+                end,
                 providers = {
                     lazydev = {
                         name = 'LazyDev',
                         module = 'lazydev.integrations.blink',
-                        score_offset = 2,
+                        score_offset = 100,
                         fallbacks = { 'lsp' },
                     },
                     crates = {
                         name = 'Crates',
                         module = 'blink.compat.source',
-                        score_offset = 2,
                     },
                     copilot = {
                         name = 'Copilot',
