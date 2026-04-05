@@ -188,6 +188,8 @@ function M.config(_, opts)
     end
 end
 
+-- return M
+
 ---@module 'lazy.types'
 ---@type LazyPluginSpec[]
 return {
@@ -195,10 +197,8 @@ return {
         'nvim-treesitter/nvim-treesitter',
         lazy = false,
         build = ':TSUpdate',
-        config = function()
-            local ts = require('nvim-treesitter')
-
-            local parsers = {
+        opts = {
+            ensure_installed = {
                 'bash',
                 'blade',
                 'comment',
@@ -232,36 +232,16 @@ return {
                 'vim',
                 'vimdoc',
                 'yaml',
-            }
+            },
+        },
+        config = function(_, opts)
+            local ts = require('nvim-treesitter')
+            local parsers = opts.ensure_installed or {}
 
             for _, parser in ipairs(parsers) do
                 ts.install(parser)
             end
 
-            local parsers_config = require('nvim-treesitter.parsers').get_parser_configs()
-
-            ---@diagnostic disable-next-line: inject-field
-            parsers_config.blade = {
-                install_info = {
-                    url = 'https://github.com/EmranMR/tree-sitter-blade',
-                    files = { 'src/parser.c' },
-                    branch = 'main',
-                },
-                filetype = 'blade',
-            }
-
-            ---@diagnostic disable-next-line: inject-field
-            parsers_config.neon = {
-                install_info = {
-                    url = vim.fn.expand('$HOME/.local/share/nvim/lazy/treesitter-neon'),
-                    generate_requires_npm = false,
-                    requires_generate_from_grammar = false,
-                    files = { 'src/parser.c', 'src/scanner.c' },
-                },
-                filetype = 'neon',
-            }
-
-            local FT_TO_LANG_ALIASES = { dotenv = 'bash' }
             for ft, parser in pairs(FT_TO_LANG_ALIASES) do
                 vim.treesitter.language.register(parser, ft)
             end
@@ -270,57 +250,25 @@ return {
             local patterns = {}
             for _, parser in ipairs(parsers) do
                 local parser_patterns = vim.treesitter.language.get_filetypes(parser)
+
                 for _, pp in pairs(parser_patterns) do
                     table.insert(patterns, pp)
                 end
             end
 
-            -- Add custom parsers to patterns
-            table.insert(patterns, 'blade')
-            table.insert(patterns, 'neon')
-            table.insert(patterns, 'log')
+            ---@todo: handle other parsers and FileType autocmd
 
             -- Enable treesitter features for supported filetypes
+            ---@todo: move to autocmds.lua
             vim.api.nvim_create_autocmd('FileType', {
                 pattern = patterns,
                 callback = function()
-                    -- Syntax highlighting (Neovim native)
                     vim.treesitter.start()
-
-                    -- Folding (Neovim native)
                     vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
                     vim.wo.foldmethod = 'expr'
-
-                    -- Indentation (nvim-treesitter)
                     vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
                 end,
             })
-
-            -- Custom directive for code fence language injection in markdown
-            local ts_query = require('vim.treesitter.query')
-            local info_string_aliases = {
-                ex = 'elixir',
-                pl = 'perl',
-                sh = 'bash',
-                ts = 'typescript',
-                uxn = 'uxntal',
-            }
-
-            ts_query.add_directive('set-lang-from-info-string!', function(match, _, bufnr, pred, metadata)
-                local node = match[pred[2]]
-                if not node then
-                    return
-                end
-
-                local ok, text = pcall(vim.treesitter.get_node_text, node, bufnr)
-                if not ok or text == '' then
-                    return
-                end
-
-                local injection_alias = text:lower()
-                local filetype = vim.filetype.match({ filename = 'a.' .. injection_alias })
-                metadata['injection.language'] = filetype or info_string_aliases[injection_alias] or injection_alias
-            end, { force = true, all = false })
         end,
     },
     {
@@ -331,6 +279,20 @@ return {
             -- Disable entire built-in ftplugin mappings to avoid conflicts
             vim.g.no_plugin_maps = true
         end,
+        opts = {
+            select = {
+                enable = true,
+                lookahead = true,
+                selection_modes = {
+                    ['@parameter.outer'] = 'v',
+                    ['@function.outer'] = 'V',
+                    ['@class.outer'] = '<c-v>',
+                },
+                include_surrounding_whitespace = false,
+            },
+            move = { enable = true, set_jumps = true },
+            swap = { enable = true },
+        },
         keys = function()
             local select = require('nvim-treesitter-textobjects.select')
             local move = require('nvim-treesitter-textobjects.move')
@@ -532,25 +494,10 @@ return {
                 },
             }
         end,
-        opts = {
-            select = {
-                enable = true,
-                lookahead = true,
-                selection_modes = {
-                    ['@parameter.outer'] = 'v',
-                    ['@function.outer'] = 'V',
-                    ['@class.outer'] = '<c-v>',
-                },
-                include_surrounding_whitespace = false,
-            },
-            move = { enable = true, set_jumps = true },
-            swap = { enable = true },
-        },
     },
     {
         'nvim-treesitter/nvim-treesitter-context',
-        branch = 'main',
-        dependencies = { 'nvim-treesitter/nvim-treesitter', branch = 'main' },
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
         config = true,
     },
     {
