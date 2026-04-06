@@ -9,16 +9,6 @@ local vtsls = {
         'typescriptreact',
         'typescript.tsx',
     },
-
-    -- root_markers = {
-    --     'tsconfig.json',
-    --     'jsconfig.json',
-    --     'package.json',
-    --     'vite.config.js',
-    --     'vite.config.ts',
-    --     '.git',
-    -- },
-
     ---@type lspconfig.settings.vtsls
     settings = {
         vtsls = {
