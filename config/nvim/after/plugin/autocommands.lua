@@ -13,6 +13,34 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     end,
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { '*' },
+    callback = function(args)
+        vim.opt_local.formatoptions:remove('o')
+
+        local ft = vim.bo[args.buf].filetype
+        local lang = vim.treesitter.language.get_lang(ft) or ft
+
+        local ok = vim.treesitter.language.add(lang)
+
+        if not ok then
+            local available = vim.g.ts_available or require('nvim-treesitter').get_available()
+            vim.g.ts_available = vim.g.ts_available or available
+
+            if vim.tbl_contains(available, lang) then
+                require('nvim-treesitter').install(lang)
+                ok = vim.treesitter.language.add(lang)
+            end
+        end
+
+        if ok then
+            vim.treesitter.start(args.buf, lang)
+            vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+            vim.wo.foldmethod = 'expr'
+        end
+    end,
+})
+
 -- I was too lazy to do everything lua hehehehe.
 vim.cmd([[
   augroup _ft
