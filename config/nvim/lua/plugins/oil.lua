@@ -33,4 +33,5 @@ return {
     end,
     dependencies = { { 'echasnovski/mini.icons', opts = {} } },
     lazy = false,
+    cond = false,
 }
