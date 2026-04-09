@@ -4,6 +4,7 @@
 "npm:opensrc" = "latest"
 "npm:skills" = "latest"
 "npm:taze" = "latest"
+"npm:@antfu/ni" = "latest"
 bun = "latest"
 node = "lts"
 pnpm = "latest"
