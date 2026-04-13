@@ -19,6 +19,11 @@ vim.api.nvim_create_autocmd('FileType', {
         vim.opt_local.formatoptions:remove('o')
 
         local ft = vim.bo[args.buf].filetype
+
+        if ft == 'zsh' then
+            return
+        end
+
         local lang = vim.treesitter.language.get_lang(ft) or ft
 
         local ok = vim.treesitter.language.add(lang)
