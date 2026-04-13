@@ -29,7 +29,16 @@ function M.config(_, opts)
         pattern = 'NitePalUpdateScheme',
         callback = function()
             require('plugins.devicons.config').init()
-            require('lualine').refresh()
+
+            --- Schedule full lualine re-setup to run after all ColorScheme
+            --- and highlight operations have settled. A plain refresh() is
+            --- insufficient because lualine's internal highlight cache
+            --- (`loaded_highlights` in highlight.lua) can retain stale
+            --- entries across the hi-clear → re-highlight cycle that
+            --- nitepal performs.
+            vim.schedule(function()
+                require('lualine').setup()
+            end)
         end,
     })
 

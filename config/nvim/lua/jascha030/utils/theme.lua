@@ -20,14 +20,15 @@ end
 function M.update(mode)
     local cs = require('jascha030.core.config').options.colorscheme
 
-    if vim.o.background ~= mode then
-        if cs == 'nitepal' or cs == 'litepal' then
-            require('nitepal.config').options.style = mode
-        end
-
-        vim.o.background = mode
+    if cs == 'nitepal' or cs == 'litepal' then
+        require('nitepal.config').options.style = mode
     end
 
+    --- Don't set vim.o.background here — nitepal.colorscheme() handles it.
+    --- Setting it separately fires lualine's `OptionSet background` autocmd
+    --- *before* the colorscheme is applied, causing lualine to rebuild its
+    --- highlight groups from a half-stale state. Let the colorscheme command
+    --- be the single mutation point.
     if mode == DARK then
         vim.cmd([[colorscheme nitepal]])
     else
