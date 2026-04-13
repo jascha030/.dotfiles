@@ -1,6 +1,3 @@
--- Load all autocommands defined in 'jascha030' config.lua
-require('jascha030.core.autocommands').nvim_create_augroups(require('jascha030').get_config('augroups') --[[@as table]])
-
 -- Detect filetype on files with no extension after saving the file.
 vim.api.nvim_create_autocmd('BufWritePost', {
     pattern = '*',
@@ -44,6 +41,13 @@ vim.api.nvim_create_autocmd('FileType', {
             vim.wo.foldmethod = 'expr'
         end
     end,
+})
+
+vim.api.nvim_create_autocmd({ 'BufReadPost', 'FileReadPost' }, {
+    pattern = '*',
+    group = vim.api.nvim_create_augroup('_folds', {}),
+    desc = 'Open all folds',
+    command = 'normal zR',
 })
 
 -- I was too lazy to do everything lua hehehehe.

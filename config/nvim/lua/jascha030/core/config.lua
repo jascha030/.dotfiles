@@ -7,7 +7,6 @@
 ---@field keymaps jascha030.core.config.KeymapConfigOptions
 ---@field opts jascha030.core.config.VimConfigOptions
 ---@field path jascha030.core.config.PathConfigOptions
----@field augroups table
 
 ---@class jascha030.core.config.PathConfigOptions
 ---@field env? jascha030.core.config.PathConfigOption[]
@@ -39,7 +38,6 @@ function M.defaults()
         keymaps = { n = {}, v = {}, t = {}, i = {} },
         opts = { g = { mapleader = [[ ]] }, opt = {}, o = {} },
         path = { env = {}, rtp = {} },
-        augroups = {},
     }
 end
 

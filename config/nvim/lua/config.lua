@@ -103,13 +103,4 @@ return {
         t = {},
         i = {},
     },
-    augroups = {
-        open_folds = {
-            {
-                event = { 'BufReadPost', 'FileReadPost' },
-                pattern = '*',
-                command = 'normal zR',
-            },
-        },
-    },
 }
