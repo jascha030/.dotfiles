@@ -75,7 +75,7 @@ __prompt_cache_rebuild() {
     __PROMPT_CACHE_MID=$REPLY
 
     # compact-prompt
-    fill-line "  ╔" ""
+    fill-line "  ╔" '   %T'
     __PROMPT_CACHE_COMPACT=$REPLY
 
     if (( __PROMPT_CACHE_ENABLED )); then
