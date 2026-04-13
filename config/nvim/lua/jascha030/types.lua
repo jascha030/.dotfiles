@@ -7,7 +7,6 @@
 ---@field keymaps jascha030.core.config.KeymapConfigOptions
 ---@field opts jascha030.core.config.VimConfigOptions
 ---@field path jascha030.core.config.PathConfigOptions
----@field polyglot table
 ---@field augroups table
 
 ---@class jascha030.core.config.PathConfigOptions

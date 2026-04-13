@@ -14,10 +14,6 @@ return {
         },
     },
     colorscheme = 'nitepal',
-    polyglot = {
-        enabled = false,
-        languages = { 'zsh' },
-    },
     opts = {
         opt = {
             autoindent = true,

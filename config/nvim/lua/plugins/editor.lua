@@ -125,7 +125,6 @@ local M = {
             },
         },
     },
-    { 'sheerun/vim-polyglot' },
     {
         'smoka7/hop.nvim',
         version = '*',
