@@ -50,6 +50,39 @@ vim.api.nvim_create_autocmd({ 'BufReadPost', 'FileReadPost' }, {
     command = 'normal zR',
 })
 
+-- Quit Neovim when the snacks explorer is the only remaining window.
+vim.api.nvim_create_autocmd('WinEnter', {
+    group = vim.api.nvim_create_augroup('ExplorerQuitOnLast', {}),
+    desc = 'Quit when explorer is the last window',
+    callback = function()
+        local pickers = Snacks.picker.get({ source = 'explorer' })
+        if #pickers == 0 then
+            return
+        end
+
+        local snacks_fts = { snacks_picker_list = true, snacks_layout_box = true }
+        local wins = vim.api.nvim_list_wins()
+
+        for _, win in ipairs(wins) do
+            local cfg = vim.api.nvim_win_get_config(win)
+            if cfg.relative == '' then
+                local buf = vim.api.nvim_win_get_buf(win)
+                local ft = vim.bo[buf].filetype
+
+                if not snacks_fts[ft] then
+                    return
+                end
+            end
+        end
+
+        for _, picker in ipairs(pickers) do
+            picker:close()
+        end
+
+        vim.cmd('qa')
+    end,
+})
+
 -- I was too lazy to do everything lua hehehehe.
 vim.cmd([[
   augroup _ft
