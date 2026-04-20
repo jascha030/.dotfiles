@@ -171,7 +171,7 @@ function M.editor_mode(window, _)
 end
 
 function M.setup()
-    wezterm.on('window-resized', M.adapt_font_for_window_size)
+    -- wezterm.on('window-resized', M.adapt_font_for_window_size)
 
     local events = {
         ['editor-mode'] = M.editor_mode,
