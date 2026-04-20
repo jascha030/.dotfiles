@@ -15,7 +15,7 @@ end
 ---@return nil|string|table
 function M.setup(opts)
     if opts.debug == true then
-        vim.lsp.set_log_level('debug')
+        vim.lsp.log.set_log_level('debug')
     end
 
     local path_helper = {}
@@ -76,7 +76,7 @@ function M.setup(opts)
     local path = Config.get('path') or {}
     add_paths(path)
 
-    require('jascha030.core.keymaps').set_keymaps(Config.get('keymaps'))
+    require('jascha030.core.keymaps').set_keymaps(Config.get('keymaps') or {})
     require('jascha030.core.options').set_opts(Config.get('opts') --[[@as table]])
 
     vim.keymap.set(
