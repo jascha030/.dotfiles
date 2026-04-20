@@ -8,10 +8,4 @@ return Jascha030.lsp.config_extend({
         'vue',
         'wxss',
     },
-    settings = {
-        stylelintplus = {
-            autoFixOnFormat = false,
-            autoFixOnSave = false,
-        },
-    },
 })
