@@ -23,11 +23,16 @@ end
 function M.on_config_reloaded(window, _)
     local current = window:get_appearance()
     local overrides = window:get_config_overrides() or {}
-    local new_colors = theme.get_scheme(current, true)
+    local prev_state = M.options.colors
 
-    overrides.colors = new_colors
-    -- overrides.window_background_opacity = theme.get_opacity(current)
-    window:set_config_overrides(overrides)
+    colors = theme.get_scheme(current, true)
+    M.set_colors(current)
+
+    if prev_state ~= current then
+        overrides.colors = colors
+        overrides.window_background_opacity = theme.get_opacity(current)
+        window:set_config_overrides(overrides)
+    end
 end
 
 local function icon(process_name)
