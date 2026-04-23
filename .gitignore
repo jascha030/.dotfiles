@@ -39,6 +39,7 @@
 /*.md
 **.zwc
 !/GEMINI.md
+!/AGENTS.md
 !/README.md
 !/articles.md
 /.ssh/*
