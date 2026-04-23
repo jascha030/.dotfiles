@@ -26,7 +26,7 @@ function M.on_config_reloaded(window, _)
     local new_colors = theme.get_scheme(current, true)
 
     overrides.colors = new_colors
-    overrides.window_background_opacity = theme.get_opacity(current)
+    -- overrides.window_background_opacity = theme.get_opacity(current)
     window:set_config_overrides(overrides)
 end
 
