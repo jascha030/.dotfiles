@@ -254,12 +254,71 @@ local M = {
         },
     },
     {
-        'Bekaboo/dropbar.nvim',
+        'SmiteshP/nvim-navic',
+        event = { 'BufReadPre', 'BufNewFile' },
+        dependencies = {
+            {
+                'SmiteshP/nvim-navbuddy',
+                dependencies = {
+                    'MunifTanjim/nui.nvim',
+                },
+            },
+        },
         config = function()
-            local dropbar_api = require('dropbar.api')
-            vim.keymap.set('n', '<Leader>;', dropbar_api.pick, { desc = 'Pick symbols in winbar' })
-            vim.keymap.set('n', '[;', dropbar_api.goto_context_start, { desc = 'Go to start of current context' })
-            vim.keymap.set('n', '];', dropbar_api.select_next_context, { desc = 'Select next context' })
+            local navic = require('nvim-navic')
+
+            navic.setup({
+                lsp = {
+                    auto_attach = true,
+                    preference = nil,
+                },
+                separator = ' > ',
+                highlight = true,
+                depth_limit = 0,
+                depth_limit_indicator = '..',
+                safe_output = true,
+                click = true,
+            })
+
+            require('nvim-navbuddy').setup({
+                lsp = {
+                    auto_attach = true,
+                    preference = nil,
+                },
+                window = {
+                    border = 'rounded',
+                    size = '60%',
+                    position = '50%',
+                },
+            })
+
+            vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+
+            vim.keymap.set('n', '<Leader>;', function()
+                require('nvim-navbuddy').open()
+            end, { desc = 'Pick symbols in winbar' })
+
+            vim.keymap.set('n', '[;', function()
+                local data = navic.get_data()
+
+                if not data or vim.tbl_isempty(data) then
+                    return
+                end
+
+                local current = data[#data]
+
+                if current and current.scope and current.scope.start then
+                    vim.api.nvim_win_set_cursor(0, {
+                        current.scope.start.line,
+                        current.scope.start.character,
+                    })
+                    vim.cmd('normal! zz')
+                end
+            end, { desc = 'Go to start of current context' })
+
+            vim.keymap.set('n', '];', function()
+                require('nvim-navbuddy').open()
+            end, { desc = 'Select next context' })
         end,
     },
 }
