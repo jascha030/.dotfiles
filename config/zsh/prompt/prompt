@@ -65,8 +65,8 @@ __prompt_cache_rebuild() {
     local REPLY
 
     # top-prompt
-    local left="%F{012}    ${TERM_PROGRAM} |   ${${SHELL/#\/bin\//}:u} | %f${TERM_PRETTY:-$TERM}"
-    local right='%F{011}   %w %b |   %T   %f'
+    local left="%F{12}    %m %f| %F{12}  ${TERM_PROGRAM} (${TERM_PRETTY:-$TERM}) %f|%F{202} $ ${${SHELL/#\/bin\//}:u} %f"
+    local right='%F{11}   %w %b |   %T   %f'
     fill-line $left $right ' '
     __PROMPT_CACHE_TOP=$REPLY
 
@@ -110,7 +110,7 @@ set-prompt() {
         git_prompt='%F{08}${vcs_info_msg_0_}%f'
     fi
 
-    local bot_left="${PS1_BL} %F{08} ${prompt_dir}%f ${git_prompt} "
+    local bot_left="${PS1_BL} %F{13} ${prompt_dir}%f ${git_prompt} "
     local bot_right="${php_wgt} ${PS1_BR}"
 
     PROMPT=$'\n'${__PROMPT_CACHE_TOP}$'\n'${__PROMPT_CACHE_MID}$'\n'${bot_left}
