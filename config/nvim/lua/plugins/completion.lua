@@ -4,6 +4,7 @@ local M = {
     {
         'saghen/blink.cmp',
         dependencies = {
+            'saghen/blink.lib',
             'saghen/blink.compat',
             'xzbdmw/colorful-menu.nvim',
             'rafamadriz/friendly-snippets',
@@ -12,9 +13,10 @@ local M = {
             'onsails/lspkind-nvim',
         },
         build = function(plugin)
-            local ret = vim.system({ 'cargo', 'build', '--release' }, { cwd = plugin.dir }):wait()
-
-            vim.notify(ret.code == 0 and '[blink.cmp] build success!' or '[blink.cmp] build failed!')
+            require('blink.cmp').build():wait(60000)
+            -- local ret = vim.system({ 'cargo', 'build', '--release' }, { cwd = plugin.dir }):wait()
+            --
+            -- vim.notify(ret.code == 0 and '[blink.cmp] build success!' or '[blink.cmp] build failed!')
         end,
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config

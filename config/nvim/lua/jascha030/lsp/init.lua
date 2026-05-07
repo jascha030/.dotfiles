@@ -31,9 +31,12 @@ function M.inlay_hints()
         return
     end
 
-    M.lsp_attach(function(client, _)
+    M.lsp_attach(function(client, bufnr)
         if client.server_capabilities.inlayHintProvider ~= nil then
-            vim.lsp.inlay_hint.enable(true)
+            local ok, err = pcall(vim.lsp.inlay_hint.enable, true, { bufnr = bufnr })
+            if not ok then
+                vim.notify_once('Inlay hints error: ' .. tostring(err), vim.log.levels.WARN)
+            end
         end
     end)
 
