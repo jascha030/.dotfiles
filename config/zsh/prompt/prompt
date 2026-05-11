@@ -26,8 +26,7 @@ if [[ -f "${HOME}/tools/gitstatus/gitstatus.plugin.zsh" ]]; then
     source ${ZDOTDIR}/prompt/gitstatus.prompt.zsh
     export DOT_PROMPT_BETTER_GIT_STATUS=1
 else
-    autoload -Uz vcs_info
-    add-zsh-hook precmd vcs_info
+    autoload -Uz vcs_info && add-zsh-hook precmd vcs_info
 
     zstyle ':vcs_info:git:*' formats '|  %b'
     zstyle ':vcs_info:git:ignore' submodule 'all'
@@ -180,12 +179,11 @@ TRAPWINCH() {
 () {
     emulate -L zsh
 
-    add-zsh-hook preexec position-prompt-bottom
-
     if (( DOT_PROMPT_BETTER_GIT_STATUS )); then
         add-zsh-hook precmd gitstatus_prompt_update
     fi
 
+    add-zsh-hook preexec position-prompt-bottom
     add-zsh-hook precmd __prompt_precmd_refresh
 
     zle -N zle-line-init
