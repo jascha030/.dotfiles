@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+# Per-tool listing variants — defined only when the tool is present.
 if (( $+commands[lsd] )); then
     __ll_lsd() {
         prepend " " < <(lsd -Ahl --group-directories-first --color=always)
@@ -20,27 +21,30 @@ if (( $+commands[eza] )); then
     }
 fi
 
-
-if (( $+command[lla] )); then 
+if (( $+commands[lla] )); then
     __ll_lla() {
         prepend " " < <(lla -Ahl --group-directories-first --color=always)
     }
 fi
 
-__ll() {
-    local ls_cmd=${LS_OVERRIDE:-${'ls'}}
-    local ls_args=${LS_DEFAULT_ARGS:-${'-Ahl'}}
+__ll_raw() {
+    local ls_args=${LS_DEFAULT_ARGS:--Ahl}
+    prepend "  " < <(ls ${=ls_args})
+}
 
-
-    if [[ "$ls_cmd" == 'lsd' ]]; then
-        __ll_lsd
-    elif [[ "$ls_cmd" == 'eza' ]]; then
-        __ll_eza
-    elif [[ "$ls_cmd" == 'lla' ]]; then
-        __ll_lla
+# Self-redefine ll to the resolved variant on first call.
+# All subsequent calls bypass this dispatch entirely.
+() {
+    local _cmd=${LS_OVERRIDE:-ls}
+    if   [[ $_cmd == lsd ]] && (( ${+functions[__ll_lsd]} )); then
+        ll() { __ll_lsd "$@" }
+    elif [[ $_cmd == eza ]] && (( ${+functions[__ll_eza]} )); then
+        ll() { __ll_eza "$@" }
+    elif [[ $_cmd == lla ]] && (( ${+functions[__ll_lla]} )); then
+        ll() { __ll_lla "$@" }
     else
-        prepend "  " < <(eval $ls_cmd $ls_args)
+        ll() { __ll_raw "$@" }
     fi
 }
 
-__ll "$@"
+ll "$@"

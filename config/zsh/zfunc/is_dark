@@ -1,5 +1,18 @@
 #!/usr/bin/env zsh
 
+# Dark mode state is cached per shell session with a 60-second TTL.
+# $SECONDS is shell uptime — always available, no module required.
+typeset -g  _IS_DARK_CACHE=2   # sentinel: 0=dark(true), 1=light(false), 2=uninit
+typeset -gi _IS_DARK_EXPIRY=0
+
 is_dark() {
-	[[ "$(defaults read -globalDomain AppleInterfaceStyle 2>/dev/null)" == "Dark" ]]
+    if (( SECONDS > _IS_DARK_EXPIRY )); then
+        if [[ "$(defaults read -globalDomain AppleInterfaceStyle 2>/dev/null)" == "Dark" ]]; then
+            _IS_DARK_CACHE=0    # return 0 → true (dark)
+        else
+            _IS_DARK_CACHE=1    # return 1 → false (light)
+        fi
+        _IS_DARK_EXPIRY=$(( SECONDS + 60 ))
+    fi
+    return ${_IS_DARK_CACHE}
 }

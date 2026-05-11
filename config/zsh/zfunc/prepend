@@ -1,8 +1,37 @@
 #!/usr/bin/env zsh
 
+# Prefix every line of output with the given string.
+#
+# Usage (stdin mode):   command | prepend "  "
+#                   or: prepend "  " < <(command)
+# Usage (cmd mode):     prepend "  " command [args...]
+#
+# One trailing space is appended to the prefix to replicate the original
+# sed "s/^/$prefix /" behaviour. Falls back to a pure-zsh while-read loop
+# when prepend-c is not yet compiled.
 prepend() {
-    local prefix="$1"
+    # Append one space — matches original sed "s/^/$prefix /" substitution.
+    local prefix="${1} "
     shift
 
-    "$@" > >(sed "s/^/$prefix /") 2> >(sed "s/^/$prefix \x1b[1;31m  /" >&2)
+    if (( $# == 0 )); then
+        # Stdin mode: forward function stdin through the binary.
+        if (( $+commands[prepend-c] )); then
+            command prepend-c "${prefix}"
+        else
+            local line
+            while IFS= read -r line; do
+                print -r -- "${prefix}${line}"
+            done
+        fi
+    else
+        # Command mode: run "$@", prefix stdout, colour-mark stderr.
+        if (( $+commands[prepend-c] )); then
+            "$@" > >(command prepend-c "${prefix}") \
+                 2> >(command prepend-c "${prefix}"$'\e[1;31m  ' >&2)
+        else
+            "$@" > >(sed "s/^/${prefix}/") \
+                 2> >(sed "s/^/${prefix}"$'\e[1;31m  /' >&2)
+        fi
+    fi
 }

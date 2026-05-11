@@ -19,6 +19,9 @@
 /zsh/.zsh_history
 /zsh/.zcompcache
 
+## Compiled zsh utilities (sources committed; binaries rebuilt on first shell start)
+/config/zsh/bin/prepend-c
+
 ## Secret
 /.gitsecret/keys/random_seed
 !*.secret

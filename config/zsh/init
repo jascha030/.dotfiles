@@ -6,14 +6,18 @@
 
 #- Internally used functions -----------------------------------------------------------------------------------------#
 
+# Only add dirs that exist — nonexistent fpath entries slow every completion lookup.
 __fpath_add() {
-    fpath=( "$@" "${fpath[@]}" )
+    local d
+    for d in "$@"; do
+        [[ -d "$d" ]] && fpath=( "$d" "${fpath[@]}" )
+    done
 }
 
 __safe_source() {
-  local p 
-  
-  for p in "$@" ; do 
+  local p
+
+  for p in "$@" ; do
     [[ -f "$p" ]] && source "$p"
   done
 }
@@ -101,7 +105,7 @@ __autoload "${ZDOTDIR}/zfunc"
 
 typeset -U fpath
 
-# Run (bash)compinit for completions.
+# Run compinit for completions.
 autoload -Uz compinit
 if [[ -n ${ZDOTDIR:-~}/.zcompdump(#qN.mh+24) ]]; then
     compinit -i
@@ -112,13 +116,21 @@ fi
 # Source files that are required early.
 (( ${+DOT_SOURCES} )) && __safe_source "${DOT_SOURCES[@]}"
 
-autoload -U +X bashcompinit && bashcompinit
-(( ${+DOT_BASH_COMPLETIONS})) && __safe_source "${DOT_BASH_COMPLETIONS[@]}"
-
-# Load plugins.
+# Load plugins (defines zsh-defer, zsh-completions, and defers interactive plugins).
 __safe_source "$ZDOTDIR"/plugins-spec
 [[ "$ZDOTDIR"/.zcompdump.zwc -nt "$ZDOTDIR"/.zcompdump ]] || zcompile_many "$ZDOTDIR"/.zcompdump
 unfunction zcompile_many
+
+# bashcompinit + bash completions are heavy; defer until after first prompt.
+# DOT_BASH_COMPLETIONS is already expanded (set in .zshrc), so the array is
+# safe to reference inside the deferred closure.
+zsh-defer -c '
+    autoload -U +X bashcompinit && bashcompinit
+    local _f
+    for _f in "${DOT_BASH_COMPLETIONS[@]}"; do
+        [[ -f "$_f" ]] && source "$_f"
+    done
+'
 
 # Assure required dirs and files exist.
 (( ${+DOT_REQUIRED_DIRS} )) && assert_dirs "${DOT_REQUIRED_DIRS[@]}"
@@ -136,6 +148,11 @@ compdef _op op
 #- Lazy-load comp/cmd/env's that aren't often required but add a lot to start-up time --------------------------------#
 
 source ${ZDOTDIR}/lazyfunctions
+
+# Inline auto-ls: run ll after every directory change (replaces desyncr/auto-ls plugin).
+autoload -Uz add-zsh-hook
+__dot_auto_ls() { ll }
+add-zsh-hook chpwd __dot_auto_ls
 
 #- Source late files --------------------------------------------------------------------------------------------------#
 
@@ -176,6 +193,15 @@ if (( ${+functions[mcfly_prompt_command]} )); then
         return ${exit_code}
     }
 fi
+
+# Auto-compile prepend-c when source is newer than the binary or binary is missing.
+() {
+    local src="${ZDOTDIR}/bin/prepend-c.c"
+    local bin="${ZDOTDIR}/bin/prepend-c"
+    if [[ -f "$src" && ( ! -x "$bin" || "$src" -nt "$bin" ) ]]; then
+        cc -O2 -o "$bin" "$src" 2>/dev/null && chmod +x "$bin"
+    fi
+}
 
 #- And finally, unfunc locally used functions ------------------------------------------------------------------------#
 

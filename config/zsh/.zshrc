@@ -44,13 +44,6 @@ zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2                                
 zstyle ':fzf-tab:*' use-fzf-default-opts yes                                    # To make fzf-tab follow FZF_DEFAULT_OPTS.
 zstyle ':fzf-tab:*' switch-group '[' ']'
 
-export ZSH_HIGHLIGHT_STYLES
-typeset -A ZSH_HIGHLIGHT_STYLES=(
-    autodirectory   'fg=10,underline'
-    arg0            'fg=10'
-    suffix-alias    'fg=10,underline'
-    bracket-level-2 'fg=10,bold'
-)
 
 export DOT_REQUIRED_DIRS=(
     ${DOT_DATA_DIR:-${XDG_CONFIG_HOME}/datafiles}
@@ -75,7 +68,6 @@ export DOT_BASH_COMPLETIONS=(
 )
 
 export DOT_SOURCES=(
-    ${ZDOTDIR}/auto-ls
     ${HOME}/.cargo/env
     ${HOME}/.development/LS_COLORS/lscolors.sh
 )

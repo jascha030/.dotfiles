@@ -5,50 +5,100 @@ path+=("$ZDOTDIR"/plugins/**)
 
 export Z_PLUGINS=()
 
+# Compile .zsh file → .zwc only when source is newer than the compiled output.
 function zcompile_many() {
-	local f
-	for f; do zcompile -R -- "$f".zwc "$f"; done
-}
-
-function zsh_add_plugin {
-	local plugin_name=${1##*/}
-
-	if [ ! -d "$ZDOTDIR/plugins/$plugin_name" ]; then
-		git clone "git@github.com:$1.git" "$ZDOTDIR/plugins/$plugin_name"
-	else
-		_plugin_dir="$ZDOTDIR/plugins/$plugin_name"
-
-		if [ $# -eq 2 ] && [ -f "$_plugin_dir/$2" ]; then
-			source "$_plugin_dir/$2"
-			Z_PLUGINS+=$_plugin_dir
-
-			return
-		fi
-
-		[ -f "$_plugin_dir/$plugin_name.plugin.zsh" ] &&
-			source "$_plugin_dir/$plugin_name.plugin.zsh" ||
-			source "$_plugin_dir/$plugin_name.zsh"
-	fi
-
-	Z_PLUGINS+=$_plugin_dir
-}
-
-function zcompile_plugins() {
-    for _curr_plugin_dir in "${Z_PLUGINS[@]}"; do
-        if [[ $_curr_plugin_dir == "$ZDOTDIR/plugins/zsh-syntax-highlighting" ]]; then
-            continue
-        fi
-
-        if [[ -e $_curr_plugin_dir ]]; then
-            zcompile_many "$_curr_plugin_dir"/**/*.zsh
-        fi
+    local f
+    for f; do
+        [[ -f "$f" ]] || continue
+        [[ "${f}.zwc" -nt "$f" ]] && continue
+        zcompile -R -- "${f}.zwc" "$f"
     done
 }
 
-zsh_add_plugin Aloxaf/fzf-tab
-zsh_add_plugin chrissicool/zsh-256color
-zsh_add_plugin desyncr/auto-ls
+# Clone (if absent) and synchronously source a plugin.
+function zsh_add_plugin {
+    local plugin_name=${1##*/}
+    local plugin_dir="$ZDOTDIR/plugins/$plugin_name"
+
+    if [[ ! -d "$plugin_dir" ]]; then
+        git clone "git@github.com:$1.git" "$plugin_dir"
+    fi
+
+    Z_PLUGINS+=$plugin_dir
+
+    if [[ $# -eq 2 && -f "$plugin_dir/$2" ]]; then
+        source "$plugin_dir/$2"
+        return
+    fi
+
+    if [[ -f "$plugin_dir/$plugin_name.plugin.zsh" ]]; then
+        source "$plugin_dir/$plugin_name.plugin.zsh"
+    else
+        source "$plugin_dir/$plugin_name.zsh"
+    fi
+}
+
+# Clone (if absent) and defer plugin sourcing until after first prompt.
+# All deferred plugins are loaded in order by zsh-defer before the first
+# keystroke is processed (via zle-line-init), so they are always ready
+# before any command runs.
+function zsh_defer_plugin {
+    local plugin_name=${1##*/}
+    local plugin_dir="$ZDOTDIR/plugins/$plugin_name"
+
+    if [[ ! -d "$plugin_dir" ]]; then
+        git clone "git@github.com:$1.git" "$plugin_dir"
+        # Load synchronously on first clone so the session is fully functional.
+        zsh_add_plugin "$1"
+        return
+    fi
+
+    Z_PLUGINS+=$plugin_dir
+
+    local plugin_file
+    if [[ -f "$plugin_dir/$plugin_name.plugin.zsh" ]]; then
+        plugin_file="$plugin_dir/$plugin_name.plugin.zsh"
+    elif [[ -f "$plugin_dir/$plugin_name.zsh" ]]; then
+        plugin_file="$plugin_dir/$plugin_name.zsh"
+    else
+        return
+    fi
+
+    zsh-defer source "$plugin_file"
+}
+
+# Compile all tracked plugin .zsh files; skip plugins that self-compile.
+function zcompile_plugins() {
+    local _skip=(
+        "$ZDOTDIR/plugins/fast-syntax-highlighting"
+        "$ZDOTDIR/plugins/zsh-defer"
+    )
+    local d f skip
+    for d in "${Z_PLUGINS[@]}"; do
+        skip=0
+        for f in "${_skip[@]}"; do
+            [[ $d == $f ]] && skip=1 && break
+        done
+        (( skip )) && continue
+        [[ -e $d ]] && zcompile_many "$d"/**/*.zsh
+    done
+}
+
+# --- Plugin load order ---
+# 1. zsh-defer first — enables deferred loading for everything below.
+zsh_add_plugin romkatv/zsh-defer
+
+# 2. zsh-completions adds fpath entries; loaded synchronously alongside compinit.
 zsh_add_plugin zsh-users/zsh-completions
-zsh_add_plugin zsh-users/zsh-autosuggestions
-zsh_add_plugin zsh-users/zsh-syntax-highlighting
+
+# 3. Interactive plugins deferred — not needed until the first prompt is shown.
+#    fzf-tab must precede autosuggestions; fast-syntax-highlighting must be last.
+zsh_defer_plugin Aloxaf/fzf-tab
+zsh_defer_plugin zsh-users/zsh-autosuggestions
+zsh_defer_plugin zdharma-continuum/fast-syntax-highlighting
+
+# 4. Splash-screen plugin (synchronous; only runs on login ttys anyway).
 zsh_add_plugin jascha030/lolmsg
+
+# 5. Compile all plugin .zsh files (no-op when already up to date).
+zcompile_plugins
