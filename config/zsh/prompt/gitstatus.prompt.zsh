@@ -1,6 +1,4 @@
 # Simple Zsh prompt with Git status (Async version).
-source ${HOME}/tools/gitstatus/gitstatus.prompt.zsh
-return;
 
 # Source gitstatus.plugin.zsh from $GITSTATUS_DIR or from the same directory
 # in which the current script resides if the variable isn't set.
