@@ -89,7 +89,7 @@ return {
             end)
 
             lsp.lsp_attach(lsp.keymaps.on_attach)
-            lsp.inlay_hints()
+            -- lsp.inlay_hints()
 
             require('mason-lspconfig').setup({
                 automatic_enable = {

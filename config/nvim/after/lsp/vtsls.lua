@@ -5,7 +5,7 @@ local vtsls = {
         'javascript',
         'javascriptreact',
         'javascript.jsx',
-        'typescript',
+        -- 'typescript',
         'typescriptreact',
         'typescript.tsx',
     },
