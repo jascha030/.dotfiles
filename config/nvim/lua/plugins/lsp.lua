@@ -103,6 +103,28 @@ return {
         end,
     },
     {
+        'j-hui/fidget.nvim',
+        name = 'fidget',
+        event = { 'LspAttach' },
+        opts = {
+            progress = { ignore = {} },
+            notification = {
+                window = {
+                    normal_hl = 'Comment',
+                    winblend = 0,
+                    border = BORDER,
+                    zindex = 45,
+                    max_width = 0,
+                    max_height = 0,
+                    x_padding = 1,
+                    y_padding = 0,
+                    align = 'bottom',
+                    relative = 'win',
+                },
+            },
+        },
+    },
+    {
         'folke/lazydev.nvim',
         ft = 'lua',
         dependencies = { 'Bilal2453/luvit-meta' },
@@ -146,29 +168,7 @@ return {
             'neovim/nvim-lspconfig',
         },
     },
-    {
-        'j-hui/fidget.nvim',
-        name = 'fidget',
-        event = { 'LspAttach' },
-        opts = {
-            progress = { ignore = {} },
-            notification = {
-                window = {
-                    normal_hl = 'Comment', -- Base highlight group in the notification window
-                    winblend = 0, -- Background color opacity in the notification window
-                    border = BORDER, -- Border around the notification window
-                    zindex = 45, -- Stacking priority of the notification window
-                    max_width = 0, -- Maximum width of the notification window
-                    max_height = 0, -- Maximum height of the notification window
-                    x_padding = 1, -- Padding from right edge of window boundary
-                    y_padding = 0, -- Padding from bottom edge of window boundary
-                    align = 'bottom', -- How to align the notification window
-                    -- relative = 'editor', -- What the notification window position is relative to
-                    relative = 'win', -- What the notification window position is relative to
-                },
-            },
-        },
-    },
+
     -- Otter.nvim provides lsp features for code embedded in other documents (markdown)
     {
         'jmbuhr/otter.nvim',
@@ -274,27 +274,7 @@ return {
             end
         end,
     },
-    {
-        'rachartier/tiny-code-action.nvim',
-        dependencies = {
-            { 'nvim-lua/plenary.nvim' },
-            {
-                'folke/snacks.nvim',
-                opts = { terminal = {} },
-            },
-        },
-        keys = {
-            {
-                '<leader>a',
-                function()
-                    require('tiny-code-action').code_action({})
-                end,
-                desc = 'Code Action',
-            },
-        },
-        event = { 'LspAttach' },
-        opts = { picker = 'snacks' },
-    },
+
     {
         'copilotlsp-nvim/copilot-lsp',
         dependencies = { 'fang2hou/blink-copilot' },

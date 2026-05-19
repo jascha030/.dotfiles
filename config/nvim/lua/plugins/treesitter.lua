@@ -318,9 +318,5 @@ return {
         dependencies = { 'nvim-treesitter/nvim-treesitter' },
         config = true,
     },
-    {
-        'folke/ts-comments.nvim',
-        event = 'VeryLazy',
-        config = true,
-    },
+
 }

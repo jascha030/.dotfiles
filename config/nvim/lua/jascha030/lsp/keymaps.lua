@@ -81,6 +81,7 @@ function M.on_attach(client, bufnr)
     self:map(']w', diagnostic_goto(true, 'WARNING'), { desc = 'Next Warning' })
     self:map('[w', diagnostic_goto(false, 'WARNING'), { desc = 'Prev Warning' })
     self:map('<leader>r', M.rename, { expr = true, desc = 'Rename', has = 'rename' })
+    self:map('<leader>a', vim.lsp.buf.code_action, { desc = 'Code Action', has = 'codeAction', mode = { 'n', 'v' } })
     -- self:map('<leader>cd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
     -- self:map('<leader>xd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
 end
