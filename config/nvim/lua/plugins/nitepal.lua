@@ -28,7 +28,8 @@ function M.config(_, opts)
         group = vim.api.nvim_create_augroup('themeUpdate', { clear = true }),
         pattern = 'NitePalUpdateScheme',
         callback = function()
-            require('plugins.devicons.config').init()
+            ---@diagnostic disable-next-line: missing-parameter
+            require('plugins.devicons').refresh()
 
             --- Schedule full lualine re-setup to run after all ColorScheme
             --- and highlight operations have settled. A plain refresh() is
@@ -37,7 +38,7 @@ function M.config(_, opts)
             --- entries across the hi-clear → re-highlight cycle that
             --- nitepal performs.
             vim.schedule(function()
-                require('lualine').setup()
+                require('lualine').setup({})
             end)
         end,
     })
