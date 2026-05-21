@@ -12,7 +12,7 @@ local M = {
             'fang2hou/blink-copilot',
             'onsails/lspkind-nvim',
         },
-        build = function(plugin)
+        build = function(_)
             require('blink.cmp').build():wait(60000)
             -- local ret = vim.system({ 'cargo', 'build', '--release' }, { cwd = plugin.dir }):wait()
             --

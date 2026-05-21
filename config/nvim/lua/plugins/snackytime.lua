@@ -49,7 +49,7 @@ function M.opts()
                     },
                     layout = {
                         preset = 'sidebar',
-                        preview = false,
+                        -- preview = false,
                         layout = { position = 'right' },
                     },
                     win = {
@@ -341,6 +341,7 @@ function M.config(_, opts)
             end
         end
 
+        ---@cast icon_opts { fallback: { dir: string, file: string } }
         return original_icon(name, cat, icon_opts)
     end
 
