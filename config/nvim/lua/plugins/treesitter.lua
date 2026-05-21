@@ -318,5 +318,9 @@ return {
         dependencies = { 'nvim-treesitter/nvim-treesitter' },
         config = true,
     },
-
+    {
+        'windwp/nvim-ts-autotag',
+        event = 'InsertEnter',
+        config = true,
+    },
 }
