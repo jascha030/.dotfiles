@@ -35,6 +35,8 @@ return {
             tabstop = 4,
             termguicolors = true,
             updatetime = 1000,
+            pumborder = 'rounded',
+            winborder = 'rounded',
             fillchars = {
                 eob = ' ',
                 msgsep = '‾',

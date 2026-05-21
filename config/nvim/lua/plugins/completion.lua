@@ -13,10 +13,8 @@ local M = {
             'onsails/lspkind-nvim',
         },
         build = function(_)
+            ---@diagnostic disable-next-line: undefined-field
             require('blink.cmp').build():wait(60000)
-            -- local ret = vim.system({ 'cargo', 'build', '--release' }, { cwd = plugin.dir }):wait()
-            --
-            -- vim.notify(ret.code == 0 and '[blink.cmp] build success!' or '[blink.cmp] build failed!')
         end,
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config

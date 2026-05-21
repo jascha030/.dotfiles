@@ -56,37 +56,9 @@ return {
 
             ts.install(parsers)
 
-            -- for _, parser in ipairs(parsers) do
-            --     ts.install(parser)
-            -- end
-
             for ft, parser in pairs(FT_TO_LANG_ALIASES) do
                 vim.treesitter.language.register(parser, ft)
             end
-
-            -- Get all filetypes that have treesitter support for the FileType autocommand
-            -- local patterns = {}
-            -- for _, parser in ipairs(parsers) do
-            --     local parser_patterns = vim.treesitter.language.get_filetypes(parser)
-            --
-            --     for _, pp in pairs(parser_patterns) do
-            --         table.insert(patterns, pp)
-            --     end
-            -- end
-
-            ---@todo: handle other parsers and FileType autocmd
-            --
-            -- -- Enable treesitter features for supported filetypes
-            -- ---@todo: move to autocmds.lua
-            -- vim.api.nvim_create_autocmd('FileType', {
-            --     pattern = patterns,
-            --     callback = function()
-            --         vim.treesitter.start()
-            --         vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-            --         vim.wo.foldmethod = 'expr'
-            --         vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-            --     end,
-            -- })
         end,
     },
     {
