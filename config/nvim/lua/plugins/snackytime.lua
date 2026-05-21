@@ -27,9 +27,9 @@ function M.opts()
         picker = {
             icons = {
                 files = {
-                    dir = ' ',
-                    dir_open = ' ',
-                    file = ' ',
+                    dir = ' ',
+                    dir_open = ' ',
+                    file = ' ',
                 },
             },
             sources = {
