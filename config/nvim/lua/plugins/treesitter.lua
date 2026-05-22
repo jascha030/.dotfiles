@@ -33,6 +33,7 @@ return {
                 'markdown_inline',
                 'ocaml',
                 'ocaml_interface',
+                'php_only',
                 'php',
                 'phpdoc',
                 'python',
