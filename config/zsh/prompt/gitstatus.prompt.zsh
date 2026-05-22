@@ -5,6 +5,28 @@
 source "${GITSTATUS_DIR:-${${(%):-%x}:h}}/gitstatus.plugin.zsh" || return
 
 typeset -g GITSTATUS_INITIALIZED=0
+typeset -g GITSTATUS_FORCE_REFRESH=0
+
+# preexec hook: restart gitstatusd after any command that modifies git state.
+gitstatus_prompt_preexec() {
+    emulate -L zsh
+    local -a words=(${(z)1})
+    case ${words[1]} in
+        git)
+            case ${words[2]} in
+                add|am|apply|checkout|cherry-pick|commit|merge|pull|push|rebase|reset|revert|rm|stash|switch)
+                    GITSTATUS_FORCE_REFRESH=1
+                    ;;
+            esac
+            ;;
+        lazygit|lg)
+            GITSTATUS_FORCE_REFRESH=1
+            ;;
+    esac
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook preexec gitstatus_prompt_preexec
 
 # Callback function that will be called when git status is ready
 gitstatus_prompt_callback () {
@@ -74,6 +96,13 @@ gitstatus_prompt_update () {
 
     typeset -g  GITSTATUS_PROMPT=''
     typeset -gi GITSTATUS_PROMPT_LEN=0
+
+    # Restart the daemon after git/lazygit commands that may have mutated the index.
+    if (( GITSTATUS_FORCE_REFRESH )); then
+        GITSTATUS_FORCE_REFRESH=0
+        gitstatus_stop 'MY' 2>/dev/null
+        gitstatus_start -s -1 -u -1 -c -1 -d -1 'MY' || return 1
+    fi
 
     # Initialize on first git repo encounter
     if (( ! GITSTATUS_INITIALIZED )); then
