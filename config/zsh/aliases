@@ -4,10 +4,9 @@ alias c='clear-screen'
 alias e='echo -n'
 alias h='cd $HOME'
 
-alias {configdir,xdghome}='cd $XDG_CONFIG_HOME'
+alias {confdir,configdir,xdghome}='cd $XDG_CONFIG_HOME'
 
-# Rotating 3 keyboards, created 50/50 chance I type 'kk' instead of 'll'.
-alias {kk,l}='ll' 
+alias {kk,l}='ll' # Rotating 3 keyboards, created 50/50 chance I type 'kk' instead of 'll'.
 alias lg='lazygit'
 alias llc='ls | wc -l'
 alias lll='lla | lolcrab'
@@ -35,8 +34,12 @@ alias {displaycolors,check:colors}="curl -s https://gist.githubusercontent.com/H
 alias {ansicolors,bashcolors}="open https://gist.github.com/JBlond/2fea43a3049b38287e5e9cefc87b2124"
 
 #- Utilities ---------------------------------------------------------------------------------------------------------#
-# alias nd='nvim "+lua vim.lsp.set_log_level(\"debug\")"'; 
-(( ${+commands[nvim]} )) && { alias {vim,n}=nvim; alias rn='root && n'; }
+(( ${+commands[nvim]} )) && { 
+    alias {vim,n}=nvim; 
+    alias rn='root && n';
+    alias {remotevim,remotenvim,remotenv}='nvim --listen /tmp/nvim-socket'; 
+    alias nd='nvim "+lua vim.lsp.set_log_level(\"debug\")"'; 
+}
 (( ${+commands[lla]} )) && alias {sizemap,sm}='lla --sizemap'
 
 alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
@@ -49,9 +52,6 @@ alias {git:optimize,git:cleanup}='git gc --aggressive --prune=now'
 alias ls:path="echo ${PATH} | tr ':' '\n';"
 alias ls:fpath="echo ${fpath} | tr ' ' '\n';"
 alias ls:brew="brew list"
-alias ls:ideas="cat ${DOTFILES}/IDEAS.md"
-
-alias ideas="nvim ${DOTFILES}/IDEAS.md"
 
 #- Copy stuff to pastaboard ------------------------------------------------------------------------------------------#
 alias cp:composerauth='cp $HOME/.composer/auth.json ./'
@@ -63,15 +63,6 @@ alias valetrm='rm ${HOME}/.config/valet/*.sock'
 alias valetr='valetrm && valet restart'
 alias vo='valet open'
 alias composer:bamarni='composer config extra.bamarni-bin.bin-links --json true && composer config extra.bamarni-bin.forward-command --json true;'
-
-#- WP Development ----------------------------------------------------------------------------------------------------#
-alias wpuser:create='wp --skip-plugins --skip-themes user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
-alias wpuser:update='wp --skip-plugins --skip-themes user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
-alias cp:wpuser:create="echo $'wp --skip-plugins --skip-themes user create \"jascha@socialbrothers.nl\" \"jascha@socialbrothers.nl\" --role=administrator --user_pass=\"test123\"' | pbcopy"
-alias cp:wpuser:update="echo $'wp --skip-plugins --skip-themes user update jascha@socialbrothers.nl --role=administrator --user_pass=\"test123\"' | pbcopy"
-alias wpenv:user:create='wp-env run cli wp user create "jascha@socialbrothers.nl" "jascha@socialbrothers.nl" --role=administrator --user_pass="test123"'
-alias wpenv:user:update='wp-env run cli wp user update jascha@socialbrothers.nl --role=administrator --user_pass="test123"'
-alias wpmail:disable='wp --skip-plugins --skip-themes plugin install disable-emails --activate'
 
 alias gen:codeowners='mkdir -p .github && echo "* @jascha030" >> .github/CODEOWNERS'
 alias prompt:gemini='\cat $HOME/.dotfiles/PROMPT.md | pbcopy'
@@ -88,5 +79,4 @@ alias -s {.zshrc,zsh,sh,json,yaml,.env,cs,ts,html}=vim
 alias -g NS='1>/dev/null'
 alias -g NE='2>/dev/null'
 alias -g NA='&>/dev/null'
-
 alias -g C='| pbcopy'
