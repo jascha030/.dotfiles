@@ -17,7 +17,6 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#A59BFF,bg=#033E5D,bold,underline"
 # Prevent autosuggestions from blocking keystrokes; skip matching on long buffers.
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-
 export DOT_DEFAULT_LOL_MSG="Hackerman Mode 030"
 export DOT_NEOVIM_LOL_MSG="NVIM 030"
 
