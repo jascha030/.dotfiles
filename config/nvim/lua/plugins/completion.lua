@@ -167,6 +167,9 @@ local M = {
                     return sources
                 end,
                 providers = {
+                    lsp = {
+                        score_offset = 200,
+                    },
                     lazydev = {
                         name = 'LazyDev',
                         module = 'lazydev.integrations.blink',

@@ -1,5 +1,9 @@
 ---@diagnostic disable: missing-fields
+local group = vim.api.nvim_create_augroup('lsp.svelte', { clear = true })
+
 return Jascha030.lsp.config_extend({
+    root_markers = { 'svelte.config.js', 'svelte.config.cjs', 'svelte.config.mjs', '.git' },
+    single_file_support = false,
     settings = {
         vtsls = {
             tsserver = {
@@ -44,7 +48,7 @@ return Jascha030.lsp.config_extend({
     },
     on_attach = function(client, _)
         vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
-            group = vim.api.nvim_create_augroup('lsp.svelte', {}),
+            group = group,
             pattern = { '*.js', '*.ts' },
             callback = function(ctx)
                 -- internal API to sync changes that have not yet been saved to the file system

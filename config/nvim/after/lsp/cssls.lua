@@ -9,18 +9,21 @@ return Jascha030.lsp.config_extend({
             validate = true,
             lint = {
                 unknownAtRules = 'ignore',
+                unusedSelectors = 'warning',
             },
         },
         less = {
             validate = true,
             lint = {
                 unknownAtRules = 'ignore',
+                unusedSelectors = 'warning',
             },
         },
         scss = {
-            validate = false,
+            validate = true,
             lint = {
                 unknownAtRules = 'ignore',
+                unusedSelectors = 'warning',
             },
         },
     },
