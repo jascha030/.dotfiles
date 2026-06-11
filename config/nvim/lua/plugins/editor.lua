@@ -172,8 +172,13 @@ local M = {
                 },
                 {
                     filter = { filetype = 'zsh' },
-                    pattern = 'function',
+                    pattern = '%f[%a]function%f[%A]',
                     hl = '@keyword.function',
+                },
+                {
+                    filter = { filetype = 'zsh' },
+                    pattern = '%f[%a]unfunction%f[%A]',
+                    hl = '@keyword',
                 },
                 {
                     filter = { filetype = 'php' },
