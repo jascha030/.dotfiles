@@ -1,24 +1,53 @@
 ---@type LazyPluginSpec
 return {
-    'NickvanDyke/opencode.nvim',
+    'nickjvandyke/opencode.nvim',
+    version = '*',
     dependencies = { 'folke/snacks.nvim' },
     event = 'VeryLazy',
     config = function()
-        ---@type opencode.Opts
-        vim.g.opencode_opts = {
-            lsp = {
-                enabled = true,
-            },
-        }
         vim.o.autoread = true
     end,
     keys = {
-        -- stylua: ignore 
-        { '<leader>oa', function() require('opencode').ask('@this: ', { submit = true }) end, mode = { 'n', 'x' }, desc = 'Ask opencode' },
-        { '<leader>os', function() require('opencode').select() end, mode = { 'n', 'x' }, desc = 'Select opencode action' },
-        { '<leader>oo', function() require('opencode').toggle() end, mode = { 'n', 't' }, desc = 'Toggle opencode' },
-        { 'go', function() return require('opencode').operator('@this ') end, mode = { 'n', 'x' }, desc = 'Add range to opencode', expr = true },
-        { 'goo', function() return require('opencode').operator('@this ') .. '_' end, desc = 'Add line to opencode', expr = true },
-        -- stylua: ignore end
+        {
+            '<leader>oa',
+            function()
+                require('opencode').ask('@this: ')
+            end,
+            mode = { 'n', 'x' },
+            desc = 'Ask opencode',
+        },
+        {
+            '<leader>os',
+            function()
+                require('opencode').select()
+            end,
+            mode = { 'n', 'x' },
+            desc = 'Select opencode action',
+        },
+        {
+            '<leader>oo',
+            function()
+                require('snacks.terminal').toggle('opencode --port', { win = { position = 'right', enter = true } })
+            end,
+            mode = { 'n', 't' },
+            desc = 'Toggle opencode',
+        },
+        {
+            'go',
+            function()
+                return require('opencode').operator('@this ')
+            end,
+            mode = { 'n', 'x' },
+            desc = 'Add range to opencode',
+            expr = true,
+        },
+        {
+            'goo',
+            function()
+                return require('opencode').operator('@this ') .. '_'
+            end,
+            desc = 'Add line to opencode',
+            expr = true,
+        },
     },
 }
