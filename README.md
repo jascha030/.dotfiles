@@ -1,7 +1,5 @@
 <div align="center">
 
-  <img src="https://github.com/jascha030/.dotfiles/blob/main/img/NVIM-PAK.png?raw=true" alt="Dotfiles Logo" width="600" />
-
   <h1>Jascha030's Dotfiles</h1>
 
   <p>
