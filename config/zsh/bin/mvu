@@ -1,0 +1,42 @@
+#!/usr/bin/env zsh
+
+emulate -L zsh
+
+(($# >= 2)) || {
+    print -u2 "Usage: $(basename "$0") SOURCE... DEST"
+    exit 1
+}
+
+dest="${argv[-1]}"
+sources=("${(@)argv[1,-2]}")
+
+if [[ ! -d "$dest" ]]; then
+    exec mv -- "$@"
+fi
+
+for src in "${sources[@]}"; do
+    target="$dest/${src:t}"
+
+    if [[ ! -e "$target" ]]; then
+        command mv -- "$src" "$target"
+        continue
+    fi
+
+    dir="${target:h}"
+    base="${target:t:r}"
+    ext="${target:e}"
+
+    i=1
+    while :; do
+        if [[ -n "$ext" ]]; then
+            candidate="$dir/$base ($i).$ext"
+        else
+            candidate="$dir/$base ($i)"
+        fi
+
+        [[ ! -e "$candidate" ]] && break
+        ((i++))
+    done
+
+    command mv -- "$src" "$candidate"
+done
