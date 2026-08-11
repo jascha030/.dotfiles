@@ -1,5 +1,5 @@
 ---@diagnostic disable: missing-fields
-return Jascha030.lsp.config_extend({
+return {
     filetypes = { 'bash', 'sh' },
     settings = {
         bashIde = {
@@ -7,4 +7,4 @@ return Jascha030.lsp.config_extend({
             shellcheck = { enable = true },
         },
     },
-})
+}

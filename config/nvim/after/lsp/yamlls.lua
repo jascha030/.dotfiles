@@ -1,5 +1,5 @@
 ---@diagnostic disable: missing-fields
-return Jascha030.lsp.config_extend({
+return {
     settings = {
         yaml = {
             schemaStore = {
@@ -12,4 +12,4 @@ return Jascha030.lsp.config_extend({
             schemas = require('schemastore').yaml.schemas(),
         },
     },
-})
+}

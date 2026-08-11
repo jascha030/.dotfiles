@@ -1,5 +1,5 @@
 ---@diagnostic disable: missing-fields
-return Jascha030.lsp.config_extend({
+return {
     cmd = { 'vscode-css-language-server', '--stdio' },
     filetypes = { 'css', 'scss', 'less' },
     root_markers = { 'package.json', '.git' },
@@ -27,4 +27,4 @@ return Jascha030.lsp.config_extend({
             },
         },
     },
-})
+}

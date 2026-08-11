@@ -1,7 +1,5 @@
----@module 'nvim-lspconfig.configs'
 ---@diagnostic disable: missing-fields
----@type lspconfig.Config
-return Jascha030.lsp.config_extend({
+return {
     settings = {
         Lua = {
             completion = {
@@ -40,4 +38,4 @@ return Jascha030.lsp.config_extend({
             },
         },
     },
-})
+}

@@ -56,4 +56,4 @@ local vtsls = {
 
 vtsls.settings.javascript = vim.tbl_deep_extend('force', {}, vtsls.settings.typescript, vtsls.settings.javascript or {})
 
-return Jascha030.lsp.config_extend(vtsls)
+return vtsls

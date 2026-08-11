@@ -1,5 +1,5 @@
 ---@diagnostic disable: missing-fields
-return Jascha030.lsp.config_extend({
+return {
     settings = {
         ['rust-analyzer'] = {
             assist = {
@@ -16,4 +16,4 @@ return Jascha030.lsp.config_extend({
             checkOnSave = true,
         },
     },
-})
+}

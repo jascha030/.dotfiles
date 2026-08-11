@@ -1,9 +1,9 @@
 ---@diagnostic disable: missing-fields
-return Jascha030.lsp.config_extend({
+return {
     filetypes = {
         'html',
         'eruby',
         'blade',
         'php',
     },
-})
+}

@@ -1,5 +1,5 @@
 ---@diagnostic disable: missing-fields
-return Jascha030.lsp.config_extend({
+return {
     filetypes = {
         'astro',
         'css',
@@ -21,4 +21,4 @@ return Jascha030.lsp.config_extend({
         'typescriptreact',
         'vue',
     },
-})
+}

@@ -1,5 +1,5 @@
 ---@diagnostic disable: missing-fields
-return Jascha030.lsp.config_extend({
+return {
     root_markers = {
         '.git',
         'composer.json',
@@ -7,4 +7,4 @@ return Jascha030.lsp.config_extend({
         'wp-config.php',
     },
     single_file_support = true,
-})
+}

@@ -1,4 +1,4 @@
-return Jascha030.lsp.config_extend({
+return {
     cmd = { 'xcrun', 'sourcekit-lsp' },
     filetypes = { 'swift', 'c', 'cpp', 'objective-c', 'objective-cpp' },
     root_markers = { 'Package.swift', '.git' },
@@ -9,4 +9,4 @@ return Jascha030.lsp.config_extend({
             },
         },
     },
-})
+}

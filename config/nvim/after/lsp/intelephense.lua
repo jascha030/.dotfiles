@@ -1,5 +1,5 @@
 ---@diagnostic disable: missing-fields
-return Jascha030.lsp.config_extend({
+return {
     init_options = {
         licenseKey = vim.fn.expand('~/.config/intelephense/license.txt'),
         globalStoragePath = vim.fn.expand('~/.config/intelephense/'),
@@ -188,4 +188,4 @@ return Jascha030.lsp.config_extend({
             files = { maxSize = 5000000 },
         },
     },
-})
+}

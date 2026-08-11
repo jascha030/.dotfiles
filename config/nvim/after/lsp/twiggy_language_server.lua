@@ -31,8 +31,8 @@
     };
 --]]
 
-return Jascha030.lsp.config_extend({
-    letypes = { 'twig' },
+return {
+    filetypes = { 'twig' },
     root_markers = { 'composer.json', '.git' },
     single_file_support = true,
     settings = {
@@ -44,7 +44,7 @@ return Jascha030.lsp.config_extend({
             diagnostics = { twigCsFixer = true },
         },
     },
-})
+}
 --     local root_dir = require('lspconfig.util').root_pattern('composer.json', '.git')
 --     return {
 --         cmd = { 'twiggy-language-server', '--stdio' },

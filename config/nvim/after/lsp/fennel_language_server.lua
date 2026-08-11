@@ -1,4 +1,4 @@
-return Jascha030.lsp.config_extend({
+return {
     cmd = { 'fennel-language-server' },
     filetypes = { 'fennel' },
     root_markers = { '.git' },
@@ -9,4 +9,4 @@ return Jascha030.lsp.config_extend({
             },
         },
     },
-})
+}

@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     end,
 })
 
-return Jascha030.lsp.config_extend({
+return {
     filetypes = { 'zsh' },
     root_dir = function(bufnr, on_dir)
         local zsh_symbols = require('jascha030.zsh_symbols')
@@ -23,4 +23,4 @@ return Jascha030.lsp.config_extend({
     cmd = function(dispatchers, config)
         return require('jascha030.zsh_symbols.lsp').start(dispatchers, config)
     end,
-})
+}
