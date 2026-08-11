@@ -23,7 +23,6 @@ local M = {
         config = true,
         event = { 'VeryLazy' },
     },
-
     {
         'stevearc/dressing.nvim',
         dependencies = { 'MunifTanjim/nui.nvim' },
@@ -91,7 +90,6 @@ local M = {
         'ziontee113/color-picker.nvim',
         cmd = { 'PickColor', 'PickColorInsert' },
     },
-
     {
         'smoka7/hop.nvim',
         version = '*',
