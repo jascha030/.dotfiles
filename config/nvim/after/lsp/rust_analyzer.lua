@@ -13,9 +13,7 @@ return Jascha030.lsp.config_extend({
             procMacro = {
                 enable = true,
             },
-            checkOnSave = {
-                command = 'clippy',
-            },
+            checkOnSave = true,
         },
     },
 })
