@@ -37,7 +37,7 @@ alias {ansicolors,bashcolors}="open https://gist.github.com/JBlond/2fea43a3049b3
 (( ${+commands[nvim]} )) && { 
     alias {vim,n}=nvim; 
     alias rn='root && n';
-    alias {remotevim,remotenvim,remotenv}='nvim --listen /tmp/nvim-socket'; 
+    alias {remotevim,remotenvim,remotenv,rv}='nvim --listen /tmp/nvim-socket'; 
     alias nd='nvim "+lua vim.lsp.set_log_level(\"debug\")"'; 
 }
 (( ${+commands[lla]} )) && alias {sizemap,sm}='lla --sizemap'
