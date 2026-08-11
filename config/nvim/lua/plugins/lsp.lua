@@ -8,51 +8,7 @@ return {
             'folke/lazydev.nvim',
             'b0o/schemastore.nvim',
         },
-        opts = function(_, _)
-            return {
-                ensure_installed = {
-                    'angularls',
-                    'bashls',
-                    'intelephense',
-                    'jsonls',
-                    'lua_ls',
-                    'marksman',
-                    'phpactor',
-                    'rust_analyzer',
-                    'tailwindcss',
-                },
-                ---@todo: maybe just do this per client instead of capability.
-                disabled_capabilities = {
-                    ['codeActionProvider'] = {
-                        'intelephense',
-                    },
-                    ['documentSymbolProvider'] = {
-                        'intelephense',
-                    },
-                    ['definitionProvider'] = {
-                        'intelephense',
-                    },
-                    ['documentFormattingProvider'] = {
-                        'intelephense',
-                        'jsonls',
-                        'lua_ls',
-                    },
-                    ['documentRangeFormattingProvider'] = {
-                        'intelephense',
-                        'jsonls',
-                        'lua_ls',
-                    },
-                    ['hoverProvider'] = {
-                        'phpactor',
-                    },
-                    ['referencesProvider'] = {
-                        'phpactor',
-                    },
-                },
-            }
-        end,
-        config = function(_, opts)
-            opts = opts or {}
+        config = function()
             local lsp = require('jascha030.lsp')
 
             vim.diagnostic.config({
@@ -63,10 +19,46 @@ return {
                 virtual_lines = { current_line = true },
             })
 
+            -- Default config merged into every server config in after/lsp/.
+            vim.lsp.config('*', {
+                capabilities = lsp.config.make_capabilities(),
+                flags = { debounce_text = 150 },
+            })
+
+            local capability_overrides = {
+                bashls = {
+                    documentFormattingProvider = false,
+                    documentRangeFormattingProvider = false,
+                },
+                intelephense = {
+                    codeActionProvider = false,
+                    documentSymbolProvider = false,
+                    definitionProvider = false,
+                    documentFormattingProvider = false,
+                    documentRangeFormattingProvider = false,
+                },
+                jsonls = {
+                    documentFormattingProvider = false,
+                    documentRangeFormattingProvider = false,
+                },
+                lua_ls = {
+                    documentFormattingProvider = false,
+                    documentRangeFormattingProvider = false,
+                },
+                phpactor = {
+                    hoverProvider = false,
+                    referencesProvider = false,
+                },
+                yamlls = {
+                    documentFormattingProvider = true,
+                },
+            }
+
             lsp.lsp_attach(function(client, buffer)
-                for capability, clients in pairs(opts.disabled_capabilities) do
-                    if vim.tbl_contains(clients, client.name) then
-                        client.server_capabilities[capability] = false
+                local overrides = capability_overrides[client.name]
+                if overrides then
+                    for capability, value in pairs(overrides) do
+                        client.server_capabilities[capability] = value
                     end
                 end
 
@@ -77,29 +69,21 @@ return {
                 if client.server_capabilities.definitionProvider then
                     vim.bo[buffer].tagfunc = 'v:lua.vim.lsp.tagfunc'
                 end
-
-                if client.name == 'yamlls' then
-                    client.server_capabilities.documentFormattingProvider = true
-                end
-
-                if client.name == 'bashls' then
-                    client.server_capabilities.documentFormattingProvider = false
-                    client.server_capabilities.documentRangeFormattingProvider = false
-                end
             end)
 
             lsp.lsp_attach(lsp.keymaps.on_attach)
             -- lsp.inlay_hints()
 
+            -- Auto-enable every Mason-installed LSP server except the excluded ones.
             require('mason-lspconfig').setup({
                 automatic_enable = {
                     exclude = { 'psalm', 'ts_ls', 'ast_grep' },
                 },
-                automatic_installation = true,
-                ensure_installed = opts.ensure_installed,
             })
 
+            -- Servers with after/lsp configs that are not managed by Mason.
             vim.lsp.enable('zsh_local')
+            vim.lsp.enable('tsgo')
         end,
     },
     {
@@ -153,12 +137,6 @@ return {
             require('lazydev').setup(opts)
             vim.lsp.enable('lua_ls')
         end,
-    },
-    {
-        'simrat39/rust-tools.nvim',
-        dependencies = { 'rust-lang/rust.vim' },
-        ft = 'rs',
-        lazy = true,
     },
     {
         'gbprod/phpactor.nvim',

@@ -2,7 +2,10 @@
 ---@class jascha030.lsp.Module
 ---@field public keymaps jascha030.lsp.Keymaps
 ---@field public config jascha030.lsp.Config
-local M = {}
+local M = {
+    keymaps = require('jascha030.lsp.keymaps'),
+    config = require('jascha030.lsp.config'),
+}
 
 ---@param on_attach fun(client, buffer)
 ---@param group string|nil
@@ -47,6 +50,4 @@ function M.inlay_hints()
     end
 end
 
-return setmetatable(M, {
-    __index = require('jascha030.utils').create_submod_loader('jascha030.lsp', true),
-})
+return M
