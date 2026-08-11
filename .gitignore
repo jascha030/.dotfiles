@@ -19,6 +19,9 @@
 /zsh/.zsh_history
 /zsh/.zcompcache
 
+## Nushell
+/config/nushell/history.txt
+
 ## Compiled zsh utilities (sources committed; binaries rebuilt on first shell start)
 /config/zsh/bin/prepend-c
 
