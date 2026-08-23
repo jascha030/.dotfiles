@@ -174,8 +174,10 @@ source ${ZDOTDIR}/prompt/prompt
 
 _evalcache mcfly init zsh
 
-# Override mcfly's precmd to background the expensive `mcfly add` binary invocation.
-# The exit code capture and fc -W stay synchronous (cheap), only the database write is deferred.
+# Override mcfly's precmd. The original rewrites the entire per-session history file
+# with `fc -W` on every prompt; with a large HISTFILE that alone costs ~30 ms. Instead,
+# seed the temp file once from the real HISTFILE and then append only the latest command.
+# The `mcfly add` database write is backgrounded so it never blocks the prompt.
 if (( ${+functions[mcfly_prompt_command]} )); then
     mcfly_prompt_command() {
         local exit_code=$?
@@ -185,9 +187,16 @@ if (( ${+functions[mcfly_prompt_command]} )); then
             command tail -n100 "${MCFLY_HISTFILE}" >| ${MCFLY_HISTORY}
         fi
 
-        fc -W "${MCFLY_HISTORY}"
+        # Append just the command that finished instead of rewriting the whole file.
+        local last_cmd=$history[$HISTCMD]
+        if [[ -n "${last_cmd}" ]]; then
+            if [[ -o extendedhistory ]]; then
+                print -r -- ": ${EPOCHSECONDS:-$(date +%s)}:0;${last_cmd}" >> "${MCFLY_HISTORY}"
+            else
+                print -r -- "${last_cmd}" >> "${MCFLY_HISTORY}"
+            fi
+        fi
 
-        # Background the expensive binary call — database write doesn't need to block the prompt.
         $MCFLY_PATH --history_format $MCFLY_HISTORY_FORMAT add --exit ${exit_code} &!
 
         return ${exit_code}
@@ -209,3 +218,4 @@ unfunction _evalcache
 unfunction __fpath_add
 unfunction __safe_source
 unfunction __autoload
+
