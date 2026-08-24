@@ -1,6 +1,6 @@
 BORDER = 'rounded'
 
-_G.lreq = require('lreq')
+_G.lreq = require('core.lreq')
 
 local icons = lreq('jascha030.icons')
 
