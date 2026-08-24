@@ -17,6 +17,8 @@ return {
     opts = {
         opt = {
             autoindent = true,
+            autoread = true,
+            undofile = true,
             backspace = 'indent,eol,start',
             colorcolumn = '120',
             cursorline = true,
@@ -52,6 +54,7 @@ return {
             foldmethod = 'expr',
             shell = '/bin/zsh',
             signcolumn = 'yes',
+            foldenable = false,
         },
         g = {
             loaded_netrw = 1,
@@ -63,7 +66,6 @@ return {
             loaded_python_provider = 0,
         },
         o = {
-            foldenable = false,
         },
     },
     -- wip (field name: (identifier) @id (#match? @id "keymaps") value: (table_constructor (field value: (table_constructor) @t) @f))
