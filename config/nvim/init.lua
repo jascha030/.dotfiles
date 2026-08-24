@@ -18,27 +18,41 @@ require('jascha030.globals')
 require('jascha030.core.bootstrap').install_packages({ 'folke/lazy.nvim' }) -- Install required packages, if not already installed.
 require('jascha030.core.filetypes')
 
-local lazy_opts = {
-    -- Idea taken from `willothy/nvim-config` (https://github.com/willothy/nvim-config/blob/main/init.lua).
-    {
-        name = 'jascha030.init',
-        main = 'jascha030',
-        dir = vim.fn.stdpath('config') --[[@as string]],
-        lazy = false,
-        priority = 10000,
-        opts = require('config'),
-        config = function(_, opts)
-            require('jascha030').setup(opts)
-        end,
-    },
-    { import = 'plugins' },
-}
-
 if vim.loader then
     vim.loader.enable()
 end
 
-require('lazy').setup(lazy_opts, {
+require('lazy').setup({
+    -- Idea taken from `willothy/nvim-config` (https://github.com/willothy/nvim-config/blob/main/init.lua).
+    {
+        name = 'jascha030',
+        dir = vim.fn.stdpath('config') --[[@as string]],
+        lazy = false,
+        priority = 10000,
+        opts = {
+            debug = false,
+            path = {
+                env = {
+                    vim.env.HOME .. '/.local/share/mise/shims',
+                },
+                rtp = {
+                    {
+                        path = '/Applications/Ghostty.app/Contents/Resources/vim/vimfiles',
+                        prepend = true,
+                    },
+                },
+            },
+            colorscheme = 'nitepal',
+        },
+    },
+    {
+        name = 'config',
+        dir = vim.fn.stdpath('config') --[[@as string]],
+        lazy = false,
+        dependencies = { 'jascha030' },
+    },
+    { import = 'plugins' },
+}, {
     concurrency = 5,
     performance = {
         rtp = {

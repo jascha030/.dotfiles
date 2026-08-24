@@ -266,15 +266,6 @@ return {
                     desc = 'Find backward',
                 },
                 {
-                    't',
-                    function()
-                        return ts_repeat_move.builtin_t_expr()
-                    end,
-                    mode = { 'n', 'x', 'o' },
-                    expr = true,
-                    desc = 'Till forward',
-                },
-                {
                     'T',
                     function()
                         return ts_repeat_move.builtin_T_expr()

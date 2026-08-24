@@ -18,7 +18,7 @@ end
 
 ---@param mode string
 function M.update(mode)
-    local cs = require('jascha030.core.config').options.colorscheme
+    local cs = require('config').colorscheme
 
     if cs == 'nitepal' or cs == 'litepal' then
         require('nitepal.config').options.style = mode
@@ -55,7 +55,7 @@ function M.init()
         return
     end
 
-    loaded = true;
+    loaded = true
 
     (function()
         vim.opt.runtimepath:prepend(os.getenv('XDG_CONFIG_HOME'))

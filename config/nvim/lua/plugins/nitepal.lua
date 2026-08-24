@@ -6,6 +6,7 @@ local M = {
         { 'hoob3rt/lualine.nvim' },
     },
     opts = {
+		colorscheme = 'nitepal',
         transparent = {
             background = true,
             floats = true,
@@ -22,7 +23,6 @@ function M.config(_, opts)
 
     ---@type ThemeUtil
     local theme = require('jascha030.utils.theme')
-    local config = require('jascha030.core.config').options
 
     vim.api.nvim_create_autocmd('User', {
         group = vim.api.nvim_create_augroup('themeUpdate', { clear = true }),
@@ -43,10 +43,10 @@ function M.config(_, opts)
         end,
     })
 
-    if config.colorscheme == 'nitepal' or config.colorscheme == 'litepal' then
+    if opts.colorscheme == 'nitepal' or opts.colorscheme == 'litepal' then
         theme.init()
     else
-        vim.cmd('colorscheme ' .. config.colorscheme)
+        vim.cmd('colorscheme ' .. opts.colorscheme)
     end
 end
 
