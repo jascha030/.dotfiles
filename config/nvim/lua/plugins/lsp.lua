@@ -13,7 +13,7 @@ return {
 
             vim.diagnostic.config({
                 severity_sort = true,
-                signs = { text = require('jascha030.core.icons').get_icons().diagnostics },
+                signs = { text = require('jascha030.icons').get_icons().diagnostics },
                 underline = true,
                 update_in_insert = false,
                 virtual_lines = { current_line = true },

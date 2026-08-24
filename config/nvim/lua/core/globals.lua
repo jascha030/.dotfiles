@@ -2,7 +2,7 @@ BORDER = 'rounded'
 
 _G.lreq = require('lreq')
 
-local icons = lreq('jascha030.core.icons')
+local icons = lreq('jascha030.icons')
 
 _G.Jascha030 = {
     icons = {

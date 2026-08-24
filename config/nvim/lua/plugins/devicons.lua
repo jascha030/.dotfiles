@@ -354,7 +354,7 @@ local M = {
 
 function M.opts()
     return {
-        icons = require('jascha030.core.icons').get_icons(),
+        icons = require('jascha030.icons').get_icons(),
         default_icon = '',
         overrides = {
             Alias = {

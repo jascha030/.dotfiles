@@ -14,9 +14,9 @@
 vim.hl = vim.highlight
 vim.g.mapleader = ' '
 
-require('jascha030.globals')
-require('jascha030.core.bootstrap').install_packages({ 'folke/lazy.nvim' }) -- Install required packages, if not already installed.
-require('jascha030.core.filetypes')
+require('core.globals')
+require('core.bootstrap').install_packages({ 'folke/lazy.nvim' }) -- Install required packages, if not already installed.
+require('core.filetypes')
 
 if vim.loader then
     vim.loader.enable()
