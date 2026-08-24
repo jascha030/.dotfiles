@@ -75,6 +75,12 @@ local function list_files(root, acc)
     end
 end
 
+---@param name string
+---@param kind jascha030.zsh_symbols.SymbolKind
+---@param path string
+---@param line integer?
+---@param character integer?
+---@return jascha030.zsh_symbols.Symbol
 local function make_symbol(name, kind, path, line, character)
     return {
         name = name,
@@ -128,6 +134,9 @@ local function symbol_name_at(line, character)
     return line:sub(start_col, end_col)
 end
 
+---@param path string
+---@param lines string[]
+---@return jascha030.zsh_symbols.Symbol[]
 local function explicit_symbols(path, lines)
     local symbols = {}
 
@@ -193,6 +202,9 @@ local function autoload_name(path)
     return nil
 end
 
+---@param path string
+---@param lines string[]
+---@return jascha030.zsh_symbols.Symbol[]
 local function file_symbols(path, lines)
     local symbols = explicit_symbols(path, lines)
     local autoload = autoload_name(path)
@@ -218,6 +230,8 @@ local function file_symbols(path, lines)
     return symbols
 end
 
+---@param index jascha030.zsh_symbols.Index
+---@param symbol jascha030.zsh_symbols.Symbol
 local function add_symbol(index, symbol)
     index.all[#index.all + 1] = symbol
     index.by_file[symbol.path] = index.by_file[symbol.path] or {}
@@ -227,6 +241,8 @@ local function add_symbol(index, symbol)
     index.by_name[symbol.name][#index.by_name[symbol.name] + 1] = symbol
 end
 
+---@param a jascha030.zsh_symbols.Symbol
+---@param b jascha030.zsh_symbols.Symbol
 local function symbol_sort(a, b)
     if a.name ~= b.name then
         return a.name < b.name
@@ -243,6 +259,8 @@ local function symbol_sort(a, b)
     return a.line < b.line
 end
 
+---@param a jascha030.zsh_symbols.Symbol
+---@param b jascha030.zsh_symbols.Symbol
 local function location_sort(a, b)
     if a.kind ~= b.kind then
         return a.kind == 'explicit'
@@ -255,6 +273,7 @@ local function location_sort(a, b)
     return a.line < b.line
 end
 
+---@return jascha030.zsh_symbols.Index
 local function build_index()
     local files = {}
     local index = {
@@ -293,6 +312,7 @@ local function build_index()
     return index
 end
 
+---@return jascha030.zsh_symbols.Index
 local function get_index()
     if cached_index == nil then
         cached_index = build_index()
@@ -330,18 +350,24 @@ local function current_lines(path)
     return read_lines(path)
 end
 
+---@return string?
 function M.root()
     return DOTFILES_ROOT
 end
 
+---@return string?
 function M.zsh_root()
     return ZSH_ROOT
 end
 
+---@param path string
+---@return boolean
 function M.is_repo_zsh_path(path)
     return is_under(path, ZSH_ROOT)
 end
 
+---@param params { textDocument: { uri: string }, position: { line: integer, character: integer } }
+---@return table[]
 function M.definition(params)
     local path = normalize(vim.uri_to_fname(params.textDocument.uri))
 
@@ -366,6 +392,8 @@ function M.definition(params)
     return locations
 end
 
+---@param uri string
+---@return table[]
 function M.document_symbols(uri)
     local path = normalize(vim.uri_to_fname(uri))
 
@@ -383,6 +411,8 @@ function M.document_symbols(uri)
     return result
 end
 
+---@param query string
+---@return table[]
 function M.workspace_symbols(query)
     local lowered = query:lower()
     local result = {}

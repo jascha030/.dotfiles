@@ -1,6 +1,6 @@
 local M = {}
 
----@param opts table
+---@param opts jascha030.Config
 function M.setup(opts)
     if opts.debug == true then
         vim.lsp.log.set_log_level('debug')
@@ -8,12 +8,13 @@ function M.setup(opts)
 
     local path_helper = {}
 
-    ---@param p string|table
+    ---@param p jascha030.PathEntry
     function path_helper.prepend(p)
         return type(p) == 'table' and p.prepend ~= nil and p.prepend == true
     end
 
-    ---@param p string|table
+    ---@param p jascha030.PathEntry
+    ---@return string
     function path_helper.get_path_string(p)
         if type(p) == 'string' then
             return p
@@ -26,8 +27,8 @@ function M.setup(opts)
         error('Invalid path type')
     end
 
-    ---@param p string|table
-    ---@param t string
+    ---@param p jascha030.PathEntry
+    ---@param t jascha030.PathType
     function path_helper.add(p, t)
         local path_string = path_helper.get_path_string(p)
 
@@ -48,7 +49,7 @@ function M.setup(opts)
         end
     end
 
-    ---@param paths table
+    ---@param paths? jascha030.PathConfig
     local function add_paths(paths)
         paths = paths or {}
         for type, type_paths in pairs(paths) do

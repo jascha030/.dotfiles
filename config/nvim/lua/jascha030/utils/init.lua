@@ -4,6 +4,8 @@
 --- @field public theme ThemeUtil
 local M = {}
 
+---@param module string
+---@param bind? boolean
 function M.create_submod_loader(module, bind)
     return function(table, key)
         local ok, submod = pcall(require, module .. '.' .. key)

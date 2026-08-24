@@ -7,8 +7,8 @@ local M = {
     config = require('jascha030.lsp.config'),
 }
 
----@param on_attach fun(client, buffer)
----@param group string|nil
+---@param on_attach jascha030.lsp.AttachCallback
+---@param group? string
 function M.lsp_attach(on_attach, group)
     group = group or nil
 

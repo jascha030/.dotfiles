@@ -1,7 +1,7 @@
 ---@diagnostic disable: duplicate-set-field
 ---
 ---@class jascha030.lsp.Keymaps
----@field client table
+---@field client vim.lsp.Client
 ---@field buffer integer
 local M = {}
 
@@ -20,7 +20,7 @@ end
 
 ---@param lhs string
 ---@param rhs string|fun()
----@param opts table?
+---@param opts? jascha030.lsp.MapOpts
 function M:map(lhs, rhs, opts)
     opts = opts or {}
 
@@ -36,7 +36,7 @@ function M:map(lhs, rhs, opts)
     })
 end
 
----@returns string|nil
+---@return string|nil
 function M.rename()
     if pcall(require, 'inc_rename') then
         return ':IncRename ' .. vim.fn.expand('<cword>')
@@ -46,7 +46,8 @@ function M.rename()
 end
 
 ---@param next boolean
----@param severity string?
+---@param severity? jascha030.lsp.DiagnosticSeverityString
+---@return function
 function M.diagnostic_goto(next, severity)
     return function()
         vim.diagnostic.jump({
@@ -78,8 +79,8 @@ function M.on_attach(client, bufnr)
     self:map('[d', diagnostic_goto(false), { desc = 'Prev Diagnostic' })
     self:map(']e', diagnostic_goto(true, 'ERROR'), { desc = 'Next Error' })
     self:map('[e', diagnostic_goto(false, 'ERROR'), { desc = 'Prev Error' })
-    self:map(']w', diagnostic_goto(true, 'WARNING'), { desc = 'Next Warning' })
-    self:map('[w', diagnostic_goto(false, 'WARNING'), { desc = 'Prev Warning' })
+    self:map(']w', diagnostic_goto(true, 'WARN'), { desc = 'Next Warning' })
+    self:map('[w', diagnostic_goto(false, 'WARN'), { desc = 'Prev Warning' })
     self:map('<leader>r', M.rename, { expr = true, desc = 'Rename', has = 'rename' })
     self:map('<leader>a', vim.lsp.buf.code_action, { desc = 'Code Action', has = 'codeAction', mode = { 'n', 'v' } })
     -- self:map('<leader>cd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })

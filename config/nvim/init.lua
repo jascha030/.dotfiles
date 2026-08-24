@@ -29,6 +29,7 @@ require('lazy').setup({
             dir = vim.fn.stdpath('config') --[[@as string]],
             lazy = false,
             priority = 10000,
+            ---@type jascha030.Config
             opts = {
                 debug = false,
                 path = {

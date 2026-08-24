@@ -16,7 +16,7 @@ function M.is_dark()
     return vim.o.background == DARK
 end
 
----@param mode string
+---@param mode jascha030.utils.ThemeMode
 function M.update(mode)
     local cs = vim.g.colors_name
 

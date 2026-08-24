@@ -100,9 +100,10 @@ local default = {
     },
 }
 
+---@type jascha030.icons.IconMap
 M.icons = {}
 
----@param options table?
+---@param options? jascha030.icons.IconMap
 function M.extend(options)
     if type(options) ~= 'table' and type(options) ~= 'nil' then
         return
@@ -111,6 +112,7 @@ function M.extend(options)
     M.icons = vim.tbl_deep_extend('force', {}, M.icons, options or {})
 end
 
+---@return jascha030.icons.IconMap
 function M.get_icons()
     if vim.tbl_isempty(M.icons) then
         M.extend({})
