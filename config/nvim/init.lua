@@ -23,36 +23,29 @@ if vim.loader then
 end
 
 require('lazy').setup({
-    -- Idea taken from `willothy/nvim-config` (https://github.com/willothy/nvim-config/blob/main/init.lua).
-    {
-        name = 'jascha030',
-        dir = vim.fn.stdpath('config') --[[@as string]],
-        lazy = false,
-        priority = 10000,
-        opts = {
-            debug = false,
-            path = {
-                env = {
-                    vim.env.HOME .. '/.local/share/mise/shims',
+    spec = {
+        {
+            name = 'jascha030',
+            dir = vim.fn.stdpath('config') --[[@as string]],
+            lazy = false,
+            priority = 10000,
+            opts = {
+                debug = false,
+                path = {
+                    env = { vim.env.HOME .. '/.local/share/mise/shims' },
+                    rtp = { { path = '/Applications/Ghostty.app/Contents/Resources/vim/vimfiles', prepend = true } },
                 },
-                rtp = {
-                    {
-                        path = '/Applications/Ghostty.app/Contents/Resources/vim/vimfiles',
-                        prepend = true,
-                    },
-                },
+                colorscheme = 'nitepal',
             },
-            colorscheme = 'nitepal',
         },
+        {
+            name = 'config',
+            dir = vim.fn.stdpath('config') --[[@as string]],
+            lazy = false,
+            dependencies = { 'jascha030' },
+        },
+        { import = 'plugins' },
     },
-    {
-        name = 'config',
-        dir = vim.fn.stdpath('config') --[[@as string]],
-        lazy = false,
-        dependencies = { 'jascha030' },
-    },
-    { import = 'plugins' },
-}, {
     concurrency = 5,
     performance = {
         rtp = {

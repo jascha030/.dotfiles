@@ -18,7 +18,7 @@ end
 
 ---@param mode string
 function M.update(mode)
-    local cs = require('config').colorscheme
+    local cs = vim.g.colors_name
 
     if cs == 'nitepal' or cs == 'litepal' then
         require('nitepal.config').options.style = mode
