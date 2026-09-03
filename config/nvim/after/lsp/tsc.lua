@@ -1,6 +1,5 @@
 ---@type vim.lsp.Config
 local tsls = {
-    single_file_support = false,
     filetypes = {
         'javascript',
         'javascriptreact',
@@ -11,10 +10,7 @@ local tsls = {
     },
 
     settings = {
-        typescript = {
-            experimental = {
-                useTsgo = true,
-            },
+        ['js/ts'] = {
             workspaceSymbols = {
                 excludeLibrarySymbols = true,
                 scope = 'allOpenProjects',
@@ -28,15 +24,14 @@ local tsls = {
                 useAliasesForRenames = true,
                 preferTypeOnlyAutoImports = true,
             },
-            tsserver = {
-                maxTsServerMemory = 8192,
-                experimental = {
-                    enableProjectDiagnostics = true,
-                },
-            },
             referencesCodeLens = {
                 showOnAllFunctions = true,
                 enabled = true,
+            },
+            implementationsCodeLens = {
+                enabled = true,
+                showOnInterfaceMethods = true,
+                showOnAllClassMethods = true,
             },
             inlayHints = {
                 enumMemberValues = { enabled = true },
@@ -49,7 +44,5 @@ local tsls = {
         },
     },
 }
-
-tsls.settings.javascript = vim.tbl_deep_extend('force', {}, tsls.settings.typescript, tsls.settings.javascript or {})
 
 return tsls
