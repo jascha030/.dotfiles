@@ -81,6 +81,13 @@ local M = {
         config = function(_, opts)
             require('noice').setup(opts)
 
+            -- Noice normally reserves cmdheight=0 for its popup cmdline. On newer
+            -- Neovim builds (ui2) that makes the message/showmode area expand by
+            -- several lines whenever window layout changes -- especially visible
+            -- when toggling the snacks explorer while an opencode terminal split
+            -- is open on the right. Force a single-line command-line instead.
+            vim.opt.cmdheight = 1
+
             local noice_treesitter = require('noice.text.treesitter')
             local original_has_lang = noice_treesitter.has_lang
 

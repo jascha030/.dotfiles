@@ -18,6 +18,15 @@ vim.opt.showtabline = 0
 vim.opt.smartindent = true
 vim.opt.tabstop = 4
 vim.opt.termguicolors = true
+-- Keep the command-line height fixed at one line. Some plugins (e.g. noice with
+-- messages enabled) set cmdheight=0, which makes the message/showmode area
+-- temporarily expand by multiple lines whenever a message is printed -- exactly
+-- what happens when toggling the snacks explorer while an opencode terminal
+-- split is open on the right.
+vim.opt.cmdheight = 1
+-- Lualine already shows the mode, so hide the native -- INSERT -- / -- NORMAL --
+-- messages to avoid extra command-line redraws.
+vim.opt.showmode = false
 vim.opt.updatetime = 1000
 vim.opt.pumborder = 'rounded'
 vim.opt.winborder = 'rounded'

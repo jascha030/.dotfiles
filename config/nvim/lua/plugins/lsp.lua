@@ -83,7 +83,7 @@ return {
 
             -- Servers with after/lsp configs that are not managed by Mason.
             vim.lsp.enable('zsh_local')
-            vim.lsp.enable('tsgo')
+            vim.lsp.enable('tsc')
         end,
     },
     {

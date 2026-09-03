@@ -89,6 +89,7 @@ local M = {
     {
         'ziontee113/color-picker.nvim',
         cmd = { 'PickColor', 'PickColorInsert' },
+        cond = false,
     },
     {
         'smoka7/hop.nvim',
@@ -118,6 +119,7 @@ local M = {
                 { '<C-h>i', ui.nav_prev, mode = 'n' },
             }
         end,
+        cond = false,
     },
     {
         'brenoprata10/nvim-highlight-colors',
