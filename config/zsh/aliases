@@ -10,7 +10,11 @@ alias {kk,l}='ll' # Rotating 3 keyboards, created 50/50 chance I type 'kk' inste
 alias lg='lazygit'
 alias llc='ls | wc -l'
 alias lll='lla | lolcrab'
-alias o='open .'
+if [[ "$DOT_OS" == "Darwin" ]]; then
+    alias o='open .'
+else
+    alias o='xdg-open .'
+fi
 alias rr="exec ${SHELL} -l"
 alias rrscr='rr && rscr'
 alias rscr='tput rmcup'
@@ -24,14 +28,21 @@ alias vsites="cd ${XDG_CONFIG_HOME}/valet/Sites/"
 
 alias cpc='copy-to-pasteboard'
 alias cpd='copy-dir-path'
-alias raycast='open /Applications/Raycast.app'
+if [[ "$DOT_OS" == "Darwin" ]]; then
+    alias raycast='open /Applications/Raycast.app'
+fi
 
 #- Debuggingz --------------------------------------------------------------------------------------------------------#
 alias zbench="$HOME/zsh-bench/zsh-bench"
 alias {checkitalics,check:italics}="echo -e '\e[3mitalic\e[23m'"
 alias {checkbold,check:bold}="echo -e '\e[1mbold\e[22m'"
 alias {displaycolors,check:colors}="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
-alias {ansicolors,bashcolors}="open https://gist.github.com/JBlond/2fea43a3049b38287e5e9cefc87b2124"
+
+if [[ "$DOT_OS" == "Darwin" ]]; then
+    alias {ansicolors,bashcolors}="open https://gist.github.com/JBlond/2fea43a3049b38287e5e9cefc87b2124"
+else
+    alias {ansicolors,bashcolors}="xdg-open https://gist.github.com/JBlond/2fea43a3049b38287e5e9cefc87b2124"
+fi
 
 #- Utilities ---------------------------------------------------------------------------------------------------------#
 (( ${+commands[nvim]} )) && { 
@@ -44,7 +55,13 @@ alias {ansicolors,bashcolors}="open https://gist.github.com/JBlond/2fea43a3049b3
 
 alias brewup='brew update && brew outdated; brew upgrade && brew cleanup; brew doctor'
 alias cargoup='cargo install-update --all'
-alias kraken='$(open gitkraken://repo/${PWD})'
+
+if [[ "$DOT_OS" == "Darwin" ]]; then
+    alias kraken='$(open gitkraken://repo/${PWD})'
+else
+    alias kraken='$(xdg-open gitkraken://repo/${PWD})'
+fi
+
 alias gh:codeowners='mkdir .github/ && echo "* @jascha030" > .github/CODEOWNERS'
 
 alias {git:optimize,git:cleanup}='git gc --aggressive --prune=now'

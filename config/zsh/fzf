@@ -28,13 +28,41 @@ __fzf_update_theme() {
     export FZF_COMPLETION_OPTS="$FZF_DEFAULT_OPTS"
 }
 
-if (( ! ${path[(Ie)/opt/homebrew/opt/fzf/bin]} )); then
-    path+=/opt/homebrew/opt/fzf/bin
-fi
+# Discover fzf installation prefix (brew layout or system layout).
+() {
+    local -a prefixes=(
+        "${BREW_HOME}/fzf"
+        /usr/share/fzf
+        /usr/local/share/fzf
+        "${HOME}/.fzf"
+    )
 
-# Load completion only in interactive shells
-if [[ $- == *i* ]]; then
-    source "/opt/homebrew/opt/fzf/shell/completion.zsh" 2> /dev/null
+    local p
+    for p in "${prefixes[@]}"; do
+        [[ -d "$p" ]] || continue
+        typeset -g __FZF_PREFIX="$p"
+        break
+    done
+}
+
+__fzf_source() {
+    local name=$1
+    if [[ -f "${__FZF_PREFIX}/shell/${name}.zsh" ]]; then
+        source "${__FZF_PREFIX}/shell/${name}.zsh"
+    elif [[ -f "${__FZF_PREFIX}/${name}.zsh" ]]; then
+        source "${__FZF_PREFIX}/${name}.zsh"
+    fi
+}
+
+if [[ -n "$__FZF_PREFIX" ]]; then
+    if [[ -d "${__FZF_PREFIX}/bin" ]] && (( ! ${path[(Ie)${__FZF_PREFIX}/bin]} )); then
+        path+=${__FZF_PREFIX}/bin
+    fi
+
+    # Load completion only in interactive shells
+    if [[ $- == *i* ]]; then
+        __fzf_source completion 2> /dev/null
+    fi
 fi
 
 # Lazy-load FZF keybindings -------------------------------------------------------------------------------------------
@@ -44,7 +72,7 @@ __fzf_keybindings_loaded=0
 __load_fzf_keybindings() {
     (( __fzf_keybindings_loaded )) && return
     __fzf_keybindings_loaded=1
-    source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
+    __fzf_source key-bindings
 }
 
 # Main wrapper: lazy loads, updates theme, then calls real fzf

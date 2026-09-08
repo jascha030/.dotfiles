@@ -86,7 +86,9 @@ _evalcache_clear() {
 #- Init --------------------------------------------------------------------------------------------------------------#
 
 # Homebrew environment
-_evalcache /opt/homebrew/bin/brew shellenv
+if [[ -n "$BREW_HOME" && -x "${BREW_HOME%/*}/bin/brew" ]]; then
+    _evalcache "${BREW_HOME%/*}/bin/brew" shellenv
+fi
 
 path=(
     "${DOT_PATH_VAR[@]}"

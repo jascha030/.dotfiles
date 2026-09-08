@@ -57,14 +57,20 @@ export DOT_COMP_DIRS=(
     ${HOME}/tools/eza/completions/zsh
     ${XDG_CONFIG_HOME}/tabtab/zsh
     ${ZDOTDIR}/completions
-    /opt/homebrew/share/zsh/site-functions
 )
+
+if [[ "$DOT_OS" == "Darwin" ]]; then
+    DOT_COMP_DIRS+=/opt/homebrew/share/zsh/site-functions
+fi
 
 export DOT_BASH_COMPLETIONS=(
     # ${HOME}/.bash.d/*
     ${DOTFILES}/config/bash/bash_completion.d/*
-    /opt/homebrew/Cellar/wp-cli-completion/**/etc/bash_completion.d/*
 )
+
+if [[ "$DOT_OS" == "Darwin" ]]; then
+    DOT_BASH_COMPLETIONS+=(/opt/homebrew/Cellar/wp-cli-completion/**/etc/bash_completion.d/*)
+fi
 
 export DOT_SOURCES=(
     ${HOME}/.cargo/env
@@ -78,11 +84,18 @@ export DOT_AFTER_INIT_SOURCES=(
     ${HOME}/env.local
 )
 
-export DOT_PATH_VAR=(
-    ${BREW_HOME}/ncurses/bin
-    ${BREW_HOME}/gnu-sed/libexec/gnubin
-    ${BREW_HOME}/openjdk/bin
-    ${BREW_HOME}/openssl@1.1/bin
+export DOT_PATH_VAR=()
+
+if [[ "$DOT_OS" == "Darwin" && -n "$BREW_HOME" ]]; then
+    DOT_PATH_VAR+=(
+        ${BREW_HOME}/ncurses/bin
+        ${BREW_HOME}/gnu-sed/libexec/gnubin
+        ${BREW_HOME}/openjdk/bin
+        ${BREW_HOME}/openssl@1.1/bin
+    )
+fi
+
+DOT_PATH_VAR+=(
     ${XDG_CONFIG_HOME}/bash/bin
     ${XDG_CONFIG_HOME}/zsh/bin
     ${HOME}/bin

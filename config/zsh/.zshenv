@@ -2,6 +2,9 @@
 
 skip_global_compinit=1
 
+# OS detection
+export DOT_OS="${DOT_OS:-$(uname -s)}"
+
 # Source shell env or link it to HOME dir, if it doesn't exist yet.
 [ -f "$HOME/.env" ] || ln -s "$HOME/.dotfiles/.env" "$HOME/.env"
 . "$HOME/.env"
@@ -22,7 +25,17 @@ export DOT_NEOVIM_LOL_MSG="NVIM 030"
 
 # Cache PHP_VERSION keyed on php binary mtime — avoids forking php on every shell start.
 () {
-    local php_bin=/opt/homebrew/bin/php
+    local php_bin
+    if [[ "$DOT_OS" == "Darwin" ]]; then
+        php_bin=/opt/homebrew/bin/php
+    else
+        php_bin=$(command -v php 2>/dev/null)
+    fi
+
+    if [[ -z "$php_bin" ]]; then
+        return
+    fi
+
     local cache_dir=${XDG_CACHE_HOME:-${HOME}/.cache}/dotfiles
     local cache_file=${cache_dir}/php_version
     local php_mtime=0 cache_mtime=0
@@ -44,5 +57,11 @@ export PHP_VERSION
 export GITSTATUS_DIR=${HOME}/tools/gitstatus
 export ZSH_EVALCACHE_DIR=${ZSH_EVALCACHE_DIR:-${ZDOTDIR}/.zsh-evalcache}
 
-export BREW_HOME=/opt/homebrew/opt
-export HOMEBREW_NO_INSTALL_FROM_API=1
+if [[ "$DOT_OS" == "Darwin" ]]; then
+    export BREW_HOME=/opt/homebrew/opt
+    export HOMEBREW_NO_INSTALL_FROM_API=1
+elif [[ -d /home/linuxbrew/.linuxbrew ]]; then
+    export BREW_HOME=/home/linuxbrew/.linuxbrew/opt
+elif [[ -d "$HOME/.linuxbrew" ]]; then
+    export BREW_HOME="$HOME/.linuxbrew/opt"
+fi
