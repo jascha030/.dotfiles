@@ -8,7 +8,11 @@ vcomposer() {
     if [[ -f "${PWD}/composer.json" ]]; then
         $dot_valet_bin php "$@"
     else
-        export PHP_VERSION="${$(/opt/homebrew/bin/php -r 'echo PHP_VERSION;')[1,3]}"
+        if [[ "$DOT_OS" == "Darwin" ]]; then
+            export PHP_VERSION="${$(/opt/homebrew/bin/php -r 'echo PHP_VERSION;')[1,3]}"
+        elif command -v php >/dev/null 2>&1; then
+            export PHP_VERSION="${$(php -r 'echo PHP_VERSION;')[1,3]}"
+        fi
 
         $dot_php_bin "$@"
     fi

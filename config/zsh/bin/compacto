@@ -39,7 +39,11 @@ trap _cleanup EXIT
 trap _abort INT TERM
 
 if ! command -v xz >/dev/null 2>&1; then
-    _error "xz is not installed. Install it with: brew install xz"
+    if [[ "$DOT_OS" == "Darwin" ]]; then
+        _error "xz is not installed. Install it with: brew install xz"
+    else
+        _error "xz is not installed. Install it with: sudo pacman -S xz"
+    fi
     exit 1
 fi
 

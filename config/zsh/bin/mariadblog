@@ -1,11 +1,19 @@
 #!/usr/bin/env zsh
 
 mariadblog() {
-    local dir=${MARIADB_LOG_DIR:-/opt/homebrew/var/mysql}
-
-    if [ -f "${dir}/Jaschas MacBook Pro.err" ]; then
-        tail -f -72 "${dir}/Jaschas MacBook Pro.err" | bat --paging=never -l log
+    local dir
+    if [[ "$DOT_OS" == "Darwin" ]]; then
+        dir=${MARIADB_LOG_DIR:-/opt/homebrew/var/mysql}
+    else
+        dir=${MARIADB_LOG_DIR:-/var/lib/mysql}
     fi
+
+    local err_file
+    for err_file in "${dir}"/*.err(N); do
+        [[ -f "$err_file" ]] || continue
+        tail -f -72 "$err_file" | bat --paging=never -l log
+        break
+    done
 }
 
 mariadblog "$@"

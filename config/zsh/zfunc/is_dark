@@ -7,10 +7,21 @@ typeset -gi _IS_DARK_EXPIRY=0
 
 is_dark() {
     if (( SECONDS > _IS_DARK_EXPIRY )); then
-        if [[ "$(defaults read -globalDomain AppleInterfaceStyle 2>/dev/null)" == "Dark" ]]; then
-            _IS_DARK_CACHE=0    # return 0 → true (dark)
+        if [[ "$DOT_OS" == "Darwin" ]]; then
+            if [[ "$(defaults read -globalDomain AppleInterfaceStyle 2>/dev/null)" == "Dark" ]]; then
+                _IS_DARK_CACHE=0    # return 0 → true (dark)
+            else
+                _IS_DARK_CACHE=1    # return 1 → false (light)
+            fi
         else
-            _IS_DARK_CACHE=1    # return 1 → false (light)
+            local gtk_theme
+            if gtk_theme=$(gsettings get org.gnome.desktop.interface gtk-theme 2>/dev/null) && [[ "$gtk_theme" == *[Dd]ark* ]]; then
+                _IS_DARK_CACHE=0
+            elif [[ "${DOT_DARK_MODE:-1}" == "1" ]]; then
+                _IS_DARK_CACHE=0
+            else
+                _IS_DARK_CACHE=1
+            fi
         fi
         _IS_DARK_EXPIRY=$(( SECONDS + 60 ))
     fi

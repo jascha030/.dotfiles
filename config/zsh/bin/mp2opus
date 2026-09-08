@@ -10,7 +10,11 @@ _error() {
 }
 
 if ! command -v ffmpeg >/dev/null 2>&1; then
-    _error "ffmpeg is not installed. Install it with: brew install ffmpeg"
+    if [[ "$DOT_OS" == "Darwin" ]]; then
+        _error "ffmpeg is not installed. Install it with: brew install ffmpeg"
+    else
+        _error "ffmpeg is not installed. Install it with: sudo pacman -S ffmpeg"
+    fi
     exit 1
 fi
 
