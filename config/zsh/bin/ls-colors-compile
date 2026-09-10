@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+typeset default_theme='jassie030'
+typeset out_path="${1:-$ZDOTDIR/.ls-colors}"
+typeset theme="${2:-$default_theme}"
+
+() {
+    echo "#!/usr/bin/env zsh"
+    echo ""
+    echo "export LS_COLORS=\""$(vivid generate ${theme})"\";"
+} > "$out_path"

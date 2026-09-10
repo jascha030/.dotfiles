@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-if [[ "$DOT_OS" == "Darwin" ]]; then
+if [[ "${DOT_OS:-$(uname -s)}" == "Darwin" ]]; then
     /usr/bin/pbpaste "$@"
 else
     wl-paste "$@"
