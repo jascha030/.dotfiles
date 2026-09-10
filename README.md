@@ -82,18 +82,14 @@ brew bundle --file ~/.dotfiles/Brewfile
 # 3. Apply macOS defaults (⚠️ This changes system settings!)
 ~/.dotfiles/.macos
 
-# 4. Link files (The manual way, as god intended)
-# Example: Linking Neovim
-ln -s ~/.dotfiles/config/nvim ~/.config/nvim
-
-# Example: Linking Zsh
-ln -s ~/.dotfiles/config/zsh/.zshrc ~/.zshrc
+# 4. Link files 
+~/.dotfiles/bin/restore-dotfile-symlinks.sh
 ```
 
 ## 📂 Directory Structure
 
 - **`/config`**: The meat. XDG-compliant config files (nvim, zsh, wezterm, etc.).
-- **`/bin`**: Custom scripts added to `$PATH`.
+- **`/bin`**: Custom scripts added to `$PATH`. Includes `restore-dotfile-symlinks.sh` for (re)installing the config symlinks.
 - **`/hammerspoon`**: macOS automation scripts.
 - **`.macos`**: Shell script to set sensible macOS defaults.
 - **`Brewfile`**: List of all installed system packages.
