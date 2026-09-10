@@ -37,16 +37,12 @@
 /config/.var/
 /gitconfig
 /SPEEDLOG.md
+/GHTOKEN.md
 /*.txt
 *.log
 **.cache
 **.BAK
 **.bak
-/*.md
 **.zwc
-!/GEMINI.md
-!/AGENTS.md
-!/README.md
-!/articles.md
 /.ssh/*
 !/.ssh/*.secret
