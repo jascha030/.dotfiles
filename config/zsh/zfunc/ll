@@ -23,7 +23,7 @@ fi
 
 if (( $+commands[lla] )); then
     __ll_lla() {
-        prepend " " < <(lla -Ahl --group-directories-first --color=always)
+        prepend " " < <(lla -Al --sort-dirs-first)
     }
 fi
 
