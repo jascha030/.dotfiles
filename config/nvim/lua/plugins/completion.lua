@@ -19,6 +19,9 @@ local M = {
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
         opts = {
+            fuzzy = {
+                implementation = 'lua',
+            },
             keymap = {
                 ['<M-Tab>'] = {
                     function(cmp)
