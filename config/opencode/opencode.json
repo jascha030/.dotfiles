@@ -30,6 +30,6 @@
     }
   },
   "permission": {},
-  "plugin": ["opencode-gemini-auth@latest", "opencode-wakatime"],
+  "plugin": ["opencode-wakatime"],
   "username": "Jascha030"
 }
