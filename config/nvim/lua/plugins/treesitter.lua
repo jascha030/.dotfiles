@@ -27,7 +27,6 @@ return {
                 'javascript',
                 'json',
                 'json5',
-                'jsonc',
                 'lua',
                 'markdown',
                 'markdown_inline',
@@ -55,7 +54,9 @@ return {
             local ts = require('nvim-treesitter')
             local parsers = opts.ensure_installed or {}
 
-            ts.install(parsers)
+            vim.schedule(function()
+                ts.install(parsers)
+            end)
 
             for ft, parser in pairs(FT_TO_LANG_ALIASES) do
                 vim.treesitter.language.register(parser, ft)
@@ -279,6 +280,7 @@ return {
     },
     {
         'nvim-treesitter/nvim-treesitter-context',
+        event = 'VeryLazy',
         dependencies = { 'nvim-treesitter/nvim-treesitter' },
         config = true,
     },
