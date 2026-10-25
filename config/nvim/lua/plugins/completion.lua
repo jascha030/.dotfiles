@@ -12,9 +12,9 @@ local M = {
             'fang2hou/blink-copilot',
             'onsails/lspkind-nvim',
         },
-        build = function(_)
+        build = function()
             ---@diagnostic disable-next-line: undefined-field
-            require('blink.cmp').build():wait(60000)
+            require('blink.cmp').build():pwait()
         end,
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
@@ -156,7 +156,7 @@ local M = {
                         'path',
                         'snippets',
                         'buffer',
-                        'copilot',
+                        -- 'copilot',
                     }
 
                     if vim.bo.filetype == 'lua' then
@@ -183,20 +183,20 @@ local M = {
                         name = 'Crates',
                         module = 'blink.compat.source',
                     },
-                    copilot = {
-                        name = 'Copilot',
-                        module = 'blink-copilot',
-                        enabled = function()
-                            local flag = vim.g.blink_cmp_copilot_enabled --[[@as boolean?]]
-
-                            return flag == nil or flag
-                        end,
-                        score_offset = 100,
-                        deduplicate = { enabled = true },
-                        async = true,
-                        max_items = 2,
-                        opts = { max_completions = 2 },
-                    },
+                    -- copilot = {
+                    --     name = 'Copilot',
+                    --     module = 'blink-copilot',
+                    --     enabled = function()
+                    --         local flag = vim.g.blink_cmp_copilot_enabled --[[@as boolean?]]
+                    --
+                    --         return flag == nil or flag
+                    --     end,
+                    --     score_offset = 100,
+                    --     deduplicate = { enabled = true },
+                    --     async = true,
+                    --     max_items = 2,
+                    --     opts = { max_completions = 2 },
+                    -- },
                 },
             },
             appearance = {
@@ -281,6 +281,7 @@ local M = {
     },
     {
         'zbirenbaum/copilot.lua',
+        cond = false,
         cmd = 'Copilot',
         event = { 'InsertEnter' },
         keys = {
