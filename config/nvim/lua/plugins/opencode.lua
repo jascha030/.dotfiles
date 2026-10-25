@@ -59,7 +59,7 @@ return {
         {
             '<leader>oo',
             function()
-                require('snacks.terminal').toggle('opencode --port', {
+                require('snacks.terminal').toggle('opencode', {
                     win = {
                         position = 'right',
                         enter = true,
