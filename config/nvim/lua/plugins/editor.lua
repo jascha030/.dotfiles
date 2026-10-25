@@ -7,11 +7,12 @@ local M = {
         config = true,
         opts = { disable_in_macro = false },
     },
-    { 'f-person/git-blame.nvim' },
+    { 'f-person/git-blame.nvim', event = 'VeryLazy' },
     { 'nvim-lua/plenary.nvim', lazy = true },
-    { 'petertriho/nvim-scrollbar', config = true },
+    { 'petertriho/nvim-scrollbar', event = 'VeryLazy', config = true },
     {
         'lewis6991/gitsigns.nvim',
+        event = 'VeryLazy',
         ---@module 'gitsigns'
         ---@type Gitsigns.Config
         opts = {
@@ -42,7 +43,7 @@ local M = {
             end
         end,
     },
-    { 'wakatime/vim-wakatime' },
+    { 'wakatime/vim-wakatime', event = 'VeryLazy' },
     { 'chr4/nginx.vim', ft = 'nginx' },
     { 'b0o/schemastore.nvim', ft = { 'json', 'yaml', 'yml' } },
     {
@@ -130,6 +131,7 @@ local M = {
     },
     {
         'm-demare/hlargs.nvim',
+        event = 'VeryLazy',
         opts = {
             color = '#ea1479',
             highlight = {},
@@ -163,6 +165,7 @@ local M = {
     },
     {
         'folke/paint.nvim',
+        event = 'VeryLazy',
         opts = {
             highlights = {
                 {

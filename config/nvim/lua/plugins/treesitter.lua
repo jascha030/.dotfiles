@@ -9,7 +9,7 @@ local FT_TO_LANG_ALIASES = { dotenv = 'bash' }
 return {
     {
         'nvim-treesitter/nvim-treesitter',
-        lazy = false,
+        event = 'VeryLazy',
         build = ':TSUpdate',
         cond = has_uis,
         opts = {

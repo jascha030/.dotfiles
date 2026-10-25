@@ -1,6 +1,6 @@
 ---@type LazyPluginSpec[]
 local M = {
-    { 'rcarriga/nvim-notify', opts = {} },
+    { 'rcarriga/nvim-notify', event = 'VeryLazy', opts = {} },
     {
         'folke/noice.nvim',
         event = { 'VeryLazy' },
