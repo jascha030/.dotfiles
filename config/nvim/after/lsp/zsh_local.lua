@@ -10,6 +10,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     end,
 })
 
+---@type vim.lsp.Config
 return {
     filetypes = { 'zsh' },
     root_dir = function(bufnr, on_dir)

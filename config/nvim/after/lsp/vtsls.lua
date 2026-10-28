@@ -54,6 +54,7 @@ local vtsls = {
     },
 }
 
+---@diagnostic disable-next-line: inject-field
 vtsls.settings.javascript = vim.tbl_deep_extend('force', {}, vtsls.settings.typescript, vtsls.settings.javascript or {})
 
 return vtsls

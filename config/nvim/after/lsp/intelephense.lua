@@ -1,4 +1,4 @@
----@diagnostic disable: missing-fields
+---@type vim.lsp.Config
 return {
     init_options = {
         licenseKey = vim.fn.expand('~/.config/intelephense/license.txt'),
@@ -14,6 +14,7 @@ return {
         -- Disable providers for intelephense.
         ['textDocument/publishDiagnostics'] = function() end,
     },
+    ---@type lspconfig.settings.intelephense
     settings = {
         intelephense = {
             format = { enable = false },

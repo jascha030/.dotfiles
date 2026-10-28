@@ -9,6 +9,7 @@ local tsls = {
         'typescript.tsx',
     },
 
+    ---@type table<string, any>
     settings = {
         ['js/ts'] = {
             workspaceSymbols = {

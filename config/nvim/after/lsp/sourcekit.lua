@@ -1,3 +1,4 @@
+---@type vim.lsp.Config
 return {
     cmd = { 'xcrun', 'sourcekit-lsp' },
     filetypes = { 'swift', 'c', 'cpp', 'objective-c', 'objective-cpp' },

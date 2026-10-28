@@ -1,9 +1,10 @@
----@diagnostic disable: missing-fields
 local group = vim.api.nvim_create_augroup('lsp.svelte', { clear = true })
 
+---@type vim.lsp.Config
 return {
     root_markers = { 'svelte.config.js', 'svelte.config.cjs', 'svelte.config.mjs', '.git' },
     single_file_support = false,
+    ---@type lspconfig.settings.svelte
     settings = {
         vtsls = {
             tsserver = {

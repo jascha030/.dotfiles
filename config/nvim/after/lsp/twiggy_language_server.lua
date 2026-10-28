@@ -1,40 +1,29 @@
----@diagnostic disable: missing-fields
---[[
-    export type InlayHintSettings = {
-        macro: boolean,
-        macroArguments: boolean,
-        block: boolean,
-    };
+---@class lspconfig.settings.twiggy_language_server.Twiggy.InlayHints
+---@field macro? boolean
+---@field macroArguments? boolean
+---@field block? boolean
 
-    export const enum PhpFrameworkOption {
-        Ignore = 'ignore',
-        Twig = 'twig',
-        Symfony = 'symfony',
-        Craft = 'craft',
-    }
+---@class lspconfig.settings.twiggy_language_server.Twiggy.Diagnostics
+---@field twigCsFixer? boolean
 
-    export type PhpFramework = PhpFrameworkOption.Twig | PhpFrameworkOption.Symfony | PhpFrameworkOption.Craft;
+---@class lspconfig.settings.twiggy_language_server.Twiggy
+---@field autoInsertSpaces? boolean
+---@field inlayHints? lspconfig.settings.twiggy_language_server.Twiggy.InlayHints
+---@field framework? 'ignore'|'twig'|'symfony'|'craft'
+---@field phpExecutable? string
+---@field symfonyConsolePath? string
+---@field vanillaTwigEnvironmentPath? string
+---@field diagnostics? lspconfig.settings.twiggy_language_server.Twiggy.Diagnostics
 
-    type DiagnosticsSettings = {
-        twigCsFixer: boolean,
-    };
+---@class lspconfig.settings.twiggy_language_server
+---@field twiggy? lspconfig.settings.twiggy_language_server.Twiggy
 
-    export type LanguageServerSettings = {
-        autoInsertSpaces: boolean,
-        inlayHints: InlayHintSettings,
-
-        framework?: PhpFrameworkOption,
-        phpExecutable: string,
-        symfonyConsolePath: string,
-        vanillaTwigEnvironmentPath: string,
-        diagnostics: DiagnosticsSettings,
-    };
---]]
-
+---@type vim.lsp.Config
 return {
     filetypes = { 'twig' },
     root_markers = { 'composer.json', '.git' },
     single_file_support = true,
+    ---@type lspconfig.settings.twiggy_language_server
     settings = {
         twiggy = {
             autoInsertSpaces = true,

@@ -1,4 +1,4 @@
----@diagnostic disable: missing-fields
+---@type vim.lsp.Config
 return {
     filetypes = {
         'css',

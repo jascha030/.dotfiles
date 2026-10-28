@@ -1,4 +1,4 @@
----@diagnostic disable: missing-fields
+---@type vim.lsp.Config
 return {
     filetypes = {
         'aspnetcorerazor',
@@ -67,6 +67,7 @@ return {
         'vite.config.js',
         'vite.config.ts',
     },
+    ---@type lspconfig.settings.tailwindcss
     settings = {
         tailwindCSS = {
             validate = true,
