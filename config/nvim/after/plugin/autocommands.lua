@@ -26,11 +26,16 @@ vim.api.nvim_create_autocmd('FileType', {
         local ok = vim.treesitter.language.add(lang)
 
         if not ok then
-            local available = vim.g.ts_available or require('nvim-treesitter').get_available()
+            local ts_ok, nvim_treesitter = pcall(require, 'nvim-treesitter')
+            if not ts_ok then
+                return
+            end
+
+            local available = vim.g.ts_available or nvim_treesitter.get_available()
             vim.g.ts_available = vim.g.ts_available or available
 
             if vim.tbl_contains(available, lang) then
-                require('nvim-treesitter').install(lang)
+                nvim_treesitter.install(lang)
                 ok = vim.treesitter.language.add(lang)
             end
         end

@@ -10,6 +10,11 @@ local M = {
 }
 
 -- Thanks to https://gist.github.com/Lamarcke/36e086dd3bb2cebc593d505e2f838e07 for the attached_clients functionality.
+-- Probe optional formatter plugins once at module load time instead of on every
+-- statusline redraw.
+local has_null_ls, null_ls = pcall(require, 'null-ls')
+local has_formatter = pcall(require, 'formatter')
+
 -- Returns a string with a list of attached LSP clients, including
 -- formatters and linters from null-ls, nvim-lint and formatter.nvim
 function M._get_attached_clients()
@@ -29,8 +34,7 @@ function M._get_attached_clients()
 
     -- Generally, you should use either null-ls or nvim-lint + formatter.nvim, not both.
     -- Add sources (from null-ls)
-    local null_ls_s, null_ls = pcall(require, 'null-ls')
-    if null_ls_s then
+    if has_null_ls then
         local sources = null_ls.get_sources()
         for _, source in ipairs(sources) do
             if source._validated then
@@ -44,8 +48,7 @@ function M._get_attached_clients()
     end
 
     -- Add formatters (from formatter.nvim)
-    local formatter_s, _ = pcall(require, 'formatter')
-    if formatter_s then
+    if has_formatter then
         local formatter_util = require('formatter.util')
         for _, formatter in ipairs(formatter_util.get_available_formatters_for_ft(buf_ft)) do
             if formatter then
